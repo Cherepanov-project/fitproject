@@ -1,5 +1,11 @@
-*FIT PROJECT*
-description...
+# FIT PROJECT
+## description
+_description..._
 
-*modules and libraries*
-MUI  https://mui.com/
+## technologies
+**next.js**
+**typescript**
+**react**
+
+![**MUI**](https://mui.com/)
+
