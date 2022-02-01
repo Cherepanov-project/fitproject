@@ -1,6 +1,8 @@
+import Navbar from "./Navbar/Navbar";
+
 const Header = () => (
   <header>
-    <h1>Header</h1>
+    <Navbar/>
   </header>
 );
 
