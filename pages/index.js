@@ -1,3 +1,5 @@
-export default function Home() {
-  return <>FIT_PRO</>
-}
+const Home = () => (
+  <hi>Hello World</hi>
+)
+
+export default Home;
