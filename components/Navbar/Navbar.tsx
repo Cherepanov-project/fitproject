@@ -1,3 +1,4 @@
+import {FC} from 'react'
 import Link from 'next/link'
 import Image from "next/image";
 import styles from './navbar.module.scss';
@@ -12,7 +13,7 @@ const NavbarWrapper = styled.nav`
   align-items: center;
 `
 
-const Navbar = () => {
+const Navbar:FC = () => {
   return (
     <NavbarWrapper className={styles.nav}>
       <div className={styles.overview}>

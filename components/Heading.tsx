@@ -1,3 +1,4 @@
+import {FC} from 'react'
 import React from 'react';
 
 const Heading = ({tag,text}) => {
