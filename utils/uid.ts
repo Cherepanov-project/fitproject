@@ -1,8 +1,15 @@
 const uid = (() => {
-  let id = 0;
-  return function () {
-    if (arguments[0] === 0) id = 0;
-    return id++;
+  const keysId: number[] = [];
+  return () => {
+    let id: number = Math.floor(Math.random() * 1e8);
+    while (true) {
+      if (keysId.includes(id)) {
+        id = Math.floor(Math.random() * 1e8);
+      } else {
+        keysId.push(id);
+        return id;
+      }
+    }
   };
 })();
 

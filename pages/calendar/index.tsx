@@ -48,9 +48,6 @@ const Calendar = () => {
     const prevMonth = getDate(endOfMonth(subMonths(data, 1)));
     let nextMonth = getDate(addMonths(startDay, 1));
     const arr = Array.from({ length: countDay }, (v, i) => i + 1);
-    // const arr = Array(countDay)
-    //   .fill(0)
-    //   .map((el, i) => i + 1);
     for (let index = 1; index < dayWeekISO; index++) {
       arr.unshift(prevMonth - (index - 1));
     }
@@ -61,39 +58,35 @@ const Calendar = () => {
   };
 
   const weekElements = arrDays(dateToday).map((el, index) => {
-    if (index >= dayWeekISO - 1 && index < countDay + (dayWeekISO - 1)) {
-      return (
-        <Grid item xs={1} key={uid()}>
+    return index >= dayWeekISO - 1 && index < countDay + (dayWeekISO - 1) ? (
+      <Grid item xs={1} key={uid()}>
+        <Item>
+          <FlexItem>
+            <CalcDate>{el}</CalcDate>
+            <div>
+              <WorkoutLink>
+                <Link href={`/calendar/workout/${el}`}>
+                  <CalcLink>Тренировка</CalcLink>
+                </Link>
+              </WorkoutLink>
+              <DietaLink>
+                <Link href={`/calendar/dieta/${el}`}>
+                  <CalcLink>Диета</CalcLink>
+                </Link>
+              </DietaLink>
+            </div>
+          </FlexItem>
+        </Item>
+      </Grid>
+    ) : (
+      <Grid item xs={1} key={uid()}>
+        <DayBlur>
           <Item>
-            <FlexItem>
-              <CalcDate>{el}</CalcDate>
-              <div>
-                <WorkoutLink>
-                  <Link href={`/calendar/workout/${el}`}>
-                    <CalcLink>Тренировка</CalcLink>
-                  </Link>
-                </WorkoutLink>
-                <DietaLink>
-                  <Link href={`/calendar/dieta/${el}`}>
-                    <CalcLink>Диета</CalcLink>
-                  </Link>
-                </DietaLink>
-              </div>
-            </FlexItem>
+            <CalcDate>{el}</CalcDate>
           </Item>
-        </Grid>
-      );
-    } else {
-      return (
-        <Grid item xs={1} key={uid()}>
-          <DayBlur>
-            <Item>
-              <CalcDate>{el}</CalcDate>
-            </Item>
-          </DayBlur>
-        </Grid>
-      );
-    }
+        </DayBlur>
+      </Grid>
+    );
   });
 
   return (
