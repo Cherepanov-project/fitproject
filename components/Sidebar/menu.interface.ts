@@ -1,6 +1,6 @@
 export interface IsidebarMenuItem {
     route:string,
     name:string,
-    icon:JSX.Element,
+    icon:string,
     id: number,
 }

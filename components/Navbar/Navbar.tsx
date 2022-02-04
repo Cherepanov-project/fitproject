@@ -1,30 +1,64 @@
 import {FC} from 'react'
 import Link from 'next/link'
 import Image from "next/image";
-import styles from './navbar.module.scss';
 import styled from 'styled-components';
 
 const NavbarWrapper = styled.nav`
   width: 100%;
-  min-height: 100px;
+  padding:30px;
   background: #F7F8FC;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-`
+  align-self: center;
+`;
 
-const Navbar:FC = () => {
-  return (
-    <NavbarWrapper className={styles.nav}>
-      <div className={styles.overview}>
-        Overview
-      </div>
-      <div>
-        <Link href='/'><a className={styles.search}><Image src='/search.png' width='16' height='16' alt='search' />  </a></Link>
-        <Link href='/'><a className={styles.bell}>Posts</a></Link>
-      </div>
-    </NavbarWrapper>
-  );
+const PageName = styled.div`
+font-size:24px;
+font-weight: bold;
+`;
+
+const DivAdminInformation = styled.div`
+ display: flex;
+ align-self: center;
+
+`;
+
+const DivInformation = styled.div`
+  display: flex;
+  border-right: 1px solid #DFE0EB;
+  padding: 5px; 
+  height: 32px;
+`;
+
+const DivAdmin = styled.div`
+  display: flex;
+  align-self: center;
+  padding: 5px; 
+`;
+
+const Anavbar = styled.a`
+  margin-right:24px;
+  font-size: 14px;
+`;
+
+const Navbar: FC = () => {
+    return (
+        <NavbarWrapper>
+            <PageName>
+                Overview
+            </PageName>
+            <DivAdminInformation>
+                <DivInformation>
+                    <Link href='/'><Anavbar><Image src='/search.png' width='16' height='16' alt='search'/></Anavbar></Link>
+                    <Link href='/'><Anavbar><Image src='/bell.png' width='16' height='16' alt='search'/></Anavbar></Link>
+                </DivInformation>
+                <DivAdmin>
+                    <Link href='/'><Anavbar>Jones Ferdinand</Anavbar></Link>
+                    <Image src='/sidebarIcons/photo_admin.png' width='40' height='40' alt='search'/>
+                </DivAdmin>
+            </DivAdminInformation>
+        </NavbarWrapper>
+    );
 };
 
 export default Navbar;

@@ -1,18 +1,34 @@
 import {FC, ReactNode} from 'react'
 import Header from "./Header";
-import Footer from "./Footer";
+import styled from 'styled-components';
+import Sidebar from "./Sidebar/Sidebar";
 
 type layoutAdminProps = {
     children: ReactNode;
 }
 
-const LayoutAdmin:FC<layoutAdminProps> = ({ children }) => (
-  <>
-    <Header/>
-    {children}
-    <Footer/>
+const Container = styled.div`
+  display: flex;
+   width: 1440px;
+   margin: 0 auto;
+`;
 
-  </>
+const Content = styled.div`
+   width: 100%;
+   background-color: #F7F8FC;
+`;
+
+
+const LayoutAdmin: FC<layoutAdminProps> = ({children}) => (
+    <Container>
+        <Sidebar/>
+        <Content>
+            <Header/>
+            <main>
+                {children}
+            </main>
+        </Content>
+    </Container>
 );
 
 export default LayoutAdmin;
