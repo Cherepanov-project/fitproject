@@ -19,8 +19,7 @@ font-weight: bold;
 
 const DivAdminInformation = styled.div`
  display: flex;
- align-self: center;
-
+ align-items: center;
 `;
 
 const DivInformation = styled.div`
@@ -28,17 +27,23 @@ const DivInformation = styled.div`
   border-right: 1px solid #DFE0EB;
   padding: 5px; 
   height: 32px;
+  align-items: center;
 `;
 
 const DivAdmin = styled.div`
   display: flex;
-  align-self: center;
+  align-items: center;
   padding: 5px; 
 `;
 
 const Anavbar = styled.a`
   margin-right:24px;
   font-size: 14px;
+`;
+
+const ImagedLink = styled(Image)`
+    border: 1px solid red;
+    background: yellow;
 `;
 
 const Navbar: FC = () => {
@@ -49,7 +54,7 @@ const Navbar: FC = () => {
             </PageName>
             <DivAdminInformation>
                 <DivInformation>
-                    <Link href='/'><Anavbar><Image src='/search.png' width='16' height='16' alt='search'/></Anavbar></Link>
+                    <Link href='/'><Anavbar><ImagedLink src='/search.png' width='16' height='16' alt='search'/></Anavbar></Link>
                     <Link href='/'><Anavbar><Image src='/bell.png' width='16' height='16' alt='search'/></Anavbar></Link>
                 </DivInformation>
                 <DivAdmin>

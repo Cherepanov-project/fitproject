@@ -4,16 +4,16 @@ import styled from 'styled-components';
 import Image from "next/image";
 
 const sidebarMenuFires: IsidebarMenuItem[] = [
-    {route: 'statistics', name: 'Statistics', icon: '/sidebarIcons/statistics.svg', id: 1},
-    {route: 'users', name: 'Users', icon: '/sidebarIcons/users.svg', id: 2},
-    {route: 'recipies', name: 'Recipies', icon: '/sidebarIcons/recipies.svg', id: 3},
-    {route: 'exercises', name: 'Exercises', icon: '/sidebarIcons/articles.svg', id: 4},
-    {route: 'messages', name: 'Messages', icon: '/sidebarIcons/messages.svg', id: 5},
-    {route: 'articles', name: 'Articles', icon: '/sidebarIcons/articles.svg', id: 6},
+    {route: 'admin/overview', name: 'Statistics', icon: '/sidebarIcons/statistics.svg', id: 1},
+    {route: 'admin/users', name: 'Users', icon: '/sidebarIcons/users.svg', id: 2},
+    {route: 'admin/recipes', name: 'Recipies', icon: '/sidebarIcons/recipies.svg', id: 3},
+    {route: 'admin/exercises', name: 'Exercises', icon: '/sidebarIcons/articles.svg', id: 4},
+    {route: 'admin/messages', name: 'Messages', icon: '/sidebarIcons/messages.svg', id: 5},
+    {route: 'admin/articles', name: 'Articles', icon: '/sidebarIcons/articles.svg', id: 6},
 ];
 const sidebarMenuSecond: IsidebarMenuItem[] = [
-    {route: 'settings', name: 'Settings', icon: '/sidebarIcons/settings.svg', id: 7},
-    {route: 'subscription', name: 'Subscription', icon: '/sidebarIcons/subscription.svg', id: 8},
+    {route: 'admin/settings', name: 'Settings', icon: '/sidebarIcons/settings.svg', id: 7},
+    {route: 'admin/subscription', name: 'Subscription', icon: '/sidebarIcons/subscription.svg', id: 8},
 ];
 
 const SidebarWrapper = styled.div`
@@ -83,8 +83,7 @@ const Sidebar: FC = () => {
                 ))}
             </>
         )
-    }
-
+    };
 
     const secondLavel = () => {
         return (
@@ -99,8 +98,7 @@ const Sidebar: FC = () => {
                 ))}
             </>
         )
-    }
-
+    };
 
     return (
         <SidebarWrapper>

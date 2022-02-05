@@ -5,9 +5,9 @@ import Sidebar from "../components/Sidebar/Sidebar";
 
 
 const Home = () => (
-    <LayoutAdmin>
+    <div>
         <h1>Hello World!</h1>
-    </LayoutAdmin>
-)
+    </div>
+);
 
 export default Home;

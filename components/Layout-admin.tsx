@@ -1,7 +1,7 @@
 import {FC, ReactNode} from 'react'
-import Header from "./Header";
 import styled from 'styled-components';
 import Sidebar from "./Sidebar/Sidebar";
+import Navbar from "./Navbar/Navbar";
 
 type layoutAdminProps = {
     children: ReactNode;
@@ -23,7 +23,9 @@ const LayoutAdmin: FC<layoutAdminProps> = ({children}) => (
     <Container>
         <Sidebar/>
         <Content>
-            <Header/>
+            <header>
+                <Navbar/>
+            </header>
             <main>
                 {children}
             </main>
