@@ -54,8 +54,8 @@ const Navbar: FC = () => {
             </PageName>
             <DivAdminInformation>
                 <DivInformation>
-                    <Link href='/'><Anavbar><ImagedLink src='/search.png' width='16' height='16' alt='search'/></Anavbar></Link>
-                    <Link href='/'><Anavbar><Image src='/bell.png' width='16' height='16' alt='search'/></Anavbar></Link>
+                    <Link href='/'><Anavbar><ImagedLink src='/navbarIcons/search.png' width='16' height='16' alt='search'/></Anavbar></Link>
+                    <Link href='/'><Anavbar><Image src='/navbarIcons/bell.png' width='16' height='16' alt='search'/></Anavbar></Link>
                 </DivInformation>
                 <DivAdmin>
                     <Link href='/'><Anavbar>Jones Ferdinand</Anavbar></Link>

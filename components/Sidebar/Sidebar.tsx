@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import {IsidebarMenuItem} from "./menu.interface";
 import styled from 'styled-components';
 import Image from "next/image";
+import Link from "next/link";
 
 const sidebarMenuFires: IsidebarMenuItem[] = [
     {route: 'admin/overview', name: 'Statistics', icon: '/sidebarIcons/statistics.svg', id: 1},
@@ -75,10 +76,10 @@ const Sidebar: FC = () => {
             <>
                 {sidebarMenuFires.map(menu => (
                     <SidebarItem key={menu.route}>
-                        <A href={`/${menu.route}`}>
+                        <Link href={`/${menu.route}`}><A>
                             <Image color='#3751FF' src={menu.icon} width='16' height='16' alt='search'/>
                             <ItemName>{menu.name}</ItemName>
-                        </A>
+                        </A></Link>
                     </SidebarItem>
                 ))}
             </>
@@ -90,10 +91,10 @@ const Sidebar: FC = () => {
             <>
                 {sidebarMenuSecond.map(menu => (
                     <SidebarItem key={menu.route}>
-                        <A href={`/${menu.route}`}>
+                        <Link href={`/${menu.route}`}><A>
                             <Image src={menu.icon} width='16' height='16' alt='search'/>
                             <ItemName>{menu.name}</ItemName>
-                        </A>
+                        </A></Link>
                     </SidebarItem>
                 ))}
             </>
@@ -103,7 +104,7 @@ const Sidebar: FC = () => {
     return (
         <SidebarWrapper>
             <SidebarHeader>
-                <A href={`/`}>
+                <A href={`/admin`}>
                     <Image src='/sidebarIcons/logoApp.svg' width='32' height='32' alt='search'/>
                     <ItemName>Dashboard Kit</ItemName>
                 </A>
