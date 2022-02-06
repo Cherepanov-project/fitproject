@@ -1,6 +1,7 @@
 import React from 'react';
+import LayoutAdmin from "../../layouts/Layout-admin";
 
-const Overview = () => {
+const Subscription = () => {
     return (
         <div>
             Subscription
@@ -8,4 +9,12 @@ const Overview = () => {
     );
 };
 
-export default Overview;
+export default Subscription;
+
+Subscription.getLayout = function PageLayout(page) {
+    return(
+        <LayoutAdmin>
+            {page}
+        </LayoutAdmin>
+    )
+};

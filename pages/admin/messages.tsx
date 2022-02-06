@@ -1,4 +1,5 @@
 import React from 'react';
+import LayoutAdmin from "../../layouts/Layout-admin";
 
 const Messages = () => {
     return (
@@ -9,3 +10,11 @@ const Messages = () => {
 };
 
 export default Messages;
+
+Messages.getLayout = function PageLayout(page) {
+    return(
+        <LayoutAdmin>
+            {page}
+        </LayoutAdmin>
+    )
+};
