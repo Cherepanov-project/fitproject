@@ -25,7 +25,7 @@ const StyledLabel = styled.label`
 `;
 
 const DivInput = styled.div`
-    margin-top: 24px;
+    margin-top: 20px;
 `;
 
 const ErrorForm = styled(ErrorMessage)`
