@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import '../utils/globals.scss'
-import LayoutAdmin from "../components/Layout-admin";
+import LayoutAdmin from "../layouts/Layout-admin";
 
 
 const MyApp = ({ Component, pageProps }) => (

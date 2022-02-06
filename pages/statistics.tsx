@@ -1,4 +1,4 @@
-import LayoutAdmin from "../components/Layout-admin";
+import LayoutAdmin from "../layouts/Layout-admin";
 
 const Home = () => (
     <LayoutAdmin>

@@ -3,9 +3,10 @@ import {IsidebarMenuItem} from "./menu.interface";
 import styled from 'styled-components';
 import Image from "next/image";
 import Link from "next/link";
+import imgLeg from '../../common/articles.svg'
 
 const sidebarMenuFires: IsidebarMenuItem[] = [
-    {route: 'admin/overview', name: 'Statistics', icon: '/sidebarIcons/statistics.svg', id: 1},
+    {route: 'admin/overview', name: 'Overview', icon: '/sidebarIcons/statistics.svg', id: 1},
     {route: 'admin/users', name: 'Users', icon: '/sidebarIcons/users.svg', id: 2},
     {route: 'admin/recipes', name: 'Recipies', icon: '/sidebarIcons/recipies.svg', id: 3},
     {route: 'admin/exercises', name: 'Exercises', icon: '/sidebarIcons/articles.svg', id: 4},
@@ -44,6 +45,7 @@ const SidebarItem = styled.div`
     background-color: #3F4049;
     border-left:3px solid #DDE2FF;
     padding:16px 25px;
+    cursor: pointer;
   }
 `;
 
@@ -77,7 +79,7 @@ const Sidebar: FC = () => {
                 {sidebarMenuFires.map(menu => (
                     <SidebarItem key={menu.route}>
                         <Link href={`/${menu.route}`}><A>
-                            <Image color='#3751FF' src={menu.icon} width='16' height='16' alt='search'/>
+                            <Image src={menu.icon} width='16' height='16' alt='search'/>
                             <ItemName>{menu.name}</ItemName>
                         </A></Link>
                     </SidebarItem>

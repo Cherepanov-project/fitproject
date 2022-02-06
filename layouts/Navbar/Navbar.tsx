@@ -41,10 +41,10 @@ const Anavbar = styled.a`
   font-size: 14px;
 `;
 
-const ImagedLink = styled(Image)`
-    border: 1px solid red;
-    background: yellow;
-`;
+// const ImagedLink = styled(Image)`
+//     border: 1px solid red;
+//     background: yellow;
+// `;
 
 const Navbar: FC = () => {
     return (
@@ -54,7 +54,7 @@ const Navbar: FC = () => {
             </PageName>
             <DivAdminInformation>
                 <DivInformation>
-                    <Link href='/'><Anavbar><ImagedLink src='/navbarIcons/search.png' width='16' height='16' alt='search'/></Anavbar></Link>
+                    <Link href='/'><Anavbar><Image src='/navbarIcons/search.png' width='16' height='16' alt='search'/></Anavbar></Link>
                     <Link href='/'><Anavbar><Image src='/navbarIcons/bell.png' width='16' height='16' alt='search'/></Anavbar></Link>
                 </DivInformation>
                 <DivAdmin>
