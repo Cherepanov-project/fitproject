@@ -1,25 +1,36 @@
 import styled from 'styled-components';
+//react-query
+import { QueryClient, QueryClientProvider } from "react-query";
+import { getResourcesTemplateJson } from "../../react-query/apiService";
+import Passengers from "./passangers";
+import SignUpForm from "../../common/form-admin/signUpForm";
+
 import FormAdmin from "../../common/form-admin/form-admin";
 
 const ContainerAdminRegistration = styled.div`
-   width: 100%;
-   height: 100vh;
-   background-color: #363740; 
-   display: flex;
-   justify-content: center;
-   align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #363740;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
+const queryClient = new QueryClient();
+
 export default function Admin() {
+
   return (
     <ContainerAdminRegistration>
-      <FormAdmin/>
+      <QueryClientProvider client={queryClient}>
+        <SignUpForm/>
+      </QueryClientProvider>
     </ContainerAdminRegistration>
-  )
+  );
 }
 
 Admin.getLayout = function PageLayout(page) {
-  return(
+  return (
     <>
       {page}
     </>

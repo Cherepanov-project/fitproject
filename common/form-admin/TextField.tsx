@@ -1,6 +1,6 @@
 import React from 'react';
 import {useField, ErrorMessage} from "formik";
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 
 const StyledInput = styled.input`
     font-size: 14px;
