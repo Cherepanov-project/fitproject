@@ -1,21 +1,10 @@
 import styled from "styled-components";
 
 interface BtnProps {
-  bg: string;
-}
+    bg: string;
+}  
 
-const createRectangleBtn = (text: string, bg: string, ico: JSX.Element) => {
-  return (
-    <RectangleBtn bg={bg}>
-      {ico}
-      <TexWrapper>{text}</TexWrapper>
-    </RectangleBtn>
-  );
-};
-
-export default createRectangleBtn;
-
-const RectangleBtn = styled.button<BtnProps>`
+export const RectangleBtn = styled.button<BtnProps>`
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -31,7 +20,7 @@ const RectangleBtn = styled.button<BtnProps>`
   line-height: 22px;
 `;
 
-const TexWrapper = styled.div`
+export const TextWrapper = styled.div`
   display: flex;
   justify-content: center;
   flex-grow: 1;

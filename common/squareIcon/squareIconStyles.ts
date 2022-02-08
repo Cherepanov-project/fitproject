@@ -5,13 +5,7 @@ interface IcoProps {
   bgImg: string;
 }
 
-const createIco = (color: string, img: { src: string }) => {
-  return <Ico bgColor={color} bgImg={img.src}></Ico>;
-};
-
-export default createIco;
-
-const Ico = styled.div<IcoProps>`
+export const CustomIcon = styled.div<IcoProps>`
   display: flex;
   justify-content: center;
   align-items: center;

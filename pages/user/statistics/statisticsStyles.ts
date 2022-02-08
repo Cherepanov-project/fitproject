@@ -59,7 +59,7 @@ export const DataActivContainer = styled.div`
   justify-content: space-between;
 `;
 
-export const WaterContainer = styled.div`
+export const TargetContainer = styled.div`
   height: 222px;
   width: 277px;
   border-radius: 40px;
@@ -69,20 +69,20 @@ export const WaterContainer = styled.div`
   background-position: 100% 100%;
 `;
 
-export const GlassContainer = styled.div`
+export const TargetWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin: 25px 20px;
   color: rgba(255, 255, 255, 1);
 `;
 
-export const WaterTitle = styled.div`
+export const TargetTitle = styled.div`
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
 `;
 
-export const Glasses = styled.div`
+export const Target = styled.div`
   font-weight: 600;
   font-size: 26px;
   line-height: 31px;
@@ -94,17 +94,3 @@ export const ProgressContainer = styled.div`
   margin-top: 80px;
 `;
 
-export const CharWrapper = styled.div`
-  position: relative;
-  margin-bottom: 50px;
-`;
-
-export const LabelChar = styled.div`
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  width: 102%;
-  left: -1%;
-  top: 100%;
-  color: rgba(221, 221, 221, 1);
-`;
