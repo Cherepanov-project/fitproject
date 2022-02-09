@@ -16,12 +16,11 @@ const ContainerAdminRegistration = styled.div`
 `;
 
 
-
 export default function Admin() {
 
     return (
         <ContainerAdminRegistration>
-                <FormAdmin/>
+            <FormAdmin/>
         </ContainerAdminRegistration>
     );
 }

@@ -7,9 +7,9 @@ const queryClient = new QueryClient();
 
 const MyApp = ({Component, pageProps}) => {
 
-    if (Component.getLayout) {
-        return Component.getLayout(<Component {...pageProps}/>);
-    }
+    // if (Component.getLayout) {
+    //     return Component.getLayout(<Component {...pageProps}/>);
+    // }
 
     return (
         <>
@@ -18,7 +18,7 @@ const MyApp = ({Component, pageProps}) => {
                       rel="stylesheet"/>
             </Head>
             <QueryClientProvider client={queryClient}>
-                <Component {...pageProps}/>
+                {Component.getLayout?Component.getLayout(<Component {...pageProps}/>):<Component {...pageProps}/>}
             </QueryClientProvider>
         </>
     )
