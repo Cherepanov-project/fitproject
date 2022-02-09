@@ -1,4 +1,5 @@
 import React from 'react';
+import {useQuery} from "react-query";
 import {FormContainer} from "./formContainer";
 import {Form, Formik} from "formik";
 import Image from "next/image";
@@ -7,7 +8,6 @@ import Link from "next/link";
 import * as Yup from 'yup';
 import {DivCenter, DivDashboard, FormA, FormH1, FormH2, StyledButton} from "./Form.styled";
 import ApiService from "../../react-query/apiService";
-import {useQuery} from "react-query";
 
 const apiService = new ApiService();
 
@@ -19,7 +19,10 @@ const SignUpForm = () => {
         repeat_password: Yup.string().oneOf([Yup.ref('password')], 'Passwords should match'),
     });
 
-    const { data, error, isLoading, isError } = useQuery('sign-up',async ()=> apiService.getResourcesTemplateJson(`articles?limit=5&offset=${(2) * 5}`, 'GET',undefined))
+    const { data, error, isLoading, isError } = useQuery(
+        'sign-up',
+        async ()=> apiService.getResourcesTemplateJson(`articles?limit=5&offset=${(2) * 5}`, 'GET',undefined))
+
     if (isLoading) {
         return <p>Loading...</p>
     }

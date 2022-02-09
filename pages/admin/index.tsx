@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 //react-query
-import { QueryClient, QueryClientProvider } from "react-query";
-import { getResourcesTemplateJson } from "../../react-query/apiService";
+import {QueryClient, QueryClientProvider} from "react-query";
 import Passengers from "./passangers";
 import SignUpForm from "../../common/form-admin/signUpForm";
 
@@ -16,23 +15,21 @@ const ContainerAdminRegistration = styled.div`
   align-items: center;
 `;
 
-const queryClient = new QueryClient();
+
 
 export default function Admin() {
 
-  return (
-    <ContainerAdminRegistration>
-      <QueryClientProvider client={queryClient}>
-        <SignUpForm/>
-      </QueryClientProvider>
-    </ContainerAdminRegistration>
-  );
+    return (
+        <ContainerAdminRegistration>
+                <FormAdmin/>
+        </ContainerAdminRegistration>
+    );
 }
 
 Admin.getLayout = function PageLayout(page) {
-  return (
-    <>
-      {page}
-    </>
-  )
+    return (
+        <>
+            {page}
+        </>
+    )
 };

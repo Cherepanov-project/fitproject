@@ -42,7 +42,7 @@ const FormAdmin = () => {
                         </Form>
                         <DivCenter type='submit'>
                             Don’t have an account?
-                            <Link href={`/admin/sign-up`}><FormA>Sign Up</FormA></Link>
+                            <Link href={`/admin/sign-up`}><FormA href={`/admin/sign-up`}>Sign Up</FormA></Link>
                         </DivCenter>
                     </div>
                 )}
