@@ -1,5 +1,6 @@
 import {FC} from 'react'
 import Link from 'next/link'
+import {useRouter} from "next/router";
 import Image from "next/image";
 import styled from 'styled-components';
 
@@ -41,12 +42,12 @@ const Anavbar = styled.a`
   font-size: 14px;
 `;
 
-// const ImagedLink = styled(Image)`
-//     border: 1px solid red;
-//     background: yellow;
-// `;
-
 const Navbar: FC = () => {
+
+    const router = useRouter();
+    const {id} = router.query;
+    console.log(router);
+
     return (
         <NavbarWrapper>
             <PageName>
@@ -67,3 +68,7 @@ const Navbar: FC = () => {
 };
 
 export default Navbar;
+
+export const getServerSideProps = async (context) => {
+    console.log(context);
+};

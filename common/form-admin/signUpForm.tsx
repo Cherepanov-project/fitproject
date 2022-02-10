@@ -5,7 +5,9 @@ import {Form, Formik} from "formik";
 import Image from "next/image";
 import TextField from "./TextField";
 import Link from "next/link";
+import Cookie from 'js-cookie';
 import * as Yup from 'yup';
+import Router from 'next/router'
 import axios from "axios";
 import {DivCenter, DivDashboard, FormA, FormH1, FormH2, StyledButton} from "./Form.styled";
 import ApiService from "../../react-query/apiService";
@@ -21,24 +23,25 @@ const SignUpForm = () => {
         repeat_password: Yup.string().oneOf([Yup.ref('password')], 'Passwords should match'),
     });
 
-    // const { data, error, isLoading, isError } = useQuery(
-    //     'sign-up',
-    //     async ()=> apiService.getResourcesTemplateJson(`articles?limit=5&offset=${(2) * 5}`, 'GET',undefined))
-
-    const mutation = useMutation(async(item) => {
-            console.log(data);
-            // apiService.getResourcesTemplateJson('users', 'POST', {user: item})
-        axios.post("https://api.instantwebtools.net/v1/passenger/", {user: item})
+    const mutation = useMutation(async (item) => {
+           return apiService.getResourcesTemplateJson('users', 'POST', {user: item})
+            // axios.post("https://api.instantwebtools.net/v1/passenger/", {user: item})
+        }, {
+            onSuccess: async (request) => {
+                console.log(request)
+            }
         }
     );
 
     if (mutation.isLoading) {
         return <p>Loading...</p>
     }
-    if (mutation.isSuccess) console.log(mutation);
-    // if (mutation.isError) {
-    //     return <p>{error}</p>
-    // }
+    if (mutation.isSuccess) {
+        console.log(mutation.data.user.token);
+        Cookie.set('token', mutation.data.user.token)
+        Router.replace('/admin/overview')
+    }
+
 
     return (
         <FormContainer>

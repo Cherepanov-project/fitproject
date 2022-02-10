@@ -106,7 +106,7 @@ const Sidebar: FC = () => {
     return (
         <SidebarWrapper>
             <SidebarHeader>
-                <A href={`/admin`}>
+                <A href={`/admin/overview`}>
                     <Image src='/sidebarIcons/logoApp.svg' width='32' height='32' alt='search'/>
                     <ItemName>Dashboard Kit</ItemName>
                 </A>

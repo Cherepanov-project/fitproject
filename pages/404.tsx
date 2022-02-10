@@ -6,7 +6,7 @@ const Error = () => {
   
   useEffect(() => {
     setTimeout(()=>{
-      router.push('/');
+      router.push('/admin/overview');
     },3000)
   }, [router]);
   
