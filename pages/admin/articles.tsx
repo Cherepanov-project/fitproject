@@ -1,4 +1,5 @@
 import LayoutAdmin from "../../layouts/Layout-admin";
+import {withLayout} from "../../layouts/Layout-admin";
 
 const Articles = () => {
     return (
@@ -8,12 +9,12 @@ const Articles = () => {
     );
 };
 
-export default Articles;
+export default withLayout(Articles);
 
-Articles.getLayout = function PageLayout(page) {
-    return(
-        <LayoutAdmin>
-            {page}
-        </LayoutAdmin>
-    )
-};
+// Articles.getLayout = function PageLayout(page) {
+//     return(
+//         <LayoutAdmin>
+//             {page}
+//         </LayoutAdmin>
+//     )
+// };
