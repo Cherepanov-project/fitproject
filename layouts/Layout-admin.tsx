@@ -1,4 +1,4 @@
-import React, {FC, ReactNode} from 'react'
+import React, {FC, ReactNode, useState} from 'react'
 import styled from 'styled-components';
 import Sidebar from "./Sidebar/Sidebar";
 import Navbar from "./Navbar/Navbar";
@@ -36,8 +36,9 @@ const LayoutAdmin: FC<layoutAdminProps> = ({children}) => (
 export default LayoutAdmin;
 
 export const withLayout = (Component) => {
-    class LayoutAdminComponent extends React.Component{
 
+     
+    class LayoutAdminComponent extends React.Component{
         render() {
             return (
                 <LayoutAdmin>

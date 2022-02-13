@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import {IsidebarMenuItem} from "./menu.interface";
 import styled from 'styled-components';
 import Image from "next/image";
@@ -72,6 +72,8 @@ const A = styled.a`
 `;
 
 const Sidebar: FC = () => {
+
+    const [page,setPage] = useState()
 
     const firstLavel = () => {
         return (
