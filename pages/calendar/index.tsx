@@ -16,6 +16,7 @@ import {
   WorkoutLink,
   FlexItem,
   CalcDate,
+  CalendarDiv,
 } from "./stylesCalendar";
 import CalendarContainer from "../../common/CalendarContainer";
 import Link from "next/link";
@@ -25,6 +26,7 @@ import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 import monthArr from "../../model/user/main";
 import uid from "../../utils/uid";
+import FramerCalendar from "../../common/FramerCalendar";
 
 const Calendar = () => {
   const dateToday: Date = new Date();
@@ -91,14 +93,16 @@ const Calendar = () => {
 
   return (
     <CalendarContainer>
-      <CalcHead>{monthArr[getMonth(dateToday)]}</CalcHead>
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container columns={7} spacing={1}>
-          {weekElements}
-        </Grid>
-      </Box>
+      <CalendarDiv>
+        <CalcHead>{monthArr[getMonth(dateToday)]}</CalcHead>
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid container columns={7} spacing={1}>
+            {weekElements}
+          </Grid>
+        </Box>
+      </CalendarDiv>
     </CalendarContainer>
   );
 };
 
-export default Calendar;
+export default FramerCalendar(Calendar);

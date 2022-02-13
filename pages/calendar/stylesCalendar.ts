@@ -45,3 +45,7 @@ export const CalcDate = styled.div`
   font-weight: bold;
   font-size: 13px;
 `;
+
+export const CalendarDiv = styled.div`
+  padding: 10px;
+`;
