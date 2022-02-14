@@ -9,36 +9,42 @@ type layoutAdminProps = {
 
 const Container = styled.div`
   display: flex;
-   width: 1440px;
-   margin: 0 auto;
+  width: 1440px;
+  margin: 0 auto;
 `;
 
 const Content = styled.div`
-   width: 100%;
-   background-color: #F7F8FC;
+  width: 100%;
+  background-color: #F7F8FC;
 `;
 
 
-const LayoutAdmin: FC<layoutAdminProps> = ({children}) => (
-    <Container>
-        <Sidebar/>
-        <Content>
-            <header>
-                <Navbar/>
-            </header>
-            <main>
-                {children}
-            </main>
-        </Content>
-    </Container>
-);
+const LayoutAdmin: FC<layoutAdminProps> = ({children}) => {
+
+
+    const [pageName, setPageName] = useState('');
+
+    return (
+        < Container>
+            <Sidebar/>
+            <Content>
+                <header>
+                    < Navbar/>
+                </header>
+                <main>
+                    {children}
+                </main>
+            </Content>
+        </Container>
+    );
+}
 
 export default LayoutAdmin;
 
 export const withLayout = (Component) => {
 
-     
-    class LayoutAdminComponent extends React.Component{
+
+    class LayoutAdminComponent extends React.Component {
         render() {
             return (
                 <LayoutAdmin>

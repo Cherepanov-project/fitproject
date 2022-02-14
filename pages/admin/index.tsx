@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-//react-query
+//services
 import {QueryClient, QueryClientProvider} from "react-query";
 import Passengers from "./passangers";
 import SignUpForm from "../../common/form-admin/signUpForm";
