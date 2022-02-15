@@ -1,5 +1,5 @@
 import axios from "axios";
-import Cookie from 'js-cookie';
+import Cookies from 'js-cookie';
 
 const axiosInctance = axios.create({
     baseURL: 'https://api.realworld.io/api/',
@@ -7,10 +7,10 @@ const axiosInctance = axios.create({
 
 axiosInctance.interceptors.request.use(
     (config) => {
-        const authTocen = Cookie.get('auth-token');
+        const authToken = Cookies.get('auth-token');
 
-        if (authTocen) {
-            config.headers.authorization = `Token ${authTocen}`
+        if (authToken) {
+            config.headers.authorization = `Token ${authToken}`
         }
         return config;
     },

@@ -18,39 +18,18 @@ const apiService = new ApiService();
 
 const SignUpForm = () => {
 
-    const [isLoading, setIsLoading] = useState(false);
-
     const validate = Yup.object({
         username: Yup.string().min(3, 'Admin name must be at least 6 characters').max(20).required(),
         email: Yup.string().email('Email is invalid').required('Email is required'),
         password: Yup.string().min(6, 'Password must be at least 6 characters').max(20, 'Password must be at max 20 characters').required('Password is required'),
-        repeat_password: Yup.string().oneOf([Yup.ref('password')], 'Passwords should match'),
+        repeat_password: Yup.string().oneOf([Yup.ref('password')], 'Passwords should match').required('Repeat password is required'),
     });
 
     const mutation = useMutation(async (item) => {
-            // return apiService.getResourcesTemplateJson('users', 'POST', {user: item})
-            const a = await api.auth.registration({user: item});
-            return a;
-            // axios.post("https://api.instantwebtools.net/v1/passenger/", {user: item})
-        }, {
-            onSuccess: async (request) => {
-                console.log(request);
-                // console.log(mutation.data.user.token);
-                // Cookie.set('token', mutation.data.user.token)
-                // Router.replace('/admin/overview')
-            }
+            const request = await api.auth.registration({user: item});
+            return request;
         }
     );
-
-    if (mutation.isLoading) {
-        return <p>Loading...</p>
-    }
-    // if (mutation.isSuccess) {
-    //     console.log(mutation.data.user.token);
-    //     Cookie.set('token', mutation.data.user.token)
-    //     Router.replace('/admin/overview')
-    // }
-
 
     return (
         <FormContainer>
@@ -59,17 +38,22 @@ const SignUpForm = () => {
                     username: '',
                     email: '',
                     password: '',
+                    repeat_password: ''
 
                 }}
                 validationSchema={validate}
-                onSubmit={values => {
+                onSubmit={(values, {setFieldError}) => {
                     console.log(values);
                     // @ts-ignore
                     mutation.mutate({
                         username: values.username,
                         email: values.email,
                         password: values.password,
+                        repeat_password: values.password,
                     });
+                    if (mutation.error) {
+                        setFieldError('username', 'Admin name already used')
+                    }
                 }}
             >
                 {formik => (

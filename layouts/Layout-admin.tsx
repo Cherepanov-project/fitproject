@@ -2,6 +2,7 @@ import React, {FC, ReactNode, useState} from 'react'
 import styled from 'styled-components';
 import Sidebar from "./Sidebar/Sidebar";
 import Navbar from "./Navbar/Navbar";
+import AuthProvider from "../context/AuthProvider";
 
 type layoutAdminProps = {
     children: ReactNode;
@@ -25,17 +26,19 @@ const LayoutAdmin: FC<layoutAdminProps> = ({children}) => {
     const [pageName, setPageName] = useState('');
 
     return (
-        < Container>
-            <Sidebar/>
-            <Content>
-                <header>
-                    < Navbar/>
-                </header>
-                <main>
-                    {children}
-                </main>
-            </Content>
-        </Container>
+        <AuthProvider>
+            <Container>
+                <Sidebar/>
+                <Content>
+                    <header>
+                        < Navbar/>
+                    </header>
+                    <main>
+                        {children}
+                    </main>
+                </Content>
+            </Container>
+        </AuthProvider>
     );
 }
 

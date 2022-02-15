@@ -4,7 +4,7 @@ import {QueryClient, QueryClientProvider} from "react-query";
 import Passengers from "./passangers";
 import SignUpForm from "../../common/form-admin/signUpForm";
 
-import FormAdmin from "../../common/form-admin/form-admin";
+import SingInForm from "../../common/form-admin/singInForm";
 
 const ContainerAdminRegistration = styled.div`
   width: 100%;
@@ -20,7 +20,7 @@ export default function Admin() {
 
     return (
         <ContainerAdminRegistration>
-            <FormAdmin/>
+            <SingInForm/>
         </ContainerAdminRegistration>
     );
 }

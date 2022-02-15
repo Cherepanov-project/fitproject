@@ -6,13 +6,21 @@ import Link from "next/link";
 import * as Yup from 'yup';
 import {FormContainer} from "./formContainer";
 import {DivCenter, DivDashboard, FormA, FormH1, FormH2, StyledButton} from "./Form.styled";
+import {useMutation} from "react-query";
+import api from "../../services";
 
-const FormAdmin = () => {
+const SingInForm = () => {
 
     const validate = Yup.object({
         email: Yup.string().email('Email is invalid').required('Email is required'),
         password: Yup.string().min(6, 'Password must be at least 6 characters').max(20, 'Password must be at max 20 characters').required('Password is required'),
     });
+
+    const mutation = useMutation(async (item) => {
+            const request = await api.auth.login({user: item});
+            return request;
+        }
+    );
 
     return (
         <FormContainer>
@@ -22,8 +30,17 @@ const FormAdmin = () => {
                     password: ''
                 }}
                 validationSchema={validate}
-                onSubmit={values => {
+                onSubmit={(values, {setFieldError}) => {
                     console.log(values);
+                    // @ts-ignore
+                    mutation.mutate({
+                        email: values.email,
+                        password: values.password,
+                    });
+                    if (mutation.error) {
+                        console.log(mutation.error)
+                        setFieldError('password', 'Email or password is invalid')
+                    }
                 }}
 
             >
@@ -51,4 +68,4 @@ const FormAdmin = () => {
     );
 };
 
-export default FormAdmin;
+export default SingInForm;
