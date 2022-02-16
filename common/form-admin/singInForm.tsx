@@ -6,10 +6,10 @@ import Link from "next/link";
 import * as Yup from 'yup';
 import {FormContainer} from "./formContainer";
 import {DivCenter, DivDashboard, FormA, FormH1, FormH2, StyledButton} from "./Form.styled";
-import {useMutation} from "react-query";
 import api from "../../services";
 import useAuth from "../hooks/useAuth";
 import {useRouter} from "next/router";
+import Cookies from 'js-cookie';
 
 const SingInForm = () => {
 
@@ -20,22 +20,6 @@ const SingInForm = () => {
         email: Yup.string().email('Email is invalid').required('Email is required'),
         password: Yup.string().min(6, 'Password must be at least 6 characters').max(20, 'Password must be at max 20 characters').required('Password is required'),
     });
-
-    // const mutation = useMutation(async (item) => {
-    //         const request = await api.auth.login({user: item});
-    //     console.log(request);
-    //         return request;
-    //     },{
-    //         onSuccess: (request) => {
-    //             console.log(request.data.user)
-    //             console.log(request.data.user.token)
-    //             console.log(auth)
-    //             auth.setToken(request.data.user.token);
-    //             auth.setUser(request.data.user);
-    //             router.replace('/admin/articles');
-    //         },
-    //     }
-    // );
 
     return (
         <FormContainer>
@@ -50,8 +34,10 @@ const SingInForm = () => {
                         const request = await api.auth.login({user: values});
                         console.log(request.data.user)
                         console.log(request.data.user.token)
-                        auth.setUser(request.data.user);
-                        auth.setToken(request.data.user.token);
+                        // auth.setUser(request.data.user);
+                        // auth.setToken(request.data.user.token);
+                        Cookies.set('auth-token', request.data.user.token);
+                        Cookies.set('user', request.data.user);
                         router.replace('/admin/articles');
                     } catch (e) {
                         if (e.response.status === 403) {

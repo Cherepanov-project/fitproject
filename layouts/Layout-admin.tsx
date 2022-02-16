@@ -4,7 +4,9 @@ import Sidebar from "./Sidebar/Sidebar";
 import Navbar from "./Navbar/Navbar";
 import AuthProvider from "../context/AuthProvider";
 import useAuth from "../common/hooks/useAuth";
-import {useRouter} from "next/router";
+// import Router ,{useRouter} from "next/router";
+import Router
+import Cookies from 'js-cookie';
 
 type layoutAdminProps = {
     children: ReactNode;
@@ -50,6 +52,13 @@ export default LayoutAdmin;
 
 export const withLayout = (Component) => {
 
+
+
+    if(!Cookies.get('auth-token')) Router.replace('/admin');
+
+    //     Cookies.set('auth-token', request.data.user.token);
+    // Cookies.set('user', request.data.user);
+    // router.replace('/admin/articles');
 
     class LayoutAdminComponent extends React.Component {
         render() {

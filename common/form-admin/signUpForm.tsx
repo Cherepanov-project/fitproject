@@ -8,7 +8,6 @@ import Link from "next/link";
 import Cookie from 'js-cookie';
 import * as Yup from 'yup';
 import Router, {useRouter} from 'next/router'
-import axios from "axios";
 import {DivCenter, DivDashboard, FormA, FormH1, FormH2, StyledButton} from "./Form.styled";
 import ApiService from "../../services/apiService";
 import {data} from "browserslist";
