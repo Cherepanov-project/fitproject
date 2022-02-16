@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import {
   DishComponent,
   DishItem,
@@ -14,62 +14,25 @@ import {
 import img from "/common/images/DishChikenImg.jpg";
 import uid from "../../utils/uid";
 import chickenFood from "/common/images/chickenFood.svg";
+import { FoodItemType, dishFood } from "../../model/dish/dish";
 
 const Dish = () => {
-  const [foodItem, setFoodItem] = useState({
-    namesFood: "Chicken Steak",
-    activeRecipe: true,
-    description:
-      "Chicken Steak Recipe With Pan Roasted Vegetables & Potato Mash is a delicious meal in itself. The chicken is marinated in a lovely marinade that is bursting with flavours that include fresh parsley , lemon, garlic and mixed herbs. All of which add to the yummilicious taste of the chicken. ",
-    indigrients: [
-      { indigrient: "chiken", quantity: 1, active: true },
-      { indigrient: "chiken", quantity: 1, active: true },
-      { indigrient: "chiken", quantity: 1, active: true },
-      { indigrient: "chiken", quantity: 1, active: true },
-      { indigrient: "chiken", quantity: 1, active: false },
-    ],
-    nutritionalValue: [
-      { nutritiona: "Calories", value: 350, units: "Kcal" },
-      { nutritiona: "Protein", value: 15, units: "g" },
-      { nutritiona: "Fats", value: 25, units: "g" },
-      { nutritiona: "Carbs", value: 90, units: "g" },
-    ],
-  });
+  const [foodItem, setFoodItem] = useState<FoodItemType>(dishFood);
 
-  const IndigrientsActive = () => {
-    setFoodItem((prev) => {
-      if (prev.indigrients.find((el) => el.active === false)) {
-        return {
-          ...prev,
-          indigrients: prev.indigrients.map((el) => ({
-            ...el,
-            active: true,
-          })),
-        };
-      } else {
-        const newIndigrient = prev.indigrients.map((el) => ({
-          ...el,
-          active: false,
-        }));
-
-        for (let i = 0; i < 4; i++) {
-          const element = newIndigrient[i];
-          element.active = true;
-        }
-
-        return {
-          ...prev,
-          indigrients: newIndigrient,
-        };
-      }
-    });
+  const indigrientsActive = () => {
+    setFoodItem((prev) => ({
+      ...prev,
+      activeIndigrients: !prev.activeIndigrients,
+    }));
   };
 
-  const RecipiClickActive = () => {
+  const recipiClickActive = () => {
     setFoodItem((prev) => ({ ...prev, activeRecipe: !prev.activeRecipe }));
   };
 
-  const FavouritesAdd = () => {};
+  const favouritesAdd = () => {
+    // Заглушка для будущего пока нету бэка
+  };
 
   const itemNutritionalValue = foodItem.nutritionalValue.map((el) => {
     return (
@@ -81,17 +44,23 @@ const Dish = () => {
     );
   });
 
-  const itemIndigrientsContainer = foodItem.indigrients.map((el) => {
-    return el.active ? (
-      <IndigrientItem key={uid()}>
-        <IndigrientItemImg imgUrl={chickenFood.src}></IndigrientItemImg>
-        <IndigrientItemText>
-          <div>{el.indigrient}</div>
-          <div>{el.quantity}</div>
-        </IndigrientItemText>
-      </IndigrientItem>
-    ) : null;
-  });
+  const itemIndigrientsContainer = useMemo(() => {
+    const viewIndigrients = 4;
+    const foodIndigrients = foodItem.activeIndigrients
+      ? foodItem.indigrients.slice(0, viewIndigrients)
+      : foodItem.indigrients;
+    return foodIndigrients.map((el) => {
+      return (
+        <IndigrientItem key={uid()}>
+          <IndigrientItemImg imgUrl={chickenFood.src}></IndigrientItemImg>
+          <IndigrientItemText>
+            <div>{el.indigrient}</div>
+            <div>{el.quantity}</div>
+          </IndigrientItemText>
+        </IndigrientItem>
+      );
+    });
+  }, [foodItem.activeIndigrients]);
 
   return (
     <DishComponent imgUrl={img.src}>
@@ -101,7 +70,7 @@ const Dish = () => {
           <p>{foodItem.description}</p>
           <ButtonFood
             $display={foodItem.activeRecipe}
-            onClick={RecipiClickActive}
+            onClick={recipiClickActive}
           >
             Закрыть
           </ButtonFood>
@@ -111,7 +80,7 @@ const Dish = () => {
           <IndigrientsContainer>
             {itemIndigrientsContainer}
           </IndigrientsContainer>
-          <ButtonFood onClick={IndigrientsActive}>
+          <ButtonFood onClick={indigrientsActive}>
             Просмотреть все ингредиенты
           </ButtonFood>
         </FoodContainer>
@@ -119,8 +88,8 @@ const Dish = () => {
           <h3>Пищевая ценность</h3>
           <NutritionalContainer>{itemNutritionalValue}</NutritionalContainer>
           <div id="butt">
-            <ButtonFood onClick={RecipiClickActive}>Рецепт</ButtonFood>
-            <ButtonFood onClick={FavouritesAdd}>
+            <ButtonFood onClick={recipiClickActive}>Рецепт</ButtonFood>
+            <ButtonFood onClick={favouritesAdd}>
               Добавить в избранное
             </ButtonFood>
           </div>

@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import React, { FC } from "react";
 
-function FramerCalendar(Component: FC) {
+const FramerCalendar = (Component: FC) => {
   return (props: any) => {
+    // Пока нету типов )
     return (
       <motion.div
         initial="pageInital"
@@ -20,6 +21,6 @@ function FramerCalendar(Component: FC) {
       </motion.div>
     );
   };
-}
+};
 
 export default FramerCalendar;
