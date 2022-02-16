@@ -8,19 +8,34 @@ import {FormContainer} from "./formContainer";
 import {DivCenter, DivDashboard, FormA, FormH1, FormH2, StyledButton} from "./Form.styled";
 import {useMutation} from "react-query";
 import api from "../../services";
+import useAuth from "../hooks/useAuth";
+import {useRouter} from "next/router";
 
 const SingInForm = () => {
+
+    const auth = useAuth();
+    const router = useRouter();
 
     const validate = Yup.object({
         email: Yup.string().email('Email is invalid').required('Email is required'),
         password: Yup.string().min(6, 'Password must be at least 6 characters').max(20, 'Password must be at max 20 characters').required('Password is required'),
     });
 
-    const mutation = useMutation(async (item) => {
-            const request = await api.auth.login({user: item});
-            return request;
-        }
-    );
+    // const mutation = useMutation(async (item) => {
+    //         const request = await api.auth.login({user: item});
+    //     console.log(request);
+    //         return request;
+    //     },{
+    //         onSuccess: (request) => {
+    //             console.log(request.data.user)
+    //             console.log(request.data.user.token)
+    //             console.log(auth)
+    //             auth.setToken(request.data.user.token);
+    //             auth.setUser(request.data.user);
+    //             router.replace('/admin/articles');
+    //         },
+    //     }
+    // );
 
     return (
         <FormContainer>
@@ -30,16 +45,20 @@ const SingInForm = () => {
                     password: ''
                 }}
                 validationSchema={validate}
-                onSubmit={(values, {setFieldError}) => {
-                    console.log(values);
-                    // @ts-ignore
-                    mutation.mutate({
-                        email: values.email,
-                        password: values.password,
-                    });
-                    if (mutation.error) {
-                        console.log(mutation.error)
-                        setFieldError('password', 'Email or password is invalid')
+                onSubmit={async (values, {setFieldError}) => {
+                    try {
+                        const request = await api.auth.login({user: values});
+                        console.log(request.data.user)
+                        console.log(request.data.user.token)
+                        auth.setUser(request.data.user);
+                        auth.setToken(request.data.user.token);
+                        router.replace('/admin/articles');
+                    } catch (e) {
+                        if (e.response.status === 403) {
+                            Object.keys(e.response.data.errors).forEach((key)=>{
+                                setFieldError('password',key+' ' + e.response.data.errors[key])
+                            })
+                        }
                     }
                 }}
 

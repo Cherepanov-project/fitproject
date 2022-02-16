@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import Sidebar from "./Sidebar/Sidebar";
 import Navbar from "./Navbar/Navbar";
 import AuthProvider from "../context/AuthProvider";
+import useAuth from "../common/hooks/useAuth";
+import {useRouter} from "next/router";
 
 type layoutAdminProps = {
     children: ReactNode;
@@ -22,24 +24,26 @@ const Content = styled.div`
 
 const LayoutAdmin: FC<layoutAdminProps> = ({children}) => {
 
+    const auth = useAuth();
+    const router = useRouter();
 
-    const [pageName, setPageName] = useState('');
+    console.log(auth.isLoaded);
+    console.log(auth.user);
 
-    return (
-        <AuthProvider>
-            <Container>
-                <Sidebar/>
-                <Content>
-                    <header>
-                        < Navbar/>
-                    </header>
-                    <main>
-                        {children}
-                    </main>
-                </Content>
-            </Container>
-        </AuthProvider>
-    );
+    return auth.isLoaded? (
+        <Container>
+            <Sidebar/>
+            <Content>
+                <header>
+                    < Navbar/>
+                </header>
+                <main>
+                    {children}
+                </main>
+            </Content>
+        </Container>
+
+    ):(<div>... Loading</div>)
 }
 
 export default LayoutAdmin;
@@ -50,9 +54,11 @@ export const withLayout = (Component) => {
     class LayoutAdminComponent extends React.Component {
         render() {
             return (
-                <LayoutAdmin>
-                    <Component {...this.props}/>
-                </LayoutAdmin>
+                <AuthProvider>
+                    <LayoutAdmin>
+                        <Component {...this.props}/>
+                    </LayoutAdmin>
+                </AuthProvider>
             );
         }
     }

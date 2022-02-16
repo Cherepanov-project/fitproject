@@ -7,16 +7,26 @@ import TextField from "./TextField";
 import Link from "next/link";
 import Cookie from 'js-cookie';
 import * as Yup from 'yup';
-import Router from 'next/router'
+import Router, {useRouter} from 'next/router'
 import axios from "axios";
 import {DivCenter, DivDashboard, FormA, FormH1, FormH2, StyledButton} from "./Form.styled";
 import ApiService from "../../services/apiService";
 import {data} from "browserslist";
 import api from '../../services'
+import useAuth from "../hooks/useAuth";
+import {name} from "next/dist/telemetry/ci-info";
 
 const apiService = new ApiService();
 
 const SignUpForm = () => {
+
+    const nameOfFilds = {
+        email: 'Email ',
+        username: 'Admin name '
+    }
+
+    const auth = useAuth();
+    const router = useRouter();
 
     const validate = Yup.object({
         username: Yup.string().min(3, 'Admin name must be at least 6 characters').max(20).required(),
@@ -24,12 +34,6 @@ const SignUpForm = () => {
         password: Yup.string().min(6, 'Password must be at least 6 characters').max(20, 'Password must be at max 20 characters').required('Password is required'),
         repeat_password: Yup.string().oneOf([Yup.ref('password')], 'Passwords should match').required('Repeat password is required'),
     });
-
-    const mutation = useMutation(async (item) => {
-            const request = await api.auth.registration({user: item});
-            return request;
-        }
-    );
 
     return (
         <FormContainer>
@@ -42,17 +46,20 @@ const SignUpForm = () => {
 
                 }}
                 validationSchema={validate}
-                onSubmit={(values, {setFieldError}) => {
-                    console.log(values);
-                    // @ts-ignore
-                    mutation.mutate({
-                        username: values.username,
-                        email: values.email,
-                        password: values.password,
-                        repeat_password: values.password,
-                    });
-                    if (mutation.error) {
-                        setFieldError('username', 'Admin name already used')
+                onSubmit={async (values, {setFieldError}) => {
+                    try{
+                        const request = await api.auth.registration({user: values});
+                        console.log(request.data.user)
+                        console.log(request.data.user.token)
+                        auth.setUser(request.data.user);
+                        auth.setToken(request.data.user.token);
+                        router.replace('/admin/articles');
+                    }catch(e) {
+                        if(e.response.status===422){
+                            Object.keys(e.response.data.errors).forEach((key)=>{
+                                setFieldError(key,nameOfFilds[key] + e.response.data.errors[key])
+                            })
+                        }
                     }
                 }}
             >
