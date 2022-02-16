@@ -37,8 +37,8 @@ const SingInForm = () => {
                         // auth.setUser(request.data.user);
                         // auth.setToken(request.data.user.token);
                         Cookies.set('auth-token', request.data.user.token);
-                        Cookies.set('user', request.data.user);
-                        router.replace('/admin/articles');
+                        Cookies.set('user', JSON.stringify(request.data.user));
+                        router.replace('/admin/overview');
                     } catch (e) {
                         if (e.response.status === 403) {
                             Object.keys(e.response.data.errors).forEach((key)=>{

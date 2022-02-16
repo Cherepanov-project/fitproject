@@ -3,6 +3,7 @@ import Link from 'next/link'
 import {useRouter} from "next/router";
 import Image from "next/image";
 import styled from 'styled-components';
+import Cookies from 'js-cookie';
 
 const NavbarWrapper = styled.nav`
   width: 100%;
@@ -44,9 +45,10 @@ const Anavbar = styled.a`
 
 const Navbar: FC = () => {
 
-    const router = useRouter();
-    const {id} = router.query;
-    console.log(router);
+    // Cookies.set('auth-token', request.data.user.token);
+    // Cookies.set('user', request.data.user);
+  const {username,image} = JSON.parse(Cookies.get('user'));
+  console.log(username,image);
 
     return (
         <NavbarWrapper>
@@ -59,8 +61,8 @@ const Navbar: FC = () => {
                     <Link href='/'><Anavbar><Image src='/navbarIcons/bell.png' width='16' height='16' alt='search'/></Anavbar></Link>
                 </DivInformation>
                 <DivAdmin>
-                    <Link href='/'><Anavbar>Jones Ferdinand</Anavbar></Link>
-                    <Image src='/sidebarIcons/photo_admin.png' width='40' height='40' alt='search'/>
+                    <Link href='/'><Anavbar>{username}</Anavbar></Link>
+                    <Image loader={()=>image} src={image} width='40' height='40' alt='search'/>
                 </DivAdmin>
             </DivAdminInformation>
         </NavbarWrapper>

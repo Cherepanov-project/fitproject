@@ -5,6 +5,7 @@ import Navbar from "./Navbar/Navbar";
 import AuthProvider from "../context/AuthProvider";
 import useAuth from "../common/hooks/useAuth";
 import {useRouter} from "next/router";
+import Router from 'next/router'
 import Link from 'next/link'
 import Cookies from 'js-cookie';
 
@@ -26,13 +27,13 @@ const Content = styled.div`
 
 const LayoutAdmin: FC<layoutAdminProps> = ({children}) => {
 
-    const auth = useAuth();
-    const router = useRouter();
+    // const auth = useAuth();
+    // const router = useRouter();
+    //
+    // console.log(auth.isLoaded);
+    // console.log(auth.user);
 
-    console.log(auth.isLoaded);
-    console.log(auth.user);
-
-    return auth.isLoaded? (
+    return (
         <Container>
             <Sidebar/>
             <Content>
@@ -45,34 +46,30 @@ const LayoutAdmin: FC<layoutAdminProps> = ({children}) => {
             </Content>
         </Container>
 
-    ):(<div>... Loading</div>)
+    )
 }
 
 export default LayoutAdmin;
 
 export const withLayout = (Component) => {
 
-
-
-    // if(!Cookies.get('auth-token')) Router.replace('/admin');
-
-    //     Cookies.set('auth-token', request.data.user.token);
-    // Cookies.set('user', request.data.user);
-    // router.replace('/admin/articles');
-
     class LayoutAdminComponent extends React.Component {
+
+        componentDidMount(){
+            if(!Cookies.get('auth-token')){
+                Router.push('/admin')
+            }
+        }
+
         render() {
-            return !Cookies.get('auth-token')?(
+            return (
                 <AuthProvider>
                     <LayoutAdmin>
                         <Component {...this.props}/>
                     </LayoutAdmin>
                 </AuthProvider>
-            ):(<Link href="/admin">
-                <a>About Us</a>
-            </Link>)
+            )
         }
     }
-
     return LayoutAdminComponent;
 }

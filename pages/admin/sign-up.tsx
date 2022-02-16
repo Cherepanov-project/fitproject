@@ -20,10 +20,10 @@ export default function Admin() {
     )
 }
 
-Admin.getLayout = function PageLayout(page) {
-    return (
-        <>
-            {page}
-        </>
-    )
-};
+// Admin.getLayout = function PageLayout(page) {
+//     return (
+//         <>
+//             {page}
+//         </>
+//     )
+// };

@@ -1,5 +1,5 @@
 import React from 'react';
-import LayoutAdmin from "../../layouts/Layout-admin";
+import LayoutAdmin, {withLayout} from "../../layouts/Layout-admin";
 
 const Subscription = () => {
     return (
@@ -9,12 +9,12 @@ const Subscription = () => {
     );
 };
 
-export default Subscription;
+export default withLayout(Subscription);
 
-Subscription.getLayout = function PageLayout(page) {
-    return(
-        <LayoutAdmin>
-            {page}
-        </LayoutAdmin>
-    )
-};
+// Subscription.getLayout = function PageLayout(page) {
+//     return(
+//         <LayoutAdmin>
+//             {page}
+//         </LayoutAdmin>
+//     )
+// };

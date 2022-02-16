@@ -14,6 +14,7 @@ import {data} from "browserslist";
 import api from '../../services'
 import useAuth from "../hooks/useAuth";
 import {name} from "next/dist/telemetry/ci-info";
+import Cookies from 'js-cookie';
 
 const apiService = new ApiService();
 
@@ -50,9 +51,11 @@ const SignUpForm = () => {
                         const request = await api.auth.registration({user: values});
                         console.log(request.data.user)
                         console.log(request.data.user.token)
-                        auth.setUser(request.data.user);
-                        auth.setToken(request.data.user.token);
-                        router.replace('/admin/articles');
+                        // auth.setUser(request.data.user);
+                        // auth.setToken(request.data.user.token);
+                        Cookies.set('auth-token', request.data.user.token);
+                        Cookies.set('user', JSON.stringify(request.data.user));
+                        router.replace('/admin/overview');
                     }catch(e) {
                         if(e.response.status===422){
                             Object.keys(e.response.data.errors).forEach((key)=>{
