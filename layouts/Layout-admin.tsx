@@ -4,8 +4,8 @@ import Sidebar from "./Sidebar/Sidebar";
 import Navbar from "./Navbar/Navbar";
 import AuthProvider from "../context/AuthProvider";
 import useAuth from "../common/hooks/useAuth";
-// import Router ,{useRouter} from "next/router";
-import Router
+import {useRouter} from "next/router";
+import Link from 'next/link'
 import Cookies from 'js-cookie';
 
 type layoutAdminProps = {
@@ -54,7 +54,7 @@ export const withLayout = (Component) => {
 
 
 
-    if(!Cookies.get('auth-token')) Router.replace('/admin');
+    // if(!Cookies.get('auth-token')) Router.replace('/admin');
 
     //     Cookies.set('auth-token', request.data.user.token);
     // Cookies.set('user', request.data.user);
@@ -62,13 +62,15 @@ export const withLayout = (Component) => {
 
     class LayoutAdminComponent extends React.Component {
         render() {
-            return (
+            return !Cookies.get('auth-token')?(
                 <AuthProvider>
                     <LayoutAdmin>
                         <Component {...this.props}/>
                     </LayoutAdmin>
                 </AuthProvider>
-            );
+            ):(<Link href="/admin">
+                <a>About Us</a>
+            </Link>)
         }
     }
 
