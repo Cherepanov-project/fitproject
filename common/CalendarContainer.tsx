@@ -4,11 +4,10 @@ const Calendar = styled.div`
   max-width: 1000px;
   min-height: 50px;
   background-color: #ffffff;
-  border-radius: 2%;
-  padding: 8px;
+  border-radius: 12px;
 `;
 
-const CalendarContainer = ({ children }) => {
+const CalendarContainer = ({ children }: any) => {
   return (
     <>
       <Calendar>{children}</Calendar>
