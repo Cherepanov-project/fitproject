@@ -2,12 +2,9 @@ import React, {FC, ReactNode, useState} from 'react'
 import styled from 'styled-components';
 import Sidebar from "./Sidebar/Sidebar";
 import Navbar from "./Navbar/Navbar";
-import AuthProvider from "../context/AuthProvider";
-import useAuth from "../common/hooks/useAuth";
-import {useRouter} from "next/router";
 import Router from 'next/router'
-import Link from 'next/link'
 import Cookies from 'js-cookie';
+import {ThemeProvider, createTheme} from '@mui/material/styles';
 
 type layoutAdminProps = {
     children: ReactNode;
@@ -25,27 +22,32 @@ const Content = styled.div`
 `;
 
 
+const theme = createTheme({
+    palette: {
+        primary: {
+            main: '#3751FF',
+        },
+    },
+});
+
+
 const LayoutAdmin: FC<layoutAdminProps> = ({children}) => {
 
-    // const auth = useAuth();
-    // const router = useRouter();
-    //
-    // console.log(auth.isLoaded);
-    // console.log(auth.user);
 
     return (
-        <Container>
-            <Sidebar/>
-            <Content>
-                <header>
-                    < Navbar/>
-                </header>
-                <main>
-                    {children}
-                </main>
-            </Content>
-        </Container>
-
+        <ThemeProvider theme={theme}>
+            <Container>
+                <Sidebar/>
+                <Content>
+                    <header>
+                        < Navbar/>
+                    </header>
+                    <main>
+                        {children}
+                    </main>
+                </Content>
+            </Container>
+        </ThemeProvider>
     )
 }
 
@@ -55,21 +57,22 @@ export const withLayout = (Component) => {
 
     class LayoutAdminComponent extends React.Component {
 
-        componentDidMount(){
-            if(!Cookies.get('auth-token')){
+        componentDidMount() {
+            if (!Cookies.get('auth-token')) {
                 Router.push('/admin')
             }
         }
 
         render() {
             return (
-                <AuthProvider>
-                    <LayoutAdmin>
-                        <Component {...this.props}/>
-                    </LayoutAdmin>
-                </AuthProvider>
+
+                <LayoutAdmin>
+                    <Component {...this.props}/>
+                </LayoutAdmin>
+
             )
         }
     }
+
     return LayoutAdminComponent;
 }

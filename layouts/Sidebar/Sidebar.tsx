@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import imgLeg from '../../common/articles.svg'
 
+
 const sidebarMenuFires: IsidebarMenuItem[] = [
     {route: 'admin/overview', name: 'Overview', icon: '/sidebarIcons/statistics.svg', id: 1},
     {route: 'admin/users', name: 'Users', icon: '/sidebarIcons/users.svg', id: 2},
@@ -73,13 +74,15 @@ const A = styled.a`
 
 const Sidebar: FC = () => {
 
-    const [page,setPage] = useState()
+    const [page,setPage] = useState('Overview')
+    console.log(page);
+
 
     const firstLavel = () => {
         return (
             <>
                 {sidebarMenuFires.map(menu => (
-                    <SidebarItem key={menu.route}>
+                    <SidebarItem key={menu.route} onClick={()=>setPage(menu.name)}>
                         <Link href={`/${menu.route}`}><A>
                             <Image src={menu.icon} width='16' height='16' alt='search'/>
                             <ItemName>{menu.name}</ItemName>
