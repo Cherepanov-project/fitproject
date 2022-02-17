@@ -15,7 +15,7 @@ export const dailyRation: DailyRationType[] = [
     active: false,
   },
   {
-    id: "Morning snack ",
+    id: "Morning snack",
     callories: 1000,
     natritionValues: 1000,
     food: "chiken",

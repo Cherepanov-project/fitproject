@@ -1,33 +1,35 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import {
   DishComponent,
   DishItem,
   NutritionalItem,
   NutritionalContainer,
   IndigrientsContainer,
-  IndigrientItem,
-  IndigrientItemImg,
-  IndigrientItemText,
   FoodContainer,
   ButtonFood,
 } from "./stylesDish";
 import img from "/common/images/DishChikenImg.jpg";
 import uid from "../../utils/uid";
-import chickenFood from "/common/images/chickenFood.svg";
 import { FoodItemType, dishFood } from "../../model/dish/dish";
+import DishIndigrients from "./DishIndigrients";
 
 const Dish = () => {
   const [foodItem, setFoodItem] = useState<FoodItemType>(dishFood);
 
   const indigrientsActive = () => {
-    setFoodItem((prev) => ({
-      ...prev,
-      activeIndigrients: !prev.activeIndigrients,
-    }));
+    const activeIndigrientsMutan = {
+      ...foodItem,
+      activeIndigrients: !foodItem.activeIndigrients,
+    };
+    setFoodItem(activeIndigrientsMutan);
   };
 
   const recipiClickActive = () => {
-    setFoodItem((prev) => ({ ...prev, activeRecipe: !prev.activeRecipe }));
+    const activeRecipeMutan = {
+      ...foodItem,
+      activeRecipe: !foodItem.activeRecipe,
+    };
+    setFoodItem(activeRecipeMutan);
   };
 
   const favouritesAdd = () => {
@@ -44,28 +46,10 @@ const Dish = () => {
     );
   });
 
-  const itemIndigrientsContainer = useMemo(() => {
-    const viewIndigrients = 4;
-    const foodIndigrients = foodItem.activeIndigrients
-      ? foodItem.indigrients.slice(0, viewIndigrients)
-      : foodItem.indigrients;
-    return foodIndigrients.map((el) => {
-      return (
-        <IndigrientItem key={uid()}>
-          <IndigrientItemImg imgUrl={chickenFood.src}></IndigrientItemImg>
-          <IndigrientItemText>
-            <div>{el.indigrient}</div>
-            <div>{el.quantity}</div>
-          </IndigrientItemText>
-        </IndigrientItem>
-      );
-    });
-  }, [foodItem.activeIndigrients]);
-
   return (
     <DishComponent imgUrl={img.src}>
       <DishItem>
-        <div id="text-name">
+        <div>
           <h2>{foodItem.namesFood}</h2>
           <p>{foodItem.description}</p>
           <ButtonFood
@@ -78,7 +62,7 @@ const Dish = () => {
         <FoodContainer $display={foodItem.activeRecipe}>
           <h3>Ingredients</h3>
           <IndigrientsContainer>
-            {itemIndigrientsContainer}
+            <DishIndigrients foodItem={foodItem} />
           </IndigrientsContainer>
           <ButtonFood onClick={indigrientsActive}>
             Просмотреть все ингредиенты
@@ -87,7 +71,7 @@ const Dish = () => {
         <FoodContainer $display={foodItem.activeRecipe}>
           <h3>Пищевая ценность</h3>
           <NutritionalContainer>{itemNutritionalValue}</NutritionalContainer>
-          <div id="butt">
+          <div>
             <ButtonFood onClick={recipiClickActive}>Рецепт</ButtonFood>
             <ButtonFood onClick={favouritesAdd}>
               Добавить в избранное

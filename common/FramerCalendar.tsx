@@ -3,7 +3,7 @@ import React, { FC } from "react";
 
 const FramerCalendar = (Component: FC) => {
   return (props: any) => {
-    // Пока нету типов )
+    // Пока нету типов
     return (
       <motion.div
         initial="pageInital"

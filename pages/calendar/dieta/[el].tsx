@@ -11,15 +11,14 @@ const DailyRation = () => {
   const [arrDailyRation, setDailyRation] =
     useState<DailyRationType[]>(dailyRation);
 
-  const menuClickShow = (id) => {
-    setDailyRation((prev) =>
-      prev.map((item) => {
-        return {
-          ...item,
-          active: item.id === id ? !item.active : false,
-        };
-      })
-    );
+  const menuClickShow = (id: string) => {
+    const dailyRationMutation = arrDailyRation.map((item) => {
+      return {
+        ...item,
+        active: item.id === id ? !item.active : false,
+      };
+    });
+    setDailyRation(dailyRationMutation);
   };
 
   const dietaEllement = arrDailyRation.map((el: DailyRationType) => {
