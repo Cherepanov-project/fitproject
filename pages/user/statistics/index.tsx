@@ -13,20 +13,20 @@ import {
   ProgressContainer
 } from "./statisticsStyles";
 import UserChar from "../../../common/userChar/userChar";
-import createIco from "../../../common/squareIcon/squareIcon";
-import createRectangleBtn from "../../../common/rectangleBtn/rectangleBtn";
-import createProgressBtn from "../../../common/progressBtn/progressBtn";
+import SquareIcon from "../../../common/squareIcon/squareIcon";
+import RectangleBtn from "../../../common/rectangleBtn/rectangleBtn";
+import ProgressBtn from "../../../common/progressBtn/progressBtn";
 
 import imgLeg from "../../../common/images/icons/leg.svg";
 import imgWater from "../../../common/images/icons/water.svg";
 import imgCyclist from "../../../common/images/icons/cyclist.svg";
 import imgRun from "../../../common/images/icons/running.svg";
 
-const icoLeg = createIco("rgba(255, 255, 255, 0.2)", imgLeg);
-const icoWater = createIco("rgba(255, 140, 177, 1)", imgWater);
-const icoCyclist = createIco("rgba(0, 0, 0, 0)", imgCyclist);
-const icoRun = createIco("rgba(0, 0, 0, 0)", imgRun);
-const icoLeg2 = createIco("rgba(0, 0, 0, 0)", imgLeg);
+const icoLeg = <SquareIcon color = {"rgba(255, 255, 255, 0.2)"} img = {imgLeg.src}/>;
+const icoWater = <SquareIcon color = {"rgba(255, 140, 177, 1)"} img = {imgWater.src}/>;
+const icoCyclist = <SquareIcon color = {"rgba(0, 0, 0, 0)"} img = {imgCyclist.src}/>;
+const icoRun = <SquareIcon color = {"rgba(0, 0, 0, 0)"} img = {imgRun.src}/>;
+const icoLeg2 = <SquareIcon color = {"rgba(0, 0, 0, 0)"} img = {imgLeg.src}/>;
 
 const Frame1 = () => {
 
@@ -45,13 +45,15 @@ const Frame1 = () => {
           <UserChar/>
         </Activity>
         <DataActivContainer>
-          {createRectangleBtn(
-            "Ежедневная ходьба",
-            "linear-gradient(180deg, #6D63FF 0%, #3B32C0 100%)",
-            icoLeg
-          )}
+          <RectangleBtn
+            text = {"Ежедневная ходьба"}
+            bg = {"linear-gradient(180deg, #6D63FF 0%, #3B32C0 100%)"}
+            ico = {icoLeg}/>
           <TargetContainer>
-            {createRectangleBtn("Вода", "rgba(255, 154, 186, 1)", icoWater)}
+            <RectangleBtn
+              text = {"Вода"}
+              bg = {"rgba(255, 154, 186, 1)"} 
+              ico = {icoWater}/>
             <TargetWrapper>
               <TargetTitle>Стаканов:</TargetTitle>
               <Target>4</Target>
@@ -60,9 +62,21 @@ const Frame1 = () => {
         </DataActivContainer>
       </ActivContainer>
       <ProgressContainer>
-        {createProgressBtn("Велосипед", "10 км", "50 км", icoCyclist)}
-        {createProgressBtn("Бег", "5 км", "7 км/неделя", icoRun)}
-        {createProgressBtn("Ходьба", "10 000 шагов", "12 000/неделя", icoLeg2)}
+        <ProgressBtn 
+          title = {"Велосипед"} 
+          subtitle = {"10 км"} 
+          target = {"50 км"} 
+          ico = {icoCyclist}/>
+        <ProgressBtn 
+          title = {"Бег"} 
+          subtitle = {"5 км"} 
+          target = {"7 км/неделя"} 
+          ico = {icoRun}/>
+        <ProgressBtn 
+          title = {"Ходьба"} 
+          subtitle = {"10 000 шагов"} 
+          target = {"12 000 шагов/неделя"} 
+          ico = {icoLeg2}/>
       </ProgressContainer>
     </Container>
   );

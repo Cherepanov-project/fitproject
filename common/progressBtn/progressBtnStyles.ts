@@ -1,8 +1,13 @@
 import styled from "styled-components";
-import dotsImg from "../images/icons/3dots.svg";
+import dots from "../images/icons/3dots.svg";
 
-export const ProgressBtn = styled.button`
+let dotsSrc = dots;
+if(dots.src){dotsSrc = dots.src};
+
+export const ProgressButton = styled.button`
 position: relative;
+display: flex;
+flex-direction: column;
 height: 237px;
 width: 296px;
 border: none;
@@ -28,14 +33,14 @@ top: 25px;
 right: 18px;
 width: 25px;
 height: 25px;
-background-image: url(${dotsImg.src});
+background-image: url(${dotsSrc});
 background-position: 50% 50%;
 background-repeat: no-repeat;
 border: none;
 `;
 
 export const Title = styled.div`
-margin-top: 50px;
+margin-top: 70px;
 color: rgba(65, 56, 208, 1);
 font-weight: 600;
 font-size: 20px;
@@ -53,9 +58,9 @@ letter-spacing: -0.005em;
 export const Target = styled.div`
 align-self: start;
 margin-top: 15px;
+margin-left: 20px;
 color: rgba(120, 120, 120, 1);
 font-size: 16px;
 line-height: 19px;
 letter-spacing: -0.005em;
-transform: translateX(-50px);
 `;

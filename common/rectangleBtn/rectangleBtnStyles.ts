@@ -4,7 +4,7 @@ interface BtnProps {
     bg: string;
 }  
 
-export const RectangleBtn = styled.button<BtnProps>`
+export const RectangleButton = styled.button<BtnProps>`
   display: flex;
   justify-content: flex-start;
   align-items: center;

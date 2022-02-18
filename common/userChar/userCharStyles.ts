@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const CharWrapper = styled.div`
   position: relative;
+  width: 480px;
   margin-bottom: 50px;
 `;
 

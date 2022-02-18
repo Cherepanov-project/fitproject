@@ -1,12 +1,19 @@
-import { RectangleBtn, TextWrapper } from "./rectangleBtnStyles";
-const createRectangleBtn = (text: string, bg: string, ico: JSX.Element) => {
+import { RectangleButton, TextWrapper } from "./rectangleBtnStyles";
+
+interface Props{
+  text: string, 
+  bg: string, 
+  ico: JSX.Element
+}
+
+const RectangleBtn = ({text, bg, ico}: Props) => {
   return (
-    <RectangleBtn bg={bg}>
+    <RectangleButton bg={bg}>
       {ico}
       <TextWrapper>{text}</TextWrapper>
-    </RectangleBtn>
+    </RectangleButton>
   );
 };
 
-export default createRectangleBtn;
+export default RectangleBtn;
 
