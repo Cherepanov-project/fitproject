@@ -1,8 +1,9 @@
 import React, {FC, useState} from 'react';
 import {IsidebarMenuItem} from "./menu.interface";
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import Image from "next/image";
 import Link from "next/link";
+import Cookies from 'js-cookie';
 import imgLeg from '../../common/articles.svg'
 
 
@@ -20,45 +21,57 @@ const sidebarMenuSecond: IsidebarMenuItem[] = [
 ];
 
 const SidebarWrapper = styled.div`
-  
+
   height: 100vh;
   background-color: #363740;
 `;
 
 const SidebarHeader = styled.div`
-  padding:50px 28px 60px;
+  padding: 50px 28px 60px;
   background-color: #363740;
   width: 100%;
   font-size: 19px;
   color: #A4A6B3;
-  &:hover{ 
-    color:#DDE2FF;
+
+  &:hover {
+    color: #DDE2FF;
   }
 `;
 
 const SidebarItem = styled.div`
   width: 100%;
   font-size: 16px;
-  padding:16px 28px;
+  padding: 16px 28px;
   color: #A4A6B3;
-  &:hover{ 
-  color:#DDE2FF;
+
+  &:hover {
+    color: #DDE2FF;
     background-color: #3F4049;
-    border-left:3px solid #DDE2FF;
-    padding:16px 25px;
+    border-left: 3px solid #DDE2FF;
+    padding: 16px 25px;
     cursor: pointer;
   }
+
+  ${(props) => {
+    return css`
+      color: #DDE2FF;
+      background-color: #3F4049;
+      border-left: 3px solid #DDE2FF;
+      padding: 16px 25px;
+      cursor: pointer;
+    `;
+  }}
 `;
 
 const ItemName = styled.span`
-  padding-left:24px;
+  padding-left: 24px;
   display: inline-block;
 `;
 
 const Ul = styled.ul`
   width: 255px;
-  padding:0px;
-  margin:0px;
+  padding: 0px;
+  margin: 0px;
 `;
 
 const Hr = styled.hr`
@@ -68,21 +81,26 @@ const Hr = styled.hr`
 `;
 
 const A = styled.a`
-  display:flex;
-  align-item:center;
+  display: flex;
+  align-item: center;
 `;
 
 const Sidebar: FC = () => {
 
-    const [page,setPage] = useState('Overview')
-    console.log(page);
+    console.log('Sidebar');
+
+    // const [page,setPage] = useState('Overview')
+    const setPage = (namePage) => {
+        console.log(namePage);
+        Cookies.set('page', namePage);
+    }
 
 
     const firstLavel = () => {
         return (
             <>
                 {sidebarMenuFires.map(menu => (
-                    <SidebarItem key={menu.route} onClick={()=>setPage(menu.name)}>
+                    <SidebarItem key={menu.route} onClick={() => setPage(menu.name)}>
                         <Link href={`/${menu.route}`}><A>
                             <Image src={menu.icon} width='16' height='16' alt='search'/>
                             <ItemName>{menu.name}</ItemName>
@@ -97,7 +115,7 @@ const Sidebar: FC = () => {
         return (
             <>
                 {sidebarMenuSecond.map(menu => (
-                    <SidebarItem key={menu.route}>
+                    <SidebarItem key={menu.route} onClick={() => setPage(menu.name)}>
                         <Link href={`/${menu.route}`}><A>
                             <Image src={menu.icon} width='16' height='16' alt='search'/>
                             <ItemName>{menu.name}</ItemName>
@@ -111,7 +129,7 @@ const Sidebar: FC = () => {
     return (
         <SidebarWrapper>
             <SidebarHeader>
-                <A href={`/admin/overview`}>
+                <A href={`/admin/overview`} onClick={() => setPage('Overview')}>
                     <Image src='/sidebarIcons/logoApp.svg' width='32' height='32' alt='search'/>
                     <ItemName>Dashboard Kit</ItemName>
                 </A>

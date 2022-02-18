@@ -1,4 +1,3 @@
-import LayoutAdmin from "../../layouts/Layout-admin";
 import {withLayout} from "../../layouts/Layout-admin";
 
 const Articles = () => {

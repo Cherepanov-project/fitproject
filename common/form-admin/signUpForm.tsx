@@ -54,7 +54,8 @@ const SignUpForm = () => {
                         // auth.setUser(request.data.user);
                         // auth.setToken(request.data.user.token);
                         Cookies.set('auth-token', request.data.user.token);
-                        Cookies.set('user', JSON.stringify(request.data.user));
+                        Cookies.set('username', request.data.user.username);
+                        Cookies.set('image', request.data.user.image);
                         router.replace('/admin/overview');
                     }catch(e) {
                         if(e.response.status===422){

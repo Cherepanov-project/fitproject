@@ -1,4 +1,4 @@
-import {FC} from 'react'
+import {FC, useState, useEffect} from 'react'
 import Link from 'next/link'
 import {useRouter} from "next/router";
 import Image from "next/image";
@@ -58,15 +58,27 @@ const ImageAdmin = styled(Image)`
 
 const Navbar: FC = () => {
 
-    // Cookies.set('auth-token', request.data.user.token);
-    // Cookies.set('user', request.data.user);
-    const {username, image} = JSON.parse(Cookies.get('user'));
-    console.log(username, image);
+    console.log('Navbar')
+
+    const [username, setusername] = useState("admin")
+    const [page, setPage] = useState("")
+
+    useEffect(() => {
+        const userNameCookies = Cookies.get('username');
+        setusername(userNameCookies);
+    }, []);
+
+    useEffect(() => {
+        setPage(Cookies.get('page'));
+    }, [Cookies.get('page')]);
+
+    const image = Cookies.get('image');
+
 
     return (
         <NavbarWrapper>
             <PageName>
-                Overview
+                {page}
             </PageName>
             <DivAdminInformation>
                 <DivInformation>
@@ -75,7 +87,8 @@ const Navbar: FC = () => {
                 </DivInformation>
                 <DivAdmin>
                     <Link href='/'><Anavbar>{username}</Anavbar></Link>
-                    <ImageAdmin loader={() => image} src={image} width='40' height='40' alt='search'/>
+                    <ImageAdmin loader={() => image} src='/sidebarIcons/articles.svg' width='40' height='40'
+                                alt='search'/>
                 </DivAdmin>
             </DivAdminInformation>
         </NavbarWrapper>

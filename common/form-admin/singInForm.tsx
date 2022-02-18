@@ -36,8 +36,12 @@ const SingInForm = () => {
                         console.log(request.data.user.token)
                         // auth.setUser(request.data.user);
                         // auth.setToken(request.data.user.token);
+                        // const userData = JSON.stringify(request.data.user);
+                        // console.log(userData);
                         Cookies.set('auth-token', request.data.user.token);
-                        Cookies.set('user', JSON.stringify(request.data.user));
+                        Cookies.set('username', request.data.user.username);
+                        Cookies.set('image', request.data.user.image);
+
                         router.replace('/admin/overview');
                     } catch (e) {
                         if (e.response.status === 403) {

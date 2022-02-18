@@ -59,7 +59,8 @@ export const withLayout = (Component) => {
 
         componentDidMount() {
             if (!Cookies.get('auth-token')) {
-                Router.push('/admin')
+                console.log('tok')
+                Router.replace('/admin')
             }
         }
 
