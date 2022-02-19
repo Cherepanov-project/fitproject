@@ -4,7 +4,8 @@ import styled from "styled-components";
 
 const UserWrapper = styled.div`
 	max-width: 1440px;
-	background-color: #E5E5E5;
+	min-height: 400px;
+	background-color: #FFFFFF;
 	padding 1rem;
 	margin: 0 auto;
 `;
