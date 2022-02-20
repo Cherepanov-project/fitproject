@@ -7,13 +7,11 @@ import * as Yup from 'yup';
 import {FormContainer} from "./formContainer";
 import {DivCenter, DivDashboard, FormA, FormH1, FormH2, StyledButton} from "./Form.styled";
 import api from "../../services";
-import useAuth from "../hooks/useAuth";
 import {useRouter} from "next/router";
 import Cookies from 'js-cookie';
 
 const SingInForm = () => {
 
-    const auth = useAuth();
     const router = useRouter();
 
     const validate = Yup.object({
@@ -34,10 +32,7 @@ const SingInForm = () => {
                         const request = await api.auth.login({user: values});
                         console.log(request.data.user)
                         console.log(request.data.user.token)
-                        // auth.setUser(request.data.user);
-                        // auth.setToken(request.data.user.token);
-                        // const userData = JSON.stringify(request.data.user);
-                        // console.log(userData);
+
                         Cookies.set('auth-token', request.data.user.token);
                         Cookies.set('username', request.data.user.username);
                         Cookies.set('image', request.data.user.image);

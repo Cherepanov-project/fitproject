@@ -5,18 +5,11 @@ import {Form, Formik} from "formik";
 import Image from "next/image";
 import TextField from "./TextField";
 import Link from "next/link";
-import Cookie from 'js-cookie';
 import * as Yup from 'yup';
 import Router, {useRouter} from 'next/router'
 import {DivCenter, DivDashboard, FormA, FormH1, FormH2, StyledButton} from "./Form.styled";
-import ApiService from "../../services/apiService";
-import {data} from "browserslist";
 import api from '../../services'
-import useAuth from "../hooks/useAuth";
-import {name} from "next/dist/telemetry/ci-info";
 import Cookies from 'js-cookie';
-
-const apiService = new ApiService();
 
 const SignUpForm = () => {
 
@@ -25,7 +18,6 @@ const SignUpForm = () => {
         username: 'Admin name '
     }
 
-    const auth = useAuth();
     const router = useRouter();
 
     const validate = Yup.object({

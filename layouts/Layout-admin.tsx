@@ -5,6 +5,7 @@ import Navbar from "./Navbar/Navbar";
 import Router from 'next/router'
 import Cookies from 'js-cookie';
 import {ThemeProvider, createTheme} from '@mui/material/styles';
+import purple from "@mui/material/colors/purple";
 
 type layoutAdminProps = {
     children: ReactNode;
@@ -27,7 +28,17 @@ const theme = createTheme({
         primary: {
             main: '#3751FF',
         },
+        secondary: {
+            main:'#363740'
+        },
     },
+    typography:{
+        fontFamily: "sans-serif",
+        fontWeightLight:400,
+        fontWeightRegular:500,
+        fontWeightMedium:600,
+        fontWeightBold:700,
+    }
 });
 
 

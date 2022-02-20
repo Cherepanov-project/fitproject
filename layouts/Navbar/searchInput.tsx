@@ -4,8 +4,6 @@ import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
 import Image from "next/image";
 
-
-
 const Search = styled('div')(({theme}) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
@@ -35,7 +33,6 @@ const StyledInputBase = styled(InputBase)(({theme}) => ({
     color: 'inherit',
     '& .MuiInputBase-input': {
         padding: theme.spacing(1, 0, 1, 0),
-        // vertical padding + font size from searchIcon
         paddingLeft: `calc(1em + ${theme.spacing(4)})`,
         transition: theme.transitions.create('width'),
         width: '100%',
@@ -54,7 +51,7 @@ export default function SearchAppBar() {
     return (
         <Search>
             <SearchIconWrapper>
-                <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+                <IconButton size="large" aria-label="show 4 new mails" color="inherit" href={''}>
                     <Image src='/navbarIcons/search.png' width='16' height='16' alt='search'/>
                 </IconButton>
             </SearchIconWrapper>

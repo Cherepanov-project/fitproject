@@ -7,20 +7,6 @@ import styled from 'styled-components';
 import IconButton from "@mui/material/IconButton";
 import Badge from "@mui/material/Badge";
 
-// const Anavbar = styled.a`
-//   font-size: 14px;
-//   font-weight: 500;
-// `;
-//
-// const style = {
-//     root: {
-//         minWidth:40,
-//         minHeight:40,
-//         lineHeight:1,
-//         borderRadius:20
-//     }
-// }
-
 export default function PositionedMenu() {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -34,6 +20,7 @@ export default function PositionedMenu() {
     return (
         <div>
             <IconButton
+                href={''}
                 size="large"
                 aria-label="show 1 new mails"
                 color="inherit"
@@ -58,9 +45,9 @@ export default function PositionedMenu() {
                     horizontal: 'left',
                 }}
             >
-                <MenuItem onClick={handleClose}>Message 1</MenuItem>
-                <MenuItem onClick={handleClose}>Message 2</MenuItem>
-                <MenuItem onClick={handleClose}>Message 3</MenuItem>
+                <MenuItem onClick={handleClose} href={''}>Message 1</MenuItem>
+                <MenuItem onClick={handleClose} href={''}>Message 2</MenuItem>
+                <MenuItem onClick={handleClose} href={''}>Message 3</MenuItem>
             </Menu>
         </div>
     );
