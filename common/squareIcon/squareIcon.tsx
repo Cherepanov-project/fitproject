@@ -1,8 +1,13 @@
 import { CustomIcon } from "./squareIconStyles";
 
-const createIco = (color: string, img: { src: string }) => {
-  return <CustomIcon bgColor={color} bgImg={img.src}></CustomIcon>;
+interface Props {
+  color: string,
+  img: { src: string }
+}
+
+const SquareIcon = ({color, img}: Props ) => {
+  return <CustomIcon bgColor={color} bgImg={img} ></CustomIcon>;
 };
 
-export default createIco;
+export default SquareIcon; 
 

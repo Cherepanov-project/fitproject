@@ -1,4 +1,4 @@
-import {ProgressBtn, 
+import {ProgressButton, 
         IcoContainer,
         Dots,
         Title,
@@ -9,6 +9,7 @@ import LinearProgress, {
 } from "@mui/material/LinearProgress";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import { JSXElementConstructor } from 'react';
 
 function LinearProgressWithLabel(
   props: LinearProgressProps & { value: number }
@@ -43,22 +44,29 @@ function LinearProgressWithLabel(
   );
 }
 
-const createProgressBtn = (
+interface Props {
   title: string,
   subtitle: string,
   target: string,
-  ico: JSX.Element
-) => {
+  ico: JSX.Element  
+}
+
+const ProgressBtn = ({
+  title,
+  subtitle,
+  target,
+  ico
+}: Props) => {
   return (
-    <ProgressBtn>
+    <ProgressButton>
       <IcoContainer>{ico}</IcoContainer>
       <Dots></Dots>
       <Title>{title}</Title>
       <SubTitle>{subtitle}/неделя</SubTitle>
       <LinearProgressWithLabel value={50} />
       <Target>Цель: {target}</Target>
-    </ProgressBtn>
+    </ProgressButton>
   );
 };
 
-export default createProgressBtn;
+export default ProgressBtn;
