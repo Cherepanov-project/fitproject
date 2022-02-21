@@ -4,9 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import {useRouter} from "next/router";
 import {SidebarItem,SidebarHeader,SidebarWrapper,A,ItemName,Ul,Hr} from "./Sidebar.styled";
+import imageK from '../../../common/articles.svg'
 
 const sidebarMenuFires: IsidebarMenuItem[] = [
-    {route: 'admin/overview', name: 'overview', icon: '/sidebarIcons/statistics.svg', id: 1},
+    {route: 'admin/overview', name: 'overview', icon: imageK, id: 1},
     {route: 'admin/users', name: 'users', icon: '/sidebarIcons/users.svg', id: 2},
     {route: 'admin/recipes', name: 'recipes', icon: '/sidebarIcons/recipies.svg', id: 3},
     {route: 'admin/exercises', name: 'exercises', icon: '/sidebarIcons/articles.svg', id: 4},
@@ -58,10 +59,10 @@ const Sidebar: FC = () => {
     return (
         <SidebarWrapper>
             <SidebarHeader>
-                <A href={`/admin/overview`}>
+                <Link href={`/admin/overview`}><A>
                     <Image src='/sidebarIcons/logoApp.svg' width='32' height='32' alt='search'/>
                     <ItemName>Dashboard Kit</ItemName>
-                </A>
+                </A></Link>
             </SidebarHeader>
             <Ul>
                 {firstLavel()}

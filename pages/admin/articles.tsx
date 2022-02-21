@@ -1,4 +1,4 @@
-import {withLayout} from "../../layouts/Layout-admin";
+import {withLayout} from "../../layouts/Layout-admin/Layout-admin";
 
 const Articles = () => {
     return (

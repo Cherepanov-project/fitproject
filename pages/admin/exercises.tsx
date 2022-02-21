@@ -1,5 +1,5 @@
 import React from 'react';
-import LayoutAdmin, {withLayout} from "../../layouts/Layout-admin";
+import LayoutAdmin, {withLayout} from "../../layouts/Layout-admin/Layout-admin";
 
 const Exercises = () => {
     return (

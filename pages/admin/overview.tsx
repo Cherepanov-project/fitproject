@@ -1,5 +1,5 @@
 import React from 'react';
-import {withLayout} from "../../layouts/Layout-admin";
+import {withLayout} from "../../layouts/Layout-admin/Layout-admin";
 
 const Overview = () => {
     return (
