@@ -1,11 +1,13 @@
 import React, {FC, ReactNode, useState} from 'react'
-import styled from 'styled-components';
-import Sidebar from "./Sidebar/Sidebar";
-import Navbar from "./Navbar/Navbar";
 import Router from 'next/router'
+// OTHER LIBRARIES
+import styled from 'styled-components';
 import Cookies from 'js-cookie';
 import {ThemeProvider, createTheme} from '@mui/material/styles';
-import purple from "@mui/material/colors/purple";
+// CUSTOM COMPONENTS
+import Sidebar from "./Sidebar/Sidebar";
+import Navbar from "./Navbar/Navbar";
+
 
 type layoutAdminProps = {
     children: ReactNode;
@@ -77,11 +79,9 @@ export const withLayout = (Component) => {
 
         render() {
             return (
-
                 <LayoutAdmin>
                     <Component {...this.props}/>
                 </LayoutAdmin>
-
             )
         }
     }

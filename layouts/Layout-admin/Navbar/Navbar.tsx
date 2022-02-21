@@ -1,11 +1,15 @@
 import {FC, useState, useEffect} from 'react'
 import Link from 'next/link'
 import {useRouter} from "next/router";
+// OTHER LIBRARIES
 import Cookies from 'js-cookie';
+// CUSTOM COMPONENTS
 import PositionedMenu from "./dashboard";
 import SearchAppBar from "./searchInput";
-import {NavbarWrapper,PageName,DivAdmin,DivAdminInformation,DivInformation,ImageAdmin,Anavbar} from "./Navbar.styled";
+// Icons
+import imageAdmin from '../images/navbarIcons/photo_admin.png'
 
+import {NavbarWrapper,PageName,DivAdmin,DivAdminInformation,DivInformation,ImageAdmin,Anavbar} from "./Navbar.styled";
 
 const Navbar: FC = () => {
 
@@ -36,7 +40,7 @@ const Navbar: FC = () => {
                 </DivInformation>
                 <DivAdmin>
                     <Link href='/'><Anavbar>{username}</Anavbar></Link>
-                    <ImageAdmin loader={() => image} src='/sidebarIcons/articles.svg' width='40' height='40'
+                    <ImageAdmin loader={() => image} src={imageAdmin} width='40' height='40'
                                 alt='search'/>
                 </DivAdmin>
             </DivAdminInformation>

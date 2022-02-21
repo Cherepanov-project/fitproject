@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import SignUpForm from "../../common/form-admin/signUpForm";
-import {QueryClient, QueryClientProvider} from "react-query";
 
 const ContainerAdminRegistration = styled.div`
   width: 100%;
@@ -19,11 +18,3 @@ export default function Admin() {
         </ContainerAdminRegistration>
     )
 }
-
-// Admin.getLayout = function PageLayout(page) {
-//     return (
-//         <>
-//             {page}
-//         </>
-//     )
-// };

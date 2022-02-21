@@ -10,10 +10,3 @@ const Articles = () => {
 
 export default withLayout(Articles);
 
-// Articles.getLayout = function PageLayout(page) {
-//     return(
-//         <LayoutAdmin>
-//             {page}
-//         </LayoutAdmin>
-//     )
-// };

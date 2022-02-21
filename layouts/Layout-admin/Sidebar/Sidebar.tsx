@@ -1,22 +1,32 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import {IsidebarMenuItem} from "./menu.interface";
 import Image from "next/image";
 import Link from "next/link";
 import {useRouter} from "next/router";
+// Icons
+import imageOverview from '../images/sidebarIcons/statistics.svg'
+import imageUsers from '../images/sidebarIcons/users.svg'
+import imageRecipies from '../images/sidebarIcons/recipies.svg'
+import imageExercises from '../images/sidebarIcons/exercises.svg'
+import imageMessages from '../images/sidebarIcons/messages.svg'
+import imageArticles from '../images/sidebarIcons/articles.svg'
+import imageSettings from '../images/sidebarIcons/settings.svg'
+import imageSubscription from '../images/sidebarIcons/subscription.svg'
+import imageLogoApp from '../images/sidebarIcons/logoApp.svg'
+
 import {SidebarItem,SidebarHeader,SidebarWrapper,A,ItemName,Ul,Hr} from "./Sidebar.styled";
-import imageK from '../../../common/articles.svg'
 
 const sidebarMenuFires: IsidebarMenuItem[] = [
-    {route: 'admin/overview', name: 'overview', icon: imageK, id: 1},
-    {route: 'admin/users', name: 'users', icon: '/sidebarIcons/users.svg', id: 2},
-    {route: 'admin/recipes', name: 'recipes', icon: '/sidebarIcons/recipies.svg', id: 3},
-    {route: 'admin/exercises', name: 'exercises', icon: '/sidebarIcons/articles.svg', id: 4},
-    {route: 'admin/messages', name: 'messages', icon: '/sidebarIcons/messages.svg', id: 5},
-    {route: 'admin/articles', name: 'articles', icon: '/sidebarIcons/articles.svg', id: 6},
+    {route: 'admin/overview', name: 'overview', icon: imageOverview, id: 1},
+    {route: 'admin/users', name: 'users', icon: imageUsers, id: 2},
+    {route: 'admin/recipes', name: 'recipes', icon: imageRecipies, id: 3},
+    {route: 'admin/exercises', name: 'exercises', icon: imageExercises, id: 4},
+    {route: 'admin/messages', name: 'messages', icon: imageMessages, id: 5},
+    {route: 'admin/articles', name: 'articles', icon: imageArticles, id: 6},
 ];
 const sidebarMenuSecond: IsidebarMenuItem[] = [
-    {route: 'admin/settings', name: 'settings', icon: '/sidebarIcons/settings.svg', id: 7},
-    {route: 'admin/subscription', name: 'subscription', icon: '/sidebarIcons/subscription.svg', id: 8},
+    {route: 'admin/settings', name: 'settings', icon: imageSettings, id: 7},
+    {route: 'admin/subscription', name: 'subscription', icon: imageSubscription, id: 8},
 ];
 
 const Sidebar: FC = () => {
@@ -60,7 +70,7 @@ const Sidebar: FC = () => {
         <SidebarWrapper>
             <SidebarHeader>
                 <Link href={`/admin/overview`}><A>
-                    <Image src='/sidebarIcons/logoApp.svg' width='32' height='32' alt='search'/>
+                    <Image src={imageLogoApp} width='32' height='32' alt='search'/>
                     <ItemName>Dashboard Kit</ItemName>
                 </A></Link>
             </SidebarHeader>

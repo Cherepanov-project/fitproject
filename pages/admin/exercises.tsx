@@ -1,5 +1,5 @@
 import React from 'react';
-import LayoutAdmin, {withLayout} from "../../layouts/Layout-admin/Layout-admin";
+import {withLayout} from "../../layouts/Layout-admin/Layout-admin";
 
 const Exercises = () => {
     return (
@@ -11,10 +11,3 @@ const Exercises = () => {
 
 export default withLayout(Exercises);
 
-// Exercises.getLayout = function PageLayout(page) {
-//     return(
-//         <LayoutAdmin>
-//             {page}
-//         </LayoutAdmin>
-//     )
-// };

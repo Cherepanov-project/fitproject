@@ -1,8 +1,12 @@
 import * as React from 'react';
+// MATERIAL UI
 import {styled, alpha} from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
 import Image from "next/image";
+// Icons
+import imageSearch from '../images/navbarIcons/search.png'
+
 
 const Search = styled('div')(({theme}) => ({
     position: 'relative',
@@ -52,7 +56,7 @@ export default function SearchAppBar() {
         <Search>
             <SearchIconWrapper>
                 <IconButton size="large" aria-label="show 4 new mails" color="inherit" href={''}>
-                    <Image src='/navbarIcons/search.png' width='16' height='16' alt='search'/>
+                    <Image src={imageSearch} width='16' height='16' alt='search'/>
                 </IconButton>
             </SearchIconWrapper>
             <StyledInputBase

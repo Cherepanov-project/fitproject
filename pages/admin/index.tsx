@@ -1,9 +1,4 @@
 import styled from 'styled-components';
-//services
-import {QueryClient, QueryClientProvider} from "react-query";
-import Passengers from "./passangers";
-import SignUpForm from "../../common/form-admin/signUpForm";
-
 import SingInForm from "../../common/form-admin/singInForm";
 
 const ContainerAdminRegistration = styled.div`

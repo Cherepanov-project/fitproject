@@ -12,6 +12,7 @@ export const SidebarHeader = styled.div`
   width: 100%;
   font-size: 19px;
   color: #A4A6B3;
+  cursor: pointer;
 
   &:hover {
     color: #DDE2FF;

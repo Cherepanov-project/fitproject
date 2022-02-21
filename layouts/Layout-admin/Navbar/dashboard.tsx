@@ -6,6 +6,9 @@ import Image from "next/image";
 import styled from 'styled-components';
 import IconButton from "@mui/material/IconButton";
 import Badge from "@mui/material/Badge";
+// Icons
+import imageBell from '../images/navbarIcons/bell.png'
+
 
 export default function PositionedMenu() {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -27,7 +30,7 @@ export default function PositionedMenu() {
                 onClick={handleClick}
             >
                 <Badge badgeContent={1} color="primary" variant="dot">
-                    <Image src='/navbarIcons/bell.png' width='16' height='16' alt='search'/>
+                    <Image src={imageBell} width='16' height='16' alt='search'/>
                 </Badge>
             </IconButton>
             <Menu
