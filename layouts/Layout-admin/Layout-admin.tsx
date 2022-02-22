@@ -1,4 +1,4 @@
-import React, {FC, ReactNode, useState} from 'react'
+import React, {FC, ReactNode, useState, useEffect} from 'react'
 import Router from 'next/router'
 // OTHER LIBRARIES
 import styled from 'styled-components';
@@ -35,7 +35,7 @@ const theme = createTheme({
         },
     },
     typography:{
-        fontFamily: "sans-serif",
+        fontFamily: "inherit",
         fontWeightLight:400,
         fontWeightRegular:500,
         fontWeightMedium:600,
@@ -45,7 +45,6 @@ const theme = createTheme({
 
 
 const LayoutAdmin: FC<layoutAdminProps> = ({children}) => {
-
 
     return (
         <ThemeProvider theme={theme}>
@@ -68,23 +67,19 @@ export default LayoutAdmin;
 
 export const withLayout = (Component) => {
 
-    class LayoutAdminComponent extends React.Component {
-
-        componentDidMount() {
+    return function withLayoutComponent(props){
+        useEffect(() => {
             if (!Cookies.get('auth-token')) {
                 console.log('tok')
                 Router.replace('/admin')
             }
-        }
+        }, []);
 
-        render() {
-            return (
-                <LayoutAdmin>
-                    <Component {...this.props}/>
-                </LayoutAdmin>
-            )
-        }
+        return (
+            <LayoutAdmin>
+                <Component {...props}/>
+            </LayoutAdmin>
+        )
     }
-
-    return LayoutAdminComponent;
 }
+
