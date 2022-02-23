@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { CardContent } from "@mui/material";
 import { FormikStepper } from "./FormikStepper";
-import { IRegisterForm} from "../../../model/loginOrRegisterInterfaces/interfaces";
+import { ILoginForm, IRegisterForm} from "../../../model/loginOrRegisterInterfaces/interfaces";
 import { FormTextField } from "../../../common/user/FormTextField";
 import { paused } from "../../../utils/paused";
 import { validationRegister } from "../../../utils/validationShema";
@@ -9,9 +9,10 @@ import { RightSide } from "../userLoginOrRegisterStyle";
 import FormikStep from "../../../common/user/FormikStep";
 import { IFormStatus } from "../../../model/loginOrRegisterInterfaces/interfaces";
 import { loginOrRegisterUser } from "../../../utils/loginOrRegisterUser";
+import { FormikValues } from "formik";
 
 export const RegisterForm: React.FC = () => {
-	const [displayFormStatus, setDisplayFormStatus] = useState(false)
+	const [displayFormStatus, setDisplayFormStatus] = useState<boolean>(false)
 	const [formStatus, setFormStatus] = useState<IFormStatus>({
 		message: '',
 		type: '',
@@ -30,15 +31,11 @@ export const RegisterForm: React.FC = () => {
 		<RightSide>
 			<CardContent sx={{ width: "80%", margin: "0 auto" }}>
 				<FormikStepper
-					onSubmit={async (data, actions) => {
+					onSubmit={async (data: FormikValues | ILoginForm | IRegisterForm, actions: { resetForm: Function; }) => {
 						await paused(3000);
-						
-						loginOrRegisterUser(data, actions.resetForm, setFormStatus, setDisplayFormStatus)
-							.then(() => {
-								displayFormStatus || console.log(formStatus);
-								setDisplayFormStatus(false)
-								console.log('data sign in: ', data)
-							})
+						await loginOrRegisterUser(data, actions.resetForm, setFormStatus, setDisplayFormStatus)
+							
+						console.log('data sign in: ', data)
 						}
 					}
 					initialValues={{
@@ -46,7 +43,7 @@ export const RegisterForm: React.FC = () => {
 						password: "",
 						confirmPassword: "",
 						userName: "",
-						contactNumber: "",
+						contactNumber: null,
 						meal: '',
 						exercises: '',
 					}}

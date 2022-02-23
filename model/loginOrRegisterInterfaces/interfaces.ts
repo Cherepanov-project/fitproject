@@ -10,6 +10,8 @@ export interface IRegisterForm {
 	age?: number;
 	sex?: string;
 	contactNumber?: number;
+	meal?: string;
+	exercises?: string;
 }
 
 export interface ILoginForm {
@@ -36,4 +38,10 @@ export interface IInputForm {
 	name: string;
 	type?: string;
 	secrecy?: boolean;
+}
+
+export interface IFormikStepper {
+	children: FormikStepProps,
+	initialValues: IRegisterForm,
+	onSubmit: Function
 }

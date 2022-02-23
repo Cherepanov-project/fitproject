@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Link from "next/link";
 import { Formik } from "formik";
 import { paused } from '../../../utils/paused';
@@ -10,8 +10,8 @@ import { IFormStatus} from "../../../model/loginOrRegisterInterfaces/interfaces"
 import {loginOrRegisterUser} from '../../../utils/loginOrRegisterUser'
 
 export const LoginForm: React.FC = () => {
-	const [displayFormStatus, setDisplayFormStatus] = React.useState(false)
-	const [formStatus, setFormStatus] = React.useState<IFormStatus>({
+	const [displayFormStatus, setDisplayFormStatus] = useState<boolean>(false)
+	const [formStatus, setFormStatus] = useState<IFormStatus>({
 		message: '',
 		type: '',
 	})
@@ -19,13 +19,12 @@ export const LoginForm: React.FC = () => {
 	return (
 	<Formik
 			onSubmit={async (data, actions) => {
+				//имитация отправки формы
 				await paused(3000);
-				loginOrRegisterUser(data, actions.resetForm, setFormStatus, setDisplayFormStatus)
-					.then(() => {
-						displayFormStatus || console.log(formStatus);
-						setDisplayFormStatus(false)
-						console.log('data sign in: ', data)
-				})
+				await loginOrRegisterUser(data, actions.resetForm, setFormStatus, setDisplayFormStatus)
+				
+				console.log('data sign in: ', data)
+			
 		}}
 		initialValues={{
 			login: '',

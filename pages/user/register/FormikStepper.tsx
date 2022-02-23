@@ -1,28 +1,31 @@
 import { useState } from "react";
 import { Children, ReactElement } from "react";
-import { Formik, FormikConfig, FormikValues, Form } from "formik";
+import { Formik, FormikConfig, Form } from "formik";
 import { Button, CircularProgress, Grid, StepLabel, Stepper } from "@mui/material";
-import { FormikStepProps } from "../../../model/loginOrRegisterInterfaces/interfaces";
-import {RegOrLoginSocial} from '../RegOrLoginSocial'
+import { FormikStepProps, IRegisterForm, IFormikStepper } from "../../../model/loginOrRegisterInterfaces/interfaces";
+import { RegOrLoginSocial } from '../RegOrLoginSocial';
 
-export function FormikStepper({ children, ...props}: FormikConfig<FormikValues>) {
-	const childrenArray = Children.toArray(children) as ReactElement<FormikStepProps>[];	
-	const [step, setStep] = useState(0);
-	const [completed, setCompleted] = useState(false);
+
+export const FormikStepper = ({ children, initialValues, onSubmit }: FormikConfig<IFormikStepper | IRegisterForm>) => {
+	
+	const childrenArray = Children.toArray(children) as ReactElement<FormikStepProps>[];
+	const [step, setStep] = useState<number>(0);
+	const [completed, setCompleted] = useState<boolean>(false);
 	const currentChild = childrenArray[step];
 
+	console.log(children)
 	function isLastStep() {
 		return step === childrenArray.length - 1;
 	}
 
 	return (
 		<>
-		<Formik
-			{...props}
+			<Formik
+			initialValues={initialValues}
 			validationSchema={currentChild.props.validationSchema}
 			onSubmit={async (values, helpers) => {
 				if (isLastStep()) {
-					await props.onSubmit(values, helpers);
+					await onSubmit(values, helpers);
 					setCompleted(true);
 				} else {
 					setStep((step) => step + 1);
