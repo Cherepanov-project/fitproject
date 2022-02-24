@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {IsidebarMenuItem} from "./menu.interface";
+import {IsidebarMenuItem} from "./sidebar.interface";
 import Image from "next/image";
 import Link from "next/link";
 import {useRouter} from "next/router";
@@ -29,9 +29,7 @@ const sidebarMenuSecond: IsidebarMenuItem[] = [
     {route: 'admin/subscription', name: 'subscription', icon: imageSubscription, id: 8},
 ];
 
-const Sidebar: FC = () => {
-
-    console.log('Sidebar');
+const Sidebar = () => {
 
     const router = useRouter();
     const page = router.asPath.split('/').pop();

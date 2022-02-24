@@ -1,38 +1,10 @@
-import React from 'react';
-import {useField, ErrorMessage} from "formik";
-import styled from 'styled-components';
+import React,{FC} from 'react';
+import {useField} from "formik";
 
-const StyledInput = styled.input`
-    font-size: 14px;
-    width: 100%;
-    padding: 11px 16px;
-    border: ${props => props.errorProps?'1px solid #F0F1F7': '1px solid red'};
-    margin-top: 6px;
-    border-radius: 8px;
-    color: #4B506D;
-    &:focus{
-        outline-color: #1890FF;
-    }
-    &::placeholder {
-    color: #BFBFBF;
-    }
-`;
+import {DivInput,StyledLabel,StyledInput,ErrorForm} from "./Form.styled";
+import {IFormProps} from "./form.interface";
 
-const StyledLabel = styled.label`
-    text-transform: uppercase;
-    font-size: 12px;
-    color: #4B506D;
-`;
-
-const DivInput = styled.div`
-    margin-top: 20px;
-`;
-
-const ErrorForm = styled(ErrorMessage)`
-    color: red;
-`;
-
-const TextField = ({label, ...props}) => {
+const TextField:FC<IFormProps> = ({label, ...props}):JSX.Element => {
     const [field, meta] = useField(props);
     return (
         <DivInput>
@@ -42,7 +14,6 @@ const TextField = ({label, ...props}) => {
                 {...field} {...props}
                 autocomplete='off'/>
             <ErrorForm component='div' name={field.name}/>
-
         </DivInput>
     );
 };

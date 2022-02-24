@@ -1,19 +1,19 @@
-import styled from 'styled-components';
-import {Formik, Form} from "formik";
-import TextField from "./TextField";
-import Image from "next/image";
 import Link from "next/link";
+import {useRouter} from "next/router";
+// OTHER LIBRARIES
+import {Formik, Form} from "formik";
+import Image from "next/image";
+import Cookies from 'js-cookie';
 import * as Yup from 'yup';
-import {FormContainer} from "./formContainer";
+// CUSTOM COMPONENTS
 import {DivCenter, DivDashboard, FormA, FormH1, FormH2, StyledButton} from "./Form.styled";
 import api from "../../services";
-import {useRouter} from "next/router";
-import Cookies from 'js-cookie';
+import TextField from "./TextField";
+import {FormContainer} from "./formContainer";
 
 const SingInForm = () => {
 
     const router = useRouter();
-
     const validate = Yup.object({
         email: Yup.string().email('Email is invalid').required('Email is required'),
         password: Yup.string().min(6, 'Password must be at least 6 characters').max(20, 'Password must be at max 20 characters').required('Password is required'),

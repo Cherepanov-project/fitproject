@@ -1,29 +1,14 @@
-import React, {FC, ReactNode, useState, useEffect} from 'react'
+import React, {FC, ReactNode, useState, useEffect, FunctionComponent} from 'react'
 import Router from 'next/router'
 // OTHER LIBRARIES
-import styled from 'styled-components';
 import Cookies from 'js-cookie';
 import {ThemeProvider, createTheme} from '@mui/material/styles';
 // CUSTOM COMPONENTS
 import Sidebar from "./Sidebar/Sidebar";
 import Navbar from "./Navbar/Navbar";
 
-
-type layoutAdminProps = {
-    children: ReactNode;
-}
-
-const Container = styled.div`
-  display: flex;
-  width: 1440px;
-  margin: 0 auto;
-`;
-
-const Content = styled.div`
-  width: 100%;
-  background-color: #F7F8FC;
-`;
-
+import {Container,Content} from "./layoutAdmin.styled";
+import {layoutAdminProps} from "./layoutAdmin.interface";
 
 const theme = createTheme({
     palette: {
@@ -42,7 +27,6 @@ const theme = createTheme({
         fontWeightBold:700,
     }
 });
-
 
 const LayoutAdmin: FC<layoutAdminProps> = ({children}) => {
 
@@ -65,9 +49,9 @@ const LayoutAdmin: FC<layoutAdminProps> = ({children}) => {
 
 export default LayoutAdmin;
 
-export const withLayout = (Component) => {
+export const withLayout = <T extends Record<string, undefined>>(Component:FunctionComponent<T>) => {
 
-    return function withLayoutComponent(props){
+    return function withLayoutComponent(props:T):JSX.Element{
         useEffect(() => {
             if (!Cookies.get('auth-token')) {
                 console.log('tok')

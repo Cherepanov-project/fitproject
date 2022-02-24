@@ -11,13 +11,10 @@ import imageAdmin from '../images/navbarIcons/photo_admin.png'
 
 import {NavbarWrapper,PageName,DivAdmin,DivAdminInformation,DivInformation,ImageAdmin,Anavbar} from "./Navbar.styled";
 
-const Navbar: FC = () => {
+const Navbar = () => {
 
     const router = useRouter();
     const page = router.asPath.split('/').pop();
-
-    console.log('Navbar');
-
     const [username, setusername] = useState("admin")
 
     useEffect(() => {
@@ -26,7 +23,6 @@ const Navbar: FC = () => {
     }, []);
 
     const image = Cookies.get('image');
-
 
     return (
         <NavbarWrapper>

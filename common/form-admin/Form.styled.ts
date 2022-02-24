@@ -1,4 +1,14 @@
 import styled from 'styled-components';
+import {ErrorMessage} from "formik";
+
+export const FormAdminWrapper = styled.div`
+   width: 380px;
+   border-radius: 8px;
+   background-color: #FFFFFF; 
+   padding: 32px 40px;
+   color: #9FA2B4;
+   font-size: 14px;
+`;
 
 export const DivCenter = styled.div`
    text-align: center;
@@ -51,4 +61,34 @@ export const FormA = styled.a`
    &:hover{
    color: #252733;
    }
+`;
+
+export const StyledInput = styled.input`
+    font-size: 14px;
+    width: 100%;
+    padding: 11px 16px;
+    border: ${props => props.errorProps?'1px solid #F0F1F7': '1px solid red'};
+    margin-top: 6px;
+    border-radius: 8px;
+    color: #4B506D;
+    &:focus{
+        outline-color: #1890FF;
+    }
+    &::placeholder {
+    color: #BFBFBF;
+    }
+`;
+
+export const StyledLabel = styled.label`
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #4B506D;
+`;
+
+export const DivInput = styled.div`
+    margin-top: 20px;
+`;
+
+export const ErrorForm = styled(ErrorMessage)`
+    color: red;
 `;

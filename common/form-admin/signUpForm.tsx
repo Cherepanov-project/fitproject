@@ -1,15 +1,16 @@
-import React, {useState} from 'react';
-import {useMutation} from "react-query";
-import {FormContainer} from "./formContainer";
-import {Form, Formik} from "formik";
-import Image from "next/image";
-import TextField from "./TextField";
+import React from 'react';
 import Link from "next/link";
-import * as Yup from 'yup';
-import Router, {useRouter} from 'next/router'
-import {DivCenter, DivDashboard, FormA, FormH1, FormH2, StyledButton} from "./Form.styled";
-import api from '../../services'
+import {useRouter} from 'next/router'
+// OTHER LIBRARIES
+import {Form, Formik} from "formik";
 import Cookies from 'js-cookie';
+import Image from "next/image";
+import * as Yup from 'yup';
+// CUSTOM COMPONENTS
+import {FormContainer} from "./formContainer";
+import TextField from "./TextField";
+import api from '../../services'
+import {DivCenter, DivDashboard, FormA, FormH1, FormH2, StyledButton} from "./Form.styled";
 
 const SignUpForm = () => {
 
