@@ -1,12 +1,11 @@
 import React from "react";
-import Head from 'next/head';
 import dynamic from 'next/dynamic';
+import { Normalize } from 'styled-normalize';
 
 import {
     Typography,
     Link,
     Input,
-    InputAdornment,
     Button
 } from "@mui/material/";
 import AddIcon from '@mui/icons-material/Add';
@@ -26,9 +25,10 @@ import {
     Widget,
     BlockHeaderRightSideStyled
 } from "./overviewStyles";
+import { FontStyles } from "../../../utils/fonts/fontStyles";
 
-import { headerCardsData } from "../../../model/headerCards/headerCards";
-import { trendsCardsData } from "../../../model/trendsCards/trendsCards";
+import { headerCardsData } from "../../../model/cards/headerCards/headerCards";
+import { trendsCardsData } from "../../../model/cards/trendsCards/trendsCards";
 import { ticketsData } from "../../../model/widgets/tickets/tickets";
 import { tasksData } from "../../../model/widgets/tasks/tasks"
 
@@ -42,14 +42,8 @@ const Overview = () => {
 
     return (
         <>
-            <Head>
-                <meta charSet='utf-8' />
-                <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css" />
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" />
-                <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet" />
-            </Head>
+            <Normalize />
+            <FontStyles />
             <MainContainer>
                 <ContainerHeader>
                     {headerCardsData.map((item) =>

@@ -4,24 +4,11 @@ import Typography from '@mui/material/Typography';
 
 import { CardContainer, CardContent } from "./cardStyles";
 
-const Card = ({ name, value, width, height, grow, margin, padding, fontName, fontValue, ...props }) => {
-    const blue = "#3751FF";
-    const gray = "#9FA2B4";
-    const black = "#252733";
+import { defaultColors, hoverColors } from "../../model/cards/cards";
 
-    const defaultColors = {
-        nameColor: gray,
-        valueColor: black,
-        borderColor: gray,
-    };
-    const hoverColors = {
-        nameColor: blue,
-        valueColor: blue,
-        borderColor: blue,
-    };
+const Card = ({ name, value, width, height, grow, margin, padding, fontName, fontValue, ...props }) => {
 
     const [colors, setColors] = useState(defaultColors);
-
     const { nameColor, valueColor, borderColor } = colors;
 
     return (

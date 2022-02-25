@@ -10,7 +10,7 @@ import Box from "@mui/material/Box";
 const CustomTooltip = ({
     active,
     payload,
-}: TooltipProps<ValueType, NameType>) => {
+}: TooltipProps<ValueType, NameType>): (JSX.Element) => {
     if (active) {
         return (
             <Box
