@@ -28,7 +28,7 @@ const theme = createTheme({
     }
 });
 
-const LayoutAdmin: FC<layoutAdminProps> = ({children}) => {
+const LayoutAdmin: FC<layoutAdminProps> = ({children}):JSX.Element => {
 
     return (
         <ThemeProvider theme={theme}>

@@ -11,6 +11,8 @@ import {FormContainer} from "./formContainer";
 import TextField from "./TextField";
 import api from '../../services'
 import {DivCenter, DivDashboard, FormA, FormH1, FormH2, StyledButton} from "./Form.styled";
+// Images
+import imageLogoApp from './images/logoApp.svg'
 
 const SignUpForm = () => {
 
@@ -42,10 +44,6 @@ const SignUpForm = () => {
                 onSubmit={async (values, {setFieldError}) => {
                     try{
                         const request = await api.auth.registration({user: values});
-                        console.log(request.data.user)
-                        console.log(request.data.user.token)
-                        // auth.setUser(request.data.user);
-                        // auth.setToken(request.data.user.token);
                         Cookies.set('auth-token', request.data.user.token);
                         Cookies.set('username', request.data.user.username);
                         Cookies.set('image', request.data.user.image);
@@ -62,7 +60,7 @@ const SignUpForm = () => {
                 {formik => (
                     <div>
                         <DivCenter>
-                            <Image src='/sidebarIcons/logoApp.svg' width='48' height='48' alt='search'/>
+                            <Image src={imageLogoApp} width='48' height='48' alt='search'/>
                         </DivCenter>
                         <DivDashboard>Dashboard Kit</DivDashboard>
                         <FormH1>Sign up to Admin Panel</FormH1>
