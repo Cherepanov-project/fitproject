@@ -11,7 +11,7 @@ const ContainerAdminRegistration = styled.div`
 `;
 
 
-export default function Admin() {
+const Admin = () => {
 
     return (
         <ContainerAdminRegistration>
@@ -20,10 +20,4 @@ export default function Admin() {
     );
 }
 
-Admin.getLayout = function PageLayout(page) {
-    return (
-        <>
-            {page}
-        </>
-    )
-};
+export default Admin;
