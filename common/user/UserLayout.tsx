@@ -6,7 +6,7 @@ const UserWrapper = styled.div`
 	max-width: 1440px;
 	min-height: 400px;
 	background-color: #FFFFFF;
-	padding 1rem;
+	padding: 1rem;
 	margin: 0 auto;
 `;
 
