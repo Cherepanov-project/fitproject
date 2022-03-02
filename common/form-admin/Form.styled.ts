@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {ErrorMessage} from "formik";
+import {TStyledInput} from "../../layouts/Layout-admin/layoutAdmin.interface";
 
 export const FormAdminWrapper = styled.div`
    width: 380px;
@@ -63,13 +64,14 @@ export const FormA = styled.a`
    }
 `;
 
-export const StyledInput = styled.input`
+export const StyledInput = styled.input<TStyledInput>`
     font-size: 14px;
     width: 100%;
     padding: 11px 16px;
     border: ${props => props.errorProps?'1px solid #F0F1F7': '1px solid red'};
     margin-top: 6px;
     border-radius: 8px;
+    box-sizing: border-box;
     color: #4B506D;
     &:focus{
         outline-color: #1890FF;
@@ -87,6 +89,7 @@ export const StyledLabel = styled.label`
 
 export const DivInput = styled.div`
     margin-top: 20px;
+    
 `;
 
 export const ErrorForm = styled(ErrorMessage)`

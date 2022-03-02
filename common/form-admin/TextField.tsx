@@ -12,7 +12,7 @@ const TextField:FC<IFormProps> = ({label, ...props}):JSX.Element => {
             <StyledInput
                 errorProps={!meta.error}
                 {...field} {...props}
-                autocomplete='off'/>
+            />
             <ErrorForm component='div' name={field.name}/>
         </DivInput>
     );

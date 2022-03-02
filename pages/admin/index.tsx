@@ -12,7 +12,6 @@ const ContainerAdminRegistration = styled.div`
 
 
 const Admin = () => {
-
     return (
         <ContainerAdminRegistration>
             <SingInForm/>

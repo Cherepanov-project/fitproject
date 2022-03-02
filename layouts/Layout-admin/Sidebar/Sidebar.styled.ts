@@ -1,9 +1,11 @@
 import styled, {css} from 'styled-components';
+import {TStyledDiv} from "../layoutAdmin.interface";
 
 export const SidebarWrapper = styled.div`
 
   height: 100vh;
   background-color: #363740;
+  
 `;
 
 export const SidebarHeader = styled.div`
@@ -19,7 +21,7 @@ export const SidebarHeader = styled.div`
   }
 `;
 
-export const SidebarItem = styled.div`
+export const SidebarItem = styled.div<TStyledDiv>`
   width: 100%;
   font-size: 16px;
   padding: 16px 28px;
@@ -60,8 +62,8 @@ export const ItemName = styled.span`
 
 export const Ul = styled.ul`
   width: 255px;
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
 `;
 
 export const Hr = styled.hr`
@@ -72,5 +74,4 @@ export const Hr = styled.hr`
 
 export const A = styled.a`
   display: flex;
-  align-item: center;
 `;

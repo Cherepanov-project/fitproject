@@ -8,6 +8,7 @@ export const NavbarWrapper = styled.nav`
   display: flex;
   justify-content: space-between;
   align-self: center;
+  box-sizing: border-box;
 `;
 
 export const PageName = styled.div`

@@ -5,3 +5,11 @@ export type layoutAdminProps = {
     props?:Array<string>
 
 }
+export type TStyledDiv = {
+    selected: boolean;
+};
+
+export type TStyledInput = {
+    errorProps: boolean;
+};
+

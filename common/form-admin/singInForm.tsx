@@ -60,7 +60,7 @@ const SingInForm = () => {
                             <TextField placeholder="Password" label='Password' name='password' type='password'/>
                             <StyledButton type='submit'>Log in</StyledButton>
                         </Form>
-                        <DivCenter type='submit'>
+                        <DivCenter>
                             Don’t have an account?
                             <Link href={`/admin/sign-up`}><FormA href={`/admin/sign-up`}>Sign Up</FormA></Link>
                         </DivCenter>
