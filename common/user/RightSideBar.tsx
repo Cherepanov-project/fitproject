@@ -17,7 +17,7 @@ import {
 	IconArrow,
 	Loss,
 	Meter,
-	SquareBtn,
+	/* SquareBtn, */
 } from "../user/RightSideBarStyle";
 import goalsIcon from "../images/icons/goals.svg";
 import diet from "../images/icons/diet.svg";
@@ -27,17 +27,18 @@ import arrow from "../images/icons/arrow.svg";
 import meter from "../images/icons/meter.svg";
 import { formatDistanceToNow } from "date-fns";
 
-const drawerWidth = "244px";
+const drawerWidth: string = "244px";
 
 interface ISideBarProps {
 	avatar: StaticImageData;
 	userName: string;
 	lastDate?: Date | number;
+	includeSeconds: boolean;
 }
 
-export const RightSideBar = ({
-	avatar,
-	userName,
+export const RightSideBar: React.FC<ISideBarProps> = ({
+	avatar = defaultAvatar,
+	userName = "User",
 	lastDate = new Date(),
 }: ISideBarProps) => {
 	const lastVisitTime = formatDistanceToNow(lastDate, { includeSeconds: true });
@@ -57,11 +58,9 @@ export const RightSideBar = ({
 				anchor="right"
 			>
 				<UserInfoWrapper>
-					<Avatar alt="avatar" src={!avatar ? defaultAvatar.src : avatar.src} />
+					<Avatar alt="avatar" src={avatar.src} />
 					<UserInfo>
-						<UserName>
-							{userName || "User" /* временно, пока значение не приходит */}
-						</UserName>
+						<UserName>{userName}</UserName>
 						<LastVisitTime>Joined {lastVisitTime}</LastVisitTime>
 					</UserInfo>
 				</UserInfoWrapper>
@@ -70,12 +69,28 @@ export const RightSideBar = ({
 						margin: "auto 0",
 					}}
 				>
-					{["Goals", "Diet", "seetings"].map((text, index) => (
+					{["Goals", "Diet", "Seetings"].map((text: string, index: number) => (
 						<ListItemButton
 							sx={{
+								position: 'relative',
 								marginTop: "30px",
+								padding: '24px',
+								width: '32px',
+								height: '32px',
 								":hover": {
+									transition: '1s ',
+									backgroundColor: "#F0EFFF",
+									width: '98%',
+									height: '40px',
+									padding: '24px 24px',
+									right: '0px',
 									boxShadow: "0px 1px 4px rgba(0, 0, 0, 0.25)",
+									borderRadius: '10px',
+									"img": {
+										transition: '1s',
+										border: 'none',
+										boxShadow: 'none',
+									}
 								},
 							}}
 						>
@@ -94,12 +109,8 @@ export const RightSideBar = ({
 									</IconWrapper>
 								)}
 							</ListItemIcon>
-							<ListItemText primary={text} />
-							<SquareBtn>
-								<IconWrapper>
-									<IconArrow src={arrow.src} width="12px"></IconArrow>
-								</IconWrapper>
-							</SquareBtn>
+							<ListItemText primary={text} sx={{width: '100%'}} />
+							<IconArrow src={arrow.src} width="12px"></IconArrow>
 						</ListItemButton>
 					))}
 				</List>

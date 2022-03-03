@@ -17,17 +17,15 @@ export const Loss = styled.div`
 	margin: 15px 0;
 `;
 
-export const SquareBtn = styled.div`
-	width: 32px;
-	height: 32px;
-	margin: auto;
+export const IconArrow = styled.img`
+	position: absolute;
+	width 10px;
+	padding: 10px 12px 10px ;
+	left: 200px;
 	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 10px;
-`;
-
-export const IconArrow = styled.img`
-	width 10px;
-	padding: 10px 12px;
+	width: '32px',
+	height: '32px',
 `;
 
 export const Meter = styled.img`
@@ -63,8 +61,8 @@ export const LastVisitTime = styled.div`
 
 export const Icon = styled.img`
 	width 27px;
-	`;
+`;
 
 export const IconWrapper = styled.div`
-	padding: auto'
+	/* padding: auto 0 */
 `;
