@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React, {useState} from "React";
 import Link from "next/link";
-import { Formik } from "formik";
+import { Formik } from "Formik";
 import { paused } from '../../../utils/paused';
 import { Button, CardContent, CircularProgress } from "@mui/material";
 import { FormTextField } from '../../../common/user/FormTextField';
