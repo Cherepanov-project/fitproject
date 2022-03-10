@@ -7,7 +7,7 @@ export interface SideBarCheckBoxStar {
 }
 
 export interface SideBarCheckBoxMeals {
-  Breakfats: boolean;
+  Breakfast: boolean;
   Snack: boolean;
   Lunch: boolean;
   Dinner: boolean;
