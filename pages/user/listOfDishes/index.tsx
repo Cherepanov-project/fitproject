@@ -51,7 +51,6 @@ export default function AllMenus() {
     let elemsFilter = [];
     for (let key in ArgumentMeals) {
       if (ArgumentMeals[key]) {
-        console.log(ArgumentMeals);
         elemsFilter.push(
           ...array.filter(
             (elem) =>
@@ -74,7 +73,6 @@ export default function AllMenus() {
     let elemsFilter = [];
     for (let i = 0; i < Object.values(checkBoxes).length; i++) {
       if (Object.values(checkBoxes)[i]) {
-        console.log(Object.values(checkBoxes)[i]);
         elemsFilter.push(
           ...Array.filter(
             (elem) => elem.props.star === 5 - i && !elemsFilter.includes(elem)
