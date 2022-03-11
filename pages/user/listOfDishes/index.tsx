@@ -49,7 +49,6 @@ export default function AllMenus() {
     ArgumentMeals: SideBarCheckBoxMeals = checkboxsMeals
   ) {
     let elemsFilter = [];
-    console.log(array);
     for (let key in ArgumentMeals) {
       if (ArgumentMeals[key]) {
         console.log(ArgumentMeals);
