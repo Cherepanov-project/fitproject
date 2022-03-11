@@ -27,76 +27,68 @@ const SideBar = ({
     setCheckboxsMeals(newState);
   };
 
+  const specificationItems = [
+    { Salads: 320 },
+    { 'Meals with meat': 320 },
+    { 'Meals with chicken': 320 },
+    { 'Meals with seafood': 320 },
+  ];
+
+  const specificationNods = specificationItems.map((item: any) => (
+    <Specification key={Math.random()}>
+      {Object.keys(item)[0]}
+      <SpecificationSpan>{Object.values(item)[0]}</SpecificationSpan>
+    </Specification>
+  ));
+
+  const specificationStar = [
+    { FiveStar: 5 },
+    { FourStar: 4 },
+    { ThreeStar: 3 },
+    { TwoStar: 2 },
+    { OneStar: 1 },
+  ];
+
+  const StarsNods = specificationStar.map((item: any) => (
+    <BoxCheckBox key={Math.random()}>
+      <Checkbox
+        defaultChecked
+        onChange={() => setArgumentStar(Object.keys(item)[0])}
+        checked={checkboxs[Object.keys(item)[0]]}
+      />
+      <Rating
+        name="read-only"
+        readOnly
+        value={Number(Object.values(item)[0])}
+      />
+    </BoxCheckBox>
+  ));
+
+  const specificationMeals = ['Breakfast', 'Snack', 'Lunch', 'Dinner'];
+
+  const MealsNods = specificationMeals.map((item: any) => (
+    <BoxCheckBox key={Math.random()}>
+      <Checkbox
+        defaultChecked
+        onClick={() => setArgumentMeals(item)}
+        checked={checkboxsMeals[item]}
+      />
+      {item}
+    </BoxCheckBox>
+  ));
   return (
     <SideBarWrapper>
       <div>
         <MenuH2>Categories</MenuH2>
-        <Specification>
-          Salads <SpecificationSpan>320</SpecificationSpan>
-        </Specification>
-        <Specification>
-          Meals with meat <SpecificationSpan>320</SpecificationSpan>
-        </Specification>
-        <Specification>
-          Meals with chicken <SpecificationSpan>320</SpecificationSpan>
-        </Specification>
-        <Specification>
-          Meals with seafood <SpecificationSpan>320</SpecificationSpan>
-        </Specification>
+        {specificationNods}
       </div>
       <SideBarCheckBox>
         <MenuH2>Rating</MenuH2>
-        <BoxCheckBox>
-          <Checkbox
-            defaultChecked
-            onClick={() => setArgumentStar('FiveStar')}
-          />
-          <Rating name="read-only" value={5} />
-        </BoxCheckBox>
-        <BoxCheckBox>
-          <Checkbox
-            defaultChecked
-            onClick={() => setArgumentStar('FourStar')}
-          />
-          <Rating name="read-only" value={4} />
-        </BoxCheckBox>
-        <BoxCheckBox>
-          <Checkbox
-            defaultChecked
-            onClick={() => setArgumentStar('ThreeStar')}
-          />
-          <Rating name="read-only" value={3} />
-        </BoxCheckBox>
-        <BoxCheckBox>
-          <Checkbox defaultChecked onClick={() => setArgumentStar('TwoStar')} />
-          <Rating name="read-only" value={2} />
-        </BoxCheckBox>
-        <BoxCheckBox>
-          <Checkbox defaultChecked onClick={() => setArgumentStar('OneStar')} />
-          <Rating name="read-only" value={1} />
-        </BoxCheckBox>
+        {StarsNods}
       </SideBarCheckBox>
       <div>
         <MenuH2>Meals</MenuH2>
-        <BoxCheckBox>
-          <Checkbox
-            defaultChecked
-            onClick={() => setArgumentMeals('Breakfast')}
-          />
-          Breakfast
-        </BoxCheckBox>
-        <BoxCheckBox>
-          <Checkbox defaultChecked onClick={() => setArgumentMeals('Snack')} />
-          Snacks
-        </BoxCheckBox>
-        <BoxCheckBox>
-          <Checkbox defaultChecked onClick={() => setArgumentMeals('Lunch')} />
-          Lunch
-        </BoxCheckBox>
-        <BoxCheckBox>
-          <Checkbox defaultChecked onClick={() => setArgumentMeals('Dinner')} />
-          Dinner
-        </BoxCheckBox>
+        {MealsNods}
       </div>
     </SideBarWrapper>
   );
