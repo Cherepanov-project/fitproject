@@ -44,22 +44,22 @@ export default function AllMenus() {
     />
   ));
 
-  const filterListOfDishes = function (
+  const filterListOfDishes = (
     array: Array<any>,
     ArgumentMeals: SideBarCheckBoxMeals = checkboxsMeals
-  ) {
+  ) => {
     let elemsFilter = [];
-    for (let key in ArgumentMeals) {
-      if (ArgumentMeals[key]) {
+    Object.keys(ArgumentMeals).forEach((item) => {
+      if (ArgumentMeals[item]) {
         elemsFilter.push(
           ...array.filter(
             (elem) =>
-              (elem.props.id === key || elem.props.id.includes(key)) &&
+              (elem.props.id === item || elem.props.id.includes(item)) &&
               !elemsFilter.includes(elem)
           )
         );
       }
-    }
+    });
     return elemsFilter;
   };
 
@@ -70,8 +70,9 @@ export default function AllMenus() {
     if (Array === []) {
       return Array;
     }
+
     let elemsFilter = [];
-    for (let i = 0; i < Object.values(checkBoxes).length; i++) {
+    Array.forEach((item, i) => {
       if (Object.values(checkBoxes)[i]) {
         elemsFilter.push(
           ...Array.filter(
@@ -79,7 +80,7 @@ export default function AllMenus() {
           )
         );
       }
-    }
+    });
 
     return elemsFilter;
   };
