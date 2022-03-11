@@ -9,12 +9,12 @@ import {
 import Checkbox from '@mui/material/Checkbox';
 import Rating from '@mui/material/Rating';
 
-function SideBar({
+const SideBar = ({
   setCheckbox,
   checkboxs,
   setCheckboxsMeals,
   checkboxsMeals,
-}) {
+}) => {
   const setArgumentStar = function (amt: string) {
     const newState = { ...checkboxs };
     newState[amt] = !newState[amt];
@@ -100,5 +100,5 @@ function SideBar({
       </div>
     </SideBarWrapper>
   );
-}
+};
 export default SideBar;

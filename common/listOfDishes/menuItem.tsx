@@ -11,7 +11,7 @@ import {
   MenuImg,
 } from '../../pages/user/listOfDishes/stylesAllMenus';
 
-function MenuItem({ namesFood, nutritionalValue, star, id }) {
+const MenuItem = ({ namesFood, nutritionalValue, star, id }) => {
   return (
     <Link href={`/calendar/dieta/${id}`}>
       <Card
@@ -52,5 +52,5 @@ function MenuItem({ namesFood, nutritionalValue, star, id }) {
       </Card>
     </Link>
   );
-}
+};
 export default MenuItem;
