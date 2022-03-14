@@ -13,7 +13,7 @@ import {
 
 const MenuItem = ({ namesFood, nutritionalValue, star, id }) => {
   return (
-    <Link href={`/calendar/dieta/${id}`}>
+    <Link href={`/calendar/dieta/${star}`}>
       <Card
         sx={{
           width: 214,
