@@ -12,28 +12,6 @@ import Stack from '@mui/material/Stack';
 import { FoodItemType } from '../../../model/dish/dish';
 
 export default function AllMenus() {
-  const initialValuesCheckBoxStar: SideBarCheckBoxStar = {
-    FiveStar: true,
-    FourStar: true,
-    ThreeStar: true,
-    TwoStar: true,
-    OneStar: true,
-  };
-  const [checkboxs, setCheckbox] = useState<SideBarCheckBoxStar>(
-    initialValuesCheckBoxStar
-  );
-
-  const initialValuesCheckBoxMeals: SideBarCheckBoxMeals = {
-    Breakfast: true,
-    Snack: true,
-    Lunch: true,
-    Dinner: true,
-  };
-
-  const [checkboxsMeals, setCheckboxsMeals] = useState<SideBarCheckBoxMeals>(
-    initialValuesCheckBoxMeals
-  );
-
   const elems = dishFoodAll.map((item: FoodItemType) => (
     <MenuItem
       key={Math.random()}
@@ -44,57 +22,54 @@ export default function AllMenus() {
     />
   ));
 
-  const filterListOfDishes = (
-    array: Array<any>,
-    ArgumentMeals: SideBarCheckBoxMeals = checkboxsMeals
-  ) => {
-    let elemsFilter = [];
-    Object.keys(ArgumentMeals).forEach((item) => {
-      if (ArgumentMeals[item]) {
-        elemsFilter.push(
-          ...array.filter(
-            (elem) =>
-              (elem.props.id === item || elem.props.id.includes(item)) &&
-              !elemsFilter.includes(elem)
-          )
-        );
-      }
-    });
-    return elemsFilter;
-  };
+  // const filterListOfDishes = (
+  //   array: Array<any>,
+  //   ArgumentMeals: SideBarCheckBoxMeals = checkboxsMeals
+  // ) => {
+  //   // на случай отсутствия фильтрация со стороны сервера
+  //   let elemsFilter = [];
+  //   Object.keys(ArgumentMeals).forEach((item) => {
+  //     if (ArgumentMeals[item]) {
+  //       elemsFilter.push(
+  //         ...array.filter(
+  //           (elem) =>
+  //             (elem.props.id === item || elem.props.id.includes(item)) &&
+  //             !elemsFilter.includes(elem)
+  //         )
+  //       );
+  //     }
+  //   });
+  //   return elemsFilter;
+  // };
 
-  const FilterStar = (
-    Array: Array<any>,
-    checkBoxes: SideBarCheckBoxStar = checkboxs
-  ) => {
-    if (Array === []) {
-      return Array;
-    }
+  // const FilterStar = (
+  //   Array: Array<any>,
+  //   checkBoxes: SideBarCheckBoxStar = checkboxs
+  // ) => {
+  //   // на случай отсутсвия фильтрация со стороны сервера
+  //   if (Array === []) {
+  //     return Array;
+  //   }
 
-    let elemsFilter = [];
-    Array.forEach((item, i) => {
-      if (Object.values(checkBoxes)[i]) {
-        elemsFilter.push(
-          ...Array.filter(
-            (elem) => elem.props.star === 5 - i && !elemsFilter.includes(elem)
-          )
-        );
-      }
-    });
+  //   let elemsFilter = [];
+  //   Array.forEach((item, i) => {
+  //     if (Object.values(checkBoxes)[i]) {
+  //       elemsFilter.push(
+  //         ...Array.filter(
+  //           (elem) => elem.props.star === 5 - i && !elemsFilter.includes(elem)
+  //         )
+  //       );
+  //     }
+  //   });
 
-    return elemsFilter;
-  };
+  //   return elemsFilter;
+  // };
 
   return (
     <AllMenusWrapper>
-      <SideBar
-        setCheckbox={setCheckbox}
-        checkboxs={checkboxs}
-        setCheckboxsMeals={setCheckboxsMeals}
-        checkboxsMeals={checkboxsMeals}
-      />
+      <SideBar />
       <MenuWrapper>
-        <ListDishes>{FilterStar(filterListOfDishes(elems))}</ListDishes>
+        <ListDishes>{elems}</ListDishes>
         <Stack sx={{ margin: 1, marginLeft: 38 }}>
           <Pagination count={10} />
         </Stack>
