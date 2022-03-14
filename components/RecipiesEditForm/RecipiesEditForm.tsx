@@ -32,7 +32,7 @@ interface MyFormValues {
 	carbs: string;
 	text: string;
 	files: string[];
- }
+}
 
 const MainContainer = styled.div`
 	border: 1px solid #DFE0EB;
@@ -55,7 +55,7 @@ const MainContainer = styled.div`
 
 const nutrilonsArr = ['carbs', 'protein', 'fats', 'calories']
 
-const RecipiesList: React.FC<MyFormValues> = () => {
+export const RecipiesList = () => {
 	const router = useRouter()
 	return (
 		<>
@@ -167,4 +167,3 @@ const RecipiesList: React.FC<MyFormValues> = () => {
 	)
 }
 
-export default RecipiesList
