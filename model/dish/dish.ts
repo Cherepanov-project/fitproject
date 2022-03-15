@@ -18,6 +18,13 @@ export interface FoodItemType {
   indigrients: IndigrientsType[];
   nutritionalValue: NutritionalValueType[];
 }
+
+export interface SpecificationItemsType {
+  id: string;
+  name: string;
+  amount: number;
+}
+
 export const dishFood: FoodItemType = {
   id: 'Breakfast',
   namesFood: 'Chicken Steak',

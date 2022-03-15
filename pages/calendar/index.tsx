@@ -60,7 +60,6 @@ const Calendar = () => {
   };
 
   const weekElements = arrDays(dateToday).map((el, index) => {
-    console.log(el);
     return index >= dayWeekISO - 1 && index < countDay + (dayWeekISO - 1) ? (
       <Grid item xs={1} key={uid()}>
         <Item>
