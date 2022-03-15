@@ -4,20 +4,24 @@ import {
   MenuH2,
 } from '../../pages/user/listOfDishes/stylesAllMenus';
 
+import { SpecificationItemsType } from '../../model/dish/dish';
+
 const blockSpecification = () => {
   const specificationItems = [
-    { Salads: 320 },
-    { 'Meals with meat': 320 },
-    { 'Meals with chicken': 320 },
-    { 'Meals with seafood': 320 },
+    { id: 'Salads', name: 'Salads', amount: 320 },
+    { id: 'meat', name: 'Meals with meat', amount: 320 },
+    { id: 'chicken', name: 'Meals with chicken', amount: 320 },
+    { id: 'seafood', name: 'Meals with seafood', amount: 320 },
   ];
 
-  const specificationNods = specificationItems.map((item: any) => (
-    <Specification key={Math.random()}>
-      {Object.keys(item)[0]}
-      <SpecificationSpan>{Object.values(item)[0]}</SpecificationSpan>
-    </Specification>
-  ));
+  const specificationNods = specificationItems.map(
+    (item: SpecificationItemsType) => (
+      <Specification key={item.id}>
+        {item.name}
+        <SpecificationSpan>{item.amount}</SpecificationSpan>
+      </Specification>
+    )
+  );
 
   return (
     <div>
