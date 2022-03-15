@@ -15,7 +15,6 @@ import {
 
 const CheckboxStar = () => {
   const setArgumentStar = function (amt: string) {
-    console.log(amt);
     const newState = { ...checkboxs };
     newState[amt] = !newState[amt];
     setCheckbox(newState);
