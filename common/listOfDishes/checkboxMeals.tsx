@@ -1,21 +1,15 @@
 import { useState } from 'react';
-import { SideBarCheckBoxMeals } from '../../model/sideBar/sideBar';
-import { MenuH2 } from '../../pages/user/listOfDishes/stylesAllMenus';
 import {
-  Specification,
-  SpecificationSpan,
-  BoxCheckBox,
-} from '../../pages/user/listOfDishes/stylesAllMenus';
+  initialValuesCheckBoxMeals,
+  SideBarCheckBoxMeals,
+  specificationMealsType,
+  specificationMeals,
+} from '../../model/sideBar/sideBar';
+import { MenuH2 } from '../../pages/user/listOfDishes/stylesAllMenus';
+import { BoxCheckBox } from '../../pages/user/listOfDishes/stylesAllMenus';
 import Checkbox from '@mui/material/Checkbox';
 
 const CheckboxMeals = () => {
-  const initialValuesCheckBoxMeals: SideBarCheckBoxMeals = {
-    Breakfast: true,
-    Snack: true,
-    Lunch: true,
-    Dinner: true,
-  };
-
   const [checkboxsMeals, setCheckboxsMeals] = useState<SideBarCheckBoxMeals>(
     initialValuesCheckBoxMeals
   );
@@ -26,15 +20,13 @@ const CheckboxMeals = () => {
     setCheckboxsMeals(newState);
   };
 
-  const specificationMeals = ['Breakfast', 'Snack', 'Lunch', 'Dinner'];
-
-  const MealsNods = specificationMeals.map((item: any) => (
-    <BoxCheckBox key={Math.random()}>
+  const MealsNods = specificationMeals.map((item: specificationMealsType) => (
+    <BoxCheckBox key={item.id}>
       <Checkbox
-        onClick={() => setArgumentMeals(item)}
-        checked={checkboxsMeals[item]}
+        onClick={() => setArgumentMeals(item.name)}
+        checked={checkboxsMeals[item.name]}
       />
-      {item}
+      {item.name}
     </BoxCheckBox>
   ));
 

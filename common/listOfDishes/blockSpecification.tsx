@@ -3,17 +3,12 @@ import {
   SpecificationSpan,
   MenuH2,
 } from '../../pages/user/listOfDishes/stylesAllMenus';
-
-import { SpecificationItemsType } from '../../model/dish/dish';
+import {
+  specificationItems,
+  SpecificationItemsType,
+} from '../../model/sideBar/sideBar';
 
 const blockSpecification = () => {
-  const specificationItems = [
-    { id: 'Salads', name: 'Salads', amount: 320 },
-    { id: 'meat', name: 'Meals with meat', amount: 320 },
-    { id: 'chicken', name: 'Meals with chicken', amount: 320 },
-    { id: 'seafood', name: 'Meals with seafood', amount: 320 },
-  ];
-
   const specificationNods = specificationItems.map(
     (item: SpecificationItemsType) => (
       <Specification key={item.id}>
