@@ -1,4 +1,3 @@
-import Header from '../Header/Header'
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
 import { Grid, Typography, Box, Button, Stack} from '@mui/material';
@@ -6,13 +5,13 @@ import { Formik, Form } from 'formik';
 import React from 'react';
 import * as yup from 'yup';
 import FileUpload from './upload/FileUpload'
-import HeaderInput from './HeaderInput/HeaderInput.tsx'
-import ShortDescriptionText from './ShortDescriptionInput/ShortDescriptionInput.tsx'
-import IngredientsFiled from './IngredientsField/IngredientsFiled.tsx'
+import HeaderInput from './HeaderInput/HeaderInput'
+import ShortDescriptionText from './ShortDescriptionInput/ShortDescriptionInput'
+import IngredientsFiled from './IngredientsField/IngredientsFiled'
 // import NutritionValuesField from './NutritionValuesField/NutritionValuesField'
-import TagsInput from './TagsInput/TagsInput.tsx'
-import EditorMCE from './EditorMCE/EditorMCE.tsx'
-import NutrilonValue from './NutritionValuesField/NutrilonValue.tsx'
+import TagsInput from './TagsInput/TagsInput'
+import EditorMCE from './EditorMCE/EditorMCE'
+import NutrilonValue from './NutritionValuesField/NutrilonValue'
 
 interface IIngredient {
 	name: string;
@@ -21,7 +20,7 @@ interface IIngredient {
 
 type TIngredientsList = IIngredient[]
 
-interface MyFormValues {
+interface EditFormValues {
    headerText: string;
 	shortDescriptionText: string;
 	chip: string[];
@@ -39,8 +38,8 @@ const MainContainer = styled.div`
 	height: 100%;
 	border-radius: 8px;
 	background: #FFFFFF;
-	margin-top: 50px;
-	padding: 20px 100px;
+	margin: 0 40px;
+	padding: 30px 100px;
 `
 
 // const validationSchema = yup.object({
@@ -53,13 +52,26 @@ const MainContainer = styled.div`
 // 	  .required('short description is required'),
 //  });
 
-const nutrilonsArr = ['carbs', 'protein', 'fats', 'calories']
+interface INutrilon {
+	name: string;
+	formik: string;
+}
 
-export const RecipiesList = () => {
+// type TNutrilonList = INutrilon[]
+
+const nutrilonsMapped = [
+	{name:'Carbs', formik:'carbs'},
+	{name: 'Protein', formik: 'protein'},
+	{name: 'Fats', formik: 'fats'},
+	{name: 'Calories', formik: 'calories'}
+]
+
+
+
+export const RecipiesEditForm = () => {
 	const router = useRouter()
 	return (
 		<>
-			<Header/>
 			<MainContainer>
 				<Formik initialValues = {{
 					headerText: '',
@@ -76,9 +88,8 @@ export const RecipiesList = () => {
 					text: '',
 					files: []
 				}}
-				onSubmit = {async (values) => {
+				onSubmit = {async (values: EditFormValues) => {
 					console.log(values)
-					console.log(router)
 				  	return new Promise((res) => setTimeout(res, 2500))
 				}}
 				>
@@ -125,11 +136,12 @@ export const RecipiesList = () => {
 									</Typography>
 									<Box sx={{my: 2, padding: 2, backgroundColor: '#F5F5F5', borderRadius: 1.25, width: 1}}>
 										<Stack direction="row" justifyContent="space-around" alignItems="flex-end" spacing={1}>
-											{nutrilonsArr.map((value: string, index: number) => {
+											{nutrilonsMapped.map(({name, formik}: INutrilon, index: number): React.ReactNode => {
 												return (
 													<NutrilonValue 
 														key={index}
-														name={value}
+														formik={formik}
+														name={name}
 													/>
 												)
 											})}

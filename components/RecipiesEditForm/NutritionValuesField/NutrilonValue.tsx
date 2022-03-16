@@ -3,14 +3,15 @@ import {TextField, Typography, Box} from '@mui/material'
 
 interface IProps {
 	name: string;
+	formik: string;
 }
 
 const NutrilonValue = (props: IProps) => {
-	const [field, meta, helpers] = useField(props.name);
+	const [field, meta, helpers] = useField(props.formik);
 	return (
 		<Box sx={{mt: 4}}>
 			<Typography fontSize='16px' color='#6F7482'>
-				{field.name.charAt(0).toUpperCase() + field.name.slice(1)}
+				{props.name}
 			</Typography>
 			<TextField
 				fullWidth
