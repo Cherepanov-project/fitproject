@@ -71,6 +71,19 @@ export const Input = styled.input<{ error: boolean }>`
 		}
 `;
 
+export const InputSelect = styled.div<{ error: boolean }>`
+  background-color: #f0efff;
+  font-size: 15px;
+  border-radius: 5px;
+  border: ${(props) => (props.error ? "1px solid red" : "none")};
+		&:focus {
+			outline-color: #a7a3ff;
+		}
+		&::placeholder {
+			color: #a7a3ff;
+		}
+`;
+
 export const RegOrLoginIcon = styled.img`
 	position: relative;
 	left: 50%;

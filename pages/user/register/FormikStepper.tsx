@@ -13,7 +13,6 @@ export const FormikStepper = ({ children, initialValues, onSubmit }: FormikConfi
 	const [completed, setCompleted] = useState<boolean>(false);
 	const currentChild = childrenArray[step];
 
-	console.log(children)
 	function isLastStep() {
 		return step === childrenArray.length - 1;
 	}
