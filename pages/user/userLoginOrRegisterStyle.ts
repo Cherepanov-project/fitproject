@@ -1,10 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const UserLoginOrRegister = styled.div`
   margin: 0 auto;
   max-width: 1440px;
   max-height: 900px;
-	
 `;
 
 export const FlexWrapper = styled.div`
@@ -62,57 +61,57 @@ export const Input = styled.input<{ error: boolean }>`
   background-color: #f0efff;
   font-size: 15px;
   border-radius: 5px;
-  border: ${(props) => (props.error ? "1px solid red" : "none")};
-		&:focus {
-			outline-color: #a7a3ff;
-		}
-		&::placeholder {
-			color: #a7a3ff;
-		}
+  border: ${(props) => (props.error ? '1px solid red' : 'none')};
+  &:focus {
+    outline-color: #a7a3ff;
+  }
+  &::placeholder {
+    color: #a7a3ff;
+  }
 `;
 
 export const InputSelect = styled.div<{ error: boolean }>`
   background-color: #f0efff;
   font-size: 15px;
   border-radius: 5px;
-  border: ${(props) => (props.error ? "1px solid red" : "none")};
-		&:focus {
-			outline-color: #a7a3ff;
-		}
-		&::placeholder {
-			color: #a7a3ff;
-		}
+  border: ${(props) => (props.error ? '1px solid red' : 'none')};
+  &:focus {
+    outline-color: #a7a3ff;
+  }
+  &::placeholder {
+    color: #a7a3ff;
+  }
 `;
 
 export const RegOrLoginIcon = styled.img`
-	position: relative;
-	left: 50%;
-	top: -25%;
-	img: ${(props) => props.src};
+  position: relative;
+  left: 50%;
+  top: -25%;
+  img: ${(props) => props.src};
 `;
 
 export const ForgorPassword = styled.div`
-	margin: 1rem 0 2rem;
-	text-align: end;
-	text-decorator: none;
-	color: #B0B0B0;
-	font-size: 13px;
+  margin: 1rem 0 2rem;
+  text-align: end;
+  text-decorator: none;
+  color: #b0b0b0;
+  font-size: 13px;
 `;
 
 export const ContinueWithSocial = styled.div`
-	margin: 2rem 0;
-	text-align: center;
-	color: #B0B0B0;
-	font-size: 13px;
+  margin: 2rem 0;
+  text-align: center;
+  color: #b0b0b0;
+  font-size: 13px;
 `;
 
 export const SocialLink = styled.div`
-	display: flex; 
-	justify-content: center;
-	margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 `;
 
 export const SocialImg = styled.img`
-	img: ${(props) => props.src};
-	margin: 0 0.5rem;
+  img: ${(props) => props.src};
+  margin: 0 0.5rem;
 `;
