@@ -3,7 +3,7 @@ import { CardContent } from '@mui/material';
 import { FormikStepper } from './FormikStepper';
 import { ILoginForm, IRegisterForm } from '../../../model/loginOrRegisterInterfaces/interfaces';
 import { FormTextField } from '../../../common/user/FormTextField';
-import {FormSelectField} from '../../../common/user/FormSelectField'
+import { FormSelectField } from '../../../common/user/FormSelectField';
 import { paused } from '../../../utils/paused';
 import { validationRegister } from '../../../utils/validationShema';
 import { RightSide } from '../userLoginOrRegisterStyle';
@@ -27,6 +27,12 @@ export const RegisterForm: React.FC = () => {
     firstName: '',
     lastName: '',
   });
+
+  const selects = [
+    { value: 'aaa', title: 'aaa' },
+    { value: 'bbb', title: 'bbb' },
+    { value: 'ccc', title: 'ccc' },
+  ];
 
   return (
     <RightSide>
@@ -59,16 +65,32 @@ export const RegisterForm: React.FC = () => {
           </FormikStep>
 
           <FormikStep label="mealPreferencies">
-            <FormTextField placeholder="Enter prohibited products" name="prohibitedProducts" type="text" />
+            <FormTextField
+              placeholder="Enter prohibited products"
+              name="prohibitedProducts"
+              type="text"
+            />
             <FormTextField placeholder="Enter Wish products" name="wishProducts" type="text" />
-            <FormSelectField placeholder="Choose Goal" name="goal" type="text"/>
+            <FormSelectField placeholder="Choose Goal" name="goal" type="text" values={selects} />
             <FormTextField placeholder="Quantity meals a day" name="quantityMeals" type="text" />
           </FormikStep>
 
           <FormikStep label="exercises">
-            <FormSelectField placeholder="Choose type of programm" name="typeOfProgramm" type="text"/>
-            <FormSelectField placeholder="Тumber of workouts per week" name="tumberOfWorkouts" type="text"/>
-            <FormSelectField placeholder="What type of trainings do you prefer" name="typeOfTrainings" type="text"/>
+            <FormSelectField
+              placeholder="Choose type of programm"
+              name="typeOfProgramm"
+              type="text"
+            />
+            <FormSelectField
+              placeholder="Тumber of workouts per week"
+              name="tumberOfWorkouts"
+              type="text"
+            />
+            <FormSelectField
+              placeholder="What type of trainings do you prefer"
+              name="typeOfTrainings"
+              type="text"
+            />
           </FormikStep>
         </FormikStepper>
       </CardContent>
