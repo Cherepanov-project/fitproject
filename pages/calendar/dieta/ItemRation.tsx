@@ -1,5 +1,5 @@
 import { DailyRationType } from "../../../model/dieta/dieta";
-import { FC } from "react";
+import { FC } from "React";
 import {
   FoodLink,
   ListItem,

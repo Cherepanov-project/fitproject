@@ -7,7 +7,7 @@ import {
   addMonths,
   subMonths,
   getDate,
-} from "date-fns";
+} from 'date-fns';
 import {
   CalcHead,
   DayBlur,
@@ -17,16 +17,16 @@ import {
   FlexItem,
   CalcDate,
   CalendarDiv,
-} from "./stylesCalendar";
-import CalendarContainer from "../../common/CalendarContainer";
-import Link from "next/link";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import { styled } from "@mui/material/styles";
-import monthArr from "../../model/user/main";
-import uid from "../../utils/uid";
-import FramerCalendar from "../../common/FramerCalendar";
+} from './stylesCalendar';
+import CalendarContainer from '../../common/CalendarContainer';
+import Link from 'next/link';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import { styled } from '@mui/material/styles';
+import monthArr from '../../model/user/main';
+import uid from '../../utils/uid';
+import FramerCalendar from '../../common/FramerCalendar';
 
 const Calendar = () => {
   const dateToday: Date = new Date();
@@ -38,10 +38,10 @@ const Calendar = () => {
   const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
-    textAlign: "start",
-    width: "7rem",
-    height: "6rem",
-    backgroundColor: "azure",
+    textAlign: 'start',
+    width: '7rem',
+    height: '6rem',
+    backgroundColor: 'azure',
     color: theme.palette.text.secondary,
   }));
 
