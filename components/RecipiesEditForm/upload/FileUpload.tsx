@@ -65,15 +65,16 @@ const FileUpload = ({name}: {name: string}) => {
 		setFiles(curr => curr.filter(fw => fw.file !== file))
 	}
 
+	const uploadFile = (file: File, url: string) => 
+		(curr: any) => curr.map((fw: any) => {
+			if (fw.file === file) {
+				return {...fw, url} 
+			}
+		return fw
+	})
+
 	const onUpload = (file: File, url: string) => {
-		setFiles((curr) =>
-			curr.map(fw => {
-				if (fw.file === file) {
-					return {...fw, url} 
-				}
-				return fw
-			})
-		)
+		setFiles(uploadFile(file, url))
 	}				
 
 	const {getRootProps, getInputProps, isDragActive} = useDropzone({

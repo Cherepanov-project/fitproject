@@ -2,7 +2,7 @@ import React from 'react'
 import {useField, FieldArray } from 'formik' 
 import { Grid, Box, TextField, IconButton } from '@mui/material'
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import {IIngredient} from '../../../interfaces'
+import {IIngredient} from '../../../model/recipes/index'
 
 interface IProps {
 	name: string

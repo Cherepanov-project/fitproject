@@ -10,11 +10,13 @@ interface SingleFileUploadWithProgressProps {
 
 export function SingleFileUpload({file, onDelete, onUpload}: SingleFileUploadWithProgressProps) {
 	const [progress, setProgress] = useState(0)
+
+	const upload = async function upload() {
+		const url = await uploadFile(file, setProgress)
+		onUpload(file, url)
+	}
+	
 	useEffect(() => {
-		async function upload() {
-			const url: string = await uploadFile(file, setProgress)
-			onUpload(file, url)
-		}
 		upload()
 	}, [])
 

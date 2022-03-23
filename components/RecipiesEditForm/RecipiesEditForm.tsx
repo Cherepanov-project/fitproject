@@ -8,10 +8,13 @@ import FileUpload from './upload/FileUpload'
 import HeaderInput from './HeaderInput/HeaderInput'
 import ShortDescriptionText from './ShortDescriptionInput/ShortDescriptionInput'
 import IngredientsFiled from './IngredientsField/IngredientsFiled'
-// import NutritionValuesField from './NutritionValuesField/NutritionValuesField'
 import TagsInput from './TagsInput/TagsInput'
 import EditorMCE from './EditorMCE/EditorMCE'
 import NutrilonValue from './NutritionValuesField/NutrilonValue'
+import {INutrilon, nutrilonsMapped} from '../../model/recipes/index'
+import {exercisesValues} from '../../model/exercises/index'
+import {recipesValues} from '../../model/recipes/index'
+import {articlesValues} from '../../model/articles/index'
 
 interface IIngredient {
 	name: string;
@@ -22,13 +25,13 @@ type TIngredientsList = IIngredient[]
 
 interface EditFormValues {
    headerText: string;
-	shortDescriptionText: string;
-	chip: string[];
-	ingredients: TIngredientsList;
-	calories: string;
-	protein: string;
-	fats: string;
-	carbs: string;
+	shortDescriptionText?: string;
+	chip?: string[];
+	ingredients?: TIngredientsList;
+	calories?: string;
+	protein?: string;
+	fats?: string;
+	carbs?: string;
 	text: string;
 	files: string[];
 }
@@ -41,6 +44,7 @@ const MainContainer = styled.div`
 	margin: 0 40px;
 	padding: 30px 100px;
 `
+// ВАЛИДАЦИЯ (при необходимости)
 
 // const validationSchema = yup.object({
 // 	headerText: yup
@@ -52,42 +56,22 @@ const MainContainer = styled.div`
 // 	  .required('short description is required'),
 //  });
 
-interface INutrilon {
-	name: string;
-	formik: string;
-}
 
-// type TNutrilonList = INutrilon[]
-
-const nutrilonsMapped = [
-	{name:'Carbs', formik:'carbs'},
-	{name: 'Protein', formik: 'protein'},
-	{name: 'Fats', formik: 'fats'},
-	{name: 'Calories', formik: 'calories'}
-]
 
 
 
 export const RecipiesEditForm = () => {
-	const router = useRouter()
+	const {asPath} = useRouter()
+	let path = asPath.split('/').pop()
+	let initialValues: EditFormValues
+	if (path === 'recipes')  initialValues = recipesValues
+	if (path === 'exercises') initialValues = exercisesValues 
+	if (path === 'articles') initialValues = articlesValues
 	return (
 		<>
 			<MainContainer>
-				<Formik initialValues = {{
-					headerText: '',
-					shortDescriptionText: '',
-					chip: [],
-					ingredients: [{
-						name: '',
-						description: ''
-					}],
-					calories: '',
-					protein: '',
-					fats: '',
-					carbs: '',
-					text: '',
-					files: []
-				}}
+				<Formik initialValues = {initialValues}
+				// validationSchema={validationSchema} // Подключение валидации
 				onSubmit = {async (values: EditFormValues) => {
 					console.log(values)
 				  	return new Promise((res) => setTimeout(res, 2500))
@@ -114,6 +98,7 @@ export const RecipiesEditForm = () => {
 										/>
 									</Box>
 								</Grid>
+								{path === 'recipes' && 
 								<Grid item>
 									<Typography fontSize='16px' color='#6F7482' mb={2}>
 										Short description
@@ -121,7 +106,8 @@ export const RecipiesEditForm = () => {
 									<ShortDescriptionText
 										name="shortDescriptionText"
 									/>
-								</Grid>
+								</Grid>}
+								{path === 'recipes' && 
 								<Grid item>
 									<Typography fontSize='16px' color='#6F7482' my={2}>
 										Ingredients
@@ -129,7 +115,8 @@ export const RecipiesEditForm = () => {
 									<IngredientsFiled 
 										name='ingredients'
 									/>
-								</Grid>
+								</Grid>}
+								{path === 'recipes' && 
 								<Grid item>
 									<Typography fontSize='16px' color='#6F7482'>
 										Nutrition Values
@@ -147,12 +134,13 @@ export const RecipiesEditForm = () => {
 											})}
 										</Stack>
 									</Box> 
-								</Grid>
+								</Grid>}
+								{path === 'recipes' || path !== 'articles' &&
 								<Grid item>
 									<TagsInput 
 										name='chip'
 									/>
-								</Grid>
+								</Grid>}
 								<Grid>
 									<Box my={2}>
 										<Grid item p={1}>
