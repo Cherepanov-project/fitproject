@@ -70,8 +70,15 @@ export const Input = styled.input<{ error: boolean }>`
   }
 `;
 
-export const InputSelect = styled.div<{ error: boolean }>`
+export const InputSelect = styled.select<{ error: boolean }>`
+  position: relative;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
+  color: #a7a3ff;
   background-color: #f0efff;
+  padding: 0.8rem 1rem;
   font-size: 15px;
   border-radius: 5px;
   border: ${(props) => (props.error ? '1px solid red' : 'none')};
@@ -81,6 +88,11 @@ export const InputSelect = styled.div<{ error: boolean }>`
   &::placeholder {
     color: #a7a3ff;
   }
+`;
+
+export const SelectOption = styled.option`
+  background-color: #f0efff;
+  font-size: 15px;
 `;
 
 export const RegOrLoginIcon = styled.img`

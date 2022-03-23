@@ -1,28 +1,22 @@
 import { FormikConfig, FormikValues } from 'formik';
 
 export interface IRegisterForm {
-  user: {
-    userName: string;
-    firstName?: string;
-    lastName?: string;
-    email: string;
-    password: string;
-    confirmPassword: string;
-    age?: number;
-    sex?: string;
-    contactNumber?: number;
-  },
-  meal: {
-    prohibitedProducts: string;
-    wishProducts: string;
-    goal: string;
-    quantityMeals:string;
-  },
-  exsersises: {
-    typeOfProgramm: string;
-    tumberOfWorkouts: string;
-    typeOfTrainings: string;
-  }
+  userName: string;
+  firstName?: string;
+  lastName?: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  age?: number;
+  sex?: string;
+  contactNumber?: number;
+  prohibitedProducts: string;
+  wishProducts: string;
+  goal: string;
+  quantityMeals: string;
+  typeOfProgramm: string;
+  tumberOfWorkouts: string;
+  typeOfTrainings: string;
 }
 
 export interface ILoginForm {
@@ -55,6 +49,11 @@ export interface IInputForm {
 export interface ISelectForm {
   placeholder: string;
   name: string;
+  values: ISelectFormValues[];
+}
+interface ISelectFormValues {
+  value: string;
+  title: string;
 }
 
 export interface IFormikStepper {

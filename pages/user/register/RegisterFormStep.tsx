@@ -11,32 +11,27 @@ import FormikStep from '../../../common/user/FormikStep';
 import { IFormStatus } from '../../../model/loginOrRegisterInterfaces/interfaces';
 import { loginOrRegisterUser } from '../../../utils/loginOrRegisterUser';
 
-
 export const RegisterForm: React.FC = () => {
   const [displayFormStatus, setDisplayFormStatus] = useState<boolean>(false);
+
   const [formStatus, setFormStatus] = useState<IFormStatus>({
     message: '',
     type: '',
   });
+
   const [values, setValues] = useState<IRegisterForm>({
-    user: {
-      email: '',
-      password: '',
-      confirmPassword: '',
-      userName: '',
-      contactNumber: null,
-    },
-    meal: {
-      prohibitedProducts: '',
-      wishProducts: '',
-      goal: '',
-      quantityMeals:'',
-    },
-    exsersises: {
-      typeOfProgramm: '',
-      tumberOfWorkouts: '',
-      typeOfTrainings: ''
-    }
+    email: '',
+    password: '',
+    confirmPassword: '',
+    userName: '',
+    contactNumber: null,
+    prohibitedProducts: '',
+    wishProducts: '',
+    goal: '',
+    quantityMeals: '',
+    typeOfProgramm: '',
+    tumberOfWorkouts: '',
+    typeOfTrainings: '',
   });
 
   const selects = [
@@ -49,34 +44,25 @@ export const RegisterForm: React.FC = () => {
     <RightSide>
       <CardContent sx={{ width: '80%', margin: '0 auto' }}>
         <FormikStepper
-          onSubmit={async (
-            data: IRegisterForm,
-            actions: { resetForm: Function },
-          ) => {
+          onSubmit={async (data: IRegisterForm, actions: { resetForm: Function }) => {
             await paused(3000);
             await loginOrRegisterUser(data, actions.resetForm, setFormStatus, setDisplayFormStatus);
 
             console.log('data sign in: ', data);
           }}
           initialValues={{
-            user: {
-              email: '',
-              password: '',
-              confirmPassword: '',
-              userName: '',
-              contactNumber: null,
-            },
-            meal: {
-              prohibitedProducts: '',
-              wishProducts: '',
-              goal: '',
-              quantityMeals:'',
-            },
-            exsersises: {
-              typeOfProgramm: '',
-              tumberOfWorkouts: '',
-              typeOfTrainings: ''
-            }
+            email: '',
+            password: '',
+            confirmPassword: '',
+            userName: '',
+            contactNumber: null,
+            prohibitedProducts: '',
+            wishProducts: '',
+            goal: '',
+            quantityMeals: '',
+            typeOfProgramm: '',
+            tumberOfWorkouts: '',
+            typeOfTrainings: '',
           }}>
           <FormikStep label="userInfo" validationSchema={validationRegister}>
             <FormTextField placeholder="Enter Email" name="email" type="text" />
@@ -93,7 +79,7 @@ export const RegisterForm: React.FC = () => {
               type="text"
             />
             <FormTextField placeholder="Enter Wish products" name="wishProducts" type="text" />
-            <FormSelectField placeholder="Choose Goal" name="goal" type="text" values={selects} />
+            <FormSelectField placeholder="Choose Goal" name="goal" values={selects} />
             <FormTextField placeholder="Quantity meals a day" name="quantityMeals" type="text" />
           </FormikStep>
 
@@ -101,19 +87,16 @@ export const RegisterForm: React.FC = () => {
             <FormSelectField
               placeholder="Choose type of programm"
               name="typeOfProgramm"
-              type="text"
               values={selects}
             />
             <FormSelectField
               placeholder="Тumber of workouts per week"
               name="tumberOfWorkouts"
-              type="text"
               values={selects}
             />
             <FormSelectField
               placeholder="What type of trainings do you prefer"
               name="typeOfTrainings"
-              type="text"
               values={selects}
             />
           </FormikStep>
