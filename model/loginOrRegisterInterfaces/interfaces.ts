@@ -1,17 +1,28 @@
 import { FormikConfig, FormikValues } from 'formik';
 
 export interface IRegisterForm {
-  userName: string;
-  firstName?: string;
-  lastName?: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-  age?: number;
-  sex?: string;
-  contactNumber?: number;
-  meal?: string;
-  exercises?: string;
+  user: {
+    userName: string;
+    firstName?: string;
+    lastName?: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
+    age?: number;
+    sex?: string;
+    contactNumber?: number;
+  },
+  meal: {
+    prohibitedProducts: string;
+    wishProducts: string;
+    goal: string;
+    quantityMeals:string;
+  },
+  exsersises: {
+    typeOfProgramm: string;
+    tumberOfWorkouts: string;
+    typeOfTrainings: string;
+  }
 }
 
 export interface ILoginForm {

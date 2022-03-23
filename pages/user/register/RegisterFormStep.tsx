@@ -10,7 +10,7 @@ import { RightSide } from '../userLoginOrRegisterStyle';
 import FormikStep from '../../../common/user/FormikStep';
 import { IFormStatus } from '../../../model/loginOrRegisterInterfaces/interfaces';
 import { loginOrRegisterUser } from '../../../utils/loginOrRegisterUser';
-import { FormikValues } from 'formik';
+
 
 export const RegisterForm: React.FC = () => {
   const [displayFormStatus, setDisplayFormStatus] = useState<boolean>(false);
@@ -19,13 +19,24 @@ export const RegisterForm: React.FC = () => {
     type: '',
   });
   const [values, setValues] = useState<IRegisterForm>({
-    userName: '',
-    email: '',
-    contactNumber: 0,
-    password: '',
-    confirmPassword: '',
-    firstName: '',
-    lastName: '',
+    user: {
+      email: '',
+      password: '',
+      confirmPassword: '',
+      userName: '',
+      contactNumber: null,
+    },
+    meal: {
+      prohibitedProducts: '',
+      wishProducts: '',
+      goal: '',
+      quantityMeals:'',
+    },
+    exsersises: {
+      typeOfProgramm: '',
+      tumberOfWorkouts: '',
+      typeOfTrainings: ''
+    }
   });
 
   const selects = [
@@ -39,7 +50,7 @@ export const RegisterForm: React.FC = () => {
       <CardContent sx={{ width: '80%', margin: '0 auto' }}>
         <FormikStepper
           onSubmit={async (
-            data: FormikValues | ILoginForm | IRegisterForm,
+            data: IRegisterForm,
             actions: { resetForm: Function },
           ) => {
             await paused(3000);
@@ -48,13 +59,24 @@ export const RegisterForm: React.FC = () => {
             console.log('data sign in: ', data);
           }}
           initialValues={{
-            email: '',
-            password: '',
-            confirmPassword: '',
-            userName: '',
-            contactNumber: null,
-            meal: '',
-            exercises: '',
+            user: {
+              email: '',
+              password: '',
+              confirmPassword: '',
+              userName: '',
+              contactNumber: null,
+            },
+            meal: {
+              prohibitedProducts: '',
+              wishProducts: '',
+              goal: '',
+              quantityMeals:'',
+            },
+            exsersises: {
+              typeOfProgramm: '',
+              tumberOfWorkouts: '',
+              typeOfTrainings: ''
+            }
           }}>
           <FormikStep label="userInfo" validationSchema={validationRegister}>
             <FormTextField placeholder="Enter Email" name="email" type="text" />
@@ -80,16 +102,19 @@ export const RegisterForm: React.FC = () => {
               placeholder="Choose type of programm"
               name="typeOfProgramm"
               type="text"
+              values={selects}
             />
             <FormSelectField
               placeholder="Тumber of workouts per week"
               name="tumberOfWorkouts"
               type="text"
+              values={selects}
             />
             <FormSelectField
               placeholder="What type of trainings do you prefer"
               name="typeOfTrainings"
               type="text"
+              values={selects}
             />
           </FormikStep>
         </FormikStepper>

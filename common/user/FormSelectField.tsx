@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useField } from 'formik';
+import { nanoid } from 'nanoid';
 import { Box, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { SelectChangeEvent } from '@mui/material/Select';
 import { ErrorMessage, InputSelect } from '../../pages/user/userLoginOrRegisterStyle';
@@ -17,11 +18,11 @@ const FormSelectField = (props) => {
     <Box paddingBottom={1}>
       <FormControl sx={{ width: '100%' }}>
         <InputSelect error={meta.error && meta.touched} type="text" {...field} {...props}>
-          <InputLabel sx={{ fontSize: 15, color: '#A7A3FF' }} id="selectLabel">
+          <InputLabel sx={{ fontSize: 15, color: '#A7A3FF'}} id="selectLabel">
             {props.placeholder}
           </InputLabel>
           <Select
-            sx={{ width: '100%', height: 50 }}
+            sx={{ width: '100%'}}
             labelId="selectLabel"
             id="select"
             value={selectValue}
@@ -29,7 +30,7 @@ const FormSelectField = (props) => {
             onChange={handleChange}>
             {props.values.map((elem) => {
               return (
-                <MenuItem sx={{ fontSize: 15, color: '#A7A3FF' }} value={elem.value}>
+                <MenuItem key={nanoid()} sx={{ fontSize: 15 }} value={elem.value}>
                   {elem.title}
                 </MenuItem>
               );
