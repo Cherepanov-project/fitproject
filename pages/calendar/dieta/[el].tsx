@@ -3,7 +3,7 @@ import CalendarContainer from "../../../common/CalendarContainer";
 import HeadLinkBack from "../../../common/HeadLinkBack";
 import { ListUl, ItemDiv, ListItemName } from "./stylesDieta";
 import { DailyRationType, dailyRation } from "../../../model/dieta/dieta";
-import { useState } from "react";
+import { useState } from "React";
 import ItemRation from "./ItemRation";
 
 const DailyRation = () => {
