@@ -5,7 +5,7 @@ import { ILoginForm, IRegisterForm } from '../../../model/loginOrRegisterInterfa
 import { FormTextField } from '../../../common/user/FormTextField';
 import { FormSelectField } from '../../../common/user/FormSelectField';
 import { paused } from '../../../utils/paused';
-import { validationRegister } from '../../../utils/validationShema';
+import { validationUser, validationMeal, validationExercises} from '../../../utils/validationShema';
 import { RightSide } from '../userLoginOrRegisterStyle';
 import FormikStep from '../../../common/user/FormikStep';
 import { IFormStatus } from '../../../model/loginOrRegisterInterfaces/interfaces';
@@ -64,15 +64,16 @@ export const RegisterForm: React.FC = () => {
             tumberOfWorkouts: '',
             typeOfTrainings: '',
           }}>
-          <FormikStep label="userInfo" validationSchema={validationRegister}>
+          <FormikStep label="userInfo" validationSchema={validationUser}>
             <FormTextField placeholder="Enter Email" name="email" type="text" />
             <FormTextField placeholder="Create User name" name="userName" type="text" />
-            <FormTextField placeholder="Contact number" name="contactNumber" type="number" />
+            <FormTextField placeholder="Contact number" name="contactNumber" type="text" />
             <FormTextField placeholder="Password" name="password" secrecy={true} />
             <FormTextField placeholder="Confirm Password" name="confirmPassword" secrecy={true} />
+            <FormSelectField placeholder="Choose Goal" name="goal" values={selects} />
           </FormikStep>
 
-          <FormikStep label="mealPreferencies">
+          <FormikStep label="mealPreferencies" validationSchema={validationMeal}> 
             <FormTextField
               placeholder="Enter prohibited products"
               name="prohibitedProducts"
@@ -83,7 +84,7 @@ export const RegisterForm: React.FC = () => {
             <FormTextField placeholder="Quantity meals a day" name="quantityMeals" type="text" />
           </FormikStep>
 
-          <FormikStep label="exercises">
+          <FormikStep label="exercises" validationSchema={validationExercises}>
             <FormSelectField
               placeholder="Choose type of programm"
               name="typeOfProgramm"
