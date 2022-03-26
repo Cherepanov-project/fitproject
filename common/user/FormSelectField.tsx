@@ -11,7 +11,7 @@ const FormSelectField = (props: ISelectForm) => {
   return (
     <Box paddingBottom={1}>
       <FormControl sx={{ width: '100%' }}>
-        <InputSelect error={meta.error && meta.touched} {...field} {...props}>
+        <InputSelect defaultValue="" error={meta.error && meta.touched} {...field} {...props}>
           <SelectOption value="" selected>
             {props.placeholder}
           </SelectOption>

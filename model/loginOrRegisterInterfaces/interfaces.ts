@@ -15,7 +15,7 @@ export interface IRegisterForm {
   goal: string;
   quantityMeals: string;
   typeOfProgramm: string;
-  tumberOfWorkouts: string;
+  numberOfWorkouts: string;
   typeOfTrainings: string;
 }
 
