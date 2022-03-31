@@ -1,4 +1,4 @@
-import React, { useState } from 'React';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { Formik } from 'formik';
 import { paused } from '../../../utils/paused';
@@ -21,35 +21,21 @@ export const LoginForm: React.FC = () => {
       onSubmit={async (data, actions) => {
         //имитация отправки формы
         await paused(3000);
-        await loginOrRegisterUser(
-          data,
-          actions.resetForm,
-          setFormStatus,
-          setDisplayFormStatus
-        );
+        await loginOrRegisterUser(data, actions.resetForm, setFormStatus, setDisplayFormStatus);
 
         console.log('data sign in: ', data);
       }}
       initialValues={{
         login: '',
         password: '',
-      }}
-    >
+      }}>
       {({ isSubmitting, handleSubmit }) => (
         <RightSide>
           <CardContent sx={{ width: '80%', margin: '0 auto' }}>
             <Title2>Sign in</Title2>
             <form onSubmit={handleSubmit}>
-              <FormTextField
-                placeholder="Enter email or user name"
-                name="login"
-                type="text"
-              />
-              <FormTextField
-                placeholder="Password"
-                name="password"
-                secrecy={true}
-              />
+              <FormTextField placeholder="Enter email or user name" name="login" type="text" />
+              <FormTextField placeholder="Password" name="password" secrecy={true} />
               <div>
                 {
                   <Link href="#">
@@ -63,10 +49,7 @@ export const LoginForm: React.FC = () => {
                 type="submit"
                 disabled={isSubmitting}
                 variant="contained"
-                startIcon={
-                  isSubmitting ? <CircularProgress size="1.5rem" /> : null
-                }
-              >
+                startIcon={isSubmitting ? <CircularProgress size="1.5rem" /> : null}>
                 {isSubmitting ? '' : 'Login'}
               </Button>
             </form>
