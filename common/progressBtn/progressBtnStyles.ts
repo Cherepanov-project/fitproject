@@ -5,9 +5,11 @@ let dotsSrc = dots;
 if(dots.src){dotsSrc = dots.src};
 
 export const ProgressButton = styled.button`
+background-color: white;
 position: relative;
 display: flex;
 flex-direction: column;
+align-items: center;
 height: 237px;
 width: 296px;
 border: none;

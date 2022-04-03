@@ -7,13 +7,18 @@ import {
   IndigrientsContainer,
   FoodContainer,
   ButtonFood,
+  DishDescriptionWrapper
 } from "./stylesDish";
-import img from "/common/images/DishChikenImg.jpg";
+import img from "/common/images/DishChikenImg.png";
 import uid from "../../utils/uid";
 import { FoodItemType, dishFood } from "../../model/dish/dish";
 import DishIndigrients from "./DishIndigrients";
+import { LayoutUser } from "../../layouts/Layout-user/Layout-user";
+import HeadLinkBack from "../HeadLinkBack";
+import { useRouter } from "next/router";
 
 const Dish = () => {
+  const {query} = useRouter()
   const [foodItem, setFoodItem] = useState<FoodItemType>(dishFood);
 
   const indigrientsActive = () => {
@@ -48,8 +53,9 @@ const Dish = () => {
 
   return (
     <DishComponent imgUrl={img.src}>
+      <HeadLinkBack backLink={`${query.url}`} namesCompoent={query.eating} />
       <DishItem>
-        <div>
+        <DishDescriptionWrapper>
           <h2>{foodItem.namesFood}</h2>
           <p>{foodItem.description}</p>
           <ButtonFood
@@ -58,7 +64,7 @@ const Dish = () => {
           >
             Закрыть
           </ButtonFood>
-        </div>
+        </DishDescriptionWrapper>
         <FoodContainer $display={foodItem.activeRecipe}>
           <h3>Ingredients</h3>
           <IndigrientsContainer>
@@ -83,4 +89,4 @@ const Dish = () => {
   );
 };
 
-export default Dish;
+export default LayoutUser(Dish);

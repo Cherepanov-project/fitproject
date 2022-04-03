@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FC } from "react";
-import { workoutDayType } from "../../../model/workout/wokout";
+import { workoutDayType } from "../../../../model/workout/wokout";
 import {
   ListItem,
   ItemWorkoutDiv,
@@ -26,7 +26,7 @@ const ItemWorkout: FC<ItemWorkoutProps> = ({
       <ItemWorkoutDiv>
         <Link
           href={{
-            pathname: `/calendar/workoutExercises/${workoutEl.exercises}`,
+            pathname: `/user/calendar/workoutExercises/${workoutEl.exercises}`,
             query: { url: asPath, eating: workoutEl.exercises },
           }}
         >

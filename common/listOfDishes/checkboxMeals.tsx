@@ -5,7 +5,7 @@ import {
   specificationMealsType,
   specificationMeals,
 } from '../../model/sideBar/sideBar';
-import { MenuH2 } from '../../pages/user/listOfDishes/stylesAllMenus';
+import { MenuH2, SpecificationWrapper } from '../../pages/user/listOfDishes/stylesAllMenus';
 import { BoxCheckBox } from '../../pages/user/listOfDishes/stylesAllMenus';
 import Checkbox from '@mui/material/Checkbox';
 
@@ -31,10 +31,12 @@ const CheckboxMeals = () => {
   ));
 
   return (
-    <div>
+    <>
       <MenuH2>Meals</MenuH2>
+    <SpecificationWrapper>
       {MealsNods}
-    </div>
+    </SpecificationWrapper>
+    </>
   );
 };
 export default CheckboxMeals;

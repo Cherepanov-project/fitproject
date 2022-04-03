@@ -18,15 +18,17 @@ import {
   CalcDate,
   CalendarDiv,
 } from './stylesCalendar';
-import CalendarContainer from '../../common/CalendarContainer';
+import CalendarContainer from '../../../common/CalendarContainer';
 import Link from 'next/link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
-import monthArr from '../../model/user/main';
-import uid from '../../utils/uid';
-import FramerCalendar from '../../common/FramerCalendar';
+import monthArr from '../../../model/user/main';
+import uid from '../../../utils/uid';
+import FramerCalendar from '../../../common/FramerCalendar';
+
+import { LayoutUser } from '../../../layouts/Layout-user/Layout-user';
 
 const Calendar = () => {
   const dateToday: Date = new Date();
@@ -67,12 +69,12 @@ const Calendar = () => {
             <CalcDate>{el}</CalcDate>
             <div>
               <WorkoutLink>
-                <Link href={`/calendar/workout/${el}`}>
+                <Link href={`calendar/workout/${el}`}>
                   <CalcLink>Тренировка</CalcLink>
                 </Link>
               </WorkoutLink>
               <DietaLink>
-                <Link href={`/calendar/dieta/${el}`}>
+                <Link href={`calendar/dieta/${el}`}>
                   <CalcLink>Диета</CalcLink>
                 </Link>
               </DietaLink>
@@ -105,4 +107,4 @@ const Calendar = () => {
   );
 };
 
-export default FramerCalendar(Calendar);
+export default LayoutUser(FramerCalendar(Calendar))

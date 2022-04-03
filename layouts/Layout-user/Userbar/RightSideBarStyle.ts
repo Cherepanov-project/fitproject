@@ -1,5 +1,20 @@
 import styled from "styled-components";
 
+
+export const MainWrapper = styled.div`
+background-color: #F1F1F1;
+height: 100vh
+`
+
+export const RightSideBarWrapper = styled.div`
+width: 244px;
+height: 100vh;
+display: flex;
+flex-direction: column;
+margin-left: 30px;
+background-color: white;
+`
+
 export const UserInfoWrapper = styled.div`
 	display: flex;
 	margin-top: 34px;
@@ -10,7 +25,8 @@ export const UserInfo = styled.div`
 `;
 
 export const WeightLoosGoalWrapper = styled.div`
-	margin: 0 auto
+	margin: 0 auto;
+	text-align: center;
 `;
 
 export const Loss = styled.div`
@@ -18,14 +34,14 @@ export const Loss = styled.div`
 `;
 
 export const IconArrow = styled.img`
-	position: absolute;
-	width 10px;
+	position: absolute; 
+	width: 10px;
 	padding: 10px 12px 10px ;
 	left: 200px;
 	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 10px;
-	width: '32px',
-	height: '32px',
+	width: 32px;
+	height: 32px;
 `;
 
 export const Meter = styled.img`
@@ -34,12 +50,12 @@ export const Meter = styled.img`
 
 export const Avatar = styled.img`
 	width: 64px;
-	height 65px;
+	height: 65px;
 	margin: 0px 10px 0px 24px;
 	border: 2px solid #6D63FF;
 	box-sizing: border-box;
 	border-radius: 100px;
-	@img{
+	img {
 		border-radius: 35%
 	}
 `;
@@ -60,7 +76,7 @@ export const LastVisitTime = styled.div`
 `;
 
 export const Icon = styled.img`
-	width 27px;
+	width: 27px;
 `;
 
 export const IconWrapper = styled.div`

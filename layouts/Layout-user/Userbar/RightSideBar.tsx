@@ -1,10 +1,10 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import uid from "../../../utils/uid";
+
 import {
 	Avatar,
 	Icon,
@@ -17,14 +17,16 @@ import {
 	IconArrow,
 	Loss,
 	Meter,
+	RightSideBarWrapper,
+	MainWrapper
 	/* SquareBtn, */
-} from "../user/RightSideBarStyle";
-import goalsIcon from "../images/icons/goals.svg";
-import diet from "../images/icons/diet.svg";
-import SeetingsIcon from "../images/icons/SeetingsIcon.svg";
-import defaultAvatar from "../images/defaultAvatar.png";
-import arrow from "../images/icons/arrow.svg";
-import meter from "../images/icons/meter.svg";
+} from "./RightSideBarStyle";
+import goalsIcon from "../images/UserBarIcons/goals.svg"
+import diet from "../images/UserBarIcons/diet.svg";
+import SeetingsIcon from "../images/UserBarIcons/SeetingsIcon.svg";
+import defaultAvatar from "../images/UserBarIcons/defaultAvatar.png";
+import arrow from "../images/UserBarIcons/arrow.svg";
+import meter from "../images/UserBarIcons/meter.svg";
 import { formatDistanceToNow } from "date-fns";
 
 const drawerWidth: string = "244px";
@@ -44,19 +46,8 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
 	const lastVisitTime = formatDistanceToNow(lastDate, { includeSeconds: true });
 
 	return (
-		<Box sx={{ display: "flex" }}>
-			<Drawer
-				sx={{
-					width: drawerWidth,
-					flexShrink: 0,
-					"& .MuiDrawer-paper": {
-						width: drawerWidth,
-						boxSizing: "border-box",
-					},
-				}}
-				variant="permanent"
-				anchor="right"
-			>
+		<MainWrapper>
+		<RightSideBarWrapper>
 				<UserInfoWrapper>
 					<Avatar alt="avatar" src={avatar.src} />
 					<UserInfo>
@@ -69,8 +60,9 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
 						margin: "auto 0",
 					}}
 				>
-					{["Goals", "Diet", "Seetings"].map((text: string, index: number) => (
+					{["Goals", "Diet", "Settings"].map((text: string, index: number) => (
 						<ListItemButton
+							key={uid()}
 							sx={{
 								position: 'relative',
 								marginTop: "30px",
@@ -122,7 +114,7 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
 					</Loss>
 					<Meter src={meter.src}></Meter>
 				</WeightLoosGoalWrapper>
-			</Drawer>
-		</Box>
+		</RightSideBarWrapper>
+		</MainWrapper>
 	);
 };

@@ -1,17 +1,18 @@
 import styled from "styled-components";
 import bgWater from "../../../common/images/bgBtnFrame1.svg";
 
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 1068px;
   background-color: #f1f1f1;
+  /* margin-top: 140px; */
 `;
 
 export const ActivContainer = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
 `;
 
@@ -48,7 +49,7 @@ export const ActivSelect = styled.select`
   margin-right: 25px;
   padding: 0 15px;
   color: #ffffff;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.1);
   border: 1px solid #ffffff;
   border-radius: 20px;
 `;
@@ -90,7 +91,7 @@ export const Target = styled.div`
 
 export const ProgressContainer = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   margin-top: 80px;
 `;
 
