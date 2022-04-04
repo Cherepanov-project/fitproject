@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
+import axios from 'axios';
 import { Formik } from 'formik';
 import { paused } from '../../../utils/paused';
 import { Button, CardContent, CircularProgress } from '@mui/material';
@@ -8,6 +9,8 @@ import { RightSide, Title2, ForgorPassword } from '../userLoginOrRegisterStyle';
 import { RegOrLoginSocial } from '../RegOrLoginSocial';
 import { IFormStatus } from '../../../model/loginOrRegisterInterfaces/interfaces';
 import { loginOrRegisterUser } from '../../../utils/loginOrRegisterUser';
+import { loginUser } from '../../../API/loginUser';
+import { red } from '@mui/material/colors';
 
 export const LoginForm: React.FC = () => {
   const [displayFormStatus, setDisplayFormStatus] = useState<boolean>(false);
@@ -19,11 +22,12 @@ export const LoginForm: React.FC = () => {
   return (
     <Formik
       onSubmit={async (data, actions) => {
-        //имитация отправки формы
-        await paused(3000);
+        // await paused(3000);
         await loginOrRegisterUser(data, actions.resetForm, setFormStatus, setDisplayFormStatus);
+        const { res } = await loginUser(data);
 
-        console.log('data sign in: ', data);
+        console.log('data sign in: ', { user: data });
+        // console.log(res);
       }}
       initialValues={{
         login: '',
