@@ -32,8 +32,14 @@ export const validationMeal = Yup.object().shape({
   goal: Yup.string().required('Required'),
   quantityMeals: Yup.string().required('Required'),
 });
+
 export const validationExercises = Yup.object().shape({
   typeOfProgramm: Yup.string().required('Required'),
   numberOfWorkouts: Yup.string().required('Required'),
   typeOfTrainings: Yup.string().required('Required'),
+});
+
+export const validationLoginUser = Yup.object().shape({
+  login: Yup.string().required('Required'),
+  password: Yup.string().required('Required'),
 });
