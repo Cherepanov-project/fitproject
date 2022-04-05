@@ -54,12 +54,12 @@ const FileUpload = ({name}: {name: string}) => {
 		const mappedRej = rejFiles.map((r) => ({ ...r, id: getNewId() }));
 		setFiles((curr) => [...curr, ...mappedAcc, ...mappedRej]);
 	 }, []);
-
+/*
 	 useEffect(() => {
 		helpers.setValue(files)
 		//helpers.setTouched(true)
 	}, [files])
-
+*/
 
 	const onDelete = (file: File) => {
 		setFiles(curr => curr.filter(fw => fw.file !== file))

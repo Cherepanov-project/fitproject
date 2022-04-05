@@ -1,20 +1,20 @@
-import styled from 'styled-components'
-import { useRouter } from 'next/router'
+import styled from 'styled-components';
+import { useRouter } from 'next/router';
 import { Grid, Typography, Box, Button, Stack} from '@mui/material';
 import { Formik, Form } from 'formik';
-import React from 'react';
-import * as yup from 'yup';
-import FileUpload from './upload/FileUpload'
-import HeaderInput from './HeaderInput/HeaderInput'
-import ShortDescriptionText from './ShortDescriptionInput/ShortDescriptionInput'
-import IngredientsFiled from './IngredientsField/IngredientsFiled'
-import TagsInput from './TagsInput/TagsInput'
-import EditorMCE from './EditorMCE/EditorMCE'
-import NutrilonValue from './NutritionValuesField/NutrilonValue'
+import React, {useEffect, useState} from 'react';
+import FileUpload from '../../components/RecipiesEditForm/upload/FileUpload';
+import HeaderInput from '../../components/RecipiesEditForm/HeaderInput/HeaderInput';
+import ShortDescriptionText from '../../components/RecipiesEditForm/ShortDescriptionInput/ShortDescriptionInput';
+import IngredientsFiled from '../../components/RecipiesEditForm/IngredientsField/IngredientsFiled';
+import TagsInput from '../../components/RecipiesEditForm/TagsInput/TagsInput';
+import EditorMCE from '../../components/RecipiesEditForm/EditorMCE/EditorMCE';
+import NutrilonValue from '../../components/RecipiesEditForm/NutritionValuesField/NutrilonValue';
 import {INutrilon, nutrilonsMapped} from '../../model/recipes/index'
 import {exercisesValues} from '../../model/exercises/index'
-import {recipesValues} from '../../model/recipes/index'
 import {articlesValues} from '../../model/articles/index'
+import {withLayout} from "../../layouts/Layout-admin/Layout-admin";
+import { ContentListType, contentList } from '../../model/recipies/recipiesList';
 
 interface IIngredient {
 	name: string;
@@ -24,14 +24,15 @@ interface IIngredient {
 type TIngredientsList = IIngredient[]
 
 interface EditFormValues {
-   headerText: string;
+	name: string;
+    headerText: string;
 	shortDescriptionText?: string;
 	chip?: string[];
 	ingredients?: TIngredientsList;
-	calories?: string;
-	protein?: string;
-	fats?: string;
-	carbs?: string;
+	calories?: number;
+	proteins?: number;
+	fats?: number;
+	carbs?: number;
 	text: string;
 	files: string[];
 }
@@ -60,22 +61,49 @@ const MainContainer = styled.div`
 
 
 
-export const RecipiesEditForm = () => {
-	const {asPath} = useRouter()
+const RecipiesEditForm: any = () => {
+
+	const [arrRecipie, setArrRecipie] = useState<ContentListType[]>([]);
+	const {name, fats, calories, proteins, carbohydrates} : ContentListType = arrRecipie
+    
+	const {asPath, query} = useRouter()
 	let path = asPath.split('/').pop()
-	let initialValues: EditFormValues
-	if (path === 'recipes')  initialValues = recipesValues
-	if (path === 'exercises') initialValues = exercisesValues 
+	
+	let initialValues;
+	console.log(query.id)
+	if (path === query.id) {
+		initialValues = {
+			'headerText': name,
+			'fats': fats,
+			'calories': calories,
+			'proteins': proteins,
+			'carbs': carbohydrates
+		}
+	}
+
+	if (path === 'exercises') initialValues = exercisesValues
 	if (path === 'articles') initialValues = articlesValues
+	
+	useEffect(() => {
+		// тут будет вызываться функция для получения рецепта по id
+		contentList.map((el: any) => {
+			let aaa = path.split('-').pop()
+			if(el.id === aaa) {
+				setArrRecipie(el)
+			}
+		})
+	}, [])
+	
+
 	return (
 		<>
 			<MainContainer>
 				<Formik initialValues = {initialValues}
 				// validationSchema={validationSchema} // Подключение валидации
 				onSubmit = {async (values: EditFormValues) => {
-					console.log(values)
 				  	return new Promise((res) => setTimeout(res, 2500))
 				}}
+				enableReinitialize={true}
 				>
 					{(props) => (
 						<Form autoComplete='off' onSubmit={props.handleSubmit} >
@@ -98,16 +126,16 @@ export const RecipiesEditForm = () => {
 										/>
 									</Box>
 								</Grid>
-								{path === 'recipes' && 
+								{path === query.id && 
 								<Grid item>
 									<Typography fontSize='16px' color='#6F7482' mb={2}>
 										Short description
 									</Typography>
 									<ShortDescriptionText
-										name="shortDescriptionText"
+										name='shortDescriptionText'
 									/>
 								</Grid>}
-								{path === 'recipes' && 
+								{path === query.id && 
 								<Grid item>
 									<Typography fontSize='16px' color='#6F7482' my={2}>
 										Ingredients
@@ -116,7 +144,7 @@ export const RecipiesEditForm = () => {
 										name='ingredients'
 									/>
 								</Grid>}
-								{path === 'recipes' && 
+								{path === query.id && 
 								<Grid item>
 									<Typography fontSize='16px' color='#6F7482'>
 										Nutrition Values
@@ -127,15 +155,15 @@ export const RecipiesEditForm = () => {
 												return (
 													<NutrilonValue 
 														key={index}
-														formik={formik}
-														name={name}
+														formik = {formik}
+														name = {name}
 													/>
 												)
 											})}
 										</Stack>
 									</Box> 
 								</Grid>}
-								{path === 'recipes' || path !== 'articles' &&
+								{path === query.id || path !== 'articles' &&
 								<Grid item>
 									<TagsInput 
 										name='chip'
@@ -166,4 +194,6 @@ export const RecipiesEditForm = () => {
 		</>
 	)
 }
+
+export default withLayout(RecipiesEditForm);
 

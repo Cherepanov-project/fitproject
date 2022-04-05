@@ -18,7 +18,7 @@ export interface INutrilon {
 
 export const nutrilonsMapped = [
 	{name:'Carbs', formik:'carbs'},
-	{name: 'Protein', formik: 'protein'},
+	{name: 'Proteins', formik: 'proteins'},
 	{name: 'Fats', formik: 'fats'},
 	{name: 'Calories', formik: 'calories'}
 ]

@@ -131,3 +131,11 @@ export const Widget = styled.div`
 export const BlockHeaderRightSideStyled = styled(BlockHeaderRightSide)`
     justify-content: flex-end;
 `;
+
+export const ContentList = styled.div`
+    width: 1120px;
+    border: 1px solid #DFE0EB;
+    margin: 0 auto;
+`
+export const FooterRecipies = styled.div`
+`
