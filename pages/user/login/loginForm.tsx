@@ -25,7 +25,7 @@ export const LoginForm: React.FC = () => {
         await loginOrRegisterUser(data, actions.resetForm, setFormStatus, setDisplayFormStatus);
         const { res: token } = await loginUser(data);
         Cookies.set('userToken', token, { expires: 2 });
-        window.location.href = 'http://localhost:3000/user/statistics'
+        window.location.href = `${process.env.LOCAL_URL}/user/statistics`
       }}
       initialValues={{
         login: '',

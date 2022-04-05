@@ -22,8 +22,7 @@ const YandexBtn = () => {
           localStorage.setItem('user', JSON.stringify({ type: 'yandex', data }));
         })
         .then(() => {
-          // window.location.href = `${process.env.REACT_APP_LOCAL_URL}/user-yandex`;
-          window.location.href = `http://localhost:3000/user/user-yandex`;
+          window.location.href = `${process.env.LOCAL_URL}/user/statistics`;
         });
     }
   }, []);

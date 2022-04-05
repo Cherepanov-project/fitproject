@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 const GoogleBtn = () => {
   useEffect(() => {
     window.gapi.load('auth2', () => {
-      window.gapi.auth2.init({ client_id: process.env.REACT_APP_GOOGLE_ID });
+      window.gapi.auth2.init({ client_id: process.env.GOOGLE_ID });
     });
   }, []);
 
@@ -16,7 +16,7 @@ const GoogleBtn = () => {
         localStorage.setItem('user', JSON.stringify({ type: 'google', data }));
       })
       .then(() => {
-        window.location.href = `${process.env.REACT_APP_LOCAL_URL}/user-google`;
+        window.location.href = `${process.env.LOCAL_URL}/user-google`;
       });
   };
 

@@ -15,7 +15,7 @@ const MailBtn = () => {
       data: {
         grant_type: 'authorization_code',
         code,
-        redirect_uri: process.env.REACT_APP_LOCAL_URL,
+        redirect_uri: process.env.LOCAL_URL,
       },
     });
     return data;
