@@ -12,6 +12,7 @@ import {
   Target,
   ProgressContainer
 } from "./statisticsStyles";
+import Cookies from 'js-cookie';
 import UserChar from "../../../common/userChar/userChar";
 import SquareIcon from "../../../common/squareIcon/squareIcon";
 import RectangleBtn from "../../../common/rectangleBtn/rectangleBtn";
@@ -23,8 +24,9 @@ import imgCyclist from "../../../common/images/icons/cyclist.svg";
 import imgRun from "../../../common/images/icons/running.svg";
 
 const Frame1 = () => {
+const isLogin = Cookies.get('userToken') ? true : false;
 
-  return (
+  return isLogin ? (
     <Container>
       <ActivContainer>
         <Activity>
@@ -73,7 +75,7 @@ const Frame1 = () => {
           ico = {<SquareIcon color = {"rgba(0, 0, 0, 0)"} img = {imgLeg.src}/>}/>
       </ProgressContainer>
     </Container>
-  );
+  ) : null;
 };
 
 export default Frame1;

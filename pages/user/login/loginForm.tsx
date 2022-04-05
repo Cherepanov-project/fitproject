@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import axios from 'axios';
+import Cookies from 'js-cookie';
 import { Formik } from 'formik';
 import { paused } from '../../../utils/paused';
 import { Button, CardContent, CircularProgress } from '@mui/material';
@@ -10,7 +10,6 @@ import { RegOrLoginSocial } from '../RegOrLoginSocial';
 import { IFormStatus } from '../../../model/loginOrRegisterInterfaces/interfaces';
 import { loginOrRegisterUser } from '../../../utils/loginOrRegisterUser';
 import { loginUser } from '../../../API/loginUser';
-import { red } from '@mui/material/colors';
 
 export const LoginForm: React.FC = () => {
   const [displayFormStatus, setDisplayFormStatus] = useState<boolean>(false);
@@ -22,12 +21,11 @@ export const LoginForm: React.FC = () => {
   return (
     <Formik
       onSubmit={async (data, actions) => {
-        // await paused(3000);
+        await paused(1000);
         await loginOrRegisterUser(data, actions.resetForm, setFormStatus, setDisplayFormStatus);
-        const { res } = await loginUser(data);
-
-        console.log('data sign in: ', { user: data });
-        // console.log(res);
+        const { res: token } = await loginUser(data);
+        Cookies.set('userToken', token, { expires: 2 });
+        window.location.href = 'http://localhost:3000/user/statistics'
       }}
       initialValues={{
         login: '',
