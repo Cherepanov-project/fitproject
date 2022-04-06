@@ -1,9 +1,14 @@
 import styled from 'styled-components';
 
 export const SideBarWrapper = styled.div`
-  width: 230px;
+  width: 250px;
   padding-left: 20px;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+
+  @media (min-width: 1700px) {
+        width: 330px;
+        justify-content: space-between;
+    }
 `;
 
 export const SideBarCheckBox = styled.div`
@@ -24,7 +29,17 @@ export const MenuWrapper = styled.div`
   width: 800px;
   height: 630px;
 
+  @media (min-width: 2000px) {
+        height: auto;
+        /* justify-content: flex-start; */
+    }
+
   box-sizing: border-box;
+
+  @media (min-width: 1441px) {
+        width: 100%;
+        /* justify-content: space-between; */
+    }
 `;
 
 export const AllMenusWrapper = styled.div`
@@ -34,6 +49,8 @@ export const AllMenusWrapper = styled.div`
   width: 100%;
   background-color: white;
   border-radius: 5px;
+
+  
 `;
 
 export const MenuItemTitule = styled.div`
@@ -63,6 +80,11 @@ export const MenuImg = styled.img`
   display: block;
   margin: 0 auto;
   margin-top: -55px;
+
+  @media (min-width: 2000px) {
+    width: 250px;
+    height: 250px;
+  }
 `;
 
 export const Specification = styled.div`
@@ -84,12 +106,24 @@ export const MenuH2 = styled.h2`
 `;
 
 export const ListDishes = styled.div`
+  margin-left: 30px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 770px;
   height: 600px;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+
+    @media (min-width: 1441px) {
+        width: 100%;
+        /* justify-content: flex-start; */
+    }
+    
+    @media (min-width: 2000px) {
+        height: auto;
+    }
+
+    
 `;
 
 export const SpecificationWrapper = styled.div`

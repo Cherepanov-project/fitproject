@@ -18,6 +18,11 @@ export const RectangleButton = styled.button<BtnProps>`
   font-weight: 600;
   font-size: 18px;
   line-height: 22px;
+
+  @media (min-width: 2100px) {
+      width: 477px;
+      height: 160px;
+  }
 `;
 
 export const TextWrapper = styled.div`

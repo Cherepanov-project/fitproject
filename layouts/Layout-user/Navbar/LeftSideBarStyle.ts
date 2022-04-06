@@ -6,6 +6,12 @@ export const SidebarWrapper = styled.div`
     display: flex;
     flex-direction: column;
     background-color: #f1f1f1;
+
+    @media (min-width: 1700px) {
+        width: 267px;
+        align-items: center;
+        
+    }
 `
 export const Sidebar = styled.div`
     width: 104px;
@@ -13,6 +19,11 @@ export const Sidebar = styled.div`
     margin: 21px 30px;
     background: linear-gradient(180deg, #6D63FF 0%, #3B32C0 100%);
     border-radius: 40px;
+    
+    @media (min-width: 1700px) {
+        width: 144px;
+        
+    }
 `
 
 export const IconListWrapper = styled.div`
@@ -29,6 +40,8 @@ export const TopIconsWrapper = styled.div`
     align-items: center;
 `
 export const  BottomIconWrapper = styled.div`
+display: flex;
+justify-content: center;
 
 `
 export const Divider = styled.span`
