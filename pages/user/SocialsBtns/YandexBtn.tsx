@@ -9,7 +9,7 @@ const YandexBtn = () => {
     router.push(`https://oauth.yandex.ru/authorize?response_type=token&client_id=824329c3c4d241bc987b77de6090da9c&state=yandex`)
   };
 
-  const getUser = async (token) => {
+  const getUser = async (token: string | string[]) => {
     const host = 'https://login.yandex.ru/info?';
     const { data } = await axios.get(`${host}oauth_token=${token}`);
     return data;

@@ -20,7 +20,6 @@
     "@mui/material": "^5.4.1",
     "@mui/styles": "^5.4.2",
     "@tinymce/tinymce-react": "^3.13.0",
-    "@types/gapi": "^0.0.41",
     "@types/styled-components": "^5.1.21",
     "axios": "^0.25.0",
     "classnames": "^2.3.1",
