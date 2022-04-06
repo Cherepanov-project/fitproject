@@ -14,6 +14,7 @@ const NutrilonValue = (props: IProps) => {
 				{props.name}
 			</Typography>
 			<TextField
+			    {...field} {...props}
 				fullWidth
 				id={field.name}
 				name={field.name}

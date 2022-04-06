@@ -11,10 +11,12 @@ const ShortDescriptionText: React.FC<IProps> = (props: IProps) => {
 
 	return (
 		<TextField
+		    {...field} {...props}
 			fullWidth
 			id="shortDescriptionText"
 			name="shortDescriptionText"
 			onChange={field.onChange}
+			placeholder = {props.name}
 			onBlur={field.onBlur}
 			sx={{input: { padding: '10px' }, backgroundColor: '#F8FAFC'}}
 		/>

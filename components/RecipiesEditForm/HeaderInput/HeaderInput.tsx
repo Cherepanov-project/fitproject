@@ -13,6 +13,7 @@ const HeaderInput: React.FC<IProps> = (props: IProps) => {
 				fullWidth
 				id="outlined-basic"
 				variant="outlined"
+				placeholder={field.name}
 				onChange={field.onChange}
 				onBlur={field.onBlur}
 				name={field.name}
