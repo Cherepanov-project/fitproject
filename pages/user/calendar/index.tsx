@@ -18,15 +18,18 @@ import {
   CalcDate,
   CalendarDiv,
 } from './stylesCalendar';
-import CalendarContainer from '../../common/CalendarContainer';
+import CalendarContainer from '../../../common/CalendarContainer';
 import Link from 'next/link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
-import monthArr from '../../model/user/main';
-import uid from '../../utils/uid';
-import FramerCalendar from '../../common/FramerCalendar';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import monthArr from '../../../model/user/main';
+import uid from '../../../utils/uid';
+import FramerCalendar from '../../../common/FramerCalendar';
+
+import { LayoutUser } from '../../../layouts/Layout-user/Layout-user';
 
 const Calendar = () => {
   const dateToday: Date = new Date();
@@ -45,6 +48,10 @@ const Calendar = () => {
     color: theme.palette.text.secondary,
   }));
 
+  const matches = useMediaQuery('(min-width:2360px)');
+  const matches2 = useMediaQuery('(min-width:2000px)');
+  
+
   const arrDays = (data: Date): (number | null)[] => {
     const dayWeekISOend = getISODay(lastDay);
     const prevMonth = getDate(endOfMonth(subMonths(data, 1)));
@@ -59,20 +66,22 @@ const Calendar = () => {
     return arr;
   };
 
+  const size = matches ? {width: 180, height: 180} : matches2 ? {width: 140, height: 140} : {width: 110, height: 110}
+
   const weekElements = arrDays(dateToday).map((el, index) => {
     return index >= dayWeekISO - 1 && index < countDay + (dayWeekISO - 1) ? (
       <Grid item xs={1} key={uid()}>
-        <Item>
+        <Item sx={size}>
           <FlexItem>
             <CalcDate>{el}</CalcDate>
             <div>
               <WorkoutLink>
-                <Link href={`/calendar/workout/${el}`}>
+                <Link href={`calendar/workout/${el}`}>
                   <CalcLink>Тренировка</CalcLink>
                 </Link>
               </WorkoutLink>
               <DietaLink>
-                <Link href={`/calendar/dieta/${el}`}>
+                <Link href={`calendar/dieta/${el}`}>
                   <CalcLink>Диета</CalcLink>
                 </Link>
               </DietaLink>
@@ -83,7 +92,7 @@ const Calendar = () => {
     ) : (
       <Grid item xs={1} key={uid()}>
         <DayBlur>
-          <Item>
+          <Item sx={size}>
             <CalcDate>{el}</CalcDate>
           </Item>
         </DayBlur>
@@ -95,8 +104,8 @@ const Calendar = () => {
     <CalendarContainer>
       <CalendarDiv>
         <CalcHead>{monthArr[getMonth(dateToday)]}</CalcHead>
-        <Box sx={{ flexGrow: 1 }}>
-          <Grid container columns={7} spacing={1}>
+        <Box sx={{ flexGrow: 1}}>
+          <Grid container columns={8} rowSpacing={5}>
             {weekElements}
           </Grid>
         </Box>
@@ -105,4 +114,4 @@ const Calendar = () => {
   );
 };
 
-export default FramerCalendar(Calendar);
+export default LayoutUser(FramerCalendar(Calendar))

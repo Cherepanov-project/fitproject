@@ -5,8 +5,9 @@ import { MenuWrapper, AllMenusWrapper, ListDishes } from './stylesAllMenus';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import { FoodItemType } from '../../../model/dish/dish';
+import { LayoutUser } from '../../../layouts/Layout-user/Layout-user';
 
-export default function AllMenus() {
+function AllMenus() {
   const elems = dishFoodAll.map((item: FoodItemType) => (
     <MenuItem
       key={Math.random()}
@@ -29,3 +30,5 @@ export default function AllMenus() {
     </AllMenusWrapper>
   );
 }
+
+export default LayoutUser(AllMenus)

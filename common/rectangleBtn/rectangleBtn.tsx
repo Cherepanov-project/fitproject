@@ -3,7 +3,7 @@ import { RectangleButton, TextWrapper } from "./rectangleBtnStyles";
 interface Props{
   text: string, 
   bg: string, 
-  ico: JSX.Element
+  ico?: JSX.Element
 }
 
 const RectangleBtn = ({text, bg, ico}: Props) => {

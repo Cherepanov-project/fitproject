@@ -2,6 +2,7 @@ import {
   Specification,
   SpecificationSpan,
   MenuH2,
+  SpecificationWrapper
 } from '../../pages/user/listOfDishes/stylesAllMenus';
 import {
   specificationItems,
@@ -19,10 +20,12 @@ const blockSpecification = () => {
   );
 
   return (
-    <div>
+    <>
       <MenuH2>Categories</MenuH2>
+      <SpecificationWrapper>
       {specificationNods}
-    </div>
+    </SpecificationWrapper>
+    </>
   );
 };
 export default blockSpecification;

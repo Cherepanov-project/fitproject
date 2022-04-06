@@ -10,8 +10,11 @@ import {
   TargetWrapper,
   TargetTitle,
   Target,
-  ProgressContainer
+  ProgressContainer,
 } from "./statisticsStyles";
+
+import { LayoutUser } from "../../../layouts/Layout-user/Layout-user";
+
 import UserChar from "../../../common/userChar/userChar";
 import SquareIcon from "../../../common/squareIcon/squareIcon";
 import RectangleBtn from "../../../common/rectangleBtn/rectangleBtn";
@@ -29,27 +32,27 @@ const Frame1 = () => {
       <ActivContainer>
         <Activity>
           <ActivHeader>
-            <ActivTitle>Активноcть</ActivTitle>
-            <ActivSelect defaultValue="week">
-              <option value="week">Неделя</option>
-              <option value="Month">Месяц</option>
-              <option value="Ear">Год</option>
+            <ActivTitle>Activity</ActivTitle>
+            <ActivSelect defaultValue="Week">
+              <option value="week">Week</option>
+              <option value="Month">Month</option>
+              <option value="Ear">Year</option>
             </ActivSelect>
           </ActivHeader>
           <UserChar/>
         </Activity>
         <DataActivContainer>
           <RectangleBtn
-            text = {"Ежедневная ходьба"}
+            text = {"Daily walking"}
             bg = {"linear-gradient(180deg, #6D63FF 0%, #3B32C0 100%)"}
             ico = {<SquareIcon color = {"rgba(255, 255, 255, 0.2)"} img = {imgLeg.src}/>}/>
           <TargetContainer>
             <RectangleBtn
-              text = {"Вода"}
+              text = {"Water"}
               bg = {"rgba(255, 154, 186, 1)"} 
               ico = {<SquareIcon color = {"rgba(255, 140, 177, 1)"} img = {imgWater.src}/>}/>
             <TargetWrapper>
-              <TargetTitle>Стаканов:</TargetTitle>
+              <TargetTitle>Total Glass:</TargetTitle>
               <Target>4</Target>
             </TargetWrapper>
           </TargetContainer>
@@ -57,23 +60,23 @@ const Frame1 = () => {
       </ActivContainer>
       <ProgressContainer>
         <ProgressBtn 
-          title = {"Велосипед"} 
-          subtitle = {"10 км"} 
-          target = {"50 км"} 
+          title = {"Cycling Hero"} 
+          subtitle = {"10 km"} 
+          target = {"50 km"} 
           ico = {<SquareIcon color = {"rgba(0, 0, 0, 0)"} img = {imgCyclist.src}/>}/>
         <ProgressBtn 
-          title = {"Бег"} 
-          subtitle = {"5 км"} 
-          target = {"7 км/неделя"} 
+          title = {"Daily Running"} 
+          subtitle = {"5 km"} 
+          target = {"7 km/week"} 
           ico = {<SquareIcon color = {"rgba(0, 0, 0, 0)"} img = {imgRun.src}/>}/>
         <ProgressBtn 
-          title = {"Ходьба"} 
-          subtitle = {"10 000 шагов"} 
-          target = {"12 000 шагов/неделя"} 
+          title = {"Daily Steps"} 
+          subtitle = {"10 000 steps"} 
+          target = {"12 000 / week"} 
           ico = {<SquareIcon color = {"rgba(0, 0, 0, 0)"} img = {imgLeg.src}/>}/>
       </ProgressContainer>
     </Container>
   );
 };
 
-export default Frame1;
+export default LayoutUser(Frame1);
