@@ -25,6 +25,14 @@ export const Activity = styled.div`
   height: 375px;
   background: linear-gradient(180deg, #6d63ff 0%, #3b32c0 100%);
   border-radius: 10px 40px;
+
+  @media (min-width: 1401px) {
+    width: 66%;
+  }
+
+  @media (min-width: 2000px) {
+    height: 475px;
+  }
 `;
 
 export const ActivHeader = styled.div`
@@ -68,6 +76,11 @@ export const TargetContainer = styled.div`
   background-image: url(${bgWater.src});
   background-repeat: no-repeat;
   background-position: 100% 100%;
+
+  @media (min-width: 2100px) {
+      width: 477px;
+      height: 280px;
+  }
 `;
 
 export const TargetWrapper = styled.div`
@@ -93,5 +106,9 @@ export const ProgressContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 80px;
+
+  @media (min-width: 2100px) {
+    margin-top: 160px;
+  }
 `;
 

@@ -39,7 +39,7 @@ const LeftSideBar = () => {
                                 <Image src={home.src} alt="h" />
                             </ImageWrapper>
                         </Link>
-                        <Link href="#">
+                        <Link href="/user/calendar">
                             <ImageWrapper>
                                 <Image src={clock.src} alt="h" />
                             </ImageWrapper>

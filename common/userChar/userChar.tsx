@@ -1,12 +1,17 @@
 import { CharWrapper, LabelChar } from "./userCharStyles";
 import { LineChart, Line, CartesianGrid, XAxis, Tooltip } from "recharts";
 import { charData } from "../../model/userStatistics";
+import useMediaQuery from '@mui/material/useMediaQuery';
 
-const UserChar = () => {    
+const UserChar = () => {  
+  const matches = useMediaQuery('(min-width:2000px)');
+  
+  const width = matches ? 680 : 480
+  const height = matches ? 270 : 200
 
   return(
     <CharWrapper>
-      <LineChart width={480} height={200} data={charData}>
+      <LineChart width={width} height={height} data={charData}>
         <Tooltip
           filterNull={false}
           itemStyle={{ color: "rgba(255, 255, 255, 1)" }}

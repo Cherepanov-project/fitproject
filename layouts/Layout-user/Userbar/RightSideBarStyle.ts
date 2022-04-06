@@ -13,6 +13,11 @@ display: flex;
 flex-direction: column;
 margin-left: 30px;
 background-color: white;
+
+	 @media (min-width: 1700px) {
+        width: 400px;
+        
+    }
 `
 
 export const UserInfoWrapper = styled.div`
@@ -42,6 +47,11 @@ export const IconArrow = styled.img`
 	border-radius: 10px;
 	width: 32px;
 	height: 32px;
+
+	@media (min-width: 1700px) {
+        left: 355px;
+        
+    }
 `;
 
 export const Meter = styled.img`
@@ -80,5 +90,4 @@ export const Icon = styled.img`
 `;
 
 export const IconWrapper = styled.div`
-	/* padding: auto 0 */
 `;

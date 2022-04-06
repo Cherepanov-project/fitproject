@@ -1,6 +1,7 @@
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { Rating } from '@mui/material';
+import useMediaQuery  from '@mui/material/useMediaQuery';
 import DishChikenImg from '../images/DishChikenImg.png';
 import Link from 'next/link';
 
@@ -12,12 +13,14 @@ import {
 } from '../../pages/user/listOfDishes/stylesAllMenus';
 
 const MenuItem = ({ namesFood, nutritionalValue, star, id }) => {
+  const matches = useMediaQuery('(min-width:2000px')
   return (
     <Link href={`/user/calendar/dieta/${star}`}>
       <Card
         sx={{
-          width: 214,
-          height: 196,
+
+          width: !matches ? 214 : 314,
+          height: !matches ? 196 : 296,
           margin: 1,
           marginTop: 10,
           overflow: 'visible',
