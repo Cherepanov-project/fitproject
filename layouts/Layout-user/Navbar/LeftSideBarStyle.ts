@@ -48,8 +48,6 @@ export const ImageWrapper = styled.div`
     align-items: center;
     margin-bottom: 24px;
     
-
-    
     :hover {
         background-color: #3C3693;
     }
