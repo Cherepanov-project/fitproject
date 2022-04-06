@@ -40,13 +40,12 @@ export const Loss = styled.div`
 
 export const IconArrow = styled.img`
 	position: absolute; 
-	width: 10px;
 	padding: 10px 12px 10px ;
 	left: 200px;
 	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 10px;
-	width: 32px;
-	height: 32px;
+	width: 12px;
+	height: 12px;
 
 	@media (min-width: 1700px) {
         left: 355px;

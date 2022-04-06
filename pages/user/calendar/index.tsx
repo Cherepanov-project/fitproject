@@ -66,7 +66,7 @@ const Calendar = () => {
     return arr;
   };
 
-  const size = matches ? {width: 180, height: 180} : matches2 ? {width: 140, height: 140} : {width: 110, height: 110}
+  const size = matches ? {width: 145, height: 145} : matches2 ? {width: 140, height: 140} : {width: 100, height: 100}
 
   const weekElements = arrDays(dateToday).map((el, index) => {
     return index >= dayWeekISO - 1 && index < countDay + (dayWeekISO - 1) ? (
