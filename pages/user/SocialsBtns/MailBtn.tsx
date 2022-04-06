@@ -1,11 +1,12 @@
+import { useRouter } from 'next/router'
 import { useEffect } from 'react';
 import queryString from 'query-string';
 import axios from 'axios';
 
 const MailBtn = () => {
+  const router = useRouter()
   const handleRedirect = () => {
-    // window.location.href = `https://oauth.mail.ru/login?client_id=${process.env.REACT_APP_MAIL_ID}&response_type=code&scope=userinfo&redirect_uri=${process.env.REACT_APP_LOCAL_URL}&state=mail`;
-    window.location.href = `https://oauth.mail.ru/login?client_id=6695c1fb9ec5411fa03a1f14f3982208&response_type=code&scope=userinfo&redirect_uri=http://localhost:3000&state=mail`;
+    router.push(`https://oauth.mail.ru/login?client_id=6695c1fb9ec5411fa03a1f14f3982208&response_type=code&scope=userinfo&redirect_uri=http://localhost:3000&state=mail`)
   };
 
   // отправка кода на сервер и получение данных о пользователе

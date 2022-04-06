@@ -1,12 +1,13 @@
+import { useRouter } from 'next/router'
 import { useEffect } from 'react';
 import queryString from 'query-string';
 import axios from 'axios';
 
 const VkBtn = () => {
+  const router = useRouter()
   const handleRedirect = () => {
     const resType = 'token'; // запрос с фронта если стоит токен
-    // window.location.href = `https://oauth.vk.com/authorize?client_id=${process.env.REACT_APP_VK_ID}&display=popup&redirect_uri=${process.env.REACT_APP_LOCAL_URL}&scope=offline&response_type=${resType}&v=5.131&state=vk-auth`;
-    window.location.href = `https://oauth.vk.com/authorize?client_id=8103808&display=popup&redirect_uri=http://localhost:3000/user/register&scope=offline&response_type=${resType}&v=5.131&state=vk-auth`;
+    router.push(`https://oauth.vk.com/authorize?client_id=8103808&display=popup&redirect_uri=http://localhost:3000/user&scope=offline&response_type=${resType}&v=5.131&state=vk-auth`)
   };
 
   //бэкэнд принимает код, получает токен -> получает данные пользователя и возвращает на фронт

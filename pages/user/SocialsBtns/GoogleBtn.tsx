@@ -2,13 +2,13 @@ import { useEffect } from 'react';
 
 const GoogleBtn = () => {
   useEffect(() => {
-    window.gapi.load('auth2', () => {
-      window.gapi.auth2.init({ client_id: process.env.GOOGLE_ID });
+    gapi.load('auth2', () => {
+      gapi.auth2.init({ client_id: process.env.GOOGLE_ID });
     });
   }, []);
 
   const signIn = () => {
-    const GoogleAuth = window.gapi.auth2.getAuthInstance();
+    const GoogleAuth = gapi.auth2.getAuthInstance();
     GoogleAuth.signIn({
       scope: 'profile email',
     })
@@ -21,7 +21,7 @@ const GoogleBtn = () => {
   };
 
   const signOut = () => {
-    const GoogleAuth = window.gapi.auth2.getAuthInstance();
+    const GoogleAuth = gapi.auth2.getAuthInstance();
     GoogleAuth.signOut().then(() => {
       localStorage.clear();
     });

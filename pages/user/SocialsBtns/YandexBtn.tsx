@@ -1,11 +1,12 @@
+import { useRouter } from 'next/router'
 import { useEffect } from 'react';
 import queryString from 'query-string';
 import axios from 'axios';
 
 const YandexBtn = () => {
+  const router = useRouter()
   const handleRedirect = () => {
-    // window.location.href = `https://oauth.yandex.ru/authorize?response_type=token&client_id=${process.env.REACT_APP_YANDEX_ID}&state=yandex`;
-    window.location.href = `https://oauth.yandex.ru/authorize?response_type=token&client_id=824329c3c4d241bc987b77de6090da9c&state=yandex`;
+    router.push(`https://oauth.yandex.ru/authorize?response_type=token&client_id=824329c3c4d241bc987b77de6090da9c&state=yandex`)
   };
 
   const getUser = async (token) => {
