@@ -48,4 +48,7 @@ export const CalcDate = styled.div`
 
 export const CalendarDiv = styled.div`
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;

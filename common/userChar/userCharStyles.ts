@@ -4,6 +4,10 @@ export const CharWrapper = styled.div`
   position: relative;
   width: 480px;
   margin-bottom: 50px;
+
+  @media (min-width: 2000px) {
+    width: 680px;
+  }
 `;
 
 export const LabelChar = styled.div`

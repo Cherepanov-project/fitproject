@@ -1,7 +1,8 @@
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { Rating } from '@mui/material';
-import DishChikenImg from '../images/DishChikenImg.jpg';
+import useMediaQuery  from '@mui/material/useMediaQuery';
+import DishChikenImg from '../images/DishChikenImg.png';
 import Link from 'next/link';
 
 import {
@@ -12,15 +13,19 @@ import {
 } from '../../pages/user/listOfDishes/stylesAllMenus';
 
 const MenuItem = ({ namesFood, nutritionalValue, star, id }) => {
+  const matches = useMediaQuery('(min-width:2000px')
   return (
-    <Link href={`/calendar/dieta/${star}`}>
+    <Link href={`/user/calendar/dieta/${star}`}>
       <Card
         sx={{
-          width: 214,
-          height: 196,
+
+          width: !matches ? 214 : 314,
+          height: !matches ? 196 : 296,
           margin: 1,
           marginTop: 10,
           overflow: 'visible',
+          bgcolor: '#F0F7FF', 
+          cursor: 'pointer'     
         }}
       >
         <MenuImg src={DishChikenImg.src}></MenuImg>
@@ -45,7 +50,7 @@ const MenuItem = ({ namesFood, nutritionalValue, star, id }) => {
             </div>
           </MenuItemDescrition>
           <MenuRatingWrapper>
-            <div>time 30</div>
+            <div>30 min cooktime</div>
             <Rating name="size-small" value={star} readOnly size="small" />
           </MenuRatingWrapper>
         </CardContent>

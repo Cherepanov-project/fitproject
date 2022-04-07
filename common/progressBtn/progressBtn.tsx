@@ -19,6 +19,7 @@ function LinearProgressWithLabel(
       sx={{
         display: "flex",
         alignItems: "center",
+        width: "100%",
         flexDirection: "column-reverse",
         marginTop: "25px",
       }}
@@ -35,7 +36,7 @@ function LinearProgressWithLabel(
           minWidth: 35,
         }}
       >
-        <div>Прогресс</div>
+        <div>Progress</div>
         <Typography variant="body2" color="text.secondary">{`${Math.round(
           props.value
         )}%`}</Typography>
@@ -62,9 +63,9 @@ const ProgressBtn = ({
       <IcoContainer>{ico}</IcoContainer>
       <Dots></Dots>
       <Title>{title}</Title>
-      <SubTitle>{subtitle}/неделя</SubTitle>
+      <SubTitle>{subtitle} / week</SubTitle>
       <LinearProgressWithLabel value={50} />
-      <Target>Цель: {target}</Target>
+      <Target>Target: {target}</Target>
     </ProgressButton>
   );
 };

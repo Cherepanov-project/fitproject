@@ -1,4 +1,5 @@
-import { DailyRationType } from "../../../model/dieta/dieta";
+import Link from "next/link";
+import { DailyRationType } from "../../../../model/dieta/dieta";
 import { FC } from "React";
 import {
   FoodLink,
@@ -8,7 +9,6 @@ import {
   DropMenu,
   ButtonDiv,
 } from "./stylesDieta";
-import Link from "next/link";
 
 interface ItemRationProps {
   dietaEl: DailyRationType;
@@ -28,7 +28,7 @@ const ItemRation: FC<ItemRationProps> = ({
         <div>
           <Link
             href={{
-              pathname: `/calendar/dietaplan/${dietaEl.food}`,
+              pathname: `/user/calendar/dietaplan/${dietaEl.food}`,
               query: { url: asPath, eating: dietaEl.id },
             }}
           >

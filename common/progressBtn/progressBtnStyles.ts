@@ -5,13 +5,22 @@ let dotsSrc = dots;
 if(dots.src){dotsSrc = dots.src};
 
 export const ProgressButton = styled.button`
+background-color: white;
 position: relative;
 display: flex;
 flex-direction: column;
+align-items: center;
 height: 237px;
-width: 296px;
 border: none;
 border-radius: 50px;
+
+    @media (min-width: 2200px) {
+        width: 467px;
+    }
+
+    @media (max-width: 2200px) {
+        width: 30%;
+    }
 `;
 
 export const IcoContainer = styled.div`
@@ -20,7 +29,6 @@ justify-content: center;
 align-items: center;
 position: absolute;
 top: -35px;
-right: 34.5%;
 width: 92px;
 height: 83px;
 background: linear-gradient(180deg, #3f36c6 0%, #4439de 100%);
@@ -58,7 +66,7 @@ letter-spacing: -0.005em;
 export const Target = styled.div`
 align-self: start;
 margin-top: 15px;
-margin-left: 20px;
+margin-left: 7%;
 color: rgba(120, 120, 120, 1);
 font-size: 16px;
 line-height: 19px;

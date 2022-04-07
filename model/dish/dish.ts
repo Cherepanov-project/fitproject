@@ -59,9 +59,9 @@ export const dishFoodAll: Array<FoodItemType> = [
     ],
     nutritionalValue: [
       { nutritiona: 'Calories', value: 350, units: 'Kcal' },
-      { nutritiona: 'Protein', value: 15, units: 'g' },
-      { nutritiona: 'Fats', value: 25, units: 'g' },
-      { nutritiona: 'Carbs', value: 90, units: 'g' },
+      { nutritiona: 'Protein', value: 15, units: 'Prot' },
+      { nutritiona: 'Fats', value: 25, units: 'Fats' },
+      { nutritiona: 'Carbs', value: 90, units: 'Carbs' },
     ],
   },
   {
@@ -81,9 +81,9 @@ export const dishFoodAll: Array<FoodItemType> = [
     ],
     nutritionalValue: [
       { nutritiona: 'Calories', value: 350, units: 'Kcal' },
-      { nutritiona: 'Protein', value: 15, units: 'g' },
-      { nutritiona: 'Fats', value: 25, units: 'g' },
-      { nutritiona: 'Carbs', value: 90, units: 'g' },
+      { nutritiona: 'Protein', value: 15, units: 'Prot' },
+      { nutritiona: 'Fats', value: 25, units: 'Fats' },
+      { nutritiona: 'Carbs', value: 90, units: 'Carbs' },
     ],
   },
   {
@@ -103,9 +103,9 @@ export const dishFoodAll: Array<FoodItemType> = [
     ],
     nutritionalValue: [
       { nutritiona: 'Calories', value: 350, units: 'Kcal' },
-      { nutritiona: 'Protein', value: 15, units: 'g' },
-      { nutritiona: 'Fats', value: 25, units: 'g' },
-      { nutritiona: 'Carbs', value: 90, units: 'g' },
+      { nutritiona: 'Protein', value: 15, units: 'Prot' },
+      { nutritiona: 'Fats', value: 25, units: 'Fats' },
+      { nutritiona: 'Carbs', value: 90, units: 'Carbs' },
     ],
   },
   {
@@ -125,9 +125,9 @@ export const dishFoodAll: Array<FoodItemType> = [
     ],
     nutritionalValue: [
       { nutritiona: 'Calories', value: 350, units: 'Kcal' },
-      { nutritiona: 'Protein', value: 15, units: 'g' },
-      { nutritiona: 'Fats', value: 25, units: 'g' },
-      { nutritiona: 'Carbs', value: 90, units: 'g' },
+      { nutritiona: 'Protein', value: 15, units: 'Prot' },
+      { nutritiona: 'Fats', value: 25, units: 'Fats' },
+      { nutritiona: 'Carbs', value: 90, units: 'Carbs' },
     ],
   },
   {
@@ -147,9 +147,9 @@ export const dishFoodAll: Array<FoodItemType> = [
     ],
     nutritionalValue: [
       { nutritiona: 'Calories', value: 350, units: 'Kcal' },
-      { nutritiona: 'Protein', value: 15, units: 'g' },
-      { nutritiona: 'Fats', value: 25, units: 'g' },
-      { nutritiona: 'Carbs', value: 90, units: 'g' },
+      { nutritiona: 'Protein', value: 15, units: 'Prot' },
+      { nutritiona: 'Fats', value: 25, units: 'Fats' },
+      { nutritiona: 'Carbs', value: 90, units: 'Carbs' },
     ],
   },
   {
@@ -169,9 +169,9 @@ export const dishFoodAll: Array<FoodItemType> = [
     ],
     nutritionalValue: [
       { nutritiona: 'Calories', value: 350, units: 'Kcal' },
-      { nutritiona: 'Protein', value: 15, units: 'g' },
-      { nutritiona: 'Fats', value: 25, units: 'g' },
-      { nutritiona: 'Carbs', value: 90, units: 'g' },
+      { nutritiona: 'Protein', value: 15, units: 'Prot' },
+      { nutritiona: 'Fats', value: 25, units: 'Fats' },
+      { nutritiona: 'Carbs', value: 90, units: 'Carbs' },
     ],
   },
 ];
