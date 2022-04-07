@@ -5,7 +5,7 @@ import { VisibilityOff, Visibility } from "@mui/icons-material";
 import { IFormStatus, IInputForm } from "../../model/loginOrRegisterInterfaces/interfaces";
 import { ErrorMessage, Input } from "../../pages/user/userLoginOrRegisterStyle";
 
-export function FormTextField({ secrecy = false, ...props }: IInputForm) {
+export function FormTextField(props: IInputForm) {
 	const [field, meta] = useField(props);
 	const [formStatus, setFormStatus] = useState<IFormStatus>({
 		message: "",
@@ -25,10 +25,10 @@ export function FormTextField({ secrecy = false, ...props }: IInputForm) {
 			<FormControl sx={{ width: "100%" }}>
 				<Input
 					error={meta.error && meta.touched}
-					type={formStatus.showPassword ? "text" : "password"}
+					type={!props.secrecy ? "text" : "password"}
 					{...field}
 					{...props} />
-				{secrecy ? (
+				{props.secrecy ? (
 					<IconButton
 						sx={{ position: "absolute", right: "3%" }}
 						onClick={handleClickShowPassword}
