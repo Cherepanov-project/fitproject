@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import Link from 'next/link';
+import {useRouter} from "next/router";
 import Cookies from 'js-cookie';
+import { nanoid } from 'nanoid';
 import { Formik } from 'formik';
 import Snackbar from '@mui/material/Snackbar';
-import Slide, { SlideProps } from '@mui/material/Slide';
 import { paused } from '../../../utils/paused';
 import { Button, CardContent, CircularProgress } from '@mui/material';
 import { FormTextField } from '../../../common/user/FormTextField';
@@ -21,24 +22,22 @@ export const LoginForm: React.FC = () => {
     type: '',
   });
 
-  type TransitionProps = Omit<SlideProps, 'direction'>;
-
-  const TransitionUp = (props: TransitionProps) => {
-    return <Slide {...props} direction="up" />;
-  };
-
-  const [open, setOpen] = React.useState(false);
-  const [transition, setTransition] =
-    React.useState<React.ComponentType<TransitionProps> | undefined>(undefined);
-
-  const openMessage = (Transition: React.ComponentType<TransitionProps>) => () => {
-    setTransition(() => Transition);
-    setOpen(true);
-  };
+  const [open, setOpen] = useState(false);
+  const [msg, setMsg] = useState('');
 
   const closeMessage = () => {
     setOpen(false);
   };
+
+  const router = useRouter();
+
+  // useEffect(() => {
+  //   if (Cookies.get('userToken')){
+  //     setTimeout(()=>{
+  //       router.push('/user/statistics');
+  //     },3000)
+  //   }
+  // }, [router]);
 
   return (
     <>
@@ -47,11 +46,16 @@ export const LoginForm: React.FC = () => {
         onSubmit={async (data, actions) => {
           await paused(1000);
           await loginOrRegisterUser(data, actions.resetForm, setFormStatus, setDisplayFormStatus);
-          // const { res: token } = await loginUser(data);
-          setOpen(true);
-          // openMessage(TransitionUp);
-          // Cookies.set('userToken', token, { expires: 2 });
-          // window.location.href = `${process.env.LOCAL_URL}/user/statistics`;
+          try {
+            const { res: token } = await loginUser(data);
+            setMsg('You have been login')
+            setOpen(true);
+            Cookies.set('userToken', token, { expires: 2 });
+            router.push('/user/statistics');
+          } catch {
+            setMsg('Error')
+            setOpen(true);
+          }
         }}
         initialValues={{
           login: '',
@@ -89,9 +93,8 @@ export const LoginForm: React.FC = () => {
       <Snackbar
         open={open}
         onClose={closeMessage}
-        TransitionComponent={transition}
-        message="I love snacks"
-        key={transition ? transition.name : ''}
+        message={msg}
+        key={nanoid()}
       />
     </>
   );

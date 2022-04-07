@@ -1,3 +1,4 @@
+import {useEffect} from 'react';
 import {
   Container,
   ActivContainer,
@@ -13,6 +14,7 @@ import {
   ProgressContainer
 } from "./statisticsStyles";
 import Cookies from 'js-cookie';
+import {useRouter} from "next/router";
 import UserChar from "../../../common/userChar/userChar";
 import SquareIcon from "../../../common/squareIcon/squareIcon";
 import RectangleBtn from "../../../common/rectangleBtn/rectangleBtn";
@@ -24,6 +26,17 @@ import imgCyclist from "../../../common/images/icons/cyclist.svg";
 import imgRun from "../../../common/images/icons/running.svg";
 
 const Frame1 = () => {
+
+  const router = useRouter();
+  
+  useEffect(() => {
+    if (!Cookies.get('userToken')){
+      setTimeout(()=>{
+        router.push('/user');
+      },3000)
+    }
+  }, [router]);
+
 const isLogin = Cookies.get('userToken') ? true : false;
 
   return isLogin ? (
@@ -75,7 +88,7 @@ const isLogin = Cookies.get('userToken') ? true : false;
           ico = {<SquareIcon color = {"rgba(0, 0, 0, 0)"} img = {imgLeg.src}/>}/>
       </ProgressContainer>
     </Container>
-  ) : null;
+  ) : <h1>You must be login</h1>;
 };
 
 export default Frame1;
