@@ -1,19 +1,16 @@
-import { useRouter } from 'next/router'
 import { useEffect } from 'react';
-import queryString from 'query-string';
+import { useRouter } from 'next/router'
 import axios from 'axios';
+import queryString from 'query-string';
+
+import {REDIRECT_GOOGLE_BTN, GOOGLE_IMG} from '../../../utils/urls'
+
 
 const GoogleBtn = () => {
   const router = useRouter();
 
   const handleRedirect = () => {
-    router.push(`https://accounts.google.com/o/oauth2/v2/auth?
- scope=https%3A//www.googleapis.com/auth/drive.metadata.readonly&
- include_granted_scopes=true&
- response_type=token&
- state=state_parameter_passthrough_value&
- redirect_uri=${process.env.LOCAL_URL}&
- client_id=${process.env.GOOGLE_APP_ID}`)
+    router.push(REDIRECT_GOOGLE_BTN)
   };
 
   const getUser = async (token: string | string[]) => {
@@ -30,7 +27,7 @@ const GoogleBtn = () => {
           localStorage.setItem('user', JSON.stringify({ type: 'yandex', data }));
         })
         .then(() => {
-          window.location.href = `${process.env.LOCAL_URL}/user/statistics`;
+          router.push('/user/statistics')
         });
     }
   }, []);
@@ -38,7 +35,7 @@ const GoogleBtn = () => {
   return (
     <button style={{ background: 'none', border: 'none' }} onClick={handleRedirect}>
       <img
-        src="https://play-lh.googleusercontent.com/4cXfm9YG59lys9woio9JM5qR_bOpCrv0dgJ1XmowbzgRpIzDRyNQQ8vB8yXsz3NQJ9Q"
+        src={GOOGLE_IMG}
         alt="google-login"
         style={{ width: 40, height: 40, cursor: 'pointer', borderRadius: '50%' }}
       />

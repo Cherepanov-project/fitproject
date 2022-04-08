@@ -1,6 +1,8 @@
-import Layout from '../../../common/user/UserLayout';
 import Link from 'next/link';
-import { RegisterForm } from './RegisterFormStep';
+
+import Layout from '../../../common/user/UserLayout';
+import loginMan from '../../../common/images/loginMan.png';
+
 import {
   FlexWrapper,
   UserLoginOrRegister,
@@ -11,7 +13,9 @@ import {
   A,
   RegOrLoginIcon,
 } from '../userLoginOrRegisterStyle';
-import loginMan from '../../../common/images/loginMan.png';
+
+import { RegisterForm } from './RegisterFormStep';
+
 
 export default function User() {
   return (

@@ -2,8 +2,11 @@ import { useState } from "react";
 import { Children, ReactElement } from "react";
 import { nanoid } from 'nanoid'
 import { Formik, FormikConfig, Form } from "formik";
+
 import { Button, CircularProgress, Grid, StepLabel, Stepper } from "@mui/material";
+
 import { FormikStepProps, IRegisterForm, IFormikStepper } from "../../../model/loginOrRegisterInterfaces/interfaces";
+
 import { RegOrLoginSocial } from '../RegOrLoginSocial';
 
 

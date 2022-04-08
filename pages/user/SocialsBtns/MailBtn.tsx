@@ -1,42 +1,38 @@
 import { useRouter } from 'next/router'
 import { useEffect } from 'react';
+import Cookies from 'js-cookie';
 import queryString from 'query-string';
-import axios from 'axios';
+
+import {REDIRECT_MAIL_BTN, MAIL_IMG} from '../../../utils/urls'
+
+import {loginUserWithSocials} from '../../../API/loginUser';
 
 const MailBtn = () => {
-  const router = useRouter()
-  const handleRedirect = () => {
-    router.push(`https://oauth.mail.ru/login?client_id=6695c1fb9ec5411fa03a1f14f3982208&response_type=code&scope=userinfo&redirect_uri=http://localhost:3000&state=mail`)
-  };
+  const router = useRouter();
 
-  // отправка кода на сервер и получение данных о пользователе
-  const getToken = async (code: string) => {
-    const host = 'https://oauth.mail.ru/token';
-    const { data } = await axios.post(`${host}`, {
-      data: {
-        grant_type: 'authorization_code',
-        code,
-        redirect_uri: process.env.LOCAL_URL,
-      },
-    });
-    return data;
+  const handleRedirect = () => {
+    router.push(REDIRECT_MAIL_BTN)
   };
 
   useEffect(() => {
+    const mailData = queryString.parse(window.location.hash);
     const mailCode = queryString.parse(window.location.search).code;
-    console.log(mailCode);
-    // if(mailCode) {
-    //   getToken(mailCode).then((token)=>{
-    //     console.log(token)
-    //   })
-    //   // localStorage.setItem('user', JSON.stringify({type: 'mail', user}))
-    // }
+
+    if (mailData.state === 'mail') {
+      loginUserWithSocials(mailCode)
+        .then((token) => {
+          Cookies.set('userLogin', JSON.stringify({type: 'mail', token}), { expires: 2 });
+        })
+        .then(() => {
+          router.push('/user/statistics')
+        });
+    }
   }, []);
 
   return (
     <button style={{ background: 'none', border: 'none' }} onClick={handleRedirect}>
       <img
-        src="https://limg.imgsmail.ru/splash/v/i/share-fp-a2954bf3df.png"
+        src={MAIL_IMG}
         alt="mail login"
         style={{ width: 40, height: 40, cursor: 'pointer', borderRadius: '50%' }}
       />

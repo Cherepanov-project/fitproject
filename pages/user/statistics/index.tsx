@@ -1,4 +1,16 @@
 import {useEffect} from 'react';
+import Cookies from 'js-cookie';
+import {useRouter} from "next/router";
+
+import UserChar from "../../../common/userChar/userChar";
+import SquareIcon from "../../../common/squareIcon/squareIcon";
+import RectangleBtn from "../../../common/rectangleBtn/rectangleBtn";
+import ProgressBtn from "../../../common/progressBtn/progressBtn";
+import imgLeg from "../../../common/images/icons/leg.svg";
+import imgWater from "../../../common/images/icons/water.svg";
+import imgCyclist from "../../../common/images/icons/cyclist.svg";
+import imgRun from "../../../common/images/icons/running.svg";
+
 import {
   Container,
   ActivContainer,
@@ -13,17 +25,6 @@ import {
   Target,
   ProgressContainer
 } from "./statisticsStyles";
-import Cookies from 'js-cookie';
-import {useRouter} from "next/router";
-import UserChar from "../../../common/userChar/userChar";
-import SquareIcon from "../../../common/squareIcon/squareIcon";
-import RectangleBtn from "../../../common/rectangleBtn/rectangleBtn";
-import ProgressBtn from "../../../common/progressBtn/progressBtn";
-
-import imgLeg from "../../../common/images/icons/leg.svg";
-import imgWater from "../../../common/images/icons/water.svg";
-import imgCyclist from "../../../common/images/icons/cyclist.svg";
-import imgRun from "../../../common/images/icons/running.svg";
 
 const Frame1 = () => {
 
@@ -33,7 +34,7 @@ const Frame1 = () => {
     if (!Cookies.get('userToken')){
       setTimeout(()=>{
         router.push('/user');
-      },3000)
+      },1000)
     }
   }, [router]);
 

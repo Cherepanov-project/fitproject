@@ -1,16 +1,22 @@
 import { useState } from 'react';
+import { nanoid } from 'nanoid';
 import { CardContent } from '@mui/material';
-import { FormikStepper } from './FormikStepper';
+
 import {  IRegisterForm, IFormStatus  } from '../../../model/loginOrRegisterInterfaces/interfaces';
+
 import { FormTextField } from '../../../common/user/FormTextField';
 import { FormSelectField } from '../../../common/user/FormSelectField';
-import { paused } from '../../../utils/paused';
-import { validationUser, validationMeal, validationExercises} from '../../../utils/validationSchema';
-import { RightSide } from '../userLoginOrRegisterStyle';
 import FormikStep from '../../../common/user/FormikStep';
+
+import { validationUser, validationMeal, validationExercises} from '../../../utils/validationSchema';
 import { loginOrRegisterUser } from '../../../utils/loginOrRegisterUser';
 import { redirectToLoginPage } from '../../../utils/redirect';
-import { nanoid } from 'nanoid';
+import { paused } from '../../../utils/paused';
+import {LOGIN_PAGE} from '../../../utils/urls';
+
+import { RightSide } from '../userLoginOrRegisterStyle';
+import { FormikStepper } from './FormikStepper';
+
 
 export const RegisterForm: React.FC = () => {
   const [displayFormStatus, setDisplayFormStatus] = useState<boolean>(false);
@@ -110,7 +116,7 @@ export const RegisterForm: React.FC = () => {
         <FormikStepper
           onSubmit={async (data: IRegisterForm, actions: { resetForm: Function }) => {
             await paused(3000);
-            redirectToLoginPage('http://localhost:3000/user');
+            redirectToLoginPage(LOGIN_PAGE);
             setValues({ ...data });
             await loginOrRegisterUser(data, actions.resetForm, setFormStatus, setDisplayFormStatus);
             console.log('data sign in: ', data);

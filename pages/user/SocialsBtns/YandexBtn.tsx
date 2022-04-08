@@ -1,29 +1,30 @@
 import { useRouter } from 'next/router'
 import { useEffect } from 'react';
+import Cookies from 'js-cookie';
 import queryString from 'query-string';
-import axios from 'axios';
+
+import {REDIRECT_YANDEX_BTN, YANDEX_IMG} from '../../../utils/urls';
+
+import {loginUserWithSocials} from '../../../API/loginUser';
 
 const YandexBtn = () => {
-  const router = useRouter()
-  const handleRedirect = () => {
-    router.push(`https://oauth.yandex.ru/authorize?response_type=token&client_id=824329c3c4d241bc987b77de6090da9c&state=yandex`)
-  };
+  const router = useRouter();
 
-  const getUser = async (token: string | string[]) => {
-    const host = 'https://login.yandex.ru/info?';
-    const { data } = await axios.get(`${host}oauth_token=${token}`);
-    return data;
+  const handleRedirect = () => {
+    router.push(REDIRECT_YANDEX_BTN)
   };
 
   useEffect(() => {
-    const yandexCode = queryString.parse(window.location.hash);
-    if (yandexCode.state === 'yandex') {
-      getUser(yandexCode.access_token)
-        .then((data) => {
-          localStorage.setItem('user', JSON.stringify({ type: 'yandex', data }));
+    const yandexData = queryString.parse(window.location.hash)
+    const yandexCode = queryString.parse(window.location.search).code;
+
+    if (yandexData.state === 'yandex') {
+      loginUserWithSocials(yandexCode)
+        .then((token) => {
+          Cookies.set('userLogin', JSON.stringify({type: 'yandex', token}), { expires: 2 });
         })
         .then(() => {
-          window.location.href = `${process.env.LOCAL_URL}/user/statistics`;
+          router.push('/user/statistics')
         });
     }
   }, []);
@@ -31,7 +32,7 @@ const YandexBtn = () => {
   return (
     <button style={{ background: 'none', border: 'none' }} onClick={handleRedirect}>
       <img
-        src="https://yastatic.net/s3/home-static/_/37/37a02b5dc7a51abac55d8a5b6c865f0e.png"
+        src={YANDEX_IMG}
         alt="vk logo"
         style={{ width: 40, height: 40, cursor: 'pointer', borderRadius: '50%' }}
       />

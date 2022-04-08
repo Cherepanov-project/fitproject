@@ -4,16 +4,22 @@ import {useRouter} from "next/router";
 import Cookies from 'js-cookie';
 import { nanoid } from 'nanoid';
 import { Formik } from 'formik';
+
 import Snackbar from '@mui/material/Snackbar';
-import { paused } from '../../../utils/paused';
 import { Button, CardContent, CircularProgress } from '@mui/material';
-import { FormTextField } from '../../../common/user/FormTextField';
-import { RightSide, Title2, ForgorPassword } from '../userLoginOrRegisterStyle';
-import { RegOrLoginSocial } from '../RegOrLoginSocial';
+
+import { loginUser } from '../../../API/loginUser';
+
 import { IFormStatus } from '../../../model/loginOrRegisterInterfaces/interfaces';
+
+import { FormTextField } from '../../../common/user/FormTextField';
+
+import { paused } from '../../../utils/paused';
 import { loginOrRegisterUser } from '../../../utils/loginOrRegisterUser';
 import { validationLoginUser } from '../../../utils/validationSchema';
-import { loginUser } from '../../../API/loginUser';
+
+import { RightSide, Title2, ForgorPassword } from '../userLoginOrRegisterStyle';
+import { RegOrLoginSocial } from '../RegOrLoginSocial';
 
 export const LoginForm: React.FC = () => {
   const [displayFormStatus, setDisplayFormStatus] = useState<boolean>(false);
@@ -31,13 +37,12 @@ export const LoginForm: React.FC = () => {
 
   const router = useRouter();
 
-  // useEffect(() => {
-  //   if (Cookies.get('userToken')){
-  //     setTimeout(()=>{
-  //       router.push('/user/statistics');
-  //     },3000)
-  //   }
-  // }, [router]);
+  //перенаправление на страницу пользователя если пользователь был залогинен
+  useEffect(() => {
+    if (Cookies.get('userLogin')){
+      router.push('/user/statistics');
+    }
+  }, [router]);
 
   return (
     <>
@@ -50,7 +55,7 @@ export const LoginForm: React.FC = () => {
             const { res: token } = await loginUser(data);
             setMsg('You have been login')
             setOpen(true);
-            Cookies.set('userToken', token, { expires: 2 });
+            Cookies.set('userLogin', JSON.stringify({type: 'interior', token}), { expires: 2 });
             router.push('/user/statistics');
           } catch {
             setMsg('Error')

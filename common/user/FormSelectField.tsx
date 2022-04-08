@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { useField } from 'formik';
 import { nanoid } from 'nanoid';
+
 import { Box, FormControl } from '@mui/material';
+
 import { ISelectForm } from '../../model/loginOrRegisterInterfaces/interfaces';
+
 import { ErrorMessage, InputSelect, SelectOption } from '../../pages/user/userLoginOrRegisterStyle';
 
 const FormSelectField = (props: ISelectForm) => {
