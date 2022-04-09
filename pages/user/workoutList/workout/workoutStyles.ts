@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const MainWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    width: 95%;
+    margin: 0 auto;
 `
 
 export const Container = styled.div`
@@ -18,7 +20,7 @@ export const Container = styled.div`
 export const LeftContent = styled.div`
     display: flex;
     /* flex-direction: column; */
-    margin: 110px 0 162px 200px;
+    margin: 110px 83px 142px 79px;
 `
 
 export const Exercise = styled.div`
@@ -37,12 +39,18 @@ export const ExerciseDescription = styled.div`
 export const Image = styled.img`
     width: 489px;
     height: 492px;
-    margin-right: 200px;
+    /* margin-right: 200px; */
 
     @media (max-width: 2100px) {
         width: 359px;
         height: 362px;
-        margin-right: 100px;
+        /* margin-right: 100px; */
+    }
+
+    @media (max-width: 1600px) {
+        width: 359px;
+        height: 362px;
+        margin-right: 0px;
     }
 `
 
