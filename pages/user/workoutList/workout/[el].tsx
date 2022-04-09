@@ -28,15 +28,14 @@ const WorkoutItem = () => {
 const path = useRouter()
 const [workoutList, setWorkoutList] = useState<exercisesType[]>(exerciseList)
 const workout = workoutList.find((el) => el.id === Number(path.query.el))
-console.log(workout)
 
     const matches = useMediaQuery('(min-width:2000px')
 
     const cardStyles = {
-        width: !matches ? 164 : 234, 
-        height: !matches ? 156 : 226, 
+        width: !matches ? 184 : 234, 
+        height: !matches ? 186 : 226, 
         backgroundColor: '#F0F7FF',
-        margin: '16px 20px 16px 0',
+        margin: '30px 30px 30px 0',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-evenly',

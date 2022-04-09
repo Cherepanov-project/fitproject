@@ -12,12 +12,13 @@ export const Container = styled.div`
     width: 100%;
     margin-bottom: 15px;
     /* padding: 110px 67px; */
+    /* margin: 0 60px 15px 60px; */
 `
 
 export const LeftContent = styled.div`
     display: flex;
     /* flex-direction: column; */
-    margin: 110px 0 162px 67px;
+    margin: 110px 0 162px 200px;
 `
 
 export const Exercise = styled.div`
@@ -34,8 +35,15 @@ export const ExerciseDescription = styled.div`
 `
 
 export const Image = styled.img`
-    /* width: 359px;
-    height: 362px; */
+    width: 489px;
+    height: 492px;
+    margin-right: 200px;
+
+    @media (max-width: 2100px) {
+        width: 359px;
+        height: 362px;
+        margin-right: 100px;
+    }
 `
 
 export const MusclesTitle = styled.h2`
@@ -73,6 +81,11 @@ export const ImgWrapper = styled.img`
     width: 118px;
     height: 126px;
     border-radius: 50px;
+
+    @media (min-width: 2000px) {
+        width: 168px;
+        height: 156px;
+    }
 `
 export const TextWrapper = styled.div`
     display: flex;
