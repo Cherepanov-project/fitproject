@@ -5,6 +5,7 @@ export interface exercisesType {
   move: number;
   repeat: number;
   area: string;
+  muscles: string[]
 }
 
 export interface categoriesListType {
@@ -26,51 +27,87 @@ export interface muscleGroupListType {
 export const exerciseList: exercisesType[] = [
   {
     id: 0,
-    name: "Plank Up-Down",
+    name: "Exercise",
     exercise: "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
     move: 3,
     repeat: 15,
-    area: 'Back'
+    area: 'Chest',
+    muscles: [
+      "Latissimus dorsi", 
+      "The trapezius", 
+      "Levator scapulae",
+      "Rhomboids"
+    ],
   },
   {
     id: 1,
-    name: "Plank Up-Down",
+    name: "Exercise",
     exercise: "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
     move: 3,
     repeat: 15,
-    area: 'Back'
+    area: 'Chest',
+    muscles: [
+      "Latissimus dorsi", 
+      "The trapezius", 
+      "Levator scapulae",
+      "Rhomboids"
+    ],
   },
   {
     id: 2,
-    name: "Plank Up-Down",
+    name: "Exercise",
     exercise: "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
     move: 3,
     repeat: 10,
-    area: 'Back'
+    area: 'Chest',
+    muscles: [
+      "Latissimus dorsi", 
+      "The trapezius", 
+      "Levator scapulae",
+      "Rhomboids"
+    ],
   },
   {
     id: 3,
-    name: "Plank Up-Down",
+    name: "Exercise",
     exercise: "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
     move: 3,
     repeat: 15,
-    area: 'Back'
+    area: 'Chest',
+    muscles: [
+      "Latissimus dorsi", 
+      "The trapezius", 
+      "Levator scapulae",
+      "Rhomboids"
+    ],
   },
   {
     id: 4,
-    name: "Plank Up-Down",
+    name: "Exercise",
     exercise: "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
     move: 3,
     repeat: 15,
-    area: 'Back'
+    area: 'Arms',
+    muscles: [
+      "Latissimus dorsi", 
+      "The trapezius", 
+      "Levator scapulae",
+      "Rhomboids"
+    ],
   },
   {
     id: 5,
-    name: "Plank Up-Down",
+    name: "Exercise",
     exercise: "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
     move: 3,
     repeat: 15,
-    area: 'Back'
+    area: 'Arms',
+    muscles: [
+      "Latissimus dorsi", 
+      "The trapezius", 
+      "Levator scapulae",
+      "Rhomboids"
+    ],
   },
 ];
 
