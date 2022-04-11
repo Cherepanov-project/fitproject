@@ -15,7 +15,10 @@ export const registerUser = async (user: IRegisterForm) => {
 };
 
 //возвращает токен с сервера для логина или регистрации
-export const loginUserWithSocials = async (code: string | string[]) => {
-  const { data } = await axios.post(API_SOCIAL, { data: { code }});
-  return data;
+export const loginUserWithSocials = async (code: string | string[], type: string) => {
+  if (type === 'code') {
+    const { data } = await axios.post(API_SOCIAL, { data: { code }});
+    return data;
+  } 
+  if (type === 'token') return code
 };

@@ -19,7 +19,7 @@ const YandexBtn = () => {
     const yandexCode = queryString.parse(window.location.search).code;
 
     if (yandexData.state === 'yandex') {
-      loginUserWithSocials(yandexCode)
+      loginUserWithSocials(yandexCode, 'code')
         .then((token) => {
           Cookies.set('userLogin', JSON.stringify({type: 'yandex', token}), { expires: 2 });
         })

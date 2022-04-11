@@ -19,7 +19,7 @@ const MailBtn = () => {
     const mailCode = queryString.parse(window.location.search).code;
 
     if (mailData.state === 'mail') {
-      loginUserWithSocials(mailCode)
+      loginUserWithSocials(mailCode, 'code')
         .then((token) => {
           Cookies.set('userLogin', JSON.stringify({type: 'mail', token}), { expires: 2 });
         })

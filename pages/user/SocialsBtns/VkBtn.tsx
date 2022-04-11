@@ -19,7 +19,7 @@ const VkBtn = () => {
     const vkCode = queryString.parse(window.location.search).code;
     
     if (vkData.state === 'vk') {
-      loginUserWithSocials(vkCode)
+      loginUserWithSocials(vkCode, 'code')
         .then((token) => {
           Cookies.set('userLogin', JSON.stringify({type: 'vk', token}), { expires: 2 });
         })

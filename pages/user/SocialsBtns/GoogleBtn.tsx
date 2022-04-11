@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router'
-import axios from 'axios';
+import Cookies from 'js-cookie';
 import queryString from 'query-string';
 
 import {REDIRECT_GOOGLE_BTN, GOOGLE_IMG} from '../../../utils/urls'
 
+import {loginUserWithSocials} from '../../../API/loginUser';
 
 const GoogleBtn = () => {
   const router = useRouter();
@@ -13,18 +14,14 @@ const GoogleBtn = () => {
     router.push(REDIRECT_GOOGLE_BTN)
   };
 
-  const getUser = async (token: string | string[]) => {
-    const host = 'https://login.yandex.ru/info?';
-    const { data } = await axios.get(`${host}oauth_token=${token}`);
-    return data;
-  };
-
   useEffect(() => {
-    const yandexCode = queryString.parse(window.location.hash);
-    if (yandexCode.state === 'yandex') {
-      getUser(yandexCode.access_token)
-        .then((data) => {
-          localStorage.setItem('user', JSON.stringify({ type: 'yandex', data }));
+    const googleData = queryString.parse(window.location.hash)
+    const googleToken = queryString.parse(window.location.search).access_token;
+
+    if (googleData.state === 'google') {
+      loginUserWithSocials(googleToken, 'token')
+        .then((token) => {
+          Cookies.set('userLogin', JSON.stringify({type: 'google', token}), { expires: 2 });
         })
         .then(() => {
           router.push('/user/statistics')
