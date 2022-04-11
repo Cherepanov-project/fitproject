@@ -1,12 +1,8 @@
 import { useState } from "react";
 import { Children, ReactElement } from "react";
-import { nanoid } from 'nanoid'
 import { Formik, FormikConfig, Form } from "formik";
-
 import { Button, CircularProgress, Grid, StepLabel, Stepper } from "@mui/material";
-
 import { FormikStepProps, IRegisterForm, IFormikStepper } from "../../../model/loginOrRegisterInterfaces/interfaces";
-
 import { RegOrLoginSocial } from '../RegOrLoginSocial';
 
 
@@ -17,6 +13,7 @@ export const FormikStepper = ({ children, initialValues, onSubmit }: FormikConfi
 	const [completed, setCompleted] = useState<boolean>(false);
 	const currentChild = childrenArray[step];
 
+	console.log(children)
 	function isLastStep() {
 		return step === childrenArray.length - 1;
 	}
@@ -40,26 +37,24 @@ export const FormikStepper = ({ children, initialValues, onSubmit }: FormikConfi
 				<Form autoComplete="off" onChange={handleChange}>
 					<Stepper sx={{ margin: "-10px" }} activeStep={step}>
 						{childrenArray.map((child, index) => (
-						<StepLabel
-							sx={{
-								textTransform: "uppercase",
-								margin: "0 0.5rem 1.8rem",
-								width: "100%",
-								height: "2.4rem",
-								fontSize: "14px",
-								textAlign: "center",
-								borderRadius: "5px",
-								border: "solid 2px #C9CFDA",
-								font: `${step === index ? "#51AD78" : step > index ? "#56CCF2" : "#C9CFDA"}`,
-								borderColor: `${step === index ? "#51AD78" : step > index ? "#56CCF2" : "#B0BAC9"}`,
-								span: {color: `${step === index ? "#51AD78" : step > index ? "#56CCF2" : "#B0BAC9"}`},
-							}}
-							key={nanoid()}
-						>
-							{child.props.label}
-						</StepLabel>
-						)
-						)}
+							<StepLabel
+								sx={{
+									textTransform: "uppercase",
+									margin: "0 0.5rem 1.8rem",
+									width: "100%",
+									height: "2.4rem",
+									fontSize: "14px",
+									textAlign: "center",
+									borderRadius: "5px",
+									border: "solid 2px #C9CFDA",
+									font: `${step === index ? "#51AD78" : step > index ? "#56CCF2" : "#C9CFDA"}`,
+									borderColor: `${step === index ? "#51AD78" : step > index ? "#56CCF2" : "#B0BAC9"}`,
+									span: {color: `${step === index ? "#51AD78" : step > index ? "#56CCF2" : "#B0BAC9"}`},
+								}}
+							>
+								{child.props.label}
+							</StepLabel>
+						))}
 					</Stepper>
 					{currentChild}
 					<Grid container spacing={2}>
