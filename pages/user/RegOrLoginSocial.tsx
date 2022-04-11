@@ -1,20 +1,15 @@
-import { ContinueWithSocial, SocialLink } from './userLoginOrRegisterStyle';
+import { ContinueWithSocial, SocialLink, SocialImg } from "./userLoginOrRegisterStyle"
+import apple from '../../common/images/icons/apple.png'
+import Facebook from '../../common/images/icons/Facebook.png';
+import google from '../../common/images/icons/google.png';
 
-import GoogleBtn from './SocialsBtns/GoogleBtn';
-import MailBtn from './SocialsBtns/MailBtn';
-import VkBtn from './SocialsBtns/VkBtn';
-import YandexBtn from './SocialsBtns/YandexBtn';
-
-export const RegOrLoginSocial = () => {
-  return (
-    <ContinueWithSocial>
-      <div>or continue with</div>
-      <SocialLink>
-        <GoogleBtn />
-        <MailBtn />
-        <VkBtn />
-        <YandexBtn />
-      </SocialLink>
-    </ContinueWithSocial>
-  );
-};
+export const RegOrLoginSocial = () => (
+	<ContinueWithSocial>
+		<div>or continue with</div>
+		<SocialLink>
+			<a href='#' ><SocialImg width='36px' src={apple.src}></SocialImg></a>
+			<a href='#' ><SocialImg width='36px' src={Facebook.src}></SocialImg></a>
+			<a href='#' ><SocialImg width='36px' src={google.src}></SocialImg></a>
+		</SocialLink>
+	</ContinueWithSocial>
+)

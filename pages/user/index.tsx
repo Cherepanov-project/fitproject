@@ -1,8 +1,5 @@
-import Link from "next/link";
-
-import loginMan from '../../common/images/loginMan.png';
 import Layout from "../../common/user/UserLayout";
-
+import Link from "next/link";
 import { LoginForm } from './login/loginForm';
 import {
 	UserLoginOrRegister,
@@ -14,7 +11,7 @@ import {
 	Title2,
 } from "./userLoginOrRegisterStyle";
 import { RegOrLoginIcon } from "./userLoginOrRegisterStyle";
-
+import loginMan from '../../common/images/loginMan.png';
 
 export default function User() {
   return (
