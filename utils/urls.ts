@@ -7,7 +7,6 @@
 //Ключи и ID для доступа к сервисам
  const GOOGLE_APP_ID: string =  '923185254811-builrr1af8oon69vsndv7v8ctd9tdviv.apps.googleusercontent.com';
  const MAIL_APP_ID: string = '6695c1fb9ec5411fa03a1f14f3982208';
- const MAIL_APP_SECRET: string = '7d4de43db8f34ef39f4eb8eefa5462d0';
  const YANDEX_APP_ID: string = '824329c3c4d241bc987b77de6090da9c';
  const VK_APP_ID: string = '8103808';
 
@@ -29,4 +28,4 @@ const YANDEX_IMG: string = 'https://yastatic.net/s3/home-static/_/37/37a02b5dc7a
  const REDIRECT_VK_BTN: string = `https://oauth.vk.com/authorize?client_id=${VK_APP_ID}&display=popup&redirect_uri=${LOGIN_PAGE}&scope=offline&response_type=code&v=5.131&state=vk`;
  const REDIRECT_YANDEX_BTN: string = `https://oauth.yandex.ru/authorize?response_type=code&client_id=${YANDEX_APP_ID}&redirect_uri=${LOGIN_PAGE}&state=yandex`
 
- export {MAIN_PAGE, LOGIN_PAGE, REGISTER_PAGE, USER_STATISTICS_PAGE, GOOGLE_APP_ID, MAIL_APP_ID, MAIL_APP_SECRET, YANDEX_APP_ID, VK_APP_ID, API_REGISTER_USER, API_LOGIN_USER, API_GET_STATISTICS,GOOGLE_IMG, REDIRECT_GOOGLE_BTN, REDIRECT_MAIL_BTN,  MAIL_IMG, REDIRECT_VK_BTN, VK_IMG, REDIRECT_YANDEX_BTN, YANDEX_IMG, API_SOCIAL}
+ export {MAIN_PAGE, LOGIN_PAGE, REGISTER_PAGE, USER_STATISTICS_PAGE, GOOGLE_APP_ID, MAIL_APP_ID, YANDEX_APP_ID, VK_APP_ID, API_REGISTER_USER, API_LOGIN_USER, API_GET_STATISTICS,GOOGLE_IMG, REDIRECT_GOOGLE_BTN, REDIRECT_MAIL_BTN,  MAIL_IMG, REDIRECT_VK_BTN, VK_IMG, REDIRECT_YANDEX_BTN, YANDEX_IMG, API_SOCIAL}
