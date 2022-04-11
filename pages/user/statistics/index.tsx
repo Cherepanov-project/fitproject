@@ -1,3 +1,19 @@
+import {useEffect} from 'react';
+import Cookies from 'js-cookie';
+import {useRouter} from "next/router";
+
+import { LayoutUser } from "../../../layouts/Layout-user/Layout-user";
+
+import UserChar from "../../../common/userChar/userChar";
+import SquareIcon from "../../../common/squareIcon/squareIcon";
+import RectangleBtn from "../../../common/rectangleBtn/rectangleBtn";
+import ProgressBtn from "../../../common/progressBtn/progressBtn";
+
+import imgLeg from "../../../common/images/icons/leg.svg";
+import imgWater from "../../../common/images/icons/water.svg";
+import imgCyclist from "../../../common/images/icons/cyclist.svg";
+import imgRun from "../../../common/images/icons/running.svg";
+
 import {
   Container,
   ActivContainer,
@@ -13,21 +29,21 @@ import {
   ProgressContainer,
 } from "./statisticsStyles";
 
-import { LayoutUser } from "../../../layouts/Layout-user/Layout-user";
-
-import UserChar from "../../../common/userChar/userChar";
-import SquareIcon from "../../../common/squareIcon/squareIcon";
-import RectangleBtn from "../../../common/rectangleBtn/rectangleBtn";
-import ProgressBtn from "../../../common/progressBtn/progressBtn";
-
-import imgLeg from "../../../common/images/icons/leg.svg";
-import imgWater from "../../../common/images/icons/water.svg";
-import imgCyclist from "../../../common/images/icons/cyclist.svg";
-import imgRun from "../../../common/images/icons/running.svg";
-
 const Frame1 = () => {
 
-  return (
+  const router = useRouter();
+  
+  useEffect(() => {
+    if (!Cookies.get('userToken')){
+      setTimeout(()=>{
+        router.push('/user');
+      },1000)
+    }
+  }, [router]);
+
+const isLogin = Cookies.get('userToken') ? true : false;
+
+  return isLogin ? (
     <Container>
       <ActivContainer>
         <Activity>
@@ -76,7 +92,7 @@ const Frame1 = () => {
           ico = {<SquareIcon color = {"rgba(0, 0, 0, 0)"} img = {imgLeg.src}/>}/>
       </ProgressContainer>
     </Container>
-  );
+  ) : <h1>You must be login</h1>;
 };
 
 export default LayoutUser(Frame1);
