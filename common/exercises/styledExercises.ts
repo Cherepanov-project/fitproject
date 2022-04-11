@@ -5,4 +5,5 @@ export const VideoDiv = styled.div`
   overflow: hidden;
   width: 100%;
   min-height: 100px;
+  text-align: center;
 `;

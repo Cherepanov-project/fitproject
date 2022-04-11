@@ -8,6 +8,7 @@ interface IProps {
 	name: string
 }
 
+
 const emptyIngredient = {
 	name: '',
 	description: ''
@@ -15,7 +16,7 @@ const emptyIngredient = {
 
 const IngredientsFiled: React.FC<IProps> = React.memo((props: IProps) => {
 	const [field, meta, helpers] = useField(props.name);
-
+	
 	return (
 		<FieldArray
 			name = {field.name}
@@ -27,7 +28,7 @@ const IngredientsFiled: React.FC<IProps> = React.memo((props: IProps) => {
 				my={2}
 				xs={12}
 			> 
-				{field.value.map((ingredient: IIngredient, index: number) => (
+				{field.value ? field.value.map((ingredient: IIngredient, index: number) => (
 					<Grid 
 						container 
 						item
@@ -68,7 +69,7 @@ const IngredientsFiled: React.FC<IProps> = React.memo((props: IProps) => {
 							</Grid>
 						</Box>
 					</Grid>
-				))}
+				)) : null }
 				<Grid container item xs mr={-4}>
 					<IconButton 
 						size='large' 
@@ -79,6 +80,7 @@ const IngredientsFiled: React.FC<IProps> = React.memo((props: IProps) => {
 			</Grid>
 		)}/>
 	)
+
 })
 
 export default IngredientsFiled

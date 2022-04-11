@@ -1,15 +1,16 @@
 import { useRouter } from "next/router";
-import CalendarContainer from "../../../common/CalendarContainer";
-import HeadLinkBack from "../../../common/HeadLinkBack";
+import CalendarContainer from "../../../../common/CalendarContainer";
+import HeadLinkBack from "../../../../common/HeadLinkBack";
 import { ListUl, ItemDiv, ListItemName } from "./stylesDieta";
-import { DailyRationType, dailyRation } from "../../../model/dieta/dieta";
-import { useState } from "React";
+import { DailyRationType, dailyRation } from "../../../../model/dieta/dieta";
+import {useState } from "react";
 import ItemRation from "./ItemRation";
+import { LayoutUser } from "../../../../layouts/Layout-user/Layout-user";
+
 
 const DailyRation = () => {
   const { asPath } = useRouter();
-  const [arrDailyRation, setDailyRation] =
-    useState<DailyRationType[]>(dailyRation);
+  const [arrDailyRation, setDailyRation] = useState<DailyRationType[]>(dailyRation);
 
   const menuClickShow = (id: string) => {
     const dailyRationMutation = arrDailyRation.map((item) => {
@@ -36,7 +37,7 @@ const DailyRation = () => {
     <CalendarContainer>
       <HeadLinkBack
         namesCompoent={"Ежедневный рацион питания"}
-        backLink={"/calendar/"}
+        backLink={"/user/calendar/"}
       />
       <div>
         <ListUl>
@@ -58,4 +59,4 @@ const DailyRation = () => {
     </CalendarContainer>
   );
 };
-export default DailyRation;
+export default LayoutUser(DailyRation);

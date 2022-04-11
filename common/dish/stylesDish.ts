@@ -10,7 +10,7 @@ interface displayContainer {
 
 export const ButtonFood = styled.button<displayContainer>`
   display: ${({ $display }) => (!$display ? "inline-block" : "none")};
-  background-color #408EBA;
+  background-color: #408EBA;
   color: white;
   border-radius: 4px;
   border: none;
@@ -24,12 +24,18 @@ export const DishComponent = styled.div<img>`
   background: url(${({ imgUrl }) => imgUrl});
   background-position: top right;
   background-repeat: no-repeat;
-  margin-bottom: 10px;
+  background-color: white !important;
+  border-radius: 12px;
+  margin: 0 auto;
+  width: 100%;
 `;
 
 export const DishItem = styled.div`
-  width: 50%;
+  margin-top: 34px;
+  width: 43%;
   margin-left: 10%;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const NutritionalItem = styled.div`
@@ -48,15 +54,22 @@ export const NutritionalItem = styled.div`
 
 export const FoodContainer = styled.div<displayContainer>`
   display: ${({ $display }) => ($display ? "block" : "none")};
+  margin-bottom: 30px;
+    h3 {
+      margin-bottom: 10px;
+    }
+    
 `;
 
 export const NutritionalContainer = styled.div`
   display: flex;
+  margin-bottom: 16px;
 `;
 
 export const IndigrientsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 16px;
 `;
 
 export const IndigrientItem = styled.div`
@@ -80,3 +93,7 @@ export const IndigrientItemImg = styled.div<img>`
 export const IndigrientItemText = styled.div`
   margin-left: 10px;
 `;
+
+export const DishDescriptionWrapper = styled.div`
+margin-bottom: 18px;
+`

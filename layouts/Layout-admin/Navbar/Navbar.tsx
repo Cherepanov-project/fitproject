@@ -15,6 +15,7 @@ const Navbar = () => {
 
     const router = useRouter();
     const page = router.asPath.split('/').pop();
+    const editRecipie = page.split('-').splice(0,1);
     const [username, setusername] = useState("admin")
 
     useEffect(() => {
@@ -27,7 +28,7 @@ const Navbar = () => {
     return (
         <NavbarWrapper>
             <PageName>
-                {(page[0].toUpperCase() + page.slice(1))}
+                {editRecipie[0] === 'edit' ? 'Edit recipie' : (page[0].toUpperCase() + page.slice(1))}
             </PageName>
             <DivAdminInformation>
                 <DivInformation>

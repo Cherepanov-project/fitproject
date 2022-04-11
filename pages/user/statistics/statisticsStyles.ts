@@ -1,17 +1,18 @@
 import styled from "styled-components";
 import bgWater from "../../../common/images/bgBtnFrame1.svg";
 
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 1068px;
   background-color: #f1f1f1;
+  /* margin-top: 140px; */
 `;
 
 export const ActivContainer = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
 `;
 
@@ -24,6 +25,14 @@ export const Activity = styled.div`
   height: 375px;
   background: linear-gradient(180deg, #6d63ff 0%, #3b32c0 100%);
   border-radius: 10px 40px;
+
+  @media (min-width: 1401px) {
+    width: 66%;
+  }
+
+  @media (min-width: 2000px) {
+    height: 475px;
+  }
 `;
 
 export const ActivHeader = styled.div`
@@ -48,7 +57,7 @@ export const ActivSelect = styled.select`
   margin-right: 25px;
   padding: 0 15px;
   color: #ffffff;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.1);
   border: 1px solid #ffffff;
   border-radius: 20px;
 `;
@@ -67,6 +76,11 @@ export const TargetContainer = styled.div`
   background-image: url(${bgWater.src});
   background-repeat: no-repeat;
   background-position: 100% 100%;
+
+  @media (min-width: 2100px) {
+      width: 477px;
+      height: 280px;
+  }
 `;
 
 export const TargetWrapper = styled.div`
@@ -90,7 +104,11 @@ export const Target = styled.div`
 
 export const ProgressContainer = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   margin-top: 80px;
+
+  @media (min-width: 2100px) {
+    margin-top: 160px;
+  }
 `;
 
