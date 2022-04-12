@@ -61,3 +61,10 @@ export interface IFormikStepper {
   initialValues: IRegisterForm;
   onSubmit: Function;
 }
+
+export interface ISocialLoginBtn {
+  redirectURL: string;
+  typeOfSocial: string;
+  typeOfCode?: string;
+  img: string;
+}
