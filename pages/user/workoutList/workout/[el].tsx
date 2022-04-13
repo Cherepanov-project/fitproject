@@ -4,7 +4,7 @@ import Link from "next/link";
 import Card from '@mui/material/Card';
 import { LayoutUser } from "../../../../layouts/Layout-user/Layout-user"
 import { exerciseList, exercisesType} from '../../../../model/workout/workout';
-import img from '../../../../common/images/workoutExercise.png'
+import img from '../../../../common/images/workoutExercise.svg'
 import muscleImg from '../../../../common/images/icons/backMuscle.svg'
 import uid from '../../../../utils/uid';
 import useMediaQuery  from '@mui/material/useMediaQuery';
