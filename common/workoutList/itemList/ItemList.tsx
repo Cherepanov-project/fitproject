@@ -5,7 +5,7 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import { exerciseList} from '../../../model/workout/workout';
 import useMediaQuery  from '@mui/material/useMediaQuery';
-import img from '../../images/workoutExercise.png'
+import img from '../../images/workoutExercise.svg'
 
 import {
         ImgWrapper,
