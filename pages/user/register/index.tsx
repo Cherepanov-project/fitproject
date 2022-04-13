@@ -16,7 +16,6 @@ import {
 
 import { RegisterForm } from './RegisterFormStep';
 
-
 export default function User() {
   return (
     <Layout title="Register User">
@@ -28,7 +27,7 @@ export default function User() {
             <Title2>Lorem ipsum is simply</Title2>
             <div>If you already have an account </div>
             <div>
-              You can{' '}
+              You can
               <Link href="/user">
                 <A>Login here !</A>
               </Link>
