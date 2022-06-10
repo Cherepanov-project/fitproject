@@ -4,14 +4,13 @@ import Link from "next/link";
 import Card from '@mui/material/Card';
 import { LayoutUser } from "../../../../layouts/Layout-user/Layout-user"
 import { exerciseList, exercisesType} from '../../../../model/workout/workout';
-import img from '../../../../common/images/workoutExercise.svg'
 import muscleImg from '../../../../common/images/icons/backMuscle.svg'
 import uid from '../../../../utils/uid';
 import useMediaQuery  from '@mui/material/useMediaQuery';
 
-import {MainWrapper, 
+import {MainWrapper,
         Container, 
-        LeftContent, 
+        LeftContent,
         Exercise, 
         ExerciseTitle, 
         ExerciseDescription,
@@ -29,7 +28,7 @@ const WorkoutItem = () => {
     const [workoutList, setWorkoutList] = useState<exercisesType[]>(exerciseList)
     const workout = workoutList.find((el) => el.id === Number(path.query.el))
     const matches = useMediaQuery('(min-width:2000px')
-
+    
     const cardStyles = {
         width: !matches ? 184 : 234, 
         height: !matches ? 186 : 226, 
@@ -52,7 +51,7 @@ const WorkoutItem = () => {
         const exercises = exerciseList.filter((el) => el.area === workout?.area).map((item) => (
         <Link href={`/user/workoutList/workout/${item.id}`} key={item.id}>
         <Card sx={cardStyles}>
-            <div><ImgWrapper src={img.src} alt='workout exercise'/></div>
+            <ImgWrapper imgUrl={item.img} imgWidth={item.imgWidth} imgHeight={item.imgHeight}/>
                 <TextWrapper>
                     <Exercise>{item.name}</Exercise>
                     <Reps>{`${item.move} X ${item.repeat} REPS`}</Reps>
@@ -81,7 +80,7 @@ const WorkoutItem = () => {
                             {musclesList}
                         </MusclesList>
                     </Exercise>
-                    <Image src={img.src}/>
+                    <div><Image src={workout?.img}/></div>
                 </LeftContent>
             </Container>
             <BottomContainer>

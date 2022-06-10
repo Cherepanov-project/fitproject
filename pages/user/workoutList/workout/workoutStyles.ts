@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+interface img {
+    imgUrl: string;
+    imgWidth: number;
+    imgHeight: number;
+}
+
 export const MainWrapper = styled.div`
     display: flex;
     flex-direction: column;
@@ -27,6 +33,7 @@ export const LeftContent = styled.div`
 export const Exercise = styled.div`
     display: flex;
     flex-direction: column;
+    width: 60%;
 `
 
 export const ExerciseTitle = styled.h1`
@@ -39,17 +46,17 @@ export const ExerciseDescription = styled.div`
 
 export const Image = styled.img`
     width: 489px;
-    height: 492px;
+    height: auto;
 
     @media (max-width: 2100px) {
         width: 359px;
-        height: 362px;
+        height: auto;
     }
 
     @media (max-width: 1600px) {
         width: 359px;
-        height: 362px;
         margin-right: 0px;
+        height: auto;
     }
 `
 
@@ -84,14 +91,18 @@ export const BottomContainer = styled.div`
     padding: 0 58px;
 `
 
-export const ImgWrapper = styled.img`
+export const ImgWrapper = styled.div<img>`
     width: 118px;
     height: 126px;
     border-radius: 50px;
-
+    background: url(${({ imgUrl }) => imgUrl}) #fff no-repeat;   
+    background-size: ${({ imgWidth, imgHeight }) => {
+        return imgWidth>imgHeight?'100% auto':'auto 100%'
+    }};
+    background-position: 50% 50%;
     @media (min-width: 2000px) {
-        width: 168px;
-        height: 156px;
+        width: 218px;
+        height: 226px;
     }
 `
 export const TextWrapper = styled.div`
