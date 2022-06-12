@@ -42,7 +42,7 @@ export const exerciseList: exercisesType[] = [
       "Rhomboids"
     ],
     img:"/exercises/fours.jpg",
-    imgWidth: 110,
+    imgWidth: 175,
     imgHeight: 148,
   },
   {

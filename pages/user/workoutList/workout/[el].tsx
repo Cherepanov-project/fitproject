@@ -48,13 +48,13 @@ const WorkoutItem = () => {
         </Muscle>
     ))
 
-        const exercises = exerciseList.filter((el) => el.area === workout?.area).map((item) => (
-        <Link href={`/user/workoutList/workout/${item.id}`} key={item.id}>
+        const exercises = exerciseList.filter((el) => el.area === workout?.area).map(({id,img,imgWidth,imgHeight, name, move, repeat}) => (
+        <Link href={`/user/workoutList/workout/${id}`} key={id}>
         <Card sx={cardStyles}>
-            <ImgWrapper imgUrl={item.img} imgWidth={item.imgWidth} imgHeight={item.imgHeight}/>
+            <ImgWrapper imgUrl={img} imgWidth={imgWidth} imgHeight={imgHeight}/>
                 <TextWrapper>
-                    <Exercise>{item.name}</Exercise>
-                    <Reps>{`${item.move} X ${item.repeat} REPS`}</Reps>
+                    <Exercise>{name}</Exercise>
+                    <Reps>{`${move} X ${repeat} REPS`}</Reps>
             </TextWrapper>
         </Card>
         </Link>
@@ -80,7 +80,7 @@ const WorkoutItem = () => {
                             {musclesList}
                         </MusclesList>
                     </Exercise>
-                    <div><Image src={workout?.img}/></div>
+                    <div><Image imgUrl={workout?.img} imgWidth={workout?.imgWidth} imgHeight={workout?.imgHeight} src={workout?.img}/></div>
                 </LeftContent>
             </Container>
             <BottomContainer>

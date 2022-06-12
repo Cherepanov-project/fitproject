@@ -28,6 +28,7 @@ export const Container = styled.div`
 export const LeftContent = styled.div`
     margin: 110px 83px 142px 79px;
     display: flex;
+    justify-content: space-between;    
 `
 
 export const Exercise = styled.div`
@@ -44,20 +45,22 @@ export const ExerciseDescription = styled.div`
 
 `
 
-export const Image = styled.img`
-    width: 489px;
-    height: auto;
-
-    @media (max-width: 2100px) {
-        width: 359px;
-        height: auto;
-    }
-
-    @media (max-width: 1600px) {
-        width: 359px;
-        margin-right: 0px;
-        height: auto;
-    }
+export const Image = styled.img<img>`
+    width: ${({ imgWidth, imgHeight }) => {
+        return imgWidth>imgHeight?imgWidth:'auto'
+    }};    
+    height: ${({ imgWidth, imgHeight }) => {
+        return imgWidth>imgHeight?'auto':imgHeight
+    }};
+    margin-right:0;
+    min-width:${({ imgWidth, imgHeight }) => {
+        return imgWidth>imgHeight?'300px':'unset'
+    }};
+    min-height:${({ imgWidth, imgHeight }) => {
+        return imgWidth>imgHeight?'unset':'400px'
+    }};
+    
+    
 `
 
 export const MusclesTitle = styled.h2`
