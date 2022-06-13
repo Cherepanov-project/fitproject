@@ -9,7 +9,7 @@ interface ColorfulTegProp {
 export const Tegs = styled.span<ColorfulTegProp>`
     margen: 0;
     padding: 5px 12px;
-    height: 24px;
+    max-height: 24px;
     letter-spacing: 0.5px;
     text-transform: uppercase;
     background-color: ${({ backgroundColor }) => backgroundColor};
