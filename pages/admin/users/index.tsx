@@ -7,7 +7,7 @@ import UserItem from "../../../components/AdminTable/UserItem"
 import { userList } from "../../../model/userList/userList"
 import Pagination from "../../../components/Pagination/pagination"
 import getArrPagination from "../../../utils/getArrPagination"
-import ColumnName from "../../../components/AdminTable/ColumnName/columnName"
+import ColumnName from "../../../components/RecipiesContainer/ColumnName/columnName"
 
 interface DataType {
     id: string

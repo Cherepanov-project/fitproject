@@ -10,7 +10,7 @@ import TableContainer from "@mui/material/TableContainer"
 import { ContentList, FooterRecipies } from "./overview/overviewStyles"
 import CreateForm from "../../components/RecipiesContainer/AddBtn/addForm"
 import Pagination from "../../components/Pagination/pagination"
-import ColumnName from "../../components/AdminTable/ColumnName/columnName"
+import ColumnName from "../../components/RecipiesContainer/ColumnName/columnName"
 import getArrPagination from "../../utils/getArrPagination"
 
 const Recipes = () => {
