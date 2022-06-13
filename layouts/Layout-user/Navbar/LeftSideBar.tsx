@@ -1,29 +1,26 @@
-import Link from 'next/link';
-import Box from '@mui/material/Box';
-import { Drawer } from '@mui/material';
-import { Sidebar, 
-        SidebarWrapper, 
-        IconListWrapper,
-        TopIconsWrapper,
-        BottomIconWrapper,
-        Image,
-        ImageWrapper,
-        Divider
+import Link from "next/link"
+import Box from "@mui/material/Box"
+import { Drawer } from "@mui/material"
+import {
+    Sidebar,
+    SidebarWrapper,
+    IconListWrapper,
+    TopIconsWrapper,
+    BottomIconWrapper,
+    Image,
+    ImageWrapper,
+    Divider,
 } from "./LeftSideBarStyle"
 
-import bell from "../images/NavBarIcons/bell.svg";
-import home from "../images/NavBarIcons/home.svg"; 
-import clock from "../images/NavBarIcons/clock.svg"; 
-import message from "../images/NavBarIcons/message.svg"; 
-import sheet from "../images/NavBarIcons/sheet.svg";
-import help from "../images/NavBarIcons/help.svg"; 
-
+import bell from "../images/NavBarIcons/bell.svg"
+import home from "../images/NavBarIcons/home.svg"
+import clock from "../images/NavBarIcons/clock.svg"
+import message from "../images/NavBarIcons/message.svg"
+import sheet from "../images/NavBarIcons/sheet.svg"
+import help from "../images/NavBarIcons/help.svg"
 
 const LeftSideBar = () => {
-
-
-
-    return(
+    return (
         <SidebarWrapper>
             <Sidebar>
                 <IconListWrapper>
@@ -33,7 +30,7 @@ const LeftSideBar = () => {
                                 <Image src={bell.src} alt="h" />
                             </ImageWrapper>
                         </Link>
-                            <Divider/>
+                        <Divider />
                         <Link href="/user/statistics">
                             <ImageWrapper>
                                 <Image src={home.src} alt="h" />
@@ -65,8 +62,6 @@ const LeftSideBar = () => {
                 </IconListWrapper>
             </Sidebar>
         </SidebarWrapper>
-
-
     )
 }
 

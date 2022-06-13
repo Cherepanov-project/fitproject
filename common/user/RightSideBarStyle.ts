@@ -1,21 +1,21 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const UserInfoWrapper = styled.div`
-	display: flex;
-	margin-top: 34px;
-`;
+    display: flex;
+    margin-top: 34px;
+`
 
 export const UserInfo = styled.div`
-	align-self: center;
-`;
+    align-self: center;
+`
 
 export const WeightLoosGoalWrapper = styled.div`
-	margin: 0 auto
-`;
+    margin: 0 auto;
+`
 
 export const Loss = styled.div`
-	margin: 15px 0;
-`;
+    margin: 15px 0;
+`
 
 export const IconArrow = styled.img`
 	position: absolute;
@@ -26,11 +26,9 @@ export const IconArrow = styled.img`
 	border-radius: 10px;
 	width: '32px',
 	height: '32px',
-`;
+`
 
-export const Meter = styled.img`
-	
-`;
+export const Meter = styled.img``
 
 export const Avatar = styled.img`
 	width: 64px;
@@ -42,27 +40,27 @@ export const Avatar = styled.img`
 	@img{
 		border-radius: 35%
 	}
-`;
+`
 
 export const UserName = styled.div`
-	font-weight: 500;
-	font-size: 16px;
-	line-height: 19px;
-	letter-spacing: -0.005em;
-`;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.005em;
+`
 
 export const LastVisitTime = styled.div`
-	font-weight: normal;
-	font-size: 13px;
-	line-height: 16px;
-	letter-spacing: -0.005em;
-	color: #787878;
-`;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: -0.005em;
+    color: #787878;
+`
 
 export const Icon = styled.img`
 	width 27px;
-`;
+`
 
 export const IconWrapper = styled.div`
-	/* padding: auto 0 */
-`;
+    /* padding: auto 0 */
+`

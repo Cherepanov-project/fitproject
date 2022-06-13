@@ -1,14 +1,14 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 interface CardContainerProps {
-    width: string,
-    height: string,
-    margin: string,
-    borderColor: string,
-};
+    width: string
+    height: string
+    margin: string
+    borderColor: string
+}
 
 interface CardContentProps {
-    padding: string,
+    padding: string
 }
 
 export const CardContainer = styled.div<CardContainerProps>`
@@ -21,7 +21,7 @@ export const CardContainer = styled.div<CardContainerProps>`
     border-radius: 8px;
     display: flex;
     flex-grow: 0;
-`;
+`
 
 export const CardContent = styled.div<CardContentProps>`
     display: flex;

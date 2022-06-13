@@ -1,17 +1,14 @@
-import { MainWrapper,
-        ItemListWrapper
-                        } from "./workoutListStyles";
+import { MainWrapper, ItemListWrapper } from "./workoutListStyles"
 import Sidebar from "../../../common/workoutList/sidebar/Sidebar"
-import { LayoutUser } from "../../../layouts/Layout-user/Layout-user";
-import ItemList from "../../../common/workoutList/itemList/ItemList";
+import { LayoutUser } from "../../../layouts/Layout-user/Layout-user"
+import ItemList from "../../../common/workoutList/itemList/ItemList"
 
 const workoutList = () => {
-
     return (
         <MainWrapper>
-            <Sidebar/>
+            <Sidebar />
             <ItemListWrapper>
-            <ItemList/>
+                <ItemList />
             </ItemListWrapper>
         </MainWrapper>
     )
