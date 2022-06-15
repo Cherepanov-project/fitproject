@@ -12,6 +12,7 @@ const UserWrapper = styled.div`
 
 type Props = {
     title?: string
+    children: React.ReactElement
 }
 
 const Layout: React.FC<Props> = ({ children, title = "default title" }) => (

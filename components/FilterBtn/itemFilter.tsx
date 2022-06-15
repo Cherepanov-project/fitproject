@@ -15,13 +15,17 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack"
 import styled from "styled-components"
 import { useRouter } from "next/router"
 
-const FilterItem = styled.div`
+interface filterItemActiveProp {
+    filterItemActive: boolean
+}
+
+const FilterItem = styled.div<filterItemActiveProp>`
     padding-right: 15px;
     transform: ${({ filterItemActive }) =>
         filterItemActive ? "translateX(-110%)" : "translateX(0%)"};
     transition: transform 0.5s ease;
 `
-const ContainerRight = styled.div`
+const ContainerRight = styled.div<filterItemActiveProp>`
     margin-top: -130px;
     overflow: hidden;
     transform: ${({ filterItemActive }) =>
@@ -98,8 +102,8 @@ const ItemFilter = () => {
                         </IconBack>
                         {optionsTypesMeals.map(option => (
                             <FilterItem2
+                                // filterItemActive={filterItemActive}
                                 key={option}
-                                filterItemActive={filterItemActive}
                             >
                                 <InputCheckbox
                                     type="checkbox"

@@ -19,11 +19,7 @@ import {
 
 import { RegOrLoginSocial } from "../RegOrLoginSocial"
 
-export const FormikStepper = ({
-    children,
-    initialValues,
-    onSubmit,
-}: FormikConfig<IFormikStepper | IRegisterForm>) => {
+export const FormikStepper = ({ children, initialValues, onSubmit }) => {
     const childrenArray = Children.toArray(
         children
     ) as ReactElement<FormikStepProps>[]

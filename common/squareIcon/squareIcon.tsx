@@ -6,7 +6,7 @@ interface Props {
 }
 
 const SquareIcon = ({ color, img }: Props) => {
-    return <CustomIcon bgColor={color} bgImg={img}></CustomIcon>
+    return <CustomIcon bgColor={color} bgImg={img.src}></CustomIcon>
 }
 
 export default SquareIcon

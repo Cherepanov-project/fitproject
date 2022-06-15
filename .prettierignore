@@ -5,3 +5,5 @@ build
 *.html
 
 package-lock.json
+
+README.md
