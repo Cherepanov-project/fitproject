@@ -38,18 +38,18 @@ export const LoginForm: React.FC = () => {
     const router = useRouter()
 
     //перенаправление на страницу пользователя если пользователь был залогинен
-    useEffect(() => {
-        if (Cookies.get("userLogin")) {
-            router.push("/user/statistics")
-        }
-    }, [router])
+    // useEffect(() => {
+    //     if (Cookies.get("userLogin")) {
+    //         router.push("/user/statistics")
+    //     }
+    // }, [router])
 
     return (
         <>
             <Formik
                 validationSchema={validationLoginUser}
                 onSubmit={async (data, actions) => {
-                    await paused(1000)
+                    // await paused(1000)
                     await loginOrRegisterUser(
                         data,
                         actions.resetForm,
@@ -61,7 +61,7 @@ export const LoginForm: React.FC = () => {
                         setMsg("You have been login")
                         setOpen(true)
                         Cookies.set(
-                            "userLogin",
+                            "userToken",
                             JSON.stringify({ type: "interior", token }),
                             { expires: 2 }
                         )
@@ -72,7 +72,7 @@ export const LoginForm: React.FC = () => {
                     }
                 }}
                 initialValues={{
-                    login: "",
+                    username: "",
                     password: "",
                 }}
             >
@@ -83,7 +83,7 @@ export const LoginForm: React.FC = () => {
                             <form onSubmit={handleSubmit}>
                                 <FormTextField
                                     placeholder="Enter email or user name"
-                                    name="login"
+                                    name="username"
                                     type="text"
                                 />
                                 <FormTextField
