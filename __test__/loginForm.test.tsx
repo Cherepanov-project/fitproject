@@ -3,7 +3,6 @@
  */
  import React from "react";
  import { render, unmountComponentAtNode } from "react-dom";
- import { act } from "react-dom/test-utils";
  import { LoginForm } from '../pages/user/login/loginForm';
  import { waitFor } from '@testing-library/react'
  import { nanoid } from 'nanoid';
@@ -29,12 +28,16 @@
  });
  
  it("Required fields", async () => {
-  await waitFor(() => {
+   await waitFor(() => {
     render(<LoginForm/>, container);
    });
    const buttons = document.querySelectorAll("button");
    await waitFor(() => {
      buttons[1].dispatchEvent(new MouseEvent("click", { bubbles: true }));
    }); 
-   setTimeout(()=>{expect(document.querySelector("form div div:nth-child(2)").innerHTML).toBe('Required')},1000);
+    const errorsFields = document.querySelectorAll("form div div:nth-child(2)")
+    expect(errorsFields).toBeDefined();
+    expect(errorsFields.length).toBe(2);
+    expect(errorsFields[0].innerHTML).toBe('Required');
+    expect(errorsFields[1].innerHTML).toBe('Required');
  });
