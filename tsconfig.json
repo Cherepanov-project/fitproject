@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "jest.config.js", "__test__/loginForm.test.tsx"  ],
   "exclude": [
     "node_modules"
   ]
