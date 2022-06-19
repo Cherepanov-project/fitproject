@@ -5,11 +5,14 @@
  import { render, unmountComponentAtNode } from "react-dom";
  import { act } from "react-dom/test-utils";
  import { LoginForm } from '../pages/user/login/loginForm';
+ import { waitFor } from '@testing-library/react'
  import { nanoid } from 'nanoid';
  
  jest.mock("nanoid", () => {
    return { nanoid: () => "1234" };
  });
+
+
  
  let container = null;
  beforeEach(() => {
@@ -26,11 +29,11 @@
  });
  
  it("Required fields", async () => {
-   act(() => {
-     render(<LoginForm/>, container);
+  await waitFor(() => {
+    render(<LoginForm/>, container);
    });
    const buttons = document.querySelectorAll("button");
-   act(() => {
+   await waitFor(() => {
      buttons[1].dispatchEvent(new MouseEvent("click", { bubbles: true }));
    }); 
    setTimeout(()=>{expect(document.querySelector("form div div:nth-child(2)").innerHTML).toBe('Required')},1000);
