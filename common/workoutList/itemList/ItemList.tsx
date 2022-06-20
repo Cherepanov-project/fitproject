@@ -3,10 +3,10 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
-import {useEffect, useState} from "react";
+import {useState} from "react";
+import useMediaQuery  from '@mui/material/useMediaQuery';
 
 import {exerciseList, muscleCheckboxListType} from '../../../model/workout/workout';
-import useMediaQuery  from '@mui/material/useMediaQuery';
 import img from '../../images/workoutExercise.svg'
 
 import {
@@ -27,7 +27,7 @@ interface IMuscles {
 
 const ItemList = ({ muscles }: IMuscles) => {
     const [minResOnPage, setMinResOnPage] = useState(0)
-    const [maxResOnPage, setMaxResOnPage] = useState(1)
+    const [maxResOnPage, setMaxResOnPage] = useState(6)
     const matches = useMediaQuery('(min-width:2000px')
     const cardStyles = {
         width: !matches ? 220 : 320,
@@ -40,10 +40,6 @@ const ItemList = ({ muscles }: IMuscles) => {
         alignItems: 'center',
         cursor: 'pointer'
     }
-    useEffect(() => {
-        setMinResOnPage(0)
-        setMaxResOnPage(6)
-    }, [])
     const changePage = (page) => {
         setMinResOnPage(() => (page - 1) * 6)
         setMaxResOnPage(() => page * 6)
@@ -80,7 +76,11 @@ const ItemList = ({ muscles }: IMuscles) => {
 
     return (
         <>
-            <Box sx={{display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-start'}}>
+            <Box sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'flex-start',
+            }}>
                 {exercises}
             </Box>
             <Stack spacing={2} sx={{margin: '10px 0 13px 0'}}>
@@ -88,7 +88,12 @@ const ItemList = ({ muscles }: IMuscles) => {
                   defaultPage={1}
                   count={5}
                   onChange={(e, value) => changePage(value)}
-                  sx={{display: 'flex', justifyContent: 'flex-end', marginRight: '30px'}}
+                  sx={{
+                      display: 'flex',
+                      justifyContent: 'flex-end',
+                      marginRight: '30px',
+                      position: 'absolute',
+                    }}
               />
             </Stack>
         </>
