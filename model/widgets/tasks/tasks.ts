@@ -1,19 +1,19 @@
 interface TasksDataTypes {
-    name: string,
-    value: string,
+    name: string
+    value: string
 }
 
 export const tasksData: TasksDataTypes[] = [
     {
         name: "Finish ticket update",
-        value: "Urgent"
+        value: "Urgent",
     },
     {
         name: "Create new ticket example",
-        value: "New"
+        value: "New",
     },
     {
         name: "Update ticket report",
-        value: "Default"
+        value: "Default",
     },
-];
+]

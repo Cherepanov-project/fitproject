@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const SidebarWrapper = styled.div`
     width: 167px;
@@ -10,19 +10,17 @@ export const SidebarWrapper = styled.div`
     @media (min-width: 1700px) {
         width: 267px;
         align-items: center;
-        
     }
 `
 export const Sidebar = styled.div`
     width: 104px;
     height: 100%;
     margin: 21px 30px;
-    background: linear-gradient(180deg, #6D63FF 0%, #3B32C0 100%);
+    background: linear-gradient(180deg, #6d63ff 0%, #3b32c0 100%);
     border-radius: 40px;
-    
+
     @media (min-width: 1700px) {
         width: 144px;
-        
     }
 `
 
@@ -39,16 +37,15 @@ export const TopIconsWrapper = styled.div`
     flex-direction: column;
     align-items: center;
 `
-export const  BottomIconWrapper = styled.div`
-display: flex;
-justify-content: center;
-
+export const BottomIconWrapper = styled.div`
+    display: flex;
+    justify-content: center;
 `
 export const Divider = styled.span`
     width: 69px;
     color: white;
     background-color: white;
-    border: 1px solid #FFFFFF;
+    border: 1px solid #ffffff;
     margin-bottom: 24px;
 `
 
@@ -60,11 +57,10 @@ export const ImageWrapper = styled.div`
     justify-content: center;
     align-items: center;
     margin-bottom: 24px;
-    
-    :hover {
-        background-color: #3C3693;
-    }
 
+    :hover {
+        background-color: #3c3693;
+    }
 `
 
 export const Image = styled.img`

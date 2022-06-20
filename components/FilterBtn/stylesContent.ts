@@ -1,17 +1,16 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
-export const ContainerBtn = styled.div`
-    height: 90px;
-    background: #FFFFFF;
+export const Container = styled.div`
+    background: #ffffff;
     display: flex;
     align-items: center;
-    padding-right: 5px;
+    border-radius: 8px 8px 0 0;
+    padding: 32px;
 `
 
 export const ButtonSort = styled.button`
     background: none;
     border: none;
-    padding-right: 10px;
     color: gray;
     font-size: 14px;
     font-weight: 600;
@@ -24,23 +23,18 @@ export const ButtonFilter = styled.button`
     font-weight: 600;
 `
 
-export const ButtonAllRecipies = styled.button`
-   font-size: 19px;
-   font-weight: 600;
-   color: #252733;
-   background: none;
-   border: none;
-   margin-left: 22px;
+export const Title = styled.h2`
+    font-size: 19px;
+    font-weight: 600;
+    color: #252733;
+    margin-right: auto;
 `
-export const Btns = styled.div`
-   display: flex;
-   width: 225px;
-   margin-left: auto;
+export const BtnsList = styled.div`
+    display: flex;
+    width: 225px;
 `
 
-export const MenuIcon = styled.div`
-   
-`
+export const MenuIcon = styled.div``
 
 export const Aa = styled.a`
     padding: 0;
@@ -50,16 +44,14 @@ export const Aa = styled.a`
     display: flex;
     color: white;
     font-size: 16px;
-    padding-left: 10px;
     transform: translateX(5%);
     border-bottom: 1px solid white;
-    
+
     &:hover {
-        color: #FFA07A; 
-        border-bottom: 1px solid #FFA07A;
+        color: #ffa07a;
+        border-bottom: 1px solid #ffa07a;
     }
 `
-
 
 export const Dropdown = styled.div`
     position: absolute;
@@ -70,7 +62,6 @@ export const Dropdown = styled.div`
     background-color: red;
     border: 1px solid red;
     border-radius: 10px;
-    padding: 10px;
     overflow: hidden;
     font-size: 14px;
     z-index: 2;
@@ -79,41 +70,22 @@ export const FilterItem2 = styled.div`
     line-height: 40px;
     color: white;
     font-size: 16px;
-    padding-left: 5px;
     border-bottom: 1px solid white;
     &:hover {
-        color: #FFA07A;
-        border-bottom: 1px solid #FFA07A;
+        color: #ffa07a;
+        border-bottom: 1px solid #ffa07a;
     }
 `
 
 export const IconBack = styled.div`
-margin-left: 5px;
-width: 25px;
-color: red;
-background: white;
-text-align: center;
-border-radius: 50%;
-&:hover {
-    background: #FFA07A;
-}
+    width: 25px;
+    color: red;
+    background: white;
+    text-align: center;
+    border-radius: 50%;
+    &:hover {
+        background: #ffa07a;
+    }
 `
-export const ContainerCenter = styled.div`
-margin-top: 10px;
-` 
-export const InputCheckbox = styled.input`
-margin-right: 15px;
-`
-
-
-
-
-
-
-
-
-
-
-
-
-
+export const ContainerCenter = styled.div``
+export const InputCheckbox = styled.input``
