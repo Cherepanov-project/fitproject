@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
 import {
-    SidebarListTitle, 
-    SidebarItemListWrapper, 
+    SidebarListTitle,
+    SidebarItemListWrapper,
     SidebarListWrapper,
     SidebarListItemCheckbox,
     SidebarStyledItemCheckbox
@@ -14,15 +14,13 @@ import  Checkbox  from '@mui/material/Checkbox'
 
 import uid from '../../utils/uid'
 
-const Categories = () => {
-    const [muscles, setMuscle] = useState<muscleCheckboxListType>(muscleCheckboxList)
-
+const Categories = ({muscles, setMuscle}) => {
+    // const [muscles, setMuscle] = useState<muscleCheckboxListType>(muscleCheckboxList)
     const handleChange = (value: string) => {
         const newState = {...muscles}
         newState[value] = !newState[value]
         setMuscle(newState)
     }
-
     const result = muscleGroupList.map((item: muscleGroupListType) => (
         <SidebarListItemCheckbox key={uid()}>
             <Checkbox
@@ -34,13 +32,12 @@ const Categories = () => {
             }}
             onClick={() => handleChange(item.name)}
             checked={muscles[item.name]}
-            
-            
+
+
             />
             <SidebarStyledItemCheckbox>{item.name}</SidebarStyledItemCheckbox>
         </SidebarListItemCheckbox>
     ))
-
     return (
         <SidebarListWrapper>
             <SidebarListTitle>Muscle group</SidebarListTitle>
