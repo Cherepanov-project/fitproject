@@ -9,7 +9,7 @@ interface FilterBtnProps {
     title: string
 }
 
-const FilterBtn: FC<FilterBtnProps> = ({ title }) => {
+const FilterMenu: FC<FilterBtnProps> = ({ title }) => {
     return (
         <Container>
             <Title>{title}</Title>
@@ -25,4 +25,4 @@ const FilterBtn: FC<FilterBtnProps> = ({ title }) => {
     )
 }
 
-export default FilterBtn
+export default FilterMenu

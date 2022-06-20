@@ -9,13 +9,15 @@ import {
 } from "@mui/material"
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
 import MoreVertIcon from "@mui/icons-material/MoreVert"
-import EditIcon from "@mui/icons-material/Edit"
+import PersonIcon from "@mui/icons-material/Person"
+
 import { SecondaryText, Text, RowAvatar, WrapBnt } from "./UserItem.style"
 import avatarUser from "./images/avatarUser.jpg"
 import Image from "next/image"
 import ColorfulTeg from "../../common/ColorfulTeg"
 import { format } from "date-fns"
-import { MenuIcon } from "../FilterBtn/stylesContent"
+import { MenuIcon } from "../../common/FilterMenu/stylesContent"
+import Link from "next/link"
 
 interface UserItemProps {
     nameUser: string
@@ -23,18 +25,20 @@ interface UserItemProps {
     dateRegistor: string
     role: string
     email: string
-    sex: string
+    gender: string
+    id: string
 }
 
-const options = ["Delete", "Edit"]
+const options = ["View profile", "Delete"]
 
 const UserItem: FC<UserItemProps> = ({
     nameUser,
     dateRegistor,
     email,
     role,
-    sex,
+    gender,
     avatar = avatarUser,
+    id,
 }) => {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
     const open = Boolean(anchorEl)
@@ -59,7 +63,7 @@ const UserItem: FC<UserItemProps> = ({
             </TableCell>
             <TableCell sx={{ paddingLeft: 3.5, paddingTop: 1 }}>
                 <Text>{nameUser}</Text>
-                <SecondaryText>{sex}</SecondaryText>
+                <SecondaryText>{gender}</SecondaryText>
             </TableCell>
             <TableCell sx={{ paddingLeft: 3.5, paddingTop: 1 }}>
                 <Text>{format(new Date(dateRegistor), "MMM LL, u")}</Text>
@@ -102,7 +106,9 @@ const UserItem: FC<UserItemProps> = ({
                                             onClick={deleteArticle}
                                         />
                                     ) : (
-                                        <EditIcon />
+                                        <Link href={`/admin/users/${id}`}>
+                                            <PersonIcon />
+                                        </Link>
                                     )}
                                 </MenuItem>
                             ))}

@@ -1,5 +1,5 @@
 import React from "react"
-import { MenuIcon } from "./recipies"
+import { MenuIcon } from "./recipies.style"
 import TableRow from "@mui/material/TableRow"
 import TableCell from "@mui/material/TableCell"
 import IconButton from "@mui/material/IconButton"
@@ -12,7 +12,7 @@ import Avatar from "@mui/material/Avatar"
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
 import EditIcon from "@mui/icons-material/Edit"
 import Link from "next/link"
-import ColorfulTeg from "../../../common/ColorfulTeg"
+import ColorfulTeg from "../../common/ColorfulTeg"
 
 const options = ["Delete", "Edit"]
 

@@ -1,23 +1,13 @@
 import React, { useEffect, useState } from "react"
 import { withLayout } from "../../../layouts/Layout-admin/Layout-admin"
-import { ContentWrapper } from "./stylesUsers"
-import FilterBtn from "../../../components/FilterBtn/filter"
-import { TableContainer, Table, TableBody } from "@mui/material"
-import UserItem from "../../../components/AdminTable/UserItem"
-import { userList } from "../../../model/userList/userList"
-import Pagination from "../../../components/Pagination/pagination"
+import { ContentWrapper, Footer } from "./stylesUsers"
+import FilterMenu from "../../../common/FilterMenu/filter"
+import { TableContainer, Table, TableBody, Button } from "@mui/material"
+import UserItem from "../../../components/UserTableItem/UserItem"
+import { userList, DataType } from "../../../model/userList/userList"
+import Pagination from "../../../common/Table/TablePagination"
 import getArrPagination from "../../../utils/getArrPagination"
-import ColumnName from "../../../components/RecipiesContainer/ColumnName/columnName"
-
-interface DataType {
-    id: string
-    nameUser: string
-    sex: string
-    avatar?: string
-    dateRegistor: string
-    role: string
-    email: string
-}
+import ColumnName from "../../../common/user/ColumnName/ColumnName"
 
 const Users = () => {
     const [userData, setUserDate] = useState<DataType[]>([])
@@ -49,28 +39,43 @@ const Users = () => {
                     dateRegistor={el.dateRegistor}
                     role={el.role}
                     email={el.email}
-                    sex={el.sex}
+                    gender={el.gender}
+                    id={el.id}
                 />
             )
         }
     )
     return (
         <ContentWrapper>
-            <FilterBtn title="User" />
+            <FilterMenu title="All users" />
             <TableContainer>
                 <Table sx={{ minWidth: 1120 }}>
                     <ColumnName />
                     <TableBody>{userItemList}</TableBody>
                 </Table>
             </TableContainer>
-            <Pagination
-                count={userData.length}
-                rowsPerPageOptions={[8, 10]}
-                page={page}
-                onChangePage={onChangePage}
-                rowsPerPage={rowsPerPage}
-                onChangeRowsPerPage={onChangeRowsPerPage}
-            />
+            <Footer>
+                <Button
+                    variant="contained"
+                    sx={{
+                        height: "40px",
+                        fontSize: "12px",
+                        backgroundColor: "grey",
+                        borderRadius: "20px",
+                        marginLeft: "20px",
+                    }}
+                >
+                    Add User
+                </Button>
+                <Pagination
+                    count={userData.length}
+                    rowsPerPageOptions={[8, 10]}
+                    page={page}
+                    onChangePage={onChangePage}
+                    rowsPerPage={rowsPerPage}
+                    onChangeRowsPerPage={onChangeRowsPerPage}
+                />
+            </Footer>
         </ContentWrapper>
     )
 }

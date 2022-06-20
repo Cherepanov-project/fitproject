@@ -1,16 +1,16 @@
 import React from "react"
 import { withLayout } from "../../layouts/Layout-admin/Layout-admin"
 import { useState, useEffect } from "react"
-import FilterBtn from "../../components/FilterBtn/filter"
+import FilterMenu from "../../common/FilterMenu/filter"
 import { ContentListType, contentList } from "../../model/recipies/recipiesList"
-import Recipie from "../../components/RecipiesContainer/ResipiesList/recipie"
+import Recipie from "../../components/RecipiesTableItem/recipie"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
 import TableContainer from "@mui/material/TableContainer"
 import { ContentList, FooterRecipies } from "./overview/overviewStyles"
-import CreateForm from "../../components/RecipiesContainer/AddBtn/addForm"
-import Pagination from "../../components/Pagination/pagination"
-import ColumnName from "../../components/RecipiesContainer/ColumnName/columnName"
+import CreateForm from "../../components/RecipiesTableItem/AddBtn/addForm"
+import Pagination from "../../common/Table/TablePagination"
+import ColumnName from "../../common/user/ColumnName/ColumnName"
 import getArrPagination from "../../utils/getArrPagination"
 
 const Recipes = () => {
@@ -53,7 +53,7 @@ const Recipes = () => {
 
     return (
         <ContentList>
-            <FilterBtn title="Recipies" />
+            <FilterMenu title="Recipies" />
             <TableContainer>
                 <Table sx={{ minWidth: 1120 }}>
                     <ColumnName />
