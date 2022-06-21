@@ -7,11 +7,10 @@ import ItemList from "../../../common/workoutList/itemList/ItemList";
 import {useState} from "react";
 import {muscleCheckboxList, muscleCheckboxListType} from "../../../model/workout/workout";
 import {useQuery} from "react-query";
-import {fetchMuscles, fetchWorkouts} from "../../../API/workouts";
+import {fetchWorkouts} from "../../../API/workouts";
 
 const workoutList = () => {
     const queryWorkouts = useQuery('workouts', fetchWorkouts)
-    const queryMuscles = useQuery('muscles', fetchMuscles)
 
     const [muscles, setMuscle] = useState<muscleCheckboxListType>(muscleCheckboxList)
     return (

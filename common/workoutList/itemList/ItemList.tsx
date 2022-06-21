@@ -15,6 +15,8 @@ import {
         Exercise,
         Reps
 } from './ItemListStyled';
+import {useQuery} from "react-query";
+import {fetchWorkouts} from "../../../API/workouts";
 
 interface IMuscles {
     muscles: {
@@ -26,6 +28,8 @@ interface IMuscles {
 }
 
 const ItemList = ({ muscles }: IMuscles) => {
+    const queryWorkouts = useQuery('workouts', fetchWorkouts)
+
     const [minResOnPage, setMinResOnPage] = useState(0)
     const [maxResOnPage, setMaxResOnPage] = useState(6)
     const matches = useMediaQuery('(min-width:2000px')
@@ -50,13 +54,15 @@ const ItemList = ({ muscles }: IMuscles) => {
             ...list.filter(element => element.area === partOfBody)]
     }
 
-    const filterExerciseList = (muscles, exerciseList) => {
-        muscles.Arms ? addOnArrResults(exerciseList, 'Arms') : null
-        muscles.Legs ? addOnArrResults(exerciseList, 'Legs') : null
-        muscles.Chest ? addOnArrResults(exerciseList, 'Chest') : null
-        muscles.Breast ? addOnArrResults(exerciseList, 'Breast') : null
+    const filterExerciseList = (muscles, list) => {
+        muscles.Arms ? addOnArrResults(list, 'Arms') : null
+        muscles.Legs ? addOnArrResults(list, 'Legs') : null
+        muscles.Chest ? addOnArrResults(list, 'Chest') : null
+        muscles.Breast ? addOnArrResults(list, 'Breast') : null
     }
-    filterExerciseList(muscles, exerciseList)
+    if (queryWorkouts.isSuccess) {
+        filterExerciseList(muscles, queryWorkouts.data.data)
+    }
 
     const exercises = filteredExercises.map((item, index) => {
         if (index >= minResOnPage && index < maxResOnPage) {

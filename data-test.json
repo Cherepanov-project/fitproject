@@ -1,92 +1,109 @@
 {
-  "workouts": [{
-    "id": 0,
-    "name": "Exercise",
-    "exercise": "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
-    "move": 3,
-    "repeat": 15,
-    "area": "Chest",
-    "muscles": [
-      "Latissimus dorsi",
-      "The trapezius",
-      "Levator scapulae",
-      "Rhomboids"
-    ]
-  },
-  {
-    "id": 1,
-    "name": "Exercise",
-    "exercise": "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
-    "move": 3,
-    "repeat": 15,
-    "area": "Chest",
-    "muscles": [
-      "Latissimus dorsi",
-      "The trapezius",
-      "Levator scapulae",
-      "Rhomboids"
-    ]
-  },
-  {
-    "id": 2,
-    "name": "Exercise",
-    "exercise": "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
-    "move": 3,
-    "repeat": 10,
-    "area": "Chest",
-    "muscles": [
-    "Latissimus dorsi",
-    "The trapezius",
-    "Levator scapulae",
-    "Rhomboids"
-    ]
-  },
-  {
-    "id": 3,
-    "name": "Exercise",
-    "exercise": "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
-    "move": 3,
-    "repeat": 15,
-    "area": "Chest",
-    "muscles": [
-    "Latissimus dorsi",
-    "The trapezius",
-    "Levator scapulae",
-    "Rhomboids"
-    ]
-  },
-  {
-    "id": 4,
-    "name": "Exercise",
-    "exercise": "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
-    "move": 3,
-    "repeat": 15,
-    "area": "Arms",
-    "muscles": [
-    "Latissimus dorsi",
-    "The trapezius",
-    "Levator scapulae",
-    "Rhomboids"
-    ]
-  },
-  {
-    "id": 5,
-    "name": "Exercise",
-    "exercise": "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
-    "move": 3,
-    "repeat": 15,
-    "area": "Arms",
-    "muscles": [
-      "Latissimus dorsi",
-      "The trapezius",
-      "Levator scapulae",
-      "Rhomboids"
-    ]
-  }],
-  "muscles": {
-    "Arms": true,
-    "Legs": true,
-    "Breast": true,
-    "Chest": true
-  }
+  "workouts": [
+    {
+      "id": 0,
+      "name": "Exercise",
+      "category": "Cardio",
+      "exercise": "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
+      "move": 3,
+      "repeat": 15,
+      "area": "Chest",
+      "muscles": [
+        "Latissimus dorsi",
+        "The trapezius",
+        "Levator scapulae",
+        "Rhomboids"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Exercise",
+      "category": "Yoga",
+      "exercise": "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
+      "move": 3,
+      "repeat": 15,
+      "area": "Chest",
+      "muscles": [
+        "Latissimus dorsi",
+        "The trapezius",
+        "Levator scapulae",
+        "Rhomboids"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Exercise",
+      "category": "Stretching",
+      "exercise": "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
+      "move": 3,
+      "repeat": 10,
+      "area": "Chest",
+      "muscles": [
+        "Latissimus dorsi",
+        "The trapezius",
+        "Levator scapulae",
+        "Rhomboids"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Exercise",
+      "category": "Power",
+      "exercise": "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
+      "move": 3,
+      "repeat": 15,
+      "area": "Chest",
+      "muscles": [
+        "Latissimus dorsi",
+        "The trapezius",
+        "Levator scapulae",
+        "Rhomboids"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Exercise",
+      "category": "Cardio",
+      "exercise": "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
+      "move": 3,
+      "repeat": 15,
+      "area": "Arms",
+      "muscles": [
+        "Latissimus dorsi",
+        "The trapezius",
+        "Levator scapulae",
+        "Rhomboids"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Exercise",
+      "category": "Power",
+      "exercise": "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
+      "move": 3,
+      "repeat": 15,
+      "area": "Arms",
+      "muscles": [
+        "Latissimus dorsi",
+        "The trapezius",
+        "Levator scapulae",
+        "Rhomboids"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Exercise",
+      "category": "Yoga",
+      "exercise": "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
+      "move": 6,
+      "repeat": 15,
+      "area": "Arms",
+      "muscles": [
+        "Latissimus ",
+        "The trapezius",
+        "Levator scapulae",
+        "Rhomboids"
+      ]
+    }
+  ]
 }

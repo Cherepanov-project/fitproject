@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 const instance = axios.create({
     baseURL: 'http://localhost:3001/',
     responseType: 'json',
@@ -14,7 +13,3 @@ export const fetchWorkouts = async () => {
     return response
 }
 
-export const fetchMuscles = async () => {
-    const response = await instance.get('muscles')
-    return response
-}
