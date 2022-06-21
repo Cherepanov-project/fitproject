@@ -4,7 +4,6 @@ import Link from "next/link"
 import Card from "@mui/material/Card"
 import { LayoutUser } from "../../../../layouts/Layout-user/Layout-user"
 import { exerciseList, exercisesType } from "../../../../model/workout/workout"
-import img from "../../../../common/images/workoutExercise.svg"
 import muscleImg from "../../../../common/images/icons/backMuscle.svg"
 import uid from "../../../../utils/uid"
 import useMediaQuery from "@mui/material/useMediaQuery"
@@ -51,18 +50,19 @@ const WorkoutItem = () => {
             <span>{muscle}</span>
         </Muscle>
     ))
-
     const exercises = exerciseList
         .filter(el => el.area === workout?.area)
-        .map(item => (
-            <Link href={`/user/workoutList/workout/${item.id}`} key={item.id}>
+        .map(({ id, img, imgWidth, imgHeight, name, move, repeat }) => (
+            <Link href={`/user/workoutList/workout/${id}`} key={id}>
                 <Card sx={cardStyles}>
-                    <div>
-                        <ImgWrapper src={img.src} alt="workout exercise" />
-                    </div>
+                    <ImgWrapper
+                        imgUrl={img}
+                        imgWidth={imgWidth}
+                        imgHeight={imgHeight}
+                    />
                     <TextWrapper>
-                        <Exercise>{item.name}</Exercise>
-                        <Reps>{`${item.move} X ${item.repeat} REPS`}</Reps>
+                        <Exercise>{name}</Exercise>
+                        <Reps>{`${move} X ${repeat} REPS`}</Reps>
                     </TextWrapper>
                 </Card>
             </Link>
@@ -81,7 +81,14 @@ const WorkoutItem = () => {
                         <MusclesTitle>Muscles</MusclesTitle>
                         <MusclesList>{musclesList}</MusclesList>
                     </Exercise>
-                    <Image src={img.src} />
+                    <div>
+                        <Image
+                            imgUrl={workout?.img}
+                            imgWidth={workout?.imgWidth}
+                            imgHeight={workout?.imgHeight}
+                            src={workout?.img}
+                        />
+                    </div>
                 </LeftContent>
             </Container>
             <BottomContainer>{exercises}</BottomContainer>
