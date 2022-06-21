@@ -30,7 +30,6 @@ export const LoginForm: React.FC = () => {
 
     const [open, setOpen] = useState(false)
     const [msg, setMsg] = useState("")
-
     const closeMessage = () => {
         setOpen(false)
     }
@@ -49,15 +48,21 @@ export const LoginForm: React.FC = () => {
             <Formik
                 validationSchema={validationLoginUser}
                 onSubmit={async (data, actions) => {
-                    // await paused(1000)
-                    await loginOrRegisterUser(
-                        data,
-                        actions.resetForm,
-                        setFormStatus,
-                        setDisplayFormStatus
-                    )
+                    // await loginOrRegisterUser(
+                    //     data,
+                    //     actions.resetForm,
+                    //     setFormStatus,
+                    //     setDisplayFormStatus
+                    // )
                     try {
-                        const { res: token } = await loginUser(data)
+                        const {
+                            data: token,
+                            success,
+                            error,
+                        } = await loginUser(data)
+                        if (!success) {
+                            throw new Error(error)
+                        }
                         setMsg("You have been login")
                         setOpen(true)
                         Cookies.set(
@@ -65,9 +70,9 @@ export const LoginForm: React.FC = () => {
                             JSON.stringify({ type: "interior", token }),
                             { expires: 2 }
                         )
-                        router.push("/user/statistics")
-                    } catch {
-                        setMsg("Error")
+                        // router.push("/user/statistics")
+                    } catch (error) {
+                        setMsg(error.message)
                         setOpen(true)
                     }
                 }}
@@ -121,10 +126,12 @@ export const LoginForm: React.FC = () => {
                 )}
             </Formik>
             <Snackbar
+                // data-testid="snackBar"
                 open={open}
                 onClose={closeMessage}
                 message={msg}
                 key={nanoid()}
+                data-testid="Snackbar"
             />
         </>
     )

@@ -68,3 +68,10 @@ export interface ISocialLoginBtn {
     typeOfCode?: string
     img: string
 }
+
+export interface ILoginResponse {
+    code: number
+    success: boolean
+    data?: { jwtToken: string }
+    error?: string
+}

@@ -26,7 +26,7 @@ const User = () => {
                         <Title2>Lorem ipsum is simply</Title2>
                         <div>If you don’t have an account register</div>
                         <div>
-                            You can
+                            <span>You can </span>
                             <Link href="/user/register" passHref>
                                 <A>Register here!</A>
                             </Link>
