@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 interface img {
     imgUrl: string;
@@ -41,9 +41,7 @@ export const ExerciseTitle = styled.h1`
     font-size: 23px;
 `
 
-export const ExerciseDescription = styled.div`
-
-`
+export const ExerciseDescription = styled.div``
 
 export const Image = styled.img<img>`
     width: ${({ imgWidth, imgHeight }) => {
@@ -73,7 +71,6 @@ export const MusclesList = styled.div`
     flex-wrap: wrap;
     width: 400px;
     justify-content: space-between;
-
 `
 
 export const Muscle = styled.div`

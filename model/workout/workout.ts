@@ -12,19 +12,19 @@ export interface exercisesType {
 }
 
 export interface categoriesListType {
-  name: string;
-  value: number;
+    name: string
+    value: number
 }
 
 export interface muscleCheckboxListType {
-  Arms: boolean;
-  Legs: boolean;
-  Breast: boolean;
-  Chest: boolean;
+    Arms: boolean
+    Legs: boolean
+    Breast: boolean
+    Chest: boolean
 }
 
 export interface muscleGroupListType {
-  name: string
+    name: string
 }
 
 export const exerciseList: exercisesType[] = [
@@ -132,23 +132,24 @@ export const exerciseList: exercisesType[] = [
   },
 ];
 
+
 export const categoriesList: categoriesListType[] = [
-  {name: 'Cardio', value: 320},
-  {name: 'Yoga', value: 112},
-  {name: 'Stretching', value: 32},
-  {name: 'Power', value: 48}
+    { name: "Cardio", value: 320 },
+    { name: "Yoga", value: 112 },
+    { name: "Stretching", value: 32 },
+    { name: "Power", value: 48 },
 ]
 
 export const muscleCheckboxList: muscleCheckboxListType = {
-  Arms: true,
-  Legs: true,
-  Breast: true,
-  Chest: true
+    Arms: true,
+    Legs: true,
+    Breast: true,
+    Chest: true,
 }
 
 export const muscleGroupList: muscleGroupListType[] = [
-  {name: 'Arms'},
-  {name: 'Legs'},
-  {name: 'Breast'},
-  {name: 'Chest'}
+    { name: "Arms" },
+    { name: "Legs" },
+    { name: "Breast" },
+    { name: "Chest" },
 ]

@@ -1,12 +1,12 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 interface WidgetItemContentProps {
-    padding: string,
-};
+    padding: string
+}
 
 interface TaskStatusProps {
-    color: string,
-};
+    color: string
+}
 
 export const WidgetItemContainer = styled.div`
     width: 546px;
@@ -16,7 +16,7 @@ export const WidgetItemContainer = styled.div`
     border-bottom: 1px solid rgba(223, 224, 235, 1);
     display: flex;
     flex-grow: 0;
-`;
+`
 
 export const WidgetItemContent = styled.div<WidgetItemContentProps>`
     display: flex;
@@ -27,14 +27,14 @@ export const WidgetItemContent = styled.div<WidgetItemContentProps>`
     flex-wrap: nowrap;
     margin: 0;
     padding: ${({ padding }) => padding};
-`;
+`
 
 export const CheckboxIcon = styled.div`
     height: 20px;
     width: 20px;
     border-radius: 20px;
-    border: 2px solid rgba(197, 199, 205, 1)
-`;
+    border: 2px solid rgba(197, 199, 205, 1);
+`
 
 export const CheckedCheckboxIcon = styled.div`
     position: relative;
@@ -44,8 +44,6 @@ export const CheckedCheckboxIcon = styled.div`
     border-radius: 20px;
     background: rgba(55, 81, 255, 1);
 
-
-
     &::before {
         position: absolute;
         left: 0;
@@ -53,7 +51,7 @@ export const CheckedCheckboxIcon = styled.div`
         height: 35%;
         width: 2px;
         border-radius: 2px;
-        background-color: #FFFFFF;
+        background-color: #ffffff;
         content: "";
         transform: translateX(10px) rotate(-45deg);
         transform-origin: left bottom;
@@ -66,12 +64,12 @@ export const CheckedCheckboxIcon = styled.div`
         height: 2px;
         border-radius: 2px;
         width: 55%;
-        background-color: #FFFFFF;
+        background-color: #ffffff;
         content: "";
         transform: translateX(10px) rotate(-45deg);
         transform-origin: left bottom;
     }
-`;
+`
 
 export const TaskStatus = styled.div<TaskStatusProps>`
     display: flex;

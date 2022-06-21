@@ -1,22 +1,21 @@
-import styled from 'styled-components';
-import SingInForm from "../../common/form-admin/singInForm";
+import styled from "styled-components"
+import SingInForm from "../../common/form-admin/singInForm"
 
 const ContainerAdminRegistration = styled.div`
-  width: 100%;
-  height: 100vh;
-  background-color: #363740;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
+    width: 100%;
+    height: 100vh;
+    background-color: #363740;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
 
 const Admin = () => {
     return (
         <ContainerAdminRegistration>
-            <SingInForm/>
+            <SingInForm />
         </ContainerAdminRegistration>
-    );
+    )
 }
 
-export default Admin;
+export default Admin

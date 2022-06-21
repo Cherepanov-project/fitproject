@@ -1,17 +1,17 @@
-
 import {
-    SidebarListTitle, 
-    SidebarItemListWrapper, 
+    SidebarListTitle,
+    SidebarItemListWrapper,
     SidebarListWrapper,
     SidebarListItem,
-    CategoriesStyledItem} from '../../pages/user/workoutList/workoutListStyles'
+    CategoriesStyledItem,
+} from "../../pages/user/workoutList/workoutListStyles"
 
-import {categoriesList} from '../../model/workout/workout'
+import { categoriesList } from "../../model/workout/workout"
 
-import uid from '../../utils/uid'
+import uid from "../../utils/uid"
 
 const Categories = () => {
-    const items = categoriesList.map((item) => (
+    const items = categoriesList.map(item => (
         <SidebarListItem key={uid()}>
             <div>{item.name}</div>
             <CategoriesStyledItem>{item.value}</CategoriesStyledItem>
@@ -21,9 +21,7 @@ const Categories = () => {
     return (
         <SidebarListWrapper>
             <SidebarListTitle>Categories</SidebarListTitle>
-            <SidebarItemListWrapper>
-                {items}
-            </SidebarItemListWrapper>
+            <SidebarItemListWrapper>{items}</SidebarItemListWrapper>
         </SidebarListWrapper>
     )
 }
