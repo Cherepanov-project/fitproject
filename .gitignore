@@ -14,7 +14,7 @@
 
 # production
 /build
-.idea
+.idea/fitproject.iml
 
 # misc
 .DS_Store
