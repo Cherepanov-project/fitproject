@@ -18,6 +18,7 @@ import ColorfulTeg from "../../common/ColorfulTeg"
 import { format } from "date-fns"
 import { MenuIcon } from "../../common/FilterMenu/stylesContent"
 import Link from "next/link"
+import ConfirmAction from "../../common/confirmAction/confirmAction"
 
 interface UserItemProps {
     nameUser: string
@@ -47,7 +48,8 @@ const UserItem: FC<UserItemProps> = ({
     const handleClose = () => setAnchorEl(null)
 
     const deleteArticle = () => {
-        // функция для удаленея рецепта
+        handleClose()
+        // функция для удаленея + вызвать перерисовку если прошло успешно
         console.log("delete")
     }
     return (
@@ -99,12 +101,14 @@ const UserItem: FC<UserItemProps> = ({
                                 <MenuItem
                                     key={option}
                                     selected={option === "Pyxis"}
-                                    onClick={handleClose}
                                 >
                                     {option === "Delete" ? (
-                                        <DeleteForeverIcon
-                                            onClick={deleteArticle}
-                                        />
+                                        <ConfirmAction
+                                            text="delete user?"
+                                            onConfirm={deleteArticle}
+                                        >
+                                            <DeleteForeverIcon />
+                                        </ConfirmAction>
                                     ) : (
                                         <Link href={`/admin/users/${id}`}>
                                             <PersonIcon />

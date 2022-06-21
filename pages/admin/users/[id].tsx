@@ -17,6 +17,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack"
 import DeleteIcon from "@mui/icons-material/Delete"
 import EditIcon from "@mui/icons-material/Edit"
 import Link from "next/link"
+import ColorfulTeg from "../../../common/ColorfulTeg"
 
 export const getServerSideProps: GetServerSideProps = async context => {
     return {
@@ -60,7 +61,7 @@ const UserIten = () => {
                 </InfoItem>
                 <InfoItem>
                     <TextInfo>Role</TextInfo>
-                    <span>Admin</span>
+                    <ColorfulTeg backgroundColor="#F12B2C" text="admin" />
                 </InfoItem>
             </div>
             <BtnContainer>
