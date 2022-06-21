@@ -1,5 +1,5 @@
 export const articlesValues = {
-	headerText: '',
-	text: '',
-	files: []
+    headerText: "",
+    text: "",
+    files: [],
 }

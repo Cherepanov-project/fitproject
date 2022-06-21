@@ -1,12 +1,7 @@
-import {withLayout} from "../../layouts/Layout-admin/Layout-admin";
+import { withLayout } from "../../layouts/Layout-admin/Layout-admin"
 
 const Articles = () => {
-    return (
-        <div>
-            Articles
-        </div>
-    );
-};
+    return <div>Articles</div>
+}
 
-export default withLayout(Articles);
-
+export default withLayout(Articles)

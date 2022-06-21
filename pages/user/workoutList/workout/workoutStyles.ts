@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const MainWrapper = styled.div`
     display: flex;
@@ -33,9 +33,7 @@ export const ExerciseTitle = styled.h1`
     font-size: 23px;
 `
 
-export const ExerciseDescription = styled.div`
-
-`
+export const ExerciseDescription = styled.div``
 
 export const Image = styled.img`
     width: 489px;
@@ -63,7 +61,6 @@ export const MusclesList = styled.div`
     flex-wrap: wrap;
     width: 400px;
     justify-content: space-between;
-
 `
 
 export const Muscle = styled.div`

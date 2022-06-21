@@ -3,3 +3,7 @@ build
 
 # Ignore all HTML files:
 *.html
+
+package-lock.json
+
+README.md

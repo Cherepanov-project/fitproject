@@ -1,3 +1,3 @@
 export const redirectToLoginPage = (path: string) => {
-  window.location.href = `${path}`;
-};
+    window.location.href = `${path}`
+}
