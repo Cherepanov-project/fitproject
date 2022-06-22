@@ -4,9 +4,9 @@ import Card from '@mui/material/Card';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import {useState} from "react";
+import {useQuery} from "react-query";
 import useMediaQuery  from '@mui/material/useMediaQuery';
 
-import {exerciseList, muscleCheckboxListType} from '../../../model/workout/workout';
 import img from '../../images/workoutExercise.svg'
 
 import {
@@ -15,7 +15,6 @@ import {
         Exercise,
         Reps
 } from './ItemListStyled';
-import {useQuery} from "react-query";
 import {fetchWorkouts} from "../../../API/workouts";
 
 interface IMuscles {

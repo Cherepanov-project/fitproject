@@ -105,5 +105,11 @@
         "Rhomboids"
       ]
     }
+  ],
+  "categories": [
+    {"name": "Cardio", "value": 0},
+    {"name": "Yoga", "value": 0},
+    {"name": "Stretching", "value": 0},
+    {"name": "Power", "value": 0}
   ]
 }

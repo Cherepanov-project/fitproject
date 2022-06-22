@@ -13,3 +13,8 @@ export const fetchWorkouts = async () => {
     return response
 }
 
+export const fetchCategories = async () => {
+    const response = await instance.get('categories')
+    return response
+}
+
