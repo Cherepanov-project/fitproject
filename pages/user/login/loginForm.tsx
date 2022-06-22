@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import Cookies from "js-cookie"
@@ -10,24 +10,14 @@ import { Button, CardContent, CircularProgress } from "@mui/material"
 
 import { loginUser } from "../../../API/loginUser"
 
-import { IFormStatus } from "../../../model/loginOrRegisterInterfaces/interfaces"
-
 import { FormTextField } from "../../../common/user/FormTextField"
 
-import { paused } from "../../../utils/paused"
-import { loginOrRegisterUser } from "../../../utils/loginOrRegisterUser"
 import { validationLoginUser } from "../../../utils/validationSchema"
 
 import { RightSide, Title2, ForgorPassword } from "../userLoginOrRegisterStyle"
 import { RegOrLoginSocial } from "../RegOrLoginSocial"
 
 export const LoginForm: React.FC = () => {
-    const [displayFormStatus, setDisplayFormStatus] = useState<boolean>(false)
-    const [formStatus, setFormStatus] = useState<IFormStatus>({
-        message: "",
-        type: "",
-    })
-
     const [open, setOpen] = useState(false)
     const [msg, setMsg] = useState("")
     const closeMessage = () => {
@@ -37,32 +27,28 @@ export const LoginForm: React.FC = () => {
     const router = useRouter()
 
     //перенаправление на страницу пользователя если пользователь был залогинен
-    // useEffect(() => {
-    //     if (Cookies.get("userLogin")) {
-    //         router.push("/user/statistics")
-    //     }
-    // }, [router])
+    useEffect(() => {
+        if (Cookies.get("userToken")) {
+            router.push("/user/statistics")
+        }
+    }, [router])
 
     return (
         <>
             <Formik
                 validationSchema={validationLoginUser}
                 onSubmit={async (data, actions) => {
-                    // await loginOrRegisterUser(
-                    //     data,
-                    //     actions.resetForm,
-                    //     setFormStatus,
-                    //     setDisplayFormStatus
-                    // )
                     try {
                         const {
                             data: token,
                             success,
                             error,
                         } = await loginUser(data)
+
                         if (!success) {
                             throw new Error(error)
                         }
+
                         setMsg("You have been login")
                         setOpen(true)
                         Cookies.set(
@@ -70,7 +56,7 @@ export const LoginForm: React.FC = () => {
                             JSON.stringify({ type: "interior", token }),
                             { expires: 2 }
                         )
-                        // router.push("/user/statistics")
+                        router.push("/user/statistics")
                     } catch (error) {
                         setMsg(error.message)
                         setOpen(true)
@@ -106,6 +92,7 @@ export const LoginForm: React.FC = () => {
                                     }
                                 </div>
                                 <Button
+                                    data-testid="submitButton"
                                     fullWidth
                                     sx={{ backgroundColor: "#6D63FF" }}
                                     type="submit"
@@ -126,12 +113,11 @@ export const LoginForm: React.FC = () => {
                 )}
             </Formik>
             <Snackbar
-                // data-testid="snackBar"
                 open={open}
                 onClose={closeMessage}
                 message={msg}
                 key={nanoid()}
-                data-testid="Snackbar"
+                data-testid="snackbar"
             />
         </>
     )

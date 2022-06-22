@@ -1,3 +1,5 @@
+import React, { FC } from "react"
+
 import {
     ComposedChart,
     Area,
@@ -12,7 +14,7 @@ import CustomTooltip from "./CustomTooltip/CustomTooltip"
 
 import { graphData } from "../../model/graph/graph"
 
-const Graph = () => {
+const Graph: FC = () => {
     return (
         <ComposedChart id="graph" width={686} height={386} data={graphData}>
             <defs>

@@ -68,6 +68,10 @@ export const Input = styled.input<{ error: boolean }>`
     &::placeholder {
         color: #a7a3ff;
     }
+    &:focus::placeholder {
+        color: transparent;
+        transition: 0.5s;
+    }
 `
 
 export const InputSelect = styled.select<{ error: boolean }>`
