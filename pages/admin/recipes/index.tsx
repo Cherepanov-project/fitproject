@@ -1,17 +1,20 @@
 import React from "react"
-import { withLayout } from "../../layouts/Layout-admin/Layout-admin"
+import { withLayout } from "../../../layouts/Layout-admin/Layout-admin"
 import { useState, useEffect } from "react"
-import FilterMenu from "../../common/FilterMenu/filter"
-import { ContentListType, contentList } from "../../model/recipies/recipiesList"
-import Recipie from "../../components/RecipiesTableItem/recipie"
+import FilterMenu from "../../../common/FilterMenu/filter"
+import {
+    ContentListType,
+    contentList,
+} from "../../../model/recipies/recipiesList"
+import Recipie from "../../../components/RecipiesTableItem/recipie"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
 import TableContainer from "@mui/material/TableContainer"
-import { ContentList, FooterRecipies } from "./overview/overviewStyles"
-import CreateForm from "../../components/RecipiesTableItem/AddBtn/addForm"
-import Pagination from "../../common/Table/TablePagination"
-import ColumnName from "../../common/user/ColumnName/ColumnName"
-import getArrPagination from "../../utils/getArrPagination"
+import { ContentList, FooterRecipies } from "../overview/overviewStyles"
+import CreateForm from "../../../components/RecipiesTableItem/AddBtn/addForm"
+import Pagination from "../../../common/Table/TablePagination"
+import ColumnName from "../../../common/user/ColumnName/ColumnName"
+import getArrPagination from "../../../utils/getArrPagination"
 
 const Recipes = () => {
     const [arrRecipies, setArrRecipies] = useState<ContentListType[]>([])
@@ -64,7 +67,6 @@ const Recipes = () => {
                 <CreateForm />
                 <Pagination
                     count={arrRecipies.length}
-                    rowsPerPageOptions={[8, 10]}
                     page={page}
                     onChangePage={handleChangePage}
                     rowsPerPage={rowsPerPage}

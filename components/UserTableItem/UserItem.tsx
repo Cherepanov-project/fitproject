@@ -53,7 +53,7 @@ const UserItem: FC<UserItemProps> = ({
         console.log("delete")
     }
     return (
-        <TableRow hover sx={{ cursor: "pointer" }}>
+        <>
             <TableCell sx={{ paddingLeft: 3.5, display: "flex", padding: 1 }}>
                 <Avatar sx={{ margin: 2 }}>
                     <Image src={avatar} />
@@ -120,7 +120,7 @@ const UserItem: FC<UserItemProps> = ({
                     </MenuIcon>
                 </WrapBnt>
             </TableCell>
-        </TableRow>
+        </>
     )
 }
 
