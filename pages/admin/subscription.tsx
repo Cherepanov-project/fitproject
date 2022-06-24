@@ -1,12 +1,8 @@
-import React from 'react';
-import {withLayout} from "../../layouts/Layout-admin/Layout-admin";
+import React from "react"
+import { withLayout } from "../../layouts/Layout-admin/Layout-admin"
 
 const Subscription = () => {
-    return (
-        <div>
-            Subscription
-        </div>
-    );
-};
+    return <div>Subscription</div>
+}
 
-export default withLayout(Subscription);
+export default withLayout(Subscription)

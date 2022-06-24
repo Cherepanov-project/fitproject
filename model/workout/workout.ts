@@ -5,23 +5,26 @@ export interface exercisesType {
   move: number;
   repeat: number;
   area: string;
-  muscles: string[]
+  muscles: string[];
+  img: string,
+  imgWidth: number,
+  imgHeight: number,
 }
 
 export interface categoriesListType {
-  name: string;
-  value: number;
+    name: string
+    value: number
 }
 
 export interface muscleCheckboxListType {
-  Arms: boolean;
-  Legs: boolean;
-  Breast: boolean;
-  Chest: boolean;
+    Arms: boolean
+    Legs: boolean
+    Breast: boolean
+    Chest: boolean
 }
 
 export interface muscleGroupListType {
-  name: string
+    name: string
 }
 
 export const exerciseList: exercisesType[] = [
@@ -38,6 +41,9 @@ export const exerciseList: exercisesType[] = [
       "Levator scapulae",
       "Rhomboids"
     ],
+    img:"/exercises/fours.jpg",
+    imgWidth: 175,
+    imgHeight: 148,
   },
   {
     id: 1,
@@ -52,6 +58,9 @@ export const exerciseList: exercisesType[] = [
       "Levator scapulae",
       "Rhomboids"
     ],
+    img:"/exercises/hands_up_on_socks.jpg",
+    imgWidth: 172,
+    imgHeight: 266,
   },
   {
     id: 2,
@@ -66,6 +75,9 @@ export const exerciseList: exercisesType[] = [
       "Levator scapulae",
       "Rhomboids"
     ],
+    img:"/exercises/just_position.jpg",
+    imgWidth: 224,
+    imgHeight: 120,
   },
   {
     id: 3,
@@ -80,6 +92,9 @@ export const exerciseList: exercisesType[] = [
       "Levator scapulae",
       "Rhomboids"
     ],
+    img:"/exercises/press.jpg",
+    imgWidth: 212,
+    imgHeight: 159,
   },
   {
     id: 4,
@@ -94,6 +109,9 @@ export const exerciseList: exercisesType[] = [
       "Levator scapulae",
       "Rhomboids"
     ],
+    img:"/exercises/push_ups.jpg",
+    imgWidth: 270,
+    imgHeight: 166,
   },
   {
     id: 5,
@@ -108,26 +126,30 @@ export const exerciseList: exercisesType[] = [
       "Levator scapulae",
       "Rhomboids"
     ],
+    img:"/exercises/squatting.jpg",
+    imgWidth: 150,
+    imgHeight: 277,
   },
 ];
 
+
 export const categoriesList: categoriesListType[] = [
-  {name: 'Cardio', value: 320},
-  {name: 'Yoga', value: 112},
-  {name: 'Stretching', value: 32},
-  {name: 'Power', value: 48}
+    { name: "Cardio", value: 320 },
+    { name: "Yoga", value: 112 },
+    { name: "Stretching", value: 32 },
+    { name: "Power", value: 48 },
 ]
 
 export const muscleCheckboxList: muscleCheckboxListType = {
-  Arms: true,
-  Legs: true,
-  Breast: true,
-  Chest: true
+    Arms: true,
+    Legs: true,
+    Breast: true,
+    Chest: true,
 }
 
 export const muscleGroupList: muscleGroupListType[] = [
-  {name: 'Arms'},
-  {name: 'Legs'},
-  {name: 'Breast'},
-  {name: 'Chest'}
+    { name: "Arms" },
+    { name: "Legs" },
+    { name: "Breast" },
+    { name: "Chest" },
 ]

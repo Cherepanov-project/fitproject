@@ -1,6 +1,4 @@
-import { MainWrapper,
-        ItemListWrapper
-                        } from "./workoutListStyles";
+import { MainWrapper, ItemListWrapper } from "./workoutListStyles"
 import Sidebar from "../../../common/workoutList/sidebar/Sidebar"
 import { LayoutUser } from "../../../layouts/Layout-user/Layout-user";
 import ItemList from "../../../common/workoutList/itemList/ItemList";

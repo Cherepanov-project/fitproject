@@ -6,15 +6,24 @@ import {
     SidebarItemListWrapper,
     SidebarListWrapper,
     SidebarListItemCheckbox,
-    SidebarStyledItemCheckbox
-    } from '../../pages/user/workoutList/workoutListStyles'
+    SidebarStyledItemCheckbox,
+} from "../../pages/user/workoutList/workoutListStyles"
 
-import { muscleGroupList, muscleGroupListType } from '../../model/workout/workout'
-import uid from '../../utils/uid'
+import {
+    muscleGroupList,
+    muscleCheckboxList,
+    muscleCheckboxListType,
+    muscleGroupListType,
+} from "../../model/workout/workout"
 
-const Categories = ({ muscles, setMuscle }) => {
+import uid from "../../utils/uid"
+
+const Categories = () => {
+    const [muscles, setMuscle] =
+        useState<muscleCheckboxListType>(muscleCheckboxList)
+
     const handleChange = (value: string) => {
-        const newState = {...muscles}
+        const newState = { ...muscles }
         newState[value] = !newState[value]
         setMuscle(newState)
     }
@@ -29,8 +38,6 @@ const Categories = ({ muscles, setMuscle }) => {
             }}
             onClick={() => handleChange(item.name)}
             checked={muscles[item.name]}
-
-
             />
             <SidebarStyledItemCheckbox>{item.name}</SidebarStyledItemCheckbox>
         </SidebarListItemCheckbox>
@@ -38,9 +45,7 @@ const Categories = ({ muscles, setMuscle }) => {
     return (
         <SidebarListWrapper>
             <SidebarListTitle>Muscle group</SidebarListTitle>
-            <SidebarItemListWrapper>
-                {result}
-            </SidebarItemListWrapper>
+            <SidebarItemListWrapper>{result}</SidebarItemListWrapper>
         </SidebarListWrapper>
     )
 }

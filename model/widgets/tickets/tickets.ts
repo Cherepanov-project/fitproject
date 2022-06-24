@@ -1,23 +1,23 @@
 interface TicketsDataTypes {
-    name: string,
-    value: string,
+    name: string
+    value: string
 }
 
 export const ticketsData: TicketsDataTypes[] = [
     {
         name: "Waiting on Feature Request",
-        value: "4238"
+        value: "4238",
     },
     {
         name: "Awaiting Customer Response",
-        value: "1005"
+        value: "1005",
     },
     {
         name: "Awaiting Developer Fix",
-        value: "914"
+        value: "914",
     },
     {
         name: "Pending",
-        value: "281"
+        value: "281",
     },
-];
+]
