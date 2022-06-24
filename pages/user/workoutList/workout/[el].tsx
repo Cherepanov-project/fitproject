@@ -7,6 +7,7 @@ import { exerciseList, exercisesType} from '../../../../model/workout/workout';
 import muscleImg from '../../../../common/images/icons/backMuscle.svg'
 import uid from '../../../../utils/uid';
 import useMediaQuery  from '@mui/material/useMediaQuery';
+import Slider from "../../../../common/slider/Slider"
 
 import {MainWrapper,
         Container, 
@@ -50,13 +51,13 @@ const WorkoutItem = () => {
     ))
     const exercises = exerciseList.filter((el) => el.area === workout?.area).map(({id,img,imgWidth,imgHeight, name, move, repeat}) => (
     <Link href={`/user/workoutList/workout/${id}`} key={id}>
-    <Card sx={cardStyles}>
-        <ImgWrapper imgUrl={img} imgWidth={imgWidth} imgHeight={imgHeight}/>
-            <TextWrapper>
-                <Exercise>{name}</Exercise>
-                <Reps>{`${move} X ${repeat} REPS`}</Reps>
-        </TextWrapper>
-    </Card>
+        <Card sx={cardStyles}>
+            <ImgWrapper imgUrl={img} imgWidth={imgWidth} imgHeight={imgHeight}/>
+                <TextWrapper>
+                    <Exercise>{name}</Exercise>
+                    <Reps>{`${move} X ${repeat} REPS`}</Reps>
+            </TextWrapper>
+        </Card>
     </Link>
     ))
     
@@ -79,7 +80,7 @@ const WorkoutItem = () => {
 
                 </LeftContent>
             </Container>
-            <BottomContainer>{exercises}</BottomContainer>
+            <Slider>{exercises}</Slider>
         </MainWrapper>
     )
 }
