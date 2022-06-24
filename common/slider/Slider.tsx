@@ -35,7 +35,6 @@ const Slider = ({children}) => {
     let newPair=[]
     newPair[0]=-(curX-x[0])
     newPair[1]=0
-    console.log(newPair)
     if(newPair[1]-newPair[0]<=0){
       if(!(newPair[1]-newPair[0]>=(-sliderWrapper.current.clientWidth))){
         newPair[0]=-(x[1]-x[0])
@@ -66,7 +65,6 @@ const Slider = ({children}) => {
   }
 
   const onTouchStartHandler=(evt)=>{
-    console.log(evt);
     onSliderStartMove(evt.changedTouches[0]);
   }
 
@@ -98,7 +96,7 @@ const Slider = ({children}) => {
   return(
       <CustomSlider>
         <SliderWrapper
-        // draggable={true}
+        draggable={isFirefox?false:true}
         ref={sliderWrapper}
         onDrag={(e)=>{if(!isFirefox) onDragHandler(e)}}
         onDragStart={(evt)=>{if(!isFirefox) onDragStartHandler(evt)}}
