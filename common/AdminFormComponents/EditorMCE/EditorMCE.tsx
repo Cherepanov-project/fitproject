@@ -5,8 +5,8 @@ interface IProps {
     name: string
 }
 
-const EditorMCE: React.FC<IProps> = props => {
-    const [field, meta, helpers] = useField(props.name)
+const EditorMCE: React.FC<IProps> = ({ name }) => {
+    const [field, meta, helpers] = useField(name)
 
     return (
         <div>

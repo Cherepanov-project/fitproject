@@ -47,8 +47,8 @@ const SecondParagraph = styled.p`
     font-size: 13px;
 `
 
-const FileUpload = ({ name }: { name: string }) => {
-    const [_, __, helpers] = useField(name)
+const FileUpload = ({ name }: { name?: string }) => {
+    // const [_, __, helpers] = useField(name)
     const [files, setFiles] = useState<UploadableFileProps[]>([])
 
     const onDrop = useCallback(
