@@ -55,6 +55,7 @@ describe("loginForm", () => {
         await waitFor(() => {
             render(<LoginForm />, container)
         })
+        expect(screen.queryByTestId("snackbar")).toBeNull()
         axiosMock.mockResolvedValueOnce(mockAxiosResponse)
         const submitButton = screen.getByTestId("submitButton")
         const usernameInput = screen.getByPlaceholderText(/user name/i)
@@ -64,7 +65,6 @@ describe("loginForm", () => {
         userEvent.type(passwordInput, "password")
         userEvent.click(submitButton)
 
-        const snackbar = await screen.findByTestId("snackbar")
-        expect(snackbar).toBeInTheDocument()
+        expect(await screen.findByTestId("snackbar")).toBeVisible()
     })
 })

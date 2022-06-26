@@ -3,7 +3,7 @@ import { withLayout } from "../../layouts/Layout-admin/Layout-admin"
 import { useState, useEffect } from "react"
 import FilterBtn from "../../components/FilterBtn/filter"
 import { ContentListType, contentList } from "../../model/recipies/recipiesList"
-import Recipie from "../../components/RecipiesContainer/ResipiesList/recipie"
+import Recipe from "../../components/RecipiesContainer/ResipiesList/recipe"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
 import TableContainer from "@mui/material/TableContainer"
@@ -14,7 +14,7 @@ import ColumnName from "../../components/RecipiesContainer/ColumnName/columnName
 import getArrPagination from "../../utils/getArrPagination"
 
 const Recipes = () => {
-    const [arrRecipies, setArrRecipies] = useState<ContentListType[]>([])
+    const [arrRecipes, setArrRecipes] = useState<ContentListType[]>([])
     const [page, setPage] = useState<number>(0)
     const [rowsPerPage, setRowsPerPage] = useState<number>(8)
 
@@ -30,13 +30,13 @@ const Recipes = () => {
     }
 
     useEffect(() => {
-        setArrRecipies(contentList)
+        setArrRecipes(contentList)
         setPage(0)
     }, [])
 
-    const resipie = getArrPagination(page, rowsPerPage, arrRecipies).map(el => {
+    const recipe = getArrPagination(page, rowsPerPage, arrRecipes).map(el => {
         return (
-            <Recipie
+            <Recipe
                 key={el.id}
                 id={el.id}
                 portionSize={el.uniqueRecipeField.portionSize}
@@ -57,13 +57,13 @@ const Recipes = () => {
             <TableContainer>
                 <Table sx={{ minWidth: 1120 }}>
                     <ColumnName />
-                    <TableBody>{resipie}</TableBody>
+                    <TableBody>{recipe}</TableBody>
                 </Table>
             </TableContainer>
             <FooterRecipies>
-                <CreateForm />
+                <CreateForm data-testid="new-recipe" />
                 <Pagination
-                    count={arrRecipies.length}
+                    count={arrRecipes.length}
                     rowsPerPageOptions={[8, 10]}
                     page={page}
                     onChangePage={handleChangePage}

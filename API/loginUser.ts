@@ -3,6 +3,7 @@ import axios from "axios"
 import {
     ILoginForm,
     IRegisterForm,
+    IRegisterRequest,
     ILoginResponse,
 } from "../model/loginOrRegisterInterfaces/interfaces"
 
@@ -17,9 +18,13 @@ export const loginUser = async (user: ILoginForm) => {
     }
 }
 
-export const registerUser = async (user: IRegisterForm) => {
-    const { data: res } = await axios.post(API_REGISTER_USER, { user })
-    return res
+export const registerUser = async (user: IRegisterRequest) => {
+    try {
+        const { data } = await axios.post(API_REGISTER_USER, user)
+        return data
+    } catch (error) {
+        return error
+    }
 }
 
 //возвращает токен с сервера для логина или регистрации

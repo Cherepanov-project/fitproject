@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState, useEffect } from "react"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import Cookies from "js-cookie"
@@ -18,9 +18,10 @@ import { RightSide, Title2, ForgorPassword } from "../userLoginOrRegisterStyle"
 import { RegOrLoginSocial } from "../RegOrLoginSocial"
 
 export const LoginForm: React.FC = () => {
-    const [open, setOpen] = useState(false)
-    const [msg, setMsg] = useState("")
-    const closeMessage = () => {
+    const [open, setOpen] = useState<boolean>(false)
+    const [msg, setMsg] = useState<string>("")
+    const [loginSuccess, setLoginSuccess] = useState<boolean>(false)
+    const closeMessage = (): void => {
         setOpen(false)
     }
 
@@ -37,7 +38,7 @@ export const LoginForm: React.FC = () => {
         <>
             <Formik
                 validationSchema={validationLoginUser}
-                onSubmit={async (data, actions) => {
+                onSubmit={async data => {
                     try {
                         const {
                             data: token,
@@ -51,6 +52,7 @@ export const LoginForm: React.FC = () => {
 
                         setMsg("You have been login")
                         setOpen(true)
+                        setLoginSuccess(true)
                         Cookies.set(
                             "userToken",
                             JSON.stringify({ type: "interior", token }),
@@ -80,7 +82,7 @@ export const LoginForm: React.FC = () => {
                                 <FormTextField
                                     placeholder="Password"
                                     name="password"
-                                    secrecy={true}
+                                    type="password"
                                 />
                                 <div>
                                     {
@@ -96,7 +98,7 @@ export const LoginForm: React.FC = () => {
                                     fullWidth
                                     sx={{ backgroundColor: "#6D63FF" }}
                                     type="submit"
-                                    disabled={isSubmitting}
+                                    disabled={isSubmitting || loginSuccess}
                                     variant="contained"
                                     startIcon={
                                         isSubmitting ? (

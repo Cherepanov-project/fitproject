@@ -1,15 +1,10 @@
 import { useState } from "react"
 import { nanoid } from "nanoid"
-import { CardContent } from "@mui/material"
+import { CardContent, Snackbar } from "@mui/material"
+import { registerUser } from "../../../API/loginUser"
 
-import {
-    IRegisterForm,
-    IFormStatus,
-} from "../../../model/loginOrRegisterInterfaces/interfaces"
-import {
-    formStatusValue,
-    formRegisterValues,
-} from "../../../model/loginOrRegisterInterfaces/initialValues"
+import { IRegisterForm } from "../../../model/loginOrRegisterInterfaces/interfaces"
+import { formRegisterValues } from "../../../model/loginOrRegisterInterfaces/initialValues"
 import {
     userInfo,
     exercises,
@@ -25,38 +20,41 @@ import {
     validationMeal,
     validationExercises,
 } from "../../../utils/validationSchema"
-import { loginOrRegisterUser } from "../../../utils/loginOrRegisterUser"
 import { redirectToLoginPage } from "../../../utils/redirect"
-import { paused } from "../../../utils/paused"
 import { LOGIN_PAGE } from "../../../utils/urls"
 
 import { RightSide } from "../userLoginOrRegisterStyle"
 import { FormikStepper } from "./FormikStepper"
 
 export const RegisterForm: React.FC = () => {
-    const [displayFormStatus, setDisplayFormStatus] = useState<boolean>(false)
-
-    const [formStatus, setFormStatus] = useState<IFormStatus>(formStatusValue)
-
-    const [values, setValues] = useState<IRegisterForm>(formRegisterValues)
+    const [open, setOpen] = useState<boolean>(false)
+    const [msg, setMsg] = useState<string>("")
+    const [registerSuccess, setRegisterSuccess] = useState<boolean>(false)
+    const closeMessage = (): void => {
+        setOpen(false)
+    }
 
     return (
         <RightSide>
             <CardContent sx={{ width: "80%", margin: "0 auto" }}>
                 <FormikStepper
-                    onSubmit={async (
-                        data: IRegisterForm,
-                        actions: { resetForm: Function }
-                    ) => {
-                        // await paused(3000);
-                        console.log(data)
-
-                        // redirectToLoginPage(LOGIN_PAGE);
-                        // setValues({ ...data });
-                        // await loginOrRegisterUser(data, actions.resetForm, setFormStatus, setDisplayFormStatus);
-                        // console.log('data sign in: ', data);
+                    onSubmit={async (data: IRegisterForm) => {
+                        try {
+                            const response = await registerUser(data)
+                            if (!response.success) {
+                                throw new Error(response.error)
+                            }
+                            setRegisterSuccess(true)
+                            setMsg("You have been register")
+                            setOpen(true)
+                            redirectToLoginPage(LOGIN_PAGE)
+                        } catch (error) {
+                            setMsg(error.message)
+                            setOpen(true)
+                        }
                     }}
-                    initialValues={values}
+                    initialValues={formRegisterValues}
+                    registerSuccess={registerSuccess}
                 >
                     <FormikStep
                         label="userInfo"
@@ -69,14 +67,13 @@ export const RegisterForm: React.FC = () => {
                                     placeholder={field.placeholder}
                                     name={field.name}
                                     type={field.type}
-                                    secrecy={field.secrecy}
                                 />
                             )
                         })}
                     </FormikStep>
 
                     <FormikStep
-                        label="mealPreferencies"
+                        label="meal Preferencies"
                         validationSchema={validationMeal}
                     >
                         <FormTextField
@@ -118,6 +115,13 @@ export const RegisterForm: React.FC = () => {
                     </FormikStep>
                 </FormikStepper>
             </CardContent>
+            <Snackbar
+                open={open}
+                onClose={closeMessage}
+                message={msg}
+                key={nanoid()}
+                data-testid="snackbar"
+            />
         </RightSide>
     )
 }

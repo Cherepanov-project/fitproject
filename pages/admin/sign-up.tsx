@@ -10,10 +10,11 @@ const ContainerAdminRegistration = styled.div`
     align-items: center;
 `
 
-export default function Admin() {
+const Admin = () => {
     return (
         <ContainerAdminRegistration>
             <SignUpForm />
         </ContainerAdminRegistration>
     )
 }
+export default Admin

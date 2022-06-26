@@ -1,7 +1,8 @@
 import { FormikConfig, FormikValues } from "formik"
+import { ReactNode } from "react"
 
 export interface IRegisterForm {
-    userName: string
+    username: string
     firstName?: string
     lastName?: string
     email: string
@@ -9,14 +10,14 @@ export interface IRegisterForm {
     confirmPassword: string
     age?: number
     sex?: string
-    contactNumber?: number
-    prohibitedProducts: string
-    wishProducts: string
-    goal: string
-    quantityMeals: string
-    typeOfProgramm: string
-    numberOfWorkouts: string
-    typeOfTrainings: string
+    phone: string
+    prohibitedProducts?: string
+    wishProducts?: string
+    goal?: string
+    quantityMeals?: string
+    typeOfProgramm?: string
+    numberOfWorkouts?: string
+    typeOfTrainings?: string
 }
 
 export interface ILoginForm {
@@ -43,7 +44,6 @@ export interface IInputForm {
     placeholder: string
     name: string
     type?: string
-    secrecy?: boolean
 }
 
 export interface ISelectForm {
@@ -56,10 +56,11 @@ interface ISelectFormValues {
     title: string
 }
 
-export interface IFormikStepper {
-    children: FormikStepProps
+export interface IFormikStepperProps {
+    children: ReactNode[]
     initialValues: IRegisterForm
     onSubmit: Function
+    registerSuccess: boolean
 }
 
 export interface ISocialLoginBtn {
@@ -74,4 +75,11 @@ export interface ILoginResponse {
     success: boolean
     data?: { jwtToken: string }
     error?: string
+}
+
+export interface IRegisterRequest {
+    username: string
+    email: string
+    password: string
+    phone: string
 }

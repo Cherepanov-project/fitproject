@@ -35,11 +35,9 @@ const Frame1 = () => {
 
     useEffect(() => {
         if (!Cookies.get("userToken")) {
-            setTimeout(() => {
-                router.push("/user")
-            }, 2000)
+            router.push("/user")
         }
-    }, [])
+    }, [router])
 
     return isLogin ? (
         <Container>

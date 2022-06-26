@@ -1,5 +1,5 @@
 import React from "react"
-import { MenuIcon } from "./recipies"
+import { MenuIcon } from "./recipes"
 import TableRow from "@mui/material/TableRow"
 import TableCell from "@mui/material/TableCell"
 import IconButton from "@mui/material/IconButton"
@@ -16,7 +16,7 @@ import ColorfulTeg from "../../../common/ColorfulTeg"
 
 const options = ["Delete", "Edit"]
 
-const Recipie = ({
+const Recipe = ({
     status,
     name,
     calories,
@@ -32,7 +32,6 @@ const Recipie = ({
     const handleClick = (event: React.MouseEvent<HTMLElement>) =>
         setAnchorEl(event.currentTarget)
     const handleClose = () => setAnchorEl(null)
-
     const deleteArticle = () => {
         // функция для удаленея рецепта
         console.log("delete")
@@ -46,7 +45,7 @@ const Recipie = ({
                 sx={{ display: "flex", paddingLeft: 3.5 }}
             >
                 <Avatar sx={{ margin: 2 }}>
-                    <Image src={imageMan} />
+                    <Image width={40} height={40} src={imageMan} />
                 </Avatar>
                 portion size ({portionSize}g), fat ({fats}), proteins (
                 {proteins}), carbohydrates ({carbohydrates})
@@ -112,4 +111,4 @@ const Recipie = ({
     )
 }
 
-export default Recipie
+export default Recipe
