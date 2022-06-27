@@ -1,10 +1,10 @@
-import Link from "next/link"	
-import Box from "@mui/material/Box"	
-import Card from "@mui/material/Card"	
-import Pagination from "@mui/material/Pagination"	
-import Stack from "@mui/material/Stack"	
-import { exerciseList } from "../../../model/workout/workout"	
-import useMediaQuery  from "@mui/material/useMediaQuery"
+import Link from "next/link"
+import Box from "@mui/material/Box"
+import Card from "@mui/material/Card"
+import Pagination from "@mui/material/Pagination"
+import Stack from "@mui/material/Stack"
+import { exerciseList } from "../../../model/workout/workout"
+import useMediaQuery from "@mui/material/useMediaQuery"
 
 import { ImgWrapper, TextWrapper, Exercise, Reps } from "./ItemListStyled"
 
@@ -23,17 +23,23 @@ const ItemList = () => {
         cursor: "pointer",
     }
 
-    const exercises = exerciseList.map(({id, img, name, move, repeat, imgWidth, imgHeight }) => (
-        <Link href={`/user/workoutList/workout/${id}`} key={id}>
-          <Card sx={cardStyles}>
-              <ImgWrapper imgUrl={img} imgWidth={imgWidth} imgHeight={imgHeight}/>
-                  <TextWrapper>
-                      <Exercise>{name}</Exercise>
-                      <Reps>{`${move} X ${repeat} REPS`}</Reps>
-              </TextWrapper>
-          </Card>
-        </Link>
-    ))
+    const exercises = exerciseList.map(
+        ({ id, img, name, move, repeat, imgWidth, imgHeight }) => (
+            <Link href={`/user/workoutList/workout/${id}`} key={id}>
+                <Card sx={cardStyles}>
+                    <ImgWrapper
+                        imgUrl={img}
+                        imgWidth={imgWidth}
+                        imgHeight={imgHeight}
+                    />
+                    <TextWrapper>
+                        <Exercise>{name}</Exercise>
+                        <Reps>{`${move} X ${repeat} REPS`}</Reps>
+                    </TextWrapper>
+                </Card>
+            </Link>
+        )
+    )
 
     return (
         <>
