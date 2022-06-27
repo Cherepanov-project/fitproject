@@ -1,12 +1,8 @@
-import React from 'react';
-import {withLayout} from "../../layouts/Layout-admin/Layout-admin";
+import React from "react"
+import { withLayout } from "../../layouts/Layout-admin/Layout-admin"
 
 const Messages = () => {
-    return (
-        <div>
-            Messages
-        </div>
-    );
-};
+    return <div>Messages</div>
+}
 
-export default withLayout(Messages);
+export default withLayout(Messages)

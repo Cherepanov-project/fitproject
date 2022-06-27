@@ -9,12 +9,7 @@ import useMediaQuery  from '@mui/material/useMediaQuery';
 import {exerciseList, muscleCheckboxListType} from '../../../model/workout/workout';
 import img from '../../images/workoutExercise.svg'
 
-import {
-        ImgWrapper,
-        TextWrapper,
-        Exercise,
-        Reps
-} from './ItemListStyled';
+import { ImgWrapper, TextWrapper, Exercise, Reps } from "./ItemListStyled"
 
 interface IMuscles {
     muscles: {
@@ -63,7 +58,11 @@ const ItemList = ({ muscles }: IMuscles) => {
             return (
                 <Link href={`/user/workoutList/workout/${item.id}`} key={item.id}>
                     <Card sx={cardStyles}>
-                        <div><ImgWrapper src={img.src} alt='workout exercise'/></div>
+                        <div><ImgWrapper
+                        imgUrl={item.img}
+                        imgWidth={item.imgWidth}
+                        imgHeight={item.imgHeight}
+                    /></div>
                         <TextWrapper>
                             <Exercise>{item.name}</Exercise>
                             <Reps>{`${item.move} X ${item.repeat} REPS`}</Reps>
@@ -76,25 +75,24 @@ const ItemList = ({ muscles }: IMuscles) => {
 
     return (
         <>
-            <Box sx={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                justifyContent: 'flex-start',
-            }}>
+            <Box
+                sx={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    justifyContent: "flex-start",
+                }}
+            >
                 {exercises}
             </Box>
-            <Stack spacing={2} sx={{margin: '10px 0 13px 0'}}>
-              <Pagination
-                  defaultPage={1}
-                  count={5}
-                  onChange={(e, value) => changePage(value)}
-                  sx={{
-                      display: 'flex',
-                      justifyContent: 'flex-end',
-                      marginRight: '30px',
-                      position: 'absolute',
+            <Stack spacing={2} sx={{ margin: "10px 0 13px 0" }}>
+                <Pagination
+                    count={10}
+                    sx={{
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        marginRight: "30px",
                     }}
-              />
+                />
             </Stack>
         </>
     )
