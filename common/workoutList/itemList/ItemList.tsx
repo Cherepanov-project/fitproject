@@ -1,45 +1,77 @@
-import Link from "next/link"
-import Box from "@mui/material/Box"
-import Card from "@mui/material/Card"
-import Pagination from "@mui/material/Pagination"
-import Stack from "@mui/material/Stack"
-import { exerciseList } from "../../../model/workout/workout"
-import useMediaQuery from "@mui/material/useMediaQuery"
+import Link from 'next/link';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
+import {useState} from "react";
+import useMediaQuery  from '@mui/material/useMediaQuery';
+
+import {exerciseList, muscleCheckboxListType} from '../../../model/workout/workout';
+import img from '../../images/workoutExercise.svg'
 
 import { ImgWrapper, TextWrapper, Exercise, Reps } from "./ItemListStyled"
 
-const ItemList = () => {
-    const matches = useMediaQuery("(min-width:2000px")
+interface IMuscles {
+    muscles: {
+        Arms: boolean;
+        Breast: boolean;
+        Chest: boolean;
+        Legs: boolean;
+    }
+}
 
+const ItemList = ({ muscles }: IMuscles) => {
+    const [minResOnPage, setMinResOnPage] = useState(0)
+    const [maxResOnPage, setMaxResOnPage] = useState(6)
+    const matches = useMediaQuery('(min-width:2000px')
     const cardStyles = {
         width: !matches ? 220 : 320,
         height: !matches ? 202 : 302,
-        backgroundColor: "#F0F7FF",
-        margin: "36px 8px 0 8px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-evenly",
-        alignItems: "center",
-        cursor: "pointer",
+        backgroundColor: '#F0F7FF',
+        margin: '36px 8px 0 8px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        cursor: 'pointer'
+    }
+    const changePage = (page) => {
+        setMinResOnPage(() => (page - 1) * 6)
+        setMaxResOnPage(() => page * 6)
+    }
+    let filteredExercises = []
+    const addOnArrResults = (list, partOfBody) => {
+        filteredExercises = [...filteredExercises,
+            ...list.filter(element => element.area === partOfBody)]
     }
 
-    const exercises = exerciseList.map(
-        ({ id, img, name, move, repeat, imgWidth, imgHeight }) => (
-            <Link href={`/user/workoutList/workout/${id}`} key={id}>
-                <Card sx={cardStyles}>
-                    <ImgWrapper
-                        imgUrl={img}
-                        imgWidth={imgWidth}
-                        imgHeight={imgHeight}
-                    />
-                    <TextWrapper>
-                        <Exercise>{name}</Exercise>
-                        <Reps>{`${move} X ${repeat} REPS`}</Reps>
-                    </TextWrapper>
-                </Card>
-            </Link>
-        )
-    )
+    const filterExerciseList = (muscles, exerciseList) => {
+        muscles.Arms ? addOnArrResults(exerciseList, 'Arms') : null
+        muscles.Legs ? addOnArrResults(exerciseList, 'Legs') : null
+        muscles.Chest ? addOnArrResults(exerciseList, 'Chest') : null
+        muscles.Breast ? addOnArrResults(exerciseList, 'Breast') : null
+    }
+    filterExerciseList(muscles, exerciseList)
+
+    const exercises = filteredExercises.map((item, index) => {
+        if (index >= minResOnPage && index < maxResOnPage) {
+            return (
+                <Link href={`/user/workoutList/workout/${item.id}`} key={item.id}>
+                    <Card sx={cardStyles}>
+                        <div><ImgWrapper
+                        imgUrl={item.img}
+                        imgWidth={item.imgWidth}
+                        imgHeight={item.imgHeight}
+                    /></div>
+                        <TextWrapper>
+                            <Exercise>{item.name}</Exercise>
+                            <Reps>{`${item.move} X ${item.repeat} REPS`}</Reps>
+                        </TextWrapper>
+                    </Card>
+                </Link>
+            )
+        }
+    })
 
     return (
         <>
