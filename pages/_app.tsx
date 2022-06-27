@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools'
 
 const MyApp = ({ Component, pageProps }) => {
-  const queryClient = new QueryClient();
+    const queryClient = new QueryClient()
 
   return (
     <>
@@ -19,4 +19,4 @@ const MyApp = ({ Component, pageProps }) => {
   );
 };
 
-export default MyApp;
+export default MyApp

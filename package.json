@@ -7,7 +7,8 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "jsonserver": "json-server -w data-test.json -p 3619"
   },
   "dependencies": {
     "@babel/core": "^7.0.0-0",

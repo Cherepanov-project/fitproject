@@ -1,12 +1,18 @@
-import { ComposedChart, Area, CartesianGrid, XAxis, YAxis, Tooltip, Line } from 'recharts';
+import {
+    ComposedChart,
+    Area,
+    CartesianGrid,
+    XAxis,
+    YAxis,
+    Tooltip,
+    Line,
+} from "recharts"
 
-import CustomTooltip from './CustomTooltip/CustomTooltip';
+import CustomTooltip from "./CustomTooltip/CustomTooltip"
 
-import { graphData } from '../../model/graph/graph';
-
+import { graphData } from "../../model/graph/graph"
 
 const Graph = () => {
-
     return (
         <ComposedChart id="graph" width={686} height={386} data={graphData}>
             <defs>
@@ -38,10 +44,7 @@ const Graph = () => {
                 stroke="#ccc"
                 strokeDasharray="5 0"
             />
-            <XAxis
-                dataKey="name"
-                tickLine={false}
-            />
+            <XAxis dataKey="name" tickLine={false} />
             <YAxis
                 orientation="right"
                 tickCount={7}
@@ -50,13 +53,9 @@ const Graph = () => {
                 tick={{ dy: -15 }}
                 tickLine={false}
             />
-            <Tooltip
-                content={<CustomTooltip />}
-                offset={-36}
-            />
+            <Tooltip content={<CustomTooltip />} offset={-36} />
         </ComposedChart>
-    );
+    )
 }
 
-export default Graph;
-
+export default Graph

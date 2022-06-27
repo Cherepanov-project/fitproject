@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const MainContainer = styled.div`
     display: flex;
@@ -6,7 +6,7 @@ export const MainContainer = styled.div`
     background-color: rgba(247, 248, 252, 1);
     padding: 2rem calc(2rem + 1px) 2rem calc(2rem - 2px);
     font-family: Mulish;
-`;
+`
 
 export const ContainerHeader = styled.div`
     display: flex;
@@ -15,7 +15,7 @@ export const ContainerHeader = styled.div`
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-`;
+`
 
 export const Trends = styled.div`
     display: flex;
@@ -25,7 +25,7 @@ export const Trends = styled.div`
     justify-content: space-between;
     flex-wrap: wrap;
     margin: 2rem 0 0 0;
-`;
+`
 
 export const GraphOnTrends = styled.div`
     width: 780px;
@@ -39,7 +39,7 @@ export const GraphOnTrends = styled.div`
     display: flex;
     flex-direction: column;
     flex-grow: 0;
-`;
+`
 
 export const BlockHeader = styled.div`
     width: 100%;
@@ -47,14 +47,14 @@ export const BlockHeader = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-`;
+`
 
 export const BlockHeaderLeftSide = styled.div`
     height: 80px;
     width: 100%;
     display: flex;
     flex-direction: column;
-`;
+`
 
 export const BlockHeaderRightSide = styled.div`
     height: 80px;
@@ -62,16 +62,16 @@ export const BlockHeaderRightSide = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-`;
+`
 
 export const CurveDesignation = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-`;
+`
 
 interface CurveDesignationColorProps {
-    color: string,
+    color: string
 }
 
 export const CurveDesignationColor = styled.div<CurveDesignationColorProps>`
@@ -91,14 +91,14 @@ export const CardsOnTrends = styled.div`
     align-items: flex-end;
     justify-content: space-between;
     flex-wrap: no-wrap;
-    margin: 0; 
+    margin: 0;
     padding: 0;
     @media (max-width: 1184px) {
         flex-direction: row;
         flex-wrap: wrap;
         flex-basis: 100%;
     }
-`;
+`
 
 export const TicketsAndTasks = styled.div`
     display: flex;
@@ -108,7 +108,7 @@ export const TicketsAndTasks = styled.div`
     justify-content: space-between;
     flex-wrap: wrap;
     margin: 2rem 0 0 0;
-`;
+`
 
 export const Widget = styled.div`
     width: 546px;
@@ -125,17 +125,18 @@ export const Widget = styled.div`
     align-items: center;
     justify-content: flex-end;
     flex-wrap: nowrap;
-    margin: 0; 
-`;
+    margin: 0;
+`
 
 export const BlockHeaderRightSideStyled = styled(BlockHeaderRightSide)`
     justify-content: flex-end;
-`;
+`
 
 export const ContentList = styled.div`
-    width: 1120px;
-    border: 1px solid #DFE0EB;
+    width: 100%;
+    border: 1px solid #dfe0eb;
+    border-radius: 8px;
     margin: 0 auto;
+    background-color: #ffffff;
 `
-export const FooterRecipies = styled.div`
-`
+export const FooterRecipies = styled.div``

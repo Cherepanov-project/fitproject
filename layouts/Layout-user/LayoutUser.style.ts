@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const Container = styled.div`
     display: flex;
@@ -17,7 +17,7 @@ export const Content = styled.div`
     background-color: #f1f1f1;
 
     @media (min-width: 1440px) {
-        width: 100%;  
+        width: 100%;
     }
 `
 
@@ -26,8 +26,8 @@ export const ContentWrapper = styled.div`
     flex-direction: column;
     background-color: #f1f1f1;
 
-        @media (min-width: 1440px) {
-            width: 100%;  
+    @media (min-width: 1440px) {
+        width: 100%;
     }
 `
 
