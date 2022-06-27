@@ -1,18 +1,18 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 interface img {
-    imgUrl: string;
-    imgWidth: number;
-    imgHeight: number;
+    imgUrl: string
+    imgWidth: number
+    imgHeight: number
 }
 
 export const ImgWrapper = styled.div<img>`
     width: 118px;
     height: 126px;
     border-radius: 50px;
-    background: url(${({ imgUrl }) => imgUrl}) #fff no-repeat;   
+    background: url(${({ imgUrl }) => imgUrl}) #fff no-repeat;
     background-size: ${({ imgWidth, imgHeight }) => {
-        return imgWidth>imgHeight?'100% auto':'auto 100%'
+        return imgWidth > imgHeight ? "100% auto" : "auto 100%"
     }};
     background-position: 50% 50%;
     @media (min-width: 2000px) {
