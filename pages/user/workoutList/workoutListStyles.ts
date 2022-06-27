@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const MainWrapper = styled.div`
     display: flex;
     width: 100%;
     background-color: white;
     border-radius: 5px;
-`;
+`
 
 export const SidebarWrapper = styled.div`
     width: 230px;
@@ -17,7 +17,7 @@ export const SidebarWrapper = styled.div`
     @media (min-width: 2300px) {
         width: 330px;
     }
-`;
+`
 
 export const SidebarListWrapper = styled.div`
     display: flex;
@@ -91,8 +91,8 @@ export const CategoriesStyledItem = styled.div`
     width: 38px;
     height: 18px;
     text-align: center;
-    background-color: #F4F8EC;
-    color: #6A983C;
+    background-color: #f4f8ec;
+    color: #6a983c;
     border-radius: 12px;
 
     @media (min-width: 2300px) {
@@ -101,6 +101,6 @@ export const CategoriesStyledItem = styled.div`
 `
 
 export const ItemListWrapper = styled.div`
-margin-top: 53px;
-margin-left: 30px;
+    margin-top: 53px;
+    margin-left: 30px;
 `

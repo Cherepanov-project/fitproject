@@ -1,7 +1,7 @@
-import auth from "./endpoints/auth";
+import auth from "./endpoints/auth"
 
 const allEndpoints = {
     auth,
-};
+}
 
-export default allEndpoints;
+export default allEndpoints
