@@ -4,7 +4,7 @@ import ListItemButton from "@mui/material/ListItemButton"
 import ListItemIcon from "@mui/material/ListItemIcon"
 import ListItemText from "@mui/material/ListItemText"
 import uid from "../../../utils/uid"
-
+import Cookies from "js-cookie"
 import {
     Avatar,
     Icon,
@@ -28,7 +28,11 @@ import defaultAvatar from "../images/UserBarIcons/defaultAvatar.png"
 import arrow from "../images/UserBarIcons/arrow.svg"
 import meter from "../images/UserBarIcons/meter.svg"
 import { formatDistanceToNow } from "date-fns"
-
+import Menu from "@mui/material/Menu"
+import MenuItem from "@mui/material/MenuItem"
+import { Logout, PersonAdd, Settings } from "@mui/icons-material"
+import { useRouter } from "next/router"
+import { PaperProps } from "./RightSideBarStyle"
 const drawerWidth: string = "244px"
 
 interface ISideBarProps {
@@ -43,14 +47,33 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
     userName = "User",
     lastDate = new Date(),
 }: ISideBarProps) => {
+    const router = useRouter()
     const lastVisitTime = formatDistanceToNow(lastDate, {
         includeSeconds: true,
     })
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
+    const open = Boolean(anchorEl)
 
+    const handleClick = (event: React.MouseEvent<HTMLElement>) =>
+        setAnchorEl(event.currentTarget)
+
+    const handleClose = () => setAnchorEl(null)
+
+    const handleListKeyDown = (event: React.KeyboardEvent) => {
+        event.preventDefault()
+        if (event.key === "Escape") {
+            handleClose()
+        }
+    }
+
+    const handleLogout = () => {
+        Cookies.remove("userToken")
+        router.push("/user")
+    }
     return (
         <MainWrapper>
             <RightSideBarWrapper>
-                <UserInfoWrapper>
+                <UserInfoWrapper onClick={handleClick}>
                     <Avatar alt="avatar" src={avatar.src} />
                     <UserInfo>
                         <UserName>{userName}</UserName>
@@ -126,6 +149,29 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
                     <Meter src={meter.src}></Meter>
                 </WeightLoosGoalWrapper>
             </RightSideBarWrapper>
+            <Menu
+                anchorEl={anchorEl}
+                id="account-menu"
+                open={open}
+                onClick={handleClose}
+                PaperProps={PaperProps}
+                onKeyDown={handleListKeyDown}
+                transformOrigin={{ horizontal: "right", vertical: "top" }}
+                anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+            >
+                <MenuItem>
+                    <ListItemIcon>
+                        <Settings fontSize="small" />
+                    </ListItemIcon>
+                    Settings
+                </MenuItem>
+                <MenuItem onClick={handleLogout}>
+                    <ListItemIcon>
+                        <Logout fontSize="small" />
+                    </ListItemIcon>
+                    Logout
+                </MenuItem>
+            </Menu>
         </MainWrapper>
     )
 }
