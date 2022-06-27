@@ -7,6 +7,7 @@ import FormFeildLong from "../AdminFormComponents/FormFeildLong"
 import FieldList from "../AdminFormComponents/FieldList/FieldList"
 import EditorMCE from "../AdminFormComponents/EditorMCE/EditorMCE"
 import { INutrilon, nutrilonsMapped } from "../../model/recipes/index"
+import { validationRecipies } from "../../utils/validationSchema"
 
 import IngredientsField from "../AdminFormComponents/IngredientsField/IngredientsFiled"
 
@@ -39,22 +40,7 @@ const RecipeForm = ({ title }) => {
                     ],
                     recipe: "",
                 }}
-                validationSchema={yup.object({
-                    header: yup
-                        .string()
-                        .required()
-                        .min(
-                            8,
-                            "Header should be of minimum 8 characters length"
-                        ),
-                    description: yup.string().required(),
-                    nutritionValues: yup.array().of(
-                        yup.object().shape({
-                            value: yup.number().required("Value required"),
-                        })
-                    ),
-                    recipe: yup.string().required(),
-                })}
+                validationSchema={validationRecipies}
                 onSubmit={values => console.log(values)}
                 render={({ values }) => (
                     <Form autoComplete="off">
