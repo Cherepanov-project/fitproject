@@ -13,6 +13,7 @@ jest.mock("next/image", () => {
     }
 })
 let container = null
+
 beforeEach(() => {
     container = document.createElement("div")
     document.body.appendChild(container)
@@ -38,12 +39,8 @@ it("Cookies filled", async () => {
 
     const button = document.querySelector("button[type='submit']")
     Cookies.remove("auth-token")
-    Cookies.remove("username")
-    Cookies.remove("image")
 
     expect(Cookies.get("auth-token")).not.toBeDefined()
-    expect(Cookies.get("username")).not.toBeDefined()
-    expect(Cookies.get("image")).not.toBeDefined()
 
     await waitFor(() => {
         button.dispatchEvent(new MouseEvent("click", { bubbles: true }))
@@ -52,7 +49,5 @@ it("Cookies filled", async () => {
     setTimeout(() => {
         expect(spy).toHaveBeenCalled()
         expect(Cookies.get("auth-token")).toBeDefined()
-        expect(Cookies.get("username")).toBeDefined()
-        expect(Cookies.get("image")).toBeDefined()
     }, 4000)
 })

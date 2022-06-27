@@ -30,12 +30,12 @@ it("Required fields", async () => {
         render(<LoginForm />, container)
     })
     const buttons = document.querySelectorAll("button")
+
     await waitFor(() => {
         buttons[1].dispatchEvent(new MouseEvent("click", { bubbles: true }))
     })
     const errorsFields = document.querySelectorAll("form div div:nth-child(2)")
-    expect(errorsFields).toBeDefined()
-    expect(errorsFields.length).toBe(2)
+
     expect(errorsFields[0].innerHTML).toBe("Required")
     expect(errorsFields[1].innerHTML).toBe("Required")
 })
