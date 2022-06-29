@@ -12,7 +12,7 @@ import Avatar from "@mui/material/Avatar"
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
 import EditIcon from "@mui/icons-material/Edit"
 import Link from "next/link"
-import ColorfulTeg from "../../../common/ColorfulTeg"
+import ColorfulTeg from "../../ColorfulTeg"
 
 const options = ["Delete", "Edit"]
 

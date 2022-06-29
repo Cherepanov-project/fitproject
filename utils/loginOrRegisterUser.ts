@@ -35,7 +35,7 @@ export const loginOrRegisterUser = async (
         }
     } catch (error) {
         const response = error.response
-        if (response.data === "user already exist" && response.status === 400) {
+        if (response.data === "User already exist" && response.status === 400) {
             setFormStatus(formStatusProps.error)
         }
     } finally {

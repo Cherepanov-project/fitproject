@@ -1,5 +1,5 @@
 import React from "react"
-import { withLayout } from "../../layouts/Layout-admin/Layout-admin"
+import { withLayout } from "../../containers/Layout-admin/Layout-admin"
 import { useState, useEffect } from "react"
 import FilterBtn from "../../components/FilterBtn/filter"
 import { ContentListType, contentList } from "../../model/recipies/recipiesList"

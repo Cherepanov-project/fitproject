@@ -1,11 +1,11 @@
 import { useRouter } from "next/router"
-import CalendarContainer from "../../../../common/CalendarContainer"
-import HeadLinkBack from "../../../../common/HeadLinkBack"
+import CalendarContainer from "../../../../components/CalendarContainer"
+import HeadLinkBack from "../../../../components/HeadLinkBack"
 import { ListUl, ItemDiv, ListItemName } from "./stylesDieta"
 import { DailyRationType, dailyRation } from "../../../../model/dieta/dieta"
 import { useState } from "react"
 import ItemRation from "./ItemRation"
-import { LayoutUser } from "../../../../layouts/Layout-user/Layout-user"
+import { LayoutUser } from "../../../../containers/Layout-user/Layout-user"
 
 const DailyRation = () => {
     const { asPath } = useRouter()
@@ -37,7 +37,7 @@ const DailyRation = () => {
         <CalendarContainer>
             <HeadLinkBack
                 namesCompoent={"Ежедневный рацион питания"}
-                backLink={"/user/calendar/"}
+                backLink={"/User/calendar/"}
             />
             <div>
                 <ListUl>

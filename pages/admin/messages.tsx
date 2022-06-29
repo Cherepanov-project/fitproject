@@ -1,5 +1,5 @@
 import React from "react"
-import { withLayout } from "../../layouts/Layout-admin/Layout-admin"
+import { withLayout } from "../../containers/Layout-admin/Layout-admin"
 
 const Messages = () => {
     return <div>Messages</div>

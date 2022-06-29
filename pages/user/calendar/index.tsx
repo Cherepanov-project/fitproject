@@ -18,7 +18,7 @@ import {
     CalcDate,
     CalendarDiv,
 } from "./stylesCalendar"
-import CalendarContainer from "../../../common/CalendarContainer"
+import CalendarContainer from "../../../components/CalendarContainer"
 import Link from "next/link"
 import Grid from "@mui/material/Grid"
 import Box from "@mui/material/Box"
@@ -27,9 +27,9 @@ import { styled } from "@mui/material/styles"
 import useMediaQuery from "@mui/material/useMediaQuery"
 import monthArr from "../../../model/user/main"
 import uid from "../../../utils/uid"
-import FramerCalendar from "../../../common/FramerCalendar"
+import FramerCalendar from "../../../components/FramerCalendar"
 
-import { LayoutUser } from "../../../layouts/Layout-user/Layout-user"
+import { LayoutUser } from "../../../containers/Layout-user/Layout-user"
 
 const Calendar = () => {
     const dateToday: Date = new Date()

@@ -1,11 +1,11 @@
-import MenuItem from "../../../common/listOfDishes/menuItem"
+import MenuItem from "../../../components/ListOfDishes/menuItem"
 import { dishFoodAll } from "../../../model/dish/dish"
-import SideBar from "../../../common/listOfDishes/sideBarMenus"
+import SideBar from "../../../components/ListOfDishes/sideBarMenus"
 import { MenuWrapper, AllMenusWrapper, ListDishes } from "./stylesAllMenus"
 import Pagination from "@mui/material/Pagination"
 import Stack from "@mui/material/Stack"
 import { FoodItemType } from "../../../model/dish/dish"
-import { LayoutUser } from "../../../layouts/Layout-user/Layout-user"
+import { LayoutUser } from "../../../containers/Layout-user/Layout-user"
 
 const AllMenus = () => {
     const elems = dishFoodAll.map((item: FoodItemType) => (

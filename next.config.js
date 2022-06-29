@@ -14,7 +14,7 @@ module.exports = {
             "API",
             "common",
             "components",
-            "layouts",
+            "containers",
             "model",
             "services",
             "store",

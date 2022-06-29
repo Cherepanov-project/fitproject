@@ -16,9 +16,9 @@ import {
     mealPreferenciesSelect,
 } from "../../../model/loginOrRegisterInterfaces/inputsValues"
 
-import { FormTextField } from "../../../common/user/FormTextField"
-import { FormSelectField } from "../../../common/user/FormSelectField"
-import FormikStep from "../../../common/user/FormikStep"
+import { FormTextField } from "../../../components/User/FormTextField"
+import { FormSelectField } from "../../../components/User/FormSelectField"
+import FormikStep from "../../../components/User/FormikStep"
 
 import {
     validationUser,

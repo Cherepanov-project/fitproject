@@ -27,14 +27,14 @@ import { trendsCardsData } from "../../../model/cards/trendsCards/trendsCards"
 import { ticketsData } from "../../../model/widgets/tickets/tickets"
 import { tasksData } from "../../../model/widgets/tasks/tasks"
 
-import Card from "../../../common/Card/card"
-import TicketsWidgetItem from "../../../common/WidgetItem/ticketsWidgetItem"
-import TasksWidgetItem from "../../../common/WidgetItem/tasksWidgetItem"
+import Card from "../../../components/Card/card"
+import TicketsWidgetItem from "../../../components/WidgetItem/ticketsWidgetItem"
+import TasksWidgetItem from "../../../components/WidgetItem/tasksWidgetItem"
 import {
     WidgetItemContainer,
     WidgetItemContent,
-} from "../../../common/WidgetItem/widgetItemStyles"
-const DynamicGraph = dynamic(() => import("../../../common/Graph/Graph"), {
+} from "../../../components/WidgetItem/widgetItemStyles"
+const DynamicGraph = dynamic(() => import("../../../components/Graph/Graph"), {
     ssr: false,
 })
 

@@ -1,11 +1,11 @@
 import { useRouter } from "next/router"
-import CalendarContainer from "../../../../common/CalendarContainer"
-import HeadLinkBack from "../../../../common/HeadLinkBack"
+import CalendarContainer from "../../../../components/CalendarContainer"
+import HeadLinkBack from "../../../../components/HeadLinkBack"
 import { WorkoutUl, ListWorkoutName, ItemWorkoutDiv } from "./styledWorkout"
 import { workoutDay, workoutDayType } from "../../../../model/workout/wokout"
 import { useState } from "react"
 import ItemWorkout from "./ItemWorkout"
-import { LayoutUser } from "../../../../layouts/Layout-user/Layout-user"
+import { LayoutUser } from "../../../../containers/Layout-user/Layout-user"
 
 export default LayoutUser(function () {
     const { asPath } = useRouter()
@@ -37,7 +37,7 @@ export default LayoutUser(function () {
         <CalendarContainer>
             <HeadLinkBack
                 namesCompoent={"Ежедневные тренеровки"}
-                backLink={"/user/calendar"}
+                backLink={"/User/calendar"}
             />
             <div>
                 <WorkoutUl>

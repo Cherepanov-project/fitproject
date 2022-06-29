@@ -2,12 +2,12 @@ import { useEffect } from "react"
 import Cookies from "js-cookie"
 import { useRouter } from "next/router"
 
-import { LayoutUser } from "../../../layouts/Layout-user/Layout-user"
+import { LayoutUser } from "../../../containers/Layout-user/Layout-user"
 
-import UserChar from "../../../common/userChar/userChar"
-import SquareIcon from "../../../common/squareIcon/squareIcon"
-import RectangleBtn from "../../../common/rectangleBtn/rectangleBtn"
-import ProgressBtn from "../../../common/progressBtn/progressBtn"
+import UserChar from "../../../components/userChar/userChar"
+import SquareIcon from "../../../components/SquareIcon/squareIcon"
+import RectangleBtn from "../../../components/RectangleBtn/rectangleBtn"
+import ProgressBtn from "../../../components/ProgressBtn/progressBtn"
 
 import imgLeg from "../../../common/images/icons/leg.svg"
 import imgWater from "../../../common/images/icons/water.svg"
@@ -36,7 +36,7 @@ const Frame1 = () => {
     useEffect(() => {
         if (!Cookies.get("userToken")) {
             setTimeout(() => {
-                router.push("/user")
+                router.push("/User")
             }, 2000)
         }
     }, [])

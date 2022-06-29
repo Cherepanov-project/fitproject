@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-import Layout from "../../../common/user/UserLayout"
+import Layout from "../../../components/User/UserLayout"
 import loginMan from "../../../common/images/loginMan.png"
 
 import {

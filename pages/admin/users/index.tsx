@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { withLayout } from "../../../layouts/Layout-admin/Layout-admin"
+import { withLayout } from "../../../containers/Layout-admin/Layout-admin"
 import { ContentWrapper } from "./stylesUsers"
 import FilterBtn from "../../../components/FilterBtn/filter"
 import { TableContainer, Table, TableBody } from "@mui/material"

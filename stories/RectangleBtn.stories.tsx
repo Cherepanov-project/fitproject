@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 
-import RectangleBtn from "../common/rectangleBtn/rectangleBtn"
-import SquareIcon from "../common/squareIcon/squareIcon"
+import RectangleBtn from "../components/RectangleBtn/rectangleBtn"
+import SquareIcon from "../components/SquareIcon/squareIcon"
 import imgLeg from "../common/images/icons/leg.svg"
 
 export default {

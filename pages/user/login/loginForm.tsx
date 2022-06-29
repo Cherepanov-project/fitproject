@@ -8,11 +8,11 @@ import { Formik } from "formik"
 import Snackbar from "@mui/material/Snackbar"
 import { Button, CardContent, CircularProgress } from "@mui/material"
 
-import { loginUser } from "../../../API/loginUser"
+import { loginUser } from "../../../services/API/loginUser"
 
 import { IFormStatus } from "../../../model/loginOrRegisterInterfaces/interfaces"
 
-import { FormTextField } from "../../../common/user/FormTextField"
+import { FormTextField } from "../../../components/User/FormTextField"
 
 import { paused } from "../../../utils/paused"
 import { loginOrRegisterUser } from "../../../utils/loginOrRegisterUser"
@@ -40,7 +40,7 @@ export const LoginForm: React.FC = () => {
     //перенаправление на страницу пользователя если пользователь был залогинен
     useEffect(() => {
         if (Cookies.get("userLogin")) {
-            router.push("/user/statistics")
+            router.push("/User/statistics")
         }
     }, [router])
 
@@ -65,7 +65,7 @@ export const LoginForm: React.FC = () => {
                             JSON.stringify({ type: "interior", token }),
                             { expires: 2 }
                         )
-                        router.push("/user/statistics")
+                        router.push("/User/statistics")
                     } catch {
                         setMsg("Error")
                         setOpen(true)

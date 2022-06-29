@@ -13,7 +13,7 @@ import NutrilonValue from "../../components/RecipiesEditForm/NutritionValuesFiel
 import { INutrilon, nutrilonsMapped } from "../../model/recipes/index"
 import { exercisesValues } from "../../model/exercises/index"
 import { articlesValues } from "../../model/articles/index"
-import { withLayout } from "../../layouts/Layout-admin/Layout-admin"
+import { withLayout } from "../../containers/Layout-admin/Layout-admin"
 import { ContentListType, contentList } from "../../model/recipies/recipiesList"
 
 interface IIngredient {

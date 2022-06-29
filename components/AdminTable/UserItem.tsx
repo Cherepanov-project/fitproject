@@ -13,7 +13,7 @@ import EditIcon from "@mui/icons-material/Edit"
 import { SecondaryText, Text, RowAvatar, WrapBnt } from "./UserItem.style"
 import avatarUser from "./images/avatarUser.jpg"
 import Image from "next/image"
-import ColorfulTeg from "../../common/ColorfulTeg"
+import ColorfulTeg from "../ColorfulTeg"
 import { format } from "date-fns"
 import { MenuIcon } from "../FilterBtn/stylesContent"
 
