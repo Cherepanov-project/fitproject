@@ -10,7 +10,7 @@ import { Button, CardContent, CircularProgress } from "@mui/material"
 
 import { loginUser } from "../../../services/API/loginUser"
 
-import { IFormStatus } from "../../../model/loginOrRegisterInterfaces/interfaces"
+import { IFormStatus } from "../../../models/loginOrRegisterInterfaces/interfaces"
 
 import { FormTextField } from "../../../components/User/FormTextField"
 

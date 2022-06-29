@@ -2,7 +2,7 @@ import {
     ILoginForm,
     IRegisterForm,
     IFormStatusProps,
-} from "../model/loginOrRegisterInterfaces/interfaces"
+} from "../models/loginOrRegisterInterfaces/interfaces"
 import { FormikValues } from "formik"
 
 const formStatusProps: IFormStatusProps = {

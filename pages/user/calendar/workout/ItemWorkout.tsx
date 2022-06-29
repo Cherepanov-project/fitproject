@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { FC } from "react"
-import { workoutDayType } from "../../../../model/workout/wokout"
+import { workoutDayType } from "../../../../models/workout/wokout"
 import {
     ListItem,
     ItemWorkoutDiv,

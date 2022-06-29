@@ -2,7 +2,10 @@ import React from "react"
 import { withLayout } from "../../containers/Layout-admin/Layout-admin"
 import { useState, useEffect } from "react"
 import FilterBtn from "../../components/FilterBtn/filter"
-import { ContentListType, contentList } from "../../model/recipies/recipiesList"
+import {
+    ContentListType,
+    contentList,
+} from "../../models/recipies/recipiesList"
 import Recipie from "../../components/RecipiesContainer/ResipiesList/recipie"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"

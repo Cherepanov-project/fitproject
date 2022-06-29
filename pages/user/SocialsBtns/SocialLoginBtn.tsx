@@ -3,7 +3,7 @@ import { useRouter } from "next/router"
 import Cookies from "js-cookie"
 import queryString from "query-string"
 
-import { ISocialLoginBtn } from "../../../model/loginOrRegisterInterfaces/interfaces"
+import { ISocialLoginBtn } from "../../../models/loginOrRegisterInterfaces/interfaces"
 
 import { loginUserWithSocials } from "../../../services/API/loginUser"
 

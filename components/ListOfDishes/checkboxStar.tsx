@@ -7,7 +7,7 @@ import {
     initialValuesCheckBoxStar,
     specificationStar,
     specificationStarType,
-} from "../../model/sideBar/sideBar"
+} from "../../models/sideBar/sideBar"
 import {
     SideBarCheckBox,
     MenuH2,

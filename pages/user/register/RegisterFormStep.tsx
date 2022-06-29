@@ -5,16 +5,16 @@ import { CardContent } from "@mui/material"
 import {
     IRegisterForm,
     IFormStatus,
-} from "../../../model/loginOrRegisterInterfaces/interfaces"
+} from "../../../models/loginOrRegisterInterfaces/interfaces"
 import {
     formStatusValue,
     formRegisterValues,
-} from "../../../model/loginOrRegisterInterfaces/initialValues"
+} from "../../../models/loginOrRegisterInterfaces/initialValues"
 import {
     userInfo,
     exercises,
     mealPreferenciesSelect,
-} from "../../../model/loginOrRegisterInterfaces/inputsValues"
+} from "../../../models/loginOrRegisterInterfaces/inputsValues"
 
 import { FormTextField } from "../../../components/User/FormTextField"
 import { FormSelectField } from "../../../components/User/FormSelectField"

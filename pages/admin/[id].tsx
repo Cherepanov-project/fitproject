@@ -10,11 +10,14 @@ import IngredientsFiled from "../../components/RecipiesEditForm/IngredientsField
 import TagsInput from "../../components/RecipiesEditForm/TagsInput/TagsInput"
 import EditorMCE from "../../components/RecipiesEditForm/EditorMCE/EditorMCE"
 import NutrilonValue from "../../components/RecipiesEditForm/NutritionValuesField/NutrilonValue"
-import { INutrilon, nutrilonsMapped } from "../../model/recipes/index"
-import { exercisesValues } from "../../model/exercises/index"
-import { articlesValues } from "../../model/articles/index"
+import { INutrilon, nutrilonsMapped } from "../../models/recipes/index"
+import { exercisesValues } from "../../models/exercises/index"
+import { articlesValues } from "../../models/articles/index"
 import { withLayout } from "../../containers/Layout-admin/Layout-admin"
-import { ContentListType, contentList } from "../../model/recipies/recipiesList"
+import {
+    ContentListType,
+    contentList,
+} from "../../models/recipies/recipiesList"
 
 interface IIngredient {
     name: string
@@ -75,8 +78,12 @@ const RecipiesEditForm = () => {
     //     }
     // }
 
-    if (path === "exercises") initialValues = exercisesValues
-    if (path === "articles") initialValues = articlesValues
+    if (path === "exercises") {
+        initialValues = exercisesValues
+    }
+    if (path === "articles") {
+        initialValues = articlesValues
+    }
 
     useEffect(() => {
         // тут будет вызываться функция для получения рецепта по id

@@ -11,7 +11,7 @@ import {
 } from "./stylesDish"
 import img from "/common/images/DishChikenImg.png"
 import uid from "../../utils/uid"
-import { FoodItemType, dishFood } from "../../model/dish/dish"
+import { FoodItemType, dishFood } from "../../models/dish/dish"
 import DishIndigrients from "./DishIndigrients"
 import { LayoutUser } from "../../containers/Layout-user/Layout-user"
 import HeadLinkBack from "../HeadLinkBack"

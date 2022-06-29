@@ -15,7 +15,7 @@ import {
     FormikStepProps,
     IRegisterForm,
     IFormikStepper,
-} from "../../../model/loginOrRegisterInterfaces/interfaces"
+} from "../../../models/loginOrRegisterInterfaces/interfaces"
 
 import { RegOrLoginSocial } from "../RegOrLoginSocial"
 

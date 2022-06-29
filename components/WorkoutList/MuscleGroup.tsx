@@ -13,7 +13,7 @@ import {
     muscleCheckboxList,
     muscleCheckboxListType,
     muscleGroupListType,
-} from "../../model/workout/workout"
+} from "../../models/workout/workout"
 
 import Checkbox from "@mui/material/Checkbox"
 

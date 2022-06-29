@@ -10,7 +10,7 @@ import {
 
 import CustomTooltip from "./CustomTooltip/CustomTooltip"
 
-import { graphData } from "../../model/graph/graph"
+import { graphData } from "../../models/graph/graph"
 
 const Graph = () => {
     return (

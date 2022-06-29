@@ -5,10 +5,10 @@ import { VisibilityOff, Visibility } from "@mui/icons-material"
 import {
     IFormStatus,
     IInputForm,
-} from "../../model/loginOrRegisterInterfaces/interfaces"
+} from "../../models/loginOrRegisterInterfaces/interfaces"
 import { ErrorMessage, Input } from "../../pages/user/userLoginOrRegisterStyle"
 
-export function FormTextField(props: IInputForm) {
+export var FormTextField = (props: IInputForm) => {
     const [field, meta] = useField(props)
     const [formStatus, setFormStatus] = useState<IFormStatus>({
         message: "",

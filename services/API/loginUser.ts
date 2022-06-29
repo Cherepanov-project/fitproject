@@ -3,7 +3,7 @@ import axios from "axios"
 import {
     ILoginForm,
     IRegisterForm,
-} from "../../model/loginOrRegisterInterfaces/interfaces"
+} from "../../models/loginOrRegisterInterfaces/interfaces"
 
 import { API_LOGIN_USER, API_REGISTER_USER, API_SOCIAL } from "../../utils/urls"
 

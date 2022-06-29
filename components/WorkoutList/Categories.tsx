@@ -6,7 +6,7 @@ import {
     CategoriesStyledItem,
 } from "../../pages/user/workoutList/workoutListStyles"
 
-import { categoriesList } from "../../model/workout/workout"
+import { categoriesList } from "../../models/workout/workout"
 
 import uid from "../../utils/uid"
 

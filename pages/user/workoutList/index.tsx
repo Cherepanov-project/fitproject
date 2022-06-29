@@ -7,9 +7,9 @@ import { useState } from "react"
 import {
     muscleCheckboxList,
     muscleCheckboxListType,
-} from "../../../model/workout/workout"
+} from "../../../models/workout/workout"
 
-const workoutList = () => {
+const WorkoutList = () => {
     const [muscles, setMuscle] =
         useState<muscleCheckboxListType>(muscleCheckboxList)
     return (
@@ -22,4 +22,4 @@ const workoutList = () => {
     )
 }
 
-export default LayoutUser(workoutList)
+export default LayoutUser(WorkoutList)

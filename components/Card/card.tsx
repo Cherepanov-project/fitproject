@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography"
 
 import { CardContainer, CardContent } from "./cardStyles"
 
-import { defaultColors, hoverColors } from "../../model/cards/cards"
+import { defaultColors, hoverColors } from "../../models/cards/cards"
 
 const Card = ({
     name,

@@ -25,7 +25,7 @@ import Box from "@mui/material/Box"
 import Paper from "@mui/material/Paper"
 import { styled } from "@mui/material/styles"
 import useMediaQuery from "@mui/material/useMediaQuery"
-import monthArr from "../../../model/user/main"
+import monthArr from "../../../models/user/main"
 import uid from "../../../utils/uid"
 import FramerCalendar from "../../../components/FramerCalendar"
 

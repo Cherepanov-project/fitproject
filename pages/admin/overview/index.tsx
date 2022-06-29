@@ -22,10 +22,10 @@ import {
 } from "./overviewStyles"
 import { FontStyles } from "../../../utils/fonts/fontStyles"
 
-import { headerCardsData } from "../../../model/cards/headerCards/headerCards"
-import { trendsCardsData } from "../../../model/cards/trendsCards/trendsCards"
-import { ticketsData } from "../../../model/widgets/tickets/tickets"
-import { tasksData } from "../../../model/widgets/tasks/tasks"
+import { headerCardsData } from "../../../models/cards/headerCards/headerCards"
+import { trendsCardsData } from "../../../models/cards/trendsCards/trendsCards"
+import { ticketsData } from "../../../models/widgets/tickets/tickets"
+import { tasksData } from "../../../models/widgets/tasks/tasks"
 
 import Card from "../../../components/Card/card"
 import TicketsWidgetItem from "../../../components/WidgetItem/ticketsWidgetItem"

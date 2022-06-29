@@ -4,7 +4,7 @@ import { nanoid } from "nanoid"
 
 import { Box, FormControl } from "@mui/material"
 
-import { ISelectForm } from "../../model/loginOrRegisterInterfaces/interfaces"
+import { ISelectForm } from "../../models/loginOrRegisterInterfaces/interfaces"
 
 import {
     ErrorMessage,

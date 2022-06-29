@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { DailyRationType } from "../../../../model/dieta/dieta"
+import { DailyRationType } from "../../../../models/dieta/dieta"
 import { FC } from "React"
 import {
     FoodLink,

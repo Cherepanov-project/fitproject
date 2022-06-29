@@ -4,7 +4,7 @@ import {
     SideBarCheckBoxMeals,
     specificationMealsType,
     specificationMeals,
-} from "../../model/sideBar/sideBar"
+} from "../../models/sideBar/sideBar"
 import {
     MenuH2,
     SpecificationWrapper,

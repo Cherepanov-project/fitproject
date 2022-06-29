@@ -7,7 +7,7 @@ import {
 } from "./stylesDish"
 import chickenFood from "/common/images/chickenFood.svg"
 
-import { FoodItemType } from "../../model/dish/dish"
+import { FoodItemType } from "../../models/dish/dish"
 
 interface DishIndigrientsProps {
     foodItem: FoodItemType
