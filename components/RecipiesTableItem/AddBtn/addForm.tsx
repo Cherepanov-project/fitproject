@@ -4,9 +4,7 @@ import Link from "next/link"
 const CreateForm = () => {
     return (
         <>
-            <Link
-                href={{ pathname: "/admin/[id]", query: { id: "new-recipie" } }}
-            >
+            <Link href={{ pathname: "/admin/recipes/add-recipe" }}>
                 <Button
                     variant="contained"
                     sx={{

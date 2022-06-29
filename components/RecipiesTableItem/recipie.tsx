@@ -19,12 +19,11 @@ const options = ["Delete", "Edit"]
 const Recipie = ({
     status,
     name,
-    calories,
-    fats,
-    proteins,
-    carbohydrates,
+    calorie,
+    fat,
+    protein,
+    carbohydrate,
     portionSize,
-    dishType,
     id,
 }) => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
@@ -48,11 +47,11 @@ const Recipie = ({
                 <Avatar sx={{ margin: 2 }}>
                     <Image src={imageMan} />
                 </Avatar>
-                portion size ({portionSize}g), fat ({fats}), proteins (
-                {proteins}), carbohydrates ({carbohydrates})
+                portion size ({portionSize}g), fat ({fat}), protein ({protein}),
+                carbohydrate ({carbohydrate})
             </TableCell>
             <TableCell sx={{ paddingLeft: 3.5 }}>{name}</TableCell>
-            <TableCell sx={{ paddingLeft: 3.5 }}>{calories} calories</TableCell>
+            <TableCell sx={{ paddingLeft: 3.5 }}>{calorie} calorie</TableCell>
             <TableCell sx={{ paddingLeft: 3.5 }}>
                 {status === "HIGH" ? (
                     <ColorfulTeg text={status} backgroundColor="#F12B2C" />

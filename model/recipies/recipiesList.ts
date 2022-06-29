@@ -1,15 +1,18 @@
-export interface ContentListType {
-    id: string
+interface IResipe {
+    id: number
     name: string
-    uniqueRecipeField: { portionSize: number; type: string }
-    status: string
-    calories: number
-    proteins: number
-    fats: number
-    carbohydrates: number
+    description: string
+    calorie: number
+    protein: number
+    fat: number
+    carbohydrate: number
+    products: any[]
+}
+export interface IRecipesArr {
+    data: IResipe[]
 }
 
-export const contentList: ContentListType[] = [
+export const contentList = [
     {
         id: "573588",
         name: "Oatmeal",

@@ -2,10 +2,6 @@ import React from "react"
 import { withLayout } from "../../../layouts/Layout-admin/Layout-admin"
 import { useState, useEffect } from "react"
 import FilterMenu from "../../../common/FilterMenu/filter"
-import {
-    ContentListType,
-    contentList,
-} from "../../../model/recipies/recipiesList"
 import Recipie from "../../../components/RecipiesTableItem/recipie"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
@@ -14,10 +10,28 @@ import { ContentList, FooterRecipies } from "../overview/overviewStyles"
 import CreateForm from "../../../components/RecipiesTableItem/AddBtn/addForm"
 import Pagination from "../../../common/Table/TablePagination"
 import ColumnName from "../../../common/user/ColumnName/ColumnName"
-import getArrPagination from "../../../utils/getArrPagination"
+import { QueryClient, useQuery, dehydrate } from "react-query"
+import { getRecipesList } from "../../../API/adminApi"
+
+export const getStaticProps = async () => {
+    const queryClient = new QueryClient()
+
+    await queryClient.prefetchQuery("posts", getRecipesList)
+
+    return {
+        props: {
+            dehydratedState: dehydrate(queryClient),
+        },
+    }
+}
 
 const Recipes = () => {
-    const [arrRecipies, setArrRecipies] = useState<ContentListType[]>([])
+    const {
+        data: ResipesArr,
+        isLoading,
+        error,
+    } = useQuery("recipesList", getRecipesList)
+
     const [page, setPage] = useState<number>(0)
     const [rowsPerPage, setRowsPerPage] = useState<number>(8)
 
@@ -32,24 +46,27 @@ const Recipes = () => {
         setPage(0)
     }
 
-    useEffect(() => {
-        setArrRecipies(contentList)
-        setPage(0)
-    }, [])
+    if (error instanceof Error) {
+        console.log(error.message)
 
-    const resipie = getArrPagination(page, rowsPerPage, arrRecipies).map(el => {
+        return <h1>{error.message}</h1>
+    }
+    if (isLoading) {
+        return <h1>Loading...</h1>
+    }
+
+    const resipie = ResipesArr.data.map(el => {
         return (
             <Recipie
                 key={el.id}
                 id={el.id}
-                portionSize={el.uniqueRecipeField.portionSize}
-                dishType={el.uniqueRecipeField.type}
-                proteins={el.proteins}
-                fats={el.fats}
-                carbohydrates={el.carbohydrates}
+                protein={el.protein}
+                fat={el.fat}
+                carbohydrate={el.carbohydrate}
                 name={el.name}
-                calories={el.calories}
-                status={el.status}
+                calorie={el.calorie}
+                status={"HIGH"}
+                portionSize={1}
             />
         )
     })
@@ -66,7 +83,7 @@ const Recipes = () => {
             <FooterRecipies>
                 <CreateForm />
                 <Pagination
-                    count={arrRecipies.length}
+                    count={ResipesArr.data.length}
                     page={page}
                     onChangePage={handleChangePage}
                     rowsPerPage={rowsPerPage}
