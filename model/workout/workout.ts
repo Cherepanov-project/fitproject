@@ -1,14 +1,14 @@
 export interface exercisesType {
-  id: number;
-  name: string;
-  exercise: string;
-  move: number;
-  repeat: number;
-  area: string;
-  muscles: string[];
-  img: string,
-  imgWidth: number,
-  imgHeight: number,
+    id: number
+    name: string
+    exercise: string
+    move: number
+    repeat: number
+    area: string
+    muscles: string[]
+    img: string
+    imgWidth: number
+    imgHeight: number
 }
 
 export interface categoriesListType {

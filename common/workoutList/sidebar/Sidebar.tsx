@@ -2,11 +2,15 @@ import { SidebarWrapper } from "../../../pages/user/workoutList/workoutListStyle
 import Categories from "../Categories"
 import MuscleGroup from "../MuscleGroup"
 
-const Sidebar = () => {
+const Sidebar = ({muscles, setMuscle}) => {
+
     return (
         <SidebarWrapper>
-            <Categories />
-            <MuscleGroup />
+            <Categories/>
+            <MuscleGroup
+                muscles={muscles}
+                setMuscle={setMuscle}
+            />
         </SidebarWrapper>
     )
 }

@@ -1,16 +1,30 @@
-import Link from "next/link"	
-import Box from "@mui/material/Box"	
-import Card from "@mui/material/Card"	
-import Pagination from "@mui/material/Pagination"	
-import Stack from "@mui/material/Stack"	
-import { exerciseList } from "../../../model/workout/workout"	
-import useMediaQuery  from "@mui/material/useMediaQuery"
+import Link from "next/link"
+import Box from "@mui/material/Box"
+import Card from "@mui/material/Card"
+import Pagination from "@mui/material/Pagination"
+import Stack from "@mui/material/Stack"
+import { useState } from "react"
+import useMediaQuery from "@mui/material/useMediaQuery"
+import { useQuery } from "react-query"
 
 import { ImgWrapper, TextWrapper, Exercise, Reps } from "./ItemListStyled"
+import { fetchWorkouts } from "../../../API/workouts"
+import { AxiosResponse } from "axios"
 
-const ItemList = () => {
+interface IMuscles {
+    muscles: {
+        Arms: boolean
+        Breast: boolean
+        Chest: boolean
+        Legs: boolean
+    }
+}
+
+const ItemList = ({ muscles }: IMuscles) => {
+    const queryWorkouts = useQuery("workouts", fetchWorkouts)
+    const [minResOnPage, setMinResOnPage] = useState(0)
+    const [maxResOnPage, setMaxResOnPage] = useState(6)
     const matches = useMediaQuery("(min-width:2000px")
-
     const cardStyles = {
         width: !matches ? 220 : 320,
         height: !matches ? 202 : 302,
@@ -22,18 +36,52 @@ const ItemList = () => {
         alignItems: "center",
         cursor: "pointer",
     }
+    const changePage = page => {
+        setMinResOnPage(() => (page - 1) * 6)
+        setMaxResOnPage(() => page * 6)
+    }
+    let filteredExercises = []
+    const addOnArrResults = (list, partOfBody) => {
+        filteredExercises = [
+            ...filteredExercises,
+            ...list.filter(element => element.muscleGroup === partOfBody),
+        ]
+    }
 
-    const exercises = exerciseList.map(({id, img, name, move, repeat, imgWidth, imgHeight }) => (
-        <Link href={`/user/workoutList/workout/${id}`} key={id}>
-          <Card sx={cardStyles}>
-              <ImgWrapper imgUrl={img} imgWidth={imgWidth} imgHeight={imgHeight}/>
-                  <TextWrapper>
-                      <Exercise>{name}</Exercise>
-                      <Reps>{`${move} X ${repeat} REPS`}</Reps>
-              </TextWrapper>
-          </Card>
-        </Link>
-    ))
+    const filterExerciseList = (muscles, list) => {
+        muscles.Arms ? addOnArrResults(list, "Arms") : null
+        muscles.Legs ? addOnArrResults(list, "Legs") : null
+        muscles.Chest ? addOnArrResults(list, "Chest") : null
+        muscles.Breast ? addOnArrResults(list, "Breast") : null
+    }
+    if (queryWorkouts.isSuccess) {
+        filterExerciseList(muscles, queryWorkouts.data.data.data)
+        console.log(queryWorkouts.data.data.data)
+    }
+    const exercises = filteredExercises.map((item, index) => {
+        if (index >= minResOnPage && index < maxResOnPage) {
+            return (
+                <Link
+                    href={`/user/workoutList/workout/${item.id}`}
+                    key={item.id}
+                >
+                    <Card sx={cardStyles}>
+                        <div>
+                            <ImgWrapper
+                                imgUrl={item.img}
+                                imgWidth={item.imgWidth}
+                                imgHeight={item.imgHeight}
+                            />
+                        </div>
+                        <TextWrapper>
+                            <Exercise>{item.name}</Exercise>
+                            <Reps>{`${item.move} X ${item.repeat} REPS`}</Reps>
+                        </TextWrapper>
+                    </Card>
+                </Link>
+            )
+        }
+    })
 
     return (
         <>
@@ -48,11 +96,14 @@ const ItemList = () => {
             </Box>
             <Stack spacing={2} sx={{ margin: "10px 0 13px 0" }}>
                 <Pagination
-                    count={10}
+                    defaultPage={1}
+                    count={5}
+                    onChange={(e, value) => changePage(value)}
                     sx={{
                         display: "flex",
                         justifyContent: "flex-end",
                         marginRight: "30px",
+                        position: "absolute",
                     }}
                 />
             </Stack>
