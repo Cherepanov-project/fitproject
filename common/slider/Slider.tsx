@@ -1,148 +1,143 @@
 import React,{useEffect, useRef, useState, Children} from "react"
 import {CustomSlider, SliderWrapper, SliderSlide} from "./SliderStyle"
+import {SliderProps} from './Slider.interface'
 
-let sliderIsDragging=false;
-let isMouseDown=false;
-let allCardsWidth;
+let sliderIsDragging = false;
+let isMouseDown = false;
 
-function useWindowSize() {
-  const [size, setSize] = useState(0);
+function useWindowWidth(): number {
+  const [width, setWidth] = useState(0);
   useEffect(() => {
-    function updateSize() {
-      setSize(window.innerWidth);
+    function updateWidth(): void {
+      setWidth(window.innerWidth);
     }
-    window.addEventListener('resize', updateSize);
-    updateSize();
-    return () => window.removeEventListener('resize', updateSize);
+    window.addEventListener('resize', updateWidth);
+    updateWidth();
+    return () => window.removeEventListener('resize', updateWidth);
   }, []);
-  return size;
+  return width;
 }
 
-const Slider = ({children}) => {
-  const windowWidth = useWindowSize()
-  const [pairOfXs,setPairOfXs] = useState([0,0])
-  const [sliderWrapperWidth, setSliderWrapperWidth] = useState(0)
-  const sliderWrapper = useRef(null)
-  const sliderSlide = useRef(null)
+const Slider = ({children}: SliderProps): JSX.Element => {
+  const windowWidth = useWindowWidth()
+  const [pairOfXCoords,setPairOfXCoords] = useState([0,0])
+  // разница между 2 и 1 координатами всегда передаётся в translateX
+  const [sliderWrapperWidth,setSliderWrapperWidth] = useState(0)
+  const [contentWidth,setContentWidth]=useState(0)
+  const sliderWrapperRef = useRef<HTMLDivElement>(null)
+  const sliderSlideRef = useRef<HTMLDivElement>(null)
   
-  useEffect(()=>{
-    let mouseUpDocHandler=(evt)=>{
-      console.log("document listener has worked")
-      isMouseDown=false
-      onPressedMouseOutsideTheSlider()
+  useEffect(() => {
+    let mouseUpDocHandler = (): void => {
+      if(isMouseDown){
+        isMouseDown=false
+        onMouseUpOutsideTheSlider()
+      }
     };
     document.addEventListener('mouseup', mouseUpDocHandler)
-    return ()=>{document.removeEventListener('mouseup', mouseUpDocHandler)}
-  },[pairOfXs])
+    return () => {document.removeEventListener('mouseup', mouseUpDocHandler)}
+  },[pairOfXCoords])
 
-  useEffect(()=>{
-    setSliderWrapperWidth(sliderWrapper.current?.clientWidth);
-    setPairOfXs([0,0]) 
+  useEffect(() => {
+    setSliderWrapperWidth(sliderWrapperRef.current?.clientWidth);
+    setPairOfXCoords([0,0]) 
   },[windowWidth])
 
-  useEffect(()=>{
-    allCardsWidth = sliderSlide.current?.clientWidth*Children.count(children)
-    setSliderWrapperWidth(sliderWrapper.current?.clientWidth)
-  },[sliderSlide,sliderWrapper,children])
+  useEffect(() => {
+    setContentWidth(sliderSlideRef.current?.clientWidth*Children.count(children))
+    setSliderWrapperWidth(sliderWrapperRef.current?.clientWidth)
+  },[children])
 
-  function onSliderStartMove(evt){
-    let curX=evt.clientX
-    let newPairOfXs=[]
-    newPairOfXs[0] = pairOfXs[0] + curX
+
+  function onSliderStartMove(xCoord: number): void {
+    let curX = xCoord
+    let newPairOfXs: number[] = []
+    newPairOfXs[0] = pairOfXCoords[0] + curX
     newPairOfXs[1] = curX
-    if(newPairOfXs[1]-newPairOfXs[0]<=0)
-      if(allCardsWidth>sliderWrapperWidth)
-        if(Math.abs(newPairOfXs[1]-newPairOfXs[0])<allCardsWidth-sliderWrapperWidth)
-          setPairOfXs(newPairOfXs)
+    if(newPairOfXs[1] - newPairOfXs[0] <= 0)
+      if(contentWidth > sliderWrapperWidth)
+        if(Math.abs(newPairOfXs[1] - newPairOfXs[0]) < contentWidth-sliderWrapperWidth)
+          setPairOfXCoords(newPairOfXs)
   }
 
-  function onSliderMove(evt){
-    // debugger
-    let curX=evt.clientX
-    let newPairOfXs=[]
-    newPairOfXs[0]=pairOfXs[0]
-    newPairOfXs[1]=curX
-    if(newPairOfXs[1]-newPairOfXs[0]<=0 )
+  function onSliderMove(xCoord: number): void {
+    let curX = xCoord
+    let newPairOfXs: number[] = []
+    newPairOfXs[0] = pairOfXCoords[0]//берём точку вначале движения
+    newPairOfXs[1] = curX
+    if(newPairOfXs[1] - newPairOfXs[0] <= 0 )
     // первое условие- стоп на левой границе, второе и третье - на правой
-      if(allCardsWidth>sliderWrapperWidth)
-        if(Math.abs(newPairOfXs[1]-newPairOfXs[0])<allCardsWidth-sliderWrapperWidth)
-          setPairOfXs(newPairOfXs)      
+      if(contentWidth > sliderWrapperWidth)
+        if(Math.abs(newPairOfXs[1] - newPairOfXs[0]) < contentWidth - sliderWrapperWidth)
+          setPairOfXCoords(newPairOfXs)      
   }
 
-  function onSliderEndMove(evt){
-    let curX=evt.clientX
-    let newPairOfXs=[]
-    newPairOfXs[0]=-(curX-pairOfXs[0])
+  function onSliderEndMove(xCoord: number): void {
+    let curX = xCoord
+    let newPairOfXs: number[] = []
+    newPairOfXs[0] = -(curX-pairOfXCoords[0])
     // перекладываем разницу в начальный x для дальнейшего учёта начальной точки
-    newPairOfXs[1]=0
-    if(newPairOfXs[1]-newPairOfXs[0]<=0){
+    newPairOfXs[1] = 0
+    if(newPairOfXs[1] - newPairOfXs[0] <= 0){
       // разница newPairOfXs[1]-newPairOfXs[0] по модулю описывает насколько 
-      // необходимо передвинуть блок с карточками (упражнениями например) 
+      // необходимо передвинуть блок с контентом (упражнениями например) 
       // знак указывает на направление передвижения
-      if((allCardsWidth>sliderWrapperWidth) && (Math.abs(newPairOfXs[1]-newPairOfXs[0])<allCardsWidth-sliderWrapperWidth)){
-        setPairOfXs(newPairOfXs)//добавляем новую ккординату
+      if((contentWidth > sliderWrapperWidth) && (Math.abs(newPairOfXs[1] - newPairOfXs[0]) < contentWidth - sliderWrapperWidth)){
+        setPairOfXCoords(newPairOfXs)
+        //добавляем новую координату 
+        //и перекладываем разницу в начальную точку
       }else{
-        // не добавляем новую координату
-        // негативный случай, не двигаем, 
+        // правая граница контента появилась внутри контейнера,
+        // поэтому не двигаем, то есть не добавляем новую координату
         // просто перекладываем разницу в начальную точку
-        newPairOfXs[0]=-(pairOfXs[1]-pairOfXs[0])
-        newPairOfXs[1]=0
-        setPairOfXs(newPairOfXs)
+        newPairOfXs[0] = -(pairOfXCoords[1]-pairOfXCoords[0])
+        newPairOfXs[1] = 0
+        setPairOfXCoords(newPairOfXs)
       }
     } else{
-      setPairOfXs([0,0])
+      setPairOfXCoords([0,0])
     }
   }
 
-  function onPressedMouseOutsideTheSlider(){
-    let newPairOfXs=[]
-    newPairOfXs[0]=-(pairOfXs[1]-pairOfXs[0])
-    newPairOfXs[1]=0
-    setPairOfXs(newPairOfXs)
+  function onMouseUpOutsideTheSlider(): void {
+    let newPairOfXs : number[] = []
+    newPairOfXs[0] = -(pairOfXCoords[1]-pairOfXCoords[0])
+    newPairOfXs[1] = 0
+    setPairOfXCoords(newPairOfXs)
   }
 
-  const onTouchStartHandler=(evt)=>{
-    onSliderStartMove(evt.changedTouches[0]);
+  const onTouchStartHandler = (evt:React.TouchEvent<HTMLDivElement>) => {
+    onSliderStartMove(evt.changedTouches[0].clientX);
   }
 
-  const onTouchHandler = (evt)=>{
-    onSliderMove(evt.changedTouches[0])
+  const onTouchHandler = (evt:React.TouchEvent<HTMLDivElement>) => {
+    onSliderMove(evt.changedTouches[0].clientX)
   }
   
-  const onTouchEndHandler = (evt)=>{
-    onSliderEndMove(evt.changedTouches[0])
+  const onTouchEndHandler = (evt:React.TouchEvent<HTMLDivElement>) => {
+    onSliderEndMove(evt.changedTouches[0].clientX)
   }
 
-  const onMouseDown = (evt)=>{
+  const onMouseDown = (evt:React.MouseEvent<HTMLDivElement>) => {
     evt.preventDefault()
-    isMouseDown=true
-    onSliderStartMove(evt)
+    isMouseDown = true
+    onSliderStartMove(evt.clientX)
   }
 
-  const onMouseMove = (evt)=>{
-    evt.stopPropagation()
+  const onMouseMove = (evt:React.MouseEvent<HTMLDivElement>) => {
     if(isMouseDown){
-      onSliderMove(evt)
-      sliderIsDragging=true
+      onSliderMove(evt.clientX)
+      sliderIsDragging = true
     }
   }
   
-  // const onMouseMoveCustomSlider = (evt) => {
-  //   console.log("onMouseMoveCustomSlider")
-  //   if(isMouseDown){
-      
-  //     isMouseDown=false
-  //     onPressedMouseOutsideTheSlider()
-  //   }
-  // }
-
-  const onMouseUp = (evt)=>{
+  const onMouseUp = (evt:React.MouseEvent<HTMLDivElement>)=>{
     isMouseDown=false
     evt.stopPropagation()
-    onSliderEndMove(evt)
+    onSliderEndMove(evt.clientX)
   }
 
-  const onClick = (evt)=>{
+  const onClickCapture = (evt:React.UIEvent<HTMLDivElement>)=>{
     if(sliderIsDragging){
       evt.stopPropagation()
       sliderIsDragging=false
@@ -151,28 +146,27 @@ const Slider = ({children}) => {
   
   const slides = React.Children.map(children, (child, index)=>{
     if(index===0)
-      return <SliderSlide ref={sliderSlide}>{child}</SliderSlide>
+      return <SliderSlide ref={sliderSlideRef}>{child}</SliderSlide>
     else
       return <SliderSlide>{child}</SliderSlide>
   })
 
   return(
-      <CustomSlider>
-        <SliderWrapper
-          className="className"
-          ref={sliderWrapper}
-          onDragStart={()=>{return false}}
-          onMouseDown={(e)=>{ onMouseDown(e)}}
-          onMouseUpCapture={(e)=>{ onMouseUp(e)}}
-          onClickCapture={(e)=>{ onClick(e)}}
-          onMouseMove={(e)=>{ onMouseMove(e)}}
-          onTouchStart={(evt)=>{onTouchStartHandler(evt)}}
-          onTouchMove={(e)=>{onTouchHandler(e)}}
-          onTouchEnd={(evt)=>{onTouchEndHandler(evt)}}          
-          style={{transform: `translateX(${(pairOfXs[1]-pairOfXs[0])}px)`, transitionDuration: '0ms'}}>
-          {slides}         
-        </SliderWrapper>
-      </CustomSlider>
+    <CustomSlider>
+      <SliderWrapper
+        ref={sliderWrapperRef}
+        onDragStart={()=>{return false}}
+        onMouseDown={(e)=>{onMouseDown(e)}}
+        onMouseUp={(e)=>{onMouseUp(e)}}
+        onClickCapture={(e)=>{onClickCapture(e)}}
+        onMouseMove={(e)=>{onMouseMove(e)}}
+        onTouchStart={(evt)=>{onTouchStartHandler(evt)}}
+        onTouchMove={(e)=>{onTouchHandler(e)}}
+        onTouchEnd={(evt)=>{onTouchEndHandler(evt)}}          
+        style={{transform: `translateX(${(pairOfXCoords[1]-pairOfXCoords[0])}px)`, transitionDuration: '0ms'}}>
+        {slides}         
+      </SliderWrapper>
+    </CustomSlider>    
   )
 }
 export default Slider
