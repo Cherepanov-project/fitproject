@@ -1,11 +1,10 @@
+import Typography from "@mui/material/Typography"
+import Box from "@mui/material/Box"
 import { TooltipProps } from "recharts"
 import {
     ValueType,
     NameType,
 } from "recharts/src/component/DefaultTooltipContent"
-
-import Typography from "@mui/material/Typography"
-import Box from "@mui/material/Box"
 
 const CustomTooltip = ({
     active,

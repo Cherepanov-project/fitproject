@@ -1,12 +1,12 @@
 import React from "react"
 import Link from "next/link"
 import { useRouter } from "next/router"
-// OTHER LIBRARIES
 import { Form, Formik } from "formik"
 import Cookies from "js-cookie"
 import Image from "next/image"
 import * as Yup from "yup"
-// CUSTOM COMPONENTS
+
+import imageLogoApp from "./images/logoApp.svg"
 import { FormContainer } from "./formContainer"
 import TextField from "./TextField"
 import api from "../../services/API"
@@ -18,11 +18,9 @@ import {
     FormH2,
     StyledButton,
 } from "./Form.styled"
-// Images
-import imageLogoApp from "./images/logoApp.svg"
 
 const SignUpForm = () => {
-    const nameOfFilds = {
+    const nameOfFields = {
         email: "Email ",
         username: "Admin name ",
     }
@@ -70,7 +68,7 @@ const SignUpForm = () => {
                             Object.keys(e.response.data.errors).forEach(key => {
                                 setFieldError(
                                     key,
-                                    nameOfFilds[key] +
+                                    nameOfFields[key] +
                                         e.response.data.errors[key]
                                 )
                             })

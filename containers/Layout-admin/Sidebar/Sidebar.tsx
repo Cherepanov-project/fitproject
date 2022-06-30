@@ -1,19 +1,17 @@
-import React, { FC } from "react"
-import { IsidebarMenuItem } from "./sidebar.interface"
+import React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/router"
-// Icons
-import imageOverview from "../images/sidebarIcons/statistics.svg"
-import imageUsers from "../images/sidebarIcons/users.svg"
-import imageRecipies from "../images/sidebarIcons/recipies.svg"
-import imageExercises from "../images/sidebarIcons/exercises.svg"
-import imageMessages from "../images/sidebarIcons/messages.svg"
-import imageArticles from "../images/sidebarIcons/articles.svg"
-import imageSettings from "../images/sidebarIcons/settings.svg"
-import imageSubscription from "../images/sidebarIcons/subscription.svg"
-import imageLogoApp from "../images/sidebarIcons/logoApp.svg"
 
+import imageOverview from "../../../common/images/layoutAdmin/sidebarIcons/statistics.svg"
+import imageUsers from "../../../common/images/layoutAdmin/sidebarIcons/users.svg"
+import imageRecipies from "../../../common/images/layoutAdmin/sidebarIcons/recipies.svg"
+import imageExercises from "../../../common/images/layoutAdmin/sidebarIcons/exercises.svg"
+import imageMessages from "../../../common/images/layoutAdmin/sidebarIcons/messages.svg"
+import imageArticles from "../../../common/images/layoutAdmin/sidebarIcons/articles.svg"
+import imageSettings from "../../../common/images/layoutAdmin/sidebarIcons/settings.svg"
+import imageSubscription from "../../../common/images/layoutAdmin/sidebarIcons/subscription.svg"
+import imageLogoApp from "../../../common/images/layoutAdmin/sidebarIcons/logoApp.svg"
 import {
     SidebarItem,
     SidebarHeader,
@@ -24,7 +22,14 @@ import {
     Hr,
 } from "./Sidebar.styled"
 
-const sidebarMenuFires: IsidebarMenuItem[] = [
+export interface ISidebarMenuItem {
+    route: string
+    name: string
+    icon: string
+    id: number
+}
+
+const sidebarMenuFires: ISidebarMenuItem[] = [
     { route: "admin/overview", name: "overview", icon: imageOverview, id: 1 },
     { route: "admin/users", name: "users", icon: imageUsers, id: 2 },
     { route: "admin/recipes", name: "recipes", icon: imageRecipies, id: 3 },
@@ -37,7 +42,7 @@ const sidebarMenuFires: IsidebarMenuItem[] = [
     { route: "admin/messages", name: "messages", icon: imageMessages, id: 5 },
     { route: "admin/articles", name: "articles", icon: imageArticles, id: 6 },
 ]
-const sidebarMenuSecond: IsidebarMenuItem[] = [
+const sidebarMenuSecond: ISidebarMenuItem[] = [
     { route: "admin/settings", name: "settings", icon: imageSettings, id: 7 },
     {
         route: "admin/subscription",

@@ -9,7 +9,6 @@ import {
 } from "recharts"
 
 import CustomTooltip from "./CustomTooltip/CustomTooltip"
-
 import { graphData } from "../../models/graph/graph"
 
 const Graph = () => {

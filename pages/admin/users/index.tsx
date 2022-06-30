@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react"
+import { TableContainer, Table, TableBody } from "@mui/material"
+
 import { withLayout } from "../../../containers/Layout-admin/Layout-admin"
 import { ContentWrapper } from "./stylesUsers"
 import FilterBtn from "../../../components/FilterBtn/filter"
-import { TableContainer, Table, TableBody } from "@mui/material"
 import UserItem from "../../../components/AdminTable/UserItem"
 import { userList } from "../../../models/userList/userList"
 import Pagination from "../../../components/Pagination/pagination"
 import getArrPagination from "../../../utils/getArrPagination"
 import ColumnName from "../../../components/RecipiesContainer/ColumnName/columnName"
 
-interface DataType {
+interface IDataType {
     id: string
     nameUser: string
     sex: string
@@ -20,7 +21,7 @@ interface DataType {
 }
 
 const Users = () => {
-    const [userData, setUserDate] = useState<DataType[]>([])
+    const [userData, setUserDate] = useState<IDataType[]>([])
     const [page, setPage] = useState(0)
     const [rowsPerPage, setRowsPerPage] = useState(8)
 

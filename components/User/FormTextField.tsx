@@ -2,13 +2,14 @@ import React, { useState } from "react"
 import { useField } from "formik"
 import { Box, FormControl, IconButton } from "@mui/material"
 import { VisibilityOff, Visibility } from "@mui/icons-material"
+
+import { ErrorMessage, Input } from "../../pages/user/userLoginOrRegisterStyle"
 import {
     IFormStatus,
     IInputForm,
 } from "../../models/loginOrRegisterInterfaces/interfaces"
-import { ErrorMessage, Input } from "../../pages/user/userLoginOrRegisterStyle"
 
-export var FormTextField = (props: IInputForm) => {
+const FormTextField = (props: IInputForm) => {
     const [field, meta] = useField(props)
     const [formStatus, setFormStatus] = useState<IFormStatus>({
         message: "",
@@ -52,3 +53,5 @@ export var FormTextField = (props: IInputForm) => {
         </Box>
     )
 }
+
+export { FormTextField }

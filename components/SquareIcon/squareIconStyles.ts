@@ -1,11 +1,11 @@
 import styled from "styled-components"
 
-interface IcoProps {
+interface IIcoProps {
     bgColor: string
     bgImg: string
 }
 
-export const CustomIcon = styled.div<IcoProps>`
+export const CustomIcon = styled.div<IIcoProps>`
     display: flex;
     justify-content: center;
     align-items: center;

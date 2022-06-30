@@ -1,11 +1,14 @@
 import Link from "next/link"
 import { useRouter } from "next/router"
-// OTHER LIBRARIES
 import { Formik, Form } from "formik"
 import Image from "next/image"
 import Cookies from "js-cookie"
 import * as Yup from "yup"
-// CUSTOM COMPONENTS
+
+import imageLogoApp from "./images/logoApp.svg"
+import api from "../../services/API"
+import TextField from "./TextField"
+import { FormContainer } from "./formContainer"
 import {
     DivCenter,
     DivDashboard,
@@ -14,11 +17,6 @@ import {
     FormH2,
     StyledButton,
 } from "./Form.styled"
-import api from "../../services/API"
-import TextField from "./TextField"
-import { FormContainer } from "./formContainer"
-// Images
-import imageLogoApp from "./images/logoApp.svg"
 
 const SingInForm = () => {
     const router = useRouter()

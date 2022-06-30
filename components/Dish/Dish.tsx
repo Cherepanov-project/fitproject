@@ -1,4 +1,12 @@
 import { useState } from "react"
+import { useRouter } from "next/router"
+
+import img from "/common/images/DishChikenImg.png"
+import generateId from "../../utils/generateId"
+import { IFoodItemType, dishFood } from "../../models/dish/dish"
+import DishIndigrients from "./DishIndigrients"
+import { LayoutUser } from "../../containers/Layout-user/Layout-user"
+import HeadLinkBack from "../HeadLinkBack"
 import {
     DishComponent,
     DishItem,
@@ -9,13 +17,6 @@ import {
     ButtonFood,
     DishDescriptionWrapper,
 } from "./stylesDish"
-import img from "/common/images/DishChikenImg.png"
-import generateId from "../../utils/generateId"
-import { IFoodItemType, dishFood } from "../../models/dish/dish"
-import DishIndigrients from "./DishIndigrients"
-import { LayoutUser } from "../../containers/Layout-user/Layout-user"
-import HeadLinkBack from "../HeadLinkBack"
-import { useRouter } from "next/router"
 
 const Dish = () => {
     const { query } = useRouter()
@@ -55,7 +56,7 @@ const Dish = () => {
         <DishComponent imgUrl={img.src}>
             <HeadLinkBack
                 backLink={`${query.url}`}
-                namesCompoent={query.eating}
+                namesComponent={query.eating}
             />
             <DishItem>
                 <DishDescriptionWrapper>

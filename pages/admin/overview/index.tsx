@@ -1,7 +1,6 @@
 import React from "react"
 import dynamic from "next/dynamic"
 import { Normalize } from "styled-normalize"
-
 import { Typography, Link, Input, Button } from "@mui/material/"
 import AddIcon from "@mui/icons-material/Add"
 
@@ -21,7 +20,6 @@ import {
     BlockHeaderRightSideStyled,
 } from "./overviewStyles"
 import FontStyles from "../../../utils/fonts/fontStyles"
-
 import { headerCardsData } from "../../../models/cards/headerCards/headerCards"
 import { trendsCardsData } from "../../../models/cards/trendsCards/trendsCards"
 import { ticketsData } from "../../../models/widgets/tickets/tickets"
@@ -34,6 +32,7 @@ import {
     WidgetItemContainer,
     WidgetItemContent,
 } from "../../../components/WidgetItem/widgetItemStyles"
+
 const DynamicGraph = dynamic(() => import("../../../components/Graph/Graph"), {
     ssr: false,
 })

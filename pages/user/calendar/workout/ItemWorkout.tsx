@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { FC } from "react"
+import React from "react"
+
 import { IWorkoutDayType } from "../../../../models/workout/workoutDay"
 import {
     ListItem,
@@ -16,7 +17,7 @@ interface ItemWorkoutProps {
     menuClickShow?: (id: number) => void
 }
 
-const ItemWorkout: FC<ItemWorkoutProps> = ({
+const ItemWorkout: React.FC<ItemWorkoutProps> = ({
     workoutEl,
     asPath,
     menuClickShow,

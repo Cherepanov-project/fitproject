@@ -4,7 +4,6 @@ import Cookies from "js-cookie"
 import queryString from "query-string"
 
 import { ISocialLoginBtn } from "../../../models/loginOrRegisterInterfaces/interfaces"
-
 import { loginUserWithSocials } from "../../../services/API/loginUser"
 
 const SocialLoginBtn: FC<ISocialLoginBtn> = ({

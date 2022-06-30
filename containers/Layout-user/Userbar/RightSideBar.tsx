@@ -3,8 +3,15 @@ import List from "@mui/material/List"
 import ListItemButton from "@mui/material/ListItemButton"
 import ListItemIcon from "@mui/material/ListItemIcon"
 import ListItemText from "@mui/material/ListItemText"
-import generateId from "../../../utils/generateId"
+import { formatDistanceToNow } from "date-fns"
 
+import goalsIcon from "../../../common/images/layoutUser/userbarIcons/goals.svg"
+import diet from "../../../common/images/layoutUser/userbarIcons/diet.svg"
+import SettingsIcon from "../../../common/images/layoutUser/userbarIcons/SeetingsIcon.svg"
+import defaultAvatar from "../../../common/images/layoutUser/userbarIcons/defaultAvatar.png"
+import arrow from "../../../common/images/layoutUser/userbarIcons/arrow.svg"
+import meter from "../../../common/images/layoutUser/userbarIcons/meter.svg"
+import generateId from "../../../utils/generateId"
 import {
     Avatar,
     Icon,
@@ -21,13 +28,6 @@ import {
     MainWrapper,
     /* SquareBtn, */
 } from "./RightSideBarStyle"
-import goalsIcon from "../images/UserBarIcons/goals.svg"
-import diet from "../images/UserBarIcons/diet.svg"
-import SeetingsIcon from "../images/UserBarIcons/SeetingsIcon.svg"
-import defaultAvatar from "../images/UserBarIcons/defaultAvatar.png"
-import arrow from "../images/UserBarIcons/arrow.svg"
-import meter from "../images/UserBarIcons/meter.svg"
-import { formatDistanceToNow } from "date-fns"
 
 const drawerWidth: string = "244px"
 
@@ -93,15 +93,15 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
                                 <ListItemIcon>
                                     {index === 0 ? (
                                         <IconWrapper>
-                                            <Icon src={goalsIcon.src}></Icon>
+                                            <Icon src={goalsIcon.src} />
                                         </IconWrapper>
                                     ) : index === 1 ? (
                                         <IconWrapper>
-                                            <Icon src={diet.src}></Icon>
+                                            <Icon src={diet.src} />
                                         </IconWrapper>
                                     ) : (
                                         <IconWrapper>
-                                            <Icon src={SeetingsIcon.src}></Icon>
+                                            <Icon src={SettingsIcon.src} />
                                         </IconWrapper>
                                     )}
                                 </ListItemIcon>
@@ -109,10 +109,7 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
                                     primary={text}
                                     sx={{ width: "100%" }}
                                 />
-                                <IconArrow
-                                    src={arrow.src}
-                                    width="12px"
-                                ></IconArrow>
+                                <IconArrow src={arrow.src} width="12px" />
                             </ListItemButton>
                         )
                     )}
@@ -123,7 +120,7 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
                         {`Loss: 5kg `}
                         <span>/ Month</span>
                     </Loss>
-                    <Meter src={meter.src}></Meter>
+                    <Meter src={meter.src} />
                 </WeightLoosGoalWrapper>
             </RightSideBarWrapper>
         </MainWrapper>

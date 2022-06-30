@@ -1,14 +1,14 @@
 import styled from "styled-components"
 
-interface img {
+interface IImg {
     imgUrl: any
 }
 
-interface displayContainer {
+interface IDisplayContainer {
     $display?: boolean
 }
 
-export const ButtonFood = styled.button<displayContainer>`
+export const ButtonFood = styled.button<IDisplayContainer>`
     display: ${({ $display }) => (!$display ? "inline-block" : "none")};
     background-color: #408eba;
     color: white;
@@ -18,7 +18,7 @@ export const ButtonFood = styled.button<displayContainer>`
     margin-right: 10px;
 `
 
-export const DishComponent = styled.div<img>`
+export const DishComponent = styled.div<IImg>`
     min-height: 500px;
     background: url(${({ imgUrl }) => imgUrl});
     background-position: top right;
@@ -51,7 +51,7 @@ export const NutritionalItem = styled.div`
     margin-bottom: 10px;
 `
 
-export const FoodContainer = styled.div<displayContainer>`
+export const FoodContainer = styled.div<IDisplayContainer>`
     display: ${({ $display }) => ($display ? "block" : "none")};
     margin-bottom: 30px;
     h3 {
@@ -78,7 +78,7 @@ export const IndigrientItem = styled.div`
     display: flex;
 `
 
-export const IndigrientItemImg = styled.div<img>`
+export const IndigrientItemImg = styled.div<IImg>`
     width: 50px;
     height: 40px;
     border-radius: 7px;

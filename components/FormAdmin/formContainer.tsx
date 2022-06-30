@@ -1,7 +1,10 @@
-import React, { FC } from "react"
-import { FormAdminWrapper } from "./Form.styled"
-import { layoutAdminProps } from "../../containers/Layout-admin/layoutAdmin.interface"
+import React from "react"
 
-export const FormContainer: FC<layoutAdminProps> = ({ children, ...props }) => {
+import { FormAdminWrapper } from "./Form.styled"
+import { layoutAdminProps } from "../../containers/Layout-admin/LayoutAdmin.interface"
+
+const FormContainer: React.FC<layoutAdminProps> = ({ children, ...props }) => {
     return <FormAdminWrapper {...props}>{children}</FormAdminWrapper>
 }
+
+export { FormContainer }

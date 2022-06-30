@@ -1,16 +1,17 @@
 import { useRouter } from "next/router"
+import { useState } from "react"
+
 import CalendarContainer from "../../../../components/CalendarContainer"
 import HeadLinkBack from "../../../../components/HeadLinkBack"
+import ItemWorkout from "./ItemWorkout"
+import { LayoutUser } from "../../../../containers/Layout-user/Layout-user"
 import { WorkoutUl, ListWorkoutName, ItemWorkoutDiv } from "./styledWorkout"
 import {
     workoutDay,
     IWorkoutDayType,
 } from "../../../../models/workout/workoutDay"
-import { useState } from "react"
-import ItemWorkout from "./ItemWorkout"
-import { LayoutUser } from "../../../../containers/Layout-user/Layout-user"
 
-export default LayoutUser(function () {
+LayoutUser(function () {
     const { asPath } = useRouter()
     const [arrWorkoutDay, setWorkoutDay] =
         useState<IWorkoutDayType[]>(workoutDay)
@@ -25,7 +26,7 @@ export default LayoutUser(function () {
         setWorkoutDay(workoutMutation)
     }
 
-    const workoutEllement = arrWorkoutDay.map((el: IWorkoutDayType) => {
+    const workoutElement = arrWorkoutDay.map((el: IWorkoutDayType) => {
         return (
             <ItemWorkout
                 key={el.id}
@@ -39,7 +40,7 @@ export default LayoutUser(function () {
     return (
         <CalendarContainer>
             <HeadLinkBack
-                namesCompoent={"Ежедневные тренеровки"}
+                namesComponent={"Ежедневные тренеровки"}
                 backLink={"/User/calendar"}
             />
             <div>
@@ -56,9 +57,11 @@ export default LayoutUser(function () {
                         </ItemWorkoutDiv>
                         <div></div>
                     </ListWorkoutName>
-                    {workoutEllement}
+                    {workoutElement}
                 </WorkoutUl>
             </div>
         </CalendarContainer>
     )
 })
+
+export { LayoutUser }

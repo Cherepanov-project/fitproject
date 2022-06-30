@@ -1,14 +1,11 @@
-import { FC, useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import Link from "next/link"
 import { useRouter } from "next/router"
-// OTHER LIBRARIES
 import Cookies from "js-cookie"
-// CUSTOM COMPONENTS
+
 import PositionedMenu from "./dashboard"
 import SearchAppBar from "./searchInput"
-// Icons
-import imageAdmin from "../images/navbarIcons/photo_admin.png"
-
+import imageAdmin from "../../../common/images/layoutAdmin/navbarIcons/photo_admin.png"
 import {
     NavbarWrapper,
     PageName,
@@ -23,11 +20,11 @@ const Navbar = () => {
     const router = useRouter()
     const page = router.asPath.split("/").pop()
     const editRecipie = page.split("-").splice(0, 1)
-    const [username, setusername] = useState("admin")
+    const [userName, setUserName] = useState("admin")
 
     useEffect(() => {
         const userNameCookies = Cookies.get("username")
-        setusername(userNameCookies)
+        setUserName(userNameCookies)
     }, [])
 
     const image = Cookies.get("image")
@@ -45,8 +42,8 @@ const Navbar = () => {
                     <PositionedMenu />
                 </DivInformation>
                 <DivAdmin>
-                    <Link href="/">
-                        <Anavbar>{username}</Anavbar>
+                    <Link href={"/"}>
+                        <Anavbar>{userName}</Anavbar>
                     </Link>
                     <ImageAdmin
                         loader={() => image}
@@ -61,8 +58,8 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
-
-export const getServerSideProps = async context => {
+const getServerSideProps = async context => {
     console.log(context)
 }
+
+export { getServerSideProps, Navbar }

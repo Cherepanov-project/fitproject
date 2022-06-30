@@ -2,7 +2,6 @@ import { useState } from "react"
 import { Children, ReactElement } from "react"
 import { nanoid } from "nanoid"
 import { Formik, FormikConfig, Form } from "formik"
-
 import {
     Button,
     CircularProgress,
@@ -11,15 +10,14 @@ import {
     Stepper,
 } from "@mui/material"
 
+import { RegOrLoginSocial } from "../RegOrLoginSocial"
 import {
     IFormikStepProps,
     IRegisterForm,
     IFormikStepper,
 } from "../../../models/loginOrRegisterInterfaces/interfaces"
 
-import { RegOrLoginSocial } from "../RegOrLoginSocial"
-
-export const FormikStepper = ({ children, initialValues, onSubmit }) => {
+const FormikStepper = ({ children, initialValues, onSubmit }) => {
     const childrenArray = Children.toArray(
         children
     ) as ReactElement<IFormikStepProps>[]
@@ -133,3 +131,5 @@ export const FormikStepper = ({ children, initialValues, onSubmit }) => {
         </>
     )
 }
+
+export { FormikStepper }

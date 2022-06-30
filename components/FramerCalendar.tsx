@@ -1,8 +1,8 @@
 import { motion } from "framer-motion"
-import React, { FC } from "react"
+import React from "react"
 
-const FramerCalendar = (Component: FC) => {
-    return (props: any) => {
+const FramerCalendar = (Component: React.FC) => {
+    return function (props: any) {
         // Пока нету типов
         return (
             <motion.div

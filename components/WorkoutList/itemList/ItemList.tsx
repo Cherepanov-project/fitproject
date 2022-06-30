@@ -1,15 +1,14 @@
+import { useState } from "react"
+import { useQuery } from "react-query"
 import Link from "next/link"
 import Box from "@mui/material/Box"
 import Card from "@mui/material/Card"
 import Pagination from "@mui/material/Pagination"
 import Stack from "@mui/material/Stack"
-import { useState } from "react"
 import useMediaQuery from "@mui/material/useMediaQuery"
-import { useQuery } from "react-query"
 
 import { ImgWrapper, TextWrapper, Exercise, Reps } from "./ItemListStyled"
 import { fetchWorkouts } from "../../../services/API/workouts"
-import { AxiosResponse } from "axios"
 
 interface IMuscles {
     muscles: {
@@ -98,7 +97,7 @@ const ItemList = ({ muscles }: IMuscles) => {
                 <Pagination
                     defaultPage={1}
                     count={5}
-                    onChange={(e, value) => changePage(value)}
+                    onChange={(event, value) => changePage(value)}
                     sx={{
                         display: "flex",
                         justifyContent: "flex-end",

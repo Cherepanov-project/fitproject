@@ -1,4 +1,5 @@
 import styled from "styled-components"
+
 import SingInForm from "../../components/FormAdmin/singInForm"
 
 const ContainerAdminRegistration = styled.div`

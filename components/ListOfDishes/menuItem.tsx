@@ -1,10 +1,10 @@
+import Link from "next/link"
 import Card from "@mui/material/Card"
 import CardContent from "@mui/material/CardContent"
 import { Rating } from "@mui/material"
 import useMediaQuery from "@mui/material/useMediaQuery"
-import DishChikenImg from "../../common/images/DishChikenImg.png"
-import Link from "next/link"
 
+import DishChikenImg from "../../common/images/dishChickenImg.png"
 import {
     MenuItemTitule,
     MenuItemDescrition,
@@ -27,7 +27,7 @@ const MenuItem = ({ namesFood, nutritionalValue, star, id }) => {
                     cursor: "pointer",
                 }}
             >
-                <MenuImg src={DishChikenImg.src}></MenuImg>
+                <MenuImg src={DishChikenImg.src} />
                 <CardContent>
                     <MenuItemTitule>{namesFood}</MenuItemTitule>
                     <MenuItemDescrition>

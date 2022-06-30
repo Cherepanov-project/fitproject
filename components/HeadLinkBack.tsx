@@ -18,7 +18,7 @@ const HeadLink = styled.a`
     word-spacing: 12px;
 `
 
-const HeadLinkBack = ({ namesCompoent, backLink }) => {
+const HeadLinkBack = ({ namesComponent, backLink }) => {
     return (
         <DietaHead>
             <div>
@@ -28,7 +28,7 @@ const HeadLinkBack = ({ namesCompoent, backLink }) => {
                     </HeadLink>
                 </Link>
             </div>
-            <div>{namesCompoent}</div>
+            <div>{namesComponent}</div>
         </DietaHead>
     )
 }

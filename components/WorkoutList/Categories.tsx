@@ -1,3 +1,5 @@
+import { categoriesList } from "../../models/workout/workout"
+import generateId from "../../utils/generateId"
 import {
     SidebarListTitle,
     SidebarItemListWrapper,
@@ -5,10 +7,6 @@ import {
     SidebarListItem,
     CategoriesStyledItem,
 } from "../../pages/user/workoutList/workoutListStyles"
-
-import { categoriesList } from "../../models/workout/workout"
-
-import generateId from "../../utils/generateId"
 
 const Categories = () => {
     const items = categoriesList.map(item => (

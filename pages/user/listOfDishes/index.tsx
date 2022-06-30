@@ -1,9 +1,10 @@
-import MenuItem from "../../../components/ListOfDishes/menuItem"
-import { dishFoodAll } from "../../../models/dish/dish"
-import SideBar from "../../../components/ListOfDishes/sideBarMenus"
-import { MenuWrapper, AllMenusWrapper, ListDishes } from "./stylesAllMenus"
 import Pagination from "@mui/material/Pagination"
 import Stack from "@mui/material/Stack"
+
+import MenuItem from "../../../components/ListOfDishes/menuItem"
+import SideBar from "../../../components/ListOfDishes/sideBarMenus"
+import { dishFoodAll } from "../../../models/dish/dish"
+import { MenuWrapper, AllMenusWrapper, ListDishes } from "./stylesAllMenus"
 import { IFoodItemType } from "../../../models/dish/dish"
 import { LayoutUser } from "../../../containers/Layout-user/Layout-user"
 

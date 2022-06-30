@@ -1,17 +1,18 @@
 import React from "react"
-import { MenuIcon } from "./recipies"
 import TableRow from "@mui/material/TableRow"
 import TableCell from "@mui/material/TableCell"
 import IconButton from "@mui/material/IconButton"
 import Menu from "@mui/material/Menu"
 import MenuItem from "@mui/material/MenuItem"
 import MoreVertIcon from "@mui/icons-material/MoreVert"
-import Image from "next/image"
-import imageMan from "./images/avatarEat.svg"
 import Avatar from "@mui/material/Avatar"
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
 import EditIcon from "@mui/icons-material/Edit"
 import Link from "next/link"
+import Image from "next/image"
+
+import { MenuIcon } from "./recipies"
+import imageMan from "./images/avatarEat.svg"
 import ColorfulTeg from "../../ColorfulTeg"
 
 const options = ["Delete", "Edit"]

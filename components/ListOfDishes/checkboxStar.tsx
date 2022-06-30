@@ -1,7 +1,8 @@
-import Checkbox from "@mui/material/Checkbox"
-import { BoxCheckBox } from "../../pages/user/listOfDishes/stylesAllMenus"
-import Rating from "@mui/material/Rating"
 import { useState } from "react"
+import Checkbox from "@mui/material/Checkbox"
+import Rating from "@mui/material/Rating"
+
+import { BoxCheckBox } from "../../pages/user/listOfDishes/stylesAllMenus"
 import {
     ISideBarCheckBoxStar,
     initialValuesCheckBoxStar,

@@ -1,11 +1,10 @@
 import * as React from "react"
-// MATERIAL UI
 import { styled, alpha } from "@mui/material/styles"
 import IconButton from "@mui/material/IconButton"
 import InputBase from "@mui/material/InputBase"
 import Image from "next/image"
-// Icons
-import imageSearch from "../images/navbarIcons/search.png"
+
+import imageSearch from "../../../common/images/layoutAdmin/navbarIcons/search.png"
 
 const Search = styled("div")(({ theme }) => ({
     position: "relative",
@@ -49,7 +48,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }))
 
-export default function SearchAppBar() {
+const SearchAppBar = () => {
     return (
         <Search>
             <SearchIconWrapper>
@@ -74,3 +73,5 @@ export default function SearchAppBar() {
         </Search>
     )
 }
+
+export default SearchAppBar

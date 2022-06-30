@@ -1,4 +1,7 @@
 import { useState } from "react"
+import Checkbox from "@mui/material/Checkbox"
+
+import { BoxCheckBox } from "../../pages/user/listOfDishes/stylesAllMenus"
 import {
     initialValuesCheckBoxMeals,
     ISideBarCheckBoxMeals,
@@ -9,8 +12,6 @@ import {
     MenuH2,
     SpecificationWrapper,
 } from "../../pages/user/listOfDishes/stylesAllMenus"
-import { BoxCheckBox } from "../../pages/user/listOfDishes/stylesAllMenus"
-import Checkbox from "@mui/material/Checkbox"
 
 const CheckboxMeals = () => {
     const [checkboxsMeals, setCheckboxsMeals] = useState<ISideBarCheckBoxMeals>(

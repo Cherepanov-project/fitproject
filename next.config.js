@@ -11,13 +11,11 @@ module.exports = {
         dirs: [
             "pages",
             "utils",
-            "API",
             "common",
             "components",
             "containers",
-            "model",
+            "models",
             "services",
-            "store",
             "stories",
         ], // Only run ESLint on the 'pages' and 'utils' directories during production builds (next build)
     },

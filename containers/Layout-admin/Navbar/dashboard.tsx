@@ -4,9 +4,10 @@ import Menu from "@mui/material/Menu"
 import MenuItem from "@mui/material/MenuItem"
 import IconButton from "@mui/material/IconButton"
 import Badge from "@mui/material/Badge"
-import imageBell from "../images/navbarIcons/bell.png"
 
-export default function PositionedMenu() {
+import imageBell from "../../../common/images/layoutAdmin/navbarIcons/bell.png"
+
+const PositionedMenu = () => {
     const [anchorEl, setAnchorEl] = React.useState(null)
     const open = Boolean(anchorEl)
     const handleClick = event => {
@@ -62,3 +63,5 @@ export default function PositionedMenu() {
         </div>
     )
 }
+
+export default PositionedMenu

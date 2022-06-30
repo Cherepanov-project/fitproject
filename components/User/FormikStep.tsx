@@ -1,5 +1,7 @@
 import { IFormikStepProps } from "../../models/loginOrRegisterInterfaces/interfaces"
 
-export default function FormikStep({ children }: IFormikStepProps) {
+const FormikStep = ({ children }: IFormikStepProps) => {
     return <>{children}</>
 }
+
+export { FormikStep }

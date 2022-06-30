@@ -1,11 +1,9 @@
 import React, { useState } from "react"
 import { useField } from "formik"
 import { nanoid } from "nanoid"
-
 import { Box, FormControl } from "@mui/material"
 
 import { ISelectForm } from "../../models/loginOrRegisterInterfaces/interfaces"
-
 import {
     ErrorMessage,
     InputSelect,

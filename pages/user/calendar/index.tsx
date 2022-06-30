@@ -1,3 +1,10 @@
+import Link from "next/link"
+import Grid from "@mui/material/Grid"
+import Box from "@mui/material/Box"
+import Paper from "@mui/material/Paper"
+import useMediaQuery from "@mui/material/useMediaQuery"
+import { styled } from "@mui/material/styles"
+
 import {
     startOfMonth,
     getISODay,
@@ -8,6 +15,12 @@ import {
     subMonths,
     getDate,
 } from "date-fns"
+
+import CalendarContainer from "../../../components/CalendarContainer"
+import generateId from "../../../utils/generateId"
+import FramerCalendar from "../../../components/FramerCalendar"
+import { monthArr } from "../../../models/user/user"
+import { LayoutUser } from "../../../containers/Layout-user/Layout-user"
 import {
     CalcHead,
     DayBlur,
@@ -18,18 +31,6 @@ import {
     CalcDate,
     CalendarDiv,
 } from "./stylesCalendar"
-import CalendarContainer from "../../../components/CalendarContainer"
-import Link from "next/link"
-import Grid from "@mui/material/Grid"
-import Box from "@mui/material/Box"
-import Paper from "@mui/material/Paper"
-import { styled } from "@mui/material/styles"
-import useMediaQuery from "@mui/material/useMediaQuery"
-import { monthArr } from "../../../models/user/user"
-import generateId from "../../../utils/generateId"
-import FramerCalendar from "../../../components/FramerCalendar"
-
-import { LayoutUser } from "../../../containers/Layout-user/Layout-user"
 
 const Calendar = () => {
     const dateToday: Date = new Date()

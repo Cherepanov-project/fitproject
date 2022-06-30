@@ -1,10 +1,10 @@
 import styled from "styled-components"
 
-interface BtnProps {
+interface IBtnProps {
     bg: string
 }
 
-export const RectangleButton = styled.button<BtnProps>`
+export const RectangleButton = styled.button<IBtnProps>`
     display: flex;
     justify-content: flex-start;
     align-items: center;

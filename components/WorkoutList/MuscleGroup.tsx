@@ -1,5 +1,6 @@
-import { useState } from "react"
+import Checkbox from "@mui/material/Checkbox"
 
+import generateId from "../../utils/generateId"
 import {
     SidebarListTitle,
     SidebarItemListWrapper,
@@ -7,7 +8,6 @@ import {
     SidebarListItemCheckbox,
     SidebarStyledItemCheckbox,
 } from "../../pages/user/workoutList/workoutListStyles"
-
 import {
     muscleGroupList,
     muscleCheckboxList,
@@ -15,13 +15,7 @@ import {
     muscleGroupListType,
 } from "../../models/workout/workout"
 
-import Checkbox from "@mui/material/Checkbox"
-
-import generateId from "../../utils/generateId"
-
 const Categories = ({ muscles, setMuscle }) => {
-    // const [muscles, setMuscle] = useState<muscleCheckboxListType>(muscleCheckboxList)
-
     const handleChange = (value: string) => {
         const newState = { ...muscles }
         newState[value] = !newState[value]

@@ -5,6 +5,14 @@ import List from "@mui/material/List"
 import ListItemButton from "@mui/material/ListItemButton"
 import ListItemIcon from "@mui/material/ListItemIcon"
 import ListItemText from "@mui/material/ListItemText"
+import { formatDistanceToNow } from "date-fns"
+
+import goalsIcon from "../../common/images/icons/goals.svg"
+import diet from "../../common/images/icons/diet.svg"
+import SeetingsIcon from "../../common/images/icons/settingsIcon.svg"
+import defaultAvatar from "../../common/images/defaultAvatar.png"
+import arrow from "../../common/images/icons/arrow.svg"
+import meter from "../../common/images/icons/meter.svg"
 import {
     Avatar,
     Icon,
@@ -18,16 +26,7 @@ import {
     Loss,
     Meter,
     /* SquareBtn, */
-} from ".//RightSideBarStyle"
-import goalsIcon from "../../common/images/icons/goals.svg"
-import diet from "../../common/images/icons/diet.svg"
-import SeetingsIcon from "../../common/images/icons/SeetingsIcon.svg"
-import defaultAvatar from "../../common/images/defaultAvatar.png"
-import arrow from "../../common/images/icons/arrow.svg"
-import meter from "../../common/images/icons/meter.svg"
-import { formatDistanceToNow } from "date-fns"
-
-const drawerWidth: string = "244px"
+} from "./RightSideBarStyle"
 
 interface ISideBarProps {
     avatar: StaticImageData
@@ -36,7 +35,9 @@ interface ISideBarProps {
     includeSeconds: boolean
 }
 
-export const RightSideBar: React.FC<ISideBarProps> = ({
+const drawerWidth: string = "244px"
+
+const RightSideBar: React.FC<ISideBarProps> = ({
     avatar = defaultAvatar,
     userName = "User",
     lastDate = new Date(),
@@ -71,7 +72,7 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
                         margin: "auto 0",
                     }}
                 >
-                    {["Goals", "Diet", "Seetings"].map(
+                    {["Goals", "Diet", "Settings"].map(
                         (text: string, index: number) => (
                             <ListItemButton
                                 key={index}
@@ -102,15 +103,15 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
                                 <ListItemIcon>
                                     {index === 0 ? (
                                         <IconWrapper>
-                                            <Icon src={goalsIcon.src}></Icon>
+                                            <Icon src={goalsIcon.src} />
                                         </IconWrapper>
                                     ) : index === 1 ? (
                                         <IconWrapper>
-                                            <Icon src={diet.src}></Icon>
+                                            <Icon src={diet.src} />
                                         </IconWrapper>
                                     ) : (
                                         <IconWrapper>
-                                            <Icon src={SeetingsIcon.src}></Icon>
+                                            <Icon src={SeetingsIcon.src} />
                                         </IconWrapper>
                                     )}
                                 </ListItemIcon>
@@ -118,10 +119,7 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
                                     primary={text}
                                     sx={{ width: "100%" }}
                                 />
-                                <IconArrow
-                                    src={arrow.src}
-                                    width="12px"
-                                ></IconArrow>
+                                <IconArrow src={arrow.src} width="12px" />
                             </ListItemButton>
                         )
                     )}
@@ -132,9 +130,11 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
                         {`Loss: 5kg `}
                         <span>/ Month</span>
                     </Loss>
-                    <Meter src={meter.src}></Meter>
+                    <Meter src={meter.src} />
                 </WeightLoosGoalWrapper>
             </Drawer>
         </Box>
     )
 }
+
+export { RightSideBar }

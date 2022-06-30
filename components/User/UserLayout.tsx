@@ -10,12 +10,12 @@ const UserWrapper = styled.div`
     margin: 0 auto;
 `
 
-type Props = {
+type IProps = {
     title?: string
     children: React.ReactElement
 }
 
-const Layout: React.FC<Props> = ({ children, title = "default title" }) => (
+const Layout: React.FC<IProps> = ({ children, title = "default title" }) => (
     <>
         <Head>
             <title>{title}</title>

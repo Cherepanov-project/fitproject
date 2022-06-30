@@ -1,27 +1,22 @@
 import React, { useState, useEffect } from "react"
 import Link from "next/link"
-import { useRouter } from "next/router"
 import Cookies from "js-cookie"
+import { useRouter } from "next/router"
 import { nanoid } from "nanoid"
 import { Formik } from "formik"
-
-import Snackbar from "@mui/material/Snackbar"
 import { Button, CardContent, CircularProgress } from "@mui/material"
-
-import { loginUser } from "../../../services/API/loginUser"
-
-import { IFormStatus } from "../../../models/loginOrRegisterInterfaces/interfaces"
-
-import { FormTextField } from "../../../components/User/FormTextField"
+import Snackbar from "@mui/material/Snackbar"
 
 import paused from "../../../utils/paused"
 import loginOrRegisterUser from "../../../utils/loginOrRegisterUser"
+import { loginUser } from "../../../services/API/loginUser"
+import { IFormStatus } from "../../../models/loginOrRegisterInterfaces/interfaces"
+import { FormTextField } from "../../../components/User/FormTextField"
 import { validationLoginUser } from "../../../utils/validationSchema"
-
 import { RightSide, Title2, ForgorPassword } from "../userLoginOrRegisterStyle"
 import { RegOrLoginSocial } from "../RegOrLoginSocial"
 
-export const LoginForm: React.FC = () => {
+const LoginForm: React.FC = () => {
     const [displayFormStatus, setDisplayFormStatus] = useState<boolean>(false)
     const [formStatus, setFormStatus] = useState<IFormStatus>({
         message: "",
@@ -129,3 +124,5 @@ export const LoginForm: React.FC = () => {
         </>
     )
 }
+
+export { LoginForm }

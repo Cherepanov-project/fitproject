@@ -1,20 +1,12 @@
-import React, {
-    FC,
-    ReactNode,
-    useState,
-    useEffect,
-    FunctionComponent,
-} from "react"
+import React, { useEffect, FunctionComponent } from "react"
 import Router from "next/router"
-// OTHER LIBRARIES
 import Cookies from "js-cookie"
 import { ThemeProvider, createTheme } from "@mui/material/styles"
-// CUSTOM COMPONENTS
-import Sidebar from "./Sidebar/Sidebar"
-import Navbar from "./Navbar/Navbar"
 
-import { Container, Content, MainContainer } from "./layoutAdmin.styled"
-import { layoutAdminProps } from "./layoutAdmin.interface"
+import Sidebar from "./Sidebar/Sidebar"
+import { Navbar } from "./Navbar/Navbar"
+import { Container, Content, MainContainer } from "./LayoutAdmin.styled"
+import { layoutAdminProps } from "./LayoutAdmin.interface"
 
 const theme = createTheme({
     palette: {
@@ -34,7 +26,7 @@ const theme = createTheme({
     },
 })
 
-const LayoutAdmin: FC<layoutAdminProps> = ({ children }): JSX.Element => {
+const LayoutAdmin: React.FC<layoutAdminProps> = ({ children }): JSX.Element => {
     return (
         <ThemeProvider theme={theme}>
             <Container>
@@ -50,9 +42,7 @@ const LayoutAdmin: FC<layoutAdminProps> = ({ children }): JSX.Element => {
     )
 }
 
-export default LayoutAdmin
-
-export const withLayout = <T extends Record<string, undefined>>(
+const withLayout = <T extends Record<string, undefined>>(
     Component: FunctionComponent<T>
 ) => {
     return function WithLayoutComponent(props: T): JSX.Element {
@@ -70,3 +60,5 @@ export const withLayout = <T extends Record<string, undefined>>(
         )
     }
 }
+
+export { withLayout, LayoutAdmin }

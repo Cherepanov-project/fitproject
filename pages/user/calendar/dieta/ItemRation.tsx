@@ -1,6 +1,7 @@
 import Link from "next/link"
+import React from "React"
+
 import { IDailyRationType } from "../../../../models/dieta/dieta"
-import { FC } from "React"
 import {
     FoodLink,
     ListItem,
@@ -16,7 +17,7 @@ interface ItemRationProps {
     menuClickShow?: (id: string) => void
 }
 
-const ItemRation: FC<ItemRationProps> = ({
+const ItemRation: React.FC<ItemRationProps> = ({
     dietaEl,
     asPath,
     menuClickShow,

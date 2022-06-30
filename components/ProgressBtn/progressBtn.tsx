@@ -1,3 +1,9 @@
+import Typography from "@mui/material/Typography"
+import Box from "@mui/material/Box"
+import LinearProgress, {
+    LinearProgressProps,
+} from "@mui/material/LinearProgress"
+
 import {
     ProgressButton,
     IcoContainer,
@@ -6,16 +12,17 @@ import {
     SubTitle,
     Target,
 } from "./progressBtnStyles"
-import LinearProgress, {
-    LinearProgressProps,
-} from "@mui/material/LinearProgress"
-import Typography from "@mui/material/Typography"
-import Box from "@mui/material/Box"
-import { JSXElementConstructor } from "react"
 
-function LinearProgressWithLabel(
+interface IProps {
+    title: string
+    subtitle: string
+    target: string
+    ico: JSX.Element
+}
+
+const LinearProgressWithLabel = (
     props: LinearProgressProps & { value: number }
-) {
+) => {
     return (
         <Box
             sx={{
@@ -48,18 +55,11 @@ function LinearProgressWithLabel(
     )
 }
 
-interface Props {
-    title: string
-    subtitle: string
-    target: string
-    ico: JSX.Element
-}
-
-const ProgressBtn = ({ title, subtitle, target, ico }: Props) => {
+const ProgressBtn = ({ title, subtitle, target, ico }: IProps) => {
     return (
         <ProgressButton>
             <IcoContainer>{ico}</IcoContainer>
-            <Dots></Dots>
+            <Dots />
             <Title>{title}</Title>
             <SubTitle>{subtitle} / week</SubTitle>
             <LinearProgressWithLabel value={50} />

@@ -1,4 +1,5 @@
 import { useRouter } from "next/router"
+
 import CalendarContainer from "../../../../components/CalendarContainer"
 import HeadLinkBack from "../../../../components/HeadLinkBack"
 import Exercises from "../../../../components/Exercises/Exercises"
@@ -10,7 +11,7 @@ const WorkoutExercises = () => {
         <CalendarContainer>
             <HeadLinkBack
                 backLink={`${query.url}`}
-                namesCompoent={query.eating}
+                namesComponent={query.eating}
             />
             <Exercises />
         </CalendarContainer>

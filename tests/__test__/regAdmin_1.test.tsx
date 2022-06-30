@@ -2,9 +2,10 @@ import React from "react"
 import { render, unmountComponentAtNode } from "react-dom"
 import { act } from "react-dom/test-utils"
 import { waitFor } from "@testing-library/react"
-import SingInForm from "../../components/FormAdmin/singInForm"
 import Cookies from "js-cookie"
 import MockedImage from "next/image"
+
+import SingInForm from "../../components/FormAdmin/singInForm"
 import api from "../../services/API"
 
 jest.mock("next/image", () => {

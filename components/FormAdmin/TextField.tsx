@@ -1,10 +1,10 @@
-import React, { FC } from "react"
+import React from "react"
 import { useField } from "formik"
 
 import { DivInput, StyledLabel, StyledInput, ErrorForm } from "./Form.styled"
 import { IFormProps } from "./form.interface"
 
-const TextField: FC<IFormProps> = ({ label, ...props }): JSX.Element => {
+const TextField: React.FC<IFormProps> = ({ label, ...props }): JSX.Element => {
     const [field, meta] = useField(props)
     return (
         <DivInput>

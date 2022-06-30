@@ -1,9 +1,7 @@
 import React, { useState } from "react"
-
 import Typography from "@mui/material/Typography"
 
 import { CardContainer, CardContent } from "./cardStyles"
-
 import { defaultColors, hoverColors } from "../../models/cards/cards"
 
 const Card = ({

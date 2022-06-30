@@ -1,7 +1,8 @@
-import { CharWrapper, LabelChar } from "./userCharStyles"
 import { LineChart, Line, CartesianGrid, XAxis, Tooltip } from "recharts"
-import { charData } from "../../models/userStatistics/userStatistics"
 import useMediaQuery from "@mui/material/useMediaQuery"
+
+import { CharWrapper, LabelChar } from "./userCharStyles"
+import { charData } from "../../models/userStatistics/userStatistics"
 
 const UserChar = () => {
     const matches = useMediaQuery("(min-width:2000px)")
@@ -35,8 +36,8 @@ const UserChar = () => {
                 />
             </LineChart>
             <LabelChar>
-                {charData.map(e => {
-                    return <div key={e.name}>{e.name}</div>
+                {charData.map(event => {
+                    return <div key={event.name}>{event.name}</div>
                 })}
             </LabelChar>
         </CharWrapper>
