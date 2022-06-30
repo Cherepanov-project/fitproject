@@ -14,7 +14,7 @@ import {
     ContainerCenter,
     IconBack,
     InputCheckbox,
-} from "./stylesContent"
+} from "./ContentStyles"
 
 interface IFilterItemActiveProp {
     filterItemActive: boolean

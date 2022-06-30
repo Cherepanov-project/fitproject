@@ -8,7 +8,7 @@ import * as Yup from "yup"
 import imageLogoApp from "./images/logoApp.svg"
 import api from "../../services/API"
 import TextField from "./TextField"
-import { FormContainer } from "./formContainer"
+import { FormContainer } from "./FormContainer"
 import {
     DivCenter,
     DivDashboard,

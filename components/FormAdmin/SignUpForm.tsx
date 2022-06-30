@@ -7,7 +7,7 @@ import Image from "next/image"
 import * as Yup from "yup"
 
 import imageLogoApp from "./images/logoApp.svg"
-import { FormContainer } from "./formContainer"
+import { FormContainer } from "./FormContainer"
 import TextField from "./TextField"
 import api from "../../services/API"
 import {

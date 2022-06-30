@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-import SingInForm from "../../components/FormAdmin/singInForm"
+import SingInForm from "../../components/FormAdmin/SingInForm"
 
 const ContainerAdminRegistration = styled.div`
     width: 100%;

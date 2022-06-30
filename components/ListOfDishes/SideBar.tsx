@@ -1,7 +1,7 @@
 import { SideBarWrapper } from "../../pages/user/listOfDishes/stylesAllMenus"
-import CheckboxStar from "./checkboxStar"
-import BlockSpecification from "./blockSpecification"
-import CheckboxMeals from "./checkboxMeals"
+import CheckboxStar from "./CheckboxStar"
+import BlockSpecification from "./BlockSpecification"
+import CheckboxMeals from "./CheckboxMeals"
 
 const SideBar = () => {
     return (

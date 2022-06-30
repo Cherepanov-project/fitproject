@@ -1,8 +1,8 @@
 import Pagination from "@mui/material/Pagination"
 import Stack from "@mui/material/Stack"
 
-import MenuItem from "../../../components/ListOfDishes/menuItem"
-import SideBar from "../../../components/ListOfDishes/sideBarMenus"
+import MenuItem from "../../../components/ListOfDishes/MenuItem"
+import SideBar from "../../../components/ListOfDishes/SideBar"
 import { dishFoodAll } from "../../../models/dish/dish"
 import { MenuWrapper, AllMenusWrapper, ListDishes } from "./stylesAllMenus"
 import { IFoodItemType } from "../../../models/dish/dish"

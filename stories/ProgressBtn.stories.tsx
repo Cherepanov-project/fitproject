@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 
-import ProgressBtn from "../components/ProgressBtn/progressBtn"
+import ProgressBtn from "../components/ProgressBtn/ProgressBtn"
 import SquareIcon from "../components/SquareIcon/SquareIcon"
 import imgCyclist from "../common/images/icons/cyclist.svg"
 

@@ -4,11 +4,47 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9b1b128-d2c6-4002-9458-591efed2fabe" name="Changes" comment="" />
+    <list default="true" id="e9b1b128-d2c6-4002-9458-591efed2fabe" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/components/WorkoutList/itemList/func.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AdminTable/UserItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/AdminTable/UserItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Card/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Card/Card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Dish/Dish.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Dish/Dish.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Dish/DishIngredients.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Dish/DishIngredients.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Exercises/Exercises.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Exercises/Exercises.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/FilterBtn/FilterBtn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/FilterBtn/FilterBtn.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/FilterBtn/ItemFilter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/FilterBtn/ItemFilter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/FormAdmin/SignUpForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/FormAdmin/SignUpForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/FormAdmin/SingInForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/FormAdmin/SingInForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/FormAdmin/TextField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/FormAdmin/TextField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ListOfDishes/BlockSpecification.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ListOfDishes/BlockSpecification.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ListOfDishes/SideBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ListOfDishes/SideBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ProgressBtn/ProgressBtn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ProgressBtn/ProgressBtn.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/RectangleBtn/RectangleBtn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/RectangleBtn/RectangleBtn.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/UserChar/UserChar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/UserChar/UserChar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/WorkoutList/itemList/ItemList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/WorkoutList/itemList/ItemList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/overview/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/overview/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/recipes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/recipes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/sign-up.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/sign-up.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/users/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/users/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/listOfDishes/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/listOfDishes/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/statistics/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/statistics/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/ProgressBtn.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/stories/ProgressBtn.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/UserChar.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/stories/UserChar.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/__test__/regAdmin_1.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/tests/__test__/regAdmin_1.test.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -31,6 +67,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "node.js.selected.package.tslint": "(autodetect)",
     "ts.external.directory.path": "/Users/timikos/WebstormProjects/fitproject/node_modules/typescript/lib"
   }
 }]]></component>

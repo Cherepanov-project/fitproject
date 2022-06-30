@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 
-import UserChar from "../components/userChar/userChar"
+import UserChar from "../components/UserChar/UserChar"
 
 export default {
     title: "Example/UserChar",

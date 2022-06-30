@@ -16,7 +16,7 @@ import {
     FoodContainer,
     ButtonFood,
     DishDescriptionWrapper,
-} from "./stylesDish"
+} from "./DishStyles"
 
 const Dish = () => {
     const { query } = useRouter()

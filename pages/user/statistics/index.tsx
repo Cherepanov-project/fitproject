@@ -3,7 +3,7 @@ import Cookies from "js-cookie"
 import { useRouter } from "next/router"
 
 import { LayoutUser } from "../../../containers/Layout-user/Layout-user"
-import UserChar from "../../../components/userChar/userChar"
+import UserChar from "../../../components/UserChar/UserChar"
 import imgLeg from "../../../common/images/icons/leg.svg"
 import imgWater from "../../../common/images/icons/water.svg"
 import imgCyclist from "../../../common/images/icons/cyclist.svg"
@@ -24,7 +24,7 @@ import {
     ProgressContainer,
 } from "./statisticsStyles"
 import RectangleButton from "../../../components/RectangleBtn/RectangleBtn"
-import ProgressButton from "../../../components/ProgressBtn/progressBtn"
+import ProgressButton from "../../../components/ProgressBtn/ProgressBtn"
 import SquareIcon from "../../../components/SquareIcon/SquareIcon"
 
 const Frame1 = () => {

@@ -9,17 +9,21 @@ import useMediaQuery from "@mui/material/useMediaQuery"
 
 import { ImgWrapper, TextWrapper, Exercise, Reps } from "./ItemListStyled"
 import { fetchWorkouts } from "../../../services/API/workouts"
+import { filterExerciseList } from "../../../utils/filterExercises";
+
+interface IMusclesFields {
+    Arms: boolean
+    Breast: boolean
+    Chest: boolean
+    Legs: boolean
+}
 
 interface IMuscles {
-    muscles: {
-        Arms: boolean
-        Breast: boolean
-        Chest: boolean
-        Legs: boolean
-    }
+    muscles: IMusclesFields
 }
 
 const ItemList = ({ muscles }: IMuscles) => {
+    let filteredExercises = []
     const queryWorkouts = useQuery("workouts", fetchWorkouts)
     const [minResOnPage, setMinResOnPage] = useState(0)
     const [maxResOnPage, setMaxResOnPage] = useState(6)
@@ -39,22 +43,9 @@ const ItemList = ({ muscles }: IMuscles) => {
         setMinResOnPage(() => (page - 1) * 6)
         setMaxResOnPage(() => page * 6)
     }
-    let filteredExercises = []
-    const addOnArrResults = (list, partOfBody) => {
-        filteredExercises = [
-            ...filteredExercises,
-            ...list.filter(element => element.muscleGroup === partOfBody),
-        ]
-    }
 
-    const filterExerciseList = (muscles, list) => {
-        muscles.Arms ? addOnArrResults(list, "Arms") : null
-        muscles.Legs ? addOnArrResults(list, "Legs") : null
-        muscles.Chest ? addOnArrResults(list, "Chest") : null
-        muscles.Breast ? addOnArrResults(list, "Breast") : null
-    }
     if (queryWorkouts.isSuccess) {
-        filterExerciseList(muscles, queryWorkouts.data.data.data)
+        filterExerciseList(filteredExercises, muscles, queryWorkouts.data.data.data)
         console.log(queryWorkouts.data.data.data)
     }
     const exercises = filteredExercises.map((item, index) => {

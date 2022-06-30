@@ -16,7 +16,7 @@ import {
 import { SecondaryText, Text, RowAvatar, WrapBnt } from "./UserItem.style"
 import avatarUser from "./images/avatarUser.jpg"
 import ColorfulTeg from "../ColorfulTeg"
-import { MenuIcon } from "../FilterBtn/stylesContent"
+import { MenuIcon } from "../FilterBtn/ContentStyles"
 
 interface IUserItemProps {
     nameUser: string

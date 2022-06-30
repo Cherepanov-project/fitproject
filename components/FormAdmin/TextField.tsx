@@ -2,7 +2,7 @@ import React from "react"
 import { useField } from "formik"
 
 import { DivInput, StyledLabel, StyledInput, ErrorForm } from "./Form.styled"
-import { IFormProps } from "./form.interface"
+import { IFormProps } from "./Form.interface"
 
 const TextField: React.FC<IFormProps> = ({ label, ...props }): JSX.Element => {
     const [field, meta] = useField(props)

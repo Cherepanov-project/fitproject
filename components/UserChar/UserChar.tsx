@@ -1,7 +1,7 @@
 import { LineChart, Line, CartesianGrid, XAxis, Tooltip } from "recharts"
 import useMediaQuery from "@mui/material/useMediaQuery"
 
-import { CharWrapper, LabelChar } from "./userCharStyles"
+import { CharWrapper, LabelChar } from "./UserCharStyles"
 import { charData } from "../../models/userStatistics/userStatistics"
 
 const UserChar = () => {

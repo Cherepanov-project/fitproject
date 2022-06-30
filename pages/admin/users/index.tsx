@@ -3,10 +3,10 @@ import { TableContainer, Table, TableBody } from "@mui/material"
 
 import { withLayout } from "../../../containers/Layout-admin/Layout-admin"
 import { ContentWrapper } from "./stylesUsers"
-import FilterBtn from "../../../components/FilterBtn/filter"
+import FilterBtn from "../../../components/FilterBtn/FilterBtn"
 import UserItem from "../../../components/AdminTable/UserItem"
 import { userList } from "../../../models/userList/userList"
-import Pagination from "../../../components/Pagination/pagination"
+import Pagination from "../../../components/Pagination/Pagination"
 import getArrPagination from "../../../utils/getArrPagination"
 import ColumnName from "../../../components/RecipiesContainer/ColumnName/ColumnName"
 

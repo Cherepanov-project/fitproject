@@ -6,10 +6,10 @@ import { useState, useEffect } from "react"
 
 import { withLayout } from "../../containers/Layout-admin/Layout-admin"
 import { ContentList, FooterRecipes } from "./overview/overviewStyles"
-import FilterBtn from "../../components/FilterBtn/filter"
+import FilterBtn from "../../components/FilterBtn/FilterBtn"
 import Recipe from "../../components/RecipiesContainer/ResipiesList/Recipe"
 import CreateForm from "../../components/RecipiesContainer/AddBtn/AddForm"
-import Pagination from "../../components/Pagination/pagination"
+import Pagination from "../../components/Pagination/Pagination"
 import ColumnName from "../../components/RecipiesContainer/ColumnName/ColumnName"
 import getArrPagination from "../../utils/getArrPagination"
 import {

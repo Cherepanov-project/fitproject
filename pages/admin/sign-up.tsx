@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-import SignUpForm from "../../components/FormAdmin/signUpForm"
+import SignUpForm from "../../components/FormAdmin/SignUpForm"
 
 const ContainerAdminRegistration = styled.div`
     width: 100%;
