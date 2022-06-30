@@ -16,7 +16,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack"
 import DeleteIcon from "@mui/icons-material/Delete"
 import EditIcon from "@mui/icons-material/Edit"
 import Link from "next/link"
-import ColorfulTeg from "../../../common/ColorfulTeg"
+import ColorfulTeg from "../../ColorfulTeg"
 
 export const getServerSideProps: GetServerSideProps = async context => {
     return {

@@ -12,7 +12,7 @@ export const getRecipesList = async () => {
     const response = await adminApi.get<IRecipesArr>("/api/v1/admin/recipe", {
         headers: {
             Authorization:
-                "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1NjU5NDc4OSwiaWF0IjoxNjU2NTc2Nzg5fQ._bT8w8xVBm8V-c-Mn6XqF9bguTJZWylwlQN8osGzFJdAlYjNwBSdi5Lntfl_Sw-cOSglqaTjfPSdV-f9VaYLRw",
+                "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1NjYyODkwMSwiaWF0IjoxNjU2NjEwOTAxfQ.0vdNsIVPo4ls-wfkMbnwlMZAjNnx81_iunTZL_mPNn--edakjYlAVo0khyiR1fNvwGrucnvPm11DvzVgOBYL1A",
         },
     })
 
@@ -27,7 +27,7 @@ export const postRecipes = async (obj: IAddRecip) => {
         {
             headers: {
                 Authorization:
-                    "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1NjYwMzMyMCwiaWF0IjoxNjU2NTg1MzIwfQ.Ek_RyGyp6cusxfHqa5vQN6i0y4vj10xpx27wByA05U_C9W69a4_xFxPjrL2woasBiNWw2ElXHSa8MPOswVAKeg",
+                    "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1NjYyODkwMSwiaWF0IjoxNjU2NjEwOTAxfQ.0vdNsIVPo4ls-wfkMbnwlMZAjNnx81_iunTZL_mPNn--edakjYlAVo0khyiR1fNvwGrucnvPm11DvzVgOBYL1A",
             },
         }
     )

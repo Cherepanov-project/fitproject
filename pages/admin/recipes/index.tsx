@@ -1,17 +1,17 @@
 import React from "react"
-import { withLayout } from "../../../layouts/Layout-admin/Layout-admin"
+import { withLayout } from "../../../containers/Layout-admin/Layout-admin"
 import { useState, useEffect } from "react"
-import FilterMenu from "../../../common/FilterMenu/filter"
+import FilterMenu from "../../../components/FilterMenu/filter"
 import Recipie from "../../../components/RecipiesTableItem/recipie"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
 import TableContainer from "@mui/material/TableContainer"
-import { ContentList, FooterRecipies } from "../overview/overviewStyles"
+import { ContentList, FooterRecipes } from "../overview/overviewStyles"
 import CreateForm from "../../../components/RecipiesTableItem/AddBtn/addForm"
-import Pagination from "../../../common/Table/TablePagination"
-import ColumnName from "../../../common/user/ColumnName/ColumnName"
+import Pagination from "../../../components/Table/TablePagination"
+import ColumnName from "../../../components/User/ColumnName/ColumnName"
 import { QueryClient, useQuery, dehydrate } from "react-query"
-import { getRecipesList } from "../../../API/adminApi"
+import { getRecipesList } from "../../../services/API/adminApi"
 
 export const getStaticProps = async () => {
     const queryClient = new QueryClient()
@@ -80,7 +80,7 @@ const Recipes = () => {
                     <TableBody>{resipie}</TableBody>
                 </Table>
             </TableContainer>
-            <FooterRecipies>
+            <FooterRecipes>
                 <CreateForm />
                 <Pagination
                     count={ResipesArr.data.length}
@@ -89,7 +89,7 @@ const Recipes = () => {
                     rowsPerPage={rowsPerPage}
                     onChangeRowsPerPage={handleChangeRowsPerPage}
                 />
-            </FooterRecipies>
+            </FooterRecipes>
         </ContentList>
     )
 }

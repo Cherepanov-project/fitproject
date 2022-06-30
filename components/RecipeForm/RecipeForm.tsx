@@ -7,8 +7,8 @@ import FieldList from "../AdminFormComponents/FieldList/FieldList"
 import EditorMCE from "../AdminFormComponents/EditorMCE/EditorMCE"
 import { validationRecipies } from "../../utils/validationSchema"
 import IngredientsField from "../AdminFormComponents/IngredientsField/IngredientsFiled"
-import { postRecipes } from "../../API/adminApi"
-import { IAddRecip } from "../../model/recipies/recipiesList"
+import { postRecipes } from "../../services/API/adminApi"
+import { IAddRecip } from "../../models/recipies/recipiesList"
 
 import {
     ContentWrapper,

@@ -20,9 +20,9 @@ import avatarUser from "./images/avatarUser.jpg"
 
 import ColorfulTeg from "../ColorfulTeg"
 
-import { MenuIcon } from "../../common/FilterMenu/stylesContent"
+import { MenuIcon } from "../FilterMenu/stylesContent"
 import Link from "next/link"
-import ConfirmAction from "../../common/confirmAction/confirmAction"
+import ConfirmAction from "../confirmAction/confirmAction"
 
 interface IUserItemProps {
     nameUser: string

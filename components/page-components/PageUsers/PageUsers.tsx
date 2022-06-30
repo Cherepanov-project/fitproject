@@ -7,11 +7,11 @@ import {
     Button,
     TableRow,
 } from "@mui/material"
-import UserItem from "../../../components/UserTableItem/UserItem"
-import { DataType } from "../../../model/userList/userList"
-import Pagination from "../../../common/Table/TablePagination"
+import UserItem from "../../UserTableItem/UserItem"
+import { DataType } from "../../../models/userList/userList"
+import Pagination from "../../Table/TablePagination"
 import getArrPagination from "../../../utils/getArrPagination"
-import ColumnName from "../../../common/user/ColumnName/ColumnName"
+import ColumnName from "../../User/ColumnName/ColumnName"
 import TableHeader from "../../Table/TableHeader"
 
 const defaultFilter = {
@@ -50,7 +50,7 @@ const PageUsers: FC<PageUsersProps> = ({ data }) => {
             <TableRow hover sx={{ cursor: "pointer" }} key={el.id}>
                 <UserItem
                     nameUser={el.nameUser}
-                    dateRegistor={el.dateRegistor}
+                    dateRegister={el.dateRegistor}
                     role={el.role}
                     email={el.email}
                     gender={el.gender}

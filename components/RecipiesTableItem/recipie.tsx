@@ -1,8 +1,7 @@
 import React from "react"
-<<<<<<< HEAD:components/RecipiesTableItem/recipie.tsx
+
 import { MenuIcon } from "./recipies.style"
-=======
->>>>>>> a50693d07b043ad45fb6334396d77431d8fa7299:components/RecipiesTableItem/Recipe.tsx
+
 import TableRow from "@mui/material/TableRow"
 import TableCell from "@mui/material/TableCell"
 import IconButton from "@mui/material/IconButton"
@@ -13,15 +12,11 @@ import Avatar from "@mui/material/Avatar"
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
 import EditIcon from "@mui/icons-material/Edit"
 import Link from "next/link"
-<<<<<<< HEAD:components/RecipiesTableItem/recipie.tsx
-import ColorfulTeg from "../../common/ColorfulTeg"
-=======
+
 import Image from "next/image"
 
-import { MenuIcon } from "./Recipes"
 import imageMan from "./images/avatarEat.svg"
-import ColorfulTeg from "../../ColorfulTeg"
->>>>>>> a50693d07b043ad45fb6334396d77431d8fa7299:components/RecipiesTableItem/Recipe.tsx
+import ColorfulTeg from "../ColorfulTeg"
 
 const options = ["Delete", "Edit"]
 

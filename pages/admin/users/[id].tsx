@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next"
 import { withLayout } from "../../../layouts/Layout-admin/Layout-admin"
 
-import PageUser from "../../../common/page-components/PageUser/PageUser"
+import PageUser from "../../../components/page-components/PageUser/PageUser"
 
 export const getServerSideProps: GetServerSideProps = async context => {
     return {
