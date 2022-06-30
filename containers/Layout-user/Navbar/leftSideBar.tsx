@@ -17,7 +17,7 @@ import {
     Image,
     ImageWrapper,
     Divider,
-} from "./LeftSideBarStyle"
+} from "./leftSideBar.styles"
 
 const LeftSideBar = () => {
     return (

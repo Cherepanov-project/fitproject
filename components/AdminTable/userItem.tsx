@@ -13,10 +13,10 @@ import {
     MenuItem,
 } from "@mui/material"
 
-import { SecondaryText, Text, RowAvatar, WrapBnt } from "./UserItem.style"
+import { SecondaryText, Text, RowAvatar, WrapBnt } from "./userItem.styles"
 import avatarUser from "./images/avatarUser.jpg"
 import ColorfulTeg from "../ColorfulTeg"
-import { MenuIcon } from "../FilterBtn/ContentStyles"
+import { MenuIcon } from "../FilterBtn/content.styles"
 
 interface IUserItemProps {
     nameUser: string

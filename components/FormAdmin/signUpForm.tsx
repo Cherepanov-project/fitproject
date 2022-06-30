@@ -7,8 +7,8 @@ import Image from "next/image"
 import * as Yup from "yup"
 
 import imageLogoApp from "./images/logoApp.svg"
-import { FormContainer } from "./FormContainer"
-import TextField from "./TextField"
+import { FormContainer } from "./formContainer"
+import TextField from "./textField"
 import api from "../../services/API"
 import {
     DivCenter,
@@ -17,7 +17,7 @@ import {
     FormH1,
     FormH2,
     StyledButton,
-} from "./Form.styled"
+} from "./form.styles"
 
 const SignUpForm = () => {
     const nameOfFields = {

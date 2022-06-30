@@ -2,8 +2,8 @@ import { useEffect } from "react"
 import Cookies from "js-cookie"
 import { useRouter } from "next/router"
 
-import { LayoutUser } from "../../../containers/Layout-user/Layout-user"
-import UserChar from "../../../components/UserChar/UserChar"
+import { LayoutUser } from "../../../containers/Layout-user/layoutUser"
+import UserChar from "../../../components/UserChar/userChar"
 import imgLeg from "../../../common/images/icons/leg.svg"
 import imgWater from "../../../common/images/icons/water.svg"
 import imgCyclist from "../../../common/images/icons/cyclist.svg"
@@ -23,9 +23,9 @@ import {
     Target,
     ProgressContainer,
 } from "./statisticsStyles"
-import RectangleButton from "../../../components/RectangleBtn/RectangleBtn"
-import ProgressButton from "../../../components/ProgressBtn/ProgressBtn"
-import SquareIcon from "../../../components/SquareIcon/SquareIcon"
+import RectangleButton from "../../../components/RectangleBtn/rectangleBtn"
+import ProgressButton from "../../../components/ProgressBtn/progressBtn"
+import SquareIcon from "../../../components/SquareIcon/squareIcon"
 
 const Frame1 = () => {
     const router = useRouter()

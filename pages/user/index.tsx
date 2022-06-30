@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 import loginMan from "../../common/images/loginMan.png"
-import Layout from "../../components/User/UserLayout"
+import Layout from "../../components/User/userLayout"
 import { LoginForm } from "./login/loginForm"
 import { RegOrLoginIcon } from "./userLoginOrRegisterStyle"
 

@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-import Layout from "../../../components/User/UserLayout"
+import Layout from "../../../components/User/userLayout"
 import loginMan from "../../../common/images/loginMan.png"
 import { RegisterForm } from "./RegisterFormStep"
 

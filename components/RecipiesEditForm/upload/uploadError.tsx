@@ -8,7 +8,7 @@ import {
 } from "@material-ui/core"
 import { FileError } from "react-dropzone"
 
-import { FileHeader } from "./FileHeader"
+import { FileHeader } from "./fileHeader"
 
 interface IUploadErrorProps {
     file: File

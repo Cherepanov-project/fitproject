@@ -1,5 +1,5 @@
 import React from "react"
-import { Tegs } from "./ColorfulTeg.style"
+import { Tegs } from "./colorfulTeg.styles"
 
 interface IColorfulTegProp {
     text: string

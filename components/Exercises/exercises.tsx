@@ -1,4 +1,4 @@
-import { VideoDiv } from "./ExercisesStyles"
+import { VideoDiv } from "./exercises.styles"
 
 const Exercises = () => {
     return (

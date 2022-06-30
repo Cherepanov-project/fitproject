@@ -10,7 +10,7 @@ import {
     Line,
 } from "recharts"
 
-import CustomTooltip from "./CustomTooltip/CustomTooltip"
+import CustomTooltip from "./CustomTooltip/customTooltip"
 import { graphData } from "../../models/graph/graph"
 
 const Graph = () => {

@@ -15,11 +15,11 @@ import {
     getDate,
 } from "date-fns"
 
-import CalendarContainer from "../../../components/CalendarContainer"
+import CalendarContainer from "../../../components/calendarContainer"
 import generateId from "../../../utils/generateId"
-import FramerCalendar from "../../../components/FramerCalendar"
+import FramerCalendar from "../../../components/framerCalendar"
 import { monthArr } from "../../../models/user/user"
-import { LayoutUser } from "../../../containers/Layout-user/Layout-user"
+import { LayoutUser } from "../../../containers/Layout-user/layoutUser"
 import {
     CalcHead,
     DayBlur,

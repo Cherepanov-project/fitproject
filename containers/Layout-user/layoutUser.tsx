@@ -1,14 +1,14 @@
 import React, { FunctionComponent } from "react"
 
-import { layoutUserProps } from "./LayoutUser.interface"
-import LeftSideBar from "./Navbar/LeftSideBar"
-import { RightSideBar } from "./Userbar/RightSideBar"
+import { layoutUserProps } from "./layoutUser.interface"
+import LeftSideBar from "./Navbar/leftSideBar"
+import { RightSideBar } from "./Userbar/rightSideBar"
 import {
     Container,
     Content,
     ContentWrapper,
     TopInput,
-} from "./LayoutUser.style"
+} from "./layoutUser.styles"
 
 const RequiredLayout: React.FC<layoutUserProps> = ({
     children,

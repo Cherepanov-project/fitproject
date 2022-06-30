@@ -14,7 +14,7 @@ import {
     DivInformation,
     ImageAdmin,
     Anavbar,
-} from "./Navbar.styled"
+} from "./navbar.styles"
 
 const Navbar = () => {
     const router = useRouter()

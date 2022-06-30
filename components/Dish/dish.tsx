@@ -4,9 +4,9 @@ import { useRouter } from "next/router"
 import img from "/common/images/DishChikenImg.png"
 import generateId from "../../utils/generateId"
 import { IFoodItemType, dishFood } from "../../models/dish/dish"
-import DishIngredients from "./DishIngredients"
-import { LayoutUser } from "../../containers/Layout-user/Layout-user"
-import HeadLinkBack from "../HeadLinkBack"
+import DishIngredients from "./dishIngredients"
+import { LayoutUser } from "../../containers/Layout-user/layoutUser"
+import HeadLinkBack from "../headLinkBack"
 import {
     DishComponent,
     DishItem,
@@ -16,7 +16,7 @@ import {
     FoodContainer,
     ButtonFood,
     DishDescriptionWrapper,
-} from "./DishStyles"
+} from "./dish.styles"
 
 const Dish = () => {
     const { query } = useRouter()

@@ -1,4 +1,4 @@
-import { withLayout } from "../../containers/Layout-admin/Layout-admin"
+import { withLayout } from "../../containers/Layout-admin/layoutAdmin"
 
 const Overview = () => {
     return <h1>Overview</h1>

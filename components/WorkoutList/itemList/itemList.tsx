@@ -7,7 +7,7 @@ import Pagination from "@mui/material/Pagination"
 import Stack from "@mui/material/Stack"
 import useMediaQuery from "@mui/material/useMediaQuery"
 
-import { ImgWrapper, TextWrapper, Exercise, Reps } from "./ItemListStyled"
+import { ImgWrapper, TextWrapper, Exercise, Reps } from "./itemList.styles"
 import { fetchWorkouts } from "../../../services/API/workouts"
 import { filterExerciseList } from "../../../utils/filterExercises";
 

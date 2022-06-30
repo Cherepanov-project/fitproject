@@ -9,7 +9,7 @@ import Snackbar from "@mui/material/Snackbar"
 
 import { loginUser } from "../../../services/API/loginUser"
 
-import { FormTextField } from "../../../components/User/FormTextField"
+import { FormTextField } from "../../../components/User/formTextField"
 
 import { validationLoginUser } from "../../../utils/validationSchema"
 import { RightSide, Title2, ForgotPassword } from "../userLoginOrRegisterStyle"

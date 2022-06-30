@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { ErrorMessage } from "formik"
-import { TStyledInput } from "../../containers/Layout-admin/LayoutAdmin.interface"
+import { TStyledInput } from "../../containers/Layout-admin/layoutAdmin.interface"
 
 export const FormAdminWrapper = styled.div`
     width: 380px;

@@ -21,9 +21,9 @@ import { LOGIN_PAGE } from "../../../constants/urls"
 
 import { RightSide } from "../userLoginOrRegisterStyle"
 import { FormikStepper } from "./FormikStepper"
-import { FormikStep } from "../../../components/User/FormikStep"
-import { FormTextField } from "../../../components/User/FormTextField"
-import { FormSelectField } from "../../../components/User/FormSelectField"
+import { FormikStep } from "../../../components/User/formikStep"
+import { FormTextField } from "../../../components/User/formTextField"
+import { FormSelectField } from "../../../components/User/formSelectField"
 
 export const RegisterForm: React.FC = () => {
     const [open, setOpen] = useState<boolean>(false)

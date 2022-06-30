@@ -4,8 +4,8 @@ import styled from "styled-components"
 import { Box, Grid } from "@material-ui/core"
 import { useField } from "formik"
 
-import { SingleFileUpload } from "./SingleFileUpload"
-import UploadError from "./UploadError"
+import { SingleFileUpload } from "./singleFileUpload"
+import UploadError from "./uploadError"
 import styles from "./FileUpload.module.scss"
 import classnames from "classnames/bind"
 

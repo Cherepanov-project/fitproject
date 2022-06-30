@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { Grid, LinearProgress, Typography } from "@material-ui/core"
 
-import { FileHeader } from "./FileHeader"
+import { FileHeader } from "./fileHeader"
 
 interface ISingleFileUploadWithProgressProps {
     file: File

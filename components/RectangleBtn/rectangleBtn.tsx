@@ -1,4 +1,4 @@
-import { RectangleButton, TextWrapper } from "./RectangleBtnStyles"
+import { RectangleButton, TextWrapper } from "./rectangleBtn.styles"
 
 interface Props {
     text: string

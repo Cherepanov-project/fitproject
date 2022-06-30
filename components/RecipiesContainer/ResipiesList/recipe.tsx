@@ -11,7 +11,7 @@ import EditIcon from "@mui/icons-material/Edit"
 import Link from "next/link"
 import Image from "next/image"
 
-import { MenuIcon } from "./Recipes"
+import { MenuIcon } from "./recipes"
 import imageMan from "./images/avatarEat.svg"
 import ColorfulTeg from "../../ColorfulTeg"
 

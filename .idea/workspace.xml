@@ -5,32 +5,118 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9b1b128-d2c6-4002-9458-591efed2fabe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/components/WorkoutList/itemList/func.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/AdminTable/UserItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/AdminTable/UserItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Card/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Card/Card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Dish/Dish.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Dish/Dish.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Dish/DishIngredients.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Dish/DishIngredients.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Exercises/Exercises.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Exercises/Exercises.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/FilterBtn/FilterBtn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/FilterBtn/FilterBtn.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/FilterBtn/ItemFilter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/FilterBtn/ItemFilter.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/FormAdmin/SignUpForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/FormAdmin/SignUpForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/FormAdmin/SingInForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/FormAdmin/SingInForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/FormAdmin/TextField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/FormAdmin/TextField.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ListOfDishes/BlockSpecification.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ListOfDishes/BlockSpecification.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ListOfDishes/SideBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ListOfDishes/SideBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ProgressBtn/ProgressBtn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ProgressBtn/ProgressBtn.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/RectangleBtn/RectangleBtn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/RectangleBtn/RectangleBtn.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/UserChar/UserChar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/UserChar/UserChar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/WorkoutList/itemList/ItemList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/WorkoutList/itemList/ItemList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AdminTable/TableHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/AdminTable/tableHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AdminTable/UserItem.style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/AdminTable/userItem.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AdminTable/UserItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/AdminTable/userItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/CalendarContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/calendarContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Card/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Card/card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Card/CardStyles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/Card/card.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ColorfulTeg/ColorfulTeg.style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/ColorfulTeg/colorfulTeg.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ColorfulTeg/ColorfulTeg.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ColorfulTeg/colorfulTeg.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ColorfulTeg/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/ColorfulTeg/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Dish/Dish.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Dish/dish.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Dish/DishIngredients.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Dish/dishIngredients.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Dish/DishStyles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/Dish/dish.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Exercises/Exercises.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Exercises/exercises.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Exercises/ExercisesStyles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/Exercises/exercises.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/FilterBtn/ContentStyles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/FilterBtn/content.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/FilterBtn/FilterBtn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/FilterBtn/filterBtn.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/FilterBtn/ItemFilter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/FilterBtn/itemFilter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/FormAdmin/Form.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/FormAdmin/form.interface.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/FormAdmin/Form.styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/FormAdmin/form.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/FormAdmin/FormContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/FormAdmin/formContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/FormAdmin/SignUpForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/FormAdmin/signUpForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/FormAdmin/SingInForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/FormAdmin/singInForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/FormAdmin/TextField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/FormAdmin/textField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/FramerCalendar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/framerCalendar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Graph/CustomTooltip/CustomTooltip.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Graph/CustomTooltip/customTooltip.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Graph/Graph.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Graph/graph.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/HeadLinkBack.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/headLinkBack.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ListOfDishes/BlockSpecification.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ListOfDishes/blockSpecification.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ListOfDishes/CheckboxMeals.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ListOfDishes/checkboxMeals.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ListOfDishes/CheckboxStar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ListOfDishes/checkboxStar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ListOfDishes/MenuItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ListOfDishes/menuItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ListOfDishes/SideBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ListOfDishes/sideBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Pagination/Pagination.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pagination/pagination.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ProgressBtn/ProgressBtn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ProgressBtn/progressBtn.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ProgressBtn/ProgressBtnStyles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/ProgressBtn/progressBtn.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/RecipiesContainer/AddBtn/AddForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/RecipiesContainer/AddBtn/addForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/RecipiesContainer/ColumnName/ColumnName.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/RecipiesContainer/ColumnName/columnName.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/RecipiesContainer/ResipiesList/Recipe.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/RecipiesContainer/ResipiesList/recipe.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/RecipiesContainer/ResipiesList/Recipes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/RecipiesContainer/ResipiesList/recipes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/RecipiesEditForm/EditorMCE/EditorMCE.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/RecipiesEditForm/EditorMCE/editorMCE.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/RecipiesEditForm/HeaderInput/HeaderInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/RecipiesEditForm/HeaderInput/headerInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/RecipiesEditForm/IngredientsField/IngredientsFiled.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/RecipiesEditForm/IngredientsField/ingredientsFiled.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/RecipiesEditForm/NutritionValuesField/NutritionValue.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/RecipiesEditForm/NutritionValuesField/nutritionValue.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/RecipiesEditForm/ShortDescriptionInput/ShortDescriptionInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/RecipiesEditForm/ShortDescriptionInput/shortDescriptionInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/RecipiesEditForm/TagsInput/TagsInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/RecipiesEditForm/TagsInput/tagsInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/RecipiesEditForm/upload/FileHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/RecipiesEditForm/upload/fileHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/RecipiesEditForm/upload/FileUpload.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/RecipiesEditForm/upload/fileUpload.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/RecipiesEditForm/upload/SingleFileUpload.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/RecipiesEditForm/upload/singleFileUpload.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/RecipiesEditForm/upload/UploadError.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/RecipiesEditForm/upload/uploadError.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/RectangleBtn/RectangleBtn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/RectangleBtn/rectangleBtn.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/RectangleBtn/RectangleBtnStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/RectangleBtn/rectangleBtn.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/SquareIcon/SquareIcon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/SquareIcon/squareIcon.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/SquareIcon/SquareIconStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/SquareIcon/squareIcon.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/User/FormSelectField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/User/formSelectField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/User/FormTextField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/User/formTextField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/User/FormikStep.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/User/formikStep.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/User/RightSideBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/User/rightSideBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/User/RightSideBarStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/User/rightSideBar.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/User/UserLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/User/userLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/UserChar/UserChar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/UserChar/userChar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/UserChar/UserCharStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/UserChar/userChar.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/WidgetItem/TasksWidgetItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/WidgetItem/tasksWidgetItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/WidgetItem/TicketsWidgetItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/WidgetItem/ticketsWidgetItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/WidgetItem/widgetItemStyles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/WidgetItem/widgetItem.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/WorkoutList/Categories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/WorkoutList/categories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/WorkoutList/MuscleGroup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/WorkoutList/muscleGroup.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/WorkoutList/itemList/ItemList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/WorkoutList/itemList/itemList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/WorkoutList/itemList/ItemListStyled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/WorkoutList/itemList/itemList.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/WorkoutList/sidebar/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/WorkoutList/sidebar/sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/containers/Layout-admin/Layout-admin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/containers/Layout-admin/layoutAdmin.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/containers/Layout-admin/LayoutAdmin.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/containers/Layout-admin/layoutAdmin.interface.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/containers/Layout-admin/LayoutAdmin.styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/containers/Layout-admin/layoutAdmin.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/containers/Layout-admin/Navbar/Navbar.styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/containers/Layout-admin/Navbar/navbar.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/containers/Layout-admin/Navbar/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/containers/Layout-admin/Navbar/navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/containers/Layout-admin/Sidebar/Sidebar.styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/containers/Layout-admin/Sidebar/sidebar.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/containers/Layout-admin/Sidebar/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/containers/Layout-admin/Sidebar/sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/containers/Layout-user/Layout-user.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/containers/Layout-user/layoutUser.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/containers/Layout-user/LayoutUser.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/containers/Layout-user/layoutUser.interface.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/containers/Layout-user/LayoutUser.style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/containers/Layout-user/layoutUser.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/containers/Layout-user/Navbar/LeftSideBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/containers/Layout-user/Navbar/leftSideBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/containers/Layout-user/Navbar/LeftSideBarStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/containers/Layout-user/Navbar/leftSideBar.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/containers/Layout-user/Userbar/RightSideBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/containers/Layout-user/Userbar/rightSideBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/containers/Layout-user/Userbar/RightSideBarStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/containers/Layout-user/Userbar/rightSideBar.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/[id].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/articles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/articles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/exercises.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/exercises.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/admin/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/messages.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/messages.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/overview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/overview.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/admin/overview/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/overview/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/admin/recipes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/recipes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/settings.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/admin/sign-up.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/sign-up.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/subscription.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/subscription.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/admin/users/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/users/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/calendar/dieta/[el].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/calendar/dieta/[el].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/calendar/dietaplan/[food].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/calendar/dietaplan/[food].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/calendar/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/calendar/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/calendar/workout/[el].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/calendar/workout/[el].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/calendar/workoutExercises/[exercises].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/calendar/workoutExercises/[exercises].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/user/listOfDishes/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/listOfDishes/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/login/loginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/login/loginForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/register/RegisterFormStep.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/register/RegisterFormStep.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/register/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/register/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/user/statistics/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/statistics/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/workoutList/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/workoutList/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/workoutList/workout/[el].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/workoutList/workout/[el].tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stories/ProgressBtn.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/stories/ProgressBtn.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/RectangleBtn.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/stories/RectangleBtn.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/SquareIcon.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/stories/SquareIcon.stories.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stories/UserChar.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/stories/UserChar.stories.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/__test__/regAdmin_1.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/tests/__test__/regAdmin_1.test.tsx" afterDir="false" />
     </list>
@@ -67,16 +153,17 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Git.Branch.Popup.ShowAllRemotes": "true",
     "node.js.selected.package.tslint": "(autodetect)",
     "ts.external.directory.path": "/Users/timikos/WebstormProjects/fitproject/node_modules/typescript/lib"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/utils" />
       <recent name="D:\Projects\fitproject\common\images" />
       <recent name="$PROJECT_DIR$/models/userStatistics" />
       <recent name="$PROJECT_DIR$/styles" />
-      <recent name="$PROJECT_DIR$/utils" />
       <recent name="$PROJECT_DIR$/constants" />
     </key>
   </component>

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react"
 import { TableContainer, Table, TableBody } from "@mui/material"
 
-import { withLayout } from "../../../containers/Layout-admin/Layout-admin"
+import { withLayout } from "../../../containers/Layout-admin/layoutAdmin"
 import { ContentWrapper } from "./stylesUsers"
-import FilterBtn from "../../../components/FilterBtn/FilterBtn"
-import UserItem from "../../../components/AdminTable/UserItem"
+import FilterBtn from "../../../components/FilterBtn/filterBtn"
+import UserItem from "../../../components/AdminTable/userItem"
 import { userList } from "../../../models/userList/userList"
-import Pagination from "../../../components/Pagination/Pagination"
+import Pagination from "../../../components/Pagination/pagination"
 import getArrPagination from "../../../utils/getArrPagination"
-import ColumnName from "../../../components/RecipiesContainer/ColumnName/ColumnName"
+import ColumnName from "../../../components/RecipiesContainer/ColumnName/columnName"
 
 interface IDataType {
     id: string

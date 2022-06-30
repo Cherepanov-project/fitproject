@@ -20,7 +20,7 @@ import {
     ItemName,
     Ul,
     Hr,
-} from "./Sidebar.styled"
+} from "./sidebar.styles"
 
 export interface ISidebarMenuItem {
     route: string

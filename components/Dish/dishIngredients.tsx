@@ -7,7 +7,7 @@ import {
     IngredientsItem,
     IngredientsItemImg,
     IngredientsItemText,
-} from "./DishStyles"
+} from "./dish.styles"
 
 interface IDishIngredientsProps {
     foodItem: IFoodItemType

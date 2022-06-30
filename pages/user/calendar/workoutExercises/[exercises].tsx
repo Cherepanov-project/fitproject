@@ -1,9 +1,9 @@
 import { useRouter } from "next/router"
 
-import CalendarContainer from "../../../../components/CalendarContainer"
-import HeadLinkBack from "../../../../components/HeadLinkBack"
-import Exercises from "../../../../components/Exercises/Exercises"
-import { LayoutUser } from "../../../../containers/Layout-user/Layout-user"
+import CalendarContainer from "../../../../components/calendarContainer"
+import HeadLinkBack from "../../../../components/headLinkBack"
+import Exercises from "../../../../components/Exercises/exercises"
+import { LayoutUser } from "../../../../containers/Layout-user/layoutUser"
 
 const WorkoutExercises = () => {
     const { query } = useRouter()

@@ -26,7 +26,7 @@ import {
     Loss,
     Meter,
     /* SquareBtn, */
-} from "./RightSideBarStyle"
+} from "./rightSideBar.styles"
 
 interface ISideBarProps {
     avatar: StaticImageData

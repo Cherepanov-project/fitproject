@@ -4,6 +4,7 @@
 .pnp.js
 /.vercel
 /.husky
+/.idea
 
 # testing
 /coverage

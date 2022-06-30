@@ -3,10 +3,10 @@ import Router from "next/router"
 import Cookies from "js-cookie"
 import { ThemeProvider, createTheme } from "@mui/material/styles"
 
-import Sidebar from "./Sidebar/Sidebar"
-import { Navbar } from "./Navbar/Navbar"
-import { Container, Content, MainContainer } from "./LayoutAdmin.styled"
-import { layoutAdminProps } from "./LayoutAdmin.interface"
+import Sidebar from "./Sidebar/sidebar"
+import { Navbar } from "./Navbar/navbar"
+import { Container, Content, MainContainer } from "./layoutAdmin.styles"
+import { layoutAdminProps } from "./layoutAdmin.interface"
 
 const theme = createTheme({
     palette: {

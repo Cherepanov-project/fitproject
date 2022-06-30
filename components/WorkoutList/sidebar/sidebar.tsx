@@ -1,6 +1,6 @@
 import { SidebarWrapper } from "../../../pages/user/workoutList/workoutListStyles"
-import Categories from "../Categories"
-import MuscleGroup from "../MuscleGroup"
+import Categories from "../categories"
+import MuscleGroup from "../muscleGroup"
 
 const Sidebar = ({ muscles, setMuscle }) => {
     return (

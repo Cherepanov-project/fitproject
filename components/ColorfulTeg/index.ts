@@ -1,3 +1,3 @@
-import ColorfulTeg from "./ColorfulTeg"
+import ColorfulTeg from "./colorfulTeg"
 
 export default ColorfulTeg

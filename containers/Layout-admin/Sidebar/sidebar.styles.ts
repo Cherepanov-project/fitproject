@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components"
 
-import { TStyledDiv } from "../LayoutAdmin.interface"
+import { TStyledDiv } from "../layoutAdmin.interface"
 
 export const SidebarWrapper = styled.div`
     height: 100vh;

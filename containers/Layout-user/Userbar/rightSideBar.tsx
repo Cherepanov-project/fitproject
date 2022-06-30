@@ -21,7 +21,7 @@ import {
     RightSideBarWrapper,
     MainWrapper,
     /* SquareBtn, */
-} from "./RightSideBarStyle"
+} from "./rightSideBar.styles"
 import goalsIcon from "../../../common/images/layoutUser/userbarIcons/goals.svg"
 import diet from "../../../common/images/layoutUser/userbarIcons/diet.svg"
 import defaultAvatar from "../../../common/images/layoutUser/userbarIcons/defaultAvatar.png"
@@ -32,7 +32,7 @@ import Menu from "@mui/material/Menu"
 import MenuItem from "@mui/material/MenuItem"
 import { Logout, PersonAdd, Settings } from "@mui/icons-material"
 import { useRouter } from "next/router"
-import { PaperProps } from "./RightSideBarStyle"
+import { PaperProps } from "./rightSideBar.styles"
 import generateId from "../../../utils/generateId"
 const drawerWidth: string = "244px"
 

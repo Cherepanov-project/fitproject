@@ -5,7 +5,7 @@ import { waitFor } from "@testing-library/react"
 import Cookies from "js-cookie"
 import MockedImage from "next/image"
 
-import SingInForm from "../../components/FormAdmin/SingInForm"
+import SingInForm from "../../components/FormAdmin/singInForm"
 import api from "../../services/API"
 
 jest.mock("next/image", () => {
