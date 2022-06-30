@@ -11,7 +11,7 @@ import EditIcon from "@mui/icons-material/Edit"
 import Link from "next/link"
 import Image from "next/image"
 
-import { MenuIcon } from "./recipies"
+import { MenuIcon } from "./Recipes"
 import imageMan from "./images/avatarEat.svg"
 import ColorfulTeg from "../../ColorfulTeg"
 
@@ -33,6 +33,7 @@ const Recipe = ({
     const handleClick = (event: React.MouseEvent<HTMLElement>) =>
         setAnchorEl(event.currentTarget)
     const handleClose = () => setAnchorEl(null)
+
     const deleteArticle = () => {
         // функция для удаленея рецепта
         console.log("delete")
@@ -46,7 +47,7 @@ const Recipe = ({
                 sx={{ display: "flex", paddingLeft: 3.5 }}
             >
                 <Avatar sx={{ margin: 2 }}>
-                    <Image width={40} height={40} src={imageMan} />
+                    <Image src={imageMan} />
                 </Avatar>
                 portion size ({portionSize}g), fat ({fats}), proteins (
                 {proteins}), carbohydrates ({carbohydrates})

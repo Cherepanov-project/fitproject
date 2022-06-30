@@ -28,8 +28,8 @@ const userInfo = [
 
 const exercises = [
     {
-        placeholder: "Choose type of programm",
-        name: "typeOfProgramm",
+        placeholder: "Choose type of program",
+        name: "typeOfProgram",
         values: [
             { value: "aaa", title: "aaa" },
             { value: "bbb", title: "bbb" },
@@ -56,10 +56,10 @@ const exercises = [
     },
 ]
 
-const mealPreferenciesSelect = [
+const mealPreferencesSelect = [
     { value: "jjj", title: "jjj" },
     { value: "kkk", title: "kkk" },
     { value: "lll", title: "lll" },
 ]
 
-export { userInfo, exercises, mealPreferenciesSelect }
+export { userInfo, exercises, mealPreferencesSelect }

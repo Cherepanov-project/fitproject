@@ -5,6 +5,7 @@ import ListItemIcon from "@mui/material/ListItemIcon"
 import ListItemText from "@mui/material/ListItemText"
 import Cookies from "js-cookie"
 import SettingsIcon from "../../../common/images/layoutUser/userbarIcons/SeetingsIcon.svg"
+
 import {
     Avatar,
     Icon,
@@ -21,10 +22,8 @@ import {
     MainWrapper,
     /* SquareBtn, */
 } from "./RightSideBarStyle"
-// import goalsIcon from "../images/UserBarIcons/goals.svg"
 import goalsIcon from "../../../common/images/layoutUser/userbarIcons/goals.svg"
 import diet from "../../../common/images/layoutUser/userbarIcons/diet.svg"
-// import SeetingsIcon from "../images/UserBarIcons/SeetingsIcon.svg"
 import defaultAvatar from "../../../common/images/layoutUser/userbarIcons/defaultAvatar.png"
 import arrow from "../../../common/images/layoutUser/userbarIcons/arrow.svg"
 import meter from "../../../common/images/layoutUser/userbarIcons/meter.svg"

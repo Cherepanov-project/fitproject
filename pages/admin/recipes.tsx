@@ -1,21 +1,16 @@
 import React from "react"
-import { withLayout } from "../../layouts/Layout-admin/Layout-admin"
-import { useState, useEffect } from "react"
-import FilterBtn from "../../components/FilterBtn/filter"
-import { ContentListType, contentList } from "../../model/recipies/recipiesList"
-import Recipe from "../../components/RecipiesContainer/ResipiesList/recipe"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
 import TableContainer from "@mui/material/TableContainer"
 import { useState, useEffect } from "react"
 
 import { withLayout } from "../../containers/Layout-admin/Layout-admin"
-import { ContentList, FooterRecipies } from "./overview/overviewStyles"
+import { ContentList, FooterRecipes } from "./overview/overviewStyles"
 import FilterBtn from "../../components/FilterBtn/filter"
-import Recipie from "../../components/RecipiesContainer/ResipiesList/recipie"
-import CreateForm from "../../components/RecipiesContainer/AddBtn/addForm"
+import Recipe from "../../components/RecipiesContainer/ResipiesList/Recipe"
+import CreateForm from "../../components/RecipiesContainer/AddBtn/AddForm"
 import Pagination from "../../components/Pagination/pagination"
-import ColumnName from "../../components/RecipiesContainer/ColumnName/columnName"
+import ColumnName from "../../components/RecipiesContainer/ColumnName/ColumnName"
 import getArrPagination from "../../utils/getArrPagination"
 import {
     IContentListType,
@@ -23,7 +18,7 @@ import {
 } from "../../models/recipies/recipiesList"
 
 const Recipes = () => {
-    const [arrRecipes, setArrRecipes] = useState<ContentListType[]>([])
+    const [arrRecipes, setArrRecipes] = useState<IContentListType[]>([])
     const [page, setPage] = useState<number>(0)
     const [rowsPerPage, setRowsPerPage] = useState<number>(8)
 
@@ -62,15 +57,15 @@ const Recipes = () => {
 
     return (
         <ContentList>
-            <FilterBtn title="Recipies" />
+            <FilterBtn title="Recipes" />
             <TableContainer>
                 <Table sx={{ minWidth: 1120 }}>
                     <ColumnName />
                     <TableBody>{recipe}</TableBody>
                 </Table>
             </TableContainer>
-            <FooterRecipies>
-                <CreateForm data-testid="new-recipe" />
+            <FooterRecipes>
+                <CreateForm />
                 <Pagination
                     count={arrRecipes.length}
                     rowsPerPageOptions={[8, 10]}
@@ -79,7 +74,7 @@ const Recipes = () => {
                     rowsPerPage={rowsPerPage}
                     onChangeRowsPerPage={handleChangeRowsPerPage}
                 />
-            </FooterRecipies>
+            </FooterRecipes>
         </ContentList>
     )
 }

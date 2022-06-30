@@ -77,9 +77,9 @@ export const LoginForm: React.FC = () => {
                                 <div>
                                     {
                                         <Link href="#" passHref>
-                                            <ForgorPassword>
+                                            <ForgotPassword>
                                                 Forgot password?
-                                            </ForgorPassword>
+                                            </ForgotPassword>
                                         </Link>
                                     }
                                 </div>
@@ -114,3 +114,5 @@ export const LoginForm: React.FC = () => {
         </>
     )
 }
+
+export { LoginForm }

@@ -64,13 +64,13 @@ export const NutritionalContainer = styled.div`
     margin-bottom: 16px;
 `
 
-export const IndigrientsContainer = styled.div`
+export const IngredientsContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 16px;
 `
 
-export const IndigrientItem = styled.div`
+export const IngredientsItem = styled.div`
     width: 160px;
     height: 40px;
     padding-right: 10px;
@@ -78,17 +78,15 @@ export const IndigrientItem = styled.div`
     display: flex;
 `
 
-export const IndigrientItemImg = styled.div<IImg>`
+export const IngredientsItemImg = styled.div<IImg>`
     width: 50px;
     height: 40px;
     border-radius: 7px;
     border: 1px solid white;
-    background: url(${({ imgUrl }) => imgUrl}) #f0f7ff;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: no-repeat center url(${({ imgUrl }) => imgUrl}) #f0f7ff;
 `
 
-export const IndigrientItemText = styled.div`
+export const IngredientsItemText = styled.div`
     margin-left: 10px;
 `
 

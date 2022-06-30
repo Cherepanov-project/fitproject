@@ -31,8 +31,8 @@ export const Meter = styled.img``
 
 export const Avatar = styled.img`
 	width: 64px;
-	height 65px;
-	margin: 0px 10px 0px 24px;
+	height: 65px;
+	margin: 0 10px 0 24px;
 	border: 2px solid #6D63FF;
 	box-sizing: border-box;
 	border-radius: 100px;

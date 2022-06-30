@@ -20,7 +20,7 @@ const RequiredLayout: React.FC<layoutUserProps> = ({
                 <ContentWrapper>
                     <TopInput
                         type="text"
-                        placeholder="Search Activites, messages"
+                        placeholder="Search Activities, messages"
                     />
                     <Content>
                         <main>{children}</main>

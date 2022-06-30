@@ -9,7 +9,7 @@ export const MainWrapper = styled.div`
 
 export const SidebarWrapper = styled.div`
     width: 230px;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
     display: flex;
     flex-direction: column;
     flex-shrink: 0;

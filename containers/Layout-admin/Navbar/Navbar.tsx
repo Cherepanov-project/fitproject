@@ -33,7 +33,7 @@ const Navbar = () => {
         <NavbarWrapper>
             <PageName>
                 {editRecipie[0] === "edit"
-                    ? "Edit recipie"
+                    ? "Edit recipe"
                     : page[0].toUpperCase() + page.slice(1)}
             </PageName>
             <DivAdminInformation>

@@ -4,7 +4,7 @@ import { useRouter } from "next/router"
 import img from "/common/images/DishChikenImg.png"
 import generateId from "../../utils/generateId"
 import { IFoodItemType, dishFood } from "../../models/dish/dish"
-import DishIndigrients from "./DishIndigrients"
+import DishIngredients from "./DishIngredients"
 import { LayoutUser } from "../../containers/Layout-user/Layout-user"
 import HeadLinkBack from "../HeadLinkBack"
 import {
@@ -12,7 +12,7 @@ import {
     DishItem,
     NutritionalItem,
     NutritionalContainer,
-    IndigrientsContainer,
+    IngredientsContainer,
     FoodContainer,
     ButtonFood,
     DishDescriptionWrapper,
@@ -22,31 +22,31 @@ const Dish = () => {
     const { query } = useRouter()
     const [foodItem, setFoodItem] = useState<IFoodItemType>(dishFood)
 
-    const indigrientsActive = () => {
-        const activeIndigrientsMutan = {
+    const ingredientsActive = () => {
+        const activeIngredientsMutant = {
             ...foodItem,
-            activeIndigrients: !foodItem.activeIndigrients,
+            activeIngredients: !foodItem.activeIngredients,
         }
-        setFoodItem(activeIndigrientsMutan)
+        setFoodItem(activeIngredientsMutant)
     }
 
-    const recipiClickActive = () => {
-        const activeRecipeMutan = {
+    const recipeClickActive = () => {
+        const activeIngredientsMutant = {
             ...foodItem,
             activeRecipe: !foodItem.activeRecipe,
         }
-        setFoodItem(activeRecipeMutan)
+        setFoodItem(activeIngredientsMutant)
     }
 
     const favouritesAdd = () => {
         // Заглушка для будущего пока нету бэка
     }
 
-    const itemNutritionalValue = foodItem.nutritionalValue.map(el => {
+    const itemNutritionalValue = foodItem.nutritionValue.map(el => {
         return (
             <NutritionalItem key={generateId()}>
                 <div>{el.value}</div>
-                <div>{el.nutritiona}</div>
+                <div>{el.nutrition}</div>
                 <div>{el.units}</div>
             </NutritionalItem>
         )
@@ -64,17 +64,17 @@ const Dish = () => {
                     <p>{foodItem.description}</p>
                     <ButtonFood
                         $display={foodItem.activeRecipe}
-                        onClick={recipiClickActive}
+                        onClick={recipeClickActive}
                     >
                         Закрыть
                     </ButtonFood>
                 </DishDescriptionWrapper>
                 <FoodContainer $display={foodItem.activeRecipe}>
                     <h3>Ingredients</h3>
-                    <IndigrientsContainer>
-                        <DishIndigrients foodItem={foodItem} />
-                    </IndigrientsContainer>
-                    <ButtonFood onClick={indigrientsActive}>
+                    <IngredientsContainer>
+                        <DishIngredients foodItem={foodItem} />
+                    </IngredientsContainer>
+                    <ButtonFood onClick={ingredientsActive}>
                         Просмотреть все ингредиенты
                     </ButtonFood>
                 </FoodContainer>
@@ -84,7 +84,7 @@ const Dish = () => {
                         {itemNutritionalValue}
                     </NutritionalContainer>
                     <div>
-                        <ButtonFood onClick={recipiClickActive}>
+                        <ButtonFood onClick={recipeClickActive}>
                             Рецепт
                         </ButtonFood>
                         <ButtonFood onClick={favouritesAdd}>

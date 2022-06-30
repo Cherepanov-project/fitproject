@@ -13,7 +13,7 @@ const AllMenus = () => {
         <MenuItem
             key={Math.random()}
             namesFood={item.namesFood}
-            nutritionalValue={item.nutritionalValue}
+            nutritionalValue={item.nutritionValue}
             star={item.star}
             id={item.id}
         />

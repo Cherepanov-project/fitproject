@@ -10,8 +10,8 @@ import ShortDescriptionText from "../../components/RecipiesEditForm/ShortDescrip
 import IngredientsFiled from "../../components/RecipiesEditForm/IngredientsField/IngredientsFiled"
 import TagsInput from "../../components/RecipiesEditForm/TagsInput/TagsInput"
 import EditorMCE from "../../components/RecipiesEditForm/EditorMCE/EditorMCE"
-import NutrilonValue from "../../components/RecipiesEditForm/NutritionValuesField/NutrilonValue"
-import { INutrilon, nutrilonsMapped } from "../../models/recipes/recipes"
+import NutritionValue from "../../components/RecipiesEditForm/NutritionValuesField/NutritionValue"
+import { INutrition, nutritionMapped } from "../../models/recipes/recipes"
 import { exercisesValues } from "../../models/exercises/exercises"
 import { articlesValues } from "../../models/articles/articles"
 import { withLayout } from "../../containers/Layout-admin/Layout-admin"
@@ -61,8 +61,8 @@ const MainContainer = styled.div`
 // 	  .required('short description is required'),
 //  });
 
-const RecipiesEditForm = () => {
-    const [arrRecipie, setArrRecipie] = useState<IContentListType[]>([])
+const RecipesEditForm = () => {
+    const [arrRecipe, setArrRecipe] = useState<IContentListType[]>([])
 
     const { asPath, query } = useRouter()
     let path = asPath.split("/").pop()
@@ -91,7 +91,7 @@ const RecipiesEditForm = () => {
         contentList.map((el: any) => {
             let aaa = path.split("-").pop()
             if (el.id === aaa) {
-                setArrRecipie(el)
+                setArrRecipe(el)
             }
         })
     }, [])
@@ -179,16 +179,16 @@ const RecipiesEditForm = () => {
                                                 alignItems="flex-end"
                                                 spacing={1}
                                             >
-                                                {nutrilonsMapped.map(
+                                                {nutritionMapped.map(
                                                     (
                                                         {
                                                             name,
                                                             formik,
-                                                        }: INutrilon,
+                                                        }: INutrition,
                                                         index: number
                                                     ): React.ReactNode => {
                                                         return (
-                                                            <NutrilonValue
+                                                            <NutritionValue
                                                                 key={index}
                                                                 formik={formik}
                                                                 name={name}
@@ -244,4 +244,4 @@ const RecipiesEditForm = () => {
     )
 }
 
-export default withLayout(RecipiesEditForm)
+export default withLayout(RecipesEditForm)

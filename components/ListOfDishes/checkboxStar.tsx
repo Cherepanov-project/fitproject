@@ -16,12 +16,12 @@ import {
 
 const CheckboxStar = () => {
     const setArgumentStar = function (amt: string) {
-        const newState = { ...checkboxs }
+        const newState = { ...checkbox }
         newState[amt] = !newState[amt]
         setCheckbox(newState)
     }
 
-    const [checkboxs, setCheckbox] = useState<ISideBarCheckBoxStar>(
+    const [checkbox, setCheckbox] = useState<ISideBarCheckBoxStar>(
         initialValuesCheckBoxStar
     )
 
@@ -29,7 +29,7 @@ const CheckboxStar = () => {
         <BoxCheckBox key={item.id}>
             <Checkbox
                 onChange={() => setArgumentStar(item.name)}
-                checked={checkboxs[item.name]}
+                checked={checkbox[item.name]}
             />
             <Rating name="read-only" readOnly value={item.id} />
         </BoxCheckBox>

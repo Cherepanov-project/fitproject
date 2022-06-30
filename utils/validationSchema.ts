@@ -1,6 +1,6 @@
 import * as Yup from "yup"
 
-export const validationUser = Yup.object().shape({
+const validationUser = Yup.object().shape({
     email: Yup.string().email("Enter valid email").required("Required"),
 
     username: Yup.string()

@@ -40,9 +40,9 @@ export const Title2 = styled.h2`
     padding: 0;
 `
 
-export const A = styled.a`
+export const AAA = styled.a`
     color: #4d47c3;
-    text-decorator: none;
+    text-decoration: none;
 `
 
 export const FormWrapper = styled.div`
@@ -53,7 +53,7 @@ export const FormWrapper = styled.div`
 
 export const ErrorMessage = styled.div`
     color: red;
-    fontsize: 8px;
+    font-size: 8px;
 `
 
 export const Input = styled.input<{ error: boolean }>`
@@ -79,10 +79,8 @@ export const InputSelect = styled.select<{ error: boolean }>`
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
-    line-height: 22px;
     color: #a7a3ff;
     background-color: #f0efff;
-    font-size: 15px;
     border-radius: 5px;
     border: ${props => (props.error ? "1px solid red" : "none")};
     &:focus {
@@ -129,10 +127,10 @@ export const RegOrLoginIcon = styled.img`
     img: ${props => props.src};
 `
 
-export const ForgorPassword = styled.div`
+export const ForgotPassword = styled.div`
     margin: 1rem 0 2rem;
     text-align: end;
-    text-decorator: none;
+    text-decoration: none;
     color: #b0b0b0;
     font-size: 13px;
 `

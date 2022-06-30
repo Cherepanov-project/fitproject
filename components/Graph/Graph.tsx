@@ -13,7 +13,7 @@ import {
 import CustomTooltip from "./CustomTooltip/CustomTooltip"
 import { graphData } from "../../models/graph/graph"
 
-const Graph: FC = () => {
+const Graph = () => {
     return (
         <ComposedChart id="graph" width={686} height={386} data={graphData}>
             <defs>

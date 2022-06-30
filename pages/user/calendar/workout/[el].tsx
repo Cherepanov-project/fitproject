@@ -55,7 +55,7 @@ LayoutUser(function () {
                         <ItemWorkoutDiv color="#7B809A" fontSize="14px">
                             Подходы
                         </ItemWorkoutDiv>
-                        <div></div>
+                        <div />
                     </ListWorkoutName>
                     {workoutElement}
                 </WorkoutUl>

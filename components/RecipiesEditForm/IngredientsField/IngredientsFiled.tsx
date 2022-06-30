@@ -36,7 +36,7 @@ const IngredientsFiled: React.FC<IProps> = React.memo((props: IProps) => {
                                   >
                                       <Box
                                           sx={{
-                                              bgcolor: "#F5F5F5",
+                                              bgColor: "#F5F5F5",
                                               borderRadius: 1.25,
                                           }}
                                           my={2}
@@ -63,7 +63,7 @@ const IngredientsFiled: React.FC<IProps> = React.memo((props: IProps) => {
                                                           input: {
                                                               padding: "10px",
                                                           },
-                                                          bgcolor: "#FFF",
+                                                          bgColor: "#FFF",
                                                       }}
                                                   />
                                               </Grid>
@@ -85,7 +85,7 @@ const IngredientsFiled: React.FC<IProps> = React.memo((props: IProps) => {
                                                           input: {
                                                               padding: "10px",
                                                           },
-                                                          bgcolor: "#FFF",
+                                                          bgColor: "#FFF",
                                                       }}
                                                   />
                                               </Grid>

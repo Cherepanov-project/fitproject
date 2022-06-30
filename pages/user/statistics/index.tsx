@@ -18,8 +18,8 @@ import {
     Activity,
     ActivHeader,
     ActivTitle,
-    ActivSelect,
-    DataActivContainer,
+    ActiveSelect,
+    DataActiveContainer,
     TargetContainer,
     TargetWrapper,
     TargetTitle,
@@ -43,15 +43,15 @@ const Frame1 = () => {
                 <Activity>
                     <ActivHeader>
                         <ActivTitle>Activity</ActivTitle>
-                        <ActivSelect defaultValue="Week">
+                        <ActiveSelect defaultValue="Week">
                             <option value="week">Week</option>
                             <option value="Month">Month</option>
                             <option value="Ear">Year</option>
-                        </ActivSelect>
+                        </ActiveSelect>
                     </ActivHeader>
                     <UserChar />
                 </Activity>
-                <DataActivContainer>
+                <DataActiveContainer>
                     <RectangleBtn
                         text={"Daily walking"}
                         bg={"linear-gradient(180deg, #6D63FF 0%, #3B32C0 100%)"}
@@ -78,7 +78,7 @@ const Frame1 = () => {
                             <Target>4</Target>
                         </TargetWrapper>
                     </TargetContainer>
-                </DataActivContainer>
+                </DataActiveContainer>
             </ActivContainer>
             <ProgressContainer>
                 <ProgressBtn

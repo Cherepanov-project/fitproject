@@ -38,8 +38,8 @@ const ItemRation: React.FC<ItemRationProps> = ({
                     </Link>
                 </div>
             </ItemDiv>
-            <ItemDiv color="#7B809A">{dietaEl.callories}</ItemDiv>
-            <ItemDiv color="#7B809A">{dietaEl.natritionValues}</ItemDiv>
+            <ItemDiv color="#7B809A">{dietaEl.calories}</ItemDiv>
+            <ItemDiv color="#7B809A">{dietaEl.nutritionValues}</ItemDiv>
             <ButtonDiv>
                 <ButtonMenu onClick={() => menuClickShow(dietaEl.id)}>
                     ...

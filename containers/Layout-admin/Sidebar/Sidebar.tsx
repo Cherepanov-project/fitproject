@@ -16,7 +16,7 @@ import {
     SidebarItem,
     SidebarHeader,
     SidebarWrapper,
-    A,
+    AAA,
     ItemName,
     Ul,
     Hr,
@@ -56,13 +56,13 @@ const Sidebar = () => {
     const router = useRouter()
     const page = router.asPath.split("/").pop()
 
-    const firstLavel = () => {
+    const firstLevel = () => {
         return (
             <>
                 {sidebarMenuFires.map(menu => (
                     <SidebarItem key={menu.route} selected={menu.name === page}>
                         <Link href={`/${menu.route}`}>
-                            <A>
+                            <AAA>
                                 <Image
                                     src={menu.icon}
                                     width="16"
@@ -70,7 +70,7 @@ const Sidebar = () => {
                                     alt="search"
                                 />
                                 <ItemName>{menu.name}</ItemName>
-                            </A>
+                            </AAA>
                         </Link>
                     </SidebarItem>
                 ))}
@@ -78,13 +78,13 @@ const Sidebar = () => {
         )
     }
 
-    const secondLavel = () => {
+    const secondLevel = () => {
         return (
             <>
                 {sidebarMenuSecond.map(menu => (
                     <SidebarItem key={menu.name} selected={menu.name === page}>
                         <Link href={`/${menu.route}`}>
-                            <A>
+                            <AAA>
                                 <Image
                                     src={menu.icon}
                                     width="16"
@@ -92,7 +92,7 @@ const Sidebar = () => {
                                     alt="search"
                                 />
                                 <ItemName>{menu.name}</ItemName>
-                            </A>
+                            </AAA>
                         </Link>
                     </SidebarItem>
                 ))}
@@ -104,7 +104,7 @@ const Sidebar = () => {
         <SidebarWrapper>
             <SidebarHeader>
                 <Link href={`/admin/overview`}>
-                    <A>
+                    <AAA>
                         <Image
                             src={imageLogoApp}
                             width="32"
@@ -112,13 +112,13 @@ const Sidebar = () => {
                             alt="search"
                         />
                         <ItemName>Dashboard Kit</ItemName>
-                    </A>
+                    </AAA>
                 </Link>
             </SidebarHeader>
             <Ul>
-                {firstLavel()}
+                {firstLevel()}
                 <Hr />
-                {secondLavel()}
+                {secondLevel()}
             </Ul>
         </SidebarWrapper>
     )

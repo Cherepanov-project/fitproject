@@ -88,7 +88,7 @@ export const RegisterForm: React.FC = () => {
                         <FormSelectField
                             placeholder="Choose Goal"
                             name="goal"
-                            values={mealPreferenciesSelect}
+                            values={mealPreferencesSelect}
                         />
                         <FormTextField
                             placeholder="Quantity meals a day"
@@ -124,3 +124,5 @@ export const RegisterForm: React.FC = () => {
         </RightSide>
     )
 }
+
+export { RegisterForm }

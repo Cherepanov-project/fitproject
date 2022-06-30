@@ -42,7 +42,7 @@ const ItemFilter = () => {
 
     if (path === "recipes") {
         filterList = ["MealType", "Categories", "Calories"]
-        optionsTypesMeals = ["Breacfast", "Lunch", "Dinner"]
+        optionsTypesMeals = ["Breakfast", "Lunch", "Dinner"]
     }
 
     if (path === "exercises") {
@@ -53,14 +53,14 @@ const ItemFilter = () => {
     }
 
     const [menuFilterActive, setMenuFilterActive] = useState<boolean>(false)
-    const [filterItemActive, setFilterItemActiv] = useState<boolean>(false)
+    const [filterItemActive, setFilterItemActive] = useState<boolean>(false)
 
     const onFilterActive: React.MouseEventHandler<HTMLDivElement> = e => {
-        setFilterItemActiv(true)
+        setFilterItemActive(true)
     }
 
     const onIconBack: React.MouseEventHandler<HTMLDivElement> = e => {
-        setFilterItemActiv(false)
+        setFilterItemActive(false)
     }
 
     return (

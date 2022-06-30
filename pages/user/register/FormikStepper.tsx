@@ -137,3 +137,5 @@ export const FormikStepper = ({
         </>
     )
 }
+
+export { FormikStepper }
