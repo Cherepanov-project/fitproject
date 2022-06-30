@@ -10,7 +10,7 @@ import {
     FlexWrapper,
     Logo,
     LeftSide,
-    A,
+    AAA,
     Title,
     Title2,
 } from "./userLoginOrRegisterStyle"
@@ -27,8 +27,8 @@ const User = () => {
                         <div>If you don’t have an account register</div>
                         <div>
                             You can
-                            <Link href="/user/register" passHref>
-                                <A>Register here!</A>
+                            <Link href={"/user/register"} passHref>
+                                <AAA>Register here!</AAA>
                             </Link>
                         </div>
                         <RegOrLoginIcon width="50%" src={loginMan.src} />

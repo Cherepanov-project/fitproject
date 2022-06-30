@@ -9,7 +9,7 @@ import { formatDistanceToNow } from "date-fns"
 
 import goalsIcon from "../../common/images/icons/goals.svg"
 import diet from "../../common/images/icons/diet.svg"
-import SeetingsIcon from "../../common/images/icons/settingsIcon.svg"
+import SettingsIcon from "../../common/images/icons/settingsIcon.svg"
 import defaultAvatar from "../../common/images/defaultAvatar.png"
 import arrow from "../../common/images/icons/arrow.svg"
 import meter from "../../common/images/icons/meter.svg"
@@ -111,7 +111,7 @@ const RightSideBar: React.FC<ISideBarProps> = ({
                                         </IconWrapper>
                                     ) : (
                                         <IconWrapper>
-                                            <Icon src={SeetingsIcon.src} />
+                                            <Icon src={SettingsIcon.src} />
                                         </IconWrapper>
                                     )}
                                 </ListItemIcon>

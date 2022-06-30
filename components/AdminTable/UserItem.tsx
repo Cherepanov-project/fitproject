@@ -21,7 +21,7 @@ import { MenuIcon } from "../FilterBtn/stylesContent"
 interface IUserItemProps {
     nameUser: string
     avatar?: string
-    dateRegistor: string
+    dateRegister: string
     role: string
     email: string
     sex: string
@@ -31,7 +31,7 @@ const options = ["Delete", "Edit"]
 
 const UserItem: React.FC<IUserItemProps> = ({
     nameUser,
-    dateRegistor,
+    dateRegister,
     email,
     role,
     sex,
@@ -63,9 +63,9 @@ const UserItem: React.FC<IUserItemProps> = ({
                 <SecondaryText>{sex}</SecondaryText>
             </TableCell>
             <TableCell sx={{ paddingLeft: 3.5, paddingTop: 1 }}>
-                <Text>{format(new Date(dateRegistor), "MMM LL, u")}</Text>
+                <Text>{format(new Date(dateRegister), "MMM LL, u")}</Text>
                 <SecondaryText>
-                    {format(new Date(dateRegistor), "h:mm aaa")}
+                    {format(new Date(dateRegister), "h:mm aaa")}
                 </SecondaryText>
             </TableCell>
             <TableCell sx={{ paddingLeft: 3.5, paddingTop: 1, lineHeight: 1 }}>

@@ -74,7 +74,7 @@ export const DropMenu = styled.div<DropMenuProps>`
     }};
     position: absolute;
     background-color: #7b809a;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
     border-radius: 2px;
     padding: 2px;

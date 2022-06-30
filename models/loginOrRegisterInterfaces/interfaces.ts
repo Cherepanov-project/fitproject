@@ -14,7 +14,7 @@ export interface IRegisterForm {
     wishProducts: string
     goal: string
     quantityMeals: string
-    typeOfProgramm: string
+    typeOfProgram: string
     numberOfWorkouts: string
     typeOfTrainings: string
 }

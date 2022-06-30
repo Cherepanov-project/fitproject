@@ -71,6 +71,6 @@ export const Hr = styled.hr`
     background: #40414a;
 `
 
-export const A = styled.a`
+export const AAA = styled.a`
     display: flex;
 `

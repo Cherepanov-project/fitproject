@@ -13,7 +13,7 @@ import { loginUser } from "../../../services/API/loginUser"
 import { IFormStatus } from "../../../models/loginOrRegisterInterfaces/interfaces"
 import { FormTextField } from "../../../components/User/FormTextField"
 import { validationLoginUser } from "../../../utils/validationSchema"
-import { RightSide, Title2, ForgorPassword } from "../userLoginOrRegisterStyle"
+import { RightSide, Title2, ForgotPassword } from "../userLoginOrRegisterStyle"
 import { RegOrLoginSocial } from "../RegOrLoginSocial"
 
 const LoginForm: React.FC = () => {
@@ -89,9 +89,9 @@ const LoginForm: React.FC = () => {
                                 <div>
                                     {
                                         <Link href="#" passHref>
-                                            <ForgorPassword>
+                                            <ForgotPassword>
                                                 Forgot password?
-                                            </ForgorPassword>
+                                            </ForgotPassword>
                                         </Link>
                                     }
                                 </div>

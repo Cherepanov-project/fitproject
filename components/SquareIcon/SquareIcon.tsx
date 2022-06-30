@@ -1,4 +1,4 @@
-import { CustomIcon } from "./squareIconStyles"
+import { CustomIcon } from "./SquareIconStyles"
 
 interface IProps {
     color: string

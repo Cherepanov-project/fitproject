@@ -31,7 +31,7 @@ const validationMeal = Yup.object().shape({
 })
 
 const validationExercises = Yup.object().shape({
-    typeOfProgramm: Yup.string().required("Required"),
+    typeOfProgram: Yup.string().required("Required"),
     numberOfWorkouts: Yup.string().required("Required"),
     typeOfTrainings: Yup.string().required("Required"),
 })

@@ -4,7 +4,6 @@ import Box from "@mui/material/Box"
 import Paper from "@mui/material/Paper"
 import useMediaQuery from "@mui/material/useMediaQuery"
 import { styled } from "@mui/material/styles"
-
 import {
     startOfMonth,
     getISODay,
@@ -53,7 +52,7 @@ const Calendar = () => {
     const matches2 = useMediaQuery("(min-width:2000px)")
 
     const arrDays = (data: Date): (number | null)[] => {
-        const dayWeekISOend = getISODay(lastDay)
+        const dayWeekISOEnd = getISODay(lastDay)
         const prevMonth = getDate(endOfMonth(subMonths(data, 1)))
         let nextMonth = getDate(addMonths(startDay, 1))
         const arr = Array.from(
@@ -63,7 +62,7 @@ const Calendar = () => {
         for (let index = 1; index < dayWeekISO; index++) {
             arr.unshift(prevMonth - (index - 1))
         }
-        for (let index = dayWeekISOend; index < 7; index++) {
+        for (let index = dayWeekISOEnd; index < 7; index++) {
             arr.push(nextMonth + 1)
         }
         return arr

@@ -11,13 +11,13 @@ import EditIcon from "@mui/icons-material/Edit"
 import Link from "next/link"
 import Image from "next/image"
 
-import { MenuIcon } from "./recipies"
+import { MenuIcon } from "./Recipies"
 import imageMan from "./images/avatarEat.svg"
 import ColorfulTeg from "../../ColorfulTeg"
 
 const options = ["Delete", "Edit"]
 
-const Recipie = ({
+const Recipe = ({
     status,
     name,
     calories,
@@ -113,4 +113,4 @@ const Recipie = ({
     )
 }
 
-export default Recipie
+export default Recipe

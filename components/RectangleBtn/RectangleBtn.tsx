@@ -1,9 +1,9 @@
-import { RectangleButton, TextWrapper } from "./rectangleBtnStyles"
+import { RectangleButton, TextWrapper } from "./RectangleBtnStyles"
 
 interface IProps {
-    text: string
-    bg: string
-    ico?: JSX.Element
+    text: string;
+    bg: string;
+    ico?: JSX.Element;
 }
 
 const RectangleBtn = ({ text, bg, ico }: IProps) => {

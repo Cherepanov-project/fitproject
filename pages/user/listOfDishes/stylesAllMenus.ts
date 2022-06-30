@@ -51,12 +51,12 @@ export const AllMenusWrapper = styled.div`
     border-radius: 5px;
 `
 
-export const MenuItemTitule = styled.div`
+export const MenuItemTitle = styled.div`
     text-align-last: center;
     font-size: 15px;
     font-weight: 500;
 `
-export const MenuItemDescrition = styled.div`
+export const MenuItemDescription = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -76,8 +76,7 @@ export const MenuImg = styled.img`
     width: 150px;
     height: 150px;
     display: block;
-    margin: 0 auto;
-    margin-top: -55px;
+    margin: -55px auto 0 auto;
 
     @media (min-width: 2000px) {
         width: 250px;
@@ -93,7 +92,7 @@ export const Specification = styled.div`
 export const SpecificationSpan = styled.span`
     color: #6a983c;
     background-color: #f4f8ec;
-    border: 1 px black;
+    border: 1px black solid;
     margin: 1px;
     padding: 1px 10px;
     border-radius: 10px;

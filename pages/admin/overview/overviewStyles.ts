@@ -75,7 +75,7 @@ interface CurveDesignationColorProps {
 }
 
 export const CurveDesignationColor = styled.div<CurveDesignationColorProps>`
-    height: 0px;
+    height: 0;
     width: 16px;
     border: 2px solid rgba(55, 81, 255, 1);
     border-radius: 2px;
@@ -93,6 +93,7 @@ export const CardsOnTrends = styled.div`
     flex-wrap: no-wrap;
     margin: 0;
     padding: 0;
+  
     @media (max-width: 1184px) {
         flex-direction: row;
         flex-wrap: wrap;
@@ -125,7 +126,6 @@ export const Widget = styled.div`
     align-items: center;
     justify-content: flex-end;
     flex-wrap: nowrap;
-    margin: 0;
 `
 
 export const BlockHeaderRightSideStyled = styled(BlockHeaderRightSide)`
@@ -139,4 +139,4 @@ export const ContentList = styled.div`
     margin: 0 auto;
     background-color: #ffffff;
 `
-export const FooterRecipies = styled.div``
+export const FooterRecipes = styled.div``

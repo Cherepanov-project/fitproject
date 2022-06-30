@@ -44,14 +44,13 @@ const SingInForm = () => {
                         Cookies.set("auth-token", request.data.user.token)
                         Cookies.set("username", request.data.user.username)
                         Cookies.set("image", request.data.user.image)
-
-                        router.replace("/admin/overview")
-                    } catch (e) {
-                        if (e.response.status === 403) {
-                            Object.keys(e.response.data.errors).forEach(key => {
+                        await router.replace("/admin/overview")
+                    } catch (err) {
+                        if (err.response.status === 403) {
+                            Object.keys(err.response.data.errors).forEach(key => {
                                 setFieldError(
                                     "password",
-                                    key + " " + e.response.data.errors[key]
+                                    key + " " + err.response.data.errors[key]
                                 )
                             })
                         }

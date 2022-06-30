@@ -7,7 +7,7 @@ interface IProps {
     formik: string
 }
 
-const NutrilonValue = (props: IProps) => {
+const NutritionValue = (props: IProps) => {
     const [field, meta, helpers] = useField(props.formik)
     return (
         <Box sx={{ mt: 4 }}>
@@ -24,10 +24,10 @@ const NutrilonValue = (props: IProps) => {
                 onChange={field.onChange}
                 onBlur={field.onBlur}
                 variant="outlined"
-                sx={{ input: { padding: "10px" }, bgcolor: "#FFF" }}
+                sx={{ input: { padding: "10px" }, bgColor: "#FFF" }}
             />
         </Box>
     )
 }
 
-export default NutrilonValue
+export default NutritionValue

@@ -8,14 +8,14 @@ import UserItem from "../../../components/AdminTable/UserItem"
 import { userList } from "../../../models/userList/userList"
 import Pagination from "../../../components/Pagination/pagination"
 import getArrPagination from "../../../utils/getArrPagination"
-import ColumnName from "../../../components/RecipiesContainer/ColumnName/columnName"
+import ColumnName from "../../../components/RecipiesContainer/ColumnName/ColumnName"
 
 interface IDataType {
     id: string
     nameUser: string
     sex: string
     avatar?: string
-    dateRegistor: string
+    dateRegister: string
     role: string
     email: string
 }
@@ -47,7 +47,7 @@ const Users = () => {
                 <UserItem
                     nameUser={el.nameUser}
                     key={el.id}
-                    dateRegistor={el.dateRegistor}
+                    dateRegister={el.dateRegister}
                     role={el.role}
                     email={el.email}
                     sex={el.sex}

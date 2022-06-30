@@ -12,8 +12,6 @@ export const CustomIcon = styled.div<IIcoProps>`
     width: 81px;
     height: 74px;
     background: ${({ bgColor }) => bgColor};
-    background-image: url(${({ bgImg }) => bgImg});
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
+    background-image: no-repeat 50% 50% url(${({ bgImg }) => bgImg});
     border-radius: 20px;
 `

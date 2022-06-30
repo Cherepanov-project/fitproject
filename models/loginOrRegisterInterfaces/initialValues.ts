@@ -13,7 +13,7 @@ const formRegisterValues = {
     wishProducts: "",
     goal: "",
     quantityMeals: "",
-    typeOfProgramm: "",
+    typeOfProgram: "",
     numberOfWorkouts: "",
     typeOfTrainings: "",
 }

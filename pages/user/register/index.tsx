@@ -11,7 +11,7 @@ import {
     Title,
     Title2,
     LeftSide,
-    A,
+    AAA,
     RegOrLoginIcon,
 } from "../userLoginOrRegisterStyle"
 
@@ -27,8 +27,8 @@ const User = () => {
                         <div>If you already have an account </div>
                         <div>
                             You can
-                            <Link href="/user" passHref>
-                                <A>Login here !</A>
+                            <Link href={"/user"} passHref>
+                                <AAA>Login here !</AAA>
                             </Link>
                         </div>
                         <RegOrLoginIcon width="50%" src={loginMan.src} />

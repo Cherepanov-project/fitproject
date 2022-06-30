@@ -11,12 +11,12 @@ export interface INutritionValues {
     protein: number
 }
 
-export interface INutrilon {
+export interface INutrition {
     name: string
     formik: string
 }
 
-const nutrilonsMapped = [
+const nutritionMapped = [
     { name: "Carbs", formik: "carbs" },
     { name: "Proteins", formik: "proteins" },
     { name: "Fats", formik: "fats" },
@@ -41,4 +41,4 @@ const recipesValues = {
     files: [],
 }
 
-export { nutrilonsMapped, recipesValues }
+export { nutritionMapped, recipesValues }

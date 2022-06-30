@@ -23,7 +23,7 @@ import {
 import {
     userInfo,
     exercises,
-    mealPreferenciesSelect,
+    mealPreferencesSelect,
 } from "../../../models/loginOrRegisterInterfaces/inputsValues"
 import {
     validationUser,
@@ -77,7 +77,7 @@ const RegisterForm: React.FC = () => {
                     </FormikStep>
 
                     <FormikStep
-                        label="mealPreferencies"
+                        label="mealPreferences"
                         validationSchema={validationMeal}
                     >
                         <FormTextField
@@ -93,7 +93,7 @@ const RegisterForm: React.FC = () => {
                         <FormSelectField
                             placeholder="Choose Goal"
                             name="goal"
-                            values={mealPreferenciesSelect}
+                            values={mealPreferencesSelect}
                         />
                         <FormTextField
                             placeholder="Quantity meals a day"

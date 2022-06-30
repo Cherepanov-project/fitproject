@@ -4,10 +4,10 @@ import CardContent from "@mui/material/CardContent"
 import { Rating } from "@mui/material"
 import useMediaQuery from "@mui/material/useMediaQuery"
 
-import DishChikenImg from "../../common/images/dishChickenImg.png"
+import DishChickenImg from "../../common/images/dishChickenImg.png"
 import {
-    MenuItemTitule,
-    MenuItemDescrition,
+    MenuItemTitle,
+    MenuItemDescription,
     MenuRatingWrapper,
     MenuImg,
 } from "../../pages/user/listOfDishes/stylesAllMenus"
@@ -23,14 +23,14 @@ const MenuItem = ({ namesFood, nutritionalValue, star, id }) => {
                     margin: 1,
                     marginTop: 10,
                     overflow: "visible",
-                    bgcolor: "#F0F7FF",
+                    bgColor: "#F0F7FF",
                     cursor: "pointer",
                 }}
             >
-                <MenuImg src={DishChikenImg.src} />
+                <MenuImg src={DishChickenImg.src} />
                 <CardContent>
-                    <MenuItemTitule>{namesFood}</MenuItemTitule>
-                    <MenuItemDescrition>
+                    <MenuItemTitle>{namesFood}</MenuItemTitle>
+                    <MenuItemDescription>
                         <div>
                             <div>{nutritionalValue[0].value}</div>
                             <span>{nutritionalValue[0].units}</span>
@@ -47,9 +47,9 @@ const MenuItem = ({ namesFood, nutritionalValue, star, id }) => {
                             <div>{nutritionalValue[3].value}</div>
                             <span>{nutritionalValue[3].units}</span>
                         </div>
-                    </MenuItemDescrition>
+                    </MenuItemDescription>
                     <MenuRatingWrapper>
-                        <div>30 min cooktime</div>
+                        <div>30 min cook time</div>
                         <Rating
                             name="size-small"
                             value={star}
