@@ -1,5 +1,5 @@
 import axios from "axios"
-import { IRecipesArr } from "../model/recipies/recipiesList"
+import { IRecipesArr, IAddRecip } from "../model/recipies/recipiesList"
 
 const adminApi = axios.create({
     baseURL: "https://spring-boot-fitness-backend.herokuapp.com",
@@ -12,24 +12,25 @@ export const getRecipesList = async () => {
     const response = await adminApi.get<IRecipesArr>("/api/v1/admin/recipe", {
         headers: {
             Authorization:
-                "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1NjU0NTkxNSwiaWF0IjoxNjU2NTI3OTE1fQ.nTepfPueBP-fSlYmQBeDSp9nR7L8GdcVLx8vbsSB6mM9ZdSrhvTA7npY0oC2lSAzJUeeUTfwD9qc7etdCLpDUw",
+                "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1NjU5NDc4OSwiaWF0IjoxNjU2NTc2Nzg5fQ._bT8w8xVBm8V-c-Mn6XqF9bguTJZWylwlQN8osGzFJdAlYjNwBSdi5Lntfl_Sw-cOSglqaTjfPSdV-f9VaYLRw",
         },
     })
 
     return response.data
 }
 
-export const postRecipes = async obj => {
+export const postRecipes = async (obj: IAddRecip) => {
     await adminApi.post(
         "/api/v1/admin/recipe",
+
+        obj,
         {
             headers: {
                 Authorization:
-                    "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1NjU0NTkxNSwiaWF0IjoxNjU2NTI3OTE1fQ.nTepfPueBP-fSlYmQBeDSp9nR7L8GdcVLx8vbsSB6mM9ZdSrhvTA7npY0oC2lSAzJUeeUTfwD9qc7etdCLpDUw",
+                    "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1NjYwMzMyMCwiaWF0IjoxNjU2NTg1MzIwfQ.Ek_RyGyp6cusxfHqa5vQN6i0y4vj10xpx27wByA05U_C9W69a4_xFxPjrL2woasBiNWw2ElXHSa8MPOswVAKeg",
             },
-        },
-        {
-            data: obj,
         }
     )
+
+    // return response
 }
