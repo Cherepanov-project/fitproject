@@ -53,7 +53,7 @@ export const FormWrapper = styled.div`
 
 export const ErrorMessage = styled.div`
     color: red;
-    font-size: 8px;
+    font-size: 16px;
 `
 
 export const Input = styled.input<{ error: boolean }>`

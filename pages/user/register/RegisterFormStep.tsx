@@ -9,7 +9,7 @@ import { formRegisterValues } from "../../../models/loginOrRegisterInterfaces/in
 import {
     userInfo,
     exercises,
-    mealPreferenciesSelect,
+    mealPreferencesSelect,
 } from "../../../models/loginOrRegisterInterfaces/inputsValues"
 import {
     validationUser,
@@ -124,5 +124,3 @@ export const RegisterForm: React.FC = () => {
         </RightSide>
     )
 }
-
-export { RegisterForm }
