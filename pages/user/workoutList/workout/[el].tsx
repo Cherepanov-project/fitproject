@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useRouter } from "next/router"
 import Link from "next/link"
 import Card from "@mui/material/Card"
+
 import Slider from "../../../../common/slider/Slider"
 import useMediaQuery from "@mui/material/useMediaQuery"
 import { LayoutUser } from "../../../../containers/Layout-user/Layout-user"
@@ -88,6 +89,7 @@ const WorkoutItem = () => {
                             imgWidth={workout?.imgWidth}
                             imgHeight={workout?.imgHeight}
                             src={workout?.img}
+                            alt="alt-image"
                         />
                     </div>
                 </LeftContent>

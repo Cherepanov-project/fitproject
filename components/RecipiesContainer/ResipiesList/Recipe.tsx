@@ -47,7 +47,7 @@ const Recipe = ({
                 sx={{ display: "flex", paddingLeft: 3.5 }}
             >
                 <Avatar sx={{ margin: 2 }}>
-                    <Image src={imageMan} />
+                    <Image src={imageMan} alt="image-man" />
                 </Avatar>
                 portion size ({portionSize}g), fat ({fats}), proteins (
                 {proteins}), carbohydrates ({carbohydrates})

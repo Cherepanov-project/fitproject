@@ -55,11 +55,11 @@ const ItemFilter = () => {
     const [menuFilterActive, setMenuFilterActive] = useState<boolean>(false)
     const [filterItemActive, setFilterItemActive] = useState<boolean>(false)
 
-    const onFilterActive: React.MouseEventHandler<HTMLDivElement> = e => {
+    const onFilterActive: React.MouseEventHandler<HTMLDivElement> = event => {
         setFilterItemActive(true)
     }
 
-    const onIconBack: React.MouseEventHandler<HTMLDivElement> = e => {
+    const onIconBack: React.MouseEventHandler<HTMLDivElement> = event => {
         setFilterItemActive(false)
     }
 
@@ -69,7 +69,7 @@ const ItemFilter = () => {
                 sx={{ fontSize: 14, fontWeight: 600, marginLeft: 5 }}
                 onClick={() => setMenuFilterActive(!menuFilterActive)}
             >
-                <Image src={imageFilter} />
+                <Image src={imageFilter} alt="image-filter" />
                 Filter
             </IconButton>
             {menuFilterActive ? (

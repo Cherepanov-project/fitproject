@@ -2,7 +2,7 @@ import React,{useEffect, useRef, useState, Children} from "react"
 import {CustomSlider, SliderWrapper, SliderSlide} from "./SliderStyle"
 import {SliderProps} from './Slider.interface'
 
-function useWindowWidth(): number {
+const useWindowWidth = (): number => {
   const [width, setWidth] = useState(0);
   useEffect(() => {
     function updateWidth(): void {
@@ -25,7 +25,7 @@ const Slider = ({children}: SliderProps): JSX.Element => {
   const [contentWidth,setContentWidth]=useState(0)
   const sliderWrapperRef = useRef<HTMLDivElement>(null)
   const sliderSlideRef = useRef<HTMLDivElement>(null)
-  
+
   useEffect(() => {
     let mouseUpDocHandler = (): void => {
       if(isMouseDown){
@@ -39,7 +39,7 @@ const Slider = ({children}: SliderProps): JSX.Element => {
 
   useEffect(() => {
     setSliderWrapperWidth(sliderWrapperRef.current?.clientWidth);
-    setPairOfXCoords([0,0]) 
+    setPairOfXCoords([0,0])
   },[windowWidth])
 
   useEffect(() => {
@@ -53,10 +53,13 @@ const Slider = ({children}: SliderProps): JSX.Element => {
     let newPairOfXs: number[] = []
     newPairOfXs[0] = pairOfXCoords[0] + curX
     newPairOfXs[1] = curX
-    if(newPairOfXs[1] - newPairOfXs[0] <= 0)
-      if(contentWidth > sliderWrapperWidth)
-        if(Math.abs(newPairOfXs[1] - newPairOfXs[0]) < contentWidth-sliderWrapperWidth)
+    if (newPairOfXs[1] - newPairOfXs[0] <= 0) {
+      if (contentWidth > sliderWrapperWidth) {
+        if (Math.abs(newPairOfXs[1] - newPairOfXs[0]) < contentWidth - sliderWrapperWidth) {
           setPairOfXCoords(newPairOfXs)
+        }
+      }
+    }
   }
 
   function onSliderMove(xCoord: number): void {
@@ -64,11 +67,14 @@ const Slider = ({children}: SliderProps): JSX.Element => {
     let newPairOfXs: number[] = []
     newPairOfXs[0] = pairOfXCoords[0]//берём точку вначале движения
     newPairOfXs[1] = curX
-    if(newPairOfXs[1] - newPairOfXs[0] <= 0 )
-    // первое условие- стоп на левой границе, второе и третье - на правой
-      if(contentWidth > sliderWrapperWidth)
-        if(Math.abs(newPairOfXs[1] - newPairOfXs[0]) < contentWidth - sliderWrapperWidth)
-          setPairOfXCoords(newPairOfXs)      
+    if (newPairOfXs[1] - newPairOfXs[0] <= 0) {
+        // первое условие- стоп на левой границе, второе и третье - на правой
+      if (contentWidth > sliderWrapperWidth) {
+        if (Math.abs(newPairOfXs[1] - newPairOfXs[0]) < contentWidth - sliderWrapperWidth) {
+          setPairOfXCoords(newPairOfXs)
+        }
+      }
+    }
   }
 
   function onSliderEndMove(xCoord: number): void {
@@ -78,12 +84,12 @@ const Slider = ({children}: SliderProps): JSX.Element => {
     // перекладываем разницу в начальный x для дальнейшего учёта начальной точки
     newPairOfXs[1] = 0
     if(newPairOfXs[1] - newPairOfXs[0] <= 0){
-      // разница newPairOfXs[1]-newPairOfXs[0] по модулю описывает насколько 
-      // необходимо передвинуть блок с контентом (упражнениями например) 
+      // разница newPairOfXs[1]-newPairOfXs[0] по модулю описывает насколько
+      // необходимо передвинуть блок с контентом (упражнениями например)
       // знак указывает на направление передвижения
       if((contentWidth > sliderWrapperWidth) && (Math.abs(newPairOfXs[1] - newPairOfXs[0]) < contentWidth - sliderWrapperWidth)){
         setPairOfXCoords(newPairOfXs)
-        //добавляем новую координату 
+        //добавляем новую координату
         //и перекладываем разницу в начальную точку
       }else{
         // правая граница контента появилась внутри контейнера,
@@ -112,7 +118,7 @@ const Slider = ({children}: SliderProps): JSX.Element => {
   const onTouchHandler = (evt:React.TouchEvent<HTMLDivElement>) => {
     onSliderMove(evt.changedTouches[0].clientX)
   }
-  
+
   const onTouchEndHandler = (evt:React.TouchEvent<HTMLDivElement>) => {
     onSliderEndMove(evt.changedTouches[0].clientX)
   }
@@ -129,7 +135,7 @@ const Slider = ({children}: SliderProps): JSX.Element => {
       setSliderIsDragging(true)
     }
   }
-  
+
   const onMouseUp = (evt:React.MouseEvent<HTMLDivElement>)=>{
     setIsMouseDown(false)
     evt.stopPropagation()
@@ -140,14 +146,16 @@ const Slider = ({children}: SliderProps): JSX.Element => {
     if(sliderIsDragging){
       evt.stopPropagation()
       setSliderIsDragging(false)
-    }    
+    }
   }
-  
+
   const slides = React.Children.map(children, (child, index)=>{
-    if(index===0)
+    if (index===0) {
       return <SliderSlide ref={sliderSlideRef}>{child}</SliderSlide>
-    else
+    }
+    else {
       return <SliderSlide>{child}</SliderSlide>
+    }
   })
 
   return(
@@ -155,17 +163,18 @@ const Slider = ({children}: SliderProps): JSX.Element => {
       <SliderWrapper
         ref={sliderWrapperRef}
         onDragStart={()=>{return false}}
-        onMouseDown={(e)=>{onMouseDown(e)}}
-        onMouseUp={(e)=>{onMouseUp(e)}}
-        onClickCapture={(e)=>{onClickCapture(e)}}
-        onMouseMove={(e)=>{onMouseMove(e)}}
-        onTouchStart={(evt)=>{onTouchStartHandler(evt)}}
-        onTouchMove={(e)=>{onTouchHandler(e)}}
-        onTouchEnd={(evt)=>{onTouchEndHandler(evt)}}          
+        onMouseDown={(event)=>{onMouseDown(event)}}
+        onMouseUp={(event)=>{onMouseUp(event)}}
+        onClickCapture={(event)=>{onClickCapture(event)}}
+        onMouseMove={(event)=>{onMouseMove(event)}}
+        onTouchStart={(event)=>{onTouchStartHandler(event)}}
+        onTouchMove={(event)=>{onTouchHandler(event)}}
+        onTouchEnd={(event)=>{onTouchEndHandler(event)}}
         style={{transform: `translateX(${(pairOfXCoords[1]-pairOfXCoords[0])}px)`, transitionDuration: '0ms'}}>
-        {slides}         
+        {slides}
       </SliderWrapper>
-    </CustomSlider>    
+    </CustomSlider>
   )
 }
+
 export default Slider
