@@ -2,12 +2,12 @@ import { useState } from "react"
 import { useRouter } from "next/router"
 import Link from "next/link"
 import Card from "@mui/material/Card"
-import { LayoutUser } from "../../../../layouts/Layout-user/Layout-user"
-import { exerciseList, exercisesType } from "../../../../model/workout/workout"
-import img from "../../../../common/images/workoutExercise.svg"
-import muscleImg from "../../../../common/images/icons/backMuscle.svg"
-import uid from "../../../../utils/uid"
+import Slider from "../../../../common/slider/Slider"
 import useMediaQuery from "@mui/material/useMediaQuery"
+import { LayoutUser } from "../../../../containers/Layout-user/Layout-user"
+import { exerciseList, exercisesType } from "../../../../models/workout/workout"
+import muscleImg from "../../../../common/images/icons/backMuscle.svg"
+import generateId from "../../../../utils/generateId"
 
 import {
     MainWrapper,
@@ -46,27 +46,24 @@ const WorkoutItem = () => {
     }
 
     const musclesList = workout?.muscles.map(muscle => (
-        <Muscle key={uid()}>
-            <img src={muscleImg.src} />
+        <Muscle key={generateId()}>
+            <img src={muscleImg.src} alt="muscle" />
             <span>{muscle}</span>
         </Muscle>
     ))
-
     const exercises = exerciseList
         .filter(el => el.area === workout?.area)
-        .map(item => (
-            <Link
-                href={`/user/workoutList/workout/${item.id}`}
-                key={item.id}
-                passHref
-            >
+        .map(({ id, img, imgWidth, imgHeight, name, move, repeat }) => (
+            <Link href={`/user/workoutList/workout/${id}`} key={id}>
                 <Card sx={cardStyles}>
-                    <div>
-                        <ImgWrapper src={img.src} alt="workout exercise" />
-                    </div>
+                    <ImgWrapper
+                        imgUrl={img}
+                        imgWidth={imgWidth}
+                        imgHeight={imgHeight}
+                    />
                     <TextWrapper>
-                        <Exercise>{item.name}</Exercise>
-                        <Reps>{`${item.move} X ${item.repeat} REPS`}</Reps>
+                        <Exercise>{name}</Exercise>
+                        <Reps>{`${move} X ${repeat} REPS`}</Reps>
                     </TextWrapper>
                 </Card>
             </Link>
@@ -85,10 +82,17 @@ const WorkoutItem = () => {
                         <MusclesTitle>Muscles</MusclesTitle>
                         <MusclesList>{musclesList}</MusclesList>
                     </Exercise>
-                    <Image src={img.src} />
+                    <div>
+                        <Image
+                            imgUrl={workout?.img}
+                            imgWidth={workout?.imgWidth}
+                            imgHeight={workout?.imgHeight}
+                            src={workout?.img}
+                        />
+                    </div>
                 </LeftContent>
             </Container>
-            <BottomContainer>{exercises}</BottomContainer>
+            <Slider>{exercises}</Slider>
         </MainWrapper>
     )
 }

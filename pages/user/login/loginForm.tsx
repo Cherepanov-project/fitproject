@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from "react"
 import Link from "next/link"
-import { useRouter } from "next/router"
 import Cookies from "js-cookie"
+import { useRouter } from "next/router"
 import { nanoid } from "nanoid"
 import { Formik } from "formik"
-
-import Snackbar from "@mui/material/Snackbar"
 import { Button, CardContent, CircularProgress } from "@mui/material"
+import Snackbar from "@mui/material/Snackbar"
 
 import { loginUser } from "../../../API/loginUser"
 
 import { FormTextField } from "../../../common/user/FormTextField"
 
 import { validationLoginUser } from "../../../utils/validationSchema"
-
 import { RightSide, Title2, ForgorPassword } from "../userLoginOrRegisterStyle"
 import { RegOrLoginSocial } from "../RegOrLoginSocial"
 
@@ -120,3 +118,5 @@ export const LoginForm: React.FC = () => {
         </>
     )
 }
+
+export { LoginForm }

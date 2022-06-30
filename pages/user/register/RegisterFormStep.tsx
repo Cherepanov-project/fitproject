@@ -1,3 +1,4 @@
+import React from "react"
 import { useState } from "react"
 import { nanoid } from "nanoid"
 import { CardContent, Snackbar } from "@mui/material"
@@ -9,12 +10,7 @@ import {
     userInfo,
     exercises,
     mealPreferenciesSelect,
-} from "../../../model/loginOrRegisterInterfaces/inputsValues"
-
-import { FormTextField } from "../../../common/user/FormTextField"
-import { FormSelectField } from "../../../common/user/FormSelectField"
-import FormikStep from "../../../common/user/FormikStep"
-
+} from "../../../models/loginOrRegisterInterfaces/inputsValues"
 import {
     validationUser,
     validationMeal,
@@ -125,3 +121,5 @@ export const RegisterForm: React.FC = () => {
         </RightSide>
     )
 }
+
+export { RegisterForm }

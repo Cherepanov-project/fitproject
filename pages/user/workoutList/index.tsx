@@ -1,17 +1,26 @@
-import { MainWrapper, ItemListWrapper } from "./workoutListStyles"
-import Sidebar from "../../../common/workoutList/sidebar/Sidebar"
-import { LayoutUser } from "../../../layouts/Layout-user/Layout-user"
-import ItemList from "../../../common/workoutList/itemList/ItemList"
+import { useState } from "react"
 
-const workoutList = () => {
+import { MainWrapper, ItemListWrapper } from "./workoutListStyles"
+import Sidebar from "../../../components/WorkoutList/sidebar/Sidebar"
+import { LayoutUser } from "../../../containers/Layout-user/Layout-user"
+import ItemList from "../../../components/WorkoutList/itemList/ItemList"
+
+import {
+    muscleCheckboxList,
+    muscleCheckboxListType,
+} from "../../../models/workout/workout"
+
+const WorkoutList = () => {
+    const [muscles, setMuscle] =
+        useState<muscleCheckboxListType>(muscleCheckboxList)
     return (
         <MainWrapper>
-            <Sidebar />
+            <Sidebar muscles={muscles} setMuscle={setMuscle} />
             <ItemListWrapper>
-                <ItemList />
+                <ItemList muscles={muscles} />
             </ItemListWrapper>
         </MainWrapper>
     )
 }
 
-export default LayoutUser(workoutList)
+export default LayoutUser(WorkoutList)

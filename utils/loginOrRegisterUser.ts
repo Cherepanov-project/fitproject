@@ -1,9 +1,10 @@
+import { FormikValues } from "formik"
+
 import {
     ILoginForm,
     IRegisterForm,
     IFormStatusProps,
-} from "../model/loginOrRegisterInterfaces/interfaces"
-import { FormikValues } from "formik"
+} from "../models/loginOrRegisterInterfaces/interfaces"
 
 const formStatusProps: IFormStatusProps = {
     success: {
@@ -22,7 +23,7 @@ const formStatusProps: IFormStatusProps = {
     },
 }
 
-export const loginOrRegisterUser = async (
+const loginOrRegisterUser = async (
     data: ILoginForm | IRegisterForm | FormikValues,
     resetForm: Function,
     setFormStatus: Function,
@@ -35,10 +36,12 @@ export const loginOrRegisterUser = async (
         }
     } catch (error) {
         const response = error.response
-        if (response.data === "user already exist" && response.status === 400) {
+        if (response.data === "User already exist" && response.status === 400) {
             setFormStatus(formStatusProps.error)
         }
     } finally {
         setDisplayFormStatus(true)
     }
 }
+
+export default loginOrRegisterUser

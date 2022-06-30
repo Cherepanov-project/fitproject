@@ -7,11 +7,20 @@ import Recipe from "../../components/RecipiesContainer/ResipiesList/recipe"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
 import TableContainer from "@mui/material/TableContainer"
+import { useState, useEffect } from "react"
+
+import { withLayout } from "../../containers/Layout-admin/Layout-admin"
 import { ContentList, FooterRecipies } from "./overview/overviewStyles"
+import FilterBtn from "../../components/FilterBtn/filter"
+import Recipie from "../../components/RecipiesContainer/ResipiesList/recipie"
 import CreateForm from "../../components/RecipiesContainer/AddBtn/addForm"
 import Pagination from "../../components/Pagination/pagination"
 import ColumnName from "../../components/RecipiesContainer/ColumnName/columnName"
 import getArrPagination from "../../utils/getArrPagination"
+import {
+    IContentListType,
+    contentList,
+} from "../../models/recipies/recipiesList"
 
 const Recipes = () => {
     const [arrRecipes, setArrRecipes] = useState<ContentListType[]>([])

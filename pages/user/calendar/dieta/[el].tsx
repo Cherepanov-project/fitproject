@@ -1,16 +1,17 @@
 import { useRouter } from "next/router"
-import CalendarContainer from "../../../../common/CalendarContainer"
-import HeadLinkBack from "../../../../common/HeadLinkBack"
-import { ListUl, ItemDiv, ListItemName } from "./stylesDieta"
-import { DailyRationType, dailyRation } from "../../../../model/dieta/dieta"
 import { useState } from "react"
+
 import ItemRation from "./ItemRation"
-import { LayoutUser } from "../../../../layouts/Layout-user/Layout-user"
+import CalendarContainer from "../../../../components/CalendarContainer"
+import HeadLinkBack from "../../../../components/HeadLinkBack"
+import { ListUl, ItemDiv, ListItemName } from "./stylesDieta"
+import { IDailyRationType, dailyRation } from "../../../../models/dieta/dieta"
+import { LayoutUser } from "../../../../containers/Layout-user/Layout-user"
 
 const DailyRation = () => {
     const { asPath } = useRouter()
     const [arrDailyRation, setDailyRation] =
-        useState<DailyRationType[]>(dailyRation)
+        useState<IDailyRationType[]>(dailyRation)
 
     const menuClickShow = (id: string) => {
         const dailyRationMutation = arrDailyRation.map(item => {
@@ -22,7 +23,7 @@ const DailyRation = () => {
         setDailyRation(dailyRationMutation)
     }
 
-    const dietaEllement = arrDailyRation.map((el: DailyRationType) => {
+    const dietaElement = arrDailyRation.map((el: IDailyRationType) => {
         return (
             <ItemRation
                 key={el.id}
@@ -36,8 +37,8 @@ const DailyRation = () => {
     return (
         <CalendarContainer>
             <HeadLinkBack
-                namesCompoent={"Ежедневный рацион питания"}
-                backLink={"/user/calendar/"}
+                namesComponent={"Ежедневный рацион питания"}
+                backLink={"/User/calendar/"}
             />
             <div>
                 <ListUl>
@@ -51,9 +52,9 @@ const DailyRation = () => {
                         <ItemDiv color="#7B809A" fontSize="14px">
                             Пищевая ценность
                         </ItemDiv>
-                        <div></div>
+                        <div />
                     </ListItemName>
-                    {dietaEllement}
+                    {dietaElement}
                 </ListUl>
             </div>
         </CalendarContainer>

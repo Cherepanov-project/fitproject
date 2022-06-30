@@ -1,4 +1,12 @@
 import React, { useState } from "react"
+import Image from "next/image"
+import IconButton from "@mui/material/IconButton"
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos"
+import ArrowBackIcon from "@mui/icons-material/ArrowBack"
+import styled from "styled-components"
+import { useRouter } from "next/router"
+
+import imageFilter from "./images/filter.svg"
 import {
     Aa,
     Dropdown,
@@ -7,25 +15,18 @@ import {
     IconBack,
     InputCheckbox,
 } from "./stylesContent"
-import Image from "next/image"
-import imageFilter from "./images/filter.svg"
-import IconButton from "@mui/material/IconButton"
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos"
-import ArrowBackIcon from "@mui/icons-material/ArrowBack"
-import styled from "styled-components"
-import { useRouter } from "next/router"
 
-interface filterItemActiveProp {
+interface IFilterItemActiveProp {
     filterItemActive: boolean
 }
 
-const FilterItem = styled.div<filterItemActiveProp>`
+const FilterItem = styled.div<IFilterItemActiveProp>`
     padding-right: 15px;
     transform: ${({ filterItemActive }) =>
         filterItemActive ? "translateX(-110%)" : "translateX(0%)"};
     transition: transform 0.5s ease;
 `
-const ContainerRight = styled.div<filterItemActiveProp>`
+const ContainerRight = styled.div<IFilterItemActiveProp>`
     margin-top: -130px;
     overflow: hidden;
     transform: ${({ filterItemActive }) =>

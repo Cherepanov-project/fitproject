@@ -1,7 +1,8 @@
 import Link from "next/link"
 
-import Layout from "../../../common/user/UserLayout"
+import Layout from "../../../components/User/UserLayout"
 import loginMan from "../../../common/images/loginMan.png"
+import { RegisterForm } from "./RegisterFormStep"
 
 import {
     FlexWrapper,
@@ -13,8 +14,6 @@ import {
     A,
     RegOrLoginIcon,
 } from "../userLoginOrRegisterStyle"
-
-import { RegisterForm } from "./RegisterFormStep"
 
 const User = () => {
     return (
@@ -32,10 +31,7 @@ const User = () => {
                                 <A>Login here !</A>
                             </Link>
                         </div>
-                        <RegOrLoginIcon
-                            width="50%"
-                            src={loginMan.src}
-                        ></RegOrLoginIcon>
+                        <RegOrLoginIcon width="50%" src={loginMan.src} />
                     </LeftSide>
                     <RegisterForm />
                 </FlexWrapper>

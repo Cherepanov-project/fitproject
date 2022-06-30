@@ -1,3 +1,4 @@
+import React from "react"
 import { useField } from "formik"
 import { Editor } from "@tinymce/tinymce-react"
 
@@ -20,8 +21,10 @@ const EditorMCE: React.FC<IProps> = props => {
                     toolbar:
                         "bold italic underline | link image code | alignleft aligncenter alignright emoticons",
                 }}
-                onEditorChange={e => {
-                    field.onChange({ target: { name: field.name, value: e } })
+                onEditorChange={event => {
+                    field.onChange({
+                        target: { name: field.name, value: event },
+                    })
                 }}
                 onBlur={field.onBlur}
             />

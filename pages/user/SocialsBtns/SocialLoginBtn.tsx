@@ -3,9 +3,8 @@ import { useRouter } from "next/router"
 import Cookies from "js-cookie"
 import queryString from "query-string"
 
-import { ISocialLoginBtn } from "../../../model/loginOrRegisterInterfaces/interfaces"
-
-import { loginUserWithSocials } from "../../../API/loginUser"
+import { ISocialLoginBtn } from "../../../models/loginOrRegisterInterfaces/interfaces"
+import { loginUserWithSocials } from "../../../services/API/loginUser"
 
 const SocialLoginBtn: FC<ISocialLoginBtn> = ({
     redirectURL,
@@ -33,7 +32,7 @@ const SocialLoginBtn: FC<ISocialLoginBtn> = ({
                     expires: 2,
                 }
             )
-            await router.push("/user/statistics")
+            await router.push("/User/statistics")
         }
     }
 

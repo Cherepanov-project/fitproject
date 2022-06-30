@@ -3,6 +3,7 @@ import { useRouter } from "next/router"
 import { Grid, Typography, Box, Button, Stack } from "@mui/material"
 import { Formik, Form } from "formik"
 import React, { useEffect, useState } from "react"
+
 import FileUpload from "../../components/RecipiesEditForm/upload/FileUpload"
 import HeaderInput from "../../components/RecipiesEditForm/HeaderInput/HeaderInput"
 import ShortDescriptionText from "../../components/RecipiesEditForm/ShortDescriptionInput/ShortDescriptionInput"
@@ -10,11 +11,14 @@ import IngredientsFiled from "../../components/RecipiesEditForm/IngredientsField
 import TagsInput from "../../components/RecipiesEditForm/TagsInput/TagsInput"
 import EditorMCE from "../../components/RecipiesEditForm/EditorMCE/EditorMCE"
 import NutrilonValue from "../../components/RecipiesEditForm/NutritionValuesField/NutrilonValue"
-import { INutrilon, nutrilonsMapped } from "../../model/recipes/index"
-import { exercisesValues } from "../../model/exercises/index"
-import { articlesValues } from "../../model/articles/index"
-import { withLayout } from "../../layouts/Layout-admin/Layout-admin"
-import { ContentListType, contentList } from "../../model/recipies/recipiesList"
+import { INutrilon, nutrilonsMapped } from "../../models/recipes/recipes"
+import { exercisesValues } from "../../models/exercises/exercises"
+import { articlesValues } from "../../models/articles/articles"
+import { withLayout } from "../../containers/Layout-admin/Layout-admin"
+import {
+    IContentListType,
+    contentList,
+} from "../../models/recipies/recipiesList"
 
 interface IIngredient {
     name: string
@@ -58,7 +62,7 @@ const MainContainer = styled.div`
 //  });
 
 const RecipiesEditForm = () => {
-    const [arrRecipie, setArrRecipie] = useState<ContentListType[]>([])
+    const [arrRecipie, setArrRecipie] = useState<IContentListType[]>([])
 
     const { asPath, query } = useRouter()
     let path = asPath.split("/").pop()
@@ -75,8 +79,12 @@ const RecipiesEditForm = () => {
     //     }
     // }
 
-    if (path === "exercises") initialValues = exercisesValues
-    if (path === "articles") initialValues = articlesValues
+    if (path === "exercises") {
+        initialValues = exercisesValues
+    }
+    if (path === "articles") {
+        initialValues = articlesValues
+    }
 
     useEffect(() => {
         // тут будет вызываться функция для получения рецепта по id
