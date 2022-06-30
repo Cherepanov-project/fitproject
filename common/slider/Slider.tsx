@@ -2,9 +2,6 @@ import React,{useEffect, useRef, useState, Children} from "react"
 import {CustomSlider, SliderWrapper, SliderSlide} from "./SliderStyle"
 import {SliderProps} from './Slider.interface'
 
-let sliderIsDragging = false;
-let isMouseDown = false;
-
 function useWindowWidth(): number {
   const [width, setWidth] = useState(0);
   useEffect(() => {
@@ -20,6 +17,8 @@ function useWindowWidth(): number {
 
 const Slider = ({children}: SliderProps): JSX.Element => {
   const windowWidth = useWindowWidth()
+  const [sliderIsDragging, setSliderIsDragging] = useState(false)
+  const [isMouseDown, setIsMouseDown] = useState(false)
   const [pairOfXCoords,setPairOfXCoords] = useState([0,0])
   // разница между 2 и 1 координатами всегда передаётся в translateX
   const [sliderWrapperWidth,setSliderWrapperWidth] = useState(0)
@@ -30,7 +29,7 @@ const Slider = ({children}: SliderProps): JSX.Element => {
   useEffect(() => {
     let mouseUpDocHandler = (): void => {
       if(isMouseDown){
-        isMouseDown=false
+        setIsMouseDown(false)
         onMouseUpOutsideTheSlider()
       }
     };
@@ -120,19 +119,19 @@ const Slider = ({children}: SliderProps): JSX.Element => {
 
   const onMouseDown = (evt:React.MouseEvent<HTMLDivElement>) => {
     evt.preventDefault()
-    isMouseDown = true
+    setIsMouseDown(true)
     onSliderStartMove(evt.clientX)
   }
 
   const onMouseMove = (evt:React.MouseEvent<HTMLDivElement>) => {
     if(isMouseDown){
       onSliderMove(evt.clientX)
-      sliderIsDragging = true
+      setSliderIsDragging(true)
     }
   }
   
   const onMouseUp = (evt:React.MouseEvent<HTMLDivElement>)=>{
-    isMouseDown=false
+    setIsMouseDown(false)
     evt.stopPropagation()
     onSliderEndMove(evt.clientX)
   }
@@ -140,7 +139,7 @@ const Slider = ({children}: SliderProps): JSX.Element => {
   const onClickCapture = (evt:React.UIEvent<HTMLDivElement>)=>{
     if(sliderIsDragging){
       evt.stopPropagation()
-      sliderIsDragging=false
+      setSliderIsDragging(false)
     }    
   }
   
