@@ -2,10 +2,10 @@ import React from "react"
 import { useState } from "react"
 import { nanoid } from "nanoid"
 import { CardContent, Snackbar } from "@mui/material"
-import { registerUser } from "../../../API/loginUser"
+import { registerUser } from "../../../services/API/loginUser"
 
-import { IRegisterForm } from "../../../model/loginOrRegisterInterfaces/interfaces"
-import { formRegisterValues } from "../../../model/loginOrRegisterInterfaces/initialValues"
+import { IRegisterForm } from "../../../models/loginOrRegisterInterfaces/interfaces"
+import { formRegisterValues } from "../../../models/loginOrRegisterInterfaces/initialValues"
 import {
     userInfo,
     exercises,
@@ -16,11 +16,14 @@ import {
     validationMeal,
     validationExercises,
 } from "../../../utils/validationSchema"
-import { redirectToLoginPage } from "../../../utils/redirect"
-import { LOGIN_PAGE } from "../../../utils/urls"
+import redirectToLoginPage from "../../../utils/redirect"
+import { LOGIN_PAGE } from "../../../constants/urls"
 
 import { RightSide } from "../userLoginOrRegisterStyle"
 import { FormikStepper } from "./FormikStepper"
+import { FormikStep } from "../../../components/User/FormikStep"
+import { FormTextField } from "../../../components/User/FormTextField"
+import { FormSelectField } from "../../../components/User/FormSelectField"
 
 export const RegisterForm: React.FC = () => {
     const [open, setOpen] = useState<boolean>(false)
@@ -121,5 +124,3 @@ export const RegisterForm: React.FC = () => {
         </RightSide>
     )
 }
-
-export { RegisterForm }

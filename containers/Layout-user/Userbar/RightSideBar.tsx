@@ -3,17 +3,8 @@ import List from "@mui/material/List"
 import ListItemButton from "@mui/material/ListItemButton"
 import ListItemIcon from "@mui/material/ListItemIcon"
 import ListItemText from "@mui/material/ListItemText"
-import uid from "../../../utils/uid"
 import Cookies from "js-cookie"
-import { formatDistanceToNow } from "date-fns"
-
-import goalsIcon from "../../../common/images/layoutUser/userbarIcons/goals.svg"
-import diet from "../../../common/images/layoutUser/userbarIcons/diet.svg"
 import SettingsIcon from "../../../common/images/layoutUser/userbarIcons/SeetingsIcon.svg"
-import defaultAvatar from "../../../common/images/layoutUser/userbarIcons/defaultAvatar.png"
-import arrow from "../../../common/images/layoutUser/userbarIcons/arrow.svg"
-import meter from "../../../common/images/layoutUser/userbarIcons/meter.svg"
-import generateId from "../../../utils/generateId"
 import {
     Avatar,
     Icon,
@@ -30,18 +21,20 @@ import {
     MainWrapper,
     /* SquareBtn, */
 } from "./RightSideBarStyle"
-import goalsIcon from "../images/UserBarIcons/goals.svg"
-import diet from "../images/UserBarIcons/diet.svg"
-import SeetingsIcon from "../images/UserBarIcons/SeetingsIcon.svg"
-import defaultAvatar from "../images/UserBarIcons/defaultAvatar.png"
-import arrow from "../images/UserBarIcons/arrow.svg"
-import meter from "../images/UserBarIcons/meter.svg"
+// import goalsIcon from "../images/UserBarIcons/goals.svg"
+import goalsIcon from "../../../common/images/layoutUser/userbarIcons/goals.svg"
+import diet from "../../../common/images/layoutUser/userbarIcons/diet.svg"
+// import SeetingsIcon from "../images/UserBarIcons/SeetingsIcon.svg"
+import defaultAvatar from "../../../common/images/layoutUser/userbarIcons/defaultAvatar.png"
+import arrow from "../../../common/images/layoutUser/userbarIcons/arrow.svg"
+import meter from "../../../common/images/layoutUser/userbarIcons/meter.svg"
 import { formatDistanceToNow } from "date-fns"
 import Menu from "@mui/material/Menu"
 import MenuItem from "@mui/material/MenuItem"
 import { Logout, PersonAdd, Settings } from "@mui/icons-material"
 import { useRouter } from "next/router"
 import { PaperProps } from "./RightSideBarStyle"
+import generateId from "../../../utils/generateId"
 const drawerWidth: string = "244px"
 
 interface ISideBarProps {

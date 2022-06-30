@@ -70,11 +70,16 @@ export interface ISocialLoginBtn {
     img: string
 }
 
-export interface ILoginResponse {
+export interface ILoginResponseSuccess {
     code: number
-    success: boolean
-    data?: { jwtToken: string }
-    error?: string
+    success: true
+    data: { jwtToken: string }
+}
+
+export interface ILoginResponseError {
+    code: number
+    success: false
+    error: string
 }
 
 export interface IRegisterRequest {

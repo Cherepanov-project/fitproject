@@ -7,9 +7,9 @@ import { Formik } from "formik"
 import { Button, CardContent, CircularProgress } from "@mui/material"
 import Snackbar from "@mui/material/Snackbar"
 
-import { loginUser } from "../../../API/loginUser"
+import { loginUser } from "../../../services/API/loginUser"
 
-import { FormTextField } from "../../../common/user/FormTextField"
+import { FormTextField } from "../../../components/User/FormTextField"
 
 import { validationLoginUser } from "../../../utils/validationSchema"
 import { RightSide, Title2, ForgorPassword } from "../userLoginOrRegisterStyle"
@@ -37,25 +37,21 @@ export const LoginForm: React.FC = () => {
             <Formik
                 validationSchema={validationLoginUser}
                 onSubmit={async data => {
-                    try {
-                        const {
-                            data: { jwtToken },
-                            success,
-                            error,
-                        } = await loginUser(data)
+                    const response = await loginUser(data)
 
-                        if (!success) {
-                            throw new Error(error)
-                        }
-
+                    if (response.success === false) {
+                        setMsg(response.error)
+                        setOpen(true)
+                        throw new Error(response.error)
+                    } else {
                         setMsg("You have been login")
                         setOpen(true)
                         setLoginSuccess(true)
-                        Cookies.set("userToken", JSON.stringify(jwtToken))
+                        Cookies.set(
+                            "userToken",
+                            JSON.stringify(response.data.jwtToken)
+                        )
                         router.push("/user/statistics")
-                    } catch (error) {
-                        setMsg(error.message)
-                        setOpen(true)
                     }
                 }}
                 initialValues={{
@@ -118,5 +114,3 @@ export const LoginForm: React.FC = () => {
         </>
     )
 }
-
-export { LoginForm }

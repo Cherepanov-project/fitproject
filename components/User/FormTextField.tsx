@@ -9,14 +9,20 @@ import {
     IInputForm,
 } from "../../models/loginOrRegisterInterfaces/interfaces"
 
-export function FormTextField(props: IInputForm) {
+export const FormTextField = (props: IInputForm) => {
     const calcPasswordVisible = (
         type: string,
         showPassword: boolean
     ): string => {
-        if (type !== "password") return type
-        if (showPassword) return "text"
-        if (!showPassword) return "password"
+        if (type !== "password") {
+            return type
+        }
+        if (showPassword) {
+            return "text"
+        }
+        if (!showPassword) {
+            return "password"
+        }
     }
 
     const [field, meta] = useField(props)
@@ -64,5 +70,3 @@ export function FormTextField(props: IInputForm) {
         </Box>
     )
 }
-
-export { FormTextField }

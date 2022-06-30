@@ -12,11 +12,9 @@ import {
 
 import { RegOrLoginSocial } from "../RegOrLoginSocial"
 import {
-    FormikStepProps,
+    IFormikStepProps,
     IFormikStepperProps,
-} from "../../../model/loginOrRegisterInterfaces/interfaces"
-
-import { RegOrLoginSocial } from "../RegOrLoginSocial"
+} from "../../../models/loginOrRegisterInterfaces/interfaces"
 
 export const FormikStepper = ({
     children,
@@ -139,5 +137,3 @@ export const FormikStepper = ({
         </>
     )
 }
-
-export { FormikStepper }
