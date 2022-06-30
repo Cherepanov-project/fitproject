@@ -28,115 +28,161 @@ export interface muscleGroupListType {
 }
 
 export const exerciseList: exercisesType[] = [
-    {
-        id: 0,
-        name: "Exercise",
-        exercise:
-            "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
-        move: 3,
-        repeat: 15,
-        area: "Chest",
-        muscles: [
-            "Latissimus dorsi",
-            "The trapezius",
-            "Levator scapulae",
-            "Rhomboids",
-        ],
-        img: "/Exercises/fours.jpg",
-        imgWidth: 175,
-        imgHeight: 148,
-    },
-    {
-        id: 1,
-        name: "Exercise",
-        exercise:
-            "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
-        move: 3,
-        repeat: 15,
-        area: "Chest",
-        muscles: [
-            "Latissimus dorsi",
-            "The trapezius",
-            "Levator scapulae",
-            "Rhomboids",
-        ],
-        img: "/Exercises/hands_up_on_socks.jpg",
-        imgWidth: 172,
-        imgHeight: 266,
-    },
-    {
-        id: 2,
-        name: "Exercise",
-        exercise:
-            "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
-        move: 3,
-        repeat: 10,
-        area: "Chest",
-        muscles: [
-            "Latissimus dorsi",
-            "The trapezius",
-            "Levator scapulae",
-            "Rhomboids",
-        ],
-        img: "/Exercises/just_position.jpg",
-        imgWidth: 224,
-        imgHeight: 120,
-    },
-    {
-        id: 3,
-        name: "Exercise",
-        exercise:
-            "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
-        move: 3,
-        repeat: 15,
-        area: "Chest",
-        muscles: [
-            "Latissimus dorsi",
-            "The trapezius",
-            "Levator scapulae",
-            "Rhomboids",
-        ],
-        img: "/Exercises/press.jpg",
-        imgWidth: 212,
-        imgHeight: 159,
-    },
-    {
-        id: 4,
-        name: "Exercise",
-        exercise:
-            "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
-        move: 3,
-        repeat: 15,
-        area: "Arms",
-        muscles: [
-            "Latissimus dorsi",
-            "The trapezius",
-            "Levator scapulae",
-            "Rhomboids",
-        ],
-        img: "/Exercises/push_ups.jpg",
-        imgWidth: 270,
-        imgHeight: 166,
-    },
-    {
-        id: 5,
-        name: "Exercise",
-        exercise:
-            "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
-        move: 3,
-        repeat: 15,
-        area: "Arms",
-        muscles: [
-            "Latissimus dorsi",
-            "The trapezius",
-            "Levator scapulae",
-            "Rhomboids",
-        ],
-        img: "/Exercises/squatting.jpg",
-        imgWidth: 150,
-        imgHeight: 277,
-    },
-]
+  {
+    id: 0,
+    name: "Exercise",
+    exercise: "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
+    move: 3,
+    repeat: 15,
+    area: 'Chest',
+    muscles: [
+      "Latissimus dorsi", 
+      "The trapezius", 
+      "Levator scapulae",
+      "Rhomboids"
+    ],
+    img:"/exercises/fours.jpg",
+    imgWidth: 175,
+    imgHeight: 148,
+  },
+  {
+    id: 1,
+    name: "Exercise",
+    exercise: "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
+    move: 3,
+    repeat: 15,
+    area: 'Chest',
+    muscles: [
+      "Latissimus dorsi", 
+      "The trapezius", 
+      "Levator scapulae",
+      "Rhomboids"
+    ],
+    img:"/exercises/hands_up_on_socks.jpg",
+    imgWidth: 172,
+    imgHeight: 266,
+  },
+  {
+    id: 2,
+    name: "Exercise",
+    exercise: "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
+    move: 3,
+    repeat: 10,
+    area: 'Arms',
+    muscles: [
+      "Latissimus dorsi", 
+      "The trapezius", 
+      "Levator scapulae",
+      "Rhomboids"
+    ],
+    img:"/exercises/just_position.jpg",
+    imgWidth: 224,
+    imgHeight: 120,
+  },
+  {
+    id: 3,
+    name: "Exercise",
+    exercise: "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
+    move: 3,
+    repeat: 15,
+    area: 'Arms',
+    muscles: [
+      "Latissimus dorsi", 
+      "The trapezius", 
+      "Levator scapulae",
+      "Rhomboids"
+    ],
+    img:"/exercises/press.jpg",
+    imgWidth: 212,
+    imgHeight: 159,
+  },
+  {
+    id: 4,
+    name: "Exercise",
+    exercise: "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
+    move: 3,
+    repeat: 15,
+    area: 'Arms',
+    muscles: [
+      "Latissimus dorsi", 
+      "The trapezius", 
+      "Levator scapulae",
+      "Rhomboids"
+    ],
+    img:"/exercises/push_ups.jpg",
+    imgWidth: 270,
+    imgHeight: 166,
+  },
+  {
+    id: 5,
+    name: "Exercise",
+    exercise: "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
+    move: 3,
+    repeat: 15,
+    area: 'Arms',
+    muscles: [
+      "Latissimus dorsi", 
+      "The trapezius", 
+      "Levator scapulae",
+      "Rhomboids"
+    ],
+    img:"/exercises/squatting.jpg",
+    imgWidth: 150,
+    imgHeight: 277,
+  },
+  {
+    id: 6,
+    name: "Exercise",
+    exercise: "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
+    move: 3,
+    repeat: 15,
+    area: 'Arms',
+    muscles: [
+      "Latissimus dorsi", 
+      "The trapezius", 
+      "Levator scapulae",
+      "Rhomboids"
+    ],
+    img:"/exercises/push_ups_w.jpg",
+    imgWidth: 228,
+    imgHeight: 84,
+  },
+  {
+    id: 7,
+    name: "Exercise",
+    exercise: "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
+    move: 3,
+    repeat: 15,
+    area: 'Arms',
+    muscles: [
+      "Latissimus dorsi", 
+      "The trapezius", 
+      "Levator scapulae",
+      "Rhomboids"
+    ],
+    img:"/exercises/plank.jpg",
+    imgWidth: 297,
+    imgHeight: 113,
+  },
+  {
+    id: 8,
+    name: "Exercise",
+    exercise: "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
+    move: 3,
+    repeat: 15,
+    area: 'Arms',
+    muscles: [
+      "Latissimus dorsi", 
+      "The trapezius", 
+      "Levator scapulae",
+      "Rhomboids"
+    ],
+    img:"/exercises/switch_legs.jpg",
+    imgWidth: 260,
+    imgHeight: 132,
+  },
+];
+
 
 export const categoriesList: categoriesListType[] = [
     { name: "Cardio", value: 320 },

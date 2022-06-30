@@ -2,8 +2,8 @@ import { useState } from "react"
 import { useRouter } from "next/router"
 import Link from "next/link"
 import Card from "@mui/material/Card"
+import Slider from "../../../../common/slider/Slider"
 import useMediaQuery from "@mui/material/useMediaQuery"
-
 import { LayoutUser } from "../../../../containers/Layout-user/Layout-user"
 import { exerciseList, exercisesType } from "../../../../models/workout/workout"
 import muscleImg from "../../../../common/images/icons/backMuscle.svg"
@@ -92,7 +92,7 @@ const WorkoutItem = () => {
                     </div>
                 </LeftContent>
             </Container>
-            <BottomContainer>{exercises}</BottomContainer>
+            <Slider>{exercises}</Slider>
         </MainWrapper>
     )
 }
