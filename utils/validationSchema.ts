@@ -1,6 +1,6 @@
 import * as Yup from "yup"
 
-export const validationUser = Yup.object().shape({
+const validationUser = Yup.object().shape({
     email: Yup.string().email("Enter valid email").required("Required"),
 
     userName: Yup.string()
@@ -23,20 +23,27 @@ export const validationUser = Yup.object().shape({
     contactNumber: Yup.number().positive().integer().required("Required"),
 })
 
-export const validationMeal = Yup.object().shape({
+const validationMeal = Yup.object().shape({
     prohibitedProducts: Yup.string().required("Required"),
     wishProducts: Yup.string().required("Required"),
     goal: Yup.string().required("Required"),
     quantityMeals: Yup.string().required("Required"),
 })
 
-export const validationExercises = Yup.object().shape({
+const validationExercises = Yup.object().shape({
     typeOfProgramm: Yup.string().required("Required"),
     numberOfWorkouts: Yup.string().required("Required"),
     typeOfTrainings: Yup.string().required("Required"),
 })
 
-export const validationLoginUser = Yup.object().shape({
+const validationLoginUser = Yup.object().shape({
     login: Yup.string().required("Required"),
     password: Yup.string().required("Required"),
 })
+
+export {
+    validationUser,
+    validationMeal,
+    validationExercises,
+    validationLoginUser,
+}

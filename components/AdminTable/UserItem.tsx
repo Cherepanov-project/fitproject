@@ -1,4 +1,9 @@
-import { FC, useState } from "react"
+import React, { useState } from "react"
+import Image from "next/image"
+import { format } from "date-fns"
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
+import MoreVertIcon from "@mui/icons-material/MoreVert"
+import EditIcon from "@mui/icons-material/Edit"
 import {
     TableRow,
     TableCell,
@@ -7,17 +12,13 @@ import {
     Menu,
     MenuItem,
 } from "@mui/material"
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
-import MoreVertIcon from "@mui/icons-material/MoreVert"
-import EditIcon from "@mui/icons-material/Edit"
+
 import { SecondaryText, Text, RowAvatar, WrapBnt } from "./UserItem.style"
 import avatarUser from "./images/avatarUser.jpg"
-import Image from "next/image"
-import ColorfulTeg from "../../common/ColorfulTeg"
-import { format } from "date-fns"
+import ColorfulTeg from "../ColorfulTeg"
 import { MenuIcon } from "../FilterBtn/stylesContent"
 
-interface UserItemProps {
+interface IUserItemProps {
     nameUser: string
     avatar?: string
     dateRegistor: string
@@ -28,7 +29,7 @@ interface UserItemProps {
 
 const options = ["Delete", "Edit"]
 
-const UserItem: FC<UserItemProps> = ({
+const UserItem: React.FC<IUserItemProps> = ({
     nameUser,
     dateRegistor,
     email,

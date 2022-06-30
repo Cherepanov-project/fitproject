@@ -2,11 +2,12 @@ import { useState } from "react"
 import { useRouter } from "next/router"
 import Link from "next/link"
 import Card from "@mui/material/Card"
-import { LayoutUser } from "../../../../layouts/Layout-user/Layout-user"
-import { exerciseList, exercisesType } from "../../../../model/workout/workout"
-import muscleImg from "../../../../common/images/icons/backMuscle.svg"
-import uid from "../../../../utils/uid"
 import useMediaQuery from "@mui/material/useMediaQuery"
+
+import { LayoutUser } from "../../../../containers/Layout-user/Layout-user"
+import { exerciseList, exercisesType } from "../../../../models/workout/workout"
+import muscleImg from "../../../../common/images/icons/backMuscle.svg"
+import generateId from "../../../../utils/generateId"
 
 import {
     MainWrapper,
@@ -45,8 +46,8 @@ const WorkoutItem = () => {
     }
 
     const musclesList = workout?.muscles.map(muscle => (
-        <Muscle key={uid()}>
-            <img src={muscleImg.src} />
+        <Muscle key={generateId()}>
+            <img src={muscleImg.src} alt="muscle" />
             <span>{muscle}</span>
         </Muscle>
     ))

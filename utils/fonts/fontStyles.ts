@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components"
 
-export const FontStyles = createGlobalStyle`
+const FontStyles = createGlobalStyle`
 @font-face {
   font-family: 'Mulish';
   font-style: normal;
@@ -8,3 +8,5 @@ export const FontStyles = createGlobalStyle`
   src: url('./fonts/mulish-v10-latin/mulish-v10-latin-regular.eot');
 }
 `
+
+export default FontStyles

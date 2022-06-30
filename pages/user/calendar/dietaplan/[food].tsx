@@ -1,5 +1,5 @@
-import CalendarContainer from "../../../../common/CalendarContainer"
-import Dish from "../../../../common/dish/Dish"
+import CalendarContainer from "../../../../components/CalendarContainer"
+import Dish from "../../../../components/Dish/Dish"
 
 const FoodDishItem = () => {
     return (

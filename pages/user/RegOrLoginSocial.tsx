@@ -1,3 +1,6 @@
+import { ContinueWithSocial, SocialLink } from "./userLoginOrRegisterStyle"
+import SocialLoginBtn from "./SocialsBtns/SocialLoginBtn"
+
 import {
     REDIRECT_GOOGLE_BTN,
     GOOGLE_IMG,
@@ -7,13 +10,9 @@ import {
     MAIL_IMG,
     REDIRECT_VK_BTN,
     VK_IMG,
-} from "../../utils/urls"
+} from "../../constants/urls"
 
-import { ContinueWithSocial, SocialLink } from "./userLoginOrRegisterStyle"
-
-import SocialLoginBtn from "./SocialsBtns/SocialLoginBtn"
-
-export const RegOrLoginSocial = () => {
+const RegOrLoginSocial = () => {
     return (
         <ContinueWithSocial>
             <div>or continue with</div>
@@ -42,3 +41,5 @@ export const RegOrLoginSocial = () => {
         </ContinueWithSocial>
     )
 }
+
+export { RegOrLoginSocial }

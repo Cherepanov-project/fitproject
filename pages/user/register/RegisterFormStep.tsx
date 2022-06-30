@@ -1,39 +1,37 @@
+import React from "react"
 import { useState } from "react"
 import { nanoid } from "nanoid"
 import { CardContent } from "@mui/material"
 
+import { FormTextField } from "../../../components/User/FormTextField"
+import { FormSelectField } from "../../../components/User/FormSelectField"
+import { LOGIN_PAGE } from "../../../constants/urls"
+import { RightSide } from "../userLoginOrRegisterStyle"
+import { FormikStepper } from "./FormikStepper"
+import { FormikStep } from "../../../components/User/FormikStep"
+import loginOrRegisterUser from "../../../utils/loginOrRegisterUser"
+import redirectToLoginPage from "../../../utils/redirect"
+import paused from "../../../utils/paused"
 import {
     IRegisterForm,
     IFormStatus,
-} from "../../../model/loginOrRegisterInterfaces/interfaces"
+} from "../../../models/loginOrRegisterInterfaces/interfaces"
 import {
     formStatusValue,
     formRegisterValues,
-} from "../../../model/loginOrRegisterInterfaces/initialValues"
+} from "../../../models/loginOrRegisterInterfaces/initialValues"
 import {
     userInfo,
     exercises,
     mealPreferenciesSelect,
-} from "../../../model/loginOrRegisterInterfaces/inputsValues"
-
-import { FormTextField } from "../../../common/user/FormTextField"
-import { FormSelectField } from "../../../common/user/FormSelectField"
-import FormikStep from "../../../common/user/FormikStep"
-
+} from "../../../models/loginOrRegisterInterfaces/inputsValues"
 import {
     validationUser,
     validationMeal,
     validationExercises,
 } from "../../../utils/validationSchema"
-import { loginOrRegisterUser } from "../../../utils/loginOrRegisterUser"
-import { redirectToLoginPage } from "../../../utils/redirect"
-import { paused } from "../../../utils/paused"
-import { LOGIN_PAGE } from "../../../utils/urls"
 
-import { RightSide } from "../userLoginOrRegisterStyle"
-import { FormikStepper } from "./FormikStepper"
-
-export const RegisterForm: React.FC = () => {
+const RegisterForm: React.FC = () => {
     const [displayFormStatus, setDisplayFormStatus] = useState<boolean>(false)
 
     const [formStatus, setFormStatus] = useState<IFormStatus>(formStatusValue)
@@ -124,3 +122,5 @@ export const RegisterForm: React.FC = () => {
         </RightSide>
     )
 }
+
+export { RegisterForm }

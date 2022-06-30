@@ -19,7 +19,7 @@ const CreateForm = () => {
                         marginLeft: 3.5,
                     }}
                 >
-                    Add recipie
+                    Add recipe
                 </Button>
             </Link>
         </>
