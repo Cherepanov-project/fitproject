@@ -70,5 +70,3 @@ export const FormTextField = (props: IInputForm) => {
         </Box>
     )
 }
-
-export { FormTextField }

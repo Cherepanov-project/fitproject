@@ -12,7 +12,7 @@ import { loginUser } from "../../../services/API/loginUser"
 import { FormTextField } from "../../../components/User/FormTextField"
 
 import { validationLoginUser } from "../../../utils/validationSchema"
-import { RightSide, Title2, ForgorPassword } from "../userLoginOrRegisterStyle"
+import { RightSide, Title2, ForgotPassword } from "../userLoginOrRegisterStyle"
 import { RegOrLoginSocial } from "../RegOrLoginSocial"
 
 export const LoginForm: React.FC = () => {
@@ -114,5 +114,3 @@ export const LoginForm: React.FC = () => {
         </>
     )
 }
-
-export { LoginForm }
