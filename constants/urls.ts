@@ -12,8 +12,10 @@ const YANDEX_APP_ID: string = "824329c3c4d241bc987b77de6090da9c"
 const VK_APP_ID: string = "8103808"
 
 //API ссылки
-const API_REGISTER_USER: string = "http://localhost:8082/api/user/register"
-const API_LOGIN_USER: string = "http://localhost:8082/api/user/login"
+const API_REGISTER_USER: string =
+    "https://spring-boot-fitness-backend.herokuapp.com/api/v1/registration"
+const API_LOGIN_USER: string =
+    "https://spring-boot-fitness-backend.herokuapp.com/api/v1/authenticate"
 const API_SOCIAL: string = "http://localhost:8082/api/user/social"
 const API_GET_STATISTICS: string = "http://localhost:8082/api/user/statistics"
 const API_WORKOUTS: string =

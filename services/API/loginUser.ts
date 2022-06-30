@@ -8,22 +8,34 @@ import {
 import {
     ILoginForm,
     IRegisterForm,
+    IRegisterRequest,
+    ILoginResponseSuccess,
+    ILoginResponseError,
 } from "../../models/loginOrRegisterInterfaces/interfaces"
 
-const loginUser = async (user: ILoginForm) => {
-    const { data: res } = await axios.post(API_LOGIN_USER, { user })
-    return res
+export const loginUser = async (user: ILoginForm) => {
+    try {
+        const { data } = await axios.post<ILoginResponseSuccess>(
+            API_LOGIN_USER,
+            user
+        )
+        return data
+    } catch (error) {
+        return error as ILoginResponseError
+    }
 }
 
-const registerUser = async (user: IRegisterForm) => {
-    const { data: res } = await axios.post(API_REGISTER_USER, { user })
-    return res
+export const registerUser = async (user: IRegisterRequest) => {
+    try {
+        const { data } = await axios.post(API_REGISTER_USER, user)
+        return data
+    } catch (error) {
+        return error
+    }
 }
 
 //возвращает токен с сервера для логина или регистрации
-const loginUserWithSocials = async (code: string | string[]) => {
+export const loginUserWithSocials = async (code: string | string[]) => {
     const { data } = await axios.post(API_SOCIAL, { data: { code } })
     return data
 }
-
-export { loginUser, registerUser, loginUserWithSocials }

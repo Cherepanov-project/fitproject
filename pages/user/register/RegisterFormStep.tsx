@@ -1,63 +1,59 @@
 import React from "react"
 import { useState } from "react"
 import { nanoid } from "nanoid"
-import { CardContent } from "@mui/material"
+import { CardContent, Snackbar } from "@mui/material"
+import { registerUser } from "../../../services/API/loginUser"
 
-import { FormTextField } from "../../../components/User/FormTextField"
-import { FormSelectField } from "../../../components/User/FormSelectField"
-import { LOGIN_PAGE } from "../../../constants/urls"
-import { RightSide } from "../userLoginOrRegisterStyle"
-import { FormikStepper } from "./FormikStepper"
-import { FormikStep } from "../../../components/User/FormikStep"
-import loginOrRegisterUser from "../../../utils/loginOrRegisterUser"
-import redirectToLoginPage from "../../../utils/redirect"
-import paused from "../../../utils/paused"
-import {
-    IRegisterForm,
-    IFormStatus,
-} from "../../../models/loginOrRegisterInterfaces/interfaces"
-import {
-    formStatusValue,
-    formRegisterValues,
-} from "../../../models/loginOrRegisterInterfaces/initialValues"
+import { IRegisterForm } from "../../../models/loginOrRegisterInterfaces/interfaces"
+import { formRegisterValues } from "../../../models/loginOrRegisterInterfaces/initialValues"
 import {
     userInfo,
     exercises,
-    mealPreferencesSelect,
+    mealPreferenciesSelect,
 } from "../../../models/loginOrRegisterInterfaces/inputsValues"
 import {
     validationUser,
     validationMeal,
     validationExercises,
 } from "../../../utils/validationSchema"
+import redirectToLoginPage from "../../../utils/redirect"
+import { LOGIN_PAGE } from "../../../constants/urls"
 
-const RegisterForm: React.FC = () => {
-    const [displayFormStatus, setDisplayFormStatus] = useState<boolean>(false)
+import { RightSide } from "../userLoginOrRegisterStyle"
+import { FormikStepper } from "./FormikStepper"
+import { FormikStep } from "../../../components/User/FormikStep"
+import { FormTextField } from "../../../components/User/FormTextField"
+import { FormSelectField } from "../../../components/User/FormSelectField"
 
-    const [formStatus, setFormStatus] = useState<IFormStatus>(formStatusValue)
-
-    const [values, setValues] = useState<IRegisterForm>(formRegisterValues)
+export const RegisterForm: React.FC = () => {
+    const [open, setOpen] = useState<boolean>(false)
+    const [msg, setMsg] = useState<string>("")
+    const [registerSuccess, setRegisterSuccess] = useState<boolean>(false)
+    const closeMessage = (): void => {
+        setOpen(false)
+    }
 
     return (
         <RightSide>
             <CardContent sx={{ width: "80%", margin: "0 auto" }}>
                 <FormikStepper
-                    onSubmit={async (
-                        data: IRegisterForm,
-                        actions: { resetForm: Function }
-                    ) => {
-                        await paused(3000)
-                        redirectToLoginPage(LOGIN_PAGE)
-                        setValues({ ...data })
-                        await loginOrRegisterUser(
-                            data,
-                            actions.resetForm,
-                            setFormStatus,
-                            setDisplayFormStatus
-                        )
-                        console.log("data sign in: ", data)
+                    onSubmit={async (data: IRegisterForm) => {
+                        try {
+                            const response = await registerUser(data)
+                            if (!response.success) {
+                                throw new Error(response.error)
+                            }
+                            setRegisterSuccess(true)
+                            setMsg("You have been register")
+                            setOpen(true)
+                            redirectToLoginPage(LOGIN_PAGE)
+                        } catch (error) {
+                            setMsg(error.message)
+                            setOpen(true)
+                        }
                     }}
-                    initialValues={values}
+                    initialValues={formRegisterValues}
+                    registerSuccess={registerSuccess}
                 >
                     <FormikStep
                         label="userInfo"
@@ -70,14 +66,13 @@ const RegisterForm: React.FC = () => {
                                     placeholder={field.placeholder}
                                     name={field.name}
                                     type={field.type}
-                                    secrecy={field.secrecy}
                                 />
                             )
                         })}
                     </FormikStep>
 
                     <FormikStep
-                        label="mealPreferences"
+                        label="meal Preferencies"
                         validationSchema={validationMeal}
                     >
                         <FormTextField
@@ -119,6 +114,13 @@ const RegisterForm: React.FC = () => {
                     </FormikStep>
                 </FormikStepper>
             </CardContent>
+            <Snackbar
+                open={open}
+                onClose={closeMessage}
+                message={msg}
+                key={nanoid()}
+                data-testid="snackbar"
+            />
         </RightSide>
     )
 }

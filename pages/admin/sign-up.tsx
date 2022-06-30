@@ -18,5 +18,4 @@ const Admin = () => {
         </ContainerAdminRegistration>
     )
 }
-
 export default Admin

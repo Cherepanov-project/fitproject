@@ -3,15 +3,9 @@ import List from "@mui/material/List"
 import ListItemButton from "@mui/material/ListItemButton"
 import ListItemIcon from "@mui/material/ListItemIcon"
 import ListItemText from "@mui/material/ListItemText"
-import { formatDistanceToNow } from "date-fns"
-
-import goalsIcon from "../../../common/images/layoutUser/userbarIcons/goals.svg"
-import diet from "../../../common/images/layoutUser/userbarIcons/diet.svg"
+import Cookies from "js-cookie"
 import SettingsIcon from "../../../common/images/layoutUser/userbarIcons/SeetingsIcon.svg"
-import defaultAvatar from "../../../common/images/layoutUser/userbarIcons/defaultAvatar.png"
-import arrow from "../../../common/images/layoutUser/userbarIcons/arrow.svg"
-import meter from "../../../common/images/layoutUser/userbarIcons/meter.svg"
-import generateId from "../../../utils/generateId"
+
 import {
     Avatar,
     Icon,
@@ -28,7 +22,18 @@ import {
     MainWrapper,
     /* SquareBtn, */
 } from "./RightSideBarStyle"
-
+import goalsIcon from "../../../common/images/layoutUser/userbarIcons/goals.svg"
+import diet from "../../../common/images/layoutUser/userbarIcons/diet.svg"
+import defaultAvatar from "../../../common/images/layoutUser/userbarIcons/defaultAvatar.png"
+import arrow from "../../../common/images/layoutUser/userbarIcons/arrow.svg"
+import meter from "../../../common/images/layoutUser/userbarIcons/meter.svg"
+import { formatDistanceToNow } from "date-fns"
+import Menu from "@mui/material/Menu"
+import MenuItem from "@mui/material/MenuItem"
+import { Logout, PersonAdd, Settings } from "@mui/icons-material"
+import { useRouter } from "next/router"
+import { PaperProps } from "./RightSideBarStyle"
+import generateId from "../../../utils/generateId"
 const drawerWidth: string = "244px"
 
 interface ISideBarProps {
@@ -43,14 +48,33 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
     userName = "User",
     lastDate = new Date(),
 }: ISideBarProps) => {
+    const router = useRouter()
     const lastVisitTime = formatDistanceToNow(lastDate, {
         includeSeconds: true,
     })
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
+    const open = Boolean(anchorEl)
 
+    const handleClick = (event: React.MouseEvent<HTMLElement>) =>
+        setAnchorEl(event.currentTarget)
+
+    const handleClose = () => setAnchorEl(null)
+
+    const handleListKeyDown = (event: React.KeyboardEvent) => {
+        event.preventDefault()
+        if (event.key === "Escape") {
+            handleClose()
+        }
+    }
+
+    const handleLogout = () => {
+        Cookies.remove("userToken")
+        router.push("/user")
+    }
     return (
         <MainWrapper>
             <RightSideBarWrapper>
-                <UserInfoWrapper>
+                <UserInfoWrapper onClick={handleClick}>
                     <Avatar alt="avatar" src={avatar.src} />
                     <UserInfo>
                         <UserName>{userName}</UserName>
@@ -123,6 +147,29 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
                     <Meter src={meter.src} />
                 </WeightLoosGoalWrapper>
             </RightSideBarWrapper>
+            <Menu
+                anchorEl={anchorEl}
+                id="account-menu"
+                open={open}
+                onClick={handleClose}
+                PaperProps={PaperProps}
+                onKeyDown={handleListKeyDown}
+                transformOrigin={{ horizontal: "right", vertical: "top" }}
+                anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+            >
+                <MenuItem>
+                    <ListItemIcon>
+                        <Settings fontSize="small" />
+                    </ListItemIcon>
+                    Settings
+                </MenuItem>
+                <MenuItem onClick={handleLogout}>
+                    <ListItemIcon>
+                        <Logout fontSize="small" />
+                    </ListItemIcon>
+                    Logout
+                </MenuItem>
+            </Menu>
         </MainWrapper>
     )
 }

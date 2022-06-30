@@ -2,32 +2,27 @@ const userInfo = [
     {
         placeholder: "Enter Email",
         name: "email",
-        type: "text",
-        secrecy: false,
+        type: "email",
     },
     {
-        placeholder: "Create User name",
-        name: "userName",
+        placeholder: "Create username",
+        name: "username",
         type: "text",
-        secrecy: false,
     },
     {
         placeholder: "Contact number",
-        name: "contactNumber",
+        name: "phone",
         type: "text",
-        secrecy: false,
     },
     {
         placeholder: "Password",
         name: "password",
         type: "password",
-        secrecy: true,
     },
     {
         placeholder: "Confirm Password",
         name: "confirmPassword",
         type: "password",
-        secrecy: true,
     },
 ]
 
@@ -51,7 +46,7 @@ const exercises = [
         ],
     },
     {
-        placeholder: "",
+        placeholder: "Type of trainings",
         name: "typeOfTrainings",
         values: [
             { value: "ggg", title: "ggg" },

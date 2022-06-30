@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Children, ReactElement } from "react"
+import { Children, ReactElement, FC } from "react"
 import { nanoid } from "nanoid"
 import { Formik, FormikConfig, Form } from "formik"
 import {
@@ -13,11 +13,15 @@ import {
 import { RegOrLoginSocial } from "../RegOrLoginSocial"
 import {
     IFormikStepProps,
-    IRegisterForm,
-    IFormikStepper,
+    IFormikStepperProps,
 } from "../../../models/loginOrRegisterInterfaces/interfaces"
 
-const FormikStepper = ({ children, initialValues, onSubmit }) => {
+export const FormikStepper = ({
+    children,
+    initialValues,
+    onSubmit,
+    registerSuccess,
+}: IFormikStepperProps) => {
     const childrenArray = Children.toArray(
         children
     ) as ReactElement<IFormikStepProps>[]
@@ -94,7 +98,9 @@ const FormikStepper = ({ children, initialValues, onSubmit }) => {
                                 <Grid item>
                                     <Button
                                         sx={{ backgroundColor: "#B0BAC9" }}
-                                        disabled={isSubmitting}
+                                        disabled={
+                                            isSubmitting || registerSuccess
+                                        }
                                         variant="contained"
                                         onClick={() =>
                                             setStep(step => step - 1)
@@ -112,7 +118,7 @@ const FormikStepper = ({ children, initialValues, onSubmit }) => {
                                             <CircularProgress size="1.5rem" />
                                         ) : null
                                     }
-                                    disabled={isSubmitting}
+                                    disabled={isSubmitting || registerSuccess}
                                     variant="contained"
                                     type="submit"
                                 >

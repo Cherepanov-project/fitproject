@@ -9,18 +9,34 @@ import {
     IInputForm,
 } from "../../models/loginOrRegisterInterfaces/interfaces"
 
-const FormTextField = (props: IInputForm) => {
+export const FormTextField = (props: IInputForm) => {
+    const calcPasswordVisible = (
+        type: string,
+        showPassword: boolean
+    ): string => {
+        if (type !== "password") {
+            return type
+        }
+        if (showPassword) {
+            return "text"
+        }
+        if (!showPassword) {
+            return "password"
+        }
+    }
+
     const [field, meta] = useField(props)
     const [formStatus, setFormStatus] = useState<IFormStatus>({
         message: "",
-        type: "",
         showPassword: false,
+        type: props.type,
     })
 
     const handleClickShowPassword = () => {
         setFormStatus({
             ...formStatus,
             showPassword: !formStatus.showPassword,
+            type: calcPasswordVisible(props.type, !formStatus.showPassword),
         })
     }
 
@@ -29,15 +45,16 @@ const FormTextField = (props: IInputForm) => {
             <FormControl sx={{ width: "100%" }}>
                 <Input
                     error={meta.error && meta.touched}
-                    type={!props.secrecy ? "text" : "password"}
+                    placeholder={props.placeholder}
+                    type={formStatus.type}
                     {...field}
-                    {...props}
                 />
-                {props.secrecy ? (
+                {props.type === "password" ? (
                     <IconButton
                         sx={{ position: "absolute", right: "3%" }}
                         onClick={handleClickShowPassword}
                         edge="end"
+                        data-testid="show-password"
                     >
                         {formStatus.showPassword ? (
                             <VisibilityOff sx={{ color: "#A7A3FF" }} />
@@ -53,5 +70,3 @@ const FormTextField = (props: IInputForm) => {
         </Box>
     )
 }
-
-export { FormTextField }
