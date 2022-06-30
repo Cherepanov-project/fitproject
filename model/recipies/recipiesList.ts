@@ -12,6 +12,11 @@ export interface IRecipesArr {
     data: IResipe[]
 }
 
+export interface IAddRecip {
+    name: string
+    description: string
+}
+
 export const contentList = [
     {
         id: "573588",

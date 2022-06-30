@@ -1,4 +1,4 @@
-import React, { useState, FC } from "react"
+import React, { FC } from "react"
 import { useField, FieldArray } from "formik"
 import { Grid, Box, TextField, IconButton, Button } from "@mui/material"
 import CloseIcon from "@mui/icons-material/Close"
@@ -11,11 +11,10 @@ interface IProps {
 
 const emptyIngredient = {
     name: "",
-    description: "",
 }
 
-const IngredientsFiled: FC<IProps> = React.memo((props: IProps) => {
-    const [field, meta, helpers] = useField(props.name)
+const IngredientsFiled: FC<IProps> = ({ name }) => {
+    const [field, meta, helpers] = useField(name)
 
     return (
         <FieldArray
@@ -41,15 +40,19 @@ const IngredientsFiled: FC<IProps> = React.memo((props: IProps) => {
                                           }}
                                           my={2}
                                       >
-                                          <Grid>
-                                              <IconButton
-                                                  onClick={() =>
-                                                      arrayHelpers.remove(index)
-                                                  }
-                                              >
-                                                  <CloseIcon color="error" />
-                                              </IconButton>
-                                          </Grid>
+                                          {index === 0 ? null : (
+                                              <Grid>
+                                                  <IconButton
+                                                      onClick={() =>
+                                                          arrayHelpers.remove(
+                                                              index
+                                                          )
+                                                      }
+                                                  >
+                                                      <CloseIcon color="error" />
+                                                  </IconButton>
+                                              </Grid>
+                                          )}
                                           <Grid
                                               container
                                               item
@@ -113,6 +116,6 @@ const IngredientsFiled: FC<IProps> = React.memo((props: IProps) => {
             )}
         />
     )
-})
+}
 
 export default IngredientsFiled

@@ -1,15 +1,14 @@
-import { TextField, Typography, Button } from "@mui/material"
+import { Button } from "@mui/material"
 import { useState } from "react"
 import FileUpload from "../AdminFormComponents/upload/FileUpload"
-import * as yup from "yup"
-import { FieldArray, Formik, Form, Field } from "formik"
+import { Formik, Form } from "formik"
 import FormFeildLong from "../AdminFormComponents/FormFeildLong"
 import FieldList from "../AdminFormComponents/FieldList/FieldList"
 import EditorMCE from "../AdminFormComponents/EditorMCE/EditorMCE"
-import { INutrilon, nutrilonsMapped } from "../../model/recipes/index"
 import { validationRecipies } from "../../utils/validationSchema"
-
 import IngredientsField from "../AdminFormComponents/IngredientsField/IngredientsFiled"
+import { postRecipes } from "../../API/adminApi"
+import { IAddRecip } from "../../model/recipies/recipiesList"
 
 import {
     ContentWrapper,
@@ -17,8 +16,17 @@ import {
     FormWrapper,
     SecondaryText,
 } from "./RecipeForm.style"
+import { useMutation } from "react-query"
 
 const RecipeForm = ({ title }) => {
+    const { mutate: addNewRecipe, isLoading } = useMutation(
+        (formData: IAddRecip) => {
+            return postRecipes(formData)
+        }
+    )
+
+    console.log(isLoading)
+
     return (
         <ContentWrapper>
             <FormTitle>{title}</FormTitle>
@@ -41,7 +49,14 @@ const RecipeForm = ({ title }) => {
                     recipe: "",
                 }}
                 validationSchema={validationRecipies}
-                onSubmit={values => console.log(values)}
+                onSubmit={(values, { resetForm }) => {
+                    const data = {
+                        name: values.header,
+                        description: values.description,
+                    }
+
+                    addNewRecipe(data, { onSuccess: () => resetForm() })
+                }}
                 render={({ values }) => (
                     <Form autoComplete="off">
                         <FormWrapper>
