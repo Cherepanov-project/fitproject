@@ -1,20 +1,24 @@
 import React from "react"
-import { withLayout } from "../../layouts/Layout-admin/Layout-admin"
-import { useState, useEffect } from "react"
-import FilterBtn from "../../components/FilterBtn/filter"
-import { ContentListType, contentList } from "../../model/recipies/recipiesList"
-import Recipie from "../../components/RecipiesContainer/ResipiesList/recipie"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
 import TableContainer from "@mui/material/TableContainer"
+import { useState, useEffect } from "react"
+
+import { withLayout } from "../../containers/Layout-admin/Layout-admin"
 import { ContentList, FooterRecipies } from "./overview/overviewStyles"
+import FilterBtn from "../../components/FilterBtn/filter"
+import Recipie from "../../components/RecipiesContainer/ResipiesList/recipie"
 import CreateForm from "../../components/RecipiesContainer/AddBtn/addForm"
 import Pagination from "../../components/Pagination/pagination"
 import ColumnName from "../../components/RecipiesContainer/ColumnName/columnName"
 import getArrPagination from "../../utils/getArrPagination"
+import {
+    IContentListType,
+    contentList,
+} from "../../models/recipies/recipiesList"
 
 const Recipes = () => {
-    const [arrRecipies, setArrRecipies] = useState<ContentListType[]>([])
+    const [arrRecipies, setArrRecipies] = useState<IContentListType[]>([])
     const [page, setPage] = useState<number>(0)
     const [rowsPerPage, setRowsPerPage] = useState<number>(8)
 

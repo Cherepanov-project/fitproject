@@ -1,3 +1,10 @@
+import Link from "next/link"
+import Grid from "@mui/material/Grid"
+import Box from "@mui/material/Box"
+import Paper from "@mui/material/Paper"
+import useMediaQuery from "@mui/material/useMediaQuery"
+import { styled } from "@mui/material/styles"
+
 import {
     startOfMonth,
     getISODay,
@@ -8,6 +15,12 @@ import {
     subMonths,
     getDate,
 } from "date-fns"
+
+import CalendarContainer from "../../../components/CalendarContainer"
+import generateId from "../../../utils/generateId"
+import FramerCalendar from "../../../components/FramerCalendar"
+import { monthArr } from "../../../models/user/user"
+import { LayoutUser } from "../../../containers/Layout-user/Layout-user"
 import {
     CalcHead,
     DayBlur,
@@ -18,18 +31,6 @@ import {
     CalcDate,
     CalendarDiv,
 } from "./stylesCalendar"
-import CalendarContainer from "../../../common/CalendarContainer"
-import Link from "next/link"
-import Grid from "@mui/material/Grid"
-import Box from "@mui/material/Box"
-import Paper from "@mui/material/Paper"
-import { styled } from "@mui/material/styles"
-import useMediaQuery from "@mui/material/useMediaQuery"
-import monthArr from "../../../model/user/main"
-import uid from "../../../utils/uid"
-import FramerCalendar from "../../../common/FramerCalendar"
-
-import { LayoutUser } from "../../../layouts/Layout-user/Layout-user"
 
 const Calendar = () => {
     const dateToday: Date = new Date()
@@ -77,7 +78,7 @@ const Calendar = () => {
     const weekElements = arrDays(dateToday).map((el, index) => {
         return index >= dayWeekISO - 1 &&
             index < countDay + (dayWeekISO - 1) ? (
-            <Grid item xs={1} key={uid()}>
+            <Grid item xs={1} key={generateId()}>
                 <Item sx={size}>
                     <FlexItem>
                         <CalcDate>{el}</CalcDate>
@@ -97,7 +98,7 @@ const Calendar = () => {
                 </Item>
             </Grid>
         ) : (
-            <Grid item xs={1} key={uid()}>
+            <Grid item xs={1} key={generateId()}>
                 <DayBlur>
                     <Item sx={size}>
                         <CalcDate>{el}</CalcDate>
