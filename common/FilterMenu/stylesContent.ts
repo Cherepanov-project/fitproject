@@ -29,7 +29,7 @@ export const Title = styled.h2`
     color: #252733;
     margin-right: auto;
 `
-export const BtnsList = styled.div`
+export const ButtonList = styled.div`
     display: flex;
     width: 225px;
 `

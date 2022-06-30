@@ -1,19 +1,19 @@
 import Link from "next/link"
 
 import loginMan from "../../common/images/loginMan.png"
-import Layout from "../../common/user/UserLayout"
-
+import Layout from "../../components/User/UserLayout"
 import { LoginForm } from "./login/loginForm"
+import { RegOrLoginIcon } from "./userLoginOrRegisterStyle"
+
 import {
     UserLoginOrRegister,
     FlexWrapper,
     Logo,
     LeftSide,
-    A,
+    AAA,
     Title,
     Title2,
 } from "./userLoginOrRegisterStyle"
-import { RegOrLoginIcon } from "./userLoginOrRegisterStyle"
 
 const User = () => {
     return (
@@ -26,15 +26,13 @@ const User = () => {
                         <Title2>Lorem ipsum is simply</Title2>
                         <div>If you don’t have an account register</div>
                         <div>
-                            You can
-                            <Link href="/user/register" passHref>
-                                <A>Register here!</A>
+                            <span>You can</span>
+
+                            <Link href={"/user/register"} passHref>
+                                <AAA> Register here!</AAA>
                             </Link>
                         </div>
-                        <RegOrLoginIcon
-                            width="50%"
-                            src={loginMan.src}
-                        ></RegOrLoginIcon>
+                        <RegOrLoginIcon width="50%" src={loginMan.src} />
                     </LeftSide>
                     <LoginForm />
                 </FlexWrapper>
@@ -42,4 +40,5 @@ const User = () => {
         </Layout>
     )
 }
+
 export default User

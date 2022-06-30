@@ -1,12 +1,12 @@
 import { Grid, Button } from "@material-ui/core"
 import React from "react"
 
-interface FuileHeaderProps {
+interface IFileHeaderProps {
     file: File
     onDelete: (file: File) => void
 }
 
-export function FileHeader({ file, onDelete }: FuileHeaderProps) {
+const FileHeader = ({ file, onDelete }: IFileHeaderProps) => {
     return (
         <Grid container justifyContent="space-between" alignItems="center">
             <Grid item>{file.name}</Grid>
@@ -18,3 +18,5 @@ export function FileHeader({ file, onDelete }: FuileHeaderProps) {
         </Grid>
     )
 }
+
+export { FileHeader }

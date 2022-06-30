@@ -2,7 +2,8 @@ import React from "react"
 import dynamic from "next/dynamic"
 import { Normalize } from "styled-normalize"
 
-import { withLayout } from "../../../layouts/Layout-admin/Layout-admin"
+import { withLayout } from "../../../containers/Layout-admin/Layout-admin"
+
 import { Typography, Link, Input, Button } from "@mui/material/"
 import AddIcon from "@mui/icons-material/Add"
 
@@ -21,21 +22,21 @@ import {
     Widget,
     BlockHeaderRightSideStyled,
 } from "./overviewStyles"
-import { FontStyles } from "../../../utils/fonts/fontStyles"
+import FontStyles from "../../../utils/fonts/fontStyles"
+import { headerCardsData } from "../../../models/cards/headerCards/headerCards"
+import { trendsCardsData } from "../../../models/cards/trendsCards/trendsCards"
+import { ticketsData } from "../../../models/widgets/tickets/tickets"
+import { tasksData } from "../../../models/widgets/tasks/tasks"
 
-import { headerCardsData } from "../../../model/cards/headerCards/headerCards"
-import { trendsCardsData } from "../../../model/cards/trendsCards/trendsCards"
-import { ticketsData } from "../../../model/widgets/tickets/tickets"
-import { tasksData } from "../../../model/widgets/tasks/tasks"
-
-import Card from "../../../common/Card/card"
-import TicketsWidgetItem from "../../../common/WidgetItem/ticketsWidgetItem"
-import TasksWidgetItem from "../../../common/WidgetItem/tasksWidgetItem"
+import Card from "../../../components/Card/card"
+import TicketsWidgetItem from "../../../components/WidgetItem/ticketsWidgetItem"
+import TasksWidgetItem from "../../../components/WidgetItem/tasksWidgetItem"
 import {
     WidgetItemContainer,
     WidgetItemContent,
-} from "../../../common/WidgetItem/widgetItemStyles"
-const DynamicGraph = dynamic(() => import("../../../common/Graph/Graph"), {
+} from "../../../components/WidgetItem/widgetItemStyles"
+
+const DynamicGraph = dynamic(() => import("../../../components/Graph/Graph"), {
     ssr: false,
 })
 

@@ -1,16 +1,17 @@
 import React, { useCallback, useEffect, useState } from "react"
 import { FileRejection, FileError, useDropzone } from "react-dropzone"
 import styled from "styled-components"
-import styles from "./FileUpload.module.scss"
-import classnames from "classnames/bind"
-import { SingleFileUpload } from "./SingleFileUpload"
 import { Box, Grid } from "@material-ui/core"
 import { useField } from "formik"
+
+import { SingleFileUpload } from "./SingleFileUpload"
 import UploadError from "./UploadError"
+import styles from "./FileUpload.module.scss"
+import classnames from "classnames/bind"
 
 let currentId = 0
 
-export interface UploadableFileProps {
+export interface IUploadableFileProps {
     id: number
     file: File
     errors: FileError[]
@@ -19,7 +20,7 @@ export interface UploadableFileProps {
 
 function getNewId() {
     // we could use a fancier solution instead of a sequential ID :)
-    return ++currentId
+    return (currentId += 1)
 }
 
 const DefaultDropZone = styled.div`
@@ -49,7 +50,7 @@ const SecondParagraph = styled.p`
 
 const FileUpload = ({ name }: { name?: string }) => {
     // const [_, __, helpers] = useField(name)
-    const [files, setFiles] = useState<UploadableFileProps[]>([])
+    const [files, setFiles] = useState<IUploadableFileProps[]>([])
 
     const onDrop = useCallback(
         (accFiles: File[], rejFiles: FileRejection[]) => {
@@ -58,7 +59,10 @@ const FileUpload = ({ name }: { name?: string }) => {
                 errors: [],
                 id: getNewId(),
             }))
-            const mappedRej = rejFiles.map(r => ({ ...r, id: getNewId() }))
+            const mappedRej = rejFiles.map(rValue => ({
+                ...rValue,
+                id: getNewId(),
+            }))
             setFiles(curr => [...curr, ...mappedAcc, ...mappedRej])
         },
         []
@@ -98,9 +102,7 @@ const FileUpload = ({ name }: { name?: string }) => {
                 <DefaultDropZone {...getRootProps()}>
                     <input {...getInputProps()} />
 
-                    <p>
-                        Drag 'n' drop some files here, or click to select files
-                    </p>
+                    <p>Drag n drop some files here, or click to select files</p>
                     {files.map((fileWrapper, index) => (
                         <Grid item key={index}>
                             {fileWrapper.errors.length ? (

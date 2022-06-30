@@ -1,16 +1,20 @@
 import { useRouter } from "next/router"
-import CalendarContainer from "../../../../common/CalendarContainer"
-import HeadLinkBack from "../../../../common/HeadLinkBack"
-import { WorkoutUl, ListWorkoutName, ItemWorkoutDiv } from "./styledWorkout"
-import { workoutDay, workoutDayType } from "../../../../model/workout/wokout"
 import { useState } from "react"
-import ItemWorkout from "./ItemWorkout"
-import { LayoutUser } from "../../../../layouts/Layout-user/Layout-user"
 
-export default LayoutUser(function () {
+import CalendarContainer from "../../../../components/CalendarContainer"
+import HeadLinkBack from "../../../../components/HeadLinkBack"
+import ItemWorkout from "./ItemWorkout"
+import { LayoutUser } from "../../../../containers/Layout-user/Layout-user"
+import { WorkoutUl, ListWorkoutName, ItemWorkoutDiv } from "./styledWorkout"
+import {
+    workoutDay,
+    IWorkoutDayType,
+} from "../../../../models/workout/workoutDay"
+
+LayoutUser(function () {
     const { asPath } = useRouter()
     const [arrWorkoutDay, setWorkoutDay] =
-        useState<workoutDayType[]>(workoutDay)
+        useState<IWorkoutDayType[]>(workoutDay)
 
     const menuClickShow = (id: number) => {
         const workoutMutation = arrWorkoutDay.map(item => {
@@ -22,7 +26,7 @@ export default LayoutUser(function () {
         setWorkoutDay(workoutMutation)
     }
 
-    const workoutEllement = arrWorkoutDay.map((el: workoutDayType) => {
+    const workoutElement = arrWorkoutDay.map((el: IWorkoutDayType) => {
         return (
             <ItemWorkout
                 key={el.id}
@@ -36,8 +40,8 @@ export default LayoutUser(function () {
     return (
         <CalendarContainer>
             <HeadLinkBack
-                namesCompoent={"Ежедневные тренеровки"}
-                backLink={"/user/calendar"}
+                namesComponent={"Ежедневные тренеровки"}
+                backLink={"/User/calendar"}
             />
             <div>
                 <WorkoutUl>
@@ -51,11 +55,13 @@ export default LayoutUser(function () {
                         <ItemWorkoutDiv color="#7B809A" fontSize="14px">
                             Подходы
                         </ItemWorkoutDiv>
-                        <div></div>
+                        <div />
                     </ListWorkoutName>
-                    {workoutEllement}
+                    {workoutElement}
                 </WorkoutUl>
             </div>
         </CalendarContainer>
     )
 })
+
+export { LayoutUser }

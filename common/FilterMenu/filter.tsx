@@ -1,26 +1,27 @@
 import { FC } from "react"
-import { Container, Title, BtnsList, ButtonSort } from "./stylesContent"
 import Image from "next/image"
 import { IconButton } from "@mui/material"
+
+import { Container, Title, ButtonList, ButtonSort } from "./stylesContent"
 import imageSort from "./images/sort.svg"
 import ItemFilter from "./itemFilter"
 
-interface FilterBtnProps {
+interface IFilterBtnProps {
     title: string
 }
 
-const FilterMenu: FC<FilterBtnProps> = ({ title }) => {
+const FilterMenu: FC<IFilterBtnProps> = ({ title }) => {
     return (
         <Container>
             <Title>{title}</Title>
-            <BtnsList>
+            <ButtonList>
                 {/* <IconButton></IconButton> */}
                 <ButtonSort>
                     <Image src={imageSort} />
                     Sort
                 </ButtonSort>
                 <ItemFilter />
-            </BtnsList>
+            </ButtonList>
         </Container>
     )
 }

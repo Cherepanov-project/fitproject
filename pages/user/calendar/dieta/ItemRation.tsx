@@ -1,6 +1,7 @@
 import Link from "next/link"
-import { DailyRationType } from "../../../../model/dieta/dieta"
-import { FC } from "React"
+import React from "React"
+
+import { IDailyRationType } from "../../../../models/dieta/dieta"
 import {
     FoodLink,
     ListItem,
@@ -11,12 +12,12 @@ import {
 } from "./stylesDieta"
 
 interface ItemRationProps {
-    dietaEl: DailyRationType
+    dietaEl: IDailyRationType
     asPath: string
     menuClickShow?: (id: string) => void
 }
 
-const ItemRation: FC<ItemRationProps> = ({
+const ItemRation: React.FC<ItemRationProps> = ({
     dietaEl,
     asPath,
     menuClickShow,
@@ -37,8 +38,8 @@ const ItemRation: FC<ItemRationProps> = ({
                     </Link>
                 </div>
             </ItemDiv>
-            <ItemDiv color="#7B809A">{dietaEl.callories}</ItemDiv>
-            <ItemDiv color="#7B809A">{dietaEl.natritionValues}</ItemDiv>
+            <ItemDiv color="#7B809A">{dietaEl.calories}</ItemDiv>
+            <ItemDiv color="#7B809A">{dietaEl.nutritionValues}</ItemDiv>
             <ButtonDiv>
                 <ButtonMenu onClick={() => menuClickShow(dietaEl.id)}>
                     ...

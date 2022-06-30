@@ -1,5 +1,6 @@
 import styled from "styled-components"
-import SignUpForm from "../../common/form-admin/signUpForm"
+
+import SignUpForm from "../../components/FormAdmin/signUpForm"
 
 const ContainerAdminRegistration = styled.div`
     width: 100%;
@@ -10,10 +11,11 @@ const ContainerAdminRegistration = styled.div`
     align-items: center;
 `
 
-export default function Admin() {
+const Admin = () => {
     return (
         <ContainerAdminRegistration>
             <SignUpForm />
         </ContainerAdminRegistration>
     )
 }
+export default Admin

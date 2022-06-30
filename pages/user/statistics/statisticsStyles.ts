@@ -50,7 +50,7 @@ export const ActivTitle = styled.div`
     line-height: 22px;
 `
 
-export const ActivSelect = styled.select`
+export const ActiveSelect = styled.select`
     width: 130px;
     height: 44px;
     margin-right: 25px;
@@ -61,7 +61,7 @@ export const ActivSelect = styled.select`
     border-radius: 20px;
 `
 
-export const DataActivContainer = styled.div`
+export const DataActiveContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;

@@ -1,18 +1,19 @@
-import MenuItem from "../../../common/listOfDishes/menuItem"
-import { dishFoodAll } from "../../../model/dish/dish"
-import SideBar from "../../../common/listOfDishes/sideBarMenus"
-import { MenuWrapper, AllMenusWrapper, ListDishes } from "./stylesAllMenus"
 import Pagination from "@mui/material/Pagination"
 import Stack from "@mui/material/Stack"
-import { FoodItemType } from "../../../model/dish/dish"
-import { LayoutUser } from "../../../layouts/Layout-user/Layout-user"
+
+import MenuItem from "../../../components/ListOfDishes/menuItem"
+import SideBar from "../../../components/ListOfDishes/sideBarMenus"
+import { dishFoodAll } from "../../../models/dish/dish"
+import { MenuWrapper, AllMenusWrapper, ListDishes } from "./stylesAllMenus"
+import { IFoodItemType } from "../../../models/dish/dish"
+import { LayoutUser } from "../../../containers/Layout-user/Layout-user"
 
 const AllMenus = () => {
-    const elems = dishFoodAll.map((item: FoodItemType) => (
+    const elems = dishFoodAll.map((item: IFoodItemType) => (
         <MenuItem
             key={Math.random()}
             namesFood={item.namesFood}
-            nutritionalValue={item.nutritionalValue}
+            nutritionalValue={item.nutritionValue}
             star={item.star}
             id={item.id}
         />

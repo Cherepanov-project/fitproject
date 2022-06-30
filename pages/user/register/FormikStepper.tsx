@@ -1,8 +1,7 @@
 import { useState } from "react"
-import { Children, ReactElement } from "react"
+import { Children, ReactElement, FC } from "react"
 import { nanoid } from "nanoid"
 import { Formik, FormikConfig, Form } from "formik"
-
 import {
     Button,
     CircularProgress,
@@ -11,18 +10,21 @@ import {
     Stepper,
 } from "@mui/material"
 
-import {
-    FormikStepProps,
-    IRegisterForm,
-    IFormikStepper,
-} from "../../../model/loginOrRegisterInterfaces/interfaces"
-
 import { RegOrLoginSocial } from "../RegOrLoginSocial"
+import {
+    IFormikStepProps,
+    IFormikStepperProps,
+} from "../../../models/loginOrRegisterInterfaces/interfaces"
 
-export const FormikStepper = ({ children, initialValues, onSubmit }) => {
+export const FormikStepper = ({
+    children,
+    initialValues,
+    onSubmit,
+    registerSuccess,
+}: IFormikStepperProps) => {
     const childrenArray = Children.toArray(
         children
-    ) as ReactElement<FormikStepProps>[]
+    ) as ReactElement<IFormikStepProps>[]
     const [step, setStep] = useState<number>(0)
     const [completed, setCompleted] = useState<boolean>(false)
     const currentChild = childrenArray[step]
@@ -96,7 +98,9 @@ export const FormikStepper = ({ children, initialValues, onSubmit }) => {
                                 <Grid item>
                                     <Button
                                         sx={{ backgroundColor: "#B0BAC9" }}
-                                        disabled={isSubmitting}
+                                        disabled={
+                                            isSubmitting || registerSuccess
+                                        }
                                         variant="contained"
                                         onClick={() =>
                                             setStep(step => step - 1)
@@ -114,7 +118,7 @@ export const FormikStepper = ({ children, initialValues, onSubmit }) => {
                                             <CircularProgress size="1.5rem" />
                                         ) : null
                                     }
-                                    disabled={isSubmitting}
+                                    disabled={isSubmitting || registerSuccess}
                                     variant="contained"
                                     type="submit"
                                 >
@@ -133,3 +137,5 @@ export const FormikStepper = ({ children, initialValues, onSubmit }) => {
         </>
     )
 }
+
+export { FormikStepper }

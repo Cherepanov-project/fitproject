@@ -3,7 +3,8 @@ import { useField, FieldArray } from "formik"
 import { Grid, Box, TextField, IconButton, Button } from "@mui/material"
 import CloseIcon from "@mui/icons-material/Close"
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline"
-import { IIngredient } from "../../../model/recipes/index"
+
+import { IIngredient } from "../../../models/recipes/recipes"
 
 interface IProps {
     name: string
@@ -35,7 +36,7 @@ const IngredientsFiled: FC<IProps> = ({ name }) => {
                                   >
                                       <Box
                                           sx={{
-                                              bgcolor: "#F5F5F5",
+                                              bgColor: "#F5F5F5",
                                               borderRadius: 1.25,
                                           }}
                                           my={2}
@@ -72,7 +73,7 @@ const IngredientsFiled: FC<IProps> = ({ name }) => {
                                                           input: {
                                                               padding: "10px",
                                                           },
-                                                          bgcolor: "#FFF",
+                                                          bgColor: "#FFF",
                                                       }}
                                                   />
                                               </Grid>
@@ -94,7 +95,7 @@ const IngredientsFiled: FC<IProps> = ({ name }) => {
                                                           input: {
                                                               padding: "10px",
                                                           },
-                                                          bgcolor: "#FFF",
+                                                          bgColor: "#FFF",
                                                       }}
                                                   />
                                               </Grid>

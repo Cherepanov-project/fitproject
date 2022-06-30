@@ -2,13 +2,11 @@ import { useEffect } from "react"
 import Cookies from "js-cookie"
 import { useRouter } from "next/router"
 
-import { LayoutUser } from "../../../layouts/Layout-user/Layout-user"
-
-import UserChar from "../../../common/userChar/userChar"
-import SquareIcon from "../../../common/squareIcon/squareIcon"
-import RectangleBtn from "../../../common/rectangleBtn/rectangleBtn"
-import ProgressBtn from "../../../common/progressBtn/progressBtn"
-
+import { LayoutUser } from "../../../containers/Layout-user/Layout-user"
+import UserChar from "../../../components/userChar/userChar"
+import SquareIcon from "../../../components/SquareIcon/squareIcon"
+import RectangleBtn from "../../../components/RectangleBtn/rectangleBtn"
+import ProgressBtn from "../../../components/ProgressBtn/progressBtn"
 import imgLeg from "../../../common/images/icons/leg.svg"
 import imgWater from "../../../common/images/icons/water.svg"
 import imgCyclist from "../../../common/images/icons/cyclist.svg"
@@ -20,8 +18,8 @@ import {
     Activity,
     ActivHeader,
     ActivTitle,
-    ActivSelect,
-    DataActivContainer,
+    ActiveSelect,
+    DataActiveContainer,
     TargetContainer,
     TargetWrapper,
     TargetTitle,
@@ -35,11 +33,9 @@ const Frame1 = () => {
 
     useEffect(() => {
         if (!Cookies.get("userToken")) {
-            setTimeout(() => {
-                router.push("/user")
-            }, 2000)
+            router.push("/user")
         }
-    }, [])
+    }, [router])
 
     return isLogin ? (
         <Container>
@@ -47,15 +43,15 @@ const Frame1 = () => {
                 <Activity>
                     <ActivHeader>
                         <ActivTitle>Activity</ActivTitle>
-                        <ActivSelect defaultValue="Week">
+                        <ActiveSelect defaultValue="Week">
                             <option value="week">Week</option>
                             <option value="Month">Month</option>
                             <option value="Ear">Year</option>
-                        </ActivSelect>
+                        </ActiveSelect>
                     </ActivHeader>
                     <UserChar />
                 </Activity>
-                <DataActivContainer>
+                <DataActiveContainer>
                     <RectangleBtn
                         text={"Daily walking"}
                         bg={"linear-gradient(180deg, #6D63FF 0%, #3B32C0 100%)"}
@@ -82,7 +78,7 @@ const Frame1 = () => {
                             <Target>4</Target>
                         </TargetWrapper>
                     </TargetContainer>
-                </DataActivContainer>
+                </DataActiveContainer>
             </ActivContainer>
             <ProgressContainer>
                 <ProgressBtn

@@ -1,6 +1,6 @@
 import TablePagination from "@mui/material/TablePagination"
 
-const Pogination = ({
+const Pagination = ({
     count,
     page,
     onChangePage,
@@ -30,4 +30,4 @@ const Pogination = ({
     )
 }
 
-export default Pogination
+export default Pagination
