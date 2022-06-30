@@ -41,7 +41,7 @@ export const LoginForm: React.FC = () => {
                 onSubmit={async data => {
                     try {
                         const {
-                            data: token,
+                            data: { jwtToken },
                             success,
                             error,
                         } = await loginUser(data)
@@ -53,11 +53,7 @@ export const LoginForm: React.FC = () => {
                         setMsg("You have been login")
                         setOpen(true)
                         setLoginSuccess(true)
-                        Cookies.set(
-                            "userToken",
-                            JSON.stringify({ type: "interior", token }),
-                            { expires: 2 }
-                        )
+                        Cookies.set("userToken", JSON.stringify(jwtToken))
                         router.push("/user/statistics")
                     } catch (error) {
                         setMsg(error.message)
