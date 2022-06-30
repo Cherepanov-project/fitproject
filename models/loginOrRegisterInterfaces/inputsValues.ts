@@ -1,4 +1,4 @@
-export const userInfo = [
+const userInfo = [
     {
         placeholder: "Enter Email",
         name: "email",
@@ -31,7 +31,7 @@ export const userInfo = [
     },
 ]
 
-export const exercises = [
+const exercises = [
     {
         placeholder: "Choose type of programm",
         name: "typeOfProgramm",
@@ -61,8 +61,10 @@ export const exercises = [
     },
 ]
 
-export const mealPreferenciesSelect = [
+const mealPreferenciesSelect = [
     { value: "jjj", title: "jjj" },
     { value: "kkk", title: "kkk" },
     { value: "lll", title: "lll" },
 ]
+
+export { userInfo, exercises, mealPreferenciesSelect }

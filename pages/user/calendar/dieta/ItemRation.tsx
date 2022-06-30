@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { DailyRationType } from "../../../../models/dieta/dieta"
+import { IDailyRationType } from "../../../../models/dieta/dieta"
 import { FC } from "React"
 import {
     FoodLink,
@@ -11,7 +11,7 @@ import {
 } from "./stylesDieta"
 
 interface ItemRationProps {
-    dietaEl: DailyRationType
+    dietaEl: IDailyRationType
     asPath: string
     menuClickShow?: (id: string) => void
 }

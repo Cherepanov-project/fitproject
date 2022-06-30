@@ -1,9 +1,9 @@
-interface TicketsDataTypes {
+interface ITicketsDataTypes {
     name: string
     value: string
 }
 
-export const ticketsData: TicketsDataTypes[] = [
+const ticketsData: ITicketsDataTypes[] = [
     {
         name: "Waiting on Feature Request",
         value: "4238",
@@ -21,3 +21,5 @@ export const ticketsData: TicketsDataTypes[] = [
         value: "281",
     },
 ]
+
+export { ticketsData }

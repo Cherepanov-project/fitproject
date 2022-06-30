@@ -14,8 +14,8 @@ import { IFormStatus } from "../../../models/loginOrRegisterInterfaces/interface
 
 import { FormTextField } from "../../../components/User/FormTextField"
 
-import { paused } from "../../../utils/paused"
-import { loginOrRegisterUser } from "../../../utils/loginOrRegisterUser"
+import paused from "../../../utils/paused"
+import loginOrRegisterUser from "../../../utils/loginOrRegisterUser"
 import { validationLoginUser } from "../../../utils/validationSchema"
 
 import { RightSide, Title2, ForgorPassword } from "../userLoginOrRegisterStyle"

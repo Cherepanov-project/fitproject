@@ -15,7 +15,7 @@ import { exercisesValues } from "../../models/exercises/index"
 import { articlesValues } from "../../models/articles/index"
 import { withLayout } from "../../containers/Layout-admin/Layout-admin"
 import {
-    ContentListType,
+    IContentListType,
     contentList,
 } from "../../models/recipies/recipiesList"
 
@@ -61,7 +61,7 @@ const MainContainer = styled.div`
 //  });
 
 const RecipiesEditForm = () => {
-    const [arrRecipie, setArrRecipie] = useState<ContentListType[]>([])
+    const [arrRecipie, setArrRecipie] = useState<IContentListType[]>([])
 
     const { asPath, query } = useRouter()
     let path = asPath.split("/").pop()

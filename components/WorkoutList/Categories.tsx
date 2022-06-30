@@ -8,11 +8,11 @@ import {
 
 import { categoriesList } from "../../models/workout/workout"
 
-import uid from "../../utils/uid"
+import generateId from "../../utils/generateId"
 
 const Categories = () => {
     const items = categoriesList.map(item => (
-        <SidebarListItem key={uid()}>
+        <SidebarListItem key={generateId()}>
             <div>{item.name}</div>
             <CategoriesStyledItem>{item.value}</CategoriesStyledItem>
         </SidebarListItem>

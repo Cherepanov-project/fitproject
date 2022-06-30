@@ -1,4 +1,4 @@
-interface Colors {
+interface IColors {
     nameColor: string
     valueColor: string
     borderColor: string
@@ -8,13 +8,15 @@ const blue = "#3751FF"
 const gray = "#9FA2B4"
 const black = "#252733"
 
-export const defaultColors: Colors = {
+const defaultColors: IColors = {
     nameColor: gray,
     valueColor: black,
     borderColor: gray,
 }
-export const hoverColors: Colors = {
+const hoverColors: IColors = {
     nameColor: blue,
     valueColor: blue,
     borderColor: blue,
 }
+
+export { defaultColors, hoverColors }

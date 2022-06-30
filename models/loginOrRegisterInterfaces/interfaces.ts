@@ -34,7 +34,7 @@ export interface IFormStatusProps {
     [key: string]: IFormStatus
 }
 
-export interface FormikStepProps
+export interface IFormikStepProps
     extends Pick<FormikConfig<FormikValues>, "children" | "validationSchema"> {
     label: string
 }
@@ -57,7 +57,7 @@ interface ISelectFormValues {
 }
 
 export interface IFormikStepper {
-    children: FormikStepProps
+    children: IFormikStepProps
     initialValues: IRegisterForm
     onSubmit: Function
 }

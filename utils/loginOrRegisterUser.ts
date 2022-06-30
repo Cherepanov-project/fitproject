@@ -1,9 +1,10 @@
+import { FormikValues } from "formik"
+
 import {
     ILoginForm,
     IRegisterForm,
     IFormStatusProps,
 } from "../models/loginOrRegisterInterfaces/interfaces"
-import { FormikValues } from "formik"
 
 const formStatusProps: IFormStatusProps = {
     success: {
@@ -22,7 +23,7 @@ const formStatusProps: IFormStatusProps = {
     },
 }
 
-export const loginOrRegisterUser = async (
+const loginOrRegisterUser = async (
     data: ILoginForm | IRegisterForm | FormikValues,
     resetForm: Function,
     setFormStatus: Function,
@@ -42,3 +43,5 @@ export const loginOrRegisterUser = async (
         setDisplayFormStatus(true)
     }
 }
+
+export default loginOrRegisterUser

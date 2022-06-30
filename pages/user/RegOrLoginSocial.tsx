@@ -7,7 +7,7 @@ import {
     MAIL_IMG,
     REDIRECT_VK_BTN,
     VK_IMG,
-} from "../../utils/urls"
+} from "../../constants/urls"
 
 import { ContinueWithSocial, SocialLink } from "./userLoginOrRegisterStyle"
 

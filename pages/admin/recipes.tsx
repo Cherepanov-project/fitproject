@@ -3,7 +3,7 @@ import { withLayout } from "../../containers/Layout-admin/Layout-admin"
 import { useState, useEffect } from "react"
 import FilterBtn from "../../components/FilterBtn/filter"
 import {
-    ContentListType,
+    IContentListType,
     contentList,
 } from "../../models/recipies/recipiesList"
 import Recipie from "../../components/RecipiesContainer/ResipiesList/recipie"
@@ -17,7 +17,7 @@ import ColumnName from "../../components/RecipiesContainer/ColumnName/columnName
 import getArrPagination from "../../utils/getArrPagination"
 
 const Recipes = () => {
-    const [arrRecipies, setArrRecipies] = useState<ContentListType[]>([])
+    const [arrRecipies, setArrRecipies] = useState<IContentListType[]>([])
     const [page, setPage] = useState<number>(0)
     const [rowsPerPage, setRowsPerPage] = useState<number>(8)
 

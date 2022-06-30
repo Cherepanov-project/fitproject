@@ -1,4 +1,4 @@
-export interface workoutDayType {
+export interface IWorkoutDayType {
     id: number
     name: string
     repeat: number
@@ -6,7 +6,7 @@ export interface workoutDayType {
     activeMenu: boolean
 }
 
-export const workoutDay: workoutDayType[] = [
+const workoutDay: IWorkoutDayType[] = [
     {
         id: 10,
         name: "Отжимание",
@@ -43,3 +43,5 @@ export const workoutDay: workoutDayType[] = [
         activeMenu: false,
     },
 ]
+
+export { workoutDay }

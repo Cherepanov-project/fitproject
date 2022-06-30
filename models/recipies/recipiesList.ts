@@ -1,4 +1,4 @@
-export interface ContentListType {
+export interface IContentListType {
     id: string
     name: string
     uniqueRecipeField: { portionSize: number; type: string }
@@ -9,7 +9,7 @@ export interface ContentListType {
     carbohydrates: number
 }
 
-export const contentList: ContentListType[] = [
+const contentList: IContentListType[] = [
     {
         id: "573588",
         name: "Oatmeal",
@@ -371,3 +371,5 @@ export const contentList: ContentListType[] = [
         carbohydrates: 3,
     },
 ]
+
+export { contentList }

@@ -20,7 +20,7 @@ import {
     Widget,
     BlockHeaderRightSideStyled,
 } from "./overviewStyles"
-import { FontStyles } from "../../../utils/fonts/fontStyles"
+import FontStyles from "../../../utils/fonts/fontStyles"
 
 import { headerCardsData } from "../../../models/cards/headerCards/headerCards"
 import { trendsCardsData } from "../../../models/cards/trendsCards/trendsCards"

@@ -17,7 +17,7 @@ import {
 
 import Checkbox from "@mui/material/Checkbox"
 
-import uid from "../../utils/uid"
+import generateId from "../../utils/generateId"
 
 const Categories = ({ muscles, setMuscle }) => {
     // const [muscles, setMuscle] = useState<muscleCheckboxListType>(muscleCheckboxList)
@@ -28,7 +28,7 @@ const Categories = ({ muscles, setMuscle }) => {
         setMuscle(newState)
     }
     const result = muscleGroupList.map((item: muscleGroupListType) => (
-        <SidebarListItemCheckbox key={uid()}>
+        <SidebarListItemCheckbox key={generateId()}>
             <Checkbox
                 sx={{
                     color: "#D1D1D1",

@@ -16,6 +16,9 @@ const API_REGISTER_USER: string = "http://localhost:8082/api/user/register"
 const API_LOGIN_USER: string = "http://localhost:8082/api/user/login"
 const API_SOCIAL: string = "http://localhost:8082/api/user/social"
 const API_GET_STATISTICS: string = "http://localhost:8082/api/user/statistics"
+const API_WORKOUTS: string =
+    "https://spring-boot-fitness-backend.herokuapp.com/"
+const API_AUTH: string = "https://api.realworld.io/api/"
 
 //картинки
 const GOOGLE_IMG: string =
@@ -45,6 +48,8 @@ export {
     API_REGISTER_USER,
     API_LOGIN_USER,
     API_GET_STATISTICS,
+    API_WORKOUTS,
+    API_AUTH,
     GOOGLE_IMG,
     REDIRECT_GOOGLE_BTN,
     REDIRECT_MAIL_BTN,

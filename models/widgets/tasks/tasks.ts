@@ -1,9 +1,9 @@
-interface TasksDataTypes {
+interface ITasksDataTypes {
     name: string
     value: string
 }
 
-export const tasksData: TasksDataTypes[] = [
+const tasksData: ITasksDataTypes[] = [
     {
         name: "Finish ticket update",
         value: "Urgent",
@@ -17,3 +17,5 @@ export const tasksData: TasksDataTypes[] = [
         value: "Default",
     },
 ]
+
+export { tasksData }

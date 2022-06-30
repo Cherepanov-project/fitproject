@@ -12,7 +12,7 @@ import {
     TaskStatus,
 } from "./widgetItemStyles"
 
-import { colorComputation } from "../../utils/widgetItemColorComputation/colorComputation"
+import colorComputation from "../../utils/colorComputation"
 
 const TasksWidgetItem = ({ name, value, padding }): JSX.Element => {
     return (

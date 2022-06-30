@@ -25,10 +25,10 @@ import {
     validationMeal,
     validationExercises,
 } from "../../../utils/validationSchema"
-import { loginOrRegisterUser } from "../../../utils/loginOrRegisterUser"
-import { redirectToLoginPage } from "../../../utils/redirect"
-import { paused } from "../../../utils/paused"
-import { LOGIN_PAGE } from "../../../utils/urls"
+import loginOrRegisterUser from "../../../utils/loginOrRegisterUser"
+import redirectToLoginPage from "../../../utils/redirect"
+import paused from "../../../utils/paused"
+import { LOGIN_PAGE } from "../../../constants/urls"
 
 import { RightSide } from "../userLoginOrRegisterStyle"
 import { FormikStepper } from "./FormikStepper"

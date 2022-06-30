@@ -1,8 +1,8 @@
 import axios from "axios"
 
-import { API_GET_STATISTICS } from "../../utils/urls"
+import { API_GET_STATISTICS } from "../../constants/urls"
 
-export const getUserStatistics = async (token: string) => {
+const getUserStatistics = async (token: string) => {
     const { data } = await axios.get(API_GET_STATISTICS, {
         headers: {
             Authentication: token,
@@ -10,3 +10,5 @@ export const getUserStatistics = async (token: string) => {
     })
     return data
 }
+
+export default getUserStatistics

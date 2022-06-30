@@ -25,8 +25,8 @@ import Box from "@mui/material/Box"
 import Paper from "@mui/material/Paper"
 import { styled } from "@mui/material/styles"
 import useMediaQuery from "@mui/material/useMediaQuery"
-import monthArr from "../../../models/user/main"
-import uid from "../../../utils/uid"
+import { monthArr } from "../../../models/user/user"
+import generateId from "../../../utils/generateId"
 import FramerCalendar from "../../../components/FramerCalendar"
 
 import { LayoutUser } from "../../../containers/Layout-user/Layout-user"
@@ -77,7 +77,7 @@ const Calendar = () => {
     const weekElements = arrDays(dateToday).map((el, index) => {
         return index >= dayWeekISO - 1 &&
             index < countDay + (dayWeekISO - 1) ? (
-            <Grid item xs={1} key={uid()}>
+            <Grid item xs={1} key={generateId()}>
                 <Item sx={size}>
                     <FlexItem>
                         <CalcDate>{el}</CalcDate>
@@ -97,7 +97,7 @@ const Calendar = () => {
                 </Item>
             </Grid>
         ) : (
-            <Grid item xs={1} key={uid()}>
+            <Grid item xs={1} key={generateId()}>
                 <DayBlur>
                     <Item sx={size}>
                         <CalcDate>{el}</CalcDate>

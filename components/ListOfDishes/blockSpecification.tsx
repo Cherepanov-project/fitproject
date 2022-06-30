@@ -6,12 +6,12 @@ import {
 } from "../../pages/user/listOfDishes/stylesAllMenus"
 import {
     specificationItems,
-    SpecificationItemsType,
+    ISpecificationItemsType,
 } from "../../models/sideBar/sideBar"
 
 const blockSpecification = () => {
     const specificationNods = specificationItems.map(
-        (item: SpecificationItemsType) => (
+        (item: ISpecificationItemsType) => (
             <Specification key={item.id}>
                 {item.name}
                 <SpecificationSpan>{item.amount}</SpecificationSpan>

@@ -1,4 +1,4 @@
-export const userList = [
+const userList = [
     {
         id: "52373582",
         nameUser: "Tom Cruise",
@@ -72,3 +72,5 @@ export const userList = [
         email: "adad@asd.com",
     },
 ]
+
+export { userList }

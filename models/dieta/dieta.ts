@@ -1,4 +1,4 @@
-export interface DailyRationType {
+export interface IDailyRationType {
     id: string
     callories: number
     natritionValues: number
@@ -6,7 +6,7 @@ export interface DailyRationType {
     active: boolean
 }
 
-export const dailyRation: DailyRationType[] = [
+const dailyRation: IDailyRationType[] = [
     {
         id: "Breakfast",
         callories: 1000,
@@ -43,3 +43,5 @@ export const dailyRation: DailyRationType[] = [
         active: false,
     },
 ]
+
+export { dailyRation }

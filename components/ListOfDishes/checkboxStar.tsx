@@ -3,10 +3,10 @@ import { BoxCheckBox } from "../../pages/user/listOfDishes/stylesAllMenus"
 import Rating from "@mui/material/Rating"
 import { useState } from "react"
 import {
-    SideBarCheckBoxStar,
+    ISideBarCheckBoxStar,
     initialValuesCheckBoxStar,
     specificationStar,
-    specificationStarType,
+    ISpecificationStarType,
 } from "../../models/sideBar/sideBar"
 import {
     SideBarCheckBox,
@@ -20,11 +20,11 @@ const CheckboxStar = () => {
         setCheckbox(newState)
     }
 
-    const [checkboxs, setCheckbox] = useState<SideBarCheckBoxStar>(
+    const [checkboxs, setCheckbox] = useState<ISideBarCheckBoxStar>(
         initialValuesCheckBoxStar
     )
 
-    const StarsNods = specificationStar.map((item: specificationStarType) => (
+    const StarsNods = specificationStar.map((item: ISpecificationStarType) => (
         <BoxCheckBox key={item.id}>
             <Checkbox
                 onChange={() => setArgumentStar(item.name)}

@@ -1,5 +1,7 @@
-export const articlesValues = {
+const articlesValues = {
     headerText: "",
     text: "",
     files: [],
 }
+
+export { articlesValues }

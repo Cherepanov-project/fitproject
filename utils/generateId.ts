@@ -1,4 +1,4 @@
-const uid = (() => {
+const generateId = (() => {
     const keysId: number[] = []
     return () => {
         let id: number = Math.floor(Math.random() * 1e8)
@@ -13,4 +13,4 @@ const uid = (() => {
     }
 })()
 
-export default uid
+export default generateId

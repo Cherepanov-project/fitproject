@@ -1,4 +1,4 @@
-export interface SideBarCheckBoxStar {
+export interface ISideBarCheckBoxStar {
     FiveStar: boolean
     FourStar: boolean
     ThreeStar: boolean
@@ -6,59 +6,68 @@ export interface SideBarCheckBoxStar {
     OneStar: boolean
 }
 
-export interface SideBarCheckBoxMeals {
+export interface ISideBarCheckBoxMeals {
     Breakfast: boolean
     Snack: boolean
     Lunch: boolean
     Dinner: boolean
 }
-export interface SpecificationItemsType {
+export interface ISpecificationItemsType {
     id: string
     name: string
     amount: number
 }
-export interface specificationMealsType {
+export interface ISpecificationMealsType {
     id: string
     name: string
 }
 
-export interface specificationStarType {
+export interface ISpecificationStarType {
     id: number
     name: string
 }
 
-export const initialValuesCheckBoxMeals: SideBarCheckBoxMeals = {
+const initialValuesCheckBoxMeals: ISideBarCheckBoxMeals = {
     Breakfast: true,
     Snack: true,
     Lunch: true,
     Dinner: true,
 }
 
-export const specificationItems: Array<SpecificationItemsType> = [
+const specificationItems: Array<ISpecificationItemsType> = [
     { id: "Salads", name: "Salads", amount: 320 },
     { id: "meat", name: "Meals with meat", amount: 320 },
     { id: "chicken", name: "Meals with chicken", amount: 320 },
     { id: "seafood", name: "Meals with seafood", amount: 320 },
 ]
 
-export const initialValuesCheckBoxStar: SideBarCheckBoxStar = {
+const initialValuesCheckBoxStar: ISideBarCheckBoxStar = {
     FiveStar: true,
     FourStar: true,
     ThreeStar: true,
     TwoStar: true,
     OneStar: true,
 }
-export const specificationMeals: Array<specificationMealsType> = [
+
+const specificationMeals: Array<ISpecificationMealsType> = [
     { id: "Breakfast", name: "Breakfast" },
     { id: "Snack", name: "Snack" },
     { id: "Lunch", name: "Lunch" },
     { id: "Dinner", name: "Dinner" },
 ]
 
-export const specificationStar: Array<specificationStarType> = [
+const specificationStar: Array<ISpecificationStarType> = [
     { id: 5, name: "FiveStar" },
     { id: 4, name: "FourStar" },
     { id: 3, name: "ThreeStar" },
     { id: 2, name: "TwoStar" },
     { id: 1, name: "OneStar" },
 ]
+
+export {
+    initialValuesCheckBoxMeals,
+    specificationItems,
+    initialValuesCheckBoxStar,
+    specificationMeals,
+    specificationStar,
+}

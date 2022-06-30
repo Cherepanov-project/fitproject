@@ -1,8 +1,8 @@
 import { useState } from "react"
 import {
     initialValuesCheckBoxMeals,
-    SideBarCheckBoxMeals,
-    specificationMealsType,
+    ISideBarCheckBoxMeals,
+    ISpecificationMealsType,
     specificationMeals,
 } from "../../models/sideBar/sideBar"
 import {
@@ -13,7 +13,7 @@ import { BoxCheckBox } from "../../pages/user/listOfDishes/stylesAllMenus"
 import Checkbox from "@mui/material/Checkbox"
 
 const CheckboxMeals = () => {
-    const [checkboxsMeals, setCheckboxsMeals] = useState<SideBarCheckBoxMeals>(
+    const [checkboxsMeals, setCheckboxsMeals] = useState<ISideBarCheckBoxMeals>(
         initialValuesCheckBoxMeals
     )
 
@@ -23,15 +23,17 @@ const CheckboxMeals = () => {
         setCheckboxsMeals(newState)
     }
 
-    const MealsNods = specificationMeals.map((item: specificationMealsType) => (
-        <BoxCheckBox key={item.id}>
-            <Checkbox
-                onClick={() => setArgumentMeals(item.name)}
-                checked={checkboxsMeals[item.name]}
-            />
-            {item.name}
-        </BoxCheckBox>
-    ))
+    const MealsNods = specificationMeals.map(
+        (item: ISpecificationMealsType) => (
+            <BoxCheckBox key={item.id}>
+                <Checkbox
+                    onClick={() => setArgumentMeals(item.name)}
+                    checked={checkboxsMeals[item.name]}
+                />
+                {item.name}
+            </BoxCheckBox>
+        )
+    )
 
     return (
         <>

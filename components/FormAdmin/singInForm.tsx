@@ -14,7 +14,7 @@ import {
     FormH2,
     StyledButton,
 } from "./Form.styled"
-import api from "../../services"
+import api from "../../services/API"
 import TextField from "./TextField"
 import { FormContainer } from "./formContainer"
 // Images

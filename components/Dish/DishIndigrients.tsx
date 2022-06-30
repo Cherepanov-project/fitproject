@@ -1,4 +1,4 @@
-import uid from "../../utils/uid"
+import generateId from "../../utils/generateId"
 import { FC } from "react"
 import {
     IndigrientItem,
@@ -7,10 +7,10 @@ import {
 } from "./stylesDish"
 import chickenFood from "/common/images/chickenFood.svg"
 
-import { FoodItemType } from "../../models/dish/dish"
+import { IFoodItemType } from "../../models/dish/dish"
 
 interface DishIndigrientsProps {
-    foodItem: FoodItemType
+    foodItem: IFoodItemType
 }
 
 const DishIndigrients: FC<DishIndigrientsProps> = ({ foodItem }) => {
@@ -21,7 +21,7 @@ const DishIndigrients: FC<DishIndigrientsProps> = ({ foodItem }) => {
 
     const items = foodIndigrients.map(el => {
         return (
-            <IndigrientItem key={uid()}>
+            <IndigrientItem key={generateId()}>
                 <IndigrientItemImg imgUrl={chickenFood.src}></IndigrientItemImg>
                 <IndigrientItemText>
                     <div>{el.indigrient}</div>

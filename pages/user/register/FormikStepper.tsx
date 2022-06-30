@@ -12,7 +12,7 @@ import {
 } from "@mui/material"
 
 import {
-    FormikStepProps,
+    IFormikStepProps,
     IRegisterForm,
     IFormikStepper,
 } from "../../../models/loginOrRegisterInterfaces/interfaces"
@@ -22,7 +22,7 @@ import { RegOrLoginSocial } from "../RegOrLoginSocial"
 export const FormikStepper = ({ children, initialValues, onSubmit }) => {
     const childrenArray = Children.toArray(
         children
-    ) as ReactElement<FormikStepProps>[]
+    ) as ReactElement<IFormikStepProps>[]
     const [step, setStep] = useState<number>(0)
     const [completed, setCompleted] = useState<boolean>(false)
     const currentChild = childrenArray[step]

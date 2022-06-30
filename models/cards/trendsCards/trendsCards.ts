@@ -1,9 +1,9 @@
-interface trendsCardsDataTypes {
+interface ITrendsCardsDataTypes {
     name: string
     value: string
 }
 
-export const trendsCardsData: trendsCardsDataTypes[] = [
+const trendsCardsData: ITrendsCardsDataTypes[] = [
     {
         name: "Resolved",
         value: "449",
@@ -25,3 +25,5 @@ export const trendsCardsData: trendsCardsDataTypes[] = [
         value: "94%",
     },
 ]
+
+export { trendsCardsData }

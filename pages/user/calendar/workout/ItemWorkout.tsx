@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { FC } from "react"
-import { workoutDayType } from "../../../../models/workout/wokout"
+import { IWorkoutDayType } from "../../../../models/workout/workoutDay"
 import {
     ListItem,
     ItemWorkoutDiv,
@@ -11,7 +11,7 @@ import {
 } from "./styledWorkout"
 
 interface ItemWorkoutProps {
-    workoutEl: workoutDayType
+    workoutEl: IWorkoutDayType
     asPath: string
     menuClickShow?: (id: number) => void
 }

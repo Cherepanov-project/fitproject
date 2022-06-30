@@ -13,4 +13,4 @@ const monthArr: string[] = [
     "Декабрь",
 ]
 
-export default monthArr
+export { monthArr }

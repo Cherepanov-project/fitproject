@@ -10,8 +10,8 @@ import {
     DishDescriptionWrapper,
 } from "./stylesDish"
 import img from "/common/images/DishChikenImg.png"
-import uid from "../../utils/uid"
-import { FoodItemType, dishFood } from "../../models/dish/dish"
+import generateId from "../../utils/generateId"
+import { IFoodItemType, dishFood } from "../../models/dish/dish"
 import DishIndigrients from "./DishIndigrients"
 import { LayoutUser } from "../../containers/Layout-user/Layout-user"
 import HeadLinkBack from "../HeadLinkBack"
@@ -19,7 +19,7 @@ import { useRouter } from "next/router"
 
 const Dish = () => {
     const { query } = useRouter()
-    const [foodItem, setFoodItem] = useState<FoodItemType>(dishFood)
+    const [foodItem, setFoodItem] = useState<IFoodItemType>(dishFood)
 
     const indigrientsActive = () => {
         const activeIndigrientsMutan = {
@@ -43,7 +43,7 @@ const Dish = () => {
 
     const itemNutritionalValue = foodItem.nutritionalValue.map(el => {
         return (
-            <NutritionalItem key={uid()}>
+            <NutritionalItem key={generateId()}>
                 <div>{el.value}</div>
                 <div>{el.nutritiona}</div>
                 <div>{el.units}</div>

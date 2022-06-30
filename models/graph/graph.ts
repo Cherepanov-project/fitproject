@@ -1,10 +1,10 @@
-interface graphDataType {
+interface IGraphDataType {
     name: string
     uv: number
     pv: number
 }
 
-export const graphData: graphDataType[] = [
+const graphData: IGraphDataType[] = [
     { name: "0", uv: 15, pv: 35 },
     { name: "1", uv: 20, pv: 36 },
     { name: "2", uv: 27, pv: 30 },
@@ -30,3 +30,5 @@ export const graphData: graphDataType[] = [
     { name: "22", uv: 30, pv: 32 },
     { name: "23", uv: 34, pv: 30 },
 ]
+
+export { graphData }

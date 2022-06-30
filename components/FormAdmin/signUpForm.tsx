@@ -9,7 +9,7 @@ import * as Yup from "yup"
 // CUSTOM COMPONENTS
 import { FormContainer } from "./formContainer"
 import TextField from "./TextField"
-import api from "../../services"
+import api from "../../services/API"
 import {
     DivCenter,
     DivDashboard,

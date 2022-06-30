@@ -1,25 +1,25 @@
-export interface IndigrientsType {
+interface IIndigrientsType {
     indigrient: string
     quantity: number
 }
 
-export interface NutritionalValueType {
+interface INutritionalValueType {
     nutritiona: string
     value: number
     units: string
 }
-export interface FoodItemType {
+export interface IFoodItemType {
     id: string
     namesFood: string
     activeRecipe: boolean
     star: number
     activeIndigrients: boolean
     description: string
-    indigrients: IndigrientsType[]
-    nutritionalValue: NutritionalValueType[]
+    indigrients: IIndigrientsType[]
+    nutritionalValue: INutritionalValueType[]
 }
 
-export const dishFood: FoodItemType = {
+const dishFood: IFoodItemType = {
     id: "Breakfast",
     namesFood: "Chicken Steak",
     activeRecipe: true,
@@ -41,7 +41,7 @@ export const dishFood: FoodItemType = {
         { nutritiona: "Carbs", value: 90, units: "g" },
     ],
 }
-export const dishFoodAll: Array<FoodItemType> = [
+const dishFoodAll: Array<IFoodItemType> = [
     {
         id: "Breakfast",
         namesFood: "Chicken Steak",
@@ -175,3 +175,5 @@ export const dishFoodAll: Array<FoodItemType> = [
         ],
     },
 ]
+
+export { dishFood, dishFoodAll }

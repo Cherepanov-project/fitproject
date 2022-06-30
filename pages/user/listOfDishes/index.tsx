@@ -4,11 +4,11 @@ import SideBar from "../../../components/ListOfDishes/sideBarMenus"
 import { MenuWrapper, AllMenusWrapper, ListDishes } from "./stylesAllMenus"
 import Pagination from "@mui/material/Pagination"
 import Stack from "@mui/material/Stack"
-import { FoodItemType } from "../../../models/dish/dish"
+import { IFoodItemType } from "../../../models/dish/dish"
 import { LayoutUser } from "../../../containers/Layout-user/Layout-user"
 
 const AllMenus = () => {
-    const elems = dishFoodAll.map((item: FoodItemType) => (
+    const elems = dishFoodAll.map((item: IFoodItemType) => (
         <MenuItem
             key={Math.random()}
             namesFood={item.namesFood}

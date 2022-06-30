@@ -5,7 +5,7 @@ import Card from "@mui/material/Card"
 import { LayoutUser } from "../../../../containers/Layout-user/Layout-user"
 import { exerciseList, exercisesType } from "../../../../models/workout/workout"
 import muscleImg from "../../../../common/images/icons/backMuscle.svg"
-import uid from "../../../../utils/uid"
+import generateId from "../../../../utils/generateId"
 import useMediaQuery from "@mui/material/useMediaQuery"
 
 import {
@@ -45,7 +45,7 @@ const WorkoutItem = () => {
     }
 
     const musclesList = workout?.muscles.map(muscle => (
-        <Muscle key={uid()}>
+        <Muscle key={generateId()}>
             <img src={muscleImg.src} />
             <span>{muscle}</span>
         </Muscle>

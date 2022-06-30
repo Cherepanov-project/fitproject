@@ -16,14 +16,14 @@ export interface INutrilon {
     formik: string
 }
 
-export const nutrilonsMapped = [
+const nutrilonsMapped = [
     { name: "Carbs", formik: "carbs" },
     { name: "Proteins", formik: "proteins" },
     { name: "Fats", formik: "fats" },
     { name: "Calories", formik: "calories" },
 ]
 
-export const recipesValues = {
+const recipesValues = {
     headerText: "",
     shortDescriptionText: "",
     chip: [],
@@ -40,3 +40,5 @@ export const recipesValues = {
     text: "",
     files: [],
 }
+
+export { nutrilonsMapped, recipesValues }

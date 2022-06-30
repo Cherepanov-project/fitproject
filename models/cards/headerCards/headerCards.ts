@@ -1,9 +1,9 @@
-interface HeaderCardsDataTypes {
+interface IHeaderCardsDataTypes {
     name: string
     value: string
 }
 
-export const headerCardsData: HeaderCardsDataTypes[] = [
+const headerCardsData: IHeaderCardsDataTypes[] = [
     {
         name: "Unresolved",
         value: "60",
@@ -21,3 +21,5 @@ export const headerCardsData: HeaderCardsDataTypes[] = [
         value: "64",
     },
 ]
+
+export { headerCardsData }

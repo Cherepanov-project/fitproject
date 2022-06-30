@@ -3,7 +3,7 @@ import List from "@mui/material/List"
 import ListItemButton from "@mui/material/ListItemButton"
 import ListItemIcon from "@mui/material/ListItemIcon"
 import ListItemText from "@mui/material/ListItemText"
-import uid from "../../../utils/uid"
+import generateId from "../../../utils/generateId"
 
 import {
     Avatar,
@@ -65,7 +65,7 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
                     {["Goals", "Diet", "Settings"].map(
                         (text: string, index: number) => (
                             <ListItemButton
-                                key={uid()}
+                                key={generateId()}
                                 sx={{
                                     position: "relative",
                                     marginTop: "30px",
