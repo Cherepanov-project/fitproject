@@ -1,5 +1,5 @@
 import React,{useEffect, useRef, useState, Children} from "react"
-import {CustomSlider, SliderWrapper, SliderSlide} from "./SliderStyle"
+import {CustomSlider, SliderWrapper, SliderSlide} from "./Slider.style"
 import {SliderProps} from './Slider.interface'
 
 const useWindowWidth = (): number => {

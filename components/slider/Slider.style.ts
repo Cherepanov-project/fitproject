@@ -15,7 +15,6 @@ export const CustomSlider = styled.div`
 export const SliderWrapper = styled.div`
   position: relative;
   width: 100%;
-  // height: 154px;
   z-index: 1;
   display: flex;
   transition-property: transform;
