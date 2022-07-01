@@ -53,3 +53,18 @@ export const validateLoginAdmin = Yup.object({
         .max(20, "Password must be at max 20 characters")
         .required("Password is required"),
 })
+
+export const validateSignUpAdmin = Yup.object({
+    username: Yup.string()
+        .min(3, "Admin name must be at least 6 characters")
+        .max(20)
+        .required(),
+    email: Yup.string().email("Email is invalid").required("Email is required"),
+    password: Yup.string()
+        .min(6, "Password must be at least 6 characters")
+        .max(20, "Password must be at max 20 characters")
+        .required("Password is required"),
+    repeat_password: Yup.string()
+        .oneOf([Yup.ref("password")], "Passwords should match")
+        .required("Repeat password is required"),
+})

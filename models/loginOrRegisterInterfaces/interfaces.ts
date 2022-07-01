@@ -80,8 +80,12 @@ export interface ILoginResponseSuccess {
     success: true
     data: { jwtToken: string }
 }
-
-export interface ILoginResponseError {
+export interface IRegisterResponseSuccess {
+    code: number
+    data: object
+    success: true
+}
+export interface ILoginOrRegisterResponseError {
     code: number
     success: false
     error: string
@@ -92,4 +96,10 @@ export interface IRegisterRequest {
     email: string
     password: string
     phone: string
+}
+
+export interface IAdminRegisterRequest {
+    username: string
+    email: string
+    password: string
 }

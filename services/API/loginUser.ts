@@ -10,8 +10,10 @@ import {
     IRegisterForm,
     IRegisterRequest,
     ILoginResponseSuccess,
-    ILoginResponseError,
+    ILoginOrRegisterResponseError,
     IAdminLoginForm,
+    IAdminRegisterRequest,
+    IRegisterResponseSuccess,
 } from "../../models/loginOrRegisterInterfaces/interfaces"
 
 export const loginUser = async (user: ILoginForm | IAdminLoginForm) => {
@@ -22,16 +24,21 @@ export const loginUser = async (user: ILoginForm | IAdminLoginForm) => {
         )
         return data
     } catch (error) {
-        return error as ILoginResponseError
+        return error as ILoginOrRegisterResponseError
     }
 }
 
-export const registerUser = async (user: IRegisterRequest) => {
+export const registerUser = async (
+    user: IRegisterRequest | IAdminRegisterRequest
+) => {
     try {
-        const { data } = await axios.post(API_REGISTER_USER, user)
+        const { data } = await axios.post<IRegisterResponseSuccess>(
+            API_REGISTER_USER,
+            user
+        )
         return data
     } catch (error) {
-        return error
+        return error as ILoginOrRegisterResponseError
     }
 }
 
