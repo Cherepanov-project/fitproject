@@ -1,14 +1,3 @@
-import Link from "next/link"
-import { useRouter } from "next/router"
-import { Formik, Form } from "formik"
-import Image from "next/image"
-import Cookies from "js-cookie"
-import * as Yup from "yup"
-
-import imageLogoApp from "./images/logoApp.svg"
-import api from "../../services/API"
-import TextField from "./textField"
-import { FormContainer } from "./formContainer"
 import {
     DivCenter,
     DivDashboard,
@@ -17,19 +6,30 @@ import {
     FormH2,
     StyledButton,
 } from "./form.styles"
+import Link from "next/link"
+import { useRouter } from "next/router"
+import { Formik, Form } from "formik"
+import Image from "next/image"
+import Cookies from "js-cookie"
+
+import imageLogoApp from "./images/logoApp.svg"
+import TextField from "./textField"
+import { FormContainer } from "./formContainer"
+import { loginUser } from "../../services/API/loginUser"
+import { validateLoginAdmin } from "../../utils/validationSchema"
+import { useState } from "react"
+import { Snackbar } from "@mui/material"
+import { nanoid } from "nanoid"
 
 const SingInForm = () => {
     const router = useRouter()
-    const validate = Yup.object({
-        email: Yup.string()
-            .email("Email is invalid")
-            .required("Email is required"),
-        password: Yup.string()
-            .min(6, "Password must be at least 6 characters")
-            .max(20, "Password must be at max 20 characters")
-            .required("Password is required"),
-    })
 
+    const [open, setOpen] = useState<boolean>(false)
+    const [msg, setMsg] = useState<string>("")
+    const [loginSuccess, setLoginSuccess] = useState<boolean>(false)
+    const closeMessage = (): void => {
+        setOpen(false)
+    }
     return (
         <FormContainer>
             <Formik
@@ -37,27 +37,27 @@ const SingInForm = () => {
                     email: "",
                     password: "",
                 }}
-                validationSchema={validate}
-                onSubmit={async (values, { setFieldError }) => {
-                    try {
-                        const request = await api.auth.login({ user: values })
-                        Cookies.set("auth-token", request.data.user.token)
-                        Cookies.set("username", request.data.user.username)
-                        Cookies.set("image", request.data.user.image)
-                        await router.replace("/admin/overview")
-                    } catch (err) {
-                        if (err.response.status === 403) {
-                            Object.keys(err.response.data.errors).forEach(key => {
-                                setFieldError(
-                                    "password",
-                                    key + " " + err.response.data.errors[key]
-                                )
-                            })
-                        }
+                validationSchema={validateLoginAdmin}
+                onSubmit={async data => {
+                    const response = await loginUser(data)
+
+                    if (response.success === false) {
+                        setMsg(response.error)
+                        setOpen(true)
+                        throw new Error(response.error)
+                    } else {
+                        setMsg("You have been login")
+                        setOpen(true)
+                        setLoginSuccess(true)
+                        Cookies.set(
+                            "userToken",
+                            JSON.stringify(response.data.jwtToken)
+                        )
+                        router.push("/user/statistics")
                     }
                 }}
             >
-                {formik => (
+                {({ isSubmitting, handleSubmit }) => (
                     <div>
                         <DivCenter>
                             <Image
@@ -70,7 +70,7 @@ const SingInForm = () => {
                         <DivDashboard>Dashboard Kit</DivDashboard>
                         <FormH1>Log In to Admin Panel</FormH1>
                         <FormH2>Enter your email and password below</FormH2>
-                        <Form>
+                        <Form onSubmit={handleSubmit}>
                             <TextField
                                 placeholder="Email address"
                                 label="Email"
@@ -83,17 +83,29 @@ const SingInForm = () => {
                                 name="password"
                                 type="password"
                             />
-                            <StyledButton type="submit">Log in</StyledButton>
+                            <StyledButton
+                                type="submit"
+                                disabled={loginSuccess || isSubmitting}
+                            >
+                                Log in
+                            </StyledButton>
                         </Form>
                         <DivCenter>
                             Don’t have an account?
-                            <Link href={`/admin/sign-up`}>
+                            <Link href={`/admin/sign-up`} passHref>
                                 <FormA href={`/admin/sign-up`}>Sign Up</FormA>
                             </Link>
                         </DivCenter>
                     </div>
                 )}
             </Formik>
+            <Snackbar
+                open={open}
+                onClose={closeMessage}
+                message={msg}
+                key={nanoid()}
+                data-testid="snackbar"
+            />
         </FormContainer>
     )
 }
