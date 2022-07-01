@@ -8,7 +8,6 @@ import { validateSignUpAdmin } from "../../utils/validationSchema"
 import imageLogoApp from "./images/logoApp.svg"
 import { FormContainer } from "./formContainer"
 import TextField from "./textField"
-import api from "../../services/API"
 import {
     DivCenter,
     DivDashboard,

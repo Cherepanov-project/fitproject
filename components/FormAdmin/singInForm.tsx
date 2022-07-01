@@ -34,7 +34,7 @@ const SingInForm = () => {
         <FormContainer>
             <Formik
                 initialValues={{
-                    email: "",
+                    username: "",
                     password: "",
                 }}
                 validationSchema={validateLoginAdmin}
@@ -53,7 +53,7 @@ const SingInForm = () => {
                             "userToken",
                             JSON.stringify(response.data.jwtToken)
                         )
-                        router.push("/user/statistics")
+                        router.replace("/admin/overview")
                     }
                 }}
             >
@@ -69,13 +69,13 @@ const SingInForm = () => {
                         </DivCenter>
                         <DivDashboard>Dashboard Kit</DivDashboard>
                         <FormH1>Log In to Admin Panel</FormH1>
-                        <FormH2>Enter your email and password below</FormH2>
+                        <FormH2>Enter your username and password below</FormH2>
                         <Form onSubmit={handleSubmit}>
                             <TextField
-                                placeholder="Email address"
-                                label="Email"
-                                name="email"
-                                type="email"
+                                placeholder="Username"
+                                label="username"
+                                name="username"
+                                type="text"
                             />
                             <TextField
                                 placeholder="Password"

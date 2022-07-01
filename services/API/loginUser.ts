@@ -7,16 +7,14 @@ import {
 } from "../../constants/urls"
 import {
     ILoginForm,
-    IRegisterForm,
     IRegisterRequest,
     ILoginResponseSuccess,
     ILoginOrRegisterResponseError,
-    IAdminLoginForm,
     IAdminRegisterRequest,
     IRegisterResponseSuccess,
 } from "../../models/loginOrRegisterInterfaces/interfaces"
 
-export const loginUser = async (user: ILoginForm | IAdminLoginForm) => {
+export const loginUser = async (user: ILoginForm) => {
     try {
         const { data } = await axios.post<ILoginResponseSuccess>(
             API_LOGIN_USER,
