@@ -18,29 +18,32 @@ const TextField: FC<IFormProps> = ({ label, type, ...props }): JSX.Element => {
     }, [showPassword, type])
 
     return (
-        <DivInput>
-            <StyledLabel htmlFor={field.name}>{label}</StyledLabel>
-            <StyledInput
-                errorProps={!meta.error}
-                type={passwordType}
-                {...field}
-                {...props}
-            />
-            {type === "password" ? (
-                <IconButton
-                    onClick={changeVisibility}
-                    edge="end"
-                    data-testid="show-password"
-                >
-                    {showPassword ? (
-                        <VisibilityOff sx={{ color: "#A7A3FF" }} />
-                    ) : (
-                        <Visibility sx={{ color: "#A7A3FF" }} />
-                    )}
-                </IconButton>
-            ) : null}
+        <>
+            <DivInput>
+                <StyledLabel htmlFor={field.name}>{label}</StyledLabel>
+                <StyledInput
+                    errorProps={!meta.error}
+                    type={passwordType}
+                    {...field}
+                    {...props}
+                />
+                {type === "password" ? (
+                    <IconButton
+                        onClick={changeVisibility}
+                        edge="end"
+                        data-testid="show-password"
+                        sx={{ position: "absolute", right: "3%", top: "35%" }}
+                    >
+                        {showPassword ? (
+                            <VisibilityOff sx={{ color: "#9FA2B4" }} />
+                        ) : (
+                            <Visibility sx={{ color: "#9FA2B4" }} />
+                        )}
+                    </IconButton>
+                ) : null}
+            </DivInput>
             <ErrorForm component="div" name={field.name} />
-        </DivInput>
+        </>
     )
 }
 

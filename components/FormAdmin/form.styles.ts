@@ -95,6 +95,7 @@ export const StyledLabel = styled.label`
 `
 
 export const DivInput = styled.div`
+    position: relative;
     margin-top: 20px;
 `
 
