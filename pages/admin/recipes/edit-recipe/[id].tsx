@@ -9,7 +9,7 @@ import { FC, useLayoutEffect, useState } from "react"
 import { withRouter } from "next/router"
 
 interface IRecipeEditProps {
-    id: string
+    id?: string
 }
 
 export const getServerSideProps: GetServerSideProps = async props => {
@@ -20,12 +20,8 @@ export const getServerSideProps: GetServerSideProps = async props => {
     }
 }
 
-const RecipeEdit: FC<IRecipeEditProps> = ({ id }) => {
-    // const { query, asPath, isReady } = useRouter()
-    // console.log(query)
-    console.log(id)
-
-    useQuery(
+const RecipeEdit = ({ id }: IRecipeEditProps) => {
+    const { data, isLoading, error } = useQuery(
         ["resipe", id],
         () => {
             return getRecipeById(+id)
@@ -34,12 +30,18 @@ const RecipeEdit: FC<IRecipeEditProps> = ({ id }) => {
         //     initialData: () => {
         //         console.log(queryClient.getQueriesData("recipesList"))
         //     },
-        // }
+        // }"recipesList"
     )
+    if (error instanceof Error) {
+        return <h1>{error.message}</h1>
+    }
+    if (isLoading) {
+        return <h1>Loading...</h1>
+    }
 
     return (
         <div>
-            <RecipeForm title={id} />
+            <RecipeForm title={id} recipeData={data?.data} />
         </div>
     )
 }

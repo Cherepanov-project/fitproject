@@ -1,5 +1,5 @@
 import { Button } from "@mui/material"
-import { useState } from "react"
+import { FC, useState } from "react"
 import FileUpload from "../AdminFormComponents/upload/FileUpload"
 import { Formik, Form } from "formik"
 import FormFeildLong from "../AdminFormComponents/FormFeildLong"
@@ -7,7 +7,7 @@ import FieldList from "../AdminFormComponents/FieldList/FieldList"
 import EditorMCE from "../AdminFormComponents/EditorMCE/EditorMCE"
 import { validationRecipies } from "../../utils/validationSchema"
 import IngredientsField from "../AdminFormComponents/IngredientsField/IngredientsFiled"
-import { postRecipes } from "../../services/API/adminApi"
+import { postRecipes, updataRecipe } from "../../services/API/adminApi"
 import { IAddRecip } from "../../models/recipies/recipiesList"
 
 import {
@@ -18,14 +18,23 @@ import {
 } from "./RecipeForm.style"
 import { useMutation } from "react-query"
 
-const RecipeForm = ({ title }) => {
+interface IRecipeFormProps {
+    title: string
+    recipeData?: { id: string; description: string }
+}
+
+const RecipeForm: FC<IRecipeFormProps> = ({ title, recipeData }) => {
     const { mutate: addNewRecipe, isLoading } = useMutation(
         (formData: IAddRecip) => {
+            if (recipeData) {
+                return updataRecipe({
+                    id: +recipeData.id,
+                    description: formData.description,
+                })
+            }
             return postRecipes(formData)
         }
     )
-
-    console.log(isLoading)
 
     return (
         <ContentWrapper>
@@ -33,7 +42,7 @@ const RecipeForm = ({ title }) => {
             <Formik
                 initialValues={{
                     header: "",
-                    description: "",
+                    description: recipeData?.description || "",
                     nutritionValues: [
                         { name: "calories", value: 0 },
                         { name: "protein", value: 0 },

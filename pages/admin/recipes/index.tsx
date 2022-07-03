@@ -34,7 +34,6 @@ const Recipes = () => {
         error,
     } = useQuery("recipesList", async () => {
         const { data: res } = await getRecipesList()
-        console.log(res)
         return res
     })
 
@@ -53,12 +52,14 @@ const Recipes = () => {
     }
 
     if (error instanceof Error) {
-        console.log(error.message)
-
         return <h1>{error.message}</h1>
     }
     if (isLoading) {
-        return <h1>Loading...</h1>
+        return (
+            <div>
+                <p>Loading...</p>
+            </div>
+        )
     }
 
     const recipie = resipesArr.map(el => {

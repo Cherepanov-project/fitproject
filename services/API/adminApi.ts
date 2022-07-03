@@ -5,7 +5,7 @@ const adminApi = axios.create({
     baseURL: "https://spring-boot-fitness-backend.herokuapp.com",
     headers: {
         Authorization:
-            "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1Njg2MzU4NCwiaWF0IjoxNjU2ODQ1NTg0fQ.Dkm9PApK_KFBoU-C3-J98CaPFG31HBdhamKSfpVaDvCFd0_LByTB1ZNWCNVO2NN8AnKRlCXVuzsqKVhQkwHvSw",
+            "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1Njg4MTczMCwiaWF0IjoxNjU2ODYzNzMwfQ.iOiWNvypozkBR5j4GE9D6ikHuTZ_WHshX9s1NxdLmzR2cPd5STuvcoD9NQnxt4Vb3YLZPywXR89ZYn7d31tW-w",
     },
 })
 export const getRecipesList = async () => {
@@ -30,6 +30,15 @@ export const postRecipes = async (data: IAddRecip) => {
 
 export const getRecipeById = async (id: number) => {
     const response = await adminApi.get(`/api/v1/admin/recipe/${id}`)
+
+    return response.data
+}
+
+export const updataRecipe = async (data: {
+    id: number
+    description: string
+}) => {
+    const response = await adminApi.put("/api/v1/admin/recipe", data)
 
     return response.data
 }
