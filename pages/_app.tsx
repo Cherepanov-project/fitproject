@@ -2,9 +2,8 @@ import Script from "next/script"
 import { QueryClient, QueryClientProvider } from "react-query"
 import { ReactQueryDevtools } from "react-query/devtools"
 
+export const queryClient = new QueryClient()
 const MyApp = ({ Component, pageProps }) => {
-    const queryClient = new QueryClient()
-
     return (
         <>
             <Script

@@ -3,34 +3,33 @@ import { IRecipesArr, IAddRecip } from "../../models/recipies/recipiesList"
 
 const adminApi = axios.create({
     baseURL: "https://spring-boot-fitness-backend.herokuapp.com",
-    // headers: {
-    //     Authorization:
-    //         "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1NjUxNTI1MywiaWF0IjoxNjU2NDk3MjUzfQ.rdzfGnNXqN4oN1QHQ8V7QONkjjmri7fMIO8NyQkQhnm8Caz0JgRNrnjZ_wRopsHhPQrWxXQlc5WmoWShZt8rMw",
-    // },
+    headers: {
+        Authorization:
+            "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1Njg2MzU4NCwiaWF0IjoxNjU2ODQ1NTg0fQ.Dkm9PApK_KFBoU-C3-J98CaPFG31HBdhamKSfpVaDvCFd0_LByTB1ZNWCNVO2NN8AnKRlCXVuzsqKVhQkwHvSw",
+    },
 })
 export const getRecipesList = async () => {
-    const response = await adminApi.get<IRecipesArr>("/api/v1/admin/recipe", {
-        headers: {
-            Authorization:
-                "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1NjYyODkwMSwiaWF0IjoxNjU2NjEwOTAxfQ.0vdNsIVPo4ls-wfkMbnwlMZAjNnx81_iunTZL_mPNn--edakjYlAVo0khyiR1fNvwGrucnvPm11DvzVgOBYL1A",
-        },
-    })
+    const response = await adminApi.get<IRecipesArr>("/api/v1/admin/recipe")
 
     return response.data
 }
 
-export const postRecipes = async (obj: IAddRecip) => {
+export const postRecipes = async (data: IAddRecip) => {
     await adminApi.post(
         "/api/v1/admin/recipe",
 
-        obj,
-        {
-            headers: {
-                Authorization:
-                    "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1NjYyODkwMSwiaWF0IjoxNjU2NjEwOTAxfQ.0vdNsIVPo4ls-wfkMbnwlMZAjNnx81_iunTZL_mPNn--edakjYlAVo0khyiR1fNvwGrucnvPm11DvzVgOBYL1A",
-            },
-        }
+        data
+        // {
+        //     headers: {
+        //         Authorization:
+        //             "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1NjY5MzcwNSwiaWF0IjoxNjU2Njc1NzA1fQ.cutJ1rfX8nH4xP7lKf9m_xPc3xkG5dJTRM_KkvJz4nUw9HvXi_JiimNWQ3Putsh6SXsgqCX7TvLtkrAmlZK9Ug",
+        //     },
+        // }
     )
+}
 
-    // return response
+export const getRecipeById = async (id: number) => {
+    const response = await adminApi.get(`/api/v1/admin/recipe/${id}`)
+
+    return response.data
 }

@@ -10,13 +10,15 @@ import { ContentList, FooterRecipes } from "../overview/overviewStyles"
 import CreateForm from "../../../components/RecipiesTableItem/AddBtn/addForm"
 import Pagination from "../../../components/Table/TablePagination"
 import ColumnName from "../../../components/User/ColumnName/ColumnName"
-import { QueryClient, useQuery, dehydrate } from "react-query"
+import { useQuery, dehydrate } from "react-query"
 import { getRecipesList } from "../../../services/API/adminApi"
+import { queryClient } from "../../_app"
 
 export const getStaticProps = async () => {
-    const queryClient = new QueryClient()
-
-    await queryClient.prefetchQuery("posts", getRecipesList)
+    await queryClient.prefetchQuery(["recipesList"], async () => {
+        const { data: res } = await getRecipesList()
+        return res
+    })
 
     return {
         props: {
@@ -27,10 +29,14 @@ export const getStaticProps = async () => {
 
 const Recipes = () => {
     const {
-        data: ResipesArr,
+        data: resipesArr,
         isLoading,
         error,
-    } = useQuery("recipesList", getRecipesList)
+    } = useQuery("recipesList", async () => {
+        const { data: res } = await getRecipesList()
+        console.log(res)
+        return res
+    })
 
     const [page, setPage] = useState<number>(0)
     const [rowsPerPage, setRowsPerPage] = useState<number>(8)
@@ -55,7 +61,7 @@ const Recipes = () => {
         return <h1>Loading...</h1>
     }
 
-    const resipie = ResipesArr.data.map(el => {
+    const recipie = resipesArr.map(el => {
         return (
             <Recipie
                 key={el.id}
@@ -77,13 +83,13 @@ const Recipes = () => {
             <TableContainer>
                 <Table sx={{ minWidth: 1120 }}>
                     <ColumnName />
-                    <TableBody>{resipie}</TableBody>
+                    <TableBody>{recipie}</TableBody>
                 </Table>
             </TableContainer>
             <FooterRecipes>
                 <CreateForm />
                 <Pagination
-                    count={ResipesArr.data.length}
+                    count={resipesArr.length}
                     page={page}
                     onChangePage={handleChangePage}
                     rowsPerPage={rowsPerPage}

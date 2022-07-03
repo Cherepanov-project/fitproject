@@ -5,7 +5,6 @@ import {
     Text,
     ErrorText,
 } from "./FieldList.style"
-import { INutrilon, nutrilonsMapped } from "../../../model/recipes/index"
 import { FieldArray, Formik, Field, ErrorMessage, useField } from "formik"
 
 const FieldList = ({ values, name }) => {

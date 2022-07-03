@@ -102,7 +102,9 @@ const Recipe = ({
                                         onClick={deleteArticle}
                                     />
                                 ) : (
-                                    <Link href={`/admin/edit-${id}`}>
+                                    <Link
+                                        href={`/admin/recipes/edit-recipe/${id}`}
+                                    >
                                         <EditIcon />
                                     </Link>
                                 )}

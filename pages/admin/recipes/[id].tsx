@@ -1,5 +1,6 @@
+import { withLayout } from "../../../containers/Layout-admin/Layout-admin"
 const isd = () => {
-    return <h1>sad</h1>
+    return <h1>resipes</h1>
 }
 
-export default isd
+export default withLayout(isd)
