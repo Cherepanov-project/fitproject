@@ -1,7 +1,7 @@
 import React from "react"
 import Typography from "@mui/material/Typography"
 
-import { WidgetItemContainer, WidgetItemContent } from "./widgetItemStyles"
+import { WidgetItemContainer, WidgetItemContent } from "./widgetItem.styles"
 
 const TicketsWidgetItem = ({ name, value, padding }): JSX.Element => {
     return (

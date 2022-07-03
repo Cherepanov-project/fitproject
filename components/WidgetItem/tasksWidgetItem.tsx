@@ -10,7 +10,7 @@ import {
     CheckboxIcon,
     CheckedCheckboxIcon,
     TaskStatus,
-} from "./widgetItemStyles"
+} from "./widgetItem.styles"
 
 const TasksWidgetItem = ({ name, value, padding }): JSX.Element => {
     return (

@@ -34,9 +34,9 @@ import TasksWidgetItem from "../../../components/WidgetItem/tasksWidgetItem"
 import {
     WidgetItemContainer,
     WidgetItemContent,
-} from "../../../components/WidgetItem/widgetItemStyles"
+} from "../../../components/WidgetItem/widgetItem.styles"
 
-const DynamicGraph = dynamic(() => import("../../../components/Graph/Graph"), {
+const DynamicGraph = dynamic(() => import("../../../components/Graph/graph"), {
     ssr: false,
 })
 

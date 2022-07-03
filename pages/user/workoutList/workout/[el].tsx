@@ -3,9 +3,10 @@ import { useRouter } from "next/router"
 import Link from "next/link"
 import Card from "@mui/material/Card"
 
-import Slider from "../../../../common/slider/Slider"
+import Slider from "../../../../components/slider/Slider"
+
 import useMediaQuery from "@mui/material/useMediaQuery"
-import { LayoutUser } from "../../../../containers/Layout-user/Layout-user"
+import { LayoutUser } from "../../../../containers/Layout-user/layoutUser"
 import { exerciseList, exercisesType } from "../../../../models/workout/workout"
 import muscleImg from "../../../../common/images/icons/backMuscle.svg"
 import generateId from "../../../../utils/generateId"
@@ -89,6 +90,7 @@ const WorkoutItem = () => {
                             imgWidth={workout?.imgWidth}
                             imgHeight={workout?.imgHeight}
                             src={workout?.img}
+                            alt="alt-image"
                         />
                     </div>
                 </LeftContent>

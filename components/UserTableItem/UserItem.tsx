@@ -16,6 +16,7 @@ import {
 import PersonIcon from "@mui/icons-material/Person"
 
 import { SecondaryText, Text, RowAvatar, WrapBnt } from "./UserItem.style"
+
 import avatarUser from "./images/avatarUser.jpg"
 
 import ColorfulTeg from "../ColorfulTeg"

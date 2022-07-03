@@ -9,7 +9,7 @@ import {
     ISpecificationItemsType,
 } from "../../models/sideBar/sideBar"
 
-const blockSpecification = () => {
+const BlockSpecification = () => {
     const specificationNods = specificationItems.map(
         (item: ISpecificationItemsType) => (
             <Specification key={item.id}>
@@ -26,4 +26,4 @@ const blockSpecification = () => {
         </>
     )
 }
-export default blockSpecification
+export default BlockSpecification

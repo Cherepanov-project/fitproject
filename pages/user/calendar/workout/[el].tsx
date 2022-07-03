@@ -1,10 +1,10 @@
 import { useRouter } from "next/router"
 import { useState } from "react"
 
-import CalendarContainer from "../../../../components/CalendarContainer"
-import HeadLinkBack from "../../../../components/HeadLinkBack"
+import CalendarContainer from "../../../../components/calendarContainer"
+import HeadLinkBack from "../../../../components/headLinkBack"
 import ItemWorkout from "./ItemWorkout"
-import { LayoutUser } from "../../../../containers/Layout-user/Layout-user"
+import { LayoutUser } from "../../../../containers/Layout-user/layoutUser"
 import { WorkoutUl, ListWorkoutName, ItemWorkoutDiv } from "./styledWorkout"
 import {
     workoutDay,

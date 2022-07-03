@@ -11,7 +11,7 @@ import {
     Title,
     SubTitle,
     Target,
-} from "./progressBtnStyles"
+} from "./progressBtn.styles"
 
 interface IProps {
     title: string

@@ -2,11 +2,8 @@ import { useEffect } from "react"
 import Cookies from "js-cookie"
 import { useRouter } from "next/router"
 
-import { LayoutUser } from "../../../containers/Layout-user/Layout-user"
-import UserChar from "../../../components/userChar/userChar"
-import SquareIcon from "../../../components/SquareIcon/squareIcon"
-import RectangleBtn from "../../../components/RectangleBtn/rectangleBtn"
-import ProgressBtn from "../../../components/ProgressBtn/progressBtn"
+import { LayoutUser } from "../../../containers/Layout-user/layoutUser"
+import UserChar from "../../../components/UserChar/userChar"
 import imgLeg from "../../../common/images/icons/leg.svg"
 import imgWater from "../../../common/images/icons/water.svg"
 import imgCyclist from "../../../common/images/icons/cyclist.svg"
@@ -26,6 +23,9 @@ import {
     Target,
     ProgressContainer,
 } from "./statisticsStyles"
+import RectangleButton from "../../../components/RectangleBtn/rectangleBtn"
+import ProgressButton from "../../../components/ProgressBtn/progressBtn"
+import SquareIcon from "../../../components/SquareIcon/squareIcon"
 
 const Frame1 = () => {
     const router = useRouter()
@@ -52,7 +52,7 @@ const Frame1 = () => {
                     <UserChar />
                 </Activity>
                 <DataActiveContainer>
-                    <RectangleBtn
+                    <RectangleButton
                         text={"Daily walking"}
                         bg={"linear-gradient(180deg, #6D63FF 0%, #3B32C0 100%)"}
                         ico={
@@ -63,7 +63,7 @@ const Frame1 = () => {
                         }
                     />
                     <TargetContainer>
-                        <RectangleBtn
+                        <RectangleButton
                             text={"Water"}
                             bg={"rgba(255, 154, 186, 1)"}
                             ico={
@@ -81,7 +81,7 @@ const Frame1 = () => {
                 </DataActiveContainer>
             </ActivContainer>
             <ProgressContainer>
-                <ProgressBtn
+                <ProgressButton
                     title={"Cycling Hero"}
                     subtitle={"10 km"}
                     target={"50 km"}
@@ -92,7 +92,7 @@ const Frame1 = () => {
                         />
                     }
                 />
-                <ProgressBtn
+                <ProgressButton
                     title={"Daily Running"}
                     subtitle={"5 km"}
                     target={"7 km/week"}
@@ -103,7 +103,7 @@ const Frame1 = () => {
                         />
                     }
                 />
-                <ProgressBtn
+                <ProgressButton
                     title={"Daily Steps"}
                     subtitle={"10 000 steps"}
                     target={"12 000 / week"}

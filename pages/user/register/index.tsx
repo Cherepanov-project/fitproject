@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-import Layout from "../../../components/User/UserLayout"
+import Layout from "../../../components/User/userLayout"
 import loginMan from "../../../common/images/loginMan.png"
 import { RegisterForm } from "./RegisterFormStep"
 
@@ -26,7 +26,7 @@ const User = () => {
                         <Title2>Lorem ipsum is simply</Title2>
                         <div>If you already have an account </div>
                         <div>
-                            You can
+                            <span>You can </span>
                             <Link href={"/user"} passHref>
                                 <AAA>Login here !</AAA>
                             </Link>

@@ -7,7 +7,7 @@ import * as Yup from "yup"
 
 import imageLogoApp from "./images/logoApp.svg"
 import api from "../../services/API"
-import TextField from "./TextField"
+import TextField from "./textField"
 import { FormContainer } from "./formContainer"
 import {
     DivCenter,
@@ -16,7 +16,7 @@ import {
     FormH1,
     FormH2,
     StyledButton,
-} from "./Form.styled"
+} from "./form.styles"
 
 const SingInForm = () => {
     const router = useRouter()
