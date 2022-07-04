@@ -1,5 +1,5 @@
 import React from "react"
-import { withLayout } from "../../../containers/Layout-admin/Layout-admin"
+import { withLayout } from "../../../containers/Layout-admin/layoutAdmin"
 import { useState, useEffect } from "react"
 import FilterMenu from "../../../components/FilterMenu/filter"
 import Recipie from "../../../components/RecipiesTableItem/recipie"

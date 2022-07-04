@@ -1,5 +1,5 @@
 import { GetServerSideProps } from "next"
-import { withLayout } from "../../../containers/Layout-admin/Layout-admin"
+import { withLayout } from "../../../containers/Layout-admin/layoutAdmin"
 
 import PageUser from "../../../components/page-components/PageUser/PageUser"
 

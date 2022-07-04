@@ -1,12 +1,8 @@
-import { useRouter } from "next/router"
 import { useQuery } from "react-query"
-import { withLayout } from "../../../../containers/Layout-admin/Layout-admin"
-import { queryClient } from "../../../_app"
+import { withLayout } from "../../../../containers/Layout-admin/layoutAdmin"
 import { getRecipeById } from "../../../../services/API/adminApi"
-import { GetServerSideProps, InferGetServerSidePropsType } from "next"
+import { GetServerSideProps } from "next"
 import RecipeForm from "../../../../components/RecipeForm/RecipeForm"
-import { FC, useLayoutEffect, useState } from "react"
-import { withRouter } from "next/router"
 
 interface IRecipeEditProps {
     id?: string

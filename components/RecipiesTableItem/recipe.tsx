@@ -14,11 +14,6 @@ import EditIcon from "@mui/icons-material/Edit"
 import Link from "next/link"
 
 import Image from "next/image"
-
-<<<<<<< HEAD:components/RecipiesTableItem/recipie.tsx
-=======
-import { MenuIcon } from "./recipes"
->>>>>>> eb1947893169ded5e3dd493da39f649d9b482bff:components/RecipiesTableItem/recipe.tsx
 import imageMan from "./images/avatarEat.svg"
 import ColorfulTeg from "../ColorfulTeg"
 
