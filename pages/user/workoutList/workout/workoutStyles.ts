@@ -93,11 +93,13 @@ export const ImgWrapper = styled.div<img>`
     width: 118px;
     height: 126px;
     border-radius: 50px;
+
     background: 50% 50% url(${({ imgUrl }) => imgUrl}) #fff no-repeat;
+
     background-size: ${({ imgWidth, imgHeight }) => {
         return imgWidth > imgHeight ? "100% auto" : "auto 100%"
     }};
-  
+
     @media (min-width: 2000px) {
         width: 218px;
         height: 226px;

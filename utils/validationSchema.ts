@@ -45,3 +45,16 @@ export const validationLoginUser = Yup.object().shape({
     username: Yup.string().required("Required"),
     password: Yup.string().required("Required"),
 })
+
+export const validationRecipies = Yup.object({
+    header: Yup.string()
+        .required()
+        .min(8, "Header should be of minimum 8 characters length"),
+    description: Yup.string().required(),
+    nutritionValues: Yup.array().of(
+        Yup.object().shape({
+            value: Yup.number().required("Value required"),
+        })
+    ),
+    recipe: Yup.string().required(),
+})

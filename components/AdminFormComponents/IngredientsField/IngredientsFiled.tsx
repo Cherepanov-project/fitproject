@@ -1,6 +1,7 @@
-import React from "react"
+import React, { FC } from "react"
 import { useField, FieldArray } from "formik"
-import { Grid, Box, TextField, IconButton } from "@mui/material"
+import { Grid, Box, TextField, IconButton, Button } from "@mui/material"
+import CloseIcon from "@mui/icons-material/Close"
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline"
 
 import { IIngredient } from "../../../models/recipes/recipes"
@@ -11,11 +12,10 @@ interface IProps {
 
 const emptyIngredient = {
     name: "",
-    description: "",
 }
 
-const IngredientsFiled: React.FC<IProps> = React.memo((props: IProps) => {
-    const [field, meta, helpers] = useField(props.name)
+const IngredientsFiled: FC<IProps> = ({ name }) => {
+    const [field, meta, helpers] = useField(name)
 
     return (
         <FieldArray
@@ -41,6 +41,19 @@ const IngredientsFiled: React.FC<IProps> = React.memo((props: IProps) => {
                                           }}
                                           my={2}
                                       >
+                                          {index === 0 ? null : (
+                                              <Grid>
+                                                  <IconButton
+                                                      onClick={() =>
+                                                          arrayHelpers.remove(
+                                                              index
+                                                          )
+                                                      }
+                                                  >
+                                                      <CloseIcon color="error" />
+                                                  </IconButton>
+                                              </Grid>
+                                          )}
                                           <Grid
                                               container
                                               item
@@ -51,14 +64,11 @@ const IngredientsFiled: React.FC<IProps> = React.memo((props: IProps) => {
                                                   <TextField
                                                       fullWidth
                                                       id={field.name}
+                                                      value={field.value.name}
                                                       name={`ingredients.${index}.name`}
                                                       placeholder={"Name"}
                                                       onChange={field.onChange}
-                                                      onBlur={field.onBlur}
                                                       variant="outlined"
-                                                      defaultValue={
-                                                          ingredient.name
-                                                      }
                                                       sx={{
                                                           input: {
                                                               padding: "10px",
@@ -76,10 +86,10 @@ const IngredientsFiled: React.FC<IProps> = React.memo((props: IProps) => {
                                                           "Description"
                                                       }
                                                       onChange={field.onChange}
-                                                      onBlur={field.onBlur}
                                                       variant="outlined"
-                                                      defaultValue={
-                                                          ingredient.description
+                                                      value={
+                                                          field.value
+                                                              .description
                                                       }
                                                       sx={{
                                                           input: {
@@ -107,6 +117,6 @@ const IngredientsFiled: React.FC<IProps> = React.memo((props: IProps) => {
             )}
         />
     )
-})
+}
 
 export default IngredientsFiled
