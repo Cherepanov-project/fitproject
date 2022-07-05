@@ -52,6 +52,13 @@ export const StyledButton = styled.button`
         background-color: white;
         transition: 0.5s;
     }
+    &:disabled {
+        background-color: lightgray;
+        border: none;
+    }
+    &:disabled:hover {
+        color: white;
+    }
 `
 
 export const FormA = styled.a`
@@ -88,6 +95,7 @@ export const StyledLabel = styled.label`
 `
 
 export const DivInput = styled.div`
+    position: relative;
     margin-top: 20px;
 `
 

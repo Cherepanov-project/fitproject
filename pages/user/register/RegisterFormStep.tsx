@@ -38,18 +38,15 @@ export const RegisterForm: React.FC = () => {
             <CardContent sx={{ width: "80%", margin: "0 auto" }}>
                 <FormikStepper
                     onSubmit={async (data: IRegisterForm) => {
-                        try {
-                            const response = await registerUser(data)
-                            if (!response.success) {
-                                throw new Error(response.error)
-                            }
+                        const response = await registerUser(data)
+                        if (response.success === false) {
+                            setMsg(response.error)
+                            setOpen(true)
+                        } else {
                             setRegisterSuccess(true)
                             setMsg("You have been register")
                             setOpen(true)
                             redirectToLoginPage(LOGIN_PAGE)
-                        } catch (error) {
-                            setMsg(error.message)
-                            setOpen(true)
                         }
                     }}
                     initialValues={formRegisterValues}
