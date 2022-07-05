@@ -68,3 +68,16 @@ export const validateSignUpAdmin = Yup.object({
         .oneOf([Yup.ref("password")], "Passwords should match")
         .required("Repeat password is required"),
 })
+
+export const validationRecipies = Yup.object({
+    header: Yup.string()
+        .required()
+        .min(8, "Header should be of minimum 8 characters length"),
+    description: Yup.string().required(),
+    nutritionValues: Yup.array().of(
+        Yup.object().shape({
+            value: Yup.number().required("Value required"),
+        })
+    ),
+    recipe: Yup.string().required(),
+})
