@@ -1,9 +1,5 @@
 import { CustomIcon } from "./squareIcon.styles"
-
-interface IProps {
-    color: string
-    img: { src: string }
-}
+import { IProps } from "./squareIcon.interface"
 
 const SquareIcon = ({ color, img }: IProps) => {
     return <CustomIcon bgColor={color} bgImg={img.src} />

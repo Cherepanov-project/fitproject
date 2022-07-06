@@ -1,11 +1,12 @@
 import { useState, FC, useCallback } from "react"
 import { useField } from "formik"
+import { IconButton } from "@mui/material"
+import { Visibility, VisibilityOff } from "@mui/icons-material"
 
 import { DivInput, StyledLabel, StyledInput, ErrorForm } from "./form.styles"
 import { IFormProps } from "./form.interface"
 import calcPasswordVisibility from "../../utils/calcPasswordVisibility"
-import { IconButton } from "@mui/material"
-import { Visibility, VisibilityOff } from "@mui/icons-material"
+
 const TextField: FC<IFormProps> = ({ label, type, ...props }): JSX.Element => {
     const [field, meta] = useField(props)
     const [showPassword, setShowPassword] = useState<boolean>(false)

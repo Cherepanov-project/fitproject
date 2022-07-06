@@ -1,17 +1,9 @@
 import styled from "styled-components"
+import {ICardContainerProps, ICardContentProps} from "./card.interface";
 
-interface CardContainerProps {
-    width: string
-    height: string
-    margin: string
-    borderColor: string
-}
 
-interface CardContentProps {
-    padding: string
-}
 
-export const CardContainer = styled.div<CardContainerProps>`
+export const CardContainer = styled.div<ICardContainerProps>`
     width: ${({ width }) => width};
     height: ${({ height }) => height};
     margin: ${({ margin }) => margin};
@@ -23,7 +15,7 @@ export const CardContainer = styled.div<CardContainerProps>`
     flex-grow: 0;
 `
 
-export const CardContent = styled.div<CardContentProps>`
+export const CardContent = styled.div<ICardContentProps>`
     display: flex;
     flex-basis: 100%;
     flex-direction: column;

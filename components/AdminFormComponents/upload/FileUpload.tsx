@@ -8,6 +8,7 @@ import { SingleFileUpload } from "./singleFileUpload"
 import UploadError from "./uploadError"
 import styles from "./FileUpload.module.scss"
 import classnames from "classnames/bind"
+import { DefaultDropZone } from "./FileUpload.styled"
 
 let currentId = 0
 
@@ -22,31 +23,6 @@ function getNewId() {
     // we could use a fancier solution instead of a sequential ID :)
     return (currentId += 1)
 }
-
-const DefaultDropZone = styled.div`
-    border-radius: 4px;
-    min-height: 100px;
-    box-shadow: 0px 4px 4px rgba(51, 51, 51, 0.04),
-        0px 4px 16px rgba(51, 51, 51, 0.08);
-    padding: 20px;
-`
-const isDroppingActive = styled.div`
-    width: 100%;
-    background: #6e41e2;
-    min-height: 100px;
-    box-shadow: 0px 4px 4px rgba(51, 51, 51, 0.04),
-        0px 4px 16px rgba(51, 51, 51, 0.08);
-    border-radius: 4px;
-`
-
-const MainParagraph = styled.p`
-    font-size: 16px;
-`
-
-const SecondParagraph = styled.p`
-    padding-top: 8px;
-    font-size: 13px;
-`
 
 const FileUpload = ({ name }: { name?: string }) => {
     // const [_, __, helpers] = useField(name)

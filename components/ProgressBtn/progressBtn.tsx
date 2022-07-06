@@ -4,6 +4,7 @@ import LinearProgress, {
     LinearProgressProps,
 } from "@mui/material/LinearProgress"
 
+import { IProps } from "./progressBtn.interface"
 import {
     ProgressButton,
     IcoContainer,
@@ -12,13 +13,6 @@ import {
     SubTitle,
     Target,
 } from "./progressBtn.styles"
-
-interface IProps {
-    title: string
-    subtitle: string
-    target: string
-    ico: JSX.Element
-}
 
 const LinearProgressWithLabel = (
     props: LinearProgressProps & { value: number }

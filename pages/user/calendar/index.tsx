@@ -15,9 +15,9 @@ import {
     getDate,
 } from "date-fns"
 
-import CalendarContainer from "../../../components/calendarContainer"
+import CalendarContainer from "../../../components/Calendar/calendarContainer"
 import generateId from "../../../utils/generateId"
-import FramerCalendar from "../../../components/framerCalendar"
+import FramerCalendar from "../../../components/Calendar/framerCalendar"
 import { monthArr } from "../../../models/user/user"
 import { LayoutUser } from "../../../containers/Layout-user/layoutUser"
 import {

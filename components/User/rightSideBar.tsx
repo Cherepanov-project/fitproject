@@ -13,6 +13,7 @@ import SettingsIcon from "../../common/images/icons/settingsIcon.svg"
 import defaultAvatar from "../../common/images/defaultAvatar.png"
 import arrow from "../../common/images/icons/arrow.svg"
 import meter from "../../common/images/icons/meter.svg"
+import { ISideBarProps } from "./rightSideBar.interface"
 import {
     Avatar,
     Icon,
@@ -27,13 +28,6 @@ import {
     Meter,
     /* SquareBtn, */
 } from "./rightSideBar.styles"
-
-interface ISideBarProps {
-    avatar: StaticImageData
-    userName: string
-    lastDate?: Date | number
-    includeSeconds: boolean
-}
 
 const drawerWidth: string = "244px"
 

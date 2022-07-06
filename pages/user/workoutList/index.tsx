@@ -1,9 +1,9 @@
 import { useState } from "react"
 
 import { MainWrapper, ItemListWrapper } from "./workoutListStyles"
-import Sidebar from "../../../components/WorkoutList/sidebar/sidebar"
+import Sidebar from "../../../components/WorkoutList/SideBar/sidebar"
 import { LayoutUser } from "../../../containers/Layout-user/layoutUser"
-import ItemList from "../../../components/WorkoutList/itemList/itemList"
+import ItemList from "../../../components/WorkoutList/ItemList/itemList"
 
 import {
     muscleCheckboxList,

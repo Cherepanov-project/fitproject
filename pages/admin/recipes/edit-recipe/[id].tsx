@@ -2,7 +2,7 @@ import { useQuery } from "react-query"
 import { withLayout } from "../../../../containers/Layout-admin/layoutAdmin"
 import { getRecipeById } from "../../../../services/API/adminApi"
 import { GetServerSideProps } from "next"
-import RecipeForm from "../../../../components/RecipeForm/RecipeForm"
+import RecipeForm from "../../../../components/RecipeForm/recipeForm"
 
 interface IRecipeEditProps {
     id?: string

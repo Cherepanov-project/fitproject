@@ -1,12 +1,6 @@
 import styled from "styled-components"
 
-interface WidgetItemContentProps {
-    padding: string
-}
-
-interface TaskStatusProps {
-    color: string
-}
+import { ITaskStatusProps, IWidgetItemContentProps } from "./widgetItem.interface"
 
 export const WidgetItemContainer = styled.div`
     width: 546px;
@@ -18,7 +12,7 @@ export const WidgetItemContainer = styled.div`
     flex-grow: 0;
 `
 
-export const WidgetItemContent = styled.div<WidgetItemContentProps>`
+export const WidgetItemContent = styled.div<IWidgetItemContentProps>`
     display: flex;
     flex-basis: 100%;
     flex-direction: row;
@@ -71,7 +65,7 @@ export const CheckedCheckboxIcon = styled.div`
     }
 `
 
-export const TaskStatus = styled.div<TaskStatusProps>`
+export const TaskStatus = styled.div<ITaskStatusProps>`
     display: flex;
     align-items: center;
     padding: 5px 12px;

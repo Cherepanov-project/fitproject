@@ -3,7 +3,7 @@ export interface DataType {
     nameUser: string
     gender: string
     avatar?: string
-    dateRegistor: string
+    dateRegister: string
     role: string
     email: string
 }

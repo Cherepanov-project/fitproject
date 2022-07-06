@@ -3,11 +3,14 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import { Form, Formik } from "formik"
 import Image from "next/image"
-import { validateSignUpAdmin } from "../../utils/validationSchema"
+import { Snackbar } from "@mui/material"
+import { nanoid } from "nanoid"
 
+import { validateSignUpAdmin } from "../../utils/validationSchema"
 import imageLogoApp from "./images/logoApp.svg"
 import { FormContainer } from "./formContainer"
 import TextField from "./textField"
+import { registerUser } from "../../services/API/loginUser"
 import {
     DivCenter,
     DivDashboard,
@@ -16,9 +19,6 @@ import {
     FormH2,
     StyledButton,
 } from "./form.styles"
-import { registerUser } from "../../services/API/loginUser"
-import { Snackbar } from "@mui/material"
-import { nanoid } from "nanoid"
 
 const SignUpForm = () => {
     const router = useRouter()

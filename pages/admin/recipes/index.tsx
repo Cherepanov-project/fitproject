@@ -1,15 +1,15 @@
 import React from "react"
 import { withLayout } from "../../../containers/Layout-admin/layoutAdmin"
 import { useState, useEffect } from "react"
-import FilterMenu from "../../../components/FilterMenu/filter"
-import Recipie from "../../../components/RecipiesTableItem/recipie"
+import FilterMenu from "../../../components/FilterMenu/filterMenu"
+import Recipe from "../../../components/RecipesTableItem/recipe"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
 import TableContainer from "@mui/material/TableContainer"
 import { ContentList, FooterRecipes } from "../overview/overviewStyles"
-import CreateForm from "../../../components/RecipiesTableItem/AddBtn/addForm"
-import Pagination from "../../../components/Table/TablePagination"
-import ColumnName from "../../../components/User/ColumnName/ColumnName"
+import CreateForm from "../../../components/RecipesTableItem/AddBtn/addForm"
+import Pagination from "../../../components/Table/tablePagination"
+import ColumnName from "../../../components/User/ColumnName/columnName"
 import { useQuery, dehydrate } from "react-query"
 import { getRecipesList } from "../../../services/API/adminApi"
 import { queryClient } from "../../_app"
@@ -29,7 +29,7 @@ export const getStaticProps = async () => {
 
 const Recipes = () => {
     const {
-        data: resipesArr,
+        data: recipesArr,
         isLoading,
         error,
     } = useQuery("recipesList", async () => {
@@ -62,9 +62,9 @@ const Recipes = () => {
         )
     }
 
-    const recipie = resipesArr.map(el => {
+    const recipe = recipesArr.map(el => {
         return (
-            <Recipie
+            <Recipe
                 key={el.id}
                 id={el.id}
                 protein={el.protein}
@@ -80,17 +80,17 @@ const Recipes = () => {
 
     return (
         <ContentList>
-            <FilterMenu title="Recipies" />
+            <FilterMenu title="Recipes" />
             <TableContainer>
                 <Table sx={{ minWidth: 1120 }}>
                     <ColumnName />
-                    <TableBody>{recipie}</TableBody>
+                    <TableBody>{recipe}</TableBody>
                 </Table>
             </TableContainer>
             <FooterRecipes>
                 <CreateForm />
                 <Pagination
-                    count={resipesArr.length}
+                    count={recipesArr.length}
                     page={page}
                     onChangePage={handleChangePage}
                     rowsPerPage={rowsPerPage}

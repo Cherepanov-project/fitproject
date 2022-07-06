@@ -5,7 +5,7 @@ const adminApi = axios.create({
     baseURL: "https://spring-boot-fitness-backend.herokuapp.com",
     headers: {
         Authorization:
-            "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1Njg4MTczMCwiaWF0IjoxNjU2ODYzNzMwfQ.iOiWNvypozkBR5j4GE9D6ikHuTZ_WHshX9s1NxdLmzR2cPd5STuvcoD9NQnxt4Vb3YLZPywXR89ZYn7d31tW-w",
+            "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1NzE0Nzc2MywiaWF0IjoxNjU3MTI5NzYzfQ.QKwiMeUVyq79YFH2t_MEz4weiQIJ5jMUsz2iqTV3gPXhH9LdZZpuEulcBxuxmi0yl1Jtc_Ex-NMkgR2nV68Kug"
     },
 })
 export const getRecipesList = async () => {

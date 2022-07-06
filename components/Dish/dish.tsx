@@ -6,7 +6,7 @@ import generateId from "../../utils/generateId"
 import { IFoodItemType, dishFood } from "../../models/dish/dish"
 import DishIngredients from "./dishIngredients"
 import { LayoutUser } from "../../containers/Layout-user/layoutUser"
-import HeadLinkBack from "../headLinkBack"
+import HeadLinkBack from "../HeadLinkBack/headLinkBack"
 import {
     DishComponent,
     DishItem,

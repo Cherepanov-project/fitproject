@@ -1,11 +1,6 @@
-import {
-    DivCenter,
-    DivDashboard,
-    FormA,
-    FormH1,
-    FormH2,
-    StyledButton,
-} from "./form.styles"
+import { useState } from "react"
+import { Snackbar } from "@mui/material"
+import { nanoid } from "nanoid"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { Formik, Form } from "formik"
@@ -17,9 +12,14 @@ import TextField from "./textField"
 import { FormContainer } from "./formContainer"
 import { loginUser } from "../../services/API/loginUser"
 import { validateLoginAdmin } from "../../utils/validationSchema"
-import { useState } from "react"
-import { Snackbar } from "@mui/material"
-import { nanoid } from "nanoid"
+import {
+    DivCenter,
+    DivDashboard,
+    FormA,
+    FormH1,
+    FormH2,
+    StyledButton,
+} from "./form.styles"
 
 const SingInForm = () => {
     const router = useRouter()

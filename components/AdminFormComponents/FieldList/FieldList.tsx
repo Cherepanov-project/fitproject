@@ -4,7 +4,7 @@ import {
     TextFieldWrap,
     Text,
     ErrorText,
-} from "./FieldList.style"
+} from "./FieldList.styled"
 import { FieldArray, Formik, Field, ErrorMessage, useField } from "formik"
 
 const FieldList = ({ values, name }) => {
