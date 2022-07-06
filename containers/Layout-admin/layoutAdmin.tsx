@@ -46,12 +46,12 @@ const withLayout = <T extends Record<string, undefined>>(
     Component: FunctionComponent<T>
 ) => {
     return function WithLayoutComponent(props: T): JSX.Element {
-        // useEffect(() => {
-        //     if (!Cookies.get("auth-token")) {
-        //         console.log("tok")
-        //         Router.replace("/admin")
-        //     }
-        // }, [])
+        useEffect(() => {
+            if (!Cookies.get("auth-token")) {
+                console.log("tok")
+                Router.replace("/admin")
+            }
+        }, [])
 
         return (
             <LayoutAdmin>
