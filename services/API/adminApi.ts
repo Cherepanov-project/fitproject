@@ -1,5 +1,5 @@
 import axios from "axios"
-import { IRecipesArr, IAddRecip } from "../../models/recipies/recipiesList"
+import { IRecipesArr, IAddRecip } from "../../models/recipes/recipiesList"
 
 const adminApi = axios.create({
     baseURL: "https://spring-boot-fitness-backend.herokuapp.com",

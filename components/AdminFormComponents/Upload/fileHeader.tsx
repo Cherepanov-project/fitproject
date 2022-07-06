@@ -1,10 +1,7 @@
 import { Grid, Button } from "@material-ui/core"
 import React from "react"
 
-interface IFileHeaderProps {
-    file: File
-    onDelete: (file: File) => void
-}
+import { IFileHeaderProps } from "./upload.interface"
 
 const FileHeader = ({ file, onDelete }: IFileHeaderProps) => {
     return (

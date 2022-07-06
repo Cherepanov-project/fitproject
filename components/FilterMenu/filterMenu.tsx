@@ -14,7 +14,7 @@ const FilterMenu: React.FC<IFilterBtnProps> = ({ title }) => {
             <ButtonList>
                 {/* <IconButton></IconButton> */}
                 <ButtonSort>
-                    <Image src={imageSort} />
+                    <Image src={imageSort} alt="sort" />
                     Sort
                 </ButtonSort>
                 <ItemFilter />

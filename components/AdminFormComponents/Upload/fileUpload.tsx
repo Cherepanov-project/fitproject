@@ -1,23 +1,14 @@
-import React, { useCallback, useEffect, useState } from "react"
+import React, { useCallback, useState } from "react"
 import { FileRejection, FileError, useDropzone } from "react-dropzone"
-import styled from "styled-components"
 import { Box, Grid } from "@material-ui/core"
 import { useField } from "formik"
 
 import { SingleFileUpload } from "./singleFileUpload"
 import UploadError from "./uploadError"
-import styles from "./FileUpload.module.scss"
-import classnames from "classnames/bind"
-import { DefaultDropZone } from "./FileUpload.styled"
+import { DefaultDropZone } from "./fileUpload.styles"
+import { IUploadableFileProps } from "./upload.interface"
 
 let currentId = 0
-
-export interface IUploadableFileProps {
-    id: number
-    file: File
-    errors: FileError[]
-    url?: string
-}
 
 function getNewId() {
     // we could use a fancier solution instead of a sequential ID :)

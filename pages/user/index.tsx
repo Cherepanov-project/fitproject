@@ -2,9 +2,8 @@ import Link from "next/link"
 
 import loginMan from "../../common/images/loginMan.png"
 import Layout from "../../components/User/userLayout"
-import { LoginForm } from "./login/loginForm"
-import { RegOrLoginIcon } from "./userLoginOrRegisterStyle"
-
+import { Index } from "./login"
+import { RegOrLoginIcon } from "../../components/RegOrLoginSocial/regOrLoginSocial.styles"
 import {
     UserLoginOrRegister,
     FlexWrapper,
@@ -13,7 +12,7 @@ import {
     AAA,
     Title,
     Title2,
-} from "./userLoginOrRegisterStyle"
+} from "../../components/RegOrLoginSocial/regOrLoginSocial.styles"
 
 const User = () => {
     return (
@@ -34,7 +33,7 @@ const User = () => {
                         </div>
                         <RegOrLoginIcon width="50%" src={loginMan.src} />
                     </LeftSide>
-                    <LoginForm />
+                    <Index />
                 </FlexWrapper>
             </UserLoginOrRegister>
         </Layout>

@@ -1,12 +1,10 @@
 import { useQuery } from "react-query"
+import { GetServerSideProps } from "next"
+
 import { withLayout } from "../../../../containers/Layout-admin/layoutAdmin"
 import { getRecipeById } from "../../../../services/API/adminApi"
-import { GetServerSideProps } from "next"
 import RecipeForm from "../../../../components/RecipeForm/recipeForm"
-
-interface IRecipeEditProps {
-    id?: string
-}
+import { IRecipeEditProps } from "../../../../models/recipes/recipes"
 
 export const getServerSideProps: GetServerSideProps = async props => {
     const id = props.query.id

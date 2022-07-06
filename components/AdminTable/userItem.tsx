@@ -19,8 +19,7 @@ import avatarUser from "./images/avatarUser.jpg"
 import ColorfulTeg from "../ColorfulTeg"
 import { MenuIcon } from "../FilterMenu/filterMenu.styles"
 import ConfirmAction from "../ConfirmAction/confirmAction"
-import {IUserItemProps} from "./userItem.interface";
-// import { MenuIcon } from "../FilterBtn/content.styles"
+import {IUserItemProps} from "./userItem.interface"
 
 const options = ["View profile", "Delete"]
 
@@ -48,7 +47,7 @@ const UserItem: React.FC<IUserItemProps> = ({
         <>
             <TableCell sx={{ paddingLeft: 3.5, display: "flex", padding: 1 }}>
                 <Avatar sx={{ margin: 2 }}>
-                    <Image src={avatar} />
+                    <Image src={avatar} alt="avatar" />
                 </Avatar>
                 <RowAvatar>
                     <Text>Email address:</Text>
@@ -103,7 +102,7 @@ const UserItem: React.FC<IUserItemProps> = ({
                                         </ConfirmAction>
                                     ) : (
                                         <Link href={`/admin/users/${id}`}>
-                                            <PersonIcon />
+                                            {/*<PersonIcon />*/}
                                         </Link>
                                     )}
                                 </MenuItem>

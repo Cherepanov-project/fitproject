@@ -29,7 +29,7 @@ import {
     FlexItem,
     CalcDate,
     CalendarDiv,
-} from "./stylesCalendar"
+} from "../../../components/Calendar/calendarContainer.styles"
 
 const Calendar = () => {
     const dateToday: Date = new Date()

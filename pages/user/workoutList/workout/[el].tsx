@@ -1,16 +1,15 @@
 import { useState } from "react"
 import { useRouter } from "next/router"
 import Link from "next/link"
+import Image from "next/image"
 import Card from "@mui/material/Card"
+import useMediaQuery from "@mui/material/useMediaQuery"
 
 import Slider from "../../../../components/Slider/slider"
-
-import useMediaQuery from "@mui/material/useMediaQuery"
 import { LayoutUser } from "../../../../containers/Layout-user/layoutUser"
 import { exerciseList, exercisesType } from "../../../../models/workout/workout"
 import muscleImg from "../../../../common/images/icons/backMuscle.svg"
 import generateId from "../../../../utils/generateId"
-
 import {
     MainWrapper,
     Container,
@@ -18,7 +17,7 @@ import {
     Exercise,
     ExerciseTitle,
     ExerciseDescription,
-    Image,
+    ImageWorkout,
     MusclesTitle,
     MusclesList,
     Muscle,
@@ -26,7 +25,7 @@ import {
     ImgWrapper,
     TextWrapper,
     Reps,
-} from "./workoutStyles"
+} from "../../../../components/WorkoutList/workout.styles"
 
 const WorkoutItem = () => {
     const path = useRouter()
@@ -49,7 +48,7 @@ const WorkoutItem = () => {
 
     const musclesList = workout?.muscles.map(muscle => (
         <Muscle key={generateId()}>
-            <img src={muscleImg.src} alt="muscle" />
+            <Image src={muscleImg.src} alt="muscle" />
             <span>{muscle}</span>
         </Muscle>
     ))
@@ -85,7 +84,7 @@ const WorkoutItem = () => {
                         <MusclesList>{musclesList}</MusclesList>
                     </Exercise>
                     <div>
-                        <Image
+                        <ImageWorkout
                             imgUrl={workout?.img}
                             imgWidth={workout?.imgWidth}
                             imgHeight={workout?.imgHeight}

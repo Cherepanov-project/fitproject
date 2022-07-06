@@ -21,7 +21,7 @@ import {
     StyledButton,
 } from "./form.styles"
 
-const SingInForm = () => {
+const SignInForm = () => {
     const router = useRouter()
 
     const [open, setOpen] = useState<boolean>(false)
@@ -110,4 +110,4 @@ const SingInForm = () => {
     )
 }
 
-export default SingInForm
+export default SignInForm

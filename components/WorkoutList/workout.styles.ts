@@ -1,10 +1,6 @@
 import styled from "styled-components"
 
-interface img {
-    imgUrl: string
-    imgWidth: number
-    imgHeight: number
-}
+import { IImg } from "./workout.interface"
 
 export const MainWrapper = styled.div`
     display: flex;
@@ -43,7 +39,7 @@ export const ExerciseTitle = styled.h1`
 
 export const ExerciseDescription = styled.div``
 
-export const Image = styled.img<img>`
+export const ImageWorkout = styled.img<IImg>`
     width: ${({ imgWidth, imgHeight }) => {
         return imgWidth > imgHeight ? imgWidth : "auto"
     }};
@@ -89,7 +85,7 @@ export const BottomContainer = styled.div`
     padding: 0 58px;
 `
 
-export const ImgWrapper = styled.div<img>`
+export const ImgWrapper = styled.div<IImg>`
     width: 118px;
     height: 126px;
     border-radius: 50px;

@@ -2,19 +2,21 @@ import { useEffect } from "react"
 import Cookies from "js-cookie"
 import { useRouter } from "next/router"
 
+import RectangleButton from "../../../components/RectangleBtn/rectangleBtn"
+import ProgressButton from "../../../components/ProgressBtn/progressBtn"
+import SquareIcon from "../../../components/SquareIcon/squareIcon"
 import { LayoutUser } from "../../../containers/Layout-user/layoutUser"
 import UserChar from "../../../components/UserChar/userChar"
 import imgLeg from "../../../common/images/icons/leg.svg"
 import imgWater from "../../../common/images/icons/water.svg"
 import imgCyclist from "../../../common/images/icons/cyclist.svg"
 import imgRun from "../../../common/images/icons/running.svg"
-
 import {
     Container,
-    ActivContainer,
+    ActiveContainer,
     Activity,
-    ActivHeader,
-    ActivTitle,
+    ActiveHeader,
+    ActiveTitle,
     ActiveSelect,
     DataActiveContainer,
     TargetContainer,
@@ -22,10 +24,7 @@ import {
     TargetTitle,
     Target,
     ProgressContainer,
-} from "./statisticsStyles"
-import RectangleButton from "../../../components/RectangleBtn/rectangleBtn"
-import ProgressButton from "../../../components/ProgressBtn/progressBtn"
-import SquareIcon from "../../../components/SquareIcon/squareIcon"
+} from "../../../components/Statistics/statistics.styles"
 
 const Frame1 = () => {
     const router = useRouter()
@@ -39,16 +38,16 @@ const Frame1 = () => {
 
     return isLogin ? (
         <Container>
-            <ActivContainer>
+            <ActiveContainer>
                 <Activity>
-                    <ActivHeader>
-                        <ActivTitle>Activity</ActivTitle>
+                    <ActiveHeader>
+                        <ActiveTitle>Activity</ActiveTitle>
                         <ActiveSelect defaultValue="Week">
                             <option value="week">Week</option>
                             <option value="Month">Month</option>
                             <option value="Ear">Year</option>
                         </ActiveSelect>
-                    </ActivHeader>
+                    </ActiveHeader>
                     <UserChar />
                 </Activity>
                 <DataActiveContainer>
@@ -79,7 +78,7 @@ const Frame1 = () => {
                         </TargetWrapper>
                     </TargetContainer>
                 </DataActiveContainer>
-            </ActivContainer>
+            </ActiveContainer>
             <ProgressContainer>
                 <ProgressButton
                     title={"Cycling Hero"}

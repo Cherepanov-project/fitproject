@@ -8,14 +8,12 @@ import { Button, CardContent, CircularProgress } from "@mui/material"
 import Snackbar from "@mui/material/Snackbar"
 
 import { loginUser } from "../../../services/API/loginUser"
-
 import { FormTextField } from "../../../components/User/formTextField"
-
 import { validationLoginUser } from "../../../utils/validationSchema"
-import { RightSide, Title2, ForgotPassword } from "../userLoginOrRegisterStyle"
-import { RegOrLoginSocial } from "../RegOrLoginSocial"
+import { RightSide, Title2, ForgotPassword } from "../../../components/RegOrLoginSocial/regOrLoginSocial.styles"
+import RegOrLoginSocial from "../../../components/RegOrLoginSocial/regOrLoginSocial"
 
-export const LoginForm: React.FC = () => {
+export const Index: React.FC = () => {
     const [open, setOpen] = useState<boolean>(false)
     const [msg, setMsg] = useState<string>("")
     const [loginSuccess, setLoginSuccess] = useState<boolean>(false)

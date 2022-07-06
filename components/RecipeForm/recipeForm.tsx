@@ -3,14 +3,14 @@ import React from "react"
 import { useMutation } from "react-query"
 import { Formik, Form } from "formik"
 
-import FileUpload from "../AdminFormComponents/upload/FileUpload"
+import FileUpload from "../AdminFormComponents/Upload/fileUpload"
 import FormFieldLong from "../AdminFormComponents/FormFeildLong"
 import FieldList from "../AdminFormComponents/FieldList/FieldList"
 import EditorMCE from "../AdminFormComponents/EditorMCE/EditorMCE"
 import { validationRecipies } from "../../utils/validationSchema"
 import IngredientsField from "../AdminFormComponents/IngredientsField/IngredientsFiled"
 import { postRecipes, updataRecipe } from "../../services/API/adminApi"
-import { IAddRecip } from "../../models/recipies/recipiesList"
+import { IAddRecip } from "../../models/recipes/recipiesList"
 import { IRecipeFormProps } from "./recipeForm.interface"
 import {
     ContentWrapper,

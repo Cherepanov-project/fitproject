@@ -1,4 +1,4 @@
-import { SidebarWrapper } from "../../../pages/user/workoutList/workoutListStyles"
+import { SidebarWrapper } from "../workoutList.styles"
 import Categories from "../categories"
 import MuscleGroup from "../muscleGroup"
 

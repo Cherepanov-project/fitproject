@@ -2,12 +2,7 @@ import React, { useState, useEffect } from "react"
 import { Grid, LinearProgress, Typography } from "@material-ui/core"
 
 import { FileHeader } from "./fileHeader"
-
-interface ISingleFileUploadWithProgressProps {
-    file: File
-    onDelete: (file: File) => void
-    onUpload: (file: File, url: unknown) => void
-}
+import { ISingleFileUploadWithProgressProps } from "../../RecipesEditForm/upload/fileHeader.interface";
 
 const SingleFileUpload = ({
     file,

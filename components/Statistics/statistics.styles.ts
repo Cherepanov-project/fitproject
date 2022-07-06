@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import bgWater from "../../../common/images/bgBtnFrame1.svg"
+import bgWater from "../../common/images/bgBtnFrame1.svg"
 
 export const Container = styled.div`
     display: flex;
@@ -9,7 +9,7 @@ export const Container = styled.div`
     /* margin-top: 140px; */
 `
 
-export const ActivContainer = styled.div`
+export const ActiveContainer = styled.div`
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -34,14 +34,14 @@ export const Activity = styled.div`
     }
 `
 
-export const ActivHeader = styled.div`
+export const ActiveHeader = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
 `
 
-export const ActivTitle = styled.div`
+export const ActiveTitle = styled.div`
     margin-left: 40px;
     color: #ffffff;
     font-family: Inter;

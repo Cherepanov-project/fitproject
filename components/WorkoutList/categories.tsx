@@ -6,7 +6,7 @@ import {
     SidebarListWrapper,
     SidebarListItem,
     CategoriesStyledItem,
-} from "../../pages/user/workoutList/workoutListStyles"
+} from "./workoutList.styles"
 
 const Categories = () => {
     const items = categoriesList.map(item => (

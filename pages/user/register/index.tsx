@@ -13,7 +13,7 @@ import {
     LeftSide,
     AAA,
     RegOrLoginIcon,
-} from "../userLoginOrRegisterStyle"
+} from "../../../components/RegOrLoginSocial/regOrLoginSocial.styles"
 
 const User = () => {
     return (

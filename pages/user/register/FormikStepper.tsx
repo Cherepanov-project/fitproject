@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Children, ReactElement, FC } from "react"
+import { Children, ReactElement } from "react"
 import { nanoid } from "nanoid"
 import { Formik, FormikConfig, Form } from "formik"
 import {
@@ -10,7 +10,7 @@ import {
     Stepper,
 } from "@mui/material"
 
-import { RegOrLoginSocial } from "../RegOrLoginSocial"
+import RegOrLoginSocial from "../../../components/RegOrLoginSocial/regOrLoginSocial"
 import {
     IFormikStepProps,
     IFormikStepperProps,

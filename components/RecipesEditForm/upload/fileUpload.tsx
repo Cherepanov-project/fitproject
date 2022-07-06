@@ -1,12 +1,10 @@
-import React, { useCallback, useEffect, useState } from "react"
+import React, { useCallback, useState } from "react"
 import { FileRejection, FileError, useDropzone } from "react-dropzone"
 import { Box, Grid } from "@material-ui/core"
 import { useField } from "formik"
 
-import { SingleFileUpload } from "./singleFileUpload"
+import { SingleFileUpload } from "./SingleFileUpload"
 import UploadError from "./uploadError"
-import styles from "./FileUpload.module.scss"
-import classnames from "classnames/bind"
 import {IUploadbleFileProps} from "./fileHeader.interface"
 import { DefaultDropZone } from "../../RecipesEditForm/upload/fileUpload.styles"
 

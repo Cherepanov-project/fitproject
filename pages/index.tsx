@@ -1,7 +1,8 @@
-const Home = () => (
-    <div>
-        <h1>Hello World!</h1>
-    </div>
+import MyApp from "./_app";
+import User from "./user";
+
+const Home = ({props}) => (
+    <MyApp Component={User} pageProps={props} />
 )
 
 export default Home

@@ -2,10 +2,17 @@ import React from "react"
 import { useState } from "react"
 import { nanoid } from "nanoid"
 import { CardContent, Snackbar } from "@mui/material"
-import { registerUser } from "../../../services/API/loginUser"
 
+import { registerUser } from "../../../services/API/loginUser"
 import { IRegisterForm } from "../../../models/loginOrRegisterInterfaces/interfaces"
 import { formRegisterValues } from "../../../models/loginOrRegisterInterfaces/initialValues"
+import redirectToLoginPage from "../../../utils/redirect"
+import { LOGIN_PAGE } from "../../../constants/urls"
+import { RightSide } from "../../../components/RegOrLoginSocial/regOrLoginSocial.styles"
+import { FormikStepper } from "./FormikStepper"
+import { FormikStep } from "../../../components/User/formikStep"
+import { FormTextField } from "../../../components/User/formTextField"
+import { FormSelectField } from "../../../components/User/formSelectField"
 import {
     userInfo,
     exercises,
@@ -16,14 +23,6 @@ import {
     validationMeal,
     validationExercises,
 } from "../../../utils/validationSchema"
-import redirectToLoginPage from "../../../utils/redirect"
-import { LOGIN_PAGE } from "../../../constants/urls"
-
-import { RightSide } from "../userLoginOrRegisterStyle"
-import { FormikStepper } from "./FormikStepper"
-import { FormikStep } from "../../../components/User/formikStep"
-import { FormTextField } from "../../../components/User/formTextField"
-import { FormSelectField } from "../../../components/User/formSelectField"
 
 export const RegisterForm: React.FC = () => {
     const [open, setOpen] = useState<boolean>(false)

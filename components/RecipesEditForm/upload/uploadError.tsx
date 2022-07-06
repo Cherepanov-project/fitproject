@@ -6,15 +6,9 @@ import {
     withStyles,
     Grid,
 } from "@material-ui/core"
-import { FileError } from "react-dropzone"
 
 import { FileHeader } from "./fileHeader"
-
-interface IUploadErrorProps {
-    file: File
-    onDelete: (file: File) => void
-    errors: FileError[]
-}
+import { IUploadErrorProps } from "./fileHeader.interface"
 
 const ErrorLinearProgress = withStyles(theme =>
     createStyles({

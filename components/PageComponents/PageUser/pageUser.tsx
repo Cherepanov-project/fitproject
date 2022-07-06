@@ -33,7 +33,7 @@ const PageUser = () => {
                 <Avatar
                     sx={{ height: "50px", width: "50px", marginRight: "10px" }}
                 >
-                    <Image src={avatarUser}></Image>
+                    <Image src={avatarUser} alt="avatar" />
                 </Avatar>
                 <UserName>Ivan Stepanov</UserName>
             </UsersContainer>

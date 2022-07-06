@@ -1,6 +1,5 @@
-import { ContinueWithSocial, SocialLink } from "./userLoginOrRegisterStyle"
-import SocialLoginBtn from "./SocialsBtns/SocialLoginBtn"
-
+import { ContinueWithSocial, SocialLink } from "./regOrLoginSocial.styles"
+import SocialLoginBtn from "../../pages/user/socialsBtns/socialLoginBtn"
 import {
     REDIRECT_GOOGLE_BTN,
     GOOGLE_IMG,
@@ -42,4 +41,4 @@ const RegOrLoginSocial = () => {
     )
 }
 
-export { RegOrLoginSocial }
+export default RegOrLoginSocial

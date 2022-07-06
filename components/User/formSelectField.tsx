@@ -8,7 +8,7 @@ import {
     ErrorMessage,
     InputSelect,
     SelectOption,
-} from "../../pages/user/userLoginOrRegisterStyle"
+} from "../RegOrLoginSocial/regOrLoginSocial.styles"
 
 const FormSelectField = (props: ISelectForm) => {
     const [field, meta] = useField(props)

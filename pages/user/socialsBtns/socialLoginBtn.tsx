@@ -1,12 +1,13 @@
-import { useEffect, FC } from "react"
+import React, { useEffect } from "react"
 import { useRouter } from "next/router"
+import Image from "next/image"
 import Cookies from "js-cookie"
 import queryString from "query-string"
 
 import { ISocialLoginBtn } from "../../../models/loginOrRegisterInterfaces/interfaces"
 import { loginUserWithSocials } from "../../../services/API/loginUser"
 
-const SocialLoginBtn: FC<ISocialLoginBtn> = ({
+const SocialLoginBtn: React.FC<ISocialLoginBtn> = ({
     redirectURL,
     typeOfSocial,
     img,
@@ -45,12 +46,12 @@ const SocialLoginBtn: FC<ISocialLoginBtn> = ({
             style={{ background: "none", border: "none" }}
             onClick={handleRedirect}
         >
-            <img
+            <Image
                 src={img}
                 alt={typeOfSocial}
+                width={40}
+                height={40}
                 style={{
-                    width: 40,
-                    height: 40,
                     cursor: "pointer",
                     borderRadius: "50%",
                 }}

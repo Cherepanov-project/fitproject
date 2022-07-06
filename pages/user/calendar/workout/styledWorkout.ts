@@ -1,13 +1,6 @@
 import styled from "styled-components"
 
-interface ItemWorkoutProps {
-    fontSize?: string
-    color?: string
-}
-
-interface DropMenuProps {
-    $display: boolean
-}
+import { IDropMenuPropsStyle, IItemWorkoutPropsStyle } from "../../../../models/workout/workoutDay"
 
 export const WorkoutUl = styled.ul`
     margin: 0;
@@ -26,7 +19,7 @@ export const ListWorkoutName = styled.li`
     margin-bottom: 15px;
 `
 
-export const ItemWorkoutDiv = styled.div<ItemWorkoutProps>`
+export const ItemWorkoutDiv = styled.div<IItemWorkoutPropsStyle>`
     width: 15%;
     color: ${({ color }) => color || "black"};
     font-size: ${({ fontSize }) => fontSize || "14px"};
@@ -51,7 +44,7 @@ export const ButtonMenu = styled.button`
     cursor: pointer;
     background: transparent;
 `
-export const DropMenu = styled.div<DropMenuProps>`
+export const DropMenu = styled.div<IDropMenuPropsStyle>`
     display: ${props => {
         return props.$display ? "block" : "none"
     }};

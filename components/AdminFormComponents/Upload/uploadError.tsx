@@ -1,4 +1,5 @@
 import React from "react"
+import { FileError } from "react-dropzone"
 import {
     createStyles,
     LinearProgress,
@@ -8,7 +9,7 @@ import {
 } from "@material-ui/core"
 
 import { FileHeader } from "./fileHeader"
-import { IUploadErrorProps } from "./fileHeader.interface";
+import { IUploadErrorProps } from "./upload.interface"
 
 const ErrorLinearProgress = withStyles(theme =>
     createStyles({
