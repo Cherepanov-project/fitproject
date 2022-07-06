@@ -8,23 +8,8 @@ import {
     IFormStatus,
     IInputForm,
 } from "../../models/loginOrRegisterInterfaces/interfaces"
-
+import calcPasswordVisibility from "../../utils/calcPasswordVisibility"
 export const FormTextField = (props: IInputForm) => {
-    const calcPasswordVisible = (
-        type: string,
-        showPassword: boolean
-    ): string => {
-        if (type !== "password") {
-            return type
-        }
-        if (showPassword) {
-            return "text"
-        }
-        if (!showPassword) {
-            return "password"
-        }
-    }
-
     const [field, meta] = useField(props)
     const [formStatus, setFormStatus] = useState<IFormStatus>({
         message: "",
@@ -36,7 +21,7 @@ export const FormTextField = (props: IInputForm) => {
         setFormStatus({
             ...formStatus,
             showPassword: !formStatus.showPassword,
-            type: calcPasswordVisible(props.type, !formStatus.showPassword),
+            type: calcPasswordVisibility(props.type, !formStatus.showPassword),
         })
     }
 

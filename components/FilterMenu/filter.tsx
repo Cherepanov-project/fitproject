@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 import Image from "next/image"
 import { IconButton } from "@mui/material"
 
@@ -10,7 +10,7 @@ interface IFilterBtnProps {
     title: string
 }
 
-const FilterBtn: React.FC<IFilterBtnProps> = ({ title }) => {
+const FilterMenu: FC<IFilterBtnProps> = ({ title }) => {
     return (
         <Container>
             <Title>{title}</Title>
@@ -26,4 +26,4 @@ const FilterBtn: React.FC<IFilterBtnProps> = ({ title }) => {
     )
 }
 
-export default FilterBtn
+export default FilterMenu

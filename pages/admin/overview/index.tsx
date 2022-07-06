@@ -1,6 +1,9 @@
 import React from "react"
 import dynamic from "next/dynamic"
 import { Normalize } from "styled-normalize"
+
+import { withLayout } from "../../../containers/Layout-admin/Layout-admin"
+
 import { Typography, Link, Input, Button } from "@mui/material/"
 import AddIcon from "@mui/icons-material/Add"
 
@@ -239,4 +242,4 @@ const Overview = () => {
     )
 }
 
-export default Overview
+export default withLayout(Overview)

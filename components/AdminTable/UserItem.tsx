@@ -13,10 +13,24 @@ import {
     MenuItem,
 } from "@mui/material"
 
+<<<<<<< HEAD:components/UserTableItem/UserItem.tsx
+import PersonIcon from "@mui/icons-material/Person"
+
+import { SecondaryText, Text, RowAvatar, WrapBnt } from "./UserItem.style"
+=======
 import { SecondaryText, Text, RowAvatar, WrapBnt } from "./userItem.styles"
+>>>>>>> eb1947893169ded5e3dd493da39f649d9b482bff:components/AdminTable/userItem.tsx
 import avatarUser from "./images/avatarUser.jpg"
+
 import ColorfulTeg from "../ColorfulTeg"
+<<<<<<< HEAD:components/UserTableItem/UserItem.tsx
+
+import { MenuIcon } from "../FilterMenu/stylesContent"
+import Link from "next/link"
+import ConfirmAction from "../confirmAction/confirmAction"
+=======
 import { MenuIcon } from "../FilterBtn/content.styles"
+>>>>>>> eb1947893169ded5e3dd493da39f649d9b482bff:components/AdminTable/userItem.tsx
 
 interface IUserItemProps {
     nameUser: string
@@ -24,18 +38,20 @@ interface IUserItemProps {
     dateRegister: string
     role: string
     email: string
-    sex: string
+    gender: string
+    id: string
 }
 
-const options = ["Delete", "Edit"]
+const options = ["View profile", "Delete"]
 
 const UserItem: React.FC<IUserItemProps> = ({
     nameUser,
     dateRegister,
     email,
     role,
-    sex,
+    gender,
     avatar = avatarUser,
+    id,
 }) => {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
     const open = Boolean(anchorEl)
@@ -44,11 +60,12 @@ const UserItem: React.FC<IUserItemProps> = ({
     const handleClose = () => setAnchorEl(null)
 
     const deleteArticle = () => {
-        // функция для удаленея рецепта
+        handleClose()
+        // функция для удаленея + вызвать перерисовку если прошло успешно
         console.log("delete")
     }
     return (
-        <TableRow hover sx={{ cursor: "pointer" }}>
+        <>
             <TableCell sx={{ paddingLeft: 3.5, display: "flex", padding: 1 }}>
                 <Avatar sx={{ margin: 2 }}>
                     <Image src={avatar} />
@@ -60,7 +77,7 @@ const UserItem: React.FC<IUserItemProps> = ({
             </TableCell>
             <TableCell sx={{ paddingLeft: 3.5, paddingTop: 1 }}>
                 <Text>{nameUser}</Text>
-                <SecondaryText>{sex}</SecondaryText>
+                <SecondaryText>{gender}</SecondaryText>
             </TableCell>
             <TableCell sx={{ paddingLeft: 3.5, paddingTop: 1 }}>
                 <Text>{format(new Date(dateRegister), "MMM LL, u")}</Text>
@@ -96,14 +113,18 @@ const UserItem: React.FC<IUserItemProps> = ({
                                 <MenuItem
                                     key={option}
                                     selected={option === "Pyxis"}
-                                    onClick={handleClose}
                                 >
                                     {option === "Delete" ? (
-                                        <DeleteForeverIcon
-                                            onClick={deleteArticle}
-                                        />
+                                        <ConfirmAction
+                                            text="delete user?"
+                                            onConfirm={deleteArticle}
+                                        >
+                                            <DeleteForeverIcon />
+                                        </ConfirmAction>
                                     ) : (
-                                        <EditIcon />
+                                        <Link href={`/admin/users/${id}`}>
+                                            <PersonIcon />
+                                        </Link>
                                     )}
                                 </MenuItem>
                             ))}
@@ -111,7 +132,7 @@ const UserItem: React.FC<IUserItemProps> = ({
                     </MenuIcon>
                 </WrapBnt>
             </TableCell>
-        </TableRow>
+        </>
     )
 }
 

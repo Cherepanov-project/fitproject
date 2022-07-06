@@ -1,4 +1,7 @@
 import React from "react"
+
+import { MenuIcon } from "./recipies.style"
+
 import TableRow from "@mui/material/TableRow"
 import TableCell from "@mui/material/TableCell"
 import IconButton from "@mui/material/IconButton"
@@ -9,23 +12,23 @@ import Avatar from "@mui/material/Avatar"
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
 import EditIcon from "@mui/icons-material/Edit"
 import Link from "next/link"
+
 import Image from "next/image"
 
-import { MenuIcon } from "./recipes"
+
 import imageMan from "./images/avatarEat.svg"
-import ColorfulTeg from "../../ColorfulTeg"
+import ColorfulTeg from "../ColorfulTeg"
 
 const options = ["Delete", "Edit"]
 
 const Recipe = ({
     status,
     name,
-    calories,
-    fats,
-    proteins,
-    carbohydrates,
+    calorie,
+    fat,
+    protein,
+    carbohydrate,
     portionSize,
-    dishType,
     id,
 }) => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
@@ -49,11 +52,11 @@ const Recipe = ({
                 <Avatar sx={{ margin: 2 }}>
                     <Image src={imageMan} alt="image-man" />
                 </Avatar>
-                portion size ({portionSize}g), fat ({fats}), proteins (
-                {proteins}), carbohydrates ({carbohydrates})
+                portion size ({portionSize}g), fat ({fat}), protein ({protein}),
+                carbohydrate ({carbohydrate})
             </TableCell>
             <TableCell sx={{ paddingLeft: 3.5 }}>{name}</TableCell>
-            <TableCell sx={{ paddingLeft: 3.5 }}>{calories} calories</TableCell>
+            <TableCell sx={{ paddingLeft: 3.5 }}>{calorie} calorie</TableCell>
             <TableCell sx={{ paddingLeft: 3.5 }}>
                 {status === "HIGH" ? (
                     <ColorfulTeg text={status} backgroundColor="#F12B2C" />
@@ -100,7 +103,9 @@ const Recipe = ({
                                         onClick={deleteArticle}
                                     />
                                 ) : (
-                                    <Link href={`/admin/edit-${id}`}>
+                                    <Link
+                                        href={`/admin/recipes/edit-recipe/${id}`}
+                                    >
                                         <EditIcon />
                                     </Link>
                                 )}
