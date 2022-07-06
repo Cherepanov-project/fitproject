@@ -7,7 +7,7 @@ import { Formik, Form } from "formik"
 import Image from "next/image"
 import Cookies from "js-cookie"
 
-import imageLogoApp from "./images/logoApp.svg"
+import imageLogoApp from "../../common/images/formAdmin/logoApp.svg"
 import TextField from "./textField"
 import { FormContainer } from "./formContainer"
 import { loginUser } from "../../services/API/loginUser"

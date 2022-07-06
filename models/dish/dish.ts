@@ -1,23 +1,4 @@
-interface IIngredientsType {
-    ingredient: string
-    quantity: number
-}
-
-interface INutritionValueType {
-    nutrition: string
-    value: number
-    units: string
-}
-export interface IFoodItemType {
-    id: string
-    namesFood: string
-    activeRecipe: boolean
-    star: number
-    activeIngredients: boolean
-    description: string
-    ingredients: IIngredientsType[]
-    nutritionValue: INutritionValueType[]
-}
+import { IFoodItemType } from "../models.interface"
 
 const dishFood: IFoodItemType = {
     id: "Breakfast",

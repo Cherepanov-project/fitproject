@@ -5,7 +5,8 @@ import ItemRation from "./ItemRation"
 import CalendarContainer from "../../../../components/Calendar/calendarContainer"
 import HeadLinkBack from "../../../../components/HeadLinkBack/headLinkBack"
 import { ListUl, ItemDiv, ListItemName } from "../../../../components/Calendar/calendarContainer.styles"
-import { IDailyRationType, dailyRation } from "../../../../models/dieta/dieta"
+import { IDailyRationType } from "../../../../models/models.interface"
+import { dailyRation } from "../../../../models/dieta/dieta"
 import { LayoutUser } from "../../../../containers/Layout-user/layoutUser"
 
 const DailyRation = () => {

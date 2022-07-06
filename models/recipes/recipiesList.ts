@@ -1,4 +1,4 @@
-interface IResipe {
+interface IRecipe {
     id: number
     name: string
     description: string
@@ -9,10 +9,10 @@ interface IResipe {
     products: any[]
 }
 export interface IRecipesArr {
-    data: IResipe[]
+    data: IRecipe[]
 }
 
-export interface IAddRecip {
+export interface IAddRecipe {
     name: string
     description: string
 }

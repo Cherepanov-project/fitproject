@@ -16,7 +16,7 @@ import {
 } from "@mui/material"
 
 import { SecondaryText, Text, RowAvatar, WrapBnt } from "./userItem.styles"
-import avatarUser from "./images/avatarUser.jpg"
+import avatarUser from "../../common/images/userTableItem/avatarUser.jpg"
 import ColorfulTeg from "../ColorfulTeg"
 import { MenuIcon } from "../FilterMenu/filterMenu.styles"
 import ConfirmAction from "../ConfirmAction/confirmAction"

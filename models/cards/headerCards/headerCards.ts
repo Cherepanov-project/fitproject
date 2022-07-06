@@ -1,9 +1,6 @@
-interface IHeaderCardsDataTypes {
-    name: string
-    value: string
-}
+import { IHeaderCardsDataTypes } from "../../models.interface"
 
-const headerCardsData: IHeaderCardsDataTypes[] = [
+export const headerCardsData: IHeaderCardsDataTypes[] = [
     {
         name: "Unresolved",
         value: "60",
@@ -21,5 +18,3 @@ const headerCardsData: IHeaderCardsDataTypes[] = [
         value: "64",
     },
 ]
-
-export { headerCardsData }

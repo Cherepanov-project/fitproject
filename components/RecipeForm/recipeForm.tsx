@@ -10,7 +10,7 @@ import EditorMCE from "../AdminFormComponents/EditorMCE/EditorMCE"
 import { validationRecipies } from "../../utils/validationSchema"
 import IngredientsField from "../AdminFormComponents/IngredientsField/IngredientsFiled"
 import { postRecipes, updataRecipe } from "../../services/API/adminApi"
-import { IAddRecip } from "../../models/recipes/recipiesList"
+import { IAddRecipe } from "../../models/recipes/recipiesList"
 import { IRecipeFormProps } from "./recipeForm.interface"
 import {
     ContentWrapper,
@@ -21,7 +21,7 @@ import {
 
 const RecipeForm: React.FC<IRecipeFormProps> = ({ title, recipeData }) => {
     const { mutate: addNewRecipe, isLoading } = useMutation(
-        (formData: IAddRecip) => {
+        (formData: IAddRecipe) => {
             if (recipeData) {
                 return updataRecipe({
                     id: +recipeData.id,

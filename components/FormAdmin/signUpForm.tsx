@@ -7,7 +7,7 @@ import { Snackbar } from "@mui/material"
 import { nanoid } from "nanoid"
 
 import { validateSignUpAdmin } from "../../utils/validationSchema"
-import imageLogoApp from "./images/logoApp.svg"
+import imageLogoApp from "../../common/images/formAdmin/logoApp.svg"
 import { FormContainer } from "./formContainer"
 import TextField from "./textField"
 import { registerUser } from "../../services/API/loginUser"

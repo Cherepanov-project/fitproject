@@ -6,7 +6,7 @@ import DeleteIcon from "@mui/icons-material/Delete"
 import EditIcon from "@mui/icons-material/Edit"
 import Link from "next/link"
 
-import avatarUser from "../../../components/UserTableItem/images/avatarUser.jpg"
+import avatarUser from "../../../common/images/userTableItem/avatarUser.jpg"
 import ColorfulTeg from "../../ColorfulTeg"
 import {
     ContentWrapperUser,

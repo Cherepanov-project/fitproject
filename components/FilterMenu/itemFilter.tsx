@@ -5,7 +5,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos"
 import ArrowBackIcon from "@mui/icons-material/ArrowBack"
 import { useRouter } from "next/router"
 
-import imageFilter from "./images/filter.svg"
+import imageFilter from "../../common/images/filterMenu/filter.svg"
 import {
     Aa,
     Dropdown,

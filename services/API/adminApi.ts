@@ -1,5 +1,5 @@
 import axios from "axios"
-import { IRecipesArr, IAddRecip } from "../../models/recipes/recipiesList"
+import { IRecipesArr, IAddRecipe } from "../../models/recipes/recipiesList"
 
 const adminApi = axios.create({
     baseURL: "https://spring-boot-fitness-backend.herokuapp.com",
@@ -14,7 +14,7 @@ export const getRecipesList = async () => {
     return response.data
 }
 
-export const postRecipes = async (data: IAddRecip) => {
+export const postRecipes = async (data: IAddRecipe) => {
     await adminApi.post(
         "/api/v1/admin/recipe",
 

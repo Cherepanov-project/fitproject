@@ -12,7 +12,7 @@ import Link from "next/link"
 import Image from "next/image"
 
 import { MenuIcon } from "./recipe.styles"
-import imageMan from "./images/avatarEat.svg"
+import imageMan from "../../common/images/recipesTableItem/avatarEat.svg"
 import ColorfulTeg from "../ColorfulTeg"
 
 const options = ["Delete", "Edit"]
