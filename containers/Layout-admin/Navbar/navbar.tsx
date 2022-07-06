@@ -16,10 +16,23 @@ import {
     Anavbar,
 } from "./navbar.styles"
 
-const Navbar = () => {
-    const router = useRouter()
-    const page = router.asPath.split("/").pop()
+function getPageName(relPath: string): string{
+    let pathParts = relPath.split("/")
+    const page = pathParts.pop()
+    const prePage = pathParts.pop()
     const editRecipie = page.split("-").splice(0, 1)
+    if(editRecipie[0] === "edit"){
+        return "Edit recipe"
+    }
+    else if(prePage==='chat'){
+        return ""
+    }
+    else {
+        return page[0].toUpperCase() + page.slice(1)
+    } 
+}
+
+const Navbar = () => {
     const [userName, setUserName] = useState("admin")
 
     useEffect(() => {
@@ -32,9 +45,7 @@ const Navbar = () => {
     return (
         <NavbarWrapper>
             <PageName>
-                {editRecipie[0] === "edit"
-                    ? "Edit recipe"
-                    : page[0].toUpperCase() + page.slice(1)}
+                {getPageName(useRouter().asPath)}
             </PageName>
             <DivAdminInformation>
                 <DivInformation>
