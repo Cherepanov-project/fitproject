@@ -8,12 +8,12 @@ import Stack from "@mui/material/Stack"
 import useMediaQuery from "@mui/material/useMediaQuery"
 
 import { ImgWrapper, TextWrapper, Exercise, Reps } from "./itemList.styles"
-import { fetchWorkouts } from "../../../services/API/workouts"
+import { fetchWorkouts } from "../../../API/workouts"
 import { filterExerciseList } from "../../../utils/filterExercises"
 import { IMuscles } from "./itemList.interface"
 
 const ItemList = ({ muscles }: IMuscles) => {
-    let filteredExercises = []
+    let filteredExercises: any[] = []
     const queryWorkouts = useQuery("workouts", fetchWorkouts)
     const [minResOnPage, setMinResOnPage] = useState(0)
     const [maxResOnPage, setMaxResOnPage] = useState(6)
@@ -35,9 +35,10 @@ const ItemList = ({ muscles }: IMuscles) => {
     }
 
     if (queryWorkouts.isSuccess) {
-        filterExerciseList(filteredExercises, muscles, queryWorkouts.data.data.data)
-        console.log(queryWorkouts.data.data.data)
+        filterExerciseList(filteredExercises, muscles, queryWorkouts.data.data.content)
+        console.log(filteredExercises, "TYT222")
     }
+
     const exercises = filteredExercises.map((item, index) => {
         if (index >= minResOnPage && index < maxResOnPage) {
             return (
@@ -56,7 +57,7 @@ const ItemList = ({ muscles }: IMuscles) => {
                         </div>
                         <TextWrapper>
                             <Exercise>{item.name}</Exercise>
-                            <Reps>{`${item.move} X ${item.repeat} REPS`}</Reps>
+                            <Reps>{`${item.approachCount} X ${item.repeatCount} REPS`}</Reps>
                         </TextWrapper>
                     </Card>
                 </Link>

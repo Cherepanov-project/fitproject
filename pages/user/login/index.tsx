@@ -7,7 +7,7 @@ import { Formik } from "formik"
 import { Button, CardContent, CircularProgress } from "@mui/material"
 import Snackbar from "@mui/material/Snackbar"
 
-import { loginUser } from "../../../services/API/loginUser"
+import { loginUser } from "../../../API/loginUser"
 import { FormTextField } from "../../../components/User/formTextField"
 import { validationLoginUser } from "../../../utils/validationSchema"
 import { RightSide, Title2, ForgotPassword } from "../../../components/RegOrLoginSocial/regOrLoginSocial.styles"

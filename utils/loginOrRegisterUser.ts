@@ -1,10 +1,6 @@
 import { FormikValues } from "formik"
 
-import {
-    ILoginForm,
-    IRegisterForm,
-    IFormStatusProps,
-} from "../models/loginOrRegisterInterfaces/interfaces"
+import { ILoginForm, IRegisterForm, IFormStatusProps } from "../models/loginOrRegisterInterfaces/interfaces"
 
 const formStatusProps: IFormStatusProps = {
     success: {
