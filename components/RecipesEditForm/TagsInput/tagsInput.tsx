@@ -1,6 +1,7 @@
 import { useField, Field } from "formik"
 import { ChipInput } from "material-ui-formik-components"
-import { IProps } from "./tagsInput.interface"
+
+import { IProps } from "../recipesEditForm.interface"
 
 const TagsInput = (props: IProps) => {
     const [field, meta, helpers] = useField(props.name)

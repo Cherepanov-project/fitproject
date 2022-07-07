@@ -1,6 +1,6 @@
 import { IFoodItemType } from "../models.interface"
 
-const dishFood: IFoodItemType = {
+export const dishFood: IFoodItemType = {
     id: "Breakfast",
     namesFood: "Chicken Steak",
     activeRecipe: true,
@@ -22,7 +22,7 @@ const dishFood: IFoodItemType = {
         { nutrition: "Carbs", value: 90, units: "g" },
     ],
 }
-const dishFoodAll: Array<IFoodItemType> = [
+export const dishFoodAll: Array<IFoodItemType> = [
     {
         id: "Breakfast",
         namesFood: "Chicken Steak",
@@ -156,5 +156,3 @@ const dishFoodAll: Array<IFoodItemType> = [
         ],
     },
 ]
-
-export { dishFood, dishFoodAll }

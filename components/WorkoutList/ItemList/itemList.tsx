@@ -44,6 +44,7 @@ const ItemList = ({ muscles }: IMuscles) => {
                 <Link
                     href={`/user/workoutList/workout/${item.id}`}
                     key={item.id}
+                    passHref
                 >
                     <Card sx={cardStyles}>
                         <div>

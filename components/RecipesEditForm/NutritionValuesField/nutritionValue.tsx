@@ -2,9 +2,9 @@ import React from "react"
 import { useField } from "formik"
 import { TextField, Typography, Box } from "@mui/material"
 
-import {IProps} from "./nutritionValue.interface"
+import { IPropsFormik } from "../recipesEditForm.interface"
 
-const NutritionValue = (props: IProps) => {
+const NutritionValue = (props: IPropsFormik) => {
     const [field, meta, helpers] = useField(props.formik)
     return (
         <Box sx={{ mt: 4 }}>

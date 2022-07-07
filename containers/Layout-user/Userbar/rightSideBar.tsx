@@ -1,11 +1,24 @@
 import * as React from "react"
+import { useRouter } from "next/router"
 import List from "@mui/material/List"
 import ListItemButton from "@mui/material/ListItemButton"
 import ListItemIcon from "@mui/material/ListItemIcon"
 import ListItemText from "@mui/material/ListItemText"
+import Menu from "@mui/material/Menu"
+import MenuItem from "@mui/material/MenuItem"
+import { Logout, PersonAdd, Settings } from "@mui/icons-material"
 import Cookies from "js-cookie"
-import SettingsIcon from "../../../common/images/layoutUser/userbarIcons/SeetingsIcon.svg"
+import { formatDistanceToNow } from "date-fns"
 
+import SettingsIcon from "../../../common/images/layoutUser/userbarIcons/SeetingsIcon.svg"
+import goalsIcon from "../../../common/images/layoutUser/userbarIcons/goals.svg"
+import diet from "../../../common/images/layoutUser/userbarIcons/diet.svg"
+import defaultAvatar from "../../../common/images/layoutUser/userbarIcons/defaultAvatar.png"
+import arrow from "../../../common/images/layoutUser/userbarIcons/arrow.svg"
+import meter from "../../../common/images/layoutUser/userbarIcons/meter.svg"
+import { PaperProps } from "./rightSideBar.styles"
+import generateId from "../../../utils/generateId"
+import { ISideBarProps } from "./rightSideBar.interface"
 import {
     Avatar,
     Icon,
@@ -22,26 +35,8 @@ import {
     MainWrapper,
     /* SquareBtn, */
 } from "./rightSideBar.styles"
-import goalsIcon from "../../../common/images/layoutUser/userbarIcons/goals.svg"
-import diet from "../../../common/images/layoutUser/userbarIcons/diet.svg"
-import defaultAvatar from "../../../common/images/layoutUser/userbarIcons/defaultAvatar.png"
-import arrow from "../../../common/images/layoutUser/userbarIcons/arrow.svg"
-import meter from "../../../common/images/layoutUser/userbarIcons/meter.svg"
-import { formatDistanceToNow } from "date-fns"
-import Menu from "@mui/material/Menu"
-import MenuItem from "@mui/material/MenuItem"
-import { Logout, PersonAdd, Settings } from "@mui/icons-material"
-import { useRouter } from "next/router"
-import { PaperProps } from "./rightSideBar.styles"
-import generateId from "../../../utils/generateId"
-const drawerWidth: string = "244px"
 
-interface ISideBarProps {
-    avatar: StaticImageData
-    userName: string
-    lastDate?: Date | number
-    includeSeconds: boolean
-}
+const drawerWidth: string = "244px"
 
 export const RightSideBar: React.FC<ISideBarProps> = ({
     avatar = defaultAvatar,

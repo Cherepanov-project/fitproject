@@ -1,8 +1,8 @@
-import { TextField, TextFieldProps } from "@mui/material"
-import { FC } from "react"
+import React from "react"
 import { useField } from "formik"
+import { TextField, TextFieldProps } from "@mui/material"
 
-const FormFeildLong: FC<TextFieldProps> = ({ name, placeholder }) => {
+const FormFeildLong: React.FC<TextFieldProps> = ({ name, placeholder }) => {
     const [field, meta, helpers] = useField(name)
 
     return (

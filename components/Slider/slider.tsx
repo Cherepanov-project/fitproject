@@ -29,14 +29,14 @@ const Slider = ({children}: SliderProps): JSX.Element => {
 
   useEffect(() => {
     let mouseUpDocHandler = (): void => {
-      if(isMouseDown){
+      if (isMouseDown){
         setIsMouseDown(false)
         onMouseUpOutsideTheSlider()
       }
     };
     document.addEventListener('mouseup', mouseUpDocHandler)
     return () => {document.removeEventListener('mouseup', mouseUpDocHandler)}
-  },[pairOfXCoords])
+  }, [pairOfXCoords])
 
   useEffect(() => {
     setSliderWrapperWidth(sliderWrapperRef.current?.clientWidth);

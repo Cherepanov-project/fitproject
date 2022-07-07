@@ -1,12 +1,6 @@
 import React from "react"
 import { FileError } from "react-dropzone"
-import {
-    createStyles,
-    LinearProgress,
-    Typography,
-    withStyles,
-    Grid,
-} from "@material-ui/core"
+import { createStyles, LinearProgress, Typography, withStyles, Grid } from "@material-ui/core"
 
 import { FileHeader } from "./fileHeader"
 import { IUploadErrorProps } from "./upload.interface"

@@ -11,17 +11,9 @@ import {
 } from "@mui/material"
 
 import RegOrLoginSocial from "../../../components/RegOrLoginSocial/regOrLoginSocial"
-import {
-    IFormikStepProps,
-    IFormikStepperProps,
-} from "../../../models/loginOrRegisterInterfaces/interfaces"
+import { IFormikStepProps, IFormikStepperProps } from "../../../models/loginOrRegisterInterfaces/interfaces"
 
-export const FormikStepper = ({
-    children,
-    initialValues,
-    onSubmit,
-    registerSuccess,
-}: IFormikStepperProps) => {
+export const FormikStepper = ({ children, initialValues, onSubmit, registerSuccess }: IFormikStepperProps) => {
     const childrenArray = Children.toArray(
         children
     ) as ReactElement<IFormikStepProps>[]

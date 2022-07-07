@@ -1,10 +1,8 @@
 import TablePagination from "@mui/material/TablePagination"
 
 const Pagination = ({
-    count,
-    page,
-    onChangePage,
-    rowsPerPage,
+    count, page,
+    onChangePage, rowsPerPage,
     onChangeRowsPerPage,
 }) => {
     return (

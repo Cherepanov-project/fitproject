@@ -14,24 +14,16 @@ import defaultAvatar from "../../common/images/defaultAvatar.png"
 import arrow from "../../common/images/icons/arrow.svg"
 import meter from "../../common/images/icons/meter.svg"
 import { ISideBarProps } from "./rightSideBar.interface"
-import {
-    Avatar,
-    Icon,
-    UserName,
-    IconWrapper,
-    UserInfoWrapper,
-    LastVisitTime,
-    UserInfo,
-    WeightLoosGoalWrapper,
-    IconArrow,
-    Loss,
-    Meter,
+import { Avatar, Icon, UserName,
+    IconWrapper, UserInfoWrapper, LastVisitTime,
+    UserInfo, WeightLoosGoalWrapper, IconArrow,
+    Loss, Meter,
     /* SquareBtn, */
 } from "./rightSideBar.styles"
 
 const drawerWidth: string = "244px"
 
-const RightSideBar: React.FC<ISideBarProps> = ({
+export const RightSideBar: React.FC<ISideBarProps> = ({
     avatar = defaultAvatar,
     userName = "User",
     lastDate = new Date(),
@@ -130,5 +122,3 @@ const RightSideBar: React.FC<ISideBarProps> = ({
         </Box>
     )
 }
-
-export { RightSideBar }

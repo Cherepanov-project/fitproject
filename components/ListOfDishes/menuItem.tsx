@@ -10,12 +10,12 @@ import {
     MenuItemDescription,
     MenuRatingWrapper,
     MenuImg,
-} from "../../pages/user/listOfDishes/stylesAllMenus"
+} from "./listOfDishes.styles"
 
 const MenuItem = ({ namesFood, nutritionalValue, star, id }) => {
     const matches = useMediaQuery("(min-width:2000px")
     return (
-        <Link href={`/user/calendar/dieta/${star}`}>
+        <Link href={`/user/calendar/dieta/${star}`} passHref>
             <Card
                 sx={{
                     width: !matches ? 214 : 314,

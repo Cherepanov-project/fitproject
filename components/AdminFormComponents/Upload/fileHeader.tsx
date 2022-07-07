@@ -1,5 +1,5 @@
-import { Grid, Button } from "@material-ui/core"
 import React from "react"
+import { Grid, Button } from "@material-ui/core"
 
 import { IFileHeaderProps } from "./upload.interface"
 

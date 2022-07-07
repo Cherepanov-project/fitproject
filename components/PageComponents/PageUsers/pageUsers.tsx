@@ -1,11 +1,5 @@
-import React, { useEffect, useState, FC } from "react"
-import {
-    TableContainer,
-    Table,
-    TableBody,
-    Button,
-    TableRow,
-} from "@mui/material"
+import React, { useEffect, useState } from "react"
+import { TableContainer, Table, TableBody, Button, TableRow } from "@mui/material"
 
 import { ContentWrapper, Footer } from "./pageUsers.styles"
 import UserItem from "../../UserTableItem/userItem"
@@ -13,15 +7,15 @@ import { DataType } from "../../../models/userList/userList"
 import Pagination from "../../Table/tablePagination"
 import getArrPagination from "../../../utils/getArrPagination"
 import ColumnName from "../../User/ColumnName/columnName"
-import TableHeader from "../../Table/TableHeader"
-import {IPageUsersProps} from "./pageUsers.interface"
+import TableHeader from "../../Table/TableHeader/tableHeader"
+import { IPageUsersProps } from "./pageUsers.interface"
 
 const defaultFilter = {
     role: ["admin", "user"], // есть админ значит тру иначе удаляю с массива?
     gendor: ["male", "female"],
 }
 
-const PageUsers: FC<IPageUsersProps> = ({ data }) => {
+const PageUsers: React.FC<IPageUsersProps> = ({ data }) => {
     const [userData, setUserDate] = useState<DataType[]>([])
     const [page, setPage] = useState(0)
     const [rowsPerPage, setRowsPerPage] = useState(8)

@@ -1,20 +1,17 @@
-import React, { FC } from "react"
+import React from "react"
 import { useField, FieldArray } from "formik"
 import { Grid, Box, TextField, IconButton, Button } from "@mui/material"
 import CloseIcon from "@mui/icons-material/Close"
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline"
 
 import { IIngredient } from "../../../models/recipes/recipes"
-
-interface IProps {
-    name: string
-}
+import { IProps } from "../../RecipesEditForm/recipesEditForm.interface"
 
 const emptyIngredient = {
     name: "",
 }
 
-const IngredientsFiled: FC<IProps> = ({ name }) => {
+const IngredientsFiled: React.FC<IProps> = ({ name }) => {
     const [field, meta, helpers] = useField(name)
 
     return (

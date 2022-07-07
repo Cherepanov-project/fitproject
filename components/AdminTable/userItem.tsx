@@ -1,18 +1,11 @@
 import React, { useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { format } from "date-fns"
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
 import MoreVertIcon from "@mui/icons-material/MoreVert"
-import Link from "next/link"
 import EditIcon from "@mui/icons-material/Edit"
-import {
-    TableRow,
-    TableCell,
-    Avatar,
-    IconButton,
-    Menu,
-    MenuItem,
-} from "@mui/material"
+import { TableRow, TableCell, Avatar, IconButton, Menu, MenuItem } from "@mui/material"
 
 import { SecondaryText, Text, RowAvatar, WrapBnt } from "./userItem.styles"
 import avatarUser from "./images/avatarUser.jpg"
@@ -101,7 +94,7 @@ const UserItem: React.FC<IUserItemProps> = ({
                                             <DeleteForeverIcon />
                                         </ConfirmAction>
                                     ) : (
-                                        <Link href={`/admin/users/${id}`}>
+                                        <Link href={`/admin/users/${id}`} passHref>
                                             {/*<PersonIcon />*/}
                                         </Link>
                                     )}

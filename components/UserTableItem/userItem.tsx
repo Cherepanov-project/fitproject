@@ -6,14 +6,7 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
 import MoreVertIcon from "@mui/icons-material/MoreVert"
 import PersonIcon from "@mui/icons-material/Person"
 import EditIcon from "@mui/icons-material/Edit"
-import {
-    TableRow,
-    TableCell,
-    Avatar,
-    IconButton,
-    Menu,
-    MenuItem,
-} from "@mui/material"
+import { TableRow, TableCell, Avatar, IconButton, Menu, MenuItem } from "@mui/material"
 
 import { SecondaryText, Text, RowAvatar, WrapBnt } from "./userItem.styles"
 import avatarUser from "../../common/images/userTableItem/avatarUser.jpg"
@@ -48,7 +41,7 @@ const UserItem: React.FC<IUserItemProps> = ({
         <>
             <TableCell sx={{ paddingLeft: 3.5, display: "flex", padding: 1 }}>
                 <Avatar sx={{ margin: 2 }}>
-                    <Image src={avatar} />
+                    <Image src={avatar} alt="avatar" />
                 </Avatar>
                 <RowAvatar>
                     <Text>Email address:</Text>
@@ -102,7 +95,7 @@ const UserItem: React.FC<IUserItemProps> = ({
                                             <DeleteForeverIcon />
                                         </ConfirmAction>
                                     ) : (
-                                        <Link href={`/admin/users/${id}`}>
+                                        <Link href={`/admin/users/${id}`} passHref>
                                             <PersonIcon />
                                         </Link>
                                     )}

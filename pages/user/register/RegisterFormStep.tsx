@@ -13,16 +13,8 @@ import { FormikStepper } from "./FormikStepper"
 import { FormikStep } from "../../../components/User/formikStep"
 import { FormTextField } from "../../../components/User/formTextField"
 import { FormSelectField } from "../../../components/User/formSelectField"
-import {
-    userInfo,
-    exercises,
-    mealPreferencesSelect,
-} from "../../../models/loginOrRegisterInterfaces/inputsValues"
-import {
-    validationUser,
-    validationMeal,
-    validationExercises,
-} from "../../../utils/validationSchema"
+import { userInfo, exercises, mealPreferencesSelect } from "../../../models/loginOrRegisterInterfaces/inputsValues"
+import { validationUser, validationMeal, validationExercises } from "../../../utils/validationSchema"
 
 export const RegisterForm: React.FC = () => {
     const [open, setOpen] = useState<boolean>(false)

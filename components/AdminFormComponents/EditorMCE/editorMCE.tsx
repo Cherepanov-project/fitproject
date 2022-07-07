@@ -2,9 +2,7 @@ import React from "react"
 import { useField } from "formik"
 import { Editor } from "@tinymce/tinymce-react"
 
-interface IProps {
-    name: string
-}
+import { IProps } from "../../RecipesEditForm/recipesEditForm.interface"
 
 const EditorMCE: React.FC<IProps> = ({ name }) => {
     const [field, meta, helpers] = useField(name)

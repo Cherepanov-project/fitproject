@@ -4,10 +4,7 @@ import { MainWrapper, ItemListWrapper } from "../../../components/WorkoutList/wo
 import Sidebar from "../../../components/WorkoutList/SideBar/sidebar"
 import { LayoutUser } from "../../../containers/Layout-user/layoutUser"
 import ItemList from "../../../components/WorkoutList/ItemList/itemList"
-import {
-    muscleCheckboxList,
-    muscleCheckboxListType,
-} from "../../../models/workout/workout"
+import { muscleCheckboxList, muscleCheckboxListType } from "../../../models/workout/workout"
 
 const WorkoutList = () => {
     const [muscles, setMuscle] =

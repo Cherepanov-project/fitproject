@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Checkbox from "@mui/material/Checkbox"
 
-import { BoxCheckBox, MenuH2, SpecificationWrapper } from "../../pages/user/listOfDishes/stylesAllMenus"
+import { BoxCheckBox, MenuH2, SpecificationWrapper } from "./listOfDishes.styles"
 import {
     initialValuesCheckBoxMeals,
     ISideBarCheckBoxMeals,

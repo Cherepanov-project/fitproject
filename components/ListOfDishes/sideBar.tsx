@@ -1,4 +1,4 @@
-import { SideBarWrapper } from "../../pages/user/listOfDishes/stylesAllMenus"
+import { SideBarWrapper } from "./listOfDishes.styles"
 import CheckboxStar from "./checkboxStar"
 import BlockSpecification from "./blockSpecification"
 import CheckboxMeals from "./checkboxMeals"

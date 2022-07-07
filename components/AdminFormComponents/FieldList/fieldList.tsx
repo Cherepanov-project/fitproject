@@ -1,11 +1,7 @@
 import { TextField } from "@mui/material"
-import {
-    ContentWrapper,
-    TextFieldWrap,
-    Text,
-    ErrorText,
-} from "./FieldList.styles"
 import { FieldArray, Formik, Field, ErrorMessage, useField } from "formik"
+
+import { ContentWrapper, TextFieldWrap, Text, ErrorText } from "./FieldList.styles"
 
 const FieldList = ({ values, name }) => {
     const [field, meta, helpers] = useField(name)
@@ -41,4 +37,5 @@ const FieldList = ({ values, name }) => {
         </ContentWrapper>
     )
 }
+
 export default FieldList

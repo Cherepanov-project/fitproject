@@ -1,5 +1,5 @@
 import { RectangleButton, TextWrapper } from "./rectangleBtn.styles"
-import {IProps} from "./rectangleBtn.interface"
+import { IProps } from "./rectangleBtn.interface"
 
 const RectangleBtn = ({ text, bg, ico }: IProps) => {
     return (

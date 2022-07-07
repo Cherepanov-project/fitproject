@@ -2,7 +2,7 @@ import React from "react"
 import { useField } from "formik"
 import { TextField } from "@mui/material"
 
-import { IProps } from "./shortDescriptionInput.interface"
+import { IProps } from "../recipesEditForm.interface"
 
 const ShortDescriptionText: React.FC<IProps> = (props: IProps) => {
     const [field, meta, helpers] = useField(props.name)

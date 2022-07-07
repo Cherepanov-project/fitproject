@@ -1,4 +1,6 @@
 import React from "react"
+import Link from "next/link"
+import Image from "next/image"
 import TableRow from "@mui/material/TableRow"
 import TableCell from "@mui/material/TableCell"
 import IconButton from "@mui/material/IconButton"
@@ -8,8 +10,6 @@ import MoreVertIcon from "@mui/icons-material/MoreVert"
 import Avatar from "@mui/material/Avatar"
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
 import EditIcon from "@mui/icons-material/Edit"
-import Link from "next/link"
-import Image from "next/image"
 
 import { MenuIcon } from "./recipe.styles"
 import imageMan from "../../common/images/recipesTableItem/avatarEat.svg"
@@ -101,6 +101,7 @@ const Recipe = ({
                                 ) : (
                                     <Link
                                         href={`/admin/recipes/edit-recipe/${id}`}
+                                        passHref
                                     >
                                         <EditIcon />
                                     </Link>

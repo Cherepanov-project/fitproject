@@ -1,11 +1,5 @@
 import React from "react"
-import {
-    createStyles,
-    LinearProgress,
-    Typography,
-    withStyles,
-    Grid,
-} from "@material-ui/core"
+import { createStyles, LinearProgress, Typography, withStyles, Grid } from "@material-ui/core"
 
 import { FileHeader } from "./fileHeader"
 import { IUploadErrorProps } from "./fileHeader.interface"

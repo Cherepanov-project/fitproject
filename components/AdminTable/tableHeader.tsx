@@ -1,7 +1,7 @@
 import React from "react"
 import { TableCell, TableHead, TableRow } from "@mui/material"
 
-import { ITableHeaderProps } from "./tableHeader.interface";
+import { ITableHeaderProps } from "./tableHeader.interface"
 
 const TableHeader: React.FC<ITableHeaderProps> = ({ listTitle }) => {
     const item = listTitle.map(el => (

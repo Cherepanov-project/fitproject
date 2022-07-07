@@ -12,14 +12,7 @@ import TextField from "./textField"
 import { FormContainer } from "./formContainer"
 import { loginUser } from "../../services/API/loginUser"
 import { validateLoginAdmin } from "../../utils/validationSchema"
-import {
-    DivCenter,
-    DivDashboard,
-    FormA,
-    FormH1,
-    FormH2,
-    StyledButton,
-} from "./formContainer.styles"
+import { DivCenter, DivDashboard, FormA, FormH1, FormH2, StyledButton } from "./formContainer.styles"
 
 const SignInForm = () => {
     const router = useRouter()

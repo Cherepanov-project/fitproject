@@ -2,8 +2,8 @@ import Link from "next/link"
 
 import loginMan from "../../common/images/loginMan.png"
 import Layout from "../../components/User/userLayout"
-import { Index } from "./login"
 import { RegOrLoginIcon } from "../../components/RegOrLoginSocial/regOrLoginSocial.styles"
+import { Index } from "./login"
 import {
     UserLoginOrRegister,
     FlexWrapper,

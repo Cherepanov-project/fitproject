@@ -1,23 +1,18 @@
-import { Button } from "@mui/material"
 import React from "react"
 import { useMutation } from "react-query"
+import { Button } from "@mui/material"
 import { Formik, Form } from "formik"
 
 import FileUpload from "../AdminFormComponents/Upload/fileUpload"
 import FormFieldLong from "../AdminFormComponents/FormFeildLong"
-import FieldList from "../AdminFormComponents/FieldList/FieldList"
-import EditorMCE from "../AdminFormComponents/EditorMCE/EditorMCE"
+import FieldList from "../AdminFormComponents/FieldList/fieldList"
+import EditorMCE from "../AdminFormComponents/EditorMCE/editorMCE"
 import { validationRecipies } from "../../utils/validationSchema"
-import IngredientsField from "../AdminFormComponents/IngredientsField/IngredientsFiled"
+import IngredientsField from "../AdminFormComponents/IngredientsField/ingredientsFiled"
 import { postRecipes, updataRecipe } from "../../services/API/adminApi"
 import { IAddRecipe } from "../../models/recipes/recipiesList"
 import { IRecipeFormProps } from "./recipeForm.interface"
-import {
-    ContentWrapper,
-    FormTitle,
-    FormWrapper,
-    SecondaryText,
-} from "./recipeForm.styles"
+import { ContentWrapper, FormTitle, FormWrapper, SecondaryText } from "./recipeForm.styles"
 
 const RecipeForm: React.FC<IRecipeFormProps> = ({ title, recipeData }) => {
     const { mutate: addNewRecipe, isLoading } = useMutation(

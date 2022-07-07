@@ -3,16 +3,9 @@ import React, { FunctionComponent } from "react"
 import { layoutUserProps } from "./layoutUser.interface"
 import LeftSideBar from "./Navbar/leftSideBar"
 import { RightSideBar } from "./Userbar/rightSideBar"
-import {
-    Container,
-    Content,
-    ContentWrapper,
-    TopInput,
-} from "./layoutUser.styles"
+import { Container, Content, ContentWrapper, TopInput } from "./layoutUser.styles"
 
-const RequiredLayout: React.FC<layoutUserProps> = ({
-    children,
-}): JSX.Element => {
+export const RequiredLayout: React.FC<layoutUserProps> = ({ children }): JSX.Element => {
     return (
         <>
             <Container>
@@ -36,9 +29,7 @@ const RequiredLayout: React.FC<layoutUserProps> = ({
     )
 }
 
-const LayoutUser = <T extends Record<string, undefined>>(
-    Component: FunctionComponent<T>
-) => {
+export const LayoutUser = <T extends Record<string, undefined>>(Component: FunctionComponent<T>) => {
     return function withLayoutComponent(props: T): JSX.Element {
         return (
             <RequiredLayout>
@@ -47,5 +38,3 @@ const LayoutUser = <T extends Record<string, undefined>>(
         )
     }
 }
-
-export { LayoutUser, RequiredLayout }

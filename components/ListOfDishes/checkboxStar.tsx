@@ -2,17 +2,13 @@ import { useState } from "react"
 import Checkbox from "@mui/material/Checkbox"
 import Rating from "@mui/material/Rating"
 
-import { BoxCheckBox } from "../../pages/user/listOfDishes/stylesAllMenus"
+import { BoxCheckBox, SideBarCheckBox, MenuH2 } from "./listOfDishes.styles"
 import {
     ISideBarCheckBoxStar,
     initialValuesCheckBoxStar,
     specificationStar,
     ISpecificationStarType,
 } from "../../models/sideBar/sideBar"
-import {
-    SideBarCheckBox,
-    MenuH2,
-} from "../../pages/user/listOfDishes/stylesAllMenus"
 
 const CheckboxStar = () => {
     const setArgumentStar = function (amt: string) {

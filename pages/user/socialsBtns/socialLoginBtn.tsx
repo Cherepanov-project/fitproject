@@ -7,11 +7,7 @@ import queryString from "query-string"
 import { ISocialLoginBtn } from "../../../models/loginOrRegisterInterfaces/interfaces"
 import { loginUserWithSocials } from "../../../services/API/loginUser"
 
-const SocialLoginBtn: React.FC<ISocialLoginBtn> = ({
-    redirectURL,
-    typeOfSocial,
-    img,
-}) => {
+const SocialLoginBtn: React.FC<ISocialLoginBtn> = ({ redirectURL, typeOfSocial, img }) => {
     const router = useRouter()
 
     const handleRedirect = () => {
@@ -46,15 +42,12 @@ const SocialLoginBtn: React.FC<ISocialLoginBtn> = ({
             style={{ background: "none", border: "none" }}
             onClick={handleRedirect}
         >
-            <Image
+            <img
                 src={img}
                 alt={typeOfSocial}
                 width={40}
                 height={40}
-                style={{
-                    cursor: "pointer",
-                    borderRadius: "50%",
-                }}
+                style={{ cursor: "pointer", borderRadius: "50%" }}
             />
         </button>
     )

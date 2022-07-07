@@ -7,14 +7,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack"
 
 import imageFilter from "../../common/images/filterMenu/filter.svg"
 import { ContainerRight, FilterItem } from "./itemFilter.styles"
-import {
-    Aa,
-    Dropdown,
-    FilterItem2,
-    ContainerCenter,
-    IconBack,
-    InputCheckbox,
-} from "./filterMenu.styles"
+import { Aa, Dropdown, FilterItem2, ContainerCenter, IconBack, InputCheckbox } from "./filterMenu.styles"
 
 const ItemFilter = () => {
     let filterList = []

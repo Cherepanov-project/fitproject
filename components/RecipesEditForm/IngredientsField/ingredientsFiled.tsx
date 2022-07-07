@@ -5,7 +5,7 @@ import CloseIcon from "@mui/icons-material/Close"
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline"
 
 import { IIngredient } from "../../../models/recipes/recipes"
-import { IProps } from "./ingredientsField.interface"
+import { IProps } from "../recipesEditForm.interface"
 
 const emptyIngredient = {
     name: "",

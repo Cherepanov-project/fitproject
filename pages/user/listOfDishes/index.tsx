@@ -5,7 +5,7 @@ import MenuItem from "../../../components/ListOfDishes/menuItem"
 import SideBar from "../../../components/ListOfDishes/sideBar"
 import { dishFoodAll } from "../../../models/dish/dish"
 import { MenuWrapper, AllMenusWrapper, ListDishes } from "../../../components/ListOfDishes/listOfDishes.styles"
-import { IFoodItemType } from "../../../models/dish/dish"
+import { IFoodItemType } from "../../../models/models.interface"
 import { LayoutUser } from "../../../containers/Layout-user/layoutUser"
 
 const AllMenus = () => {

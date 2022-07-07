@@ -3,10 +3,7 @@ import Box from "@mui/material/Box"
 import { TooltipProps } from "recharts"
 import { ValueType, NameType } from "recharts/src/component/DefaultTooltipContent"
 
-const CustomTooltip = ({
-    active,
-    payload,
-}: TooltipProps<ValueType, NameType>): JSX.Element => {
+const CustomTooltip = ({ active, payload }: TooltipProps<ValueType, NameType>): JSX.Element => {
     if (active) {
         return (
             <Box
@@ -24,7 +21,9 @@ const CustomTooltip = ({
                 <Typography
                     fontSize="14px"
                     color="#111111"
-                >{`${payload?.[0].value}`}</Typography>
+                >
+                    {`${payload?.[0].value}`}
+                </Typography>
             </Box>
         )
     }

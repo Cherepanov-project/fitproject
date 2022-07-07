@@ -1,10 +1,10 @@
-import Button from "@mui/material/Button"
 import Link from "next/link"
+import Button from "@mui/material/Button"
 
 const CreateForm = () => {
     return (
         <>
-            <Link href={{ pathname: "/admin/recipes/add-recipe" }}>
+            <Link href={{ pathname: "/admin/recipes/add-recipe" }} passHref>
                 <Button
                     variant="contained"
                     sx={{

@@ -1,10 +1,10 @@
 import { GetServerSideProps } from "next"
 import Image from "next/image"
+import Link from "next/link"
 import { Avatar, Button } from "@mui/material"
 import ArrowBackIcon from "@mui/icons-material/ArrowBack"
 import DeleteIcon from "@mui/icons-material/Delete"
 import EditIcon from "@mui/icons-material/Edit"
-import Link from "next/link"
 
 import avatarUser from "../../../common/images/userTableItem/avatarUser.jpg"
 import ColorfulTeg from "../../ColorfulTeg"
@@ -65,7 +65,7 @@ const PageUser = () => {
                 </InfoItem>
             </div>
             <BtnContainer>
-                <Link href={`/admin/users/`}>
+                <Link href={`/admin/users/`} passHref>
                     <Button variant="outlined" startIcon={<ArrowBackIcon />}>
                         Back
                     </Button>

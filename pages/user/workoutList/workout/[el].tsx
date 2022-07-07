@@ -55,7 +55,7 @@ const WorkoutItem = () => {
     const exercises = exerciseList
         .filter(el => el.area === workout?.area)
         .map(({ id, img, imgWidth, imgHeight, name, move, repeat }) => (
-            <Link href={`/user/workoutList/workout/${id}`} key={id}>
+            <Link href={`/user/workoutList/workout/${id}`} key={id} passHref>
                 <Card sx={cardStyles}>
                     <ImgWrapper
                         imgUrl={img}
