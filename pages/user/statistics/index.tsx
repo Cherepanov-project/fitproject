@@ -11,6 +11,7 @@ import imgLeg from "../../../common/images/icons/leg.svg"
 import imgWater from "../../../common/images/icons/water.svg"
 import imgCyclist from "../../../common/images/icons/cyclist.svg"
 import imgRun from "../../../common/images/icons/running.svg"
+import WithRefreshingToken from "../../../containers/Layout-user/WithRefreshingToken"
 import {
     Container,
     ActiveContainer,
@@ -120,4 +121,4 @@ const Frame1 = () => {
     )
 }
 
-export default LayoutUser(Frame1)
+export default WithRefreshingToken(LayoutUser(Frame1))
