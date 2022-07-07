@@ -1,7 +1,6 @@
 import styled from "styled-components"
-import {ICardContainerProps, ICardContentProps} from "./card.interface";
 
-
+import { ICardContainerProps, ICardContentProps } from "./card.interface"
 
 export const CardContainer = styled.div<ICardContainerProps>`
     width: ${({ width }) => width};

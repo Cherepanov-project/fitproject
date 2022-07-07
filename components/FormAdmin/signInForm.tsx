@@ -1,10 +1,10 @@
 import { useState } from "react"
-import { Snackbar } from "@mui/material"
-import { nanoid } from "nanoid"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { Formik, Form } from "formik"
 import Image from "next/image"
+import { Snackbar } from "@mui/material"
+import { nanoid } from "nanoid"
+import { Formik, Form } from "formik"
 import Cookies from "js-cookie"
 
 import imageLogoApp from "../../common/images/formAdmin/logoApp.svg"
@@ -19,11 +19,10 @@ import {
     FormH1,
     FormH2,
     StyledButton,
-} from "./form.styles"
+} from "./formContainer.styles"
 
 const SignInForm = () => {
     const router = useRouter()
-
     const [open, setOpen] = useState<boolean>(false)
     const [msg, setMsg] = useState<string>("")
     const [loginSuccess, setLoginSuccess] = useState<boolean>(false)

@@ -1,4 +1,3 @@
-import styled from "styled-components"
 import Link from "next/link"
 
 import { DietaHead, HeadLink } from "./headLinkBack.styles"
@@ -7,7 +6,7 @@ const HeadLinkBack = ({ namesComponent, backLink }) => {
     return (
         <DietaHead>
             <div>
-                <Link href={backLink}>
+                <Link href={backLink} passHref>
                     <HeadLink>
                         {"\u003C"} {"\u007C"} Вернуться
                     </HeadLink>

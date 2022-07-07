@@ -18,7 +18,7 @@ import {
     FormH1,
     FormH2,
     StyledButton,
-} from "./form.styles"
+} from "./formContainer.styles"
 
 const SignUpForm = () => {
     const router = useRouter()

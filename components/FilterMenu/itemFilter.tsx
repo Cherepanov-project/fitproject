@@ -1,11 +1,12 @@
 import React, { useState } from "react"
 import Image from "next/image"
+import { useRouter } from "next/router"
 import IconButton from "@mui/material/IconButton"
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos"
 import ArrowBackIcon from "@mui/icons-material/ArrowBack"
-import { useRouter } from "next/router"
 
 import imageFilter from "../../common/images/filterMenu/filter.svg"
+import { ContainerRight, FilterItem } from "./itemFilter.styles"
 import {
     Aa,
     Dropdown,
@@ -14,7 +15,6 @@ import {
     IconBack,
     InputCheckbox,
 } from "./filterMenu.styles"
-import { ContainerRight, FilterItem } from "./itemFilter.styles"
 
 const ItemFilter = () => {
     let filterList = []

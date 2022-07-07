@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { ErrorMessage } from "formik"
+
 import { TStyledInput } from "../../containers/Layout-admin/layoutAdmin.interface"
 
 export const FormAdminWrapper = styled.div`
@@ -101,4 +102,13 @@ export const DivInput = styled.div`
 
 export const ErrorForm = styled(ErrorMessage)`
     color: red;
+`
+
+export const ContainerAdminRegistration = styled.div`
+    width: 100%;
+    height: 100vh;
+    background-color: #363740;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
