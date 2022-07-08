@@ -6,7 +6,6 @@ const WithRefreshingToken = (Component: FC) => {
         const activityInterval = 60_000 //1 min
 
         useLayoutEffect(() => {
-            refreshToken()
             const refresh = setInterval(refreshToken, refreshInterval)
             const activity = setInterval(activityChecker, activityInterval)
             return () => {
