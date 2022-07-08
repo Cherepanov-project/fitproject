@@ -2,17 +2,17 @@ import axios from "axios"
 import Cookies from "js-cookie"
 
 import {
+    API_ADMIN,
     API_AUTH,
     API_GET_STATISTICS,
     API_WORKOUTS,
-} from "../../constants/urls"
+} from "../constants/urls"
 
 const token =
-    "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1NjM3NzYyMSwiaWF0IjoxNjU2MzU5NjIxfQ.pB2q96w6CMZNrfmFSC78an1h-2d4MK03h87uQTSWYgzRgqQwzquXSX-YHa7HpZDP6M9PGr0ecYIApJNPTgsNOA"
+    "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjEiLCJleHAiOjE2NTcyMTA2MTYsImlhdCI6MTY1NzE5MjYxNn0.Zu4IMHjPGHN88OutE0Qd6A1XdjcBC-jx2DWSzZSQvTDK1VtsohE-hcnQeqvYPC9QR6-n5Rjh5eKqnBXEztdFSA"
 
 const instanceWorkouts = axios.create({
     baseURL: API_WORKOUTS,
-    responseType: "json",
     headers: {
         Authorization: `Bearer ${token}`,
     },
@@ -20,7 +20,6 @@ const instanceWorkouts = axios.create({
 
 const instanceStatistics = axios.create({
     baseURL: API_GET_STATISTICS,
-    responseType: "json",
     headers: {
         Authorization: `Bearer ${token}`,
     },
@@ -28,7 +27,16 @@ const instanceStatistics = axios.create({
 
 const instanceAuth = axios.create({
     baseURL: API_AUTH,
-    responseType: "json",
+    headers: {
+        Authorization: `Bearer ${token}`
+    },
+})
+
+const instanceAdmin = axios.create({
+    baseURL: API_ADMIN,
+    headers: {
+        Authorization: `Bearer ${token}`
+    },
 })
 
 instanceAuth.interceptors.request.use(
@@ -43,4 +51,4 @@ instanceAuth.interceptors.request.use(
     error => Promise.reject(error)
 )
 
-export { instanceAuth, instanceStatistics, instanceWorkouts }
+export { instanceAuth, instanceStatistics, instanceWorkouts, instanceAdmin }

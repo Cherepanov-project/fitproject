@@ -3,9 +3,6 @@ import { Grid, LinearProgress, Typography } from "@material-ui/core"
 
 import { FileHeader } from "./fileHeader"
 import { ISingleFileUploadWithProgressProps } from "./fileHeader.interface"
-import {
-    useLayoutEffect
-} from "../../../../../Program Files/JetBrains/WebStorm 2021.3.3/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/react";
 
 const SingleFileUpload = ({ file, onDelete, onUpload }: ISingleFileUploadWithProgressProps) => {
     const [progress, setProgress] = useState(0)

@@ -9,14 +9,14 @@ import FieldList from "../AdminFormComponents/FieldList/fieldList"
 import EditorMCE from "../AdminFormComponents/EditorMCE/editorMCE"
 import { validationRecipies } from "../../utils/validationSchema"
 import IngredientsField from "../AdminFormComponents/IngredientsField/ingredientsFiled"
-import { postRecipes, updataRecipe } from "../../services/API/adminApi"
-import { IAddRecipe } from "../../models/recipes/recipiesList"
+import { postRecipes, updataRecipe } from "../../API/adminApi"
+import { IPostRecipe } from "../../API/api.interface"
 import { IRecipeFormProps } from "./recipeForm.interface"
 import { ContentWrapper, FormTitle, FormWrapper, SecondaryText } from "./recipeForm.styles"
 
 const RecipeForm: React.FC<IRecipeFormProps> = ({ title, recipeData }) => {
     const { mutate: addNewRecipe, isLoading } = useMutation(
-        (formData: IAddRecipe) => {
+        (formData: IPostRecipe) => {
             if (recipeData) {
                 return updataRecipe({
                     id: +recipeData.id,
