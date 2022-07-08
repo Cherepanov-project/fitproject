@@ -8,13 +8,13 @@ import Stack from "@mui/material/Stack"
 import useMediaQuery from "@mui/material/useMediaQuery"
 
 import { ImgWrapper, TextWrapper, Exercise, Reps } from "./itemList.styles"
-import { fetchWorkouts } from "../../../API/workouts"
+import { getWorkoutList } from "../../../API/workouts"
 import { filterExerciseList } from "../../../utils/filterExercises"
 import { IMuscles } from "./itemList.interface"
 
 const ItemList = ({ muscles }: IMuscles) => {
     let filteredExercises: any[] = []
-    const queryWorkouts = useQuery("workouts", fetchWorkouts)
+    const { data, isSuccess } = useQuery("workouts", getWorkoutList)
     const [minResOnPage, setMinResOnPage] = useState(0)
     const [maxResOnPage, setMaxResOnPage] = useState(6)
     const matches = useMediaQuery("(min-width:2000px")
@@ -34,8 +34,8 @@ const ItemList = ({ muscles }: IMuscles) => {
         setMaxResOnPage(() => page * 6)
     }
 
-    if (queryWorkouts.isSuccess) {
-        filterExerciseList(filteredExercises, muscles, queryWorkouts.data.data.content)
+    if (isSuccess) {
+        filterExerciseList(filteredExercises, muscles, data)
         console.log(filteredExercises, "TYT222")
     }
 

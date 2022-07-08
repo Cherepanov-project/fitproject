@@ -6,7 +6,6 @@ import { instanceAdmin } from "./inctances"
 export const postAdminToken = async (data) => {
     try {
         const response = await instanceAdmin.post('/api/v1/authenticate', data)
-        console.log(response)
         Cookies.set('auth-token', response.data.data.jwtToken)
         return response.data
     }

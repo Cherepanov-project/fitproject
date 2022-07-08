@@ -5,48 +5,46 @@ import {
     API_SERVER,
     API_AUTH_ADMIN,
     API_GET_STATISTICS,
+    API_WORKOUTS,
+    API_REGISTER_USER
 } from "../constants/urls"
 
-const token = localStorage.getItem('token')
+const adminToken = Cookies.get('auth-token')
+const userToken = Cookies.get('user-token')
 
 const instanceWorkouts = axios.create({
-    baseURL: API_SERVER,
+    baseURL: API_WORKOUTS,
     headers: {
-        Authorization: token,
+        Authorization: adminToken,
     },
 })
 
 const instanceStatistics = axios.create({
     baseURL: API_GET_STATISTICS,
     headers: {
-        Authorization: token,
+        Authorization: adminToken,
     },
 })
 
 const instanceAuth = axios.create({
     baseURL: API_AUTH_ADMIN,
     headers: {
-        Authorization: token,
+        Authorization: adminToken,
     },
 })
 
 const instanceAdmin = axios.create({
     baseURL: API_SERVER,
     headers: {
-        Authorization: token,
+        Authorization: adminToken,
     },
 })
 
-instanceAuth.interceptors.request.use(
-    config => {
-        const authToken = Cookies.get("auth-token")
-        console.log(authToken)
-        if (authToken) {
-            config.headers.authorization = `Token ${authToken}`
-        }
-        return config
+const instanceRegisterUser = axios.create({
+    baseURL: API_REGISTER_USER,
+    headers: {
+        Authorization: adminToken,
     },
-    error => Promise.reject(error)
-)
+})
 
-export { instanceAuth, instanceStatistics, instanceWorkouts, instanceAdmin }
+export { instanceAuth, instanceStatistics, instanceWorkouts, instanceAdmin, instanceRegisterUser }

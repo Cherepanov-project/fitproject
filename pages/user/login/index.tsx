@@ -25,7 +25,7 @@ export const Index: React.FC = () => {
 
     //перенаправление на страницу пользователя если пользователь был залогинен
     useEffect(() => {
-        if (Cookies.get("userToken")) {
+        if (Cookies.get("user-token")) {
             router.push("/user/statistics")
         }
     }, [router])
@@ -46,7 +46,7 @@ export const Index: React.FC = () => {
                         setOpen(true)
                         setLoginSuccess(true)
                         Cookies.set(
-                            "userToken",
+                            "user-token",
                             JSON.stringify(response.data.jwtToken)
                         )
                         router.push("/user/statistics")
@@ -112,3 +112,5 @@ export const Index: React.FC = () => {
         </>
     )
 }
+
+export default Index

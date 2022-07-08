@@ -23,6 +23,8 @@ const SignInForm = () => {
     const closeMessage = (): void => {
         setOpen(false)
     }
+
+    // ВРЕМЕННО. Пока нет кнопки выхода
     if (!loginSuccess) {
         Cookies.remove('auth-token')
     }
