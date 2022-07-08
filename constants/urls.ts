@@ -23,6 +23,8 @@ const API_WORKOUTS: string =
 const API_AUTH: string = "https://api.realworld.io/api/"
 const API_TOKEN_REFRESH =
     "https://spring-boot-fitness-backend.herokuapp.com/api/v1/authenticate/refresh"
+const API_ADMIN: string = "https://spring-boot-fitness-backend.herokuapp.com"
+
 //картинки
 const GOOGLE_IMG: string =
     "https://play-lh.googleusercontent.com/4cXfm9YG59lys9woio9JM5qR_bOpCrv0dgJ1XmowbzgRpIzDRyNQQ8vB8yXsz3NQJ9Q"
@@ -53,6 +55,7 @@ export {
     API_GET_STATISTICS,
     API_WORKOUTS,
     API_AUTH,
+    API_ADMIN,
     GOOGLE_IMG,
     REDIRECT_GOOGLE_BTN,
     REDIRECT_MAIL_BTN,

@@ -14,8 +14,7 @@ import {
 } from "../../../models/workout/workout"
 
 const WorkoutList = () => {
-    const [muscles, setMuscle] =
-        useState<muscleCheckboxListType>(muscleCheckboxList)
+    const [muscles, setMuscle] = useState<muscleCheckboxListType>(muscleCheckboxList)
     return (
         <MainWrapper>
             <Sidebar muscles={muscles} setMuscle={setMuscle} />

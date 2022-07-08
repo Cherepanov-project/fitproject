@@ -4,7 +4,7 @@ import {
     API_LOGIN_USER,
     API_REGISTER_USER,
     API_SOCIAL,
-} from "../../constants/urls"
+} from "../constants/urls"
 import {
     ILoginForm,
     IRegisterRequest,
@@ -12,7 +12,7 @@ import {
     ILoginOrRegisterResponseError,
     IAdminRegisterRequest,
     IRegisterResponseSuccess,
-} from "../../models/loginOrRegisterInterfaces/interfaces"
+} from "../models/loginOrRegisterInterfaces/interfaces"
 
 export const loginUser = async (user: ILoginForm) => {
     try {

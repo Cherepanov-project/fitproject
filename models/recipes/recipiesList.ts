@@ -1,22 +1,3 @@
-interface IRecipe {
-    id: number
-    name: string
-    description: string
-    calorie: number
-    protein: number
-    fat: number
-    carbohydrate: number
-    products: any[]
-}
-export interface IRecipesArr {
-    data: IRecipe[]
-}
-
-export interface IAddRecipe {
-    name: string
-    description: string
-}
-
 export const contentList = [
     {
         id: "573588",

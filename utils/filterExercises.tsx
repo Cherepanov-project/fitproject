@@ -1,15 +1,14 @@
-const addOnArrResults = (filteredList, list, partOfBody) => {
+export const addOnArrResults = (filteredList, list, partOfBody) => {
     filteredList = [
         ...filteredList,
-        ...list.filter(element => element.muscleGroup === partOfBody),
+        ...list.filter(element => element.area === partOfBody),
     ]
+    console.log(filteredList, "FILL")
 }
 
-const filterExerciseList = (filteredList, muscles, list) => {
-    muscles.Arms ? addOnArrResults(filteredList, list, "Arms") : null
-    muscles.Legs ? addOnArrResults(filteredList, list, "Legs") : null
-    muscles.Chest ? addOnArrResults(filteredList, list, "Chest") : null
-    muscles.Breast ? addOnArrResults(filteredList, list, "Breast") : null
+export const filterExerciseList = (filteredList, muscles, list) => {
+    muscles.Arms ? addOnArrResults(filteredList, list, "ARMS") : null
+    muscles.Legs ? addOnArrResults(filteredList, list, "LEGS") : null
+    muscles.Chest ? addOnArrResults(filteredList, list, "CHEST") : null
+    muscles.Breast ? addOnArrResults(filteredList, list, "BREAST") : null
 }
-
-export { addOnArrResults, filterExerciseList }
