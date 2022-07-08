@@ -9,7 +9,7 @@ import FieldList from "../AdminFormComponents/FieldList/fieldList"
 import EditorMCE from "../AdminFormComponents/EditorMCE/editorMCE"
 import { validationRecipies } from "../../utils/validationSchema"
 import IngredientsField from "../AdminFormComponents/IngredientsField/ingredientsFiled"
-import { postRecipes, updataRecipe } from "../../API/adminApi"
+import { postRecipe, putRecipeUpdate } from "../../API/recipes"
 import { IPostRecipe } from "../../API/api.interface"
 import { IRecipeFormProps } from "./recipeForm.interface"
 import { ContentWrapper, FormTitle, FormWrapper, SecondaryText } from "./recipeForm.styles"
@@ -18,12 +18,12 @@ const RecipeForm: React.FC<IRecipeFormProps> = ({ title, recipeData }) => {
     const { mutate: addNewRecipe, isLoading } = useMutation(
         (formData: IPostRecipe) => {
             if (recipeData) {
-                return updataRecipe({
+                return putRecipeUpdate({
                     id: +recipeData.id,
                     description: formData.description,
                 })
             }
-            return postRecipes(formData)
+            return postRecipe(formData)
         }
     )
 

@@ -10,9 +10,10 @@ import Cookies from "js-cookie"
 import imageLogoApp from "../../common/images/formAdmin/logoApp.svg"
 import TextField from "./textField"
 import { FormContainer } from "./formContainer"
-import { loginUser } from "../../services/API/loginUser"
+import { loginUser } from "../../API/loginUser"
 import { validateLoginAdmin } from "../../utils/validationSchema"
 import { DivCenter, DivDashboard, FormA, FormH1, FormH2, StyledButton } from "./formContainer.styles"
+import { postAdminToken } from "../../API/admin"
 
 const SignInForm = () => {
     const router = useRouter()
@@ -22,6 +23,10 @@ const SignInForm = () => {
     const closeMessage = (): void => {
         setOpen(false)
     }
+    if (!loginSuccess) {
+        Cookies.remove('auth-token')
+    }
+
     return (
         <FormContainer>
             <Formik
@@ -31,9 +36,8 @@ const SignInForm = () => {
                 }}
                 validationSchema={validateLoginAdmin}
                 onSubmit={async data => {
-                    const response = await loginUser(data)
-
-                    if (response.success === false) {
+                    const response = await postAdminToken(data)
+                    if (!response.success) {
                         setMsg(response.error)
                         setOpen(true)
                         throw new Error(response.error)
@@ -42,7 +46,7 @@ const SignInForm = () => {
                         setOpen(true)
                         setLoginSuccess(true)
                         Cookies.set(
-                            "userToken",
+                            "auth-token",
                             JSON.stringify(response.data.jwtToken)
                         )
                         router.replace("/admin/overview")

@@ -3,10 +3,6 @@ export interface IPutRecipe {
     description: string;
 }
 
-export interface IGetRecipeById {
-    id: number
-}
-
 export interface IPostRecipe {
     name: string
     description: string

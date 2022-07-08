@@ -1,7 +1,7 @@
 import axios from "axios"
 
 import {
-    API_LOGIN_USER,
+    API_AUTH_ADMIN,
     API_REGISTER_USER,
     API_SOCIAL,
 } from "../constants/urls"
@@ -17,7 +17,7 @@ import {
 export const loginUser = async (user: ILoginForm) => {
     try {
         const { data } = await axios.post<ILoginResponseSuccess>(
-            API_LOGIN_USER,
+            API_AUTH_ADMIN,
             user
         )
         return data

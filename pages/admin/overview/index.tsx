@@ -13,10 +13,7 @@ import { tasksData } from "../../../models/widgets/tasks/tasks"
 import Card from "../../../components/Card/card"
 import TicketsWidgetItem from "../../../components/WidgetItem/ticketsWidgetItem"
 import TasksWidgetItem from "../../../components/WidgetItem/tasksWidgetItem"
-import {
-    WidgetItemContainer,
-    WidgetItemContent,
-} from "../../../components/WidgetItem/widgetItem.styles"
+import { WidgetItemContainer, WidgetItemContent } from "../../../components/WidgetItem/widgetItem.styles"
 import {
     MainContainer,
     ContainerHeader,

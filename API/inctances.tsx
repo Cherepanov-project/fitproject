@@ -2,47 +2,45 @@ import axios from "axios"
 import Cookies from "js-cookie"
 
 import {
-    API_ADMIN,
-    API_AUTH,
+    API_SERVER,
+    API_AUTH_ADMIN,
     API_GET_STATISTICS,
-    API_WORKOUTS,
 } from "../constants/urls"
 
-const token =
-    "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjEiLCJleHAiOjE2NTcyMTA2MTYsImlhdCI6MTY1NzE5MjYxNn0.Zu4IMHjPGHN88OutE0Qd6A1XdjcBC-jx2DWSzZSQvTDK1VtsohE-hcnQeqvYPC9QR6-n5Rjh5eKqnBXEztdFSA"
+const token = localStorage.getItem('token')
 
 const instanceWorkouts = axios.create({
-    baseURL: API_WORKOUTS,
+    baseURL: API_SERVER,
     headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: token,
     },
 })
 
 const instanceStatistics = axios.create({
     baseURL: API_GET_STATISTICS,
     headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: token,
     },
 })
 
 const instanceAuth = axios.create({
-    baseURL: API_AUTH,
+    baseURL: API_AUTH_ADMIN,
     headers: {
-        Authorization: `Bearer ${token}`
+        Authorization: token,
     },
 })
 
 const instanceAdmin = axios.create({
-    baseURL: API_ADMIN,
+    baseURL: API_SERVER,
     headers: {
-        Authorization: `Bearer ${token}`
+        Authorization: token,
     },
 })
 
 instanceAuth.interceptors.request.use(
     config => {
         const authToken = Cookies.get("auth-token")
-
+        console.log(authToken)
         if (authToken) {
             config.headers.authorization = `Token ${authToken}`
         }
