@@ -10,6 +10,7 @@ import { LayoutUser } from "../../../../containers/Layout-user/layoutUser"
 import { exerciseList, exercisesType } from "../../../../models/workout/workout"
 import muscleImg from "../../../../common/images/icons/backMuscle.svg"
 import generateId from "../../../../utils/generateId"
+import WithRefreshingToken from "../../../../containers/Layout-user/WithRefreshingToken"
 import {
     MainWrapper,
     Container,
@@ -99,4 +100,4 @@ const WorkoutItem = () => {
     )
 }
 
-export default LayoutUser(WorkoutItem)
+export default WithRefreshingToken(LayoutUser(WorkoutItem))

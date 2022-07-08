@@ -30,7 +30,7 @@ export const SignInForm: React.FC = () => {
 
     //перенаправление на страницу пользователя если пользователь был залогинен
     useEffect(() => {
-        if (Cookies.get("userToken")) {
+        if (Cookies.get(ACCESS_TOKEN)) {
             router.push("/user/statistics")
         }
     }, [router])
