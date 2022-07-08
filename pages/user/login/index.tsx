@@ -117,3 +117,5 @@ export const SignInForm: React.FC = () => {
         </>
     )
 }
+
+export default Index

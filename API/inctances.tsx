@@ -2,53 +2,49 @@ import axios from "axios"
 import Cookies from "js-cookie"
 
 import {
-    API_ADMIN,
-    API_AUTH,
+    API_SERVER,
+    API_AUTH_ADMIN,
     API_GET_STATISTICS,
     API_WORKOUTS,
+    API_REGISTER_USER
 } from "../constants/urls"
 
-const token =
-    "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjEiLCJleHAiOjE2NTcyMTA2MTYsImlhdCI6MTY1NzE5MjYxNn0.Zu4IMHjPGHN88OutE0Qd6A1XdjcBC-jx2DWSzZSQvTDK1VtsohE-hcnQeqvYPC9QR6-n5Rjh5eKqnBXEztdFSA"
+const adminToken = Cookies.get('auth-token')
+const userToken = Cookies.get('user-token')
 
 const instanceWorkouts = axios.create({
     baseURL: API_WORKOUTS,
     headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: adminToken,
     },
 })
 
 const instanceStatistics = axios.create({
     baseURL: API_GET_STATISTICS,
     headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: adminToken,
     },
 })
 
 const instanceAuth = axios.create({
-    baseURL: API_AUTH,
+    baseURL: API_AUTH_ADMIN,
     headers: {
-        Authorization: `Bearer ${token}`
+        Authorization: adminToken,
     },
 })
 
 const instanceAdmin = axios.create({
-    baseURL: API_ADMIN,
+    baseURL: API_SERVER,
     headers: {
-        Authorization: `Bearer ${token}`
+        Authorization: adminToken,
     },
 })
 
-instanceAuth.interceptors.request.use(
-    config => {
-        const authToken = Cookies.get("auth-token")
-
-        if (authToken) {
-            config.headers.authorization = `Token ${authToken}`
-        }
-        return config
+const instanceRegisterUser = axios.create({
+    baseURL: API_REGISTER_USER,
+    headers: {
+        Authorization: adminToken,
     },
-    error => Promise.reject(error)
-)
+})
 
-export { instanceAuth, instanceStatistics, instanceWorkouts, instanceAdmin }
+export { instanceAuth, instanceStatistics, instanceWorkouts, instanceAdmin, instanceRegisterUser }

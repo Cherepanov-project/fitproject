@@ -1,13 +1,14 @@
 import { instanceWorkouts } from "./inctances"
 
-const fetchWorkouts = async () => {
-    const { data } = await instanceWorkouts.get("api/v1/admin/exercise")
-    return data
+const getWorkoutList = async () => {
+    const response = await instanceWorkouts.get("/")
+    return response.data.data.content
 }
 
-const fetchCategories = async () => {
-    const { data } = await instanceWorkouts.get("categories")
-    return data
+// Заглушка для АПИ под категории упражнений
+const getWorkoutCategoriesList = async () => {
+    const response = await instanceWorkouts.get("categories")
+    return response.data
 }
 
-export { fetchWorkouts, fetchCategories }
+export { getWorkoutList, getWorkoutCategoriesList }

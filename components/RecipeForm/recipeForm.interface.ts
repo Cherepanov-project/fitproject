@@ -12,8 +12,13 @@ interface IRecipe {
     fat: number
     carbohydrate: number
     products: any[]
+    pickUrl: string
 }
 
 export interface IRecipesArr {
-    data: IRecipe[]
+    data: {
+        content: IRecipe[]
+    }
+
+
 }

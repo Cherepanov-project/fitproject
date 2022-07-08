@@ -55,7 +55,7 @@ const WorkoutItem = () => {
     ))
     const exercises = exerciseList
         .filter(el => el.area === workout?.area)
-        .map(({ id, img, imgWidth, imgHeight, name, move, repeat }) => (
+        .map(({ id, img, imgWidth, imgHeight, name, approachCount, repeatCount }) => (
             <Link href={`/user/workoutList/workout/${id}`} key={id} passHref>
                 <Card sx={cardStyles}>
                     <ImgWrapper
@@ -65,7 +65,7 @@ const WorkoutItem = () => {
                     />
                     <TextWrapper>
                         <Exercise>{name}</Exercise>
-                        <Reps>{`${move} X ${repeat} REPS`}</Reps>
+                        <Reps>{`${approachCount} X ${repeatCount} REPS`}</Reps>
                     </TextWrapper>
                 </Card>
             </Link>
@@ -78,7 +78,7 @@ const WorkoutItem = () => {
                     <Exercise>
                         <ExerciseTitle>{workout?.name}</ExerciseTitle>
                         <ExerciseDescription>
-                            {workout?.exercise}
+                            {/*{workout?.exercise}*/}
                         </ExerciseDescription>
 
                         <MusclesTitle>Muscles</MusclesTitle>

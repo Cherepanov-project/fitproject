@@ -11,31 +11,24 @@ import CreateForm from "../../../components/RecipesTableItem/AddBtn/addForm"
 import Pagination from "../../../components/Table/tablePagination"
 import ColumnName from "../../../components/User/ColumnName/columnName"
 import { useQuery, dehydrate } from "react-query"
-import { getRecipesList } from "../../../services/API/adminApi"
+import { getRecipesList } from "../../../API/recipes"
 import { queryClient } from "../../_app"
 
-export const getStaticProps = async () => {
-    await queryClient.prefetchQuery(["recipesList"], async () => {
-        const { data: res } = await getRecipesList()
-        return res
-    })
-
-    return {
-        props: {
-            dehydratedState: dehydrate(queryClient),
-        },
-    }
-}
+// export const getStaticProps = async () => {
+//     await queryClient.prefetchQuery(["recipesList"], async () => {
+//         const { data: res } = await getRecipesList()
+//         return res
+//     })
+//
+//     return {
+//         props: {
+//             dehydratedState: dehydrate(queryClient),
+//         },
+//     }
+// }
 
 const Recipes = () => {
-    const {
-        data: recipesArr,
-        isLoading,
-        error,
-    } = useQuery("recipesList", async () => {
-        const { data: res } = await getRecipesList()
-        return res
-    })
+    const { data, isLoading, error } = useQuery("recipesList", getRecipesList)
 
     const [page, setPage] = useState<number>(0)
     const [rowsPerPage, setRowsPerPage] = useState<number>(8)
@@ -62,7 +55,7 @@ const Recipes = () => {
         )
     }
 
-    const recipe = recipesArr.map(el => {
+    const recipe = data.map(el => {
         return (
             <Recipe
                 key={el.id}
@@ -90,7 +83,7 @@ const Recipes = () => {
             <FooterRecipes>
                 <CreateForm />
                 <Pagination
-                    count={recipesArr.length}
+                    count={data.length}
                     page={page}
                     onChangePage={handleChangePage}
                     rowsPerPage={rowsPerPage}
