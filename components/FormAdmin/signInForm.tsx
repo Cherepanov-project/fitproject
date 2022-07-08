@@ -12,7 +12,15 @@ import TextField from "./textField"
 import { FormContainer } from "./formContainer"
 import { loginUser } from "../../services/API/loginUser"
 import { validateLoginAdmin } from "../../utils/validationSchema"
-import { DivCenter, DivDashboard, FormA, FormH1, FormH2, StyledButton } from "./formContainer.styles"
+import {
+    DivCenter,
+    DivDashboard,
+    FormA,
+    FormH1,
+    FormH2,
+    StyledButton,
+} from "./formContainer.styles"
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../constants/titles"
 
 const SignInForm = () => {
     const router = useRouter()
@@ -42,7 +50,7 @@ const SignInForm = () => {
                         setOpen(true)
                         setLoginSuccess(true)
                         Cookies.set(
-                            "userToken",
+                            ACCESS_TOKEN,
                             JSON.stringify(response.data.jwtToken)
                         )
                         router.replace("/admin/overview")

@@ -1,8 +1,8 @@
 import { API_TOKEN_REFRESH } from "../../constants/urls"
 import axios from "axios"
 import Cookies from "js-cookie"
-
-const timeout = 60
+import { REFRESH_TOKEN, ACCESS_TOKEN } from "../../constants/titles"
+const timeout = 6000
 let lastActivity = Date.now()
 let userIsActive = true
 const setLastActivity = () => (lastActivity = Date.now())
@@ -15,11 +15,12 @@ window.addEventListener("touchstart", setLastActivity)
 
 export const refreshToken = () => {
     if (userIsActive) {
-        const refreshToken = Cookies.get("refreshToken")
+        const refreshToken = Cookies.get(REFRESH_TOKEN)
         try {
-            const { data } = axios.post(API_TOKEN_REFRESH, refreshToken)
+            const data = axios.post(API_TOKEN_REFRESH, refreshToken)
+            console.log(data)
         } catch (error) {
-            throw new Error(error)
+            console.log(error)
         }
     }
 }
