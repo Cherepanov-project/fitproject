@@ -1,12 +1,7 @@
 import React from "react"
-import { Tegs } from "./colorfulTeg.styles"
 
-interface IColorfulTegProp {
-    text: string
-    color?: string
-    brRad?: string
-    backgroundColor?: string
-}
+import { Tegs } from "./colorfulTeg.styles"
+import { IColorfulTegProp } from "./colorfulTeg.interface"
 
 const ColorfulTeg: React.FC<IColorfulTegProp> = ({
     text,

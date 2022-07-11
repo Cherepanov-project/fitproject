@@ -53,7 +53,7 @@ const Navbar = () => {
                     <PositionedMenu />
                 </DivInformation>
                 <DivAdmin>
-                    <Link href={"/"}>
+                    <Link href={"/"} passHref>
                         <Anavbar>{userName}</Anavbar>
                     </Link>
                     <ImageAdmin

@@ -1,14 +1,5 @@
-import React, { FC } from "react"
-
-import {
-    ComposedChart,
-    Area,
-    CartesianGrid,
-    XAxis,
-    YAxis,
-    Tooltip,
-    Line,
-} from "recharts"
+import React from "react"
+import { ComposedChart, Area, CartesianGrid, XAxis, YAxis, Tooltip, Line } from "recharts"
 
 import CustomTooltip from "./CustomTooltip/customTooltip"
 import { graphData } from "../../models/graph/graph"

@@ -3,6 +3,7 @@ import React, { FunctionComponent } from "react"
 import { layoutUserProps } from "./layoutUser.interface"
 import LeftSideBar from "./Navbar/leftSideBar"
 import { RightSideBar } from "./Userbar/rightSideBar"
+
 import SendMsgForm from "../../components/SendMsgForm/SendMsgForm"
 import {
     Container,
@@ -20,11 +21,9 @@ const userId="124"
 // это id пользователя Julia из раздела Messages
 // сейчас реализована возможность написать админу сообщение
 // от этого пользователя
-// сообщение дублируется, но эта проблема всего проекта, 
-// с которой надо разобраться.
-
 // userId должен содержаться после авторизации пользователя 
 // в куках или локал сторадже
+
 const socket = io(SOCKET_URL);
 
 function handleSendMsg(msg: string): void{
@@ -36,10 +35,11 @@ function handleSendMsg(msg: string): void{
     socket.emit(EVENTS.CLIENT.SEND_ROOM_MESSAGE, { userId, msg });
 }
 
-const RequiredLayout: React.FC<layoutUserProps> = ({
+export const RequiredLayout: React.FC<layoutUserProps> = ({
     children,
 }): JSX.Element => {
   
+
     return (
         <>
             <Container>
@@ -66,9 +66,7 @@ const RequiredLayout: React.FC<layoutUserProps> = ({
     )
 }
 
-const LayoutUser = <T extends Record<string, undefined>>(
-    Component: FunctionComponent<T>
-) => {
+export const LayoutUser = <T extends Record<string, undefined>>(Component: FunctionComponent<T>) => {
     return function withLayoutComponent(props: T): JSX.Element {
         return (
             <RequiredLayout>
@@ -77,5 +75,3 @@ const LayoutUser = <T extends Record<string, undefined>>(
         )
     }
 }
-
-export { LayoutUser, RequiredLayout }

@@ -5,7 +5,7 @@ import { waitFor } from "@testing-library/react"
 import Cookies from "js-cookie"
 import MockedImage from "next/image"
 
-import SingInForm from "../../components/FormAdmin/singInForm"
+import SignInForm from "../../components/FormAdmin/signInForm"
 import api from "../../services/API"
 
 jest.mock("next/image", () => {
@@ -29,7 +29,7 @@ afterEach(() => {
 it("Cookies filled", async () => {
     const spy = jest.spyOn(api.auth, "login")
     await waitFor(() => {
-        render(<SingInForm />, container)
+        render(<SignInForm />, container)
     })
     document
         .querySelector("input[type='email']")

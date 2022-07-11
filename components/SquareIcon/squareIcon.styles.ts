@@ -1,11 +1,8 @@
 import styled from "styled-components"
 
-interface IIcoProps {
-    bgColor: string
-    bgImg: string
-}
+import { IIconProps } from "./squareIcon.interface"
 
-export const CustomIcon = styled.div<IIcoProps>`
+export const CustomIcon = styled.div<IIconProps>`
     display: flex;
     justify-content: center;
     align-items: center;

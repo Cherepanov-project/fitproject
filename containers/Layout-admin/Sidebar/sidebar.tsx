@@ -12,6 +12,7 @@ import imageArticles from "../../../common/images/layoutAdmin/sidebarIcons/artic
 import imageSettings from "../../../common/images/layoutAdmin/sidebarIcons/settings.svg"
 import imageSubscription from "../../../common/images/layoutAdmin/sidebarIcons/subscription.svg"
 import imageLogoApp from "../../../common/images/layoutAdmin/sidebarIcons/logoApp.svg"
+import { ISidebarMenuItem } from "./sidebar.interface"
 import {
     SidebarItem,
     SidebarHeader,
@@ -21,13 +22,6 @@ import {
     Ul,
     Hr,
 } from "./sidebar.styles"
-
-export interface ISidebarMenuItem {
-    route: string
-    name: string
-    icon: string
-    id: number
-}
 
 const sidebarMenuFires: ISidebarMenuItem[] = [
     { route: "admin/overview", name: "overview", icon: imageOverview, id: 1 },
@@ -61,7 +55,7 @@ const Sidebar = () => {
             <>
                 {sidebarMenuFires.map(menu => (
                     <SidebarItem key={menu.route} selected={menu.name === page}>
-                        <Link href={`/${menu.route}`}>
+                        <Link href={`/${menu.route}`} passHref>
                             <AAA>
                                 <Image
                                     src={menu.icon}
@@ -83,7 +77,7 @@ const Sidebar = () => {
             <>
                 {sidebarMenuSecond.map(menu => (
                     <SidebarItem key={menu.name} selected={menu.name === page}>
-                        <Link href={`/${menu.route}`}>
+                        <Link href={`/${menu.route}`} passHref>
                             <AAA>
                                 <Image
                                     src={menu.icon}
@@ -103,12 +97,12 @@ const Sidebar = () => {
     return (
         <SidebarWrapper>
             <SidebarHeader>
-                <Link href={`/admin/overview`}>
+                <Link href={`/admin/overview`} passHref>
                     <AAA>
                         <Image
                             src={imageLogoApp}
-                            width="32"
-                            height="32"
+                            width={32}
+                            height={32}
                             alt="search"
                         />
                         <ItemName>Dashboard Kit</ItemName>

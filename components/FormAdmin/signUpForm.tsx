@@ -1,24 +1,17 @@
 import React, { useState } from "react"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { Form, Formik } from "formik"
 import Image from "next/image"
-import { validateSignUpAdmin } from "../../utils/validationSchema"
-
-import imageLogoApp from "./images/logoApp.svg"
-import { FormContainer } from "./formContainer"
-import TextField from "./textField"
-import {
-    DivCenter,
-    DivDashboard,
-    FormA,
-    FormH1,
-    FormH2,
-    StyledButton,
-} from "./form.styles"
-import { registerUser } from "../../services/API/loginUser"
+import { Form, Formik } from "formik"
 import { Snackbar } from "@mui/material"
 import { nanoid } from "nanoid"
+
+import { validateSignUpAdmin } from "../../utils/validationSchema"
+import imageLogoApp from "../../common/images/formAdmin/logoApp.svg"
+import { FormContainer } from "./formContainer"
+import TextField from "./textField"
+import { registerUser } from "../../API/loginUser"
+import { DivCenter, DivDashboard, FormA, FormH1, FormH2, StyledButton } from "./formContainer.styles"
 
 const SignUpForm = () => {
     const router = useRouter()

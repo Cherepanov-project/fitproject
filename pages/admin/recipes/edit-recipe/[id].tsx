@@ -1,27 +1,20 @@
 import { useQuery } from "react-query"
-import { withLayout } from "../../../../containers/Layout-admin/layoutAdmin"
-import { getRecipeById } from "../../../../services/API/adminApi"
 import { GetServerSideProps } from "next"
-import RecipeForm from "../../../../components/RecipeForm/RecipeForm"
 
-interface IRecipeEditProps {
-    id?: string
-}
+import { withLayout } from "../../../../containers/Layout-admin/layoutAdmin"
+import { getRecipeById } from "../../../../API/recipes"
+import RecipeForm from "../../../../components/RecipeForm/recipeForm"
+import { IRecipeEditProps } from "../../../../models/recipes/recipes"
 
 export const getServerSideProps: GetServerSideProps = async props => {
     const id = props.query.id
-
     return {
         props: { id },
     }
 }
 
 const RecipeEdit = ({ id }: IRecipeEditProps) => {
-    const { data, isLoading, error } = useQuery(
-        ["resipe", id],
-        () => {
-            return getRecipeById(+id)
-        }
+    const { data, isLoading, error } = useQuery(["resipe", id], () => getRecipeById(+id)
         // {
         //     initialData: () => {
         //         console.log(queryClient.getQueriesData("recipesList"))

@@ -1,9 +1,6 @@
-interface ITrendsCardsDataTypes {
-    name: string
-    value: string
-}
+import { ITrendsCardsDataTypes } from "../../models.interface"
 
-const trendsCardsData: ITrendsCardsDataTypes[] = [
+export const trendsCardsData: ITrendsCardsDataTypes[] = [
     {
         name: "Resolved",
         value: "449",
@@ -25,5 +22,3 @@ const trendsCardsData: ITrendsCardsDataTypes[] = [
         value: "94%",
     },
 ]
-
-export { trendsCardsData }

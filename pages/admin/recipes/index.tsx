@@ -1,41 +1,34 @@
-import React from "react"
-import { withLayout } from "../../../containers/Layout-admin/layoutAdmin"
-import { useState, useEffect } from "react"
-import FilterMenu from "../../../components/FilterMenu/filter"
-import Recipie from "../../../components/RecipiesTableItem/recipie"
+import React, { useState } from "react"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
 import TableContainer from "@mui/material/TableContainer"
-import { ContentList, FooterRecipes } from "../overview/overviewStyles"
-import CreateForm from "../../../components/RecipiesTableItem/AddBtn/addForm"
-import Pagination from "../../../components/Table/TablePagination"
-import ColumnName from "../../../components/User/ColumnName/ColumnName"
+
+import { withLayout } from "../../../containers/Layout-admin/layoutAdmin"
+import FilterMenu from "../../../components/FilterMenu/filterMenu"
+import Recipe from "../../../components/RecipesTableItem/recipe"
+import { ContentList, FooterRecipes } from "../overview/overview.styles"
+import CreateForm from "../../../components/RecipesTableItem/AddBtn/addForm"
+import Pagination from "../../../components/Table/tablePagination"
+import ColumnName from "../../../components/User/ColumnName/columnName"
 import { useQuery, dehydrate } from "react-query"
-import { getRecipesList } from "../../../services/API/adminApi"
+import { getRecipesList } from "../../../API/recipes"
 import { queryClient } from "../../_app"
 
-export const getStaticProps = async () => {
-    await queryClient.prefetchQuery(["recipesList"], async () => {
-        const { data: res } = await getRecipesList()
-        return res
-    })
-
-    return {
-        props: {
-            dehydratedState: dehydrate(queryClient),
-        },
-    }
-}
+// export const getStaticProps = async () => {
+//     await queryClient.prefetchQuery(["recipesList"], async () => {
+//         const { data: res } = await getRecipesList()
+//         return res
+//     })
+//
+//     return {
+//         props: {
+//             dehydratedState: dehydrate(queryClient),
+//         },
+//     }
+// }
 
 const Recipes = () => {
-    const {
-        data: resipesArr,
-        isLoading,
-        error,
-    } = useQuery("recipesList", async () => {
-        const { data: res } = await getRecipesList()
-        return res
-    })
+    const { data, isLoading, error } = useQuery("recipesList", getRecipesList)
 
     const [page, setPage] = useState<number>(0)
     const [rowsPerPage, setRowsPerPage] = useState<number>(8)
@@ -62,9 +55,9 @@ const Recipes = () => {
         )
     }
 
-    const recipie = resipesArr.map(el => {
+    const recipe = data.map(el => {
         return (
-            <Recipie
+            <Recipe
                 key={el.id}
                 id={el.id}
                 protein={el.protein}
@@ -80,17 +73,17 @@ const Recipes = () => {
 
     return (
         <ContentList>
-            <FilterMenu title="Recipies" />
+            <FilterMenu title="Recipes" />
             <TableContainer>
                 <Table sx={{ minWidth: 1120 }}>
                     <ColumnName />
-                    <TableBody>{recipie}</TableBody>
+                    <TableBody>{recipe}</TableBody>
                 </Table>
             </TableContainer>
             <FooterRecipes>
                 <CreateForm />
                 <Pagination
-                    count={resipesArr.length}
+                    count={data.length}
                     page={page}
                     onChangePage={handleChangePage}
                     rowsPerPage={rowsPerPage}

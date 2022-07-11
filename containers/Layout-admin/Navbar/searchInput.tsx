@@ -1,8 +1,8 @@
 import * as React from "react"
+import Image from "next/image"
 import { styled, alpha } from "@mui/material/styles"
 import IconButton from "@mui/material/IconButton"
 import InputBase from "@mui/material/InputBase"
-import Image from "next/image"
 
 import imageSearch from "../../../common/images/layoutAdmin/navbarIcons/search.png"
 
@@ -60,8 +60,8 @@ const SearchAppBar = () => {
                 >
                     <Image
                         src={imageSearch}
-                        width="16"
-                        height="16"
+                        width={16}
+                        height={16}
                         alt="search"
                     />
                 </IconButton>

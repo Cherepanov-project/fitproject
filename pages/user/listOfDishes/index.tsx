@@ -4,8 +4,8 @@ import Stack from "@mui/material/Stack"
 import MenuItem from "../../../components/ListOfDishes/menuItem"
 import SideBar from "../../../components/ListOfDishes/sideBar"
 import { dishFoodAll } from "../../../models/dish/dish"
-import { MenuWrapper, AllMenusWrapper, ListDishes } from "./stylesAllMenus"
-import { IFoodItemType } from "../../../models/dish/dish"
+import { MenuWrapper, AllMenusWrapper, ListDishes } from "../../../components/ListOfDishes/listOfDishes.styles"
+import { IFoodItemType } from "../../../models/models.interface"
 import { LayoutUser } from "../../../containers/Layout-user/layoutUser"
 
 const AllMenus = () => {

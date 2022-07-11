@@ -26,7 +26,7 @@ const theme = createTheme({
     },
 })
 
-const LayoutAdmin: React.FC<layoutAdminProps> = ({ children }): JSX.Element => {
+export const LayoutAdmin: React.FC<layoutAdminProps> = ({ children }): JSX.Element => {
     return (
         <ThemeProvider theme={theme}>
             <Container>
@@ -42,9 +42,7 @@ const LayoutAdmin: React.FC<layoutAdminProps> = ({ children }): JSX.Element => {
     )
 }
 
-const withLayout = <T extends Record<string, undefined>>(
-    Component: FunctionComponent<T>
-) => {
+export const withLayout = <T extends Record<string, undefined>>(Component: FunctionComponent<T>) => {
     return function WithLayoutComponent(props: T): JSX.Element {
         useEffect(() => {
             if (!Cookies.get("auth-token")) {
@@ -60,5 +58,3 @@ const withLayout = <T extends Record<string, undefined>>(
         )
     }
 }
-
-export { withLayout, LayoutAdmin }

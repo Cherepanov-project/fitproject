@@ -3,19 +3,14 @@ import { useRouter } from "next/router"
 
 import img from "/common/images/DishChikenImg.png"
 import generateId from "../../utils/generateId"
-import { IFoodItemType, dishFood } from "../../models/dish/dish"
+import { IFoodItemType } from "../../models/models.interface"
+import { dishFood } from "../../models/dish/dish"
 import DishIngredients from "./dishIngredients"
 import { LayoutUser } from "../../containers/Layout-user/layoutUser"
-import HeadLinkBack from "../headLinkBack"
-import {
-    DishComponent,
-    DishItem,
-    NutritionalItem,
-    NutritionalContainer,
-    IngredientsContainer,
-    FoodContainer,
-    ButtonFood,
-    DishDescriptionWrapper,
+import HeadLinkBack from "../HeadLinkBack/headLinkBack"
+import { DishComponent, DishItem, NutritionalItem,
+    NutritionalContainer, IngredientsContainer, FoodContainer,
+    ButtonFood, DishDescriptionWrapper
 } from "./dish.styles"
 
 const Dish = () => {

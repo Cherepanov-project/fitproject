@@ -7,7 +7,7 @@ import {
     SidebarListWrapper,
     SidebarListItemCheckbox,
     SidebarStyledItemCheckbox,
-} from "../../pages/user/workoutList/workoutListStyles"
+} from "./workoutList.styles"
 import {
     muscleGroupList,
     muscleCheckboxList,

@@ -1,16 +1,16 @@
 import { useState } from "react"
 import { useRouter } from "next/router"
 import Link from "next/link"
+import Image from "next/image"
 import Card from "@mui/material/Card"
 
-import Slider from "../../../../components/Slider/Slider"
-
 import useMediaQuery from "@mui/material/useMediaQuery"
+
+import Slider from "../../../../components/Slider/slider"
 import { LayoutUser } from "../../../../containers/Layout-user/layoutUser"
 import { exerciseList, exercisesType } from "../../../../models/workout/workout"
 import muscleImg from "../../../../common/images/icons/backMuscle.svg"
 import generateId from "../../../../utils/generateId"
-
 import {
     MainWrapper,
     Container,
@@ -18,7 +18,7 @@ import {
     Exercise,
     ExerciseTitle,
     ExerciseDescription,
-    Image,
+    ImageWorkout,
     MusclesTitle,
     MusclesList,
     Muscle,
@@ -26,7 +26,7 @@ import {
     ImgWrapper,
     TextWrapper,
     Reps,
-} from "./workoutStyles"
+} from "../../../../components/WorkoutList/workout.styles"
 
 const WorkoutItem = () => {
     const path = useRouter()
@@ -49,14 +49,14 @@ const WorkoutItem = () => {
 
     const musclesList = workout?.muscles.map(muscle => (
         <Muscle key={generateId()}>
-            <img src={muscleImg.src} alt="muscle" />
+            <Image src={muscleImg.src} alt="muscle" />
             <span>{muscle}</span>
         </Muscle>
     ))
     const exercises = exerciseList
         .filter(el => el.area === workout?.area)
-        .map(({ id, img, imgWidth, imgHeight, name, move, repeat }) => (
-            <Link href={`/user/workoutList/workout/${id}`} key={id}>
+        .map(({ id, img, imgWidth, imgHeight, name, approachCount, repeatCount }) => (
+            <Link href={`/user/workoutList/workout/${id}`} key={id} passHref>
                 <Card sx={cardStyles}>
                     <ImgWrapper
                         imgUrl={img}
@@ -65,7 +65,7 @@ const WorkoutItem = () => {
                     />
                     <TextWrapper>
                         <Exercise>{name}</Exercise>
-                        <Reps>{`${move} X ${repeat} REPS`}</Reps>
+                        <Reps>{`${approachCount} X ${repeatCount} REPS`}</Reps>
                     </TextWrapper>
                 </Card>
             </Link>
@@ -78,14 +78,14 @@ const WorkoutItem = () => {
                     <Exercise>
                         <ExerciseTitle>{workout?.name}</ExerciseTitle>
                         <ExerciseDescription>
-                            {workout?.exercise}
+                            {/*{workout?.exercise}*/}
                         </ExerciseDescription>
 
                         <MusclesTitle>Muscles</MusclesTitle>
                         <MusclesList>{musclesList}</MusclesList>
                     </Exercise>
                     <div>
-                        <Image
+                        <ImageWorkout
                             imgUrl={workout?.img}
                             imgWidth={workout?.imgWidth}
                             imgHeight={workout?.imgHeight}

@@ -1,12 +1,8 @@
 import styled from "styled-components"
 
-interface ColorfulTegProp {
-    color?: string
-    brRad?: string
-    backgroundColor?: string
-}
+import { IColorfulTegPropStyle } from "./colorfulTeg.interface"
 
-export const Tegs = styled.span<ColorfulTegProp>`
+export const Tegs = styled.span<IColorfulTegPropStyle>`
     margin: 0;
     padding: 5px 12px;
     max-height: 24px;

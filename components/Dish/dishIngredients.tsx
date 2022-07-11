@@ -1,17 +1,9 @@
-import generateId from "../../utils/generateId"
 import React from "react"
 
+import generateId from "../../utils/generateId"
 import chickenFood from "/common/images/chickenFood.svg"
-import { IFoodItemType } from "../../models/dish/dish"
-import {
-    IngredientsItem,
-    IngredientsItemImg,
-    IngredientsItemText,
-} from "./dish.styles"
-
-interface IDishIngredientsProps {
-    foodItem: IFoodItemType
-}
+import { IngredientsItem, IngredientsItemImg, IngredientsItemText } from "./dish.styles"
+import { IDishIngredientsProps } from "./dish.interface"
 
 const DishIngredients: React.FC<IDishIngredientsProps> = ({ foodItem }) => {
     const viewIngredients = 4

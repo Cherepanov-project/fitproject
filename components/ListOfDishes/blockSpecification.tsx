@@ -1,9 +1,6 @@
 import {
-    Specification,
-    SpecificationSpan,
-    MenuH2,
-    SpecificationWrapper,
-} from "../../pages/user/listOfDishes/stylesAllMenus"
+    Specification, SpecificationSpan, MenuH2, SpecificationWrapper
+} from "./listOfDishes.styles"
 import {
     specificationItems,
     ISpecificationItemsType,

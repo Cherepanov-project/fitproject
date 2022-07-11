@@ -1,12 +1,6 @@
 import styled from "styled-components"
 
-interface IImg {
-    imgUrl: any
-}
-
-interface IDisplayContainer {
-    $display?: boolean
-}
+import { IDisplayContainer, IImg } from "./dish.interface"
 
 export const ButtonFood = styled.button<IDisplayContainer>`
     display: ${({ $display }) => (!$display ? "inline-block" : "none")};

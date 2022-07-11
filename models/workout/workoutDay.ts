@@ -6,6 +6,21 @@ export interface IWorkoutDayType {
     activeMenu: boolean
 }
 
+export interface IItemWorkoutProps {
+    workoutEl: IWorkoutDayType
+    asPath: string
+    menuClickShow?: (id: number) => void
+}
+
+export interface IItemWorkoutPropsStyle {
+    fontSize?: string
+    color?: string
+}
+
+export interface IDropMenuPropsStyle {
+    $display: boolean
+}
+
 const workoutDay: IWorkoutDayType[] = [
     {
         id: 10,

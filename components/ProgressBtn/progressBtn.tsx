@@ -1,28 +1,11 @@
 import Typography from "@mui/material/Typography"
 import Box from "@mui/material/Box"
-import LinearProgress, {
-    LinearProgressProps,
-} from "@mui/material/LinearProgress"
+import LinearProgress, { LinearProgressProps } from "@mui/material/LinearProgress"
 
-import {
-    ProgressButton,
-    IcoContainer,
-    Dots,
-    Title,
-    SubTitle,
-    Target,
-} from "./progressBtn.styles"
+import { IProps } from "./progressBtn.interface"
+import { ProgressButton, IcoContainer, Dots, Title, SubTitle, Target } from "./progressBtn.styles"
 
-interface IProps {
-    title: string
-    subtitle: string
-    target: string
-    ico: JSX.Element
-}
-
-const LinearProgressWithLabel = (
-    props: LinearProgressProps & { value: number }
-) => {
+const LinearProgressWithLabel = ( props: LinearProgressProps & { value: number }) => {
     return (
         <Box
             sx={{

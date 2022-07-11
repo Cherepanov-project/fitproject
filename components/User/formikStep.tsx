@@ -1,7 +1,12 @@
 import { IFormikStepProps } from "../../models/loginOrRegisterInterfaces/interfaces"
 
 const FormikStep = ({ children }: IFormikStepProps) => {
-    return <>{children}</>
+    return (
+        <>
+            {children}
+        </>
+        )
+
 }
 
 export { FormikStep }

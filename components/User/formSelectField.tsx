@@ -4,13 +4,9 @@ import { nanoid } from "nanoid"
 import { Box, FormControl } from "@mui/material"
 
 import { ISelectForm } from "../../models/loginOrRegisterInterfaces/interfaces"
-import {
-    ErrorMessage,
-    InputSelect,
-    SelectOption,
-} from "../../pages/user/userLoginOrRegisterStyle"
+import { ErrorMessage, InputSelect, SelectOption } from "../RegOrLoginSocial/regOrLoginSocial.styles"
 
-const FormSelectField = (props: ISelectForm) => {
+export const FormSelectField = (props: ISelectForm) => {
     const [field, meta] = useField(props)
 
     return (
@@ -40,5 +36,3 @@ const FormSelectField = (props: ISelectForm) => {
         </Box>
     )
 }
-
-export { FormSelectField }

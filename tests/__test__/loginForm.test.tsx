@@ -3,7 +3,7 @@
  */
 import React from "react"
 import { render, unmountComponentAtNode } from "react-dom"
-import { LoginForm } from "../../pages/user/login/loginForm"
+import { Index } from "../../pages/user/login"
 import { waitFor } from "@testing-library/react"
 import { nanoid } from "nanoid"
 
@@ -27,7 +27,7 @@ afterEach(() => {
 
 it("Required fields", async () => {
     await waitFor(() => {
-        render(<LoginForm />, container)
+        render(<Index />, container)
     })
     const buttons = document.querySelectorAll("button")
 

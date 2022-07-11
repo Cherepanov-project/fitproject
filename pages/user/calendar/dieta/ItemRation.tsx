@@ -1,27 +1,12 @@
 import Link from "next/link"
 import React from "React"
 
-import { IDailyRationType } from "../../../../models/dieta/dieta"
+import { IItemRationProps } from "../../../../components/Calendar/calendarContainer.interface"
 import {
-    FoodLink,
-    ListItem,
-    ItemDiv,
-    ButtonMenu,
-    DropMenu,
-    ButtonDiv,
-} from "./stylesDieta"
+    FoodLink, ListItem, ItemDiv, ButtonMenu, DropMenu, ButtonDiv
+} from "../../../../components/Calendar/calendarContainer.styles"
 
-interface ItemRationProps {
-    dietaEl: IDailyRationType
-    asPath: string
-    menuClickShow?: (id: string) => void
-}
-
-const ItemRation: React.FC<ItemRationProps> = ({
-    dietaEl,
-    asPath,
-    menuClickShow,
-}) => {
+const ItemRation: React.FC<IItemRationProps> = ({ dietaEl, asPath, menuClickShow }) => {
     return (
         <ListItem>
             <ItemDiv>

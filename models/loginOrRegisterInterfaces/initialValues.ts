@@ -1,9 +1,9 @@
-const formStatusValue = {
+export const formStatusValue = {
     message: "",
     type: "",
 }
 
-const formRegisterValues = {
+export const formRegisterValues = {
     email: "",
     password: "",
     confirmPassword: "",
@@ -17,5 +17,3 @@ const formRegisterValues = {
     numberOfWorkouts: "",
     typeOfTrainings: "",
 }
-
-export { formStatusValue, formRegisterValues }

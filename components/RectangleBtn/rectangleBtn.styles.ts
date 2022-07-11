@@ -1,8 +1,6 @@
 import styled from "styled-components"
 
-interface IBtnProps {
-    bg: string
-}
+import {IBtnProps} from "./rectangleBtn.interface"
 
 export const RectangleButton = styled.button<IBtnProps>`
     display: flex;

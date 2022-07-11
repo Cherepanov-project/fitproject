@@ -1,8 +1,4 @@
-interface IGraphDataType {
-    name: string
-    uv: number
-    pv: number
-}
+import { IGraphDataType } from "../models.interface"
 
 const graphData: IGraphDataType[] = [
     { name: "0", uv: 15, pv: 35 },

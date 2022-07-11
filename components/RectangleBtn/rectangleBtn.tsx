@@ -1,12 +1,7 @@
 import { RectangleButton, TextWrapper } from "./rectangleBtn.styles"
+import { IProps } from "./rectangleBtn.interface"
 
-interface Props {
-    text: string
-    bg: string
-    ico?: JSX.Element
-}
-
-const RectangleBtn = ({ text, bg, ico }: Props) => {
+const RectangleBtn = ({ text, bg, ico }: IProps) => {
     return (
         <RectangleButton bg={bg}>
             {ico}

@@ -3,7 +3,7 @@ export interface DataType {
     nameUser: string
     gender: string
     avatar?: string
-    dateRegistor: string
+    dateRegister: string
     role: string
     email: string
 }
@@ -12,7 +12,7 @@ export const userList = [
     {
         id: "52373582",
         nameUser: "Tom Cruise",
-        dateRegistor: "May 26, 2019 8:00 AM",
+        dateRegister: "May 26, 2019 8:00 AM",
         gender: "Female",
 
         role: "admin",
@@ -23,7 +23,7 @@ export const userList = [
         nameUser: "Tomas Cruise",
 
         gender: "Male",
-        dateRegistor: "May 25, 2019 8:00 AM",
+        dateRegister: "May 25, 2019 8:00 AM",
 
         role: "user",
         email: "adad@asd.com",
@@ -33,7 +33,7 @@ export const userList = [
         nameUser: "Tomas Cruise",
 
         gender: "Male",
-        dateRegistor: "May 25, 2019 8:00 PM",
+        dateRegister: "May 25, 2019 8:00 PM",
 
         role: "admin",
         email: "adad@asd.com",
@@ -43,7 +43,7 @@ export const userList = [
         nameUser: "Tomas Cruise",
 
         gender: "Male",
-        dateRegistor: "May 25, 2019 8:00 AM",
+        dateRegister: "May 25, 2019 8:00 AM",
 
         role: "user",
         email: "adad@asd.com",
@@ -53,7 +53,7 @@ export const userList = [
         nameUser: "Tomas Cruise",
 
         gender: "Male",
-        dateRegistor: "May 25, 2015 11:00 AM",
+        dateRegister: "May 25, 2015 11:00 AM",
 
         role: "user",
         email: "adad@asd.com",
@@ -63,7 +63,7 @@ export const userList = [
         nameUser: "Tomas Cruise",
 
         gender: "Female",
-        dateRegistor: "May 25, 2016 8:00 AM",
+        dateRegister: "May 25, 2016 8:00 AM",
 
         role: "user",
         email: "adad@asd.com",
@@ -73,7 +73,7 @@ export const userList = [
         nameUser: "Tomas Cruise",
 
         gender: "Male",
-        dateRegistor: "May 10, 2015 8:00 AM",
+        dateRegister: "May 10, 2015 8:00 AM",
 
         role: "user",
         email: "adad@asd.com",
@@ -83,7 +83,7 @@ export const userList = [
         nameUser: "Tomas Cruise",
 
         gender: "Male",
-        dateRegistor: "May 25, 2019 8:00 AM",
+        dateRegister: "May 25, 2019 8:00 AM",
 
         role: "user",
         email: "adad@asd.com",
@@ -93,7 +93,7 @@ export const userList = [
         nameUser: "Tomas Cruise",
 
         gender: "Male",
-        dateRegistor: "May 25, 2019 8:00 AM",
+        dateRegister: "May 25, 2019 8:00 AM",
 
         role: "user",
         email: "adad@asd.com",

@@ -1,10 +1,4 @@
-export interface IDailyRationType {
-    id: string
-    calories: number
-    nutritionValues: number
-    food: string
-    active: boolean
-}
+import { IDailyRationType } from "../models.interface"
 
 const dailyRation: IDailyRationType[] = [
     {

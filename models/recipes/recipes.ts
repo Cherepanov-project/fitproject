@@ -3,6 +3,10 @@ export interface IIngredient {
     description: string
 }
 
+export interface IRecipeEditProps {
+    id?: string
+}
+
 export interface INutritionValues {
     name: string
     calories: number

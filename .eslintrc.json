@@ -16,7 +16,7 @@
         "import/no-mutable-exports": "off",
         "default-param-last": ["off"],
         "max-depth": ["warn", 4],
-        "id-length": ["warn", { "exceptions": ["i", "j"], "min": 2 }],
+        "id-length": ["warn", { "exceptions": ["i", "j"], "min": 1 }],
         "no-lonely-if": ["error"],
         "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
         "no-restricted-syntax": "off",
