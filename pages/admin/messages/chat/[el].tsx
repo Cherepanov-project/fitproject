@@ -3,9 +3,13 @@ import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import {chats} from "../../../../models/chatsList/chats"
 import { formatDistanceStrict } from 'date-fns'
-import {ChatHeader, ChatHeaderContent, ChatBody, Avatar, ChatItem, ChatFooter,ChatFooterInput } from "./Chat.style"
-import Button from '@mui/material/Button';
-import SendIcon from '@mui/icons-material/Send';
+import {ChatHeader, ChatHeaderContent, ChatBody, Avatar, ChatItem } from "./Chat.style"
+import SendMsgForm from "../../../../components/SendMsgForm/SendMsgForm"
+import io, { Socket } from "socket.io-client";
+import { SOCKET_URL } from "../../../../utils/chatsConfig/default";
+import EVENTS from "../../../../utils/chatsConfig/events";
+
+
 
 // remove after api realisation. Begin
 function getUserById(userId){
@@ -20,15 +24,39 @@ function formatMsgTime(ms){
   return hours+':'+minutes
 }
 
+const socket = io(SOCKET_URL);
+
 const Chat = () => {
   let path = useRouter()
   let chat = getUserById(Number(path.query.el))
+  let [messages, setMessages] = useState([])
+
+  useEffect(()=>{
+    setMessages(chat?.messages)
+    socket.emit(EVENTS.CLIENT.CREATE_ROOM, {userId:path.query.el});
+    socket.on(EVENTS.SERVER.ROOM_MESSAGE, ({ msg, date, id }) => {
+      setMessages((messages) => {
+        let newArr = messages.map((val) => ({ ...val }))
+        newArr.push({mess:msg, date, id})
+        return newArr
+      });
+    });
+  },[path.query.el])
+
+  // ответное сообщение, 
+  // сейчас никак не обрабатывается 
+  // у пользователя
+  function handleSendMsg(msg: string): void{
+    if (!String(msg).trim()) {return}
+    let userId = path.query.el;
+    socket.emit(EVENTS.CLIENT.SEND_ROOM_MESSAGE, { userId, msg });
+  }
   let lastSeen = `last seen ${chat?formatDistanceStrict(
     new Date(chat?.lastSeen),
     new Date()
   ):""} ago`
 
-  let messages = chat?.messages.map((value,index)=>{
+  let messagesMarkup = messages?.map((value,index)=>{
     return (
       <ChatItem key={value.id}>
         <b>{(value.author?'admin':chat.username) +" - "+ formatMsgTime(value.date)}</b>
@@ -36,14 +64,6 @@ const Chat = () => {
       </ChatItem>
     )
   })
-  
-  useEffect(()=>{
-    // делаем запрос на сервер: по userId из url строки, 
-    // достаём переписку с этим пользователем
-    // нужен get запрос: по id пользователя
-    // получить переписку с ним, формат одной переписки как 
-    // один элемент в массиве переписок
-  },[])
   
   return (
     <>
@@ -55,20 +75,9 @@ const Chat = () => {
         </ChatHeaderContent>
       </ChatHeader>
       <ChatBody>
-        {messages}
-        <ChatFooter>
-          <ChatFooterInput
-            rows={2}
-            placeholder="Напишите сообщение ..."
-          />
-          <Button sx = {{minWidth:'135px', maxHeight:'30px', backgroundColor:"#7f8084", "&.MuiButtonBase-root:hover": {
-                bgcolor: "#7f8084"
-              }}} variant="contained" size='small' endIcon={<SendIcon />}>
-            Отправить
-          </Button>      
-        </ChatFooter>
-      </ChatBody>
-      
+        {messagesMarkup}
+        <SendMsgForm onSubmitHandler={handleSendMsg}/>
+      </ChatBody>      
     </>
   )
 }

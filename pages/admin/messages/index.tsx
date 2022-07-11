@@ -6,10 +6,7 @@ import Link from "next/link"
 import { useEffect } from "react"
 
 const ChatsList = () => {
-    useEffect(()=>{
-        // делаем загрузку списка чатов, 
-        // сейчас она локально здесь ../../../models/chatsList/chatsList
-    },[])
+    
     let sortedList = chatsList.sort((a,b)=>{return b.date-a.date})
     const chatsPreviews = sortedList.map((chatPreviewContent)=>(
             <Link key={chatPreviewContent.userId} href={`/admin/messages/chat/${chatPreviewContent.userId}`} passHref>      
