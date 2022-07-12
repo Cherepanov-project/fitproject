@@ -3,118 +3,68 @@ import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/router"
 
-import imageOverview from "../../../common/images/layoutAdmin/sidebarIcons/statistics.svg"
-import imageUsers from "../../../common/images/layoutAdmin/sidebarIcons/users.svg"
-import imageRecipies from "../../../common/images/layoutAdmin/sidebarIcons/recipies.svg"
-import imageExercises from "../../../common/images/layoutAdmin/sidebarIcons/exercises.svg"
-import imageMessages from "../../../common/images/layoutAdmin/sidebarIcons/messages.svg"
-import imageArticles from "../../../common/images/layoutAdmin/sidebarIcons/articles.svg"
-import imageSettings from "../../../common/images/layoutAdmin/sidebarIcons/settings.svg"
-import imageSubscription from "../../../common/images/layoutAdmin/sidebarIcons/subscription.svg"
-import imageLogoApp from "../../../common/images/layoutAdmin/sidebarIcons/logoApp.svg"
-import { ISidebarMenuItem } from "./sidebar.interface"
-import {
-    SidebarItem,
-    SidebarHeader,
-    SidebarWrapper,
-    AAA,
-    ItemName,
-    Ul,
-    Hr,
-} from "./sidebar.styles"
+// models
+import { sidebarMenu } from "../../../models/admin/layout/sidebarModel"
 
-const sidebarMenuFires: ISidebarMenuItem[] = [
-    { route: "admin/overview", name: "overview", icon: imageOverview, id: 1 },
-    { route: "admin/users", name: "users", icon: imageUsers, id: 2 },
-    { route: "admin/recipes", name: "recipes", icon: imageRecipies, id: 3 },
-    {
-        route: "admin/Exercises",
-        name: "exercises",
-        icon: imageExercises,
-        id: 4,
-    },
-    { route: "admin/messages", name: "messages", icon: imageMessages, id: 5 },
-    { route: "admin/articles", name: "articles", icon: imageArticles, id: 6 },
-]
-const sidebarMenuSecond: ISidebarMenuItem[] = [
-    { route: "admin/settings", name: "settings", icon: imageSettings, id: 7 },
-    {
-        route: "admin/subscription",
-        name: "subscription",
-        icon: imageSubscription,
-        id: 8,
-    },
-]
+// icon
+import { imageLogoApp } from "../../../common/images/layoutAdmin/sidebarIcons/index"
+
+// styles
+import {
+    StyleSidebarItem,
+    StyleSidebarHeader,
+    StyleSidebarWrapper,
+    StyleLink,
+    StyleItemName,
+    StyleMenuList,
+    StyleDivider,
+} from "./sidebar.styles"
 
 const Sidebar = () => {
     const router = useRouter()
     const page = router.asPath.split("/").pop()
 
-    const firstLevel = () => {
+    const menuList = sidebarMenu.map(item => {
         return (
             <>
-                {sidebarMenuFires.map(menu => (
-                    <SidebarItem key={menu.route} selected={menu.name === page}>
-                        <Link href={`/${menu.route}`} passHref>
-                            <AAA>
-                                <Image
-                                    src={menu.icon}
-                                    width="16"
-                                    height="16"
-                                    alt="search"
-                                />
-                                <ItemName>{menu.name}</ItemName>
-                            </AAA>
-                        </Link>
-                    </SidebarItem>
-                ))}
+                <StyleSidebarItem
+                    key={item.route}
+                    selected={item.name === page}
+                >
+                    <Link href={`/${item.route}`} passHref>
+                        <StyleLink>
+                            <Image
+                                src={item.icon}
+                                width="16"
+                                height="16"
+                                alt={item.name}
+                            />
+                            <StyleItemName>{item.name}</StyleItemName>
+                        </StyleLink>
+                    </Link>
+                </StyleSidebarItem>
+                {item?.lastItem ? <StyleDivider /> : ""}
             </>
         )
-    }
-
-    const secondLevel = () => {
-        return (
-            <>
-                {sidebarMenuSecond.map(menu => (
-                    <SidebarItem key={menu.name} selected={menu.name === page}>
-                        <Link href={`/${menu.route}`} passHref>
-                            <AAA>
-                                <Image
-                                    src={menu.icon}
-                                    width="16"
-                                    height="16"
-                                    alt="search"
-                                />
-                                <ItemName>{menu.name}</ItemName>
-                            </AAA>
-                        </Link>
-                    </SidebarItem>
-                ))}
-            </>
-        )
-    }
+    })
 
     return (
-        <SidebarWrapper>
-            <SidebarHeader>
+        <StyleSidebarWrapper>
+            <StyleSidebarHeader>
                 <Link href={`/admin/overview`} passHref>
-                    <AAA>
+                    <StyleLink>
                         <Image
                             src={imageLogoApp}
                             width={32}
                             height={32}
-                            alt="search"
+                            alt="Dashboard Kit"
                         />
-                        <ItemName>Dashboard Kit</ItemName>
-                    </AAA>
+                        <StyleItemName>Dashboard Kit</StyleItemName>
+                    </StyleLink>
                 </Link>
-            </SidebarHeader>
-            <Ul>
-                {firstLevel()}
-                <Hr />
-                {secondLevel()}
-            </Ul>
-        </SidebarWrapper>
+            </StyleSidebarHeader>
+            <StyleMenuList>{menuList}</StyleMenuList>
+        </StyleSidebarWrapper>
     )
 }
 
