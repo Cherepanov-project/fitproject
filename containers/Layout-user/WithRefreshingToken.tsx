@@ -1,5 +1,5 @@
 import { FC, useLayoutEffect } from "react"
-import { refreshToken, activityChecker } from "../../services/API/refreshToken"
+import { refreshToken, activityChecker } from "../../API/refreshToken"
 const WithRefreshingToken = (Component: FC) => {
     return function RefreshingToken(): JSX.Element {
         const refreshInterval = 840_000 //14 mins

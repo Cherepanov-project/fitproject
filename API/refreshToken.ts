@@ -1,12 +1,12 @@
-import { API_TOKEN_REFRESH } from "../../constants/urls"
+import { API_TOKEN_REFRESH } from "../constants/urls"
 import axios from "axios"
 import Cookies from "js-cookie"
-import { REFRESH_TOKEN, ACCESS_TOKEN } from "../../constants/titles"
-import redirectToLoginPage from "../../utils/redirect"
+import { REFRESH_TOKEN, ACCESS_TOKEN } from "../constants/titles"
+import redirectToLoginPage from "../utils/redirect"
 import {
     ILoginResponseSuccess,
     ILoginOrRegisterResponseError,
-} from "../../models/loginOrRegisterInterfaces/interfaces"
+} from "../models/loginOrRegisterInterfaces/interfaces"
 
 const inactiveTimeout = 3600_000 // 1 hour
 let lastActivity = Date.now()
