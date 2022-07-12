@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
 import TableContainer from "@mui/material/TableContainer"
+import Cookies from "js-cookie"
 
 import { withLayout } from "../../../containers/Layout-admin/layoutAdmin"
 import FilterMenu from "../../../components/FilterMenu/filterMenu"
@@ -13,6 +14,7 @@ import ColumnName from "../../../components/User/ColumnName/columnName"
 import { useQuery, dehydrate } from "react-query"
 import { getRecipesList } from "../../../API/recipes"
 import { queryClient } from "../../_app"
+import { ACCESS_TOKEN } from "../../../constants/titles"
 
 // export const getStaticProps = async () => {
 //     await queryClient.prefetchQuery(["recipesList"], async () => {
@@ -29,7 +31,6 @@ import { queryClient } from "../../_app"
 
 const Recipes = () => {
     const { data, isLoading, error } = useQuery("recipesList", getRecipesList)
-
     const [page, setPage] = useState<number>(0)
     const [rowsPerPage, setRowsPerPage] = useState<number>(8)
 
@@ -37,9 +38,7 @@ const Recipes = () => {
         setPage(newPage)
     }
 
-    const handleChangeRowsPerPage = (
-        event: React.ChangeEvent<HTMLInputElement>
-    ) => {
+    const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
         setRowsPerPage(+event.target.value)
         setPage(0)
     }

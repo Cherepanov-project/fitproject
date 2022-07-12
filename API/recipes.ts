@@ -5,6 +5,7 @@ import { IRecipesArr } from "../components/RecipeForm/recipeForm.interface"
 
 export const getRecipesList = async () => {
     const response = await instanceAdmin.get<IRecipesArr>('/api/v1/admin/recipe')
+    console.log(response)
     return response.data.data.content
 }
 

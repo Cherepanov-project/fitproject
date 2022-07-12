@@ -34,7 +34,7 @@ const SignInForm = () => {
 
     // ВРЕМЕННО. Пока нет кнопки выхода
     if (!loginSuccess) {
-        Cookies.remove("auth-token")
+        Cookies.remove(ACCESS_TOKEN)
     }
 
     return (
@@ -55,10 +55,7 @@ const SignInForm = () => {
                         setMsg("You have been login")
                         setOpen(true)
                         setLoginSuccess(true)
-                        Cookies.set(
-                            ACCESS_TOKEN,
-                            JSON.stringify(response.data.jwtToken)
-                        )
+                        Cookies.set(ACCESS_TOKEN, response.data.jwtToken)
                         router.replace("/admin/overview")
                     }
                 }}
