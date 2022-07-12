@@ -1,12 +1,9 @@
-import { API_TOKEN_REFRESH } from "../constants/urls"
-import axios from "axios"
 import Cookies from "js-cookie"
-import { REFRESH_TOKEN, ACCESS_TOKEN } from "../constants/titles"
+
+import { ACCESS_TOKEN } from "../constants/titles"
 import redirectToLoginPage from "../utils/redirect"
-import {
-    ILoginResponseSuccess,
-    ILoginOrRegisterResponseError,
-} from "../models/loginOrRegisterInterfaces/interfaces"
+import { ILoginOrRegisterResponseError } from "../models/loginOrRegisterInterfaces/interfaces"
+import { instanceTokenRefresh } from "./inctances"
 
 const inactiveTimeout = 3600_000 // 1 hour
 let lastActivity = Date.now()
@@ -19,20 +16,16 @@ window.addEventListener("keydown", setLastActivity)
 window.addEventListener("scroll", setLastActivity)
 window.addEventListener("touchstart", setLastActivity)
 
-export const refreshToken = async () => {
+export const postRefreshToken = async () => {
     if (userIsActive) {
-        const accessToken = JSON.parse(Cookies.get(ACCESS_TOKEN))
-        const headers = {
-            headers: { Authorization: `Bearer ${accessToken}` },
+        try {
+            const { data } = await instanceTokenRefresh.post("/")
+            if (data.success) {
+                Cookies.set(ACCESS_TOKEN, data.data.jwtToken)
+            }
         }
-        const { data } = await axios.post<
-            ILoginResponseSuccess | ILoginOrRegisterResponseError
-        >(API_TOKEN_REFRESH, {}, headers)
-
-        if (data.success === true) {
-            Cookies.set(ACCESS_TOKEN, JSON.stringify(data.data.jwtToken))
-        } else {
-            console.log(data.error)
+        catch (error) {
+            return error as ILoginOrRegisterResponseError
         }
     }
 }

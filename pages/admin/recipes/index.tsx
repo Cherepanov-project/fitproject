@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
 import TableContainer from "@mui/material/TableContainer"
-import Cookies from "js-cookie"
 
 import { withLayout } from "../../../containers/Layout-admin/layoutAdmin"
 import FilterMenu from "../../../components/FilterMenu/filterMenu"
@@ -11,10 +10,8 @@ import { ContentList, FooterRecipes } from "../overview/overview.styles"
 import CreateForm from "../../../components/RecipesTableItem/AddBtn/addForm"
 import Pagination from "../../../components/Table/tablePagination"
 import ColumnName from "../../../components/User/ColumnName/columnName"
-import { useQuery, dehydrate } from "react-query"
+import { useQuery } from "react-query"
 import { getRecipesList } from "../../../API/recipes"
-import { queryClient } from "../../_app"
-import { ACCESS_TOKEN } from "../../../constants/titles"
 
 // export const getStaticProps = async () => {
 //     await queryClient.prefetchQuery(["recipesList"], async () => {

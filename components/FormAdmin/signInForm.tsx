@@ -10,9 +10,9 @@ import Cookies from "js-cookie"
 import imageLogoApp from "../../common/images/formAdmin/logoApp.svg"
 import TextField from "./textField"
 import { FormContainer } from "./formContainer"
-import { loginUser } from "../../API/loginUser"
+import { postAdminToken } from "../../API/adminToken"
 import { validateLoginAdmin } from "../../utils/validationSchema"
-import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../constants/titles"
+import { ACCESS_TOKEN } from "../../constants/titles"
 import {
     DivCenter,
     DivDashboard,
@@ -21,7 +21,6 @@ import {
     FormH2,
     StyledButton,
 } from "./formContainer.styles"
-import { postAdminToken } from "../../API/admin"
 
 const SignInForm = () => {
     const router = useRouter()

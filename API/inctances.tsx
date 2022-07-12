@@ -7,7 +7,8 @@ import {
     API_AUTH_ADMIN,
     API_GET_STATISTICS,
     API_WORKOUTS,
-    API_REGISTER_USER
+    API_REGISTER_USER,
+    API_TOKEN_REFRESH
 } from "../constants/urls"
 
 const adminToken = Cookies.get(ACCESS_TOKEN)
@@ -41,6 +42,13 @@ const instanceAdmin = axios.create({
     },
 })
 
+const instanceTokenRefresh = axios.create({
+    baseURL: API_TOKEN_REFRESH,
+    headers: {
+        Authorization: `Bearer ${adminToken}`,
+    },
+})
+
 const instanceRegisterUser = axios.create({
     baseURL: API_REGISTER_USER,
     headers: {
@@ -48,4 +56,8 @@ const instanceRegisterUser = axios.create({
     },
 })
 
-export { instanceAuth, instanceStatistics, instanceWorkouts, instanceAdmin, instanceRegisterUser }
+export {
+    instanceAuth, instanceStatistics,
+    instanceWorkouts, instanceAdmin,
+    instanceRegisterUser, instanceTokenRefresh
+}

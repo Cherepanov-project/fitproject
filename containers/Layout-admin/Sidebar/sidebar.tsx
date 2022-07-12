@@ -5,7 +5,7 @@ import { useRouter } from "next/router"
 
 import imageOverview from "../../../common/images/layoutAdmin/sidebarIcons/statistics.svg"
 import imageUsers from "../../../common/images/layoutAdmin/sidebarIcons/users.svg"
-import imageRecipies from "../../../common/images/layoutAdmin/sidebarIcons/recipies.svg"
+import imageRecipes from "../../../common/images/layoutAdmin/sidebarIcons/recipies.svg"
 import imageExercises from "../../../common/images/layoutAdmin/sidebarIcons/exercises.svg"
 import imageMessages from "../../../common/images/layoutAdmin/sidebarIcons/messages.svg"
 import imageArticles from "../../../common/images/layoutAdmin/sidebarIcons/articles.svg"
@@ -26,24 +26,14 @@ import {
 const sidebarMenuFires: ISidebarMenuItem[] = [
     { route: "admin/overview", name: "overview", icon: imageOverview, id: 1 },
     { route: "admin/users", name: "users", icon: imageUsers, id: 2 },
-    { route: "admin/recipes", name: "recipes", icon: imageRecipies, id: 3 },
-    {
-        route: "admin/Exercises",
-        name: "exercises",
-        icon: imageExercises,
-        id: 4,
-    },
+    { route: "admin/recipes", name: "recipes", icon: imageRecipes, id: 3 },
+    { route: "admin/exercises", name: "exercises", icon: imageExercises, id: 4 },
     { route: "admin/messages", name: "messages", icon: imageMessages, id: 5 },
     { route: "admin/articles", name: "articles", icon: imageArticles, id: 6 },
 ]
 const sidebarMenuSecond: ISidebarMenuItem[] = [
     { route: "admin/settings", name: "settings", icon: imageSettings, id: 7 },
-    {
-        route: "admin/subscription",
-        name: "subscription",
-        icon: imageSubscription,
-        id: 8,
-    },
+    { route: "admin/subscription", name: "subscription", icon: imageSubscription, id: 8 },
 ]
 
 const Sidebar = () => {

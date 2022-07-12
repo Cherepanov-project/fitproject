@@ -1,11 +1,9 @@
-import axios from "axios"
 import { IPutRecipe, IPostRecipe } from "./api.interface"
 import { instanceAdmin } from "./inctances"
 import { IRecipesArr } from "../components/RecipeForm/recipeForm.interface"
 
 export const getRecipesList = async () => {
     const response = await instanceAdmin.get<IRecipesArr>('/api/v1/admin/recipe')
-    console.log(response)
     return response.data.data.content
 }
 
@@ -16,7 +14,6 @@ export const postRecipe = async (data: IPostRecipe) => {
 
 export const getRecipeById = async (id: number) => {
     const response = await instanceAdmin.get(`/api/v1/admin/recipe/${id}`)
-    console.log(response)
     return response.data
 }
 
