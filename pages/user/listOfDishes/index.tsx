@@ -4,9 +4,14 @@ import Stack from "@mui/material/Stack"
 import MenuItem from "../../../components/ListOfDishes/menuItem"
 import SideBar from "../../../components/ListOfDishes/sideBar"
 import { dishFoodAll } from "../../../models/dish/dish"
-import { MenuWrapper, AllMenusWrapper, ListDishes } from "../../../components/ListOfDishes/listOfDishes.styles"
+import {
+    MenuWrapper,
+    AllMenusWrapper,
+    ListDishes,
+} from "../../../components/ListOfDishes/listOfDishes.styles"
 import { IFoodItemType } from "../../../models/models.interface"
 import { LayoutUser } from "../../../containers/Layout-user/layoutUser"
+import WithRefreshingToken from "../../../containers/Layout-user/WithRefreshingToken"
 
 const AllMenus = () => {
     const elems = dishFoodAll.map((item: IFoodItemType) => (
@@ -32,4 +37,4 @@ const AllMenus = () => {
     )
 }
 
-export default LayoutUser(AllMenus)
+export default WithRefreshingToken(LayoutUser(AllMenus))

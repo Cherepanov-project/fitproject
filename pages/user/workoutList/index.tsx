@@ -1,10 +1,17 @@
 import { useState } from "react"
 
-import { MainWrapper, ItemListWrapper } from "../../../components/WorkoutList/workoutList.styles"
+import {
+    MainWrapper,
+    ItemListWrapper,
+} from "../../../components/WorkoutList/workoutList.styles"
 import Sidebar from "../../../components/WorkoutList/SideBar/sidebar"
 import { LayoutUser } from "../../../containers/Layout-user/layoutUser"
 import ItemList from "../../../components/WorkoutList/ItemList/itemList"
-import { muscleCheckboxList, muscleCheckboxListType } from "../../../models/workout/workout"
+import WithRefreshingToken from "../../../containers/Layout-user/WithRefreshingToken"
+import {
+    muscleCheckboxList,
+    muscleCheckboxListType,
+} from "../../../models/workout/workout"
 
 const WorkoutList = () => {
     const [muscles, setMuscle] = useState<muscleCheckboxListType>(muscleCheckboxList)
@@ -18,4 +25,4 @@ const WorkoutList = () => {
     )
 }
 
-export default LayoutUser(WorkoutList)
+export default WithRefreshingToken(LayoutUser(WorkoutList))

@@ -10,10 +10,15 @@ import Snackbar from "@mui/material/Snackbar"
 import { loginUser } from "../../../API/loginUser"
 import { FormTextField } from "../../../components/User/formTextField"
 import { validationLoginUser } from "../../../utils/validationSchema"
-import { RightSide, Title2, ForgotPassword } from "../../../components/RegOrLoginSocial/regOrLoginSocial.styles"
+import {
+    RightSide,
+    Title2,
+    ForgotPassword,
+} from "../../../components/RegOrLoginSocial/regOrLoginSocial.styles"
 import RegOrLoginSocial from "../../../components/RegOrLoginSocial/regOrLoginSocial"
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../../constants/titles"
 
-export const Index: React.FC = () => {
+export const SignInForm: React.FC = () => {
     const [open, setOpen] = useState<boolean>(false)
     const [msg, setMsg] = useState<string>("")
     const [loginSuccess, setLoginSuccess] = useState<boolean>(false)
@@ -25,7 +30,7 @@ export const Index: React.FC = () => {
 
     //перенаправление на страницу пользователя если пользователь был залогинен
     useEffect(() => {
-        if (Cookies.get("user-token")) {
+        if (Cookies.get(ACCESS_TOKEN)) {
             router.push("/user/statistics")
         }
     }, [router])
@@ -46,7 +51,7 @@ export const Index: React.FC = () => {
                         setOpen(true)
                         setLoginSuccess(true)
                         Cookies.set(
-                            "user-token",
+                            ACCESS_TOKEN,
                             JSON.stringify(response.data.jwtToken)
                         )
                         router.push("/user/statistics")
@@ -112,5 +117,3 @@ export const Index: React.FC = () => {
         </>
     )
 }
-
-export default Index

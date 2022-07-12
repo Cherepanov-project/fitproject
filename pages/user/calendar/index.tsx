@@ -20,6 +20,7 @@ import generateId from "../../../utils/generateId"
 import FramerCalendar from "../../../components/Calendar/framerCalendar"
 import { monthArr } from "../../../models/user/user"
 import { LayoutUser } from "../../../containers/Layout-user/layoutUser"
+import WithRefreshingToken from "../../../containers/Layout-user/WithRefreshingToken"
 import {
     CalcHead,
     DayBlur,
@@ -121,4 +122,4 @@ const Calendar = () => {
     )
 }
 
-export default LayoutUser(FramerCalendar(Calendar))
+export default WithRefreshingToken(LayoutUser(FramerCalendar(Calendar)))

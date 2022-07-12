@@ -13,14 +13,16 @@ const VK_APP_ID: string = "8103808"
 
 //API ссылки
 const API_SERVER: string = "https://spring-boot-fitness-backend.herokuapp.com"
-const API_WORKOUTS: string = "https://spring-boot-fitness-backend.herokuapp.com/api/v1/admin/exercise"
+const API_WORKOUTS: string =
+    "https://spring-boot-fitness-backend.herokuapp.com/api/v1/admin/exercise"
 const API_REGISTER_USER: string =
     "https://spring-boot-fitness-backend.herokuapp.com/api/v1/registration"
-const API_AUTH_ADMIN: string = "https://spring-boot-fitness-backend.herokuapp.com/api/v1/authenticate"
+const API_AUTH_ADMIN: string =
+    "https://spring-boot-fitness-backend.herokuapp.com/api/v1/authenticate"
 const API_SOCIAL: string = "http://localhost:8082/api/user/social"
 const API_GET_STATISTICS: string = "http://localhost:8082/api/user/statistics"
-
-
+const API_TOKEN_REFRESH =
+    "https://spring-boot-fitness-backend.herokuapp.com/api/v1/authenticate/refresh"
 //картинки
 const GOOGLE_IMG: string =
     "https://play-lh.googleusercontent.com/4cXfm9YG59lys9woio9JM5qR_bOpCrv0dgJ1XmowbzgRpIzDRyNQQ8vB8yXsz3NQJ9Q"
@@ -60,4 +62,5 @@ export {
     REDIRECT_YANDEX_BTN,
     YANDEX_IMG,
     API_SOCIAL,
+    API_TOKEN_REFRESH,
 }

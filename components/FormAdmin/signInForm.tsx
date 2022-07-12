@@ -12,7 +12,15 @@ import TextField from "./textField"
 import { FormContainer } from "./formContainer"
 import { loginUser } from "../../API/loginUser"
 import { validateLoginAdmin } from "../../utils/validationSchema"
-import { DivCenter, DivDashboard, FormA, FormH1, FormH2, StyledButton } from "./formContainer.styles"
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../constants/titles"
+import {
+    DivCenter,
+    DivDashboard,
+    FormA,
+    FormH1,
+    FormH2,
+    StyledButton,
+} from "./formContainer.styles"
 import { postAdminToken } from "../../API/admin"
 
 const SignInForm = () => {
@@ -26,7 +34,7 @@ const SignInForm = () => {
 
     // ВРЕМЕННО. Пока нет кнопки выхода
     if (!loginSuccess) {
-        Cookies.remove('auth-token')
+        Cookies.remove("auth-token")
     }
 
     return (
@@ -48,7 +56,7 @@ const SignInForm = () => {
                         setOpen(true)
                         setLoginSuccess(true)
                         Cookies.set(
-                            "auth-token",
+                            ACCESS_TOKEN,
                             JSON.stringify(response.data.jwtToken)
                         )
                         router.replace("/admin/overview")
