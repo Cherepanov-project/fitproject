@@ -36,4 +36,6 @@ yarn-error.log*
 # ts
 tsconfig.tsbuildinfo
 
+.yarnrc
+.yarn/releases/yarn-1.22.19.cjs
 
