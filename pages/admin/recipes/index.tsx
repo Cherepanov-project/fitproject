@@ -6,7 +6,7 @@ import TableContainer from "@mui/material/TableContainer"
 import { withLayout } from "../../../containers/Layout-admin/layoutAdmin"
 import FilterMenu from "../../../components/FilterMenu/filterMenu"
 import Recipe from "../../../components/RecipesTableItem/recipe"
-import { ContentList, FooterRecipes } from "../overview/overview.styles"
+import { StyleContentList, StyleFooterRecipes } from "../overview/overview.styles"
 import CreateForm from "../../../components/RecipesTableItem/AddBtn/addForm"
 import Pagination from "../../../components/Table/tablePagination"
 import ColumnName from "../../../components/User/ColumnName/columnName"
@@ -68,7 +68,7 @@ const Recipes = () => {
     })
 
     return (
-        <ContentList>
+        <StyleContentList>
             <FilterMenu title="Recipes" />
             <TableContainer>
                 <Table sx={{ minWidth: 1120 }}>
@@ -76,7 +76,7 @@ const Recipes = () => {
                     <TableBody>{recipe}</TableBody>
                 </Table>
             </TableContainer>
-            <FooterRecipes>
+            <StyleFooterRecipes>
                 <CreateForm />
                 <Pagination
                     count={data.length}
@@ -85,8 +85,8 @@ const Recipes = () => {
                     rowsPerPage={rowsPerPage}
                     onChangeRowsPerPage={handleChangeRowsPerPage}
                 />
-            </FooterRecipes>
-        </ContentList>
+            </StyleFooterRecipes>
+        </StyleContentList>
     )
 }
 
