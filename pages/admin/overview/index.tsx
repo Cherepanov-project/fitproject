@@ -5,29 +5,37 @@ import { Typography, Link, Input, Button } from "@mui/material/"
 import AddIcon from "@mui/icons-material/Add"
 
 import { withLayout } from "../../../containers/Layout-admin/layoutAdmin"
+
 import FontStyles from "../../../utils/fonts/fontStyles"
+
 import { headerCardsData } from "../../../models/cards/headerCards/headerCards"
 import { trendsCardsData } from "../../../models/cards/trendsCards/trendsCards"
+
 import { ticketsData } from "../../../models/widgets/tickets/tickets"
 import { tasksData } from "../../../models/widgets/tasks/tasks"
+
 import Card from "../../../components/Card/card"
 import TicketsWidgetItem from "../../../components/WidgetItem/ticketsWidgetItem"
 import TasksWidgetItem from "../../../components/WidgetItem/tasksWidgetItem"
-import { WidgetItemContainer, WidgetItemContent } from "../../../components/WidgetItem/widgetItem.styles"
+
 import {
-    MainContainer,
-    ContainerHeader,
-    Trends,
-    CardsOnTrends,
-    GraphOnTrends,
-    BlockHeader,
-    BlockHeaderLeftSide,
-    BlockHeaderRightSide,
-    CurveDesignation,
-    CurveDesignationColor,
-    TicketsAndTasks,
-    Widget,
-    BlockHeaderRightSideStyled,
+    WidgetItemContainer,
+    WidgetItemContent,
+} from "../../../components/WidgetItem/widgetItem.styles"
+import {
+    StyleMainContainer,
+    StyleContainerHeader,
+    StyleTrends,
+    StyleCardsOnTrends,
+    StyleGraphOnTrends,
+    StyleBlockHeader,
+    StyleBlockHeaderLeftSide,
+    StyleBlockHeaderRightSide,
+    StyleCurveDesignation,
+    StyleCurveDesignationColor,
+    StyleTicketsAndTasks,
+    StyleWidget,
+    StyleBlockHeaderRightSideStyled,
 } from "./overview.styles"
 
 const DynamicGraph = dynamic(() => import("../../../components/Graph/graph"), {
@@ -39,27 +47,28 @@ const Overview = () => {
         <>
             <Normalize />
             <FontStyles />
-            <MainContainer>
-                <ContainerHeader>
+            <StyleMainContainer>
+                <StyleContainerHeader>
                     {headerCardsData.map(item => (
                         <Card
                             name={item.name}
                             key={item.name}
                             value={item.value}
                             padding="24px 32px"
-                            width="258px"
+                            width="25%"
                             height="134px"
                             grow="0"
-                            margin="0"
+                            margin="0 1rem 1rem 0"
                             fontName="19px"
                             fontValue="40px"
+                            outline="1px solid rgba(223, 224, 235, 1)"
                         />
                     ))}
-                </ContainerHeader>
-                <Trends>
-                    <GraphOnTrends>
-                        <BlockHeader>
-                            <BlockHeaderLeftSide>
+                </StyleContainerHeader>
+                <StyleTrends>
+                    <StyleGraphOnTrends>
+                        <StyleBlockHeader>
+                            <StyleBlockHeaderLeftSide>
                                 <Typography
                                     fontSize="19px"
                                     color="rgba(37, 39, 51, 1)"
@@ -77,10 +86,10 @@ const Overview = () => {
                                 >
                                     as of 25 May 2019, 09:41 PM
                                 </Typography>
-                            </BlockHeaderLeftSide>
-                            <BlockHeaderRightSide>
-                                <CurveDesignation>
-                                    <CurveDesignationColor
+                            </StyleBlockHeaderLeftSide>
+                            <StyleBlockHeaderRightSide>
+                                <StyleCurveDesignation>
+                                    <StyleCurveDesignationColor
                                         color={"rgba(55, 81, 255, 1)"}
                                     />
                                     <Typography
@@ -92,9 +101,9 @@ const Overview = () => {
                                     >
                                         Today
                                     </Typography>
-                                </CurveDesignation>
-                                <CurveDesignation>
-                                    <CurveDesignationColor
+                                </StyleCurveDesignation>
+                                <StyleCurveDesignation>
+                                    <StyleCurveDesignationColor
                                         color={"rgba(223, 224, 235, 1)"}
                                     />
                                     <Typography
@@ -106,32 +115,33 @@ const Overview = () => {
                                     >
                                         Yesterday
                                     </Typography>
-                                </CurveDesignation>
-                            </BlockHeaderRightSide>
-                        </BlockHeader>
+                                </StyleCurveDesignation>
+                            </StyleBlockHeaderRightSide>
+                        </StyleBlockHeader>
                         <DynamicGraph />
-                    </GraphOnTrends>
-                    <CardsOnTrends>
+                    </StyleGraphOnTrends>
+                    <StyleCardsOnTrends>
                         {trendsCardsData.map(item => (
                             <Card
                                 name={item.name}
                                 key={item.name}
                                 value={item.value}
-                                padding="24px 32px"
-                                width="342px"
+                                padding="5px"
+                                width="100%"
                                 height="109px"
                                 grow="0"
                                 margin="0"
                                 fontName="16px"
                                 fontValue="24px"
+                                outline=""
                             />
                         ))}
-                    </CardsOnTrends>
-                </Trends>
-                <TicketsAndTasks>
-                    <Widget>
-                        <BlockHeader>
-                            <BlockHeaderLeftSide>
+                    </StyleCardsOnTrends>
+                </StyleTrends>
+                <StyleTicketsAndTasks>
+                    <StyleWidget>
+                        <StyleBlockHeader>
+                            <StyleBlockHeaderLeftSide>
                                 <Typography
                                     fontSize="19px"
                                     color="rgba(37, 39, 51, 1)"
@@ -149,13 +159,13 @@ const Overview = () => {
                                 >
                                     Group: Support
                                 </Typography>
-                            </BlockHeaderLeftSide>
-                            <BlockHeaderRightSideStyled>
+                            </StyleBlockHeaderLeftSide>
+                            <StyleBlockHeaderRightSideStyled>
                                 <Link href="#" underline="hover">
                                     View details
                                 </Link>
-                            </BlockHeaderRightSideStyled>
-                        </BlockHeader>
+                            </StyleBlockHeaderRightSideStyled>
+                        </StyleBlockHeader>
                         {ticketsData.map(item => (
                             <TicketsWidgetItem
                                 name={item.name}
@@ -164,10 +174,10 @@ const Overview = () => {
                                 padding="24px 32px"
                             />
                         ))}
-                    </Widget>
-                    <Widget>
-                        <BlockHeader>
-                            <BlockHeaderLeftSide>
+                    </StyleWidget>
+                    <StyleWidget>
+                        <StyleBlockHeader>
+                            <StyleBlockHeaderLeftSide>
                                 <Typography
                                     fontSize="19px"
                                     color="rgba(37, 39, 51, 1)"
@@ -185,13 +195,13 @@ const Overview = () => {
                                 >
                                     Today
                                 </Typography>
-                            </BlockHeaderLeftSide>
-                            <BlockHeaderRightSideStyled>
+                            </StyleBlockHeaderLeftSide>
+                            <StyleBlockHeaderRightSideStyled>
                                 <Link href="#" underline="hover">
                                     View all
                                 </Link>
-                            </BlockHeaderRightSideStyled>
-                        </BlockHeader>
+                            </StyleBlockHeaderRightSideStyled>
+                        </StyleBlockHeader>
                         <WidgetItemContainer>
                             <WidgetItemContent padding="24px 32px">
                                 <Input
@@ -229,9 +239,9 @@ const Overview = () => {
                                 padding="24px 32px"
                             />
                         ))}
-                    </Widget>
-                </TicketsAndTasks>
-            </MainContainer>
+                    </StyleWidget>
+                </StyleTicketsAndTasks>
+            </StyleMainContainer>
         </>
     )
 }

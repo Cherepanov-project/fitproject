@@ -3,6 +3,7 @@ export interface ICardContainerProps {
     height: string
     margin: string
     borderColor: string
+    outline?: string
 }
 
 export interface ICardContentProps {
