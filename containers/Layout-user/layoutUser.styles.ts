@@ -43,3 +43,11 @@ export const TopInput = styled.input`
     padding-left: 20px;
     margin: 38px 0 47px 0;
 `
+
+export const ChatWithAdmin = styled.div`
+    position:fixed;
+    bottom:0;
+    right:0;
+    background-color:#fff;
+    z-index:1;
+`

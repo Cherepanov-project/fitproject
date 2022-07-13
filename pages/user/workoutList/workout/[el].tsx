@@ -3,6 +3,7 @@ import { useRouter } from "next/router"
 import Link from "next/link"
 import Image from "next/image"
 import Card from "@mui/material/Card"
+
 import useMediaQuery from "@mui/material/useMediaQuery"
 
 import Slider from "../../../../components/Slider/slider"
