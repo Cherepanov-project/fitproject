@@ -36,7 +36,7 @@ export const sidebarMenu: ISidebarMenuItem[] = [
     },
     {
         id: 4,
-        route: "admin/Exercises",
+        route: "admin/exercises",
         name: "exercises",
         icon: imageExercises,
     },
