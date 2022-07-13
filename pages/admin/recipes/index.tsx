@@ -10,9 +10,8 @@ import { ContentList, FooterRecipes } from "../overview/overview.styles"
 import CreateForm from "../../../components/RecipesTableItem/AddBtn/addForm"
 import Pagination from "../../../components/Table/tablePagination"
 import ColumnName from "../../../components/User/ColumnName/columnName"
-import { useQuery, dehydrate } from "react-query"
+import { useQuery } from "react-query"
 import { getRecipesList } from "../../../API/recipes"
-import { queryClient } from "../../_app"
 
 // export const getStaticProps = async () => {
 //     await queryClient.prefetchQuery(["recipesList"], async () => {
@@ -29,7 +28,6 @@ import { queryClient } from "../../_app"
 
 const Recipes = () => {
     const { data, isLoading, error } = useQuery("recipesList", getRecipesList)
-
     const [page, setPage] = useState<number>(0)
     const [rowsPerPage, setRowsPerPage] = useState<number>(8)
 
@@ -37,9 +35,7 @@ const Recipes = () => {
         setPage(newPage)
     }
 
-    const handleChangeRowsPerPage = (
-        event: React.ChangeEvent<HTMLInputElement>
-    ) => {
+    const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
         setRowsPerPage(+event.target.value)
         setPage(0)
     }

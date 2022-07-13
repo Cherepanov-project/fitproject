@@ -1,5 +1,3 @@
-import Cookies from "js-cookie"
-
 import { ILoginOrRegisterResponseError } from "../models/loginOrRegisterInterfaces/interfaces"
 import { instanceRegisterUser } from "./inctances"
 

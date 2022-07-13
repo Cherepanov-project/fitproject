@@ -7,7 +7,7 @@ import { Formik } from "formik"
 import { Button, CardContent, CircularProgress } from "@mui/material"
 import Snackbar from "@mui/material/Snackbar"
 
-import { loginUser } from "../../../API/loginUser"
+import { postLoginUser } from "../../../API/userLogin"
 import { FormTextField } from "../../../components/User/formTextField"
 import { validationLoginUser } from "../../../utils/validationSchema"
 import {
@@ -16,7 +16,7 @@ import {
     ForgotPassword,
 } from "../../../components/RegOrLoginSocial/regOrLoginSocial.styles"
 import RegOrLoginSocial from "../../../components/RegOrLoginSocial/regOrLoginSocial"
-import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../../constants/titles"
+import { ACCESS_TOKEN } from "../../../constants/titles"
 
 export const SignInForm: React.FC = () => {
     const [open, setOpen] = useState<boolean>(false)
@@ -40,7 +40,7 @@ export const SignInForm: React.FC = () => {
             <Formik
                 validationSchema={validationLoginUser}
                 onSubmit={async data => {
-                    const response = await loginUser(data)
+                    const response = await postLoginUser(data)
 
                     if (response.success === false) {
                         setMsg(response.error)
