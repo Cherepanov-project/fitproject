@@ -1,9 +1,12 @@
 import styled from "styled-components"
 
-import { ITaskStatusProps, IWidgetItemContentProps } from "./widgetItem.interface"
+import {
+    ITaskStatusProps,
+    IWidgetItemContentProps,
+} from "./widgetItem.interface"
 
 export const WidgetItemContainer = styled.div`
-    width: 546px;
+    width: 100%;
     height: 58px;
     margin: 0;
     background-color: rgba(255, 255, 255, 1);
@@ -13,6 +16,7 @@ export const WidgetItemContainer = styled.div`
 `
 
 export const WidgetItemContent = styled.div<IWidgetItemContentProps>`
+    box-sizing: border-box;
     display: flex;
     flex-basis: 100%;
     flex-direction: row;

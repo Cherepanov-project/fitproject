@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const MainContainer = styled.div`
+export const StyleMainContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     background-color: rgba(247, 248, 252, 1);
@@ -8,40 +8,51 @@ export const MainContainer = styled.div`
     font-family: Mulish;
 `
 
-export const ContainerHeader = styled.div`
+export const StyleContainerHeader = styled.div`
     display: flex;
     flex-basis: 100%;
     flex-direction: row;
     align-items: center;
+    flex-wrap: nowrap;
+
     justify-content: space-between;
-    flex-wrap: wrap;
+    div:last-child {
+        margin-right: 0;
+    }
 `
 
-export const Trends = styled.div`
+export const StyleTrends = styled.div`
     display: flex;
     flex-basis: 100%;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
     flex-wrap: wrap;
-    margin: 2rem 0 0 0;
-`
-
-export const GraphOnTrends = styled.div`
-    width: 780px;
-    height: 546px;
     margin: 0;
-    padding: 32px;
-    box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 1);
+
     outline: 1px solid rgba(223, 224, 235, 1);
     border-radius: 8px;
+`
+
+export const StyleGraphOnTrends = styled.div`
+    width: 730px;
+    height: 546px;
+    margin: 0;
+    padding: 21px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 1);
+
+    border-right: 1px solid rgba(223, 224, 235, 1);
     display: flex;
     flex-direction: column;
     flex-grow: 0;
+
+    @media (max-width: 1300px) {
+        border-right: none;
+        width: 100%;
+    }
 `
 
-export const BlockHeader = styled.div`
+export const StyleBlockHeader = styled.div`
     width: 100%;
     height: 80px;
     display: flex;
@@ -49,14 +60,14 @@ export const BlockHeader = styled.div`
     justify-content: space-between;
 `
 
-export const BlockHeaderLeftSide = styled.div`
+export const StyleBlockHeaderLeftSide = styled.div`
     height: 80px;
     width: 100%;
     display: flex;
     flex-direction: column;
 `
 
-export const BlockHeaderRightSide = styled.div`
+export const StyleBlockHeaderRightSide = styled.div`
     height: 80px;
     width: 204px;
     display: flex;
@@ -64,17 +75,17 @@ export const BlockHeaderRightSide = styled.div`
     justify-content: space-between;
 `
 
-export const CurveDesignation = styled.div`
+export const StyleCurveDesignation = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
 `
 
-interface CurveDesignationColorProps {
+interface StyleCurveDesignationColorProps {
     color: string
 }
 
-export const CurveDesignationColor = styled.div<CurveDesignationColorProps>`
+export const StyleCurveDesignationColor = styled.div<StyleCurveDesignationColorProps>`
     height: 0;
     width: 16px;
     border: 2px solid rgba(55, 81, 255, 1);
@@ -84,38 +95,78 @@ export const CurveDesignationColor = styled.div<CurveDesignationColorProps>`
     border-color: ${({ color }) => color};
 `
 
-export const CardsOnTrends = styled.div`
+export const StyleCardsOnTrends = styled.div`
     display: flex;
-    width: 342px;
     flex-direction: column;
     align-items: flex-end;
-    justify-content: space-between;
     flex-wrap: no-wrap;
     margin: 0;
     padding: 0;
-  
-    @media (max-width: 1184px) {
+
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    & > div {
+        box-sizing: border-box;
+        border-bottom: 1px solid rgba(223, 224, 235, 1);
+        border-radius: 0;
+
+        text-align: center;
+
+        &:last-of-type {
+            border-bottom: none;
+        }
+
+        @media (max-width: 1300px) {
+            width: 25%;
+            text-align: center;
+            border-bottom: none;
+
+            border-top: 1px solid rgba(223, 224, 235, 1);
+            border-right: 1px solid rgba(223, 224, 235, 1);
+
+            &:last-of-type {
+                border-right: none;
+                width: 100%;
+            }
+
+            &:nth-child(4) {
+                border-right: none;
+            }
+        }
+    }
+
+    border-bottom: 1px solid rgba(223, 224, 235, 1);
+    &:last-of-type {
+        border-bottom: none;
+    }
+
+    @media (max-width: 1300px) {
         flex-direction: row;
         flex-wrap: wrap;
-        flex-basis: 100%;
+
+        width: 100%;
     }
 `
 
-export const TicketsAndTasks = styled.div`
+export const StyleTicketsAndTasks = styled.div`
     display: flex;
-    flex-basis: 100%;
+    flex-basis: 0;
+    flex: 1 1 0px;
+
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
+    align-items: center;
     margin: 2rem 0 0 0;
+
+    flex-wrap: wrap;
 `
 
-export const Widget = styled.div`
-    width: 546px;
+export const StyleWidget = styled.div`
+    width: 49%;
     height: 336px;
     box-sizing: border-box;
-    margin: 0;
+    margin: 0 0 2rem 0;
     padding: 32px 32px 0 32px;
     background-color: rgba(255, 255, 255, 1);
     outline: 1px solid rgba(223, 224, 235, 1);
@@ -126,17 +177,27 @@ export const Widget = styled.div`
     align-items: center;
     justify-content: flex-end;
     flex-wrap: nowrap;
+
+    .MuiInputBase-root {
+        width: 100%;
+    }
+
+    @media (max-width: 1200px) {
+        width: 100%;
+    }
 `
 
-export const BlockHeaderRightSideStyled = styled(BlockHeaderRightSide)`
+export const StyleBlockHeaderRightSideStyled = styled(
+    StyleBlockHeaderRightSide
+)`
     justify-content: flex-end;
 `
 
-export const ContentList = styled.div`
+export const StyleContentList = styled.div`
     width: 100%;
     border: 1px solid #dfe0eb;
     border-radius: 8px;
     margin: 0 auto;
     background-color: #ffffff;
 `
-export const FooterRecipes = styled.div``
+export const StyleFooterRecipes = styled.div``

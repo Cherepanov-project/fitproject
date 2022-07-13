@@ -7,10 +7,11 @@ export const CardContainer = styled.div<ICardContainerProps>`
     height: ${({ height }) => height};
     margin: ${({ margin }) => margin};
     background-color: rgba(255, 255, 255, 1);
-    outline: 1px solid rgba(223, 224, 235, 1);
+    outline: ${({ outline }) => outline};
     outline-color: ${({ borderColor }) => borderColor};
     border-radius: 8px;
     display: flex;
+    align-items: center;
     flex-grow: 0;
 `
 

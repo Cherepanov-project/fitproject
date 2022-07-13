@@ -3,7 +3,6 @@ import styled, { css } from "styled-components"
 import { TStyledDiv } from "../layoutAdmin.interface"
 
 export const StyleSidebarWrapper = styled.div`
-    height: 100vh;
     width: 255px;
     background-color: #363740;
 
