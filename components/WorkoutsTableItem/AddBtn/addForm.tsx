@@ -4,7 +4,7 @@ import Button from "@mui/material/Button"
 const CreateForm = () => {
     return (
         <>
-            <Link href={{ pathname: "/admin/recipes/add-recipe" }} passHref>
+            <Link href={{ pathname: "/admin/workout/add-workout" }} passHref>
                 <Button
                     variant="contained"
                     sx={{
@@ -17,7 +17,7 @@ const CreateForm = () => {
                         marginLeft: 3.5,
                     }}
                 >
-                    Add recipe
+                    Add workout
                 </Button>
             </Link>
         </>

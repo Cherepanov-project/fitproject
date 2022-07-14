@@ -1,3 +1,5 @@
+import React from "react"
+
 import { withLayout } from "../../containers/Layout-admin/layoutAdmin"
 
 const Settings = () => {

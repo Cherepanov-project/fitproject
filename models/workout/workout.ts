@@ -30,6 +30,10 @@ export interface muscleGroupListType {
     name: string
 }
 
+export interface IWorkoutEditProps {
+    id?: string
+}
+
 export const exerciseList: exercisesType[] = [
     {
         id: 0,
@@ -45,7 +49,7 @@ export const exerciseList: exercisesType[] = [
             "Levator scapulae",
             "Rhomboids",
         ],
-        img: "/exercises/fours.jpg",
+        img: "/workouts/fours.jpg",
         imgWidth: 175,
         imgHeight: 148,
     },
@@ -63,7 +67,7 @@ export const exerciseList: exercisesType[] = [
             "Levator scapulae",
             "Rhomboids",
         ],
-        img: "/exercises/hands_up_on_socks.jpg",
+        img: "/workouts/hands_up_on_socks.jpg",
         imgWidth: 172,
         imgHeight: 266,
     },
@@ -81,7 +85,7 @@ export const exerciseList: exercisesType[] = [
             "Levator scapulae",
             "Rhomboids",
         ],
-        img: "/exercises/just_position.jpg",
+        img: "/workouts/just_position.jpg",
         imgWidth: 224,
         imgHeight: 120,
     },
@@ -99,7 +103,7 @@ export const exerciseList: exercisesType[] = [
             "Levator scapulae",
             "Rhomboids",
         ],
-        img: "/exercises/press.jpg",
+        img: "/workouts/press.jpg",
         imgWidth: 212,
         imgHeight: 159,
     },
@@ -117,7 +121,7 @@ export const exerciseList: exercisesType[] = [
             "Levator scapulae",
             "Rhomboids",
         ],
-        img: "/exercises/push_ups.jpg",
+        img: "/workouts/push_ups.jpg",
         imgWidth: 270,
         imgHeight: 166,
     },
@@ -135,7 +139,7 @@ export const exerciseList: exercisesType[] = [
             "Levator scapulae",
             "Rhomboids",
         ],
-        img: "/exercises/squatting.jpg",
+        img: "/workouts/squatting.jpg",
         imgWidth: 150,
         imgHeight: 277,
     },

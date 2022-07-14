@@ -12,7 +12,7 @@ import {
 } from "../../../common/images/layoutAdmin/sidebarIcons/index"
 
 /* Если необходимо добавить разделитель
-после пункта меню, добавьте ему свойство 
+после пункта меню, добавьте ему свойство
 lastItem: true
 */
 export const sidebarMenu: ISidebarMenuItem[] = [
@@ -36,7 +36,7 @@ export const sidebarMenu: ISidebarMenuItem[] = [
     },
     {
         id: 4,
-        route: "admin/exercises",
+        route: "admin/workouts",
         name: "exercises",
         icon: imageExercises,
     },

@@ -1,14 +1,32 @@
-import { instanceWorkouts } from "./inctances"
+import {instanceAdmin, instanceWorkouts} from "./inctances"
 
-const getWorkoutList = async () => {
+export const getWorkoutList = async () => {
     const response = await instanceWorkouts.get("/")
     return response.data.data.content
 }
 
-// Заглушка для АПИ под категории упражнений
-const getWorkoutCategoriesList = async () => {
-    const response = await instanceWorkouts.get("categories")
+export const postWorkout = async (data) => {
+    const response = await instanceWorkouts.post('/', data)
     return response.data
 }
 
-export { getWorkoutList, getWorkoutCategoriesList }
+export const getWorkoutById = async (id: number) => {
+    const response = await instanceWorkouts.get(`/${id}`)
+    return response.data
+}
+
+export const putWorkoutUpdate = async (data) => {
+    const response = await instanceWorkouts.put('/', data)
+    return response.data
+}
+
+export const deleteWorkoutById = async (id: number) => {
+    const response = await instanceWorkouts.put(`/${id}`)
+    return response.data
+}
+
+// Заглушка для АПИ под категории упражнений
+export const getWorkoutCategoriesList = async () => {
+    const response = await instanceWorkouts.get("categories")
+    return response.data
+}

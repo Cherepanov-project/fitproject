@@ -1,6 +1,6 @@
 import { GetServerSideProps } from "next"
-import { withLayout } from "../../../containers/Layout-admin/layoutAdmin"
 
+import { withLayout } from "../../../containers/Layout-admin/layoutAdmin"
 import PageUser from "../../../components/PageComponents/PageUser/pageUser"
 
 export const getServerSideProps: GetServerSideProps = async context => {
@@ -9,8 +9,8 @@ export const getServerSideProps: GetServerSideProps = async context => {
     }
 }
 
-const UserIten = () => {
+const UserItem = () => {
     return <PageUser />
 }
 
-export default withLayout(UserIten)
+export default withLayout(UserItem)

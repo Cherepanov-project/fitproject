@@ -16,6 +16,8 @@ const API_SERVER: string =
     "https://spring-boot-fitness-backend.herokuapp.com"
 const API_WORKOUTS: string =
     "https://spring-boot-fitness-backend.herokuapp.com/api/v1/admin/exercise"
+const API_RECIPES: string =
+    "https://spring-boot-fitness-backend.herokuapp.com/api/v1/admin/recipe"
 const API_REGISTER_USER: string =
     "https://spring-boot-fitness-backend.herokuapp.com/api/v1/registration"
 const API_AUTH_ADMIN: string =
@@ -59,6 +61,7 @@ export {
     API_REGISTER_USER,
     API_GET_STATISTICS,
     API_WORKOUTS,
+    API_RECIPES,
     API_AUTH_ADMIN,
     API_SERVER,
     GOOGLE_IMG,
