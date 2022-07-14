@@ -6,11 +6,11 @@ import TableContainer from "@mui/material/TableContainer"
 
 import { withLayout } from "../../../containers/Layout-admin/layoutAdmin"
 import FilterMenu from "../../../components/FilterMenu/filterMenu"
-import RecipeTableItem from "../../../components/RecipesTableItem/recipeTableItem"
+import TableItemRecipes from "../../../components/TableItemRecipes/tableItemRecipes"
 import { StyleContentList, StyleFooterRecipes } from "../overview/overview.styles"
-import CreateForm from "../../../components/RecipesTableItem/AddBtn/addForm"
+import CreateForm from "../../../components/AddBtn/addForm"
 import Pagination from "../../../components/Table/tablePagination"
-import ColumnName from "../../../components/User/ColumnName/columnName"
+import ColumnName from "../../../components/ColumnName/columnName"
 import { getRecipesList } from "../../../API/recipes"
 
 // export const getStaticProps = async () => {
@@ -53,7 +53,7 @@ const RecipesListPage = () => {
 
     const recipe = data.map(el => {
         return (
-            <RecipeTableItem
+            <TableItemRecipes
                 key={el.id}
                 id={el.id}
                 protein={el.protein}

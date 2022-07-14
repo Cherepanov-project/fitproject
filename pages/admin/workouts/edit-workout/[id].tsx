@@ -3,7 +3,7 @@ import { GetServerSideProps } from "next"
 
 import { withLayout } from "../../../../containers/Layout-admin/layoutAdmin"
 import { getWorkoutById } from "../../../../API/workouts"
-import WorkoutForm from "../../../../components/WorkoutForm/workoutForm"
+import EditFormWorkout from "../../../../components/EditFormWorkout/editFormWorkout"
 import { IWorkoutEditProps } from "../../../../models/workout/workout"
 
 export const getServerSideProps: GetServerSideProps = async props => {
@@ -30,7 +30,7 @@ const WorkoutEdit = ({ id }: IWorkoutEditProps) => {
 
     return (
         <div>
-            <WorkoutForm title={id} workoutData={data?.data} />
+            <EditFormWorkout title={id} workoutData={data?.data} />
         </div>
     )
 }

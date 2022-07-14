@@ -1,12 +1,12 @@
 import { withLayout } from "../../../../containers/Layout-admin/layoutAdmin"
-import WorkoutForm from "../../../../components/WorkoutForm/workoutForm"
+import EditFormWorkout from "../../../../components/EditFormWorkout/editFormWorkout"
 
-const AddExercise = () => {
+const AddWorkout = () => {
     return (
         <div>
-            <WorkoutForm title="Add exercise" />
+            <EditFormWorkout title="Add workout" />
         </div>
     )
 }
 
-export default withLayout(AddExercise)
+export default withLayout(AddWorkout)

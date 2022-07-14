@@ -7,23 +7,23 @@ import FileUpload from "../AdminFormComponents/Upload/fileUpload"
 import FormFieldLong from "../AdminFormComponents/FormFeildLong"
 import FieldList from "../AdminFormComponents/FieldList/fieldList"
 import EditorMCE from "../AdminFormComponents/EditorMCE/editorMCE"
-import { validationExercises } from "../../utils/validationSchema"
+import { validationRecipes } from "../../utils/validationSchema"
 import IngredientsField from "../AdminFormComponents/IngredientsField/ingredientsFiled"
-import { postWorkout, putWorkoutUpdate } from "../../API/workouts"
-import { IPostWorkout } from "../../API/api.interface"
-import { IWorkoutFormProps } from "./workoutForm.interface"
-import { ContentWrapper, FormTitle, FormWrapper, SecondaryText } from "./workoutForm.styles"
+import { postRecipe, putRecipeUpdate } from "../../API/recipes"
+import { IPostRecipe } from "../../API/api.interface"
+import { IRecipeFormProps } from "./editFormRecipe.interface"
+import { ContentWrapper, FormTitle, FormWrapper, SecondaryText } from "./editFormRecipe.styles"
 
-const WorkoutForm: React.FC<IWorkoutFormProps> = ({ title, workoutData }) => {
+const EditFormRecipe: React.FC<IRecipeFormProps> = ({ title, recipeData }) => {
     const { mutate: addNewRecipe, isLoading } = useMutation(
-        (formData: IPostWorkout) => {
-            if (workoutData) {
-                return putWorkoutUpdate({
-                    id: +workoutData.id,
+        (formData: IPostRecipe) => {
+            if (recipeData) {
+                return putRecipeUpdate({
+                    id: +recipeData.id,
                     description: formData.description,
                 })
             }
-            return postWorkout(formData)
+            return postRecipe(formData)
         }
     )
 
@@ -33,7 +33,7 @@ const WorkoutForm: React.FC<IWorkoutFormProps> = ({ title, workoutData }) => {
             <Formik
                 initialValues={{
                     header: "",
-                    description: workoutData?.description || "",
+                    description: recipeData?.description || "",
                     nutritionValues: [
                         { name: "calories", value: 0 },
                         { name: "protein", value: 0 },
@@ -48,7 +48,7 @@ const WorkoutForm: React.FC<IWorkoutFormProps> = ({ title, workoutData }) => {
                     ],
                     recipe: "",
                 }}
-                validationSchema={validationExercises}
+                validationSchema={validationRecipes}
                 onSubmit={(values, { resetForm }) => {
                     const data = {
                         name: values.header,
@@ -96,4 +96,4 @@ const WorkoutForm: React.FC<IWorkoutFormProps> = ({ title, workoutData }) => {
     )
 }
 
-export default WorkoutForm
+export default EditFormRecipe

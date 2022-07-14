@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react"
 import { TableContainer, Table, TableBody, Button, TableRow } from "@mui/material"
 
 import { ContentWrapper, Footer } from "./pageUsers.styles"
-import UserItem from "../../UserTableItem/userItem"
+import TableItemUsers from "../../TableItemUsers/tableItemUsers"
 import { DataType } from "../../../models/userList/userList"
 import Pagination from "../../Table/tablePagination"
 import getArrPagination from "../../../utils/getArrPagination"
-import ColumnName from "../../User/ColumnName/columnName"
+import ColumnName from "../../ColumnName/columnName"
 import TableHeader from "../../Table/TableHeader/tableHeader"
 import { IPageUsersProps } from "./pageUsers.interface"
 
@@ -41,7 +41,7 @@ const PageUsers: React.FC<IPageUsersProps> = ({ data }) => {
     const userItemList = getArrPagination(page, rowsPerPage, userData).map(
         el => (
             <TableRow hover sx={{ cursor: "pointer" }} key={el.id}>
-                <UserItem
+                <TableItemUsers
                     nameUser={el.nameUser}
                     dateRegister={el.dateRegister}
                     role={el.role}

@@ -6,11 +6,11 @@ import TableBody from "@mui/material/TableBody"
 
 import { withLayout } from "../../../containers/Layout-admin/layoutAdmin"
 import { getWorkoutList } from "../../../API/workouts"
-import WorkoutTableItem from "../../../components/WorkoutsTableItem/workoutTableItem"
+import TableItemWorkouts from "../../../components/TableItemWorkouts/tableItemWorkouts"
 import { StyleContentList, StyleFooterRecipes } from "../overview/overview.styles"
 import FilterMenu from "../../../components/FilterMenu/filterMenu"
-import ColumnName from "../../../components/User/ColumnName/columnName"
-import CreateForm from "../../../components/WorkoutsTableItem/AddBtn/addForm"
+import ColumnName from "../../../components/ColumnName/columnName"
+import CreateForm from "../../../components/AddBtn/addForm"
 import Pagination from "../../../components/Table/tablePagination"
 
 const WorkoutsListPage = () => {
@@ -40,7 +40,7 @@ const WorkoutsListPage = () => {
 
     const workouts = data.map(el => {
         return (
-            <WorkoutTableItem
+            <TableItemWorkouts
                 key={el.id}
                 id={el.id}
                 name={el.name}

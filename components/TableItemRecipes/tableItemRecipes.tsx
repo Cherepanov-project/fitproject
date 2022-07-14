@@ -11,21 +11,22 @@ import Avatar from "@mui/material/Avatar"
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
 import EditIcon from "@mui/icons-material/Edit"
 
-import { MenuIcon } from "./workoutTableItem.styles"
+import { MenuIcon } from "./tableItemRecipes.styles"
 import imageMan from "../../common/images/recipesTableItem/avatarEat.svg"
 import ColorfulTeg from "../ColorfulTeg"
 
 const options = ["Delete", "Edit"]
 
-const WorkoutTableItem = ({
-                    status,
-                    name,
-                    repeatCount,
-                    approachCount,
-                    area,
-                    category,
-                    id,
-                }) => {
+const TableItemRecipes = ({
+    status,
+    name,
+    calorie,
+    fat,
+    protein,
+    carbohydrate,
+    portionSize,
+    id,
+}) => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
     const open = Boolean(anchorEl)
     const handleClick = (event: React.MouseEvent<HTMLElement>) =>
@@ -33,7 +34,7 @@ const WorkoutTableItem = ({
     const handleClose = () => setAnchorEl(null)
 
     const deleteArticle = () => {
-        // функция для удаленея упражнения
+        // функция для удаленея рецепта
         console.log("delete")
     }
 
@@ -47,11 +48,11 @@ const WorkoutTableItem = ({
                 <Avatar sx={{ margin: 2 }}>
                     <Image src={imageMan} alt="image-man" />
                 </Avatar>
-                repeat count ({repeatCount}), approach count ({approachCount}), area ({area}),
-                category ({category})
+                portion size ({portionSize}g), fat ({fat}), protein ({protein}),
+                carbohydrate ({carbohydrate})
             </TableCell>
             <TableCell sx={{ paddingLeft: 3.5 }}>{name}</TableCell>
-            <TableCell sx={{ paddingLeft: 3.5 }}>{category} category</TableCell>
+            <TableCell sx={{ paddingLeft: 3.5 }}>{calorie} calorie</TableCell>
             <TableCell sx={{ paddingLeft: 3.5 }}>
                 {status === "HIGH" ? (
                     <ColorfulTeg text={status} backgroundColor="#F12B2C" />
@@ -99,7 +100,7 @@ const WorkoutTableItem = ({
                                     />
                                 ) : (
                                     <Link
-                                        href={`/admin/workout/edit-workout/${id}`}
+                                        href={`/admin/recipes/edit-recipe/${id}`}
                                         passHref
                                     >
                                         <EditIcon />
@@ -114,4 +115,4 @@ const WorkoutTableItem = ({
     )
 }
 
-export default WorkoutTableItem
+export default TableItemRecipes

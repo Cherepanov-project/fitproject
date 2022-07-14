@@ -5,7 +5,7 @@ import Table from "@mui/material/Table"
 import { withLayout } from "../../containers/Layout-admin/layoutAdmin"
 import { StyleContentList, StyleFooterRecipes } from "./overview/overview.styles"
 import FilterMenu from "../../components/FilterMenu/filterMenu"
-import ColumnName from "../../components/User/ColumnName/columnName"
+import ColumnName from "../../components/ColumnName/columnName"
 
 const Articles = () => {
     return (

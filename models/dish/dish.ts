@@ -7,7 +7,7 @@ export const dishFood: IFoodItemType = {
     activeIngredients: true,
     star: 5,
     description:
-        "Chicken Steak RecipeTableItem With Pan Roasted Vegetables & Potato Mash is a delicious meal in itself. The chicken is marinated in a lovely marinade that is bursting with flavours that include fresh parsley , lemon, garlic and mixed herbs. All of which add to the yummilicious taste of the chicken. ",
+        "Chicken Steak TableItemRecipes With Pan Roasted Vegetables & Potato Mash is a delicious meal in itself. The chicken is marinated in a lovely marinade that is bursting with flavours that include fresh parsley , lemon, garlic and mixed herbs. All of which add to the yummilicious taste of the chicken. ",
     ingredients: [
         { ingredient: "chicken", quantity: 1 },
         { ingredient: "chicken", quantity: 1 },
@@ -30,7 +30,7 @@ export const dishFoodAll: Array<IFoodItemType> = [
         activeIngredients: true,
         star: 5,
         description:
-            "Chicken Steak RecipeTableItem With Pan Roasted Vegetables & Potato Mash is a delicious meal in itself. The chicken is marinated in a lovely marinade that is bursting with flavours that include fresh parsley , lemon, garlic and mixed herbs. All of which add to the yummilicious taste of the chicken. ",
+            "Chicken Steak TableItemRecipes With Pan Roasted Vegetables & Potato Mash is a delicious meal in itself. The chicken is marinated in a lovely marinade that is bursting with flavours that include fresh parsley , lemon, garlic and mixed herbs. All of which add to the yummilicious taste of the chicken. ",
         ingredients: [
             { ingredient: "chicken", quantity: 1 },
             { ingredient: "chicken", quantity: 1 },
@@ -52,7 +52,7 @@ export const dishFoodAll: Array<IFoodItemType> = [
         activeIngredients: true,
         star: 4,
         description:
-            "Chicken Steak RecipeTableItem With Pan Roasted Vegetables & Potato Mash is a delicious meal in itself. The chicken is marinated in a lovely marinade that is bursting with flavours that include fresh parsley , lemon, garlic and mixed herbs. All of which add to the yummilicious taste of the chicken. ",
+            "Chicken Steak TableItemRecipes With Pan Roasted Vegetables & Potato Mash is a delicious meal in itself. The chicken is marinated in a lovely marinade that is bursting with flavours that include fresh parsley , lemon, garlic and mixed herbs. All of which add to the yummilicious taste of the chicken. ",
         ingredients: [
             { ingredient: "chicken", quantity: 1 },
             { ingredient: "chicken", quantity: 1 },
@@ -74,7 +74,7 @@ export const dishFoodAll: Array<IFoodItemType> = [
         activeIngredients: true,
         star: 3,
         description:
-            "Chicken Steak RecipeTableItem With Pan Roasted Vegetables & Potato Mash is a delicious meal in itself. The chicken is marinated in a lovely marinade that is bursting with flavours that include fresh parsley , lemon, garlic and mixed herbs. All of which add to the yummilicious taste of the chicken. ",
+            "Chicken Steak TableItemRecipes With Pan Roasted Vegetables & Potato Mash is a delicious meal in itself. The chicken is marinated in a lovely marinade that is bursting with flavours that include fresh parsley , lemon, garlic and mixed herbs. All of which add to the yummilicious taste of the chicken. ",
         ingredients: [
             { ingredient: "chicken", quantity: 1 },
             { ingredient: "chicken", quantity: 1 },
@@ -96,7 +96,7 @@ export const dishFoodAll: Array<IFoodItemType> = [
         activeIngredients: true,
         star: 2,
         description:
-            "Chicken Steak RecipeTableItem With Pan Roasted Vegetables & Potato Mash is a delicious meal in itself. The chicken is marinated in a lovely marinade that is bursting with flavours that include fresh parsley , lemon, garlic and mixed herbs. All of which add to the yummilicious taste of the chicken. ",
+            "Chicken Steak TableItemRecipes With Pan Roasted Vegetables & Potato Mash is a delicious meal in itself. The chicken is marinated in a lovely marinade that is bursting with flavours that include fresh parsley , lemon, garlic and mixed herbs. All of which add to the yummilicious taste of the chicken. ",
         ingredients: [
             { ingredient: "chicken", quantity: 1 },
             { ingredient: "chicken", quantity: 1 },
@@ -118,7 +118,7 @@ export const dishFoodAll: Array<IFoodItemType> = [
         activeIngredients: true,
         star: 1,
         description:
-            "Chicken Steak RecipeTableItem With Pan Roasted Vegetables & Potato Mash is a delicious meal in itself. The chicken is marinated in a lovely marinade that is bursting with flavours that include fresh parsley , lemon, garlic and mixed herbs. All of which add to the yummilicious taste of the chicken. ",
+            "Chicken Steak TableItemRecipes With Pan Roasted Vegetables & Potato Mash is a delicious meal in itself. The chicken is marinated in a lovely marinade that is bursting with flavours that include fresh parsley , lemon, garlic and mixed herbs. All of which add to the yummilicious taste of the chicken. ",
         ingredients: [
             { ingredient: "chicken", quantity: 1 },
             { ingredient: "chicken", quantity: 1 },
@@ -140,7 +140,7 @@ export const dishFoodAll: Array<IFoodItemType> = [
         activeIngredients: true,
         star: 5,
         description:
-            "Chicken Steak RecipeTableItem With Pan Roasted Vegetables & Potato Mash is a delicious meal in itself. The chicken is marinated in a lovely marinade that is bursting with flavours that include fresh parsley , lemon, garlic and mixed herbs. All of which add to the yummilicious taste of the chicken. ",
+            "Chicken Steak TableItemRecipes With Pan Roasted Vegetables & Potato Mash is a delicious meal in itself. The chicken is marinated in a lovely marinade that is bursting with flavours that include fresh parsley , lemon, garlic and mixed herbs. All of which add to the yummilicious taste of the chicken. ",
         ingredients: [
             { ingredient: "chicken", quantity: 1 },
             { ingredient: "chicken", quantity: 1 },
