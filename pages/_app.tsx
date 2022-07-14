@@ -8,14 +8,12 @@ import { ACCESS_TOKEN } from "../constants/titles"
 
 export const queryClient = new QueryClient()
 const MyApp = ({ Component, pageProps }) => {
-
     //ВРЕМЕННО. Рефреш админского токена
     setInterval(() => {
-        if (Cookies.get(ACCESS_TOKEN))  {
-            postRefreshAdminToken(Cookies.get(ACCESS_TOKEN))
+        if (Cookies.get(ACCESS_TOKEN)) {
+            postRefreshAdminToken()
         }
     }, 86400)
-
 
     return (
         <>

@@ -1,9 +1,12 @@
 export interface exercisesType {
     id: number
     name: string
-    category: string
-    approachCount: number
-    repeatCount: number
+    exercise: string
+    move: number
+    repeat: number
+    category?: string
+    approachCount?: number
+    repeatCount?: number
     area: string
     muscles: string[]
     img: string
