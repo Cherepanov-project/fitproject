@@ -11,13 +11,13 @@ import Avatar from "@mui/material/Avatar"
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
 import EditIcon from "@mui/icons-material/Edit"
 
-import { MenuIcon } from "./recipe.styles"
+import { MenuIcon } from "./tableItemRecipes.styles"
 import imageMan from "../../common/images/recipesTableItem/avatarEat.svg"
 import ColorfulTeg from "../ColorfulTeg"
 
 const options = ["Delete", "Edit"]
 
-const Recipe = ({
+const TableItemRecipes = ({
     status,
     name,
     calorie,
@@ -115,4 +115,4 @@ const Recipe = ({
     )
 }
 
-export default Recipe
+export default TableItemRecipes

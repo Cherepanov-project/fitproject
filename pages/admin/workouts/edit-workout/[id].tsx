@@ -2,9 +2,9 @@ import { useQuery } from "react-query"
 import { GetServerSideProps } from "next"
 
 import { withLayout } from "../../../../containers/Layout-admin/layoutAdmin"
-import { getRecipeById } from "../../../../API/recipes"
-import EditFormRecipe from "../../../../components/EditFormRecipe/editFormRecipe"
-import { IRecipeEditProps } from "../../../../models/recipes/recipes"
+import { getWorkoutById } from "../../../../API/workouts"
+import EditFormWorkout from "../../../../components/EditFormWorkout/editFormWorkout"
+import { IWorkoutEditProps } from "../../../../models/workout/workout"
 
 export const getServerSideProps: GetServerSideProps = async props => {
     const id = props.query.id
@@ -13,8 +13,8 @@ export const getServerSideProps: GetServerSideProps = async props => {
     }
 }
 
-const RecipeEdit = ({ id }: IRecipeEditProps) => {
-    const { data, isLoading, error } = useQuery(["resipe", id], () => getRecipeById(+id)
+const WorkoutEdit = ({ id }: IWorkoutEditProps) => {
+    const { data, isLoading, error } = useQuery(["workout", id], () => getWorkoutById(+id)
         // {
         //     initialData: () => {
         //         console.log(queryClient.getQueriesData("recipesList"))
@@ -30,9 +30,9 @@ const RecipeEdit = ({ id }: IRecipeEditProps) => {
 
     return (
         <div>
-            <EditFormRecipe title={id} recipeData={data?.data} />
+            <EditFormWorkout title={id} workoutData={data?.data} />
         </div>
     )
 }
 
-export default withLayout(RecipeEdit)
+export default withLayout(WorkoutEdit)
