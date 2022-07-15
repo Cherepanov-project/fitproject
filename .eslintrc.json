@@ -1,40 +1,49 @@
 {
-  "extends": "next/core-web-vitals",
-	"parser": "babel-eslint",
-	"env": {
-		"browser": true,
-		"jest": true
-	},
-	"rules": {
-		"semi": [1, "always"],
-		"curly": ["error"],
-		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-		"import/prefer-default-export": "off",
-		"import/no-mutable-exports": "off",
-		"default-param-last": ["off"],
-		"max-depth": ["warn", 4],
-		"id-length": ["warn", { "exceptions": ["i", "j"], "min": 2 }],
-		"no-lonely-if": ["error"],
-		"no-plusplus": ["error", {"allowForLoopAfterthoughts": true}],
-		"no-restricted-syntax": "off",
-		"class-methods-use-this": "off",
-		"jsx-a11y/href-no-hash": ["off"],
-		"jsx-a11y/anchor-is-valid": ["off"],
-		"jsx-a11y/label-has-associated-control": [ "error", {
-			"assert": "either"
-		}],
-		"react/function-component-definition": ["warn", {
-			"namedComponents": "arrow-function",
-			"unnamedComponents": "function-expression"
-		}],
-		"react/state-in-constructor": ["off"],
-		"react/jsx-props-no-spreading": ["off"],
-		"react/static-property-placement": "off"
-	},
-	"settings": {
-		"react": {
-			"pragma": "React",
-			"version": "detect"
-		}
-	}
+    "extends": ["next/core-web-vitals", "prettier"],
+    // "parser": "babel-eslint",
+    "env": {
+        "browser": true,
+        "jest": true
+    },
+    "rules": {
+        "react/display-name": "off",
+        "curly": ["error"],
+        "react/jsx-filename-extension": [
+            1,
+            { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+        ],
+        "import/prefer-default-export": "off",
+        "import/no-mutable-exports": "off",
+        "default-param-last": ["off"],
+        "max-depth": ["warn", 4],
+        "id-length": ["warn", { "exceptions": ["i", "j"], "min": 1 }],
+        "no-lonely-if": ["error"],
+        "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+        "no-restricted-syntax": "off",
+        "class-methods-use-this": "off",
+        "jsx-a11y/href-no-hash": ["off"],
+        "jsx-a11y/anchor-is-valid": ["off"],
+        "jsx-a11y/label-has-associated-control": [
+            "error",
+            {
+                "assert": "either"
+            }
+        ],
+        "react/function-component-definition": [
+            "warn",
+            {
+                "namedComponents": "arrow-function",
+                "unnamedComponents": "function-expression"
+            }
+        ],
+        "react/state-in-constructor": ["off"],
+        "react/jsx-props-no-spreading": ["off"],
+        "react/static-property-placement": "off"
+    },
+    "settings": {
+        "react": {
+            "pragma": "React",
+            "version": "detect"
+        }
+    }
 }
