@@ -10,11 +10,13 @@ let lastActivity = Date.now()
 let userIsActive = true
 const setLastActivity = () => (lastActivity = Date.now())
 
-window.addEventListener("mousedown", setLastActivity)
-window.addEventListener("mousemove", setLastActivity)
-window.addEventListener("keydown", setLastActivity)
-window.addEventListener("scroll", setLastActivity)
-window.addEventListener("touchstart", setLastActivity)
+if (typeof window !== "undefined") {
+    window.addEventListener("mousedown", setLastActivity)
+    window.addEventListener("mousemove", setLastActivity)
+    window.addEventListener("keydown", setLastActivity)
+    window.addEventListener("scroll", setLastActivity)
+    window.addEventListener("touchstart", setLastActivity)
+}
 
 export const postRefreshToken = async () => {
     if (userIsActive) {
