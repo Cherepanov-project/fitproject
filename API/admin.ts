@@ -15,7 +15,12 @@ export const postAdminToken = async (data) => {
 }
 
 export const postRefreshAdminToken = async (token) => {
+  try {
     const response = await instanceAdmin.post('/api/v1/authenticate/refresh')
     Cookies.set('auth-token', response.data.data.jwtToken)
     return response.data.data.jwtToken
+  }
+  catch (error) {
+    return error 
+  }
 }

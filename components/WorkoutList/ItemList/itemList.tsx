@@ -14,7 +14,9 @@ import { IMuscles } from "./itemList.interface"
 
 const ItemList = ({ muscles }: IMuscles) => {
     let filteredExercises: any[] = []
-    const { data, isSuccess } = useQuery("workouts", getWorkoutList)
+  const { data, isSuccess } = useQuery("workouts", getWorkoutList, {
+    staleTime: 1000*60,
+  })
     const [minResOnPage, setMinResOnPage] = useState(0)
     const [maxResOnPage, setMaxResOnPage] = useState(6)
     const matches = useMediaQuery("(min-width:2000px")
@@ -35,7 +37,8 @@ const ItemList = ({ muscles }: IMuscles) => {
     }
 
     if (isSuccess) {
-        filterExerciseList(filteredExercises, muscles, data)
+        //filterExerciseList(filteredExercises, muscles, data)
+        filteredExercises = filterExerciseList(muscles, data)
         console.log(filteredExercises, "TYT222")
     }
 

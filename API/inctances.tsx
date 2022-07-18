@@ -9,13 +9,17 @@ import {
     API_REGISTER_USER
 } from "../constants/urls"
 
-const adminToken = Cookies.get('auth-token')
+const adminToken = String(Cookies.get('auth-token')).replace(/\"/g, '')
 const userToken = Cookies.get('user-token')
+//console.log(adminToken);
+
+//adminToken = adminToken.replace(/^\"/, '', adminToken).replace(/\"$/, '', adminToken);
+//user-token:"%22eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTY1ODE0MjU1NiwiaWF0IjoxNjU4MTI0NTU2fQ.ChglKg7EkjS_cE2R4QcPbhppvDLbFm2cqG47WqvamfEpBvdsBu_XvbQlyC-Vr_-rev3iwLU2VbdEO-kAY-7Evw%22"
 
 const instanceWorkouts = axios.create({
     baseURL: API_WORKOUTS,
     headers: {
-        Authorization: adminToken,
+      Authorization: `Bearer ${adminToken}`,
     },
 })
 
@@ -36,7 +40,7 @@ const instanceAuth = axios.create({
 const instanceAdmin = axios.create({
     baseURL: API_SERVER,
     headers: {
-        Authorization: adminToken,
+        Authorization: `Bearer ${adminToken}`,
     },
 })
 
