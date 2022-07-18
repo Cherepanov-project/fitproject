@@ -6,6 +6,7 @@ import { Button, CircularProgress, Grid, StepLabel, Stepper } from "@mui/materia
 
 import RegOrLoginSocial from "../RegOrLoginSocial/regOrLoginSocial"
 import { IFormikStepProps, IFormikStepperProps } from "@/models/loginOrRegisterInterfaces/interfaces"
+import {regStep} from "@/constants/registration";
 
 export const FormikStepper = ({ children, initialValues, onSubmit, registerSuccess }: IFormikStepperProps) => {
     const childrenArray = Children.toArray(children) as ReactElement<IFormikStepProps>[]
@@ -37,39 +38,7 @@ export const FormikStepper = ({ children, initialValues, onSubmit, registerSucce
                         <Stepper sx={{ margin: "-10px" }} activeStep={step}>
                             {childrenArray.map((child, index) => (
                                 <StepLabel
-                                    sx={{
-                                        textTransform: "uppercase",
-                                        margin: "0 0.5rem 1.8rem",
-                                        width: "100%",
-                                        height: "2.4rem",
-                                        fontSize: "14px",
-                                        textAlign: "center",
-                                        borderRadius: "5px",
-                                        border: "solid 2px #C9CFDA",
-                                        font: `${
-                                            step === index
-                                                ? "#51AD78"
-                                                : step > index
-                                                ? "#56CCF2"
-                                                : "#C9CFDA"
-                                        }`,
-                                        borderColor: `${
-                                            step === index
-                                                ? "#51AD78"
-                                                : step > index
-                                                ? "#56CCF2"
-                                                : "#B0BAC9"
-                                        }`,
-                                        span: {
-                                            color: `${
-                                                step === index
-                                                    ? "#51AD78"
-                                                    : step > index
-                                                    ? "#56CCF2"
-                                                    : "#B0BAC9"
-                                            }`,
-                                        },
-                                    }}
+                                    sx={regStep(step, index)}
                                     key={nanoid()}
                                 >
                                     {child.props.label}

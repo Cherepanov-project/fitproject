@@ -13,6 +13,7 @@ import { postRecipe, putRecipeUpdate } from "@/API/recipes"
 import { IPostRecipe } from "@/API/api.interface"
 import { IRecipeFormProps } from "./recipeForm.interface"
 import { ContentWrapper, FormTitle, FormWrapper, SecondaryText } from "./recipeForm.styles"
+import {recFormInitalValue} from "@/constants/recipes";
 
 const RecipeForm: React.FC<IRecipeFormProps> = ({ title, recipeData }) => {
     const { mutate: addNewRecipe, isLoading } = useMutation(
@@ -31,23 +32,7 @@ const RecipeForm: React.FC<IRecipeFormProps> = ({ title, recipeData }) => {
         <ContentWrapper>
             <FormTitle>{title}</FormTitle>
             <Formik
-                initialValues={{
-                    header: "",
-                    description: recipeData?.description || "",
-                    nutritionValues: [
-                        { name: "calories", value: 0 },
-                        { name: "protein", value: 0 },
-                        { name: "fats", value: 0 },
-                        { name: "carbs", value: 0 },
-                    ],
-                    ingredients: [
-                        {
-                            name: "",
-                            description: "",
-                        },
-                    ],
-                    recipe: "",
-                }}
+                initialValues={recFormInitalValue(recipeData)}
                 validationSchema={validationRecipies}
                 onSubmit={(values, { resetForm }) => {
                     const data = {
