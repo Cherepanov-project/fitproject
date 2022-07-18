@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useQuery } from "react-query"
 import Link from "next/link"
 import Box from "@mui/material/Box"
@@ -36,12 +36,16 @@ const ItemList = ({ muscles }: IMuscles) => {
         setMaxResOnPage(() => page * 6)
     }
 
+  const [countPages, setCountPages] = useState(Math.ceil(filteredExercises.length / 6));
+  
     if (isSuccess) {
-        //filterExerciseList(filteredExercises, muscles, data)
         filteredExercises = filterExerciseList(muscles, data)
-        console.log(filteredExercises, "TYT222")
     }
 
+    useEffect(() => {
+      setCountPages(Math.ceil(filteredExercises.length / 6));
+    }, [filteredExercises])
+  
     const exercises = filteredExercises.map((item, index) => {
         if (index >= minResOnPage && index < maxResOnPage) {
             return (
@@ -80,17 +84,18 @@ const ItemList = ({ muscles }: IMuscles) => {
                 {exercises}
             </Box>
             <Stack spacing={2} sx={{ margin: "10px 0 13px 0" }}>
-                <Pagination
-                    defaultPage={1}
-                    count={5}
-                    onChange={(event, value) => changePage(value)}
-                    sx={{
-                        display: "flex",
-                        justifyContent: "flex-end",
-                        marginRight: "30px",
-                        position: "absolute",
-                    }}
+              {countPages > 0 && <Pagination
+                defaultPage={1}
+                count={countPages}
+                onChange={(event, value) => changePage(value)}
+                sx={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  marginRight: "30px",
+                  position: "absolute",
+                }}
                 />
+              }
             </Stack>
         </>
     )
