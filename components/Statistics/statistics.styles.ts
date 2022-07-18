@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import bgWater from "../../common/images/bgBtnFrame1.svg"
+import bgWater from "@/common/images/bgBtnFrame1.svg"
 
 export const Container = styled.div`
     display: flex;

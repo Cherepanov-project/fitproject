@@ -7,7 +7,7 @@ import {
     ISideBarCheckBoxMeals,
     ISpecificationMealsType,
     specificationMeals,
-} from "../../models/sideBar/sideBar"
+} from "@/models/sideBar/sideBar"
 
 const CheckboxMeals = () => {
     const [checkboxMeals, setCheckboxMeals] = useState<ISideBarCheckBoxMeals>(

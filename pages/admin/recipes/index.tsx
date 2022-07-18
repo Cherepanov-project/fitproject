@@ -3,15 +3,15 @@ import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
 import TableContainer from "@mui/material/TableContainer"
 
-import { withLayout } from "../../../containers/Layout-admin/layoutAdmin"
-import FilterMenu from "../../../components/FilterMenu/filterMenu"
-import Recipe from "../../../components/RecipesTableItem/recipe"
-import { StyleContentList, StyleFooterRecipes } from "../overview/overview.styles"
-import CreateForm from "../../../components/RecipesTableItem/AddBtn/addForm"
-import Pagination from "../../../components/Table/tablePagination"
-import ColumnName from "../../../components/User/ColumnName/columnName"
+import { withLayout } from "@/containers/Layout-admin/layoutAdmin"
+import FilterMenu from "@/components/FilterMenu/filterMenu"
+import Recipe from "@/components/RecipesTableItem/recipe"
+import { StyleContentList, StyleFooterRecipes } from "@/styles/admin/overview/overview.styles"
+import CreateForm from "@/components/RecipesTableItem/AddBtn/addForm"
+import Pagination from "@/components/Table/tablePagination"
+import ColumnName from "@/components/User/ColumnName/columnName"
 import { useQuery } from "react-query"
-import { getRecipesList } from "../../../API/recipes"
+import { getRecipesList } from "@/API/recipes"
 
 // export const getStaticProps = async () => {
 //     await queryClient.prefetchQuery(["recipesList"], async () => {

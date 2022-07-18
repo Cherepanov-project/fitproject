@@ -7,7 +7,7 @@ import Sidebar from "./Sidebar/sidebar"
 import { Navbar } from "./Navbar/navbar"
 import { Container, Content, MainContainer } from "./layoutAdmin.styles"
 import { layoutAdminProps } from "./layoutAdmin.interface"
-import { ACCESS_TOKEN } from "../../constants/titles"
+import { ACCESS_TOKEN } from "@/constants/titles"
 const theme = createTheme({
     palette: {
         primary: {

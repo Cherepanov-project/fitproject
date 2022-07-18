@@ -2,12 +2,12 @@ import Link from "next/link"
 import Box from "@mui/material/Box"
 import { Drawer } from "@mui/material"
 
-import bell from "../../../common/images/layoutUser/navbarIcons/bell.svg"
-import home from "../../../common/images/layoutUser/navbarIcons/home.svg"
-import clock from "../../../common/images/layoutUser/navbarIcons/clock.svg"
-import message from "../../../common/images/layoutUser/navbarIcons/message.svg"
-import sheet from "../../../common/images/layoutUser/navbarIcons/sheet.svg"
-import help from "../../../common/images/layoutUser/navbarIcons/help.svg"
+import bell from "@/common/images/layoutUser/navbarIcons/bell.svg"
+import home from "@/common/images/layoutUser/navbarIcons/home.svg"
+import clock from "@/common/images/layoutUser/navbarIcons/clock.svg"
+import message from "@/common/images/layoutUser/navbarIcons/message.svg"
+import sheet from "@/common/images/layoutUser/navbarIcons/sheet.svg"
+import help from "@/common/images/layoutUser/navbarIcons/help.svg"
 import {
     Sidebar,
     SidebarWrapper,
@@ -20,6 +20,7 @@ import {
 } from "./leftSideBar.styles"
 
 const LeftSideBar = () => {
+    console.log(bell.src)
     return (
         <SidebarWrapper>
             <Sidebar>

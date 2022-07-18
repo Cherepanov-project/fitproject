@@ -4,24 +4,24 @@ import { Normalize } from "styled-normalize"
 import { Typography, Link, Input, Button } from "@mui/material/"
 import AddIcon from "@mui/icons-material/Add"
 
-import { withLayout } from "../../../containers/Layout-admin/layoutAdmin"
+import { withLayout } from "@/containers/Layout-admin/layoutAdmin"
 
-import FontStyles from "../../../utils/fonts/fontStyles"
+import FontStyles from "@/utils/fonts/fontStyles"
 
-import { headerCardsData } from "../../../models/cards/headerCards/headerCards"
-import { trendsCardsData } from "../../../models/cards/trendsCards/trendsCards"
+import { headerCardsData } from "@/models/cards/headerCards/headerCards"
+import { trendsCardsData } from "@/models/cards/trendsCards/trendsCards"
 
-import { ticketsData } from "../../../models/widgets/tickets/tickets"
-import { tasksData } from "../../../models/widgets/tasks/tasks"
+import { ticketsData } from "@/models/widgets/tickets/tickets"
+import { tasksData } from "@/models/widgets/tasks/tasks"
 
-import Card from "../../../components/Card/card"
-import TicketsWidgetItem from "../../../components/WidgetItem/ticketsWidgetItem"
-import TasksWidgetItem from "../../../components/WidgetItem/tasksWidgetItem"
+import Card from "@/components/Card/card"
+import TicketsWidgetItem from "@/components/WidgetItem/ticketsWidgetItem"
+import TasksWidgetItem from "@/components/WidgetItem/tasksWidgetItem"
 
 import {
     WidgetItemContainer,
     WidgetItemContent,
-} from "../../../components/WidgetItem/widgetItem.styles"
+} from "@/components/WidgetItem/widgetItem.styles"
 import {
     StyleMainContainer,
     StyleContainerHeader,
@@ -36,9 +36,9 @@ import {
     StyleTicketsAndTasks,
     StyleWidget,
     StyleBlockHeaderRightSideStyled,
-} from "./overview.styles"
+} from "@/styles/admin/overview/overview.styles"
 
-const DynamicGraph = dynamic(() => import("../../../components/Graph/graph"), {
+const DynamicGraph = dynamic(() => import("@/components/Graph/graph"), {
     ssr: false,
 })
 

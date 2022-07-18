@@ -1,6 +1,6 @@
 import { IPutRecipe, IPostRecipe } from "./api.interface"
 import { instanceAdmin } from "./inctances"
-import { IRecipesArr } from "../components/RecipeForm/recipeForm.interface"
+import { IRecipesArr } from "@/components/RecipeForm/recipeForm.interface"
 
 export const getRecipesList = async () => {
     const response = await instanceAdmin.get<IRecipesArr>('/api/v1/admin/recipe')

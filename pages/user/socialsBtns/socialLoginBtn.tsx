@@ -4,8 +4,8 @@ import Image from "next/image"
 import Cookies from "js-cookie"
 import queryString from "query-string"
 
-import { ISocialLoginBtn } from "../../../models/loginOrRegisterInterfaces/interfaces"
-import { loginUserWithSocials } from "../../../API/userLogin"
+import { ISocialLoginBtn } from "@/models/loginOrRegisterInterfaces/interfaces"
+import { loginUserWithSocials } from "@/API/userLogin"
 
 const SocialLoginBtn: React.FC<ISocialLoginBtn> = ({ redirectURL, typeOfSocial, img }) => {
     const router = useRouter()

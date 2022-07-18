@@ -1,8 +1,8 @@
 import Cookies from "js-cookie"
 
-import { ACCESS_TOKEN } from "../constants/titles"
-import redirectToLoginPage from "../utils/redirect"
-import { ILoginOrRegisterResponseError } from "../models/loginOrRegisterInterfaces/interfaces"
+import { ACCESS_TOKEN } from "@/constants/titles"
+import redirectToLoginPage from "@/utils/redirect"
+import { ILoginOrRegisterResponseError } from "@/models/loginOrRegisterInterfaces/interfaces"
 import { instanceTokenRefresh } from "./inctances"
 
 const inactiveTimeout = 3600_000 // 1 hour
@@ -10,11 +10,13 @@ let lastActivity = Date.now()
 let userIsActive = true
 const setLastActivity = () => (lastActivity = Date.now())
 
-window.addEventListener("mousedown", setLastActivity)
-window.addEventListener("mousemove", setLastActivity)
-window.addEventListener("keydown", setLastActivity)
-window.addEventListener("scroll", setLastActivity)
-window.addEventListener("touchstart", setLastActivity)
+if (typeof window !== "undefined") {
+    window.addEventListener("mousedown", setLastActivity)
+    window.addEventListener("mousemove", setLastActivity)
+    window.addEventListener("keydown", setLastActivity)
+    window.addEventListener("scroll", setLastActivity)
+    window.addEventListener("touchstart", setLastActivity)
+}
 
 export const postRefreshToken = async () => {
     if (userIsActive) {
@@ -23,8 +25,7 @@ export const postRefreshToken = async () => {
             if (data.success) {
                 Cookies.set(ACCESS_TOKEN, data.data.jwtToken)
             }
-        }
-        catch (error) {
+        } catch (error) {
             return error as ILoginOrRegisterResponseError
         }
     }

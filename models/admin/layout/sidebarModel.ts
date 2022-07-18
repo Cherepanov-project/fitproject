@@ -1,19 +1,18 @@
-import { ISidebarMenuItem } from "../../../containers/Layout-admin/Sidebar/sidebar.interface"
+import { ISidebarMenuItem } from "@/containers/Layout-admin/Sidebar/sidebar.interface"
 
-import {
-    imageOverview,
-    imageUsers,
-    imageRecipies,
-    imageMessages,
-    imageArticles,
-    imageExercises,
-    imageSettings,
-    imageSubscription,
-} from "../../../common/images/layoutAdmin/sidebarIcons/index"
+// import imageOverview from "@/common/images/layoutAdmin/sidebarIcons/statistics.svg"
+// import imageUsers from "@/common/images/layoutAdmin/sidebarIcons/statistics.svg"
+// import imageRecipies from "@/common/images/layoutAdmin/sidebarIcons/recipies.svg"
+// import imageMessages from "@/common/images/layoutAdmin/sidebarIcons/messages.svg"
+// import imageArticles from "@/common/images/layoutAdmin/sidebarIcons/articles.svg"
+// import imageExercises from "@/common/images/layoutAdmin/sidebarIcons/exercises.svg"
+// import imageSettings from "@/common/images/layoutAdmin/sidebarIcons/settings.svg"
+// import imageSubscription from "@/common/images/layoutAdmin/sidebarIcons/subscription.svg"
 
+import { imageOverview, imageSubscription, imageSettings, imageRecipies, imageMessages, imageArticles, imageExercises, imageUsers} from "@/common/images/layoutAdmin/sidebarIcons";
 /* Если необходимо добавить разделитель
 после пункта меню, добавьте ему свойство 
-lastItem: true
+llastItem: true
 */
 export const sidebarMenu: ISidebarMenuItem[] = [
     {
