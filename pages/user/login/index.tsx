@@ -7,18 +7,18 @@ import { Formik } from "formik"
 import { Button, CardContent, CircularProgress } from "@mui/material"
 import Snackbar from "@mui/material/Snackbar"
 
-import { postLoginUser } from "../../../API/userLogin"
-import { FormTextField } from "../../../components/User/formTextField"
-import { validationLoginUser } from "../../../utils/validationSchema"
+import { postLoginUser } from "@/API/userLogin"
+import { FormTextField } from "@/components/User/formTextField"
+import { validationLoginUser } from "@/utils/validationSchema"
 import {
     RightSide,
     Title2,
     ForgotPassword,
-} from "../../../components/RegOrLoginSocial/regOrLoginSocial.styles"
-import RegOrLoginSocial from "../../../components/RegOrLoginSocial/regOrLoginSocial"
-import { ACCESS_TOKEN } from "../../../constants/titles"
+} from "@/components/RegOrLoginSocial/regOrLoginSocial.styles"
+import RegOrLoginSocial from "@/components/RegOrLoginSocial/regOrLoginSocial"
+import { ACCESS_TOKEN } from "@/constants/titles"
 
-export const SignInForm: React.FC = () => {
+const SignInForm = () => {
     const [open, setOpen] = useState<boolean>(false)
     const [msg, setMsg] = useState<string>("")
     const [loginSuccess, setLoginSuccess] = useState<boolean>(false)
@@ -117,3 +117,5 @@ export const SignInForm: React.FC = () => {
         </>
     )
 }
+
+export default SignInForm

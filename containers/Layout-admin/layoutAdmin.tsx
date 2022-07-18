@@ -7,10 +7,7 @@ import Sidebar from "./Sidebar/sidebar"
 import { Navbar } from "./Navbar/navbar"
 import { Container, Content, MainContainer } from "./layoutAdmin.styles"
 import { layoutAdminProps } from "./layoutAdmin.interface"
-import { ACCESS_TOKEN } from "../../constants/titles"
-import {Normalize} from "styled-normalize";
-import FontStyles from "../../utils/fonts/fontStyles";
-
+import { ACCESS_TOKEN } from "@/constants/titles"
 const theme = createTheme({
     palette: {
         primary: {
@@ -40,11 +37,7 @@ export const LayoutAdmin: React.FC<layoutAdminProps> = ({
                     <header>
                         <Navbar />
                     </header>
-                    <MainContainer>
-                        <Normalize />
-                        <FontStyles />
-                        {children}
-                    </MainContainer>
+                    <MainContainer>{children}</MainContainer>
                 </Content>
             </Container>
         </ThemeProvider>

@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 
-import ColorfulTeg from "../components/ColorfulTeg"
+import ColorfulTeg from "@/components/ColorfulTeg"
 
 export default {
     title: "Example/ColorfulTeg",

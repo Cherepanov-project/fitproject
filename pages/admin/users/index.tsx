@@ -1,19 +1,12 @@
-import React from "react"
-import { Normalize } from "styled-normalize"
+import React, { useEffect, useState } from "react"
 
-import { withLayout } from "../../../containers/Layout-admin/layoutAdmin"
-import { userList } from "../../../models/userList/userList"
-import PageUsers from "../../../components/PageComponents/PageUsers/pageUsers"
-import FontStyles from "../../../utils/fonts/fontStyles"
+import { withLayout } from "@/containers/Layout-admin/layoutAdmin"
+import { userList, DataType } from "../../../models/userList/userList"
+
+import PageUsers from "@/components/PageComponents/PageUsers/pageUsers"
 
 const Users = () => {
-    return (
-        <>
-            <Normalize />
-            <FontStyles />
-            <PageUsers data={userList} />
-        </>
-    )
+    return <PageUsers data={userList} />
 }
 
 export default withLayout(Users)

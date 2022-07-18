@@ -1,17 +1,17 @@
 import React, { useState } from "react"
-import { useQuery } from "react-query"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
 import TableContainer from "@mui/material/TableContainer"
 
-import { withLayout } from "../../../containers/Layout-admin/layoutAdmin"
-import FilterMenu from "../../../components/FilterMenu/filterMenu"
-import TableItemRecipes from "../../../components/TableItemRecipes/tableItemRecipes"
-import { StyleContentList, StyleFooterRecipes } from "../overview/overview.styles"
-import CreateForm from "../../../components/AddBtn/addForm"
-import Pagination from "../../../components/Table/tablePagination"
-import ColumnName from "../../../components/ColumnName/columnName"
-import { getRecipesList } from "../../../API/recipes"
+import { withLayout } from "@/containers/Layout-admin/layoutAdmin"
+import FilterMenu from "@/components/FilterMenu/filterMenu"
+import Recipe from "@/components/RecipesTableItem/recipe"
+import { StyleContentList, StyleFooterRecipes } from "@/styles/admin/overview/overview.styles"
+import CreateForm from "@/components/RecipesTableItem/AddBtn/addForm"
+import Pagination from "@/components/Table/tablePagination"
+import ColumnName from "@/components/User/ColumnName/columnName"
+import { useQuery } from "react-query"
+import { getRecipesList } from "@/API/recipes"
 
 // export const getStaticProps = async () => {
 //     await queryClient.prefetchQuery(["recipesList"], async () => {
@@ -26,7 +26,7 @@ import { getRecipesList } from "../../../API/recipes"
 //     }
 // }
 
-const RecipesListPage = () => {
+const Recipes = () => {
     const { data, isLoading, error } = useQuery("recipesList", getRecipesList)
     const [page, setPage] = useState<number>(0)
     const [rowsPerPage, setRowsPerPage] = useState<number>(8)
@@ -53,7 +53,7 @@ const RecipesListPage = () => {
 
     const recipe = data.map(el => {
         return (
-            <TableItemRecipes
+            <Recipe
                 key={el.id}
                 id={el.id}
                 protein={el.protein}
@@ -90,4 +90,4 @@ const RecipesListPage = () => {
     )
 }
 
-export default withLayout(RecipesListPage)
+export default withLayout(Recipes)

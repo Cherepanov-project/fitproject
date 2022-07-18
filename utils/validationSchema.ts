@@ -69,7 +69,7 @@ export const validateSignUpAdmin = Yup.object({
         .required("Repeat password is required"),
 })
 
-export const validationRecipes = Yup.object({
+export const validationRecipies = Yup.object({
     header: Yup.string()
         .required()
         .min(8, "Header should be of minimum 8 characters length"),

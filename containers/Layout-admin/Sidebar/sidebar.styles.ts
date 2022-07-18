@@ -93,6 +93,7 @@ export const StyleDivider = styled.hr`
 export const StyleLink = styled.a`
     display: flex;
     text-decoration: none;
+    align-items: center;
 
     color: #a4a6b3;
 

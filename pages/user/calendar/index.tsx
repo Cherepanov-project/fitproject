@@ -15,12 +15,12 @@ import {
     getDate,
 } from "date-fns"
 
-import CalendarContainer from "../../../components/Calendar/calendarContainer"
-import generateId from "../../../utils/generateId"
-import FramerCalendar from "../../../components/Calendar/framerCalendar"
-import { monthArr } from "../../../models/user/user"
-import { LayoutUser } from "../../../containers/Layout-user/layoutUser"
-import WithRefreshingToken from "../../../containers/Layout-user/WithRefreshingToken"
+import CalendarContainer from "@/components/Calendar/calendarContainer"
+import generateId from "@/utils/generateId"
+import FramerCalendar from "@/components/Calendar/framerCalendar"
+import { monthArr } from "@/models/user/user"
+import { LayoutUser } from "@/containers/Layout-user/layoutUser"
+import WithRefreshingToken from "@/containers/Layout-user/WithRefreshingToken"
 import {
     CalcHead,
     DayBlur,
@@ -30,7 +30,7 @@ import {
     FlexItem,
     CalcDate,
     CalendarDiv,
-} from "../../../components/Calendar/calendarContainer.styles"
+} from "@/components/Calendar/calendarContainer.styles"
 
 const Calendar = () => {
     const dateToday: Date = new Date()

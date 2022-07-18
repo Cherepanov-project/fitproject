@@ -1,7 +1,7 @@
 import Cookies from "js-cookie"
 
-import { ACCESS_TOKEN } from "../constants/titles"
-import { ILoginOrRegisterResponseError } from "../models/loginOrRegisterInterfaces/interfaces"
+import { ACCESS_TOKEN } from "@/constants/titles"
+import { ILoginOrRegisterResponseError } from "@/models/loginOrRegisterInterfaces/interfaces"
 import {instanceAdmin, instanceTokenRefresh} from "./inctances"
 
 export const postAdminToken = async (data) => {

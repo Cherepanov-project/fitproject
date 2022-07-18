@@ -1,28 +1,23 @@
 import { IPutRecipe, IPostRecipe } from "./api.interface"
-import { instanceRecipes} from "./inctances"
-import { IRecipesArr } from "../components/EditFormRecipe/editFormRecipe.interface"
+import { instanceAdmin } from "./inctances"
+import { IRecipesArr } from "@/components/RecipeForm/recipeForm.interface"
 
 export const getRecipesList = async () => {
-    const response = await instanceRecipes.get<IRecipesArr>('/')
+    const response = await instanceAdmin.get<IRecipesArr>('/api/v1/admin/recipe')
     return response.data.data.content
 }
 
 export const postRecipe = async (data: IPostRecipe) => {
-    const response = await instanceRecipes.post('/', data)
+    const response = await instanceAdmin.post('/api/v1/admin/recipe', data)
     return response.data
 }
 
 export const getRecipeById = async (id: number) => {
-    const response = await instanceRecipes.get(`/${id}`)
+    const response = await instanceAdmin.get(`/api/v1/admin/recipe/${id}`)
     return response.data
 }
 
 export const putRecipeUpdate = async (data: IPutRecipe) => {
-    const response = await instanceRecipes.put('/', data)
-    return response.data
-}
-
-export const deleteRecipeById = async (id: number) => {
-    const response = await instanceRecipes.put(`/${id}`)
+    const response = await instanceAdmin.put('/api/v1/admin/recipe', data)
     return response.data
 }

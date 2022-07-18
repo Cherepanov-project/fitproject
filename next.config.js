@@ -1,8 +1,10 @@
 module.exports = {
     reactStrictMode: true,
     images: {
-        domains: ["https://api.realworld.io/images/"],
+        loader: "akamai",
+        path: "/",
     },
+
     experimental: {
         // Enables the styled-components SWC transform
         styledComponents: true,

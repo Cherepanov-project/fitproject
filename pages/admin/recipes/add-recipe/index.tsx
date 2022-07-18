@@ -1,10 +1,10 @@
-import { withLayout } from "../../../../containers/Layout-admin/layoutAdmin"
-import EditFormRecipe from "../../../../components/EditFormRecipe/editFormRecipe"
+import { withLayout } from "@/containers/Layout-admin/layoutAdmin"
+import RecipeForm from "@/components/RecipeForm/recipeForm"
 
 const AddRecipe = () => {
     return (
         <div>
-            <EditFormRecipe title="Add recipe" />
+            <RecipeForm title="Add recipe" />
         </div>
     )
 }

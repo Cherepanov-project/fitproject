@@ -1,17 +1,7 @@
-import React from "react"
-import { Normalize } from "styled-normalize"
-
-import { withLayout } from "../../containers/Layout-admin/layoutAdmin"
-import FontStyles from "../../utils/fonts/fontStyles"
+import { withLayout } from "@/containers/Layout-admin/layoutAdmin"
 
 const Subscription = () => {
-    return (
-        <>
-            <Normalize />
-            <FontStyles />
-            <div>Subscription</div>
-        </>
-    )
+    return <div>Subscription</div>
 }
 
 export default withLayout(Subscription)

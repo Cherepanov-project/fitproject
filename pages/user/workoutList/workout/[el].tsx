@@ -5,12 +5,12 @@ import Image from "next/image"
 import Card from "@mui/material/Card"
 import useMediaQuery from "@mui/material/useMediaQuery"
 
-import Slider from "../../../../components/Slider/slider"
-import { LayoutUser } from "../../../../containers/Layout-user/layoutUser"
-import { exerciseList, exercisesType } from "../../../../models/workout/workout"
-import muscleImg from "../../../../common/images/icons/backMuscle.svg"
-import generateId from "../../../../utils/generateId"
-import WithRefreshingToken from "../../../../containers/Layout-user/WithRefreshingToken"
+import Slider from "@/components/Slider/slider"
+import { LayoutUser } from "@/containers/Layout-user/layoutUser"
+import { exerciseList, exercisesType } from "@/models/workout/workout"
+import muscleImg from "@/common/images/icons/backMuscle.svg"
+import generateId from "@/utils/generateId"
+import WithRefreshingToken from "@/containers/Layout-user/WithRefreshingToken"
 import {
     MainWrapper,
     Container,
@@ -26,7 +26,7 @@ import {
     ImgWrapper,
     TextWrapper,
     Reps,
-} from "../../../../components/WorkoutList/workout.styles"
+} from "@/components/WorkoutList/workout.styles"
 
 const WorkoutItem = () => {
     const path = useRouter()
