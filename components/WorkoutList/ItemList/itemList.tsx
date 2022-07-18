@@ -14,9 +14,9 @@ import { IMuscles } from "./itemList.interface"
 
 const ItemList = ({ muscles }: IMuscles) => {
     let filteredExercises: any[] = []
-  const { data, isSuccess } = useQuery("workouts", getWorkoutList, {
-    staleTime: 1000*60,
-  })
+    const { data, isSuccess } = useQuery("workouts", getWorkoutList, {
+        staleTime: 1000*60,
+    })
     const [minResOnPage, setMinResOnPage] = useState(0)
     const [maxResOnPage, setMaxResOnPage] = useState(6)
     const matches = useMediaQuery("(min-width:2000px")
@@ -32,11 +32,16 @@ const ItemList = ({ muscles }: IMuscles) => {
         cursor: "pointer",
     }
     const changePage = page => {
+        if (!page) {
+            return
+        }
         setMinResOnPage(() => (page - 1) * 6)
         setMaxResOnPage(() => page * 6)
+        setCurrentPage(page)
     }
 
-  const [countPages, setCountPages] = useState(Math.ceil(filteredExercises.length / 6));
+    const [countPages, setCountPages] = useState(Math.ceil(filteredExercises.length / 6));
+    const [currentPage, setCurrentPage] = useState(1);
   
     if (isSuccess) {
         filteredExercises = filterExerciseList(muscles, data)
@@ -45,6 +50,12 @@ const ItemList = ({ muscles }: IMuscles) => {
     useEffect(() => {
       setCountPages(Math.ceil(filteredExercises.length / 6));
     }, [filteredExercises])
+  
+    useEffect(() => {
+      if (countPages < currentPage) {
+          changePage(countPages)
+        }
+    }, [countPages, currentPage])
   
     const exercises = filteredExercises.map((item, index) => {
         if (index >= minResOnPage && index < maxResOnPage) {
@@ -84,16 +95,18 @@ const ItemList = ({ muscles }: IMuscles) => {
                 {exercises}
             </Box>
             <Stack spacing={2} sx={{ margin: "10px 0 13px 0" }}>
-              {countPages > 0 && <Pagination
-                defaultPage={1}
-                count={countPages}
-                onChange={(event, value) => changePage(value)}
-                sx={{
-                  display: "flex",
-                  justifyContent: "flex-end",
-                  marginRight: "30px",
-                  position: "absolute",
-                }}
+              {countPages > 0 &&
+                <Pagination
+                  defaultPage={1}
+                  count={countPages}
+                  onChange={(event, value) => changePage(value)}
+                  page={currentPage}
+                  sx={{
+                    display: "flex",
+                    justifyContent: "flex-end",
+                    marginRight: "30px",
+                    position: "absolute",
+                  }}
                 />
               }
             </Stack>
