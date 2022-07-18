@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react"
-import { useQuery } from "react-query"
+import { useState, useEffect, useMemo } from "react"
+import { useQuery, useQueryClient } from "react-query"
 import Link from "next/link"
 import Box from "@mui/material/Box"
 import Card from "@mui/material/Card"
@@ -13,7 +13,7 @@ import { filterExerciseList } from "../../../utils/filterExercises"
 import { IMuscles } from "./itemList.interface"
 
 const ItemList = ({ muscles }: IMuscles) => {
-    let filteredExercises: any[] = []
+  let filteredExercises: any[] = useMemo(() => [], [])
     const { data, isSuccess } = useQuery("workouts", getWorkoutList, {
         staleTime: 1000*60,
     })
@@ -31,6 +31,8 @@ const ItemList = ({ muscles }: IMuscles) => {
         alignItems: "center",
         cursor: "pointer",
     }
+    const queryClient = useQueryClient();
+
     const changePage = page => {
         if (!page) {
             return
@@ -40,15 +42,19 @@ const ItemList = ({ muscles }: IMuscles) => {
         setCurrentPage(page)
     }
 
-    const [countPages, setCountPages] = useState(Math.ceil(filteredExercises.length / 6));
-    const [currentPage, setCurrentPage] = useState(1);
+    const [countPages, setCountPages] = useState(Math.ceil(filteredExercises.length / 6))
+    const [currentPage, setCurrentPage] = useState(1)
   
     if (isSuccess) {
         filteredExercises = filterExerciseList(muscles, data)
     }
 
+    useEffect(() => { 
+      queryClient.prefetchQuery("workouts", getWorkoutList)
+    }, [queryClient])
+  
     useEffect(() => {
-      setCountPages(Math.ceil(filteredExercises.length / 6));
+      setCountPages(Math.ceil(filteredExercises.length / 6))
     }, [filteredExercises])
   
     useEffect(() => {
