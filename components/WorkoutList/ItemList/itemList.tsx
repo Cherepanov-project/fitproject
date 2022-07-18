@@ -106,7 +106,7 @@ const ItemList = ({ muscles }: IMuscles) => {
                     justifyContent: "flex-end",
                     marginRight: "30px",
                     position: "absolute",
-                  }}
+                }}
                 />
               }
             </Stack>
