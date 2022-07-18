@@ -3,9 +3,9 @@ import { FileRejection, FileError, useDropzone } from "react-dropzone"
 import { Box, Grid } from "@material-ui/core"
 import { useField } from "formik"
 
-import { SingleFileUpload } from "./SingleFileUpload"
+import { SingleFileUpload } from "./singleFileUpload"
 import UploadError from "./uploadError"
-import {IUploadbleFileProps} from "./fileHeader.interface"
+import { IUploadbleFileProps } from "./fileHeader.interface"
 import { DefaultDropZone } from "../../RecipesEditForm/upload/fileUpload.styles"
 
 let currentId = 0

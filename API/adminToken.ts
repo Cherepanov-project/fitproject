@@ -1,12 +1,12 @@
 import Cookies from "js-cookie"
 
+import { ACCESS_TOKEN } from "../constants/titles"
 import { ILoginOrRegisterResponseError } from "../models/loginOrRegisterInterfaces/interfaces"
-import { instanceAdmin } from "./inctances"
+import {instanceAdmin, instanceTokenRefresh} from "./inctances"
 
 export const postAdminToken = async (data) => {
     try {
         const response = await instanceAdmin.post('/api/v1/authenticate', data)
-        Cookies.set('auth-token', response.data.data.jwtToken)
         return response.data
     }
     catch (error) {
@@ -14,13 +14,8 @@ export const postAdminToken = async (data) => {
     }
 }
 
-export const postRefreshAdminToken = async (token) => {
-  try {
-    const response = await instanceAdmin.post('/api/v1/authenticate/refresh')
-    Cookies.set('auth-token', response.data.data.jwtToken)
+export const postRefreshAdminToken = async () => {
+    const response = await instanceTokenRefresh.post('/')
+    Cookies.set(ACCESS_TOKEN, response.data.data.jwtToken)
     return response.data.data.jwtToken
-  }
-  catch (error) {
-    return error 
-  }
 }

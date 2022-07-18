@@ -19,6 +19,7 @@ import meter from "../../../common/images/layoutUser/userbarIcons/meter.svg"
 import { PaperProps } from "./rightSideBar.styles"
 import generateId from "../../../utils/generateId"
 import { ISideBarProps } from "./rightSideBar.interface"
+import { ACCESS_TOKEN } from "../../../constants/titles"
 import {
     Avatar,
     Icon,
@@ -63,7 +64,7 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
     }
 
     const handleLogout = () => {
-        Cookies.remove("userToken")
+        Cookies.remove(ACCESS_TOKEN)
         router.push("/user")
     }
     return (

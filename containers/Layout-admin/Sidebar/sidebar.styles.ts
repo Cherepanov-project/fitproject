@@ -2,75 +2,101 @@ import styled, { css } from "styled-components"
 
 import { TStyledDiv } from "../layoutAdmin.interface"
 
-export const SidebarWrapper = styled.div`
-    height: 100vh;
+export const StyleSidebarWrapper = styled.div`
+    width: 255px;
     background-color: #363740;
+
+    color: #a4a6b3;
 `
 
-export const SidebarHeader = styled.div`
-    padding: 50px 28px 60px;
-    background-color: #363740;
+export const StyleSidebarHeader = styled.div`
+    box-sizing: border-box;
+
     width: 100%;
+
+    margin: 32px;
+
+    font-weight: 700;
     font-size: 19px;
+    line-height: 24px;
+    letter-spacing: 0.4px;
     color: #a4a6b3;
+
+    opacity: 0.7;
+
     cursor: pointer;
 
-    &:hover {
-        color: #dde2ff;
+    a {
+        display: flex;
+        align-items: center;
     }
 `
 
-export const SidebarItem = styled.div<TStyledDiv>`
-    width: 100%;
+export const StyleSidebarItem = styled.div<TStyledDiv>`
+    box-sizing: border-box;
+    padding-left: 32px;
+
+    font-weight: 400;
     font-size: 16px;
-    padding: 16px 28px;
-    color: #a4a6b3;
+    line-height: 56px;
+
+    letter-spacing: 0.2px;
+
+    cursor: pointer;
 
     &:hover {
-        color: #dde2ff;
         background-color: #3f4049;
-        border-left: 3px solid #3f4049;
-        padding: 16px 25px;
-        cursor: pointer;
-        ${props => {
-            if (props.selected) {
-                return css`
-                    border-left: 3px solid #dde2ff;
-                `
-            }
-        }}
+        border-left: 3px solid #dde2ff;
+        padding-left: 29px;
     }
 
     ${props => {
         if (props.selected) {
             return css`
-                color: #dde2ff;
                 background-color: #3f4049;
                 border-left: 3px solid #dde2ff;
-                padding: 16px 25px;
-                cursor: pointer;
+                padding-left: 29px;
+
+                a {
+                    color: #dde2ff;
+                }
+
+                img {
+                    fill: white;
+                }
             `
         }
     }}
 `
 
-export const ItemName = styled.span`
+export const StyleItemName = styled.span`
+    &::first-letter {
+        text-transform: uppercase;
+    }
+
     padding-left: 24px;
     display: inline-block;
 `
 
-export const Ul = styled.ul`
+export const StyleMenuList = styled.ul`
     width: 255px;
     padding: 0;
     margin: 0;
 `
 
-export const Hr = styled.hr`
+export const StyleDivider = styled.hr`
     border: 0;
     height: 1px;
     background: #40414a;
 `
 
-export const AAA = styled.a`
+export const StyleLink = styled.a`
     display: flex;
+    text-decoration: none;
+
+    color: #a4a6b3;
+
+    &:hover {
+        color: #dde2ff;
+    }
 `

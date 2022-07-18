@@ -3,7 +3,7 @@ import { GetServerSideProps } from "next"
 
 import { withLayout } from "../../../../containers/Layout-admin/layoutAdmin"
 import { getRecipeById } from "../../../../API/recipes"
-import RecipeForm from "../../../../components/RecipeForm/recipeForm"
+import EditFormRecipe from "../../../../components/EditFormRecipe/editFormRecipe"
 import { IRecipeEditProps } from "../../../../models/recipes/recipes"
 
 export const getServerSideProps: GetServerSideProps = async props => {
@@ -30,7 +30,7 @@ const RecipeEdit = ({ id }: IRecipeEditProps) => {
 
     return (
         <div>
-            <RecipeForm title={id} recipeData={data?.data} />
+            <EditFormRecipe title={id} recipeData={data?.data} />
         </div>
     )
 }

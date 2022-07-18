@@ -7,6 +7,9 @@ import Sidebar from "./Sidebar/sidebar"
 import { Navbar } from "./Navbar/navbar"
 import { Container, Content, MainContainer } from "./layoutAdmin.styles"
 import { layoutAdminProps } from "./layoutAdmin.interface"
+import { ACCESS_TOKEN } from "../../constants/titles"
+import {Normalize} from "styled-normalize";
+import FontStyles from "../../utils/fonts/fontStyles";
 
 const theme = createTheme({
     palette: {
@@ -26,7 +29,9 @@ const theme = createTheme({
     },
 })
 
-export const LayoutAdmin: React.FC<layoutAdminProps> = ({ children }): JSX.Element => {
+export const LayoutAdmin: React.FC<layoutAdminProps> = ({
+    children,
+}): JSX.Element => {
     return (
         <ThemeProvider theme={theme}>
             <Container>
@@ -35,17 +40,23 @@ export const LayoutAdmin: React.FC<layoutAdminProps> = ({ children }): JSX.Eleme
                     <header>
                         <Navbar />
                     </header>
-                    <MainContainer>{children}</MainContainer>
+                    <MainContainer>
+                        <Normalize />
+                        <FontStyles />
+                        {children}
+                    </MainContainer>
                 </Content>
             </Container>
         </ThemeProvider>
     )
 }
 
-export const withLayout = <T extends Record<string, undefined>>(Component: FunctionComponent<T>) => {
+export const withLayout = <T extends Record<string, undefined>>(
+    Component: FunctionComponent<T>
+) => {
     return function WithLayoutComponent(props: T): JSX.Element {
         useEffect(() => {
-            if (!Cookies.get("auth-token")) {
+            if (!Cookies.get(ACCESS_TOKEN)) {
                 console.log("tok")
                 Router.replace("/admin")
             }

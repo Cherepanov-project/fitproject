@@ -4,9 +4,17 @@ import Typography from "@mui/material/Typography"
 import { CardContainer, CardContent } from "./card.styles"
 import { defaultColors, hoverColors } from "../../models/cards/cards"
 
-const Card = ({ name, value, width,
-    height, grow, margin,
-    padding, fontName, fontValue,
+const Card = ({
+    name,
+    value,
+    width,
+    height,
+    grow,
+    margin,
+    padding,
+    fontName,
+    fontValue,
+    outline,
     ...props
 }) => {
     const [colors, setColors] = useState(defaultColors)
@@ -17,6 +25,7 @@ const Card = ({ name, value, width,
             width={width}
             height={height}
             margin={margin}
+            outline={outline}
             borderColor={borderColor}
             onMouseOver={() => setColors(hoverColors)}
             onMouseLeave={() => setColors(defaultColors)}

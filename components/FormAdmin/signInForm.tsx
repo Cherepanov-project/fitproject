@@ -10,10 +10,17 @@ import Cookies from "js-cookie"
 import imageLogoApp from "../../common/images/formAdmin/logoApp.svg"
 import TextField from "./textField"
 import { FormContainer } from "./formContainer"
-import { loginUser } from "../../API/loginUser"
+import { postAdminToken } from "../../API/adminToken"
 import { validateLoginAdmin } from "../../utils/validationSchema"
-import { DivCenter, DivDashboard, FormA, FormH1, FormH2, StyledButton } from "./formContainer.styles"
-import { postAdminToken } from "../../API/admin"
+import { ACCESS_TOKEN } from "../../constants/titles"
+import {
+    DivCenter,
+    DivDashboard,
+    FormA,
+    FormH1,
+    FormH2,
+    StyledButton,
+} from "./formContainer.styles"
 
 const SignInForm = () => {
     const router = useRouter()
@@ -26,7 +33,7 @@ const SignInForm = () => {
 
     // ВРЕМЕННО. Пока нет кнопки выхода
     if (!loginSuccess) {
-        Cookies.remove('auth-token')
+        Cookies.remove(ACCESS_TOKEN)
     }
 
     return (
@@ -47,10 +54,7 @@ const SignInForm = () => {
                         setMsg("You have been login")
                         setOpen(true)
                         setLoginSuccess(true)
-                        Cookies.set(
-                            "auth-token",
-                            JSON.stringify(response.data.jwtToken)
-                        )
+                        Cookies.set(ACCESS_TOKEN, response.data.jwtToken)
                         router.replace("/admin/overview")
                     }
                 }}

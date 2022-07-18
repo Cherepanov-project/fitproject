@@ -10,7 +10,7 @@ import { validateSignUpAdmin } from "../../utils/validationSchema"
 import imageLogoApp from "../../common/images/formAdmin/logoApp.svg"
 import { FormContainer } from "./formContainer"
 import TextField from "./textField"
-import { registerUser } from "../../API/loginUser"
+import { postRegisterUser } from "../../API/userRegister"
 import { DivCenter, DivDashboard, FormA, FormH1, FormH2, StyledButton } from "./formContainer.styles"
 
 const SignUpForm = () => {
@@ -32,7 +32,7 @@ const SignUpForm = () => {
                 }}
                 validationSchema={validateSignUpAdmin}
                 onSubmit={async data => {
-                    const response = await registerUser(data)
+                    const response = await postRegisterUser(data)
                     if (response.success === false) {
                         setMsg(response.error)
                         setOpen(true)

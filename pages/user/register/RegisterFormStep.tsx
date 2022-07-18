@@ -14,7 +14,7 @@ import { FormTextField } from "../../../components/User/formTextField"
 import { FormSelectField } from "../../../components/User/formSelectField"
 import { userInfo, exercises, mealPreferencesSelect } from "../../../models/loginOrRegisterInterfaces/inputsValues"
 import { validationUser, validationMeal, validationExercises } from "../../../utils/validationSchema"
-import { postRegisterUser } from "../../../API/user"
+import { postRegisterUser } from "../../../API/userRegister"
 
 export const RegisterForm: React.FC = () => {
     const [open, setOpen] = useState<boolean>(false)

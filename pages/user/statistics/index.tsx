@@ -11,6 +11,7 @@ import imgLeg from "../../../common/images/icons/leg.svg"
 import imgWater from "../../../common/images/icons/water.svg"
 import imgCyclist from "../../../common/images/icons/cyclist.svg"
 import imgRun from "../../../common/images/icons/running.svg"
+import WithRefreshingToken from "../../../containers/Layout-user/WithRefreshingToken"
 import {
     Container,
     ActiveContainer,
@@ -25,13 +26,14 @@ import {
     Target,
     ProgressContainer,
 } from "../../../components/Statistics/statistics.styles"
+import { ACCESS_TOKEN } from "../../../constants/titles"
 
 const Frame1 = () => {
     const router = useRouter()
-    const isLogin = Cookies.get("userToken") ? true : false
+    const isLogin = Cookies.get(ACCESS_TOKEN) ? true : false
 
     useEffect(() => {
-        if (!Cookies.get("userToken")) {
+        if (!Cookies.get(ACCESS_TOKEN)) {
             router.push("/user")
         }
     }, [router])
@@ -120,4 +122,4 @@ const Frame1 = () => {
     )
 }
 
-export default LayoutUser(Frame1)
+export default WithRefreshingToken(LayoutUser(Frame1))

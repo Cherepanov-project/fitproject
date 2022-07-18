@@ -3,7 +3,7 @@ import Link from "next/link"
 import loginMan from "../../common/images/loginMan.png"
 import Layout from "../../components/User/userLayout"
 import { RegOrLoginIcon } from "../../components/RegOrLoginSocial/regOrLoginSocial.styles"
-import { Index } from "./login"
+import { SignInForm } from "./login"
 import {
     UserLoginOrRegister,
     FlexWrapper,
@@ -33,7 +33,7 @@ const User = () => {
                         </div>
                         <RegOrLoginIcon width="50%" src={loginMan.src} />
                     </LeftSide>
-                    <Index />
+                    <SignInForm />
                 </FlexWrapper>
             </UserLoginOrRegister>
         </Layout>

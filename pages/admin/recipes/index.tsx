@@ -1,18 +1,17 @@
 import React, { useState } from "react"
+import { useQuery } from "react-query"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
 import TableContainer from "@mui/material/TableContainer"
 
 import { withLayout } from "../../../containers/Layout-admin/layoutAdmin"
 import FilterMenu from "../../../components/FilterMenu/filterMenu"
-import Recipe from "../../../components/RecipesTableItem/recipe"
-import { ContentList, FooterRecipes } from "../overview/overview.styles"
-import CreateForm from "../../../components/RecipesTableItem/AddBtn/addForm"
+import TableItemRecipes from "../../../components/TableItemRecipes/tableItemRecipes"
+import { StyleContentList, StyleFooterRecipes } from "../overview/overview.styles"
+import CreateForm from "../../../components/AddBtn/addForm"
 import Pagination from "../../../components/Table/tablePagination"
-import ColumnName from "../../../components/User/ColumnName/columnName"
-import { useQuery, dehydrate } from "react-query"
+import ColumnName from "../../../components/ColumnName/columnName"
 import { getRecipesList } from "../../../API/recipes"
-import { queryClient } from "../../_app"
 
 // export const getStaticProps = async () => {
 //     await queryClient.prefetchQuery(["recipesList"], async () => {
@@ -27,9 +26,8 @@ import { queryClient } from "../../_app"
 //     }
 // }
 
-const Recipes = () => {
+const RecipesListPage = () => {
     const { data, isLoading, error } = useQuery("recipesList", getRecipesList)
-
     const [page, setPage] = useState<number>(0)
     const [rowsPerPage, setRowsPerPage] = useState<number>(8)
 
@@ -37,9 +35,7 @@ const Recipes = () => {
         setPage(newPage)
     }
 
-    const handleChangeRowsPerPage = (
-        event: React.ChangeEvent<HTMLInputElement>
-    ) => {
+    const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
         setRowsPerPage(+event.target.value)
         setPage(0)
     }
@@ -57,7 +53,7 @@ const Recipes = () => {
 
     const recipe = data.map(el => {
         return (
-            <Recipe
+            <TableItemRecipes
                 key={el.id}
                 id={el.id}
                 protein={el.protein}
@@ -72,7 +68,7 @@ const Recipes = () => {
     })
 
     return (
-        <ContentList>
+        <StyleContentList>
             <FilterMenu title="Recipes" />
             <TableContainer>
                 <Table sx={{ minWidth: 1120 }}>
@@ -80,7 +76,7 @@ const Recipes = () => {
                     <TableBody>{recipe}</TableBody>
                 </Table>
             </TableContainer>
-            <FooterRecipes>
+            <StyleFooterRecipes>
                 <CreateForm />
                 <Pagination
                     count={data.length}
@@ -89,9 +85,9 @@ const Recipes = () => {
                     rowsPerPage={rowsPerPage}
                     onChangeRowsPerPage={handleChangeRowsPerPage}
                 />
-            </FooterRecipes>
-        </ContentList>
+            </StyleFooterRecipes>
+        </StyleContentList>
     )
 }
 
-export default withLayout(Recipes)
+export default withLayout(RecipesListPage)

@@ -1,20 +1,19 @@
 import axios from "axios"
 import Cookies from "js-cookie"
 
+import { ACCESS_TOKEN, USER_TOKEN } from "../constants/titles"
 import {
     API_SERVER,
     API_AUTH_ADMIN,
     API_GET_STATISTICS,
     API_WORKOUTS,
-    API_REGISTER_USER
+    API_RECIPES,
+    API_REGISTER_USER,
+    API_TOKEN_REFRESH
 } from "../constants/urls"
 
-const adminToken = String(Cookies.get('auth-token')).replace(/\"/g, '')
-const userToken = Cookies.get('user-token')
-//console.log(adminToken);
-
-//adminToken = adminToken.replace(/^\"/, '', adminToken).replace(/\"$/, '', adminToken);
-//user-token:"%22eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTY1ODE0MjU1NiwiaWF0IjoxNjU4MTI0NTU2fQ.ChglKg7EkjS_cE2R4QcPbhppvDLbFm2cqG47WqvamfEpBvdsBu_XvbQlyC-Vr_-rev3iwLU2VbdEO-kAY-7Evw%22"
+const adminToken = Cookies.get(ACCESS_TOKEN)
+const userToken = Cookies.get(USER_TOKEN)
 
 const instanceWorkouts = axios.create({
     baseURL: API_WORKOUTS,
@@ -23,17 +22,24 @@ const instanceWorkouts = axios.create({
     },
 })
 
+const instanceRecipes = axios.create({
+    baseURL: API_RECIPES,
+    headers: {
+        Authorization: `Bearer ${adminToken}`,
+    },
+})
+
 const instanceStatistics = axios.create({
     baseURL: API_GET_STATISTICS,
     headers: {
-        Authorization: adminToken,
+        Authorization: `Bearer ${adminToken}`,
     },
 })
 
 const instanceAuth = axios.create({
     baseURL: API_AUTH_ADMIN,
     headers: {
-        Authorization: adminToken,
+        Authorization: `Bearer ${adminToken}`,
     },
 })
 
@@ -44,11 +50,23 @@ const instanceAdmin = axios.create({
     },
 })
 
-const instanceRegisterUser = axios.create({
-    baseURL: API_REGISTER_USER,
+const instanceTokenRefresh = axios.create({
+    baseURL: API_TOKEN_REFRESH,
     headers: {
-        Authorization: adminToken,
+        Authorization: `Bearer ${adminToken}`,
     },
 })
 
-export { instanceAuth, instanceStatistics, instanceWorkouts, instanceAdmin, instanceRegisterUser }
+const instanceRegisterUser = axios.create({
+    baseURL: API_REGISTER_USER,
+    headers: {
+        Authorization: `Bearer ${adminToken}`,
+    },
+})
+
+export {
+    instanceAuth, instanceStatistics,
+    instanceWorkouts, instanceRecipes,
+    instanceAdmin,
+    instanceRegisterUser, instanceTokenRefresh
+}

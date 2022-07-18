@@ -3,4 +3,5 @@ export interface ISidebarMenuItem {
     name: string
     icon: string
     id: number
+    lastItem?: boolean
 }
