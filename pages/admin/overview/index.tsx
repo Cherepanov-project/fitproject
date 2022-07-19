@@ -26,7 +26,7 @@ import {
     StyleTicketsAndTasks,
     StyleWidget,
     StyleBlockHeaderRightSideStyled,
-} from "./overview.styles"
+} from "../../../styles/admin/overview/overview.styles"
 
 const DynamicGraph = dynamic(() => import("../../../components/Graph/graph"), {
     ssr: false,

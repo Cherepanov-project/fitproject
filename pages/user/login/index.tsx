@@ -18,7 +18,7 @@ import {
 import RegOrLoginSocial from "../../../components/RegOrLoginSocial/regOrLoginSocial"
 import { ACCESS_TOKEN } from "../../../constants/titles"
 
-export const SignInForm: React.FC = () => {
+const SignInForm: React.FC = () => {
     const [open, setOpen] = useState<boolean>(false)
     const [msg, setMsg] = useState<string>("")
     const [loginSuccess, setLoginSuccess] = useState<boolean>(false)
@@ -117,3 +117,5 @@ export const SignInForm: React.FC = () => {
         </>
     )
 }
+
+export default SignInForm

@@ -1,10 +1,10 @@
 import Link from "next/link"
 import React from "React"
 
-import { IItemRationProps } from "../../../../components/Calendar/calendarContainer.interface"
+import { IItemRationProps } from "../Calendar/calendarContainer.interface"
 import {
     FoodLink, ListItem, ItemDiv, ButtonMenu, DropMenu, ButtonDiv
-} from "../../../../components/Calendar/calendarContainer.styles"
+} from "../Calendar/calendarContainer.styles"
 
 const ItemRation: React.FC<IItemRationProps> = ({ dietaEl, asPath, menuClickShow }) => {
     return (

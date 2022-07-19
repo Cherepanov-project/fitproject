@@ -2,7 +2,7 @@ import Link from "next/link"
 
 import Layout from "../../../components/User/userLayout"
 import loginMan from "../../../common/images/loginMan.png"
-import { RegisterForm } from "./RegisterFormStep"
+import { RegisterForm } from "../../../components/Registration/RegisterFormStep"
 import {
     FlexWrapper,
     UserLoginOrRegister,

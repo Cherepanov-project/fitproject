@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-import { IDropMenuPropsStyle, IItemWorkoutPropsStyle } from "../../../../models/workout/workoutDay"
+import { IDropMenuPropsStyle, IItemWorkoutPropsStyle } from "../../models/workout/workoutDay"
 
 export const WorkoutUl = styled.ul`
     margin: 0;

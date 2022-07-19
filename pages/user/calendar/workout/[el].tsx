@@ -3,9 +3,9 @@ import { useRouter } from "next/router"
 
 import CalendarContainer from "../../../../components/Calendar/calendarContainer"
 import HeadLinkBack from "../../../../components/HeadLinkBack/headLinkBack"
-import ItemWorkout from "./ItemWorkout"
+import ItemWorkout from "../../../../components/ItemWorkout/ItemWorkout"
 import { LayoutUser } from "../../../../containers/Layout-user/layoutUser"
-import { WorkoutUl, ListWorkoutName, ItemWorkoutDiv } from "./styledWorkout"
+import { WorkoutUl, ListWorkoutName, ItemWorkoutDiv } from "../../../../components/ItemWorkout/styledWorkout"
 import { workoutDay, IWorkoutDayType } from "../../../../models/workout/workoutDay"
 
 LayoutUser(function () {
@@ -61,4 +61,4 @@ LayoutUser(function () {
     )
 })
 
-export { LayoutUser }
+export default LayoutUser

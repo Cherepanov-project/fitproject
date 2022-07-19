@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useRouter } from "next/router"
 
-import ItemRation from "./ItemRation"
+import ItemRation from "../../../../components/ItemRation/ItemRation"
 import CalendarContainer from "../../../../components/Calendar/calendarContainer"
 import HeadLinkBack from "../../../../components/HeadLinkBack/headLinkBack"
 import { ListUl, ItemDiv, ListItemName } from "../../../../components/Calendar/calendarContainer.styles"
