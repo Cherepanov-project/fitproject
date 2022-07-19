@@ -9,7 +9,7 @@ import EditIcon from "@mui/icons-material/Edit"
 import { TableRow, TableCell, Avatar, IconButton, Menu, MenuItem } from "@mui/material"
 
 import { SecondaryText, Text, RowAvatar, WrapBnt } from "./tableItemUsers.styles"
-import avatarUser from "../../common/images/userTableItem/avatarUser.jpg"
+import avatarUser from "@/common/images/userTableItem/avatarUser.jpg"
 import ColorfulTeg from "../ColorfulTeg"
 import { MenuIcon } from "../FilterMenu/filterMenu.styles"
 import ConfirmAction from "../ConfirmAction/confirmAction"

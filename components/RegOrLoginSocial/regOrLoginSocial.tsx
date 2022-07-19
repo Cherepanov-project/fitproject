@@ -1,5 +1,5 @@
 import { ContinueWithSocial, SocialLink } from "./regOrLoginSocial.styles"
-import SocialLoginBtn from "../../pages/user/socialsBtns/socialLoginBtn"
+import SocialLoginBtn from "../socialsBtns/socialLoginBtn"
 import {
     REDIRECT_GOOGLE_BTN,
     GOOGLE_IMG,
@@ -9,7 +9,7 @@ import {
     MAIL_IMG,
     REDIRECT_VK_BTN,
     VK_IMG,
-} from "../../constants/urls"
+} from "@/constants/urls"
 
 const RegOrLoginSocial = () => {
     return (

@@ -1,8 +1,8 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 
-import ProgressBtn from "../components/ProgressBtn/progressBtn"
-import SquareIcon from "../components/SquareIcon/squareIcon"
-import imgCyclist from "../common/images/icons/cyclist.svg"
+import ProgressBtn from "@/components/ProgressBtn/progressBtn"
+import SquareIcon from "@/components/SquareIcon/squareIcon"
+import imgCyclist from "@/common/images/icons/cyclist.svg"
 
 export default {
     title: "Example/ProgressBtn",

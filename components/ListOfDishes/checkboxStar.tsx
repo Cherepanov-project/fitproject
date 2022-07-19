@@ -8,7 +8,7 @@ import {
     initialValuesCheckBoxStar,
     specificationStar,
     ISpecificationStarType,
-} from "../../models/sideBar/sideBar"
+} from "@/models/sideBar/sideBar"
 
 const CheckboxStar = () => {
     const setArgumentStar = function (amt: string) {

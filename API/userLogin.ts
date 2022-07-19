@@ -1,11 +1,11 @@
 import axios from "axios"
 
-import { API_SOCIAL } from "../constants/urls"
+import { API_SOCIAL } from "@/constants/urls"
 import { instanceAuth } from "./inctances"
 import {
     ILoginForm,
     ILoginOrRegisterResponseError,
-} from "../models/loginOrRegisterInterfaces/interfaces"
+} from "@/models/loginOrRegisterInterfaces/interfaces"
 
 export const postLoginUser = async (user: ILoginForm) => {
     try {

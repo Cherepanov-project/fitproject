@@ -3,7 +3,7 @@ import { useField } from "formik"
 import { nanoid } from "nanoid"
 import { Box, FormControl } from "@mui/material"
 
-import { ISelectForm } from "../../models/loginOrRegisterInterfaces/interfaces"
+import { ISelectForm } from "@/models/loginOrRegisterInterfaces/interfaces"
 import { ErrorMessage, InputSelect, SelectOption } from "../RegOrLoginSocial/regOrLoginSocial.styles"
 
 export const FormSelectField = (props: ISelectForm) => {

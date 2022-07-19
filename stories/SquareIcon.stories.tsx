@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 
-import SquareIcon from "../components/SquareIcon/squareIcon"
-import imgWater from "../common/images/icons/water.svg"
+import SquareIcon from "@/components/SquareIcon/squareIcon"
+import imgWater from "@/common/images/icons/water.svg"
 
 export default {
     title: "Example/SquareIcon",

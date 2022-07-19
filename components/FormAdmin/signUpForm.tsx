@@ -6,11 +6,11 @@ import { Form, Formik } from "formik"
 import { Snackbar } from "@mui/material"
 import { nanoid } from "nanoid"
 
-import { validateSignUpAdmin } from "../../utils/validationSchema"
-import imageLogoApp from "../../common/images/formAdmin/logoApp.svg"
+import { validateSignUpAdmin } from "@/utils/validationSchema"
+import imageLogoApp from "@/common/images/formAdmin/logoApp.svg"
 import { FormContainer } from "./formContainer"
 import TextField from "./textField"
-import { postRegisterUser } from "../../API/userRegister"
+import { postRegisterUser } from "@/API/userRegister"
 import { DivCenter, DivDashboard, FormA, FormH1, FormH2, StyledButton } from "./formContainer.styles"
 
 const SignUpForm = () => {

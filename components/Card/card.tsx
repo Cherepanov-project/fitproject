@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import Typography from "@mui/material/Typography"
 
 import { CardContainer, CardContent } from "./card.styles"
-import { defaultColors, hoverColors } from "../../models/cards/cards"
+import { defaultColors, hoverColors } from "@/models/cards/cards"
 
 const Card = ({
     name,

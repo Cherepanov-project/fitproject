@@ -7,12 +7,12 @@ import ListItemIcon from "@mui/material/ListItemIcon"
 import ListItemText from "@mui/material/ListItemText"
 import { formatDistanceToNow } from "date-fns"
 
-import goalsIcon from "../../common/images/icons/goals.svg"
-import diet from "../../common/images/icons/diet.svg"
-import SettingsIcon from "../../common/images/icons/settingsIcon.svg"
-import defaultAvatar from "../../common/images/defaultAvatar.png"
-import arrow from "../../common/images/icons/arrow.svg"
-import meter from "../../common/images/icons/meter.svg"
+import goalsIcon from "@/common/images/icons/goals.svg"
+import diet from "@/common/images/icons/diet.svg"
+import SettingsIcon from "@/common/images/icons/settingsIcon.svg"
+import defaultAvatar from "@/common/images/defaultAvatar.png"
+import arrow from "@/common/images/icons/arrow.svg"
+import meter from "@/common/images/icons/meter.svg"
 import { ISideBarProps } from "./rightSideBar.interface"
 import { Avatar, Icon, UserName,
     IconWrapper, UserInfoWrapper, LastVisitTime,

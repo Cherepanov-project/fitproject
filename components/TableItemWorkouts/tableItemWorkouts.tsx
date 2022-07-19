@@ -12,7 +12,7 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
 import EditIcon from "@mui/icons-material/Edit"
 
 import { MenuIcon } from "./tableItemWorkouts.styles"
-import imageMan from "../../common/images/recipesTableItem/avatarEat.svg"
+import imageMan from "@/common/images/recipesTableItem/avatarEat.svg"
 import ColorfulTeg from "../ColorfulTeg"
 
 const options = ["Delete", "Edit"]

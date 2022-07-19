@@ -2,7 +2,7 @@ import React from "react"
 import { ComposedChart, Area, CartesianGrid, XAxis, YAxis, Tooltip, Line } from "recharts"
 
 import CustomTooltip from "./CustomTooltip/customTooltip"
-import { graphData } from "../../models/graph/graph"
+import { graphData } from "@/models/graph/graph"
 
 const Graph = () => {
     return (
