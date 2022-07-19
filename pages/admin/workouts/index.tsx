@@ -4,14 +4,14 @@ import TableContainer from "@mui/material/TableContainer"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
 
-import { withLayout } from "../../../containers/Layout-admin/layoutAdmin"
-import { getWorkoutList } from "../../../API/workouts"
-import TableItemWorkouts from "../../../components/TableItemWorkouts/tableItemWorkouts"
-import { StyleContentList, StyleFooterRecipes } from "../overview/overview.styles"
-import FilterMenu from "../../../components/FilterMenu/filterMenu"
-import ColumnName from "../../../components/ColumnName/columnName"
-import CreateForm from "../../../components/AddBtn/addForm"
-import Pagination from "../../../components/Table/tablePagination"
+import { withLayout } from "@/containers/Layout-admin/layoutAdmin"
+import { getWorkoutList } from "@/API/workouts"
+import TableItemWorkouts from "@/components/TableItemWorkouts/tableItemWorkouts"
+import { StyleContentList, StyleFooterRecipes } from "@/styles/admin/overview/overview.styles"
+import FilterMenu from "@/components/FilterMenu/filterMenu"
+import ColumnName from "@/components/ColumnName/columnName"
+import CreateForm from "@/components/AddBtn/addForm"
+import Pagination from "@/components/Table/tablePagination"
 
 const WorkoutsListPage = () => {
     const { data, isLoading, error } = useQuery("workoutsList", getWorkoutList)

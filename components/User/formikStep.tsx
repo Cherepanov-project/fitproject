@@ -1,4 +1,4 @@
-import { IFormikStepProps } from "../../models/loginOrRegisterInterfaces/interfaces"
+import { IFormikStepProps } from "@/models/loginOrRegisterInterfaces/interfaces"
 
 const FormikStep = ({ children }: IFormikStepProps) => {
     return (

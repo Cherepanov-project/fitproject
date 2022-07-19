@@ -1,4 +1,4 @@
-import { ISidebarMenuItem } from "../../../containers/Layout-admin/Sidebar/sidebar.interface"
+import { ISidebarMenuItem } from "@/containers/Layout-admin/Sidebar/sidebar.interface"
 
 import {
     imageOverview,
@@ -9,7 +9,7 @@ import {
     imageExercises,
     imageSettings,
     imageSubscription,
-} from "../../../common/images/layoutAdmin/sidebarIcons/index"
+} from "@/common/images/layoutAdmin/sidebarIcons/index"
 
 /* Если необходимо добавить разделитель
 после пункта меню, добавьте ему свойство

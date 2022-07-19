@@ -3,8 +3,8 @@ import { QueryClient, QueryClientProvider } from "react-query"
 import { ReactQueryDevtools } from "react-query/devtools"
 import Cookies from "js-cookie"
 
-import { postRefreshAdminToken } from "../API/adminToken"
-import { ACCESS_TOKEN } from "../constants/titles"
+import { postRefreshAdminToken } from "@/API/adminToken"
+import { ACCESS_TOKEN } from "@/constants/titles"
 
 export const queryClient = new QueryClient()
 const MyApp = ({ Component, pageProps }) => {

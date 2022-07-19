@@ -4,10 +4,10 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 
 // models
-import { sidebarMenu } from "../../../models/admin/layout/sidebarModel"
+import { sidebarMenu } from "@/models/admin/layout/sidebarModel"
 
 // icon
-import { imageLogoApp } from "../../../common/images/layoutAdmin/sidebarIcons/index"
+import { imageLogoApp } from "@/common/images/layoutAdmin/sidebarIcons/index"
 
 // styles
 
