@@ -13,9 +13,9 @@ import { filterExerciseList } from "../../../utils/filterExercises"
 import { IMuscles } from "./itemList.interface"
 
 const ItemList = ({ muscles }: IMuscles) => {
-  let filteredExercises: any[] = useMemo(() => [], [])
-    const { data, isSuccess } = useQuery("workouts", getWorkoutList, {
-        staleTime: 1000*60,
+    let filteredExercises: any[] = useMemo(() => [], [])
+    const { data, isSuccess } = useQuery("workouts", getWorkoutList, { 
+        staleTime: 1000*60*60*5, // кеш на 5 часов
     })
     const [minResOnPage, setMinResOnPage] = useState(0)
     const [maxResOnPage, setMaxResOnPage] = useState(6)
