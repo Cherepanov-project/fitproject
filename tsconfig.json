@@ -13,7 +13,40 @@
         "moduleResolution": "node",
         "resolveJsonModule": true,
         "isolatedModules": true,
-        "jsx": "preserve"
+        "jsx": "preserve",
+        "baseUrl": "./",
+        "paths": {
+            "@/components/*": [
+                "components/*"
+            ],
+            "@/containers/*": [
+                "containers/*"
+            ],
+            "@/models/*": [
+                "models/*"
+            ],
+            "@/styles/*": [
+                "styles/*"
+            ],
+            "@/utils/*": [
+                "utils/*"
+            ],
+            "@/common/*": [
+                "common/*"
+            ],
+            "@/constants/*": [
+                "constants/*"
+            ],
+            "@/API/*": [
+                "API/*"
+            ],
+            "@/public/*": [
+                "public/*"
+            ],
+            "@/pages/*": [
+                "pages/*"
+            ]
+        }
     },
     "include": [
         "next-env.d.ts",

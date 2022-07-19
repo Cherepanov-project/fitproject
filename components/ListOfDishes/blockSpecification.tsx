@@ -4,7 +4,7 @@ import {
 import {
     specificationItems,
     ISpecificationItemsType,
-} from "../../models/sideBar/sideBar"
+} from "@/models/sideBar/sideBar"
 
 const BlockSpecification = () => {
     const specificationNods = specificationItems.map(

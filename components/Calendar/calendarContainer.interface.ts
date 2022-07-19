@@ -1,4 +1,4 @@
-import { IDailyRationType } from "../../models/models.interface"
+import { IDailyRationType } from "@/models/models.interface"
 
 export interface IDropMenuProps {
     $display: boolean

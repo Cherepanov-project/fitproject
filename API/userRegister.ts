@@ -1,4 +1,4 @@
-import { ILoginOrRegisterResponseError } from "../models/loginOrRegisterInterfaces/interfaces"
+import { ILoginOrRegisterResponseError } from "@/models/loginOrRegisterInterfaces/interfaces"
 import { instanceRegisterUser } from "./inctances"
 
 export const postRegisterUser = async (data) => {

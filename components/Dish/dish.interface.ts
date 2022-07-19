@@ -1,4 +1,4 @@
-import { IIngredientsType, INutritionValueType } from "../../models/models.interface";
+import { IIngredientsType, INutritionValueType } from "@/models/models.interface";
 
 export interface IImg {
     imgUrl: any

@@ -5,7 +5,7 @@ import { Visibility, VisibilityOff } from "@mui/icons-material"
 
 import { DivInput, StyledLabel, StyledInput, ErrorForm } from "./formContainer.styles"
 import { IFormProps } from "./formContainer.interface"
-import calcPasswordVisibility from "../../utils/calcPasswordVisibility"
+import calcPasswordVisibility from "@/utils/calcPasswordVisibility"
 
 const TextField: React.FC<IFormProps> = ({ label, type, ...props }): JSX.Element => {
     const [field, meta] = useField(props)

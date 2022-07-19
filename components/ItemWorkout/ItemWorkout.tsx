@@ -1,7 +1,7 @@
 import React from "react"
 import Link from "next/link"
 
-import { IItemWorkoutProps } from "../../../../models/workout/workoutDay"
+import { IItemWorkoutProps } from "@/models/workout/workoutDay"
 import {
     ListItem,
     ItemWorkoutDiv,

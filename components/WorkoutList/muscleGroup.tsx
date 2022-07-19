@@ -1,6 +1,6 @@
 import Checkbox from "@mui/material/Checkbox"
 
-import generateId from "../../utils/generateId"
+import generateId from "@/utils/generateId"
 import {
     SidebarListTitle,
     SidebarItemListWrapper,
@@ -13,7 +13,7 @@ import {
     muscleCheckboxList,
     muscleCheckboxListType,
     muscleGroupListType,
-} from "../../models/workout/workout"
+} from "@/models/workout/workout"
 
 const Categories = ({ muscles, setMuscle }) => {
     const handleChange = (value: string) => {

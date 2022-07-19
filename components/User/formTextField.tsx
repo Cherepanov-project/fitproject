@@ -4,8 +4,8 @@ import { Box, FormControl, IconButton } from "@mui/material"
 import { VisibilityOff, Visibility } from "@mui/icons-material"
 
 import { ErrorMessage, Input } from "../RegOrLoginSocial/regOrLoginSocial.styles"
-import calcPasswordVisibility from "../../utils/calcPasswordVisibility"
-import { IFormStatus, IInputForm } from "../../models/loginOrRegisterInterfaces/interfaces"
+import calcPasswordVisibility from "@/utils/calcPasswordVisibility"
+import { IFormStatus, IInputForm } from "@/models/loginOrRegisterInterfaces/interfaces"
 
 export const FormTextField = (props: IInputForm) => {
     const [field, meta] = useField(props)

@@ -5,7 +5,7 @@ import Cookies from "js-cookie"
 
 import PositionedMenu from "./dashboard"
 import SearchAppBar from "./searchInput"
-import imageAdmin from "../../../common/images/layoutAdmin/navbarIcons/photo_admin.png"
+import imageAdmin from "@/common/images/layoutAdmin/navbarIcons/photo_admin.png"
 import {
     NavbarWrapper,
     PageName,
