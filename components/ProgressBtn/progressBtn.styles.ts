@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-import dots from "../../common/images/icons/3dots.svg"
+import dots from "@/common/images/icons/3dots.svg"
 
 let dotsSrc = dots
 if (dots.src) {

@@ -1,4 +1,4 @@
-import { DataType } from "../../../models/userList/userList";
+import { DataType } from "@/models/userList/userList";
 
 export interface IPageUsersProps {
     data: Array<DataType>

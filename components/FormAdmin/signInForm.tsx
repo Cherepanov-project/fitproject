@@ -7,12 +7,12 @@ import { nanoid } from "nanoid"
 import { Formik, Form } from "formik"
 import Cookies from "js-cookie"
 
-import imageLogoApp from "../../common/images/formAdmin/logoApp.svg"
+import imageLogoApp from "@/common/images/formAdmin/logoApp.svg"
 import TextField from "./textField"
 import { FormContainer } from "./formContainer"
-import { postAdminToken } from "../../API/adminToken"
-import { validateLoginAdmin } from "../../utils/validationSchema"
-import { ACCESS_TOKEN } from "../../constants/titles"
+import { postAdminToken } from "@/API/adminToken"
+import { validateLoginAdmin } from "@/utils/validationSchema"
+import { ACCESS_TOKEN } from "@/constants/titles"
 import {
     DivCenter,
     DivDashboard,

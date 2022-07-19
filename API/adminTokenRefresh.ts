@@ -1,8 +1,8 @@
 import Cookies from "js-cookie"
 
-import { ACCESS_TOKEN } from "../constants/titles"
-import redirectToLoginPage from "../utils/redirect"
-import { ILoginOrRegisterResponseError } from "../models/loginOrRegisterInterfaces/interfaces"
+import { ACCESS_TOKEN } from "@/constants/titles"
+import redirectToLoginPage from "@/utils/redirect"
+import { ILoginOrRegisterResponseError } from "@/models/loginOrRegisterInterfaces/interfaces"
 import { instanceTokenRefresh } from "./inctances"
 
 const inactiveTimeout = 3600_000 // 1 hour

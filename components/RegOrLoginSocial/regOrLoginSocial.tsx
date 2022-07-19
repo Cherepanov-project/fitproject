@@ -9,7 +9,7 @@ import {
     MAIL_IMG,
     REDIRECT_VK_BTN,
     VK_IMG,
-} from "../../constants/urls"
+} from "@/constants/urls"
 
 const RegOrLoginSocial = () => {
     return (

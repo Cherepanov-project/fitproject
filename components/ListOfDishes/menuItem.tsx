@@ -4,7 +4,7 @@ import CardContent from "@mui/material/CardContent"
 import { Rating } from "@mui/material"
 import useMediaQuery from "@mui/material/useMediaQuery"
 
-import DishChickenImg from "../../common/images/dishChickenImg.png"
+import DishChickenImg from "@/common/images/dishChickenImg.png"
 import {
     MenuItemTitle,
     MenuItemDescription,
