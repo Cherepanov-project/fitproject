@@ -6,12 +6,12 @@ import { getRecipeById } from "../../../../API/recipes"
 import EditFormRecipe from "../../../../components/EditFormRecipe/editFormRecipe"
 import { IRecipeEditProps } from "../../../../models/recipes/recipes"
 
-export const getServerSideProps: GetServerSideProps = async props => {
-    const id = props.query.id
-    return {
-        props: { id },
-    }
-}
+// export const getServerSideProps: GetServerSideProps = async props => {
+//     const id = props.query.id
+//     return {
+//         props: { id },
+//     }
+// }
 
 const RecipeEdit = ({ id }: IRecipeEditProps) => {
     const { data, isLoading, error } = useQuery(["resipe", id], () => getRecipeById(+id)

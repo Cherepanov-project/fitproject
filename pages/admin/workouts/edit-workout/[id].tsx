@@ -6,12 +6,12 @@ import { getWorkoutById } from "../../../../API/workouts"
 import EditFormWorkout from "../../../../components/EditFormWorkout/editFormWorkout"
 import { IWorkoutEditProps } from "../../../../models/workout/workout"
 
-export const getServerSideProps: GetServerSideProps = async props => {
-    const id = props.query.id
-    return {
-        props: { id },
-    }
-}
+// export const getServerSideProps: GetServerSideProps = async props => {
+//     const id = props.query.id
+//     return {
+//         props: { id },
+//     }
+// }
 
 const WorkoutEdit = ({ id }: IWorkoutEditProps) => {
     const { data, isLoading, error } = useQuery(["workout", id], () => getWorkoutById(+id)
