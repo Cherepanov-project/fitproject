@@ -1,5 +1,5 @@
 import { ContinueWithSocial, SocialLink } from "./regOrLoginSocial.styles"
-import SocialLoginBtn from "../../pages/user/socialsBtns/socialLoginBtn"
+import SocialLoginBtn from "../socialsBtns/socialLoginBtn"
 import {
     REDIRECT_GOOGLE_BTN,
     GOOGLE_IMG,

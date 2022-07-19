@@ -1,5 +1,5 @@
-import SignUpForm from "../../components/FormAdmin/signUpForm"
-import { ContainerAdminRegistration } from "../../components/FormAdmin/formContainer.styles"
+import SignUpForm from "@/components/FormAdmin/signUpForm"
+import { ContainerAdminRegistration } from "@/components/FormAdmin/formContainer.styles"
 
 const Admin = () => {
     return (

@@ -2,16 +2,16 @@ import { useEffect } from "react"
 import Cookies from "js-cookie"
 import { useRouter } from "next/router"
 
-import RectangleButton from "../../../components/RectangleBtn/rectangleBtn"
-import ProgressButton from "../../../components/ProgressBtn/progressBtn"
-import SquareIcon from "../../../components/SquareIcon/squareIcon"
-import { LayoutUser } from "../../../containers/Layout-user/layoutUser"
-import UserChar from "../../../components/UserChar/userChar"
-import imgLeg from "../../../common/images/icons/leg.svg"
-import imgWater from "../../../common/images/icons/water.svg"
-import imgCyclist from "../../../common/images/icons/cyclist.svg"
-import imgRun from "../../../common/images/icons/running.svg"
-import WithRefreshingToken from "../../../containers/Layout-user/WithRefreshingToken"
+import RectangleButton from "@/components/RectangleBtn/rectangleBtn"
+import ProgressButton from "@/components/ProgressBtn/progressBtn"
+import SquareIcon from "@/components/SquareIcon/squareIcon"
+import { LayoutUser } from "@/containers/Layout-user/layoutUser"
+import UserChar from "@/components/UserChar/userChar"
+import imgLeg from "@/common/images/icons/leg.svg"
+import imgWater from "@/common/images/icons/water.svg"
+import imgCyclist from "@/common/images/icons/cyclist.svg"
+import imgRun from "@/common/images/icons/running.svg"
+import WithRefreshingToken from "@/containers/Layout-user/WithRefreshingToken"
 import {
     Container,
     ActiveContainer,
@@ -25,8 +25,8 @@ import {
     TargetTitle,
     Target,
     ProgressContainer,
-} from "../../../components/Statistics/statistics.styles"
-import { ACCESS_TOKEN } from "../../../constants/titles"
+} from "@/components/Statistics/statistics.styles"
+import { ACCESS_TOKEN } from "@/constants/titles"
 
 const Frame1 = () => {
     const router = useRouter()

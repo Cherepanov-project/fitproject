@@ -1,5 +1,5 @@
-import { withLayout } from "../../../../containers/Layout-admin/layoutAdmin"
-import EditFormRecipe from "../../../../components/EditFormRecipe/editFormRecipe"
+import { withLayout } from "@/containers/Layout-admin/layoutAdmin"
+import EditFormRecipe from "@/components/EditFormRecipe/editFormRecipe"
 
 const AddRecipe = () => {
     return (

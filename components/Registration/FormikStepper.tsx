@@ -4,8 +4,8 @@ import { nanoid } from "nanoid"
 import { Formik, FormikConfig, Form } from "formik"
 import { Button, CircularProgress, Grid, StepLabel, Stepper } from "@mui/material"
 
-import RegOrLoginSocial from "../../../components/RegOrLoginSocial/regOrLoginSocial"
-import { IFormikStepProps, IFormikStepperProps } from "../../../models/loginOrRegisterInterfaces/interfaces"
+import RegOrLoginSocial from "../RegOrLoginSocial/regOrLoginSocial"
+import { IFormikStepProps, IFormikStepperProps } from "../../models/loginOrRegisterInterfaces/interfaces"
 
 export const FormikStepper = ({ children, initialValues, onSubmit, registerSuccess }: IFormikStepperProps) => {
     const childrenArray = Children.toArray(children) as ReactElement<IFormikStepProps>[]
