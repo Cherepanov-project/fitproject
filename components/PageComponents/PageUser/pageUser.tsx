@@ -6,7 +6,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack"
 import DeleteIcon from "@mui/icons-material/Delete"
 import EditIcon from "@mui/icons-material/Edit"
 
-import avatarUser from "../../../common/images/userTableItem/avatarUser.jpg"
+import avatarUser from "@/common/images/userTableItem/avatarUser.jpg"
 import ColorfulTeg from "../../ColorfulTeg"
 import {
     ContentWrapperUser,

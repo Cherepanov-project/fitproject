@@ -8,8 +8,8 @@ import Stack from "@mui/material/Stack"
 import useMediaQuery from "@mui/material/useMediaQuery"
 
 import { ImgWrapper, TextWrapper, Exercise, Reps } from "./itemList.styles"
-import { getWorkoutList } from "../../../API/workouts"
-import { filterExerciseList } from "../../../utils/filterExercises"
+import { getWorkoutList } from "@/API/workouts"
+import { filterExerciseList } from "@/utils/filterExercises"
 import { IMuscles } from "./itemList.interface"
 
 const ItemList = ({ muscles }: IMuscles) => {

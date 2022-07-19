@@ -3,9 +3,9 @@ import { TableContainer, Table, TableBody, Button, TableRow } from "@mui/materia
 
 import { ContentWrapper, Footer } from "./pageUsers.styles"
 import TableItemUsers from "../../TableItemUsers/tableItemUsers"
-import { DataType } from "../../../models/userList/userList"
+import { DataType } from "@/models/userList/userList"
 import Pagination from "../../Table/tablePagination"
-import getArrPagination from "../../../utils/getArrPagination"
+import getArrPagination from "@/utils/getArrPagination"
 import ColumnName from "../../ColumnName/columnName"
 import TableHeader from "../../Table/TableHeader/tableHeader"
 import { IPageUsersProps } from "./pageUsers.interface"

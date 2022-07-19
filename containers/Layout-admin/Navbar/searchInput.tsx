@@ -4,7 +4,7 @@ import { styled, alpha } from "@mui/material/styles"
 import IconButton from "@mui/material/IconButton"
 import InputBase from "@mui/material/InputBase"
 
-import imageSearch from "../../../common/images/layoutAdmin/navbarIcons/search.png"
+import imageSearch from "@/common/images/layoutAdmin/navbarIcons/search.png"
 
 const Search = styled("div")(({ theme }) => ({
     position: "relative",

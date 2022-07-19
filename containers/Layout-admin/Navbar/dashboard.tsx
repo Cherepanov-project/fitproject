@@ -5,7 +5,7 @@ import MenuItem from "@mui/material/MenuItem"
 import IconButton from "@mui/material/IconButton"
 import Badge from "@mui/material/Badge"
 
-import imageBell from "../../../common/images/layoutAdmin/navbarIcons/bell.png"
+import imageBell from "@/common/images/layoutAdmin/navbarIcons/bell.png"
 
 const PositionedMenu = () => {
     const [anchorEl, setAnchorEl] = React.useState(null)

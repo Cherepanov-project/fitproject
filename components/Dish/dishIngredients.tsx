@@ -1,6 +1,6 @@
 import React from "react"
 
-import generateId from "../../utils/generateId"
+import generateId from "@/utils/generateId"
 import chickenFood from "/common/images/chickenFood.svg"
 import { IngredientsItem, IngredientsItemImg, IngredientsItemText } from "./dish.styles"
 import { IDishIngredientsProps } from "./dish.interface"

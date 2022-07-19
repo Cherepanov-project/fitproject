@@ -1,5 +1,5 @@
-import { categoriesList } from "../../models/workout/workout"
-import generateId from "../../utils/generateId"
+import { categoriesList } from "@/models/workout/workout"
+import generateId from "@/utils/generateId"
 import {
     SidebarListTitle,
     SidebarItemListWrapper,
