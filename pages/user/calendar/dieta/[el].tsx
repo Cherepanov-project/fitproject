@@ -1,13 +1,13 @@
 import { useState } from "react"
 import { useRouter } from "next/router"
 
-import ItemRation from "../../../../components/ItemRation/ItemRation"
-import CalendarContainer from "../../../../components/Calendar/calendarContainer"
-import HeadLinkBack from "../../../../components/HeadLinkBack/headLinkBack"
-import { ListUl, ItemDiv, ListItemName } from "../../../../components/Calendar/calendarContainer.styles"
-import { IDailyRationType } from "../../../../models/models.interface"
-import { dailyRation } from "../../../../models/dieta/dieta"
-import { LayoutUser } from "../../../../containers/Layout-user/layoutUser"
+import ItemRation from "@/components/ItemRation/ItemRation"
+import CalendarContainer from "@/components/Calendar/calendarContainer"
+import HeadLinkBack from "@/components/HeadLinkBack/headLinkBack"
+import { ListUl, ItemDiv, ListItemName } from "@/components/Calendar/calendarContainer.styles"
+import { IDailyRationType } from "@/models/models.interface"
+import { dailyRation } from "@/models/dieta/dieta"
+import { LayoutUser } from "@/containers/Layout-user/layoutUser"
 
 const DailyRation = () => {
     const { asPath } = useRouter()

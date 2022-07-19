@@ -1,8 +1,8 @@
 import Link from "next/link"
 
-import loginMan from "../../common/images/loginMan.png"
-import Layout from "../../components/User/userLayout"
-import { RegOrLoginIcon } from "../../components/RegOrLoginSocial/regOrLoginSocial.styles"
+import loginMan from "@/common/images/loginMan.png"
+import Layout from "@/components/User/userLayout"
+import { RegOrLoginIcon } from "@/components/RegOrLoginSocial/regOrLoginSocial.styles"
 import SignInForm from "./login"
 import {
     UserLoginOrRegister,
@@ -12,7 +12,7 @@ import {
     AAA,
     Title,
     Title2,
-} from "../../components/RegOrLoginSocial/regOrLoginSocial.styles"
+} from "@/components/RegOrLoginSocial/regOrLoginSocial.styles"
 
 const User = () => {
     return (

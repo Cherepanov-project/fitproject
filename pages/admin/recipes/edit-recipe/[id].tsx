@@ -1,10 +1,10 @@
 import { useQuery } from "react-query"
 import { GetServerSideProps } from "next"
 
-import { withLayout } from "../../../../containers/Layout-admin/layoutAdmin"
-import { getRecipeById } from "../../../../API/recipes"
-import EditFormRecipe from "../../../../components/EditFormRecipe/editFormRecipe"
-import { IRecipeEditProps } from "../../../../models/recipes/recipes"
+import { withLayout } from "@/containers/Layout-admin/layoutAdmin"
+import { getRecipeById } from "@/API/recipes"
+import EditFormRecipe from "@/components/EditFormRecipe/editFormRecipe"
+import { IRecipeEditProps } from "@/models/recipes/recipes"
 
 // export const getServerSideProps: GetServerSideProps = async props => {
 //     const id = props.query.id

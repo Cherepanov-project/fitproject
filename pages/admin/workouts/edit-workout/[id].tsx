@@ -1,10 +1,10 @@
 import { useQuery } from "react-query"
 import { GetServerSideProps } from "next"
 
-import { withLayout } from "../../../../containers/Layout-admin/layoutAdmin"
-import { getWorkoutById } from "../../../../API/workouts"
-import EditFormWorkout from "../../../../components/EditFormWorkout/editFormWorkout"
-import { IWorkoutEditProps } from "../../../../models/workout/workout"
+import { withLayout } from "@/containers/Layout-admin/layoutAdmin"
+import { getWorkoutById } from "@/API/workouts"
+import EditFormWorkout from "@/components/EditFormWorkout/editFormWorkout"
+import { IWorkoutEditProps } from "@/models/workout/workout"
 
 // export const getServerSideProps: GetServerSideProps = async props => {
 //     const id = props.query.id

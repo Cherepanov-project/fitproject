@@ -7,16 +7,16 @@ import { Formik } from "formik"
 import { Button, CardContent, CircularProgress } from "@mui/material"
 import Snackbar from "@mui/material/Snackbar"
 
-import { postLoginUser } from "../../../API/userLogin"
-import { FormTextField } from "../../../components/User/formTextField"
-import { validationLoginUser } from "../../../utils/validationSchema"
+import { postLoginUser } from "@/API/userLogin"
+import { FormTextField } from "@/components/User/formTextField"
+import { validationLoginUser } from "@/utils/validationSchema"
 import {
     RightSide,
     Title2,
     ForgotPassword,
-} from "../../../components/RegOrLoginSocial/regOrLoginSocial.styles"
-import RegOrLoginSocial from "../../../components/RegOrLoginSocial/regOrLoginSocial"
-import { ACCESS_TOKEN } from "../../../constants/titles"
+} from "@/components/RegOrLoginSocial/regOrLoginSocial.styles"
+import RegOrLoginSocial from "@/components/RegOrLoginSocial/regOrLoginSocial"
+import { ACCESS_TOKEN } from "@/constants/titles"
 
 const SignInForm: React.FC = () => {
     const [open, setOpen] = useState<boolean>(false)
