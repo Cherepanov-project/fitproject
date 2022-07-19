@@ -1,11 +1,16 @@
 import React, { useState } from "react"
 import Image from "next/image"
 import { useRouter } from "next/router"
+
+// ui libs
 import IconButton from "@mui/material/IconButton"
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos"
 import ArrowBackIcon from "@mui/icons-material/ArrowBack"
 
-import imageFilter from "@/common/images/filterMenu/filter.svg"
+// images
+import  { imageFilter } from "@/common/images/filterMenu"
+
+// styles
 import { ContainerRight, FilterItem } from "./itemFilter.styles"
 import { Aa, Dropdown, FilterItem2, ContainerCenter, IconBack, InputCheckbox } from "./filterMenu.styles"
 

@@ -1,0 +1,6 @@
+export const bell = require("./bell.svg")
+export const clock = require("./clock.svg")
+export const help = require("./help.svg")
+export const home = require("./home.svg")
+export const sheet = require("./sheet.svg")
+export const message = require("./message.svg")

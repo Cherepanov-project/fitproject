@@ -1,61 +1,57 @@
 import Link from "next/link"
+import {useRouter} from "next/router";
+import Image from "next/image"
 import Box from "@mui/material/Box"
 import { Drawer } from "@mui/material"
 
-import bell from "@/common/images/layoutUser/navbarIcons/bell.svg"
-import home from "@/common/images/layoutUser/navbarIcons/home.svg"
-import clock from "@/common/images/layoutUser/navbarIcons/clock.svg"
-import message from "@/common/images/layoutUser/navbarIcons/message.svg"
-import sheet from "@/common/images/layoutUser/navbarIcons/sheet.svg"
-import help from "@/common/images/layoutUser/navbarIcons/help.svg"
+// styles
 import {
     Sidebar,
     SidebarWrapper,
     IconListWrapper,
     TopIconsWrapper,
     BottomIconWrapper,
-    Image,
+
     ImageWrapper,
     Divider,
 } from "./leftSideBar.styles"
 
+// models
+import { sidebarMenu } from "@/models/user/layout/sidebarModel"
+
+// images
+import help from "@/common/images/layoutUser/navbarIcons/help.svg"
+
 const LeftSideBar = () => {
+
+    const router = useRouter()
+    const page = router.asPath.split("/").pop()
+
+    const menuList = sidebarMenu.map(item => {
+        return (
+            <>
+                <Link href={item.route} passHref>
+                    <ImageWrapper selected={item.name === page}>
+                        <Image src={item.icon} alt={item.name} width="22px"
+                               height="22px"/>
+                    </ImageWrapper>
+                </Link>
+                {item?.divider ? <Divider /> : ""}
+            </>
+        )
+    })
     return (
         <SidebarWrapper>
             <Sidebar>
                 <IconListWrapper>
                     <TopIconsWrapper>
-                        <Link href={"#"} passHref>
-                            <ImageWrapper>
-                                <Image src={bell.src} alt="h" />
-                            </ImageWrapper>
-                        </Link>
-                        <Divider />
-                        <Link href={"/user/statistics"} passHref>
-                            <ImageWrapper>
-                                <Image src={home.src} alt="h" />
-                            </ImageWrapper>
-                        </Link>
-                        <Link href={"/user/calendar"} passHref>
-                            <ImageWrapper>
-                                <Image src={clock.src} alt="h" />
-                            </ImageWrapper>
-                        </Link>
-                        <Link href={"#"} passHref>
-                            <ImageWrapper>
-                                <Image src={message.src} alt="h" />
-                            </ImageWrapper>
-                        </Link>
-                        <Link href={"#"} passHref>
-                            <ImageWrapper>
-                                <Image src={sheet.src} alt="h" />
-                            </ImageWrapper>
-                        </Link>
+                        {menuList}
                     </TopIconsWrapper>
                     <BottomIconWrapper>
                         <Link href={"#"} passHref>
-                            <ImageWrapper>
-                                <Image src={help.src} alt="h" />
+                            <ImageWrapper selected={'help' === page} >
+                                <Image src={help.src} alt="h" width="24"
+                                       height="24"/>
                             </ImageWrapper>
                         </Link>
                     </BottomIconWrapper>

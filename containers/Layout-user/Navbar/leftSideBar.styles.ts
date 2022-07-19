@@ -1,4 +1,6 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
+
+import { TStyledDiv } from "../../Layout-admin/layoutAdmin.interface"
 
 export const SidebarWrapper = styled.div`
     width: 167px;
@@ -49,18 +51,33 @@ export const Divider = styled.span`
     margin-bottom: 24px;
 `
 
-export const ImageWrapper = styled.div`
-    width: 30px;
-    height: 30px;
+export const ImageWrapper = styled.div<TStyledDiv>`
+    width: 34px;
+    height: 34px;
     border-radius: 13px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 24px;
 
+    cursor: pointer;
+
     :hover {
         background-color: #3c3693;
+        width: 34px;
+        height: 34px;
     }
+    
+    ${props => {
+        if (props.selected) {
+            return css`
+                background-color: #3c3693;
+                 width: 34px;
+                 height: 34px;
+                `
+        }
+    }
+}
 `
 
 export const Image = styled.img`

@@ -2,15 +2,28 @@ import { useState } from "react"
 import { useRouter } from "next/router"
 import Link from "next/link"
 import Image from "next/image"
+
+// ui libs
 import Card from "@mui/material/Card"
 import useMediaQuery from "@mui/material/useMediaQuery"
 
+// components
 import Slider from "@/components/Slider/slider"
+
+// containers
 import { LayoutUser } from "@/containers/Layout-user/layoutUser"
-import { exerciseList, exercisesType } from "@/models/workout/workout"
-import muscleImg from "@/common/images/icons/backMuscle.svg"
-import generateId from "@/utils/generateId"
 import WithRefreshingToken from "@/containers/Layout-user/WithRefreshingToken"
+
+// models
+import { exerciseList, exercisesType } from "@/models/workout/workout"
+
+// images
+import { muscleImg } from "@/common/images/icons"
+
+// utils
+import generateId from "@/utils/generateId"
+
+// styles
 import {
     MainWrapper,
     Container,

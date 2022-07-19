@@ -1,19 +1,24 @@
 import * as React from "react"
+
+// ui libs
 import Box from "@mui/material/Box"
 import Drawer from "@mui/material/Drawer"
 import List from "@mui/material/List"
 import ListItemButton from "@mui/material/ListItemButton"
 import ListItemIcon from "@mui/material/ListItemIcon"
 import ListItemText from "@mui/material/ListItemText"
+
+// libs
 import { formatDistanceToNow } from "date-fns"
 
-import goalsIcon from "@/common/images/icons/goals.svg"
-import diet from "@/common/images/icons/diet.svg"
-import SettingsIcon from "@/common/images/icons/settingsIcon.svg"
+// images
+import {goalsIcon, SettingsIcon, diet, meter, arrow} from "@/common/images/icons"
 import defaultAvatar from "@/common/images/defaultAvatar.png"
-import arrow from "@/common/images/icons/arrow.svg"
-import meter from "@/common/images/icons/meter.svg"
+
+// interfaces
 import { ISideBarProps } from "./rightSideBar.interface"
+
+// styles
 import { Avatar, Icon, UserName,
     IconWrapper, UserInfoWrapper, LastVisitTime,
     UserInfo, WeightLoosGoalWrapper, IconArrow,
