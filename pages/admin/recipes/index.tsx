@@ -11,7 +11,8 @@ import { StyleContentList, StyleFooterRecipes } from "@/styles/admin/overview/ov
 import CreateForm from "@/components/AddBtn/addForm"
 import Pagination from "@/components/Table/tablePagination"
 import ColumnName from "@/components/ColumnName/columnName"
-import { getRecipesList } from "@/API/recipes"
+import { getRecipesList, getRecipeById } from "@/API/recipes"
+import getArrPagination from "../../../utils/getArrPagination"
 
 // export const getStaticProps = async () => {
 //     await queryClient.prefetchQuery(["recipesList"], async () => {
@@ -51,7 +52,7 @@ const RecipesListPage = () => {
         )
     }
 
-    const recipe = data.map(el => {
+    const recipe = getArrPagination(page, rowsPerPage, data).map(el => {
         return (
             <TableItemRecipes
                 key={el.id}

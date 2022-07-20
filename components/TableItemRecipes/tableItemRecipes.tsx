@@ -11,7 +11,7 @@ import Avatar from "@mui/material/Avatar"
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
 import EditIcon from "@mui/icons-material/Edit"
 
-import { MenuIcon } from "./tableItemRecipes.styles"
+import { MenuIcon, StyledText, StyledSecondaryText } from "./tableItemRecipes.styles"
 import imageMan from "@/common/images/recipesTableItem/avatarEat.svg"
 import ColorfulTeg from "../ColorfulTeg"
 
@@ -39,19 +39,21 @@ const TableItemRecipes = ({
     }
 
     return (
-        <TableRow hover sx={{ cursor: "pointer" }}>
+        <TableRow hover sx={{ cursor: "pointer" }} >
             <TableCell
-                component="th"
+                component="td"
                 scope="row"
                 sx={{ display: "flex", paddingLeft: 3.5 }}
             >
                 <Avatar sx={{ margin: 2 }}>
                     <Image src={imageMan} alt="image-man" />
                 </Avatar>
+                <StyledSecondaryText>
                 portion size ({portionSize}g), fat ({fat}), protein ({protein}),
                 carbohydrate ({carbohydrate})
+                </StyledSecondaryText>
             </TableCell>
-            <TableCell sx={{ paddingLeft: 3.5 }}>{name}</TableCell>
+            <TableCell sx={{ paddingLeft: 3.5 }}><StyledText>{name}</StyledText></TableCell>
             <TableCell sx={{ paddingLeft: 3.5 }}>{calorie} calorie</TableCell>
             <TableCell sx={{ paddingLeft: 3.5 }}>
                 {status === "HIGH" ? (
@@ -70,7 +72,7 @@ const TableItemRecipes = ({
                     />
                 )}
             </TableCell>
-            <TableCell align="right">
+            <TableCell align="right" sx={{ borderTop: "1px solid rgba(224, 224, 224, 1)" }}>
                 <MenuIcon>
                     <IconButton
                         aria-label="more"
@@ -111,7 +113,7 @@ const TableItemRecipes = ({
                     </Menu>
                 </MenuIcon>
             </TableCell>
-        </TableRow>
+        </ TableRow>
     )
 }
 
