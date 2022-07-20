@@ -18,7 +18,7 @@ interface IRecipe {
 export interface IRecipesArr {
     data: {
         content: IRecipe[]
+        totalElements: number;
     }
-
 
 }

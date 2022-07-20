@@ -2,9 +2,10 @@ import { IPutRecipe, IPostRecipe } from "./api.interface"
 import { instanceRecipes} from "./inctances"
 import { IRecipesArr } from "@/components/EditFormRecipe/editFormRecipe.interface"
 
-export const getRecipesList = async () => {
-    const response = await instanceRecipes.get<IRecipesArr>('/')
-    return response.data.data.content
+export const getRecipesList = async (page: number, size: number) => {
+    const response = await instanceRecipes.get<IRecipesArr>(`?page=${page}&size=${size}`)
+    return response.data.data
+    //return response.data.data.content
 }
 
 export const postRecipe = async (data: IPostRecipe) => {
