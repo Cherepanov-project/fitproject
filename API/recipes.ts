@@ -15,7 +15,7 @@ export const postRecipe = async (data: IPostRecipe) => {
 
 export const getRecipeById = async (id: number) => {
     const response = await instanceRecipes.get(`/${id}`)
-    return response.data
+    return response.data.data
 }
 
 export const putRecipeUpdate = async (data: IPutRecipe) => {

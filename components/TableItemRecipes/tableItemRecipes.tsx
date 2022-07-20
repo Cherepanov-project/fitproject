@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { useQuery } from "react-query"
+import { useRouter } from "next/router"
 import Link from "next/link"
 import Image from "next/image"
 import TableRow from "@mui/material/TableRow"
@@ -30,6 +31,7 @@ const TableItemRecipes = ({
     id,
     updateList
 }) => {
+    const router = useRouter()
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
     const open = Boolean(anchorEl)
     const handleClick = (event: React.MouseEvent<HTMLElement>) =>
@@ -50,9 +52,12 @@ const TableItemRecipes = ({
         // функция для удаленея рецепта
         refetch()
     }
+    const handleRowClick = () => {
+        router.push(`/admin/recipes/${id}`)
+    }
 
     return (
-        <TableRow hover sx={{ cursor: "pointer" }} >
+        <TableRow hover sx={{ cursor: "pointer" }} onClick={handleRowClick}>
             <TableCell
                 component="td"
                 scope="row"
