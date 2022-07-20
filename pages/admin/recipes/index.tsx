@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useQuery } from "react-query"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
@@ -14,12 +14,15 @@ import ColumnName from "@/components/ColumnName/columnName"
 import { getRecipesList, getRecipeById } from "@/API/recipes"
 
 const RecipesListPage = () => {
-    
     const [page, setPage] = useState<number>(0)
     const [rowsPerPage, setRowsPerPage] = useState<number>(8)
     const { data, isLoading, error } = useQuery(["recipesList", page, rowsPerPage], () => getRecipesList(page, rowsPerPage), {
         keepPreviousData: true
       })
+    
+      useEffect(() => {
+        window.scrollTo(0, 0);
+      }, [page, rowsPerPage]);
 
     const handleChangePage = (event: unknown, newPage: number) => {
         setPage(newPage)

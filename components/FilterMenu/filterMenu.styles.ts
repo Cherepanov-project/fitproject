@@ -48,44 +48,48 @@ export const Aa = styled.a`
     border-bottom: 1px solid white;
 
     &:hover {
-        color: #ffa07a;
-        border-bottom: 1px solid #ffa07a;
+        color: #093824;
+        border-bottom: 1px solid #093824;
     }
 `
 
 export const Dropdown = styled.div`
     position: absolute;
-    top: 200px;
+    top: 190px;
     right: 150px;
     width: 150px;
     transform: translateX(-45%);
-    background-color: red;
-    border: 1px solid red;
+    background-color: #29CC97;
+    border: 1px solid #29CC97;
     border-radius: 10px;
     overflow: hidden;
     font-size: 14px;
     z-index: 2;
+    padding-top: 5px;
 `
 export const FilterItem2 = styled.div`
     line-height: 40px;
     color: white;
     font-size: 16px;
-    border-bottom: 1px solid white;
+    padding-left: 5px;
     &:hover {
-        color: #ffa07a;
-        border-bottom: 1px solid #ffa07a;
+        color: #093824;
     }
 `
 
 export const IconBack = styled.div`
     width: 25px;
-    color: red;
+    color: #093824;
     background: white;
     text-align: center;
     border-radius: 50%;
+    margin-top: 5px;
+    margin-left: 5px;
     &:hover {
-        background: #ffa07a;
+        background: #D5DDDA;
     }
 `
 export const ContainerCenter = styled.div``
-export const InputCheckbox = styled.input``
+export const InputCheckbox = styled.input`
+margin-right: 5px;
+`

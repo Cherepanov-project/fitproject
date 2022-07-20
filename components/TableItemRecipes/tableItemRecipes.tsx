@@ -50,7 +50,7 @@ const TableItemRecipes = ({
                 </Avatar>
                 <StyledSecondaryText>
                 portion size ({portionSize}g), fat ({fat}), protein ({protein}),
-                carbohydrate ({carbohydrate})
+                carbohydrates ({carbohydrate})
                 </StyledSecondaryText>
             </TableCell>
             <TableCell sx={{ paddingLeft: 3.5 }}><StyledText>{name}</StyledText></TableCell>

@@ -14,6 +14,7 @@ export const StyledText = styled.p`
 `
 export const StyledSecondaryText = styled.p`
     align-self: center;
+    white-space: nowrap;
     color: #252733;
     margin: 0;
 `
