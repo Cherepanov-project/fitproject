@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useState } from "react"
+import { useQuery } from "react-query"
 import Link from "next/link"
 import Image from "next/image"
 import TableRow from "@mui/material/TableRow"
@@ -14,6 +15,7 @@ import EditIcon from "@mui/icons-material/Edit"
 import { MenuIcon, StyledText, StyledSecondaryText } from "./tableItemRecipes.styles"
 import imageMan from "@/common/images/recipesTableItem/avatarEat.svg"
 import ColorfulTeg from "../ColorfulTeg"
+import { deleteRecipeById } from "@/API/recipes"
 
 const options = ["Delete", "Edit"]
 
@@ -26,6 +28,7 @@ const TableItemRecipes = ({
     carbohydrate,
     portionSize,
     id,
+    updateList
 }) => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
     const open = Boolean(anchorEl)
@@ -33,9 +36,19 @@ const TableItemRecipes = ({
         setAnchorEl(event.currentTarget)
     const handleClose = () => setAnchorEl(null)
 
+    const {data, error, refetch} = useQuery(["deleteRecipe", id], () => deleteRecipeById(id), {
+        refetchOnWindowFocus: false,
+        enabled: false,
+        retry: false,
+        onSuccess: updateList
+    })
+    if (error instanceof Error) {
+        return <h1>{error.message}</h1>
+    }
+
     const deleteArticle = () => {
         // функция для удаленея рецепта
-        console.log("delete")
+        refetch()
     }
 
     return (

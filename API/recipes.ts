@@ -24,6 +24,6 @@ export const putRecipeUpdate = async (data: IPutRecipe) => {
 }
 
 export const deleteRecipeById = async (id: number) => {
-    const response = await instanceRecipes.put(`/${id}`)
+    const response = await instanceRecipes.delete(`/${id}`)
     return response.data
 }

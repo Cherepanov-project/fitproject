@@ -11,12 +11,13 @@ import { StyleContentList, StyleFooterRecipes } from "@/styles/admin/overview/ov
 import CreateForm from "@/components/AddBtn/addForm"
 import Pagination from "@/components/Table/tablePagination"
 import ColumnName from "@/components/ColumnName/columnName"
-import { getRecipesList, getRecipeById } from "@/API/recipes"
+import { getRecipesList } from "@/API/recipes"
 
 const RecipesListPage = () => {
     const [page, setPage] = useState<number>(0)
     const [rowsPerPage, setRowsPerPage] = useState<number>(8)
-    const { data, isLoading, error } = useQuery(["recipesList", page, rowsPerPage], () => getRecipesList(page, rowsPerPage), {
+    const [listChange, setListChange] = useState<boolean>(false)
+    const { data, isLoading, error } = useQuery(["recipesList", page, rowsPerPage, listChange], () => getRecipesList(page, rowsPerPage), {
         keepPreviousData: true
       })
     
@@ -43,6 +44,10 @@ const RecipesListPage = () => {
             </div>
         )
     }
+    const updateList = () => {
+        const isChanged = listChange;
+        setListChange(!isChanged);
+    }
 
     const recipe = data.content.map(el => {
         return (
@@ -56,6 +61,7 @@ const RecipesListPage = () => {
                 calorie={el.calorie}
                 status={"HIGH"}
                 portionSize={1}
+                updateList={updateList}
             />
         )
     })
