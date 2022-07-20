@@ -10,13 +10,15 @@ import useMediaQuery from "@mui/material/useMediaQuery"
 import { ImgWrapper, TextWrapper, Exercise, Reps } from "./itemList.styles"
 import { getWorkoutList } from "@/API/workouts"
 import { filterExerciseList } from "@/utils/filterExercises"
+import { EXERCISE_CACHE_TIME } from "@/constants/time"
 import { IMuscles } from "./itemList.interface"
 
 const ItemList = ({ muscles }: IMuscles) => {
     let filteredExercises: any[] = useMemo(() => [], [])
     const { data, isSuccess } = useQuery("workouts", getWorkoutList, { 
-        staleTime: 1000*60*60*5, // кеш на 5 часов
+        staleTime: EXERCISE_CACHE_TIME, 
     })
+  
     const [minResOnPage, setMinResOnPage] = useState(0)
     const [maxResOnPage, setMaxResOnPage] = useState(6)
     const matches = useMediaQuery("(min-width:2000px")
@@ -45,8 +47,8 @@ const ItemList = ({ muscles }: IMuscles) => {
     const [countPages, setCountPages] = useState(Math.ceil(filteredExercises.length / 6))
     const [currentPage, setCurrentPage] = useState(1)
   
-    if (isSuccess) {
-        filteredExercises = filterExerciseList(muscles, data)
+  if (isSuccess) {
+         filteredExercises = filterExerciseList(muscles, data)
     }
 
     useEffect(() => { 
