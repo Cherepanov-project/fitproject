@@ -28,10 +28,11 @@ const Navbar = () => {
     }, [])
 
     const image = Cookies.get("image")
-
+    const recipePage = router.asPath.includes("/admin/recipes/") ? `Recipe id ` : null;
     return (
         <NavbarWrapper>
             <PageName>
+                {recipePage}
                 {editRecipie[0] === "edit"
                     ? "Edit recipe"
                     : page[0].toUpperCase() + page.slice(1)}
