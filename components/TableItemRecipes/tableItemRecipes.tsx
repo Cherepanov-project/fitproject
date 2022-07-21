@@ -48,16 +48,15 @@ const TableItemRecipes = ({
         return <h1>{error.message}</h1>
     }
 
-    const deleteArticle = () => {
-        // функция для удаленея рецепта
+    const handleDelete = () => {
         refetch()
     }
-    const handleRowClick = () => {
+    const handleOpenRecipe = () => {
         router.push(`/admin/recipes/${id}`)
     }
 
     return (
-        <TableRow hover sx={{ cursor: "pointer" }} onClick={handleRowClick}>
+        <TableRow hover sx={{ cursor: "pointer" }}>
             <TableCell
                 component="td"
                 scope="row"
@@ -71,7 +70,7 @@ const TableItemRecipes = ({
                 carbohydrates ({carbohydrate})
                 </StyledSecondaryText>
             </TableCell>
-            <TableCell sx={{ paddingLeft: 3.5 }}><StyledText>{name}</StyledText></TableCell>
+            <TableCell sx={{ paddingLeft: 3.5 }} onClick={handleOpenRecipe} ><StyledText>{name}</StyledText></TableCell>
             <TableCell sx={{ paddingLeft: 3.5 }}>{calorie} calorie</TableCell>
             <TableCell sx={{ paddingLeft: 3.5 }}>
                 {status === "HIGH" ? (
@@ -116,7 +115,7 @@ const TableItemRecipes = ({
                             >
                                 {option === "Delete" ? (
                                     <DeleteForeverIcon
-                                        onClick={deleteArticle}
+                                        onClick={handleDelete}
                                     />
                                 ) : (
                                     <Link
