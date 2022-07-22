@@ -27,9 +27,6 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
     }, [])
 
     useEffect(() => {
-      //    function updateWidth(): void {
-      //      setWidth(window.innerWidth)
-      //    }
       window.addEventListener("resize", updateWidth)
       updateWidth()
       return () => window.removeEventListener("resize", updateWidth)
@@ -63,14 +60,6 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
   }, [isMouseDown, onMouseUpOutsideTheSlider])
 
   useEffect(() => {
-    /*
-    let mouseUpDocHandler = (): void => {
-      if (isMouseDown) {
-        setIsMouseDown(false)
-        onMouseUpOutsideTheSlider()
-      }
-    }
-*/
     document.addEventListener("mouseup", mouseUpDocHandler)
     return () => {
       document.removeEventListener("mouseup", mouseUpDocHandler)
@@ -88,8 +77,6 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
     )
     setSliderWrapperWidth(sliderWrapperRef.current?.clientWidth)
   }, [children])
-
-  //console.log("customSliderWidth = ", customSliderWidth)
 
   function onSliderStartMove(xCoord: number): void {
     let curX = xCoord
@@ -156,14 +143,6 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
       setPairOfXCoords([0, 0])
     }
   }
-  /*
-  function onMouseUpOutsideTheSlider(): void {
-    let newPairOfXs: number[] = []
-    newPairOfXs[0] = -(pairOfXCoords[1] - pairOfXCoords[0])
-    newPairOfXs[1] = 0
-    setPairOfXCoords(newPairOfXs)
-  }
-*/
 
   const onTouchStartHandler = (evt: React.TouchEvent<HTMLDivElement>) => {
     onSliderStartMove(evt.changedTouches[0].clientX)

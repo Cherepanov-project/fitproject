@@ -6,12 +6,12 @@ import {
   StyledName,
   StyledReps,
 } from "./CardExercise.styles"
-import { FontCardExercise } from "@/utils/fonts/fontStyles"
+import { FontRoboto } from "@/utils/fonts/fontStyles"
 
 const CardExercise = ({ data, styles = null }): JSX.Element => {
   return (
     <>
-      <StyledBox style={ styles?.StyledBox}>
+      <StyledBox style={styles?.StyledBox}>
         <StyledContentBox style={styles?.StyledContentBox}>
           <StyledImage
             imgUrl={data.img}
@@ -20,7 +20,7 @@ const CardExercise = ({ data, styles = null }): JSX.Element => {
             style={styles?.StyledImage}
           />
           <StyledTextBox style={styles?.StyledTextBox}>
-            <FontCardExercise />
+            <FontRoboto />
             <StyledName style={styles?.StyledName}>
               {data.name.toUpperCase()}
             </StyledName>
