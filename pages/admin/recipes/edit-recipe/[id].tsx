@@ -1,4 +1,5 @@
 import { useQuery } from "react-query"
+import { useRouter } from "next/router"
 import { GetServerSideProps } from "next"
 
 import { withLayout } from "@/containers/Layout-admin/layoutAdmin"
@@ -13,8 +14,9 @@ import { IRecipeEditProps } from "@/models/recipes/recipes"
 //     }
 // }
 
-const RecipeEdit = ({ id }: IRecipeEditProps) => {
-    const { data, isLoading, error } = useQuery(["resipe", id], () => getRecipeById(+id)
+const RecipeEdit = () => {
+    const router = useRouter()
+    const { data, isLoading, error } = useQuery(["resipe", router], () => getRecipeById(Number(router.query.id))
         // {
         //     initialData: () => {
         //         console.log(queryClient.getQueriesData("recipesList"))
@@ -30,7 +32,7 @@ const RecipeEdit = ({ id }: IRecipeEditProps) => {
 
     return (
         <div>
-            <EditFormRecipe title={id} recipeData={data?.data} />
+            <EditFormRecipe title={`Editing recipe № ${router.query.id}`} recipeData={data} />
         </div>
     )
 }

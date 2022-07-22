@@ -1,6 +1,15 @@
 export interface IRecipeFormProps {
     title: string
-    recipeData?: { id: string; description: string }
+    recipeData?: { 
+        id: string; 
+        description: string, 
+        name: string,
+        calorie: number,
+        protein: number,
+        fat: number,
+        carbohydrate: number,
+        picUrl: string
+    }
 }
 
 interface IRecipe {
