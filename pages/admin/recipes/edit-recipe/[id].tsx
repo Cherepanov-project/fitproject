@@ -32,7 +32,7 @@ const RecipeEdit = () => {
 
     return (
         <div>
-            <EditFormRecipe title={`Editing recipe № ${router.query.id}`} recipeData={data} />
+            <EditFormRecipe title={`Editing recipe № ${router.query.id}`} recipeData={data} btnText="Save"/>
         </div>
     )
 }

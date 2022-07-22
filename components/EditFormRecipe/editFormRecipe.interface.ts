@@ -10,6 +10,7 @@ export interface IRecipeFormProps {
         carbohydrate: number,
         picUrl: string
     }
+    btnText: string,
 }
 
 interface IRecipe {

@@ -15,7 +15,7 @@ import { IPostRecipe } from "@/API/api.interface"
 import { IRecipeFormProps } from "./editFormRecipe.interface"
 import { ContentWrapper, FormTitle, FormWrapper, SecondaryText } from "./editFormRecipe.styles"
 
-const EditFormRecipe: React.FC<IRecipeFormProps> = ({ title, recipeData }) => {
+const EditFormRecipe: React.FC<IRecipeFormProps> = ({ title, recipeData, btnText }) => {
     const router = useRouter()
     const { mutate: addNewRecipe, isLoading } = useMutation(
         (formData: IPostRecipe) => {
@@ -99,7 +99,7 @@ const EditFormRecipe: React.FC<IRecipeFormProps> = ({ title, recipeData }) => {
                                 variant="contained"
                                 sx={{ margin: "30px 0 30px 90%" }}
                             >
-                                Create
+                                {btnText}
                             </Button>
                         </FormWrapper>
                     </Form>
