@@ -1,5 +1,14 @@
 import styled from "styled-components"
 
+export const StyledLayoutUser = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #e5e5e5;
+  padding: 0;
+  margin: 0;
+`
+
 export const Container = styled.div`
   display: flex;
   //max-width: 1500px;

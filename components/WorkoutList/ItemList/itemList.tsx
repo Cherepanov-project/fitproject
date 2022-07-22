@@ -10,6 +10,8 @@ import { getWorkoutList } from "@/API/workouts"
 import { filterExerciseList } from "@/utils/filterExercises"
 import { EXERCISE_CACHE_TIME } from "@/constants/time"
 import { IMuscles } from "./itemList.interface"
+import { LayoutItemList } from "./itemList.styles"
+
 
 const ItemList = ({ muscles }: IMuscles) => {
     let filteredExercises: any[] = useMemo(() => [], [])
@@ -70,35 +72,42 @@ const ItemList = ({ muscles }: IMuscles) => {
   
   return (
     <>
-      <Box
-        sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "flex-start",
-          paddingTop: "35px",
-        }}
-      >
-        {exercises}
-      </Box>
-      <Stack spacing={2} sx={{ margin: "70px 0 0 0", position: "relative" }}>
+      <LayoutItemList>
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "flex-start",
+            paddingTop: "35px",
+          }}
+        >
+          {exercises}
+        </Box>
         {countPages > 0 && (
-          <Pagination
-            defaultPage={1}
-            count={countPages}
-            onChange={(event, value) => changePage(value)}
-            page={currentPage}
-            shape="rounded"
-            variant="outlined"
-            color="secondary"
+          <Stack
+            spacing={2}
             sx={{
-              backgroundColor: "#ffffff",
-              position: "absolute",
-              right: "34px",
-              bottom: "13px"
+              margin: "60px 0 0 0",
             }}
-          />
+          >
+            <Pagination
+              defaultPage={1}
+              count={countPages}
+              onChange={(event, value) => changePage(value)}
+              page={currentPage}
+              shape="rounded"
+              variant="outlined"
+              color="secondary"
+              sx={{
+                backgroundColor: "#ffffff",
+                position: "absolute",
+                right: "34px",
+                bottom: "13px",
+              }}
+            />
+          </Stack>
         )}
-      </Stack>
+      </LayoutItemList>
     </>
   )
 }

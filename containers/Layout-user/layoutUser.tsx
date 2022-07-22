@@ -3,21 +3,18 @@ import React, { FunctionComponent } from "react"
 import { layoutUserProps } from "./layoutUser.interface"
 import LeftSideBar from "./Navbar/leftSideBar"
 import { RightSideBar } from "./Userbar/rightSideBar"
-import { Container, Content, ContentWrapper, TopInput } from "./layoutUser.styles"
+import {
+  StyledLayoutUser,
+  Container,
+  Content,
+  ContentWrapper,
+  TopInput,
+} from "./layoutUser.styles"
 
 export const RequiredLayout: React.FC<layoutUserProps> = ({ children }): JSX.Element => {
     return (
       <>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            width: "100%",
-            backgroundColor: "#E5E5E5",
-            padding: "0",
-            margin: "0"
-          }}
-        >
+        <StyledLayoutUser>
           <Container>
             <LeftSideBar />
             <ContentWrapper>
@@ -32,7 +29,7 @@ export const RequiredLayout: React.FC<layoutUserProps> = ({ children }): JSX.Ele
               includeSeconds={true}
             />
           </Container>
-        </div>
+        </StyledLayoutUser>
       </>
     )
 }
