@@ -1,21 +1,30 @@
 import styled from "styled-components"
 
 export const MainWrapper = styled.div`
-    background-color: #f1f1f1;
-    height: 100vh;
+  //background-color: #f1f1f1;
+  height: 100vh;
+  //border-radius: 0 50px 50px 0;
+
+  //width: 280px;
+  //@media (min-width: 1700px) {
+  //  width: 430px;
+  //}
+  position: sticky;
+  top: 0;
 `
 
 export const RightSideBarWrapper = styled.div`
-    width: 244px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    margin-left: 30px;
-    background-color: white;
+  width: 244px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  //margin-left: 30px;
+  background-color: white;
 
-    @media (min-width: 1700px) {
-        width: 400px;
-    }
+  //@media (min-width: 1700px) {
+  //  width: 400px;
+  //}
+  border-radius: 0 50px 50px 0;
 `
 
 export const UserInfoWrapper = styled.div`
@@ -40,17 +49,17 @@ export const Loss = styled.div`
 `
 
 export const IconArrow = styled.img`
-    position: absolute;
-    padding: 10px 12px 10px;
-    left: 200px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    width: 12px;
-    height: 12px;
+  position: absolute;
+  padding: 10px 12px 10px;
+  left: 185px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  width: 32px;
+  height: 31px;
 
-    @media (min-width: 1700px) {
-        left: 355px;
-    }
+  //@media (min-width: 1700px) {
+  //  left: 335px;
+  //}
 `
 
 export const Meter = styled.img``

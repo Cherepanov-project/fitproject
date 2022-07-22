@@ -1,3 +1,4 @@
+/*
 import styled from "styled-components"
 
 import { IImg } from "./itemList.interface"
@@ -31,3 +32,4 @@ export const Reps = styled.div`
     font-size: 15px;
     color: #969696;
 `
+*/

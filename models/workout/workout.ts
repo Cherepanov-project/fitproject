@@ -42,7 +42,8 @@ export const exerciseList: exercisesType[] = [
             "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
         move: 3,
         repeat: 15,
-        area: "Chest",
+        //area: "Chest",
+        area: "Arms",
         muscles: [
             "Latissimus dorsi",
             "The trapezius",
@@ -60,7 +61,8 @@ export const exerciseList: exercisesType[] = [
             "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
         move: 3,
         repeat: 15,
-        area: "Chest",
+        //area: "Chest",
+        area: "Arms",
         muscles: [
             "Latissimus dorsi",
             "The trapezius",
@@ -78,7 +80,8 @@ export const exerciseList: exercisesType[] = [
             "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
         move: 3,
         repeat: 10,
-        area: "Chest",
+        //area: "Chest",
+        area: "Arms",
         muscles: [
             "Latissimus dorsi",
             "The trapezius",
@@ -96,7 +99,8 @@ export const exerciseList: exercisesType[] = [
             "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
         move: 3,
         repeat: 15,
-        area: "Chest",
+        //area: "Chest",
+        area: "Arms",
         muscles: [
             "Latissimus dorsi",
             "The trapezius",
@@ -127,6 +131,42 @@ export const exerciseList: exercisesType[] = [
     },
     {
         id: 5,
+        name: "Exercise",
+        exercise:
+            "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
+        move: 3,
+        repeat: 15,
+        area: "Arms",
+        muscles: [
+            "Latissimus dorsi",
+            "The trapezius",
+            "Levator scapulae",
+            "Rhomboids",
+        ],
+        img: "/exercises/squatting.jpg",
+        imgWidth: 150,
+        imgHeight: 277,
+    },
+    {
+        id: 6,
+        name: "Exercise",
+        exercise:
+            "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",
+        move: 3,
+        repeat: 15,
+        area: "Arms",
+        muscles: [
+            "Latissimus dorsi",
+            "The trapezius",
+            "Levator scapulae",
+            "Rhomboids",
+        ],
+        img: "/exercises/squatting.jpg",
+        imgWidth: 150,
+        imgHeight: 277,
+    },
+    {
+        id: 7,
         name: "Exercise",
         exercise:
             "Start in a high plank with your palms flat, hands shoulder-width apart, shoulders stacked directly above your wrists, legs extended behind you, and your core and glutes engaged. Place your feet hip-width apart.",

@@ -5,12 +5,13 @@ import { IImg } from "./workout.interface"
 export const MainWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    width: 85%;
+    width: 100%;
     margin: 0 auto;
-
+/*
     @media (max-width: 2000px) {
         width: 100%;
     }
+*/
 `
 
 export const Container = styled.div`
@@ -28,9 +29,9 @@ export const LeftContent = styled.div`
 `
 
 export const Exercise = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 60%;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
 `
 
 export const ExerciseTitle = styled.h1`
@@ -76,7 +77,7 @@ export const Muscle = styled.div`
         font-weight: bold;
     }
 `
-
+/*
 export const BottomContainer = styled.div`
     background-color: white;
     border-radius: 5px;
@@ -84,7 +85,6 @@ export const BottomContainer = styled.div`
     justify-content: flex-start;
     padding: 0 58px;
 `
-
 export const ImgWrapper = styled.div<IImg>`
     width: 118px;
     height: 126px;
@@ -111,3 +111,4 @@ export const Reps = styled.div`
     font-size: 15px;
     color: #969696;
 `
+*/

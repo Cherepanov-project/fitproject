@@ -7,25 +7,33 @@ import { Container, Content, ContentWrapper, TopInput } from "./layoutUser.style
 
 export const RequiredLayout: React.FC<layoutUserProps> = ({ children }): JSX.Element => {
     return (
-        <>
-            <Container>
-                <LeftSideBar />
-                <ContentWrapper>
-                    <TopInput
-                        type="text"
-                        placeholder="Search Activities, messages"
-                    />
-                    <Content>
-                        <main>{children}</main>
-                    </Content>
-                </ContentWrapper>
-                <RightSideBar
-                    avatar={undefined}
-                    userName={"kek"}
-                    includeSeconds={true}
-                />
-            </Container>
-        </>
+      <>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            width: "100%",
+            backgroundColor: "#E5E5E5",
+            padding: "0",
+            margin: "0"
+          }}
+        >
+          <Container>
+            <LeftSideBar />
+            <ContentWrapper>
+              <TopInput type="text" placeholder="Search Activities, messages" />
+              <Content>
+                <main>{children}</main>
+              </Content>
+            </ContentWrapper>
+            <RightSideBar
+              avatar={undefined}
+              userName={"kek"}
+              includeSeconds={true}
+            />
+          </Container>
+        </div>
+      </>
     )
 }
 

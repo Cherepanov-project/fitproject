@@ -6,6 +6,8 @@ import Cookies from "js-cookie"
 import { postRefreshAdminToken } from "@/API/adminToken"
 import { ACCESS_TOKEN } from "@/constants/titles"
 
+import { GeneralStyles } from "@/styles/general"
+
 export const queryClient = new QueryClient()
 const MyApp = ({ Component, pageProps }) => {
     //ВРЕМЕННО. Рефреш админского токена
@@ -16,16 +18,17 @@ const MyApp = ({ Component, pageProps }) => {
     }, 86400)
 
     return (
-        <>
-            <Script
-                src="https://apis.google.com/js/platform.js?onload=init"
-                strategy="beforeInteractive"
-            />
-            <QueryClientProvider client={queryClient}>
-                <Component {...pageProps} />
-                <ReactQueryDevtools initialIsOpen={false} />
-            </QueryClientProvider>
-        </>
+      <>
+        <Script
+          src="https://apis.google.com/js/platform.js?onload=init"
+          strategy="beforeInteractive"
+        />
+        <QueryClientProvider client={queryClient}>
+          <GeneralStyles />
+          <Component {...pageProps} />
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
+      </>
     )
 }
 

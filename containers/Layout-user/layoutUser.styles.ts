@@ -1,24 +1,30 @@
 import styled from "styled-components"
 
 export const Container = styled.div`
-    display: flex;
-    max-width: 1440px;
-    margin: 0 auto;
-    background-color: #f1f1f1;
+  display: flex;
+  //max-width: 1500px;
+  //margin: 0 auto;
+  //background-color: #f1f1f1;
+  border-radius: 50px;
 
-    @media (min-width: 1441px) {
-        max-width: 100%;
-        justify-content: space-between;
-    }
+  //@media (min-width: 1441px) {
+  //    max-width: 100%;
+  //    justify-content: space-between;
+  //}
+
+  margin: 0;
+  //border: 1px solid;
 `
 
 export const Content = styled.div`
-    width: 1004px;
-    background-color: #f1f1f1;
+  width: 1010px;
+  background-color: #f1f1f1;
 
-    @media (min-width: 1440px) {
-        width: 100%;
-    }
+  //@media (min-width: 1440px) {
+  //    width: 100%;
+  //}
+  margin-right: 30px;
+  padding-bottom: 21px;
 `
 
 export const ContentWrapper = styled.div`
@@ -26,9 +32,9 @@ export const ContentWrapper = styled.div`
     flex-direction: column;
     background-color: #f1f1f1;
 
-    @media (min-width: 1440px) {
-        width: 100%;
-    }
+    //@media (min-width: 1440px) {
+    //    width: 100%;
+    //}
 `
 
 export const TopInput = styled.input`
