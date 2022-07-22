@@ -45,14 +45,17 @@ export const StyledName = styled.p`
   font-weight: 500;
   font-size: 15.107px;
   line-height: 18px;
-  height: 26.67px;
   color: #000000;
   margin: 0;
   padding: 0;
+
+  max-width: 210px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `
 
 export const StyledReps = styled.span`
-  height: 19px;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;

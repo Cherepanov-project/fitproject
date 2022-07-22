@@ -1,13 +1,10 @@
 import styled from "styled-components"
 import { IImg } from "@/components/WorkoutList/ItemList/itemList.interface"
 
-//import { StyledBox, StyledImage, StyledTextBox, StyledName, StyledReps } from "@/components/WorkoutList/CardExercise/CardExercise.styles";
-
 export const StyledBox = {
   width: "190px",
   height: "180.83px",
-  //margin: "15px 34px 15px 0"
-  marginBottom: "0"
+  marginBottom: "2px",
 }
 
 export const StyledImage = {
@@ -24,9 +21,7 @@ export const StyledTextBox = {
 }
 
 export const StyledName = {
-  height: "23.91px",
 }
 
 export const StyledReps = {
-  height: "17.04px",
 }

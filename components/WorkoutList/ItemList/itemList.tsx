@@ -60,7 +60,7 @@ const ItemList = ({ muscles }: IMuscles) => {
             key={item.id}
             passHref
           >
-            <a style={{ textDecoration: "none" }}>
+            <a>
               <CardExercise data={item} />
             </a>
           </Link>
