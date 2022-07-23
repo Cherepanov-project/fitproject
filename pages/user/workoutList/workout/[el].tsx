@@ -23,8 +23,11 @@ import {
   MusclesTitle,
   MusclesList,
   Muscle,
+  MuscleTitle,
 } from "@/components/WorkoutList/workout.styles"
 import * as styles from "./el.styles"
+
+import { FontArimaMadurai } from "@/utils/fonts/fontStyles"
 
 import { useRef } from "react"
 
@@ -47,7 +50,10 @@ const WorkoutItem = () => {
         return (
           <Muscle key={generateId()}>
             <Image src={muscleImg.src} alt="muscle" width={50} height={50} />
-            <span>{muscle}</span>
+            <MuscleTitle>
+              {muscle}
+              <span>2 Piece</span>
+            </MuscleTitle>
           </Muscle>
         )
       })
@@ -55,7 +61,7 @@ const WorkoutItem = () => {
 
   const exercises = workouts?.isSuccess
     ? workouts.data
-        .filter(el => el.area === data?.data.area)
+        //.filter(el => el.area === data?.data.area)
         .map(item => (
           <Link
             href={`/user/workoutList/workout/${item.id}`}
@@ -69,27 +75,36 @@ const WorkoutItem = () => {
         ))
     : null
 
+  // фейковые данные для тестирования
+  //if (data) {
+  //  data.data.exercise =
+  //    "Chicken Steak Recipe With Pan Roasted Vegetables & Potato Mash is a delicious meal in itself. The chicken is marinated in a lovely marinade that is bursting with flavours that include fresh parsley , lemon, garlic and mixed herbs. All of which add to the yummilicious taste of the chicken."
+  //  data.data.img = "/exercises/hands_up_on_socks.jpg"
+  //  data.data.imgWidth=172
+  //  data.data.imgHeight=266
+  //} 
+  ////////////////////////////////////
+  
+  
   return (
     <MainWrapper>
+      <FontArimaMadurai />
       <Container>
         <LeftContent>
           <Exercise>
             <ExerciseTitle>{data?.data.name}</ExerciseTitle>
             <ExerciseDescription>{data?.data.exercise}</ExerciseDescription>
-
             <MusclesTitle>Muscles</MusclesTitle>
             <MusclesList>{musclesList}</MusclesList>
           </Exercise>
-          <div>
-            <ImageWorkout
-              imgUrl={data?.data.img}
-              imgWidth={data?.data.imgWidth}
-              imgHeight={data?.data.imgHeight}
-              src={data?.data.img}
-              alt="alt-image"
-            />
-          </div>
         </LeftContent>
+          <ImageWorkout
+            imgUrl={data?.data.img}
+            imgWidth={data?.data.imgWidth}
+            imgHeight={data?.data.imgHeight}
+            src={data?.data.img}
+            alt="alt-image"
+          />
       </Container>
       <Slider>{exercises}</Slider>
     </MainWrapper>

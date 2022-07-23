@@ -1,14 +1,7 @@
 import styled from "styled-components"
 
 export const MainWrapper = styled.div`
-  //background-color: #f1f1f1;
   height: 100vh;
-  //border-radius: 0 50px 50px 0;
-
-  //width: 280px;
-  //@media (min-width: 1700px) {
-  //  width: 430px;
-  //}
   position: sticky;
   top: 0;
 `
@@ -18,12 +11,7 @@ export const RightSideBarWrapper = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  //margin-left: 30px;
   background-color: white;
-
-  //@media (min-width: 1700px) {
-  //  width: 400px;
-  //}
   border-radius: 0 50px 50px 0;
 `
 
@@ -56,10 +44,6 @@ export const IconArrow = styled.img`
   border-radius: 10px;
   width: 32px;
   height: 31px;
-
-  //@media (min-width: 1700px) {
-  //  left: 335px;
-  //}
 `
 
 export const Meter = styled.img``

@@ -13,11 +13,8 @@ import {
   SliderSlide,
 } from "./slider.styles"
 import { SliderProps } from "./slider.interface"
-import { env } from "process"
-//import overview from "@/pages/admin/overview"
 
 const Slider = ({ children }: SliderProps): JSX.Element => {
-  const customSliderRef = useRef<HTMLDivElement>(null)
 
   const useWindowWidth = (): number => {
     const [width, setWidth] = useState(0)
@@ -191,7 +188,7 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
   })
 
   return (
-    <CustomSlider ref={customSliderRef}>
+    <CustomSlider>
       <Container>
         <SliderWrapper
           ref={sliderWrapperRef}
