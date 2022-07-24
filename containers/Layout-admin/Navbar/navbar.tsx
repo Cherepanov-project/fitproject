@@ -3,9 +3,14 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import Cookies from "js-cookie"
 
+// container
 import PositionedMenu from "./dashboard"
 import SearchAppBar from "./searchInput"
-import imageAdmin from "@/common/images/layoutAdmin/navbarIcons/photo_admin.png"
+
+// images
+import { imageAdmin } from "@/common/images/layoutAdmin/navbarIcons"
+
+// styles
 import {
     NavbarWrapper,
     PageName,
