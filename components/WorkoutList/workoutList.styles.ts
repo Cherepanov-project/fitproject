@@ -30,36 +30,46 @@ export const SidebarListWrapper = styled.div`
 `
 
 export const SidebarListTitle = styled.div`
-    font-size: 18px;
-    color: #151515;
-    font-weight: 600;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
 
-    @media (min-width: 2300px) {
-        font-size: 24px;
-    }
+  @media (min-width: 2300px) {
+    font-size: 24px;
+  }
 `
 export const SidebarItemListWrapper = styled.div`
-    margin-top: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `
 
 export const SidebarListItem = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 12px;
+
+  @media (min-width: 2300px) {
+    font-size: 18px;
+  }
+
+  span {
+    width: 24px;
+    height: 24px;
+  }
+
+  div {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 400;
     font-size: 14px;
-    margin-bottom: 12px;
-
-    @media (min-width: 2300px) {
-        font-size: 18px;
-    }
-
-    span {
-        width: 24px;
-        height: 24px;
-    }
+    line-height: 19px;
+  }
 `
 
 export const SidebarListItemCheckbox = styled.div`
@@ -79,25 +89,35 @@ export const SidebarListItemCheckbox = styled.div`
 `
 
 export const SidebarStyledItemCheckbox = styled.div`
-    margin-left: 8px;
+  margin-left: 8px;
+
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
 `
 
 export const CategoriesStyledItem = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 12px;
-    font-weight: 600;
-    width: 38px;
-    height: 18px;
-    text-align: center;
-    background-color: #f4f8ec;
-    color: #6a983c;
-    border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 18px;
+  text-align: center;
+  background-color: #f4f8ec;
+  color: #6a983c;
+  border-radius: 12px;
 
-    @media (min-width: 2300px) {
-        font-size: 18px;
-    }
+  font-family: "Poppins";
+  font-style: normal;
+  line-height: 18px;
+  font-size: 12px;
+  font-weight: 600;
+  
+  @media (min-width: 2300px) {
+    font-size: 18px;
+  }
 `
 
 export const ItemListWrapper = styled.div`

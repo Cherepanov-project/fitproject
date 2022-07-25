@@ -2,7 +2,7 @@ import React from "react"
 import { Normalize } from "styled-normalize"
 
 import { withLayout } from "@/containers/Layout-admin/layoutAdmin"
-import FontStyles from "@/utils/fonts/fontStyles"
+import { FontStyles } from "@/utils/fonts/fontStyles"
 
 const Subscription = () => {
     return (

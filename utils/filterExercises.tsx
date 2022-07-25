@@ -2,7 +2,7 @@ export const addOnArrResults = (list, partOfBody) => {
    return list.filter(element => element.area === partOfBody)
 }
 
-export const filterExerciseList = (muscles, list) => {
+export const filterExerciseList = (muscles, list): any[] => {
   let arrResults: any[] = []
   if (muscles.Arms) {
     arrResults = [...arrResults, ...addOnArrResults(list, "ARMS")]
@@ -16,5 +16,5 @@ export const filterExerciseList = (muscles, list) => {
   if (muscles.Breast) {
     arrResults = [...arrResults, ...addOnArrResults(list, "BREAST")]
   }
-  return arrResults;
+  return arrResults
 }

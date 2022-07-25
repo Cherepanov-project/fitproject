@@ -19,23 +19,23 @@ export const CalcHead = styled.div`
 export const CalcLink = styled.a`
     text-decoration: none;
     color: black;
-    padding-left: 10px;
+    font-size: 12px;
 `
 
 export const DietaLink = styled.div`
-    background: #219653;
-    border-radius: 10px;
-    padding: center;
-    margin-top: 5px;
-    cursor: pointer;
+  background: #219653;
+  border-radius: 10px;
+  margin-top: 5px;
+  cursor: pointer;
+  text-align: center;
 `
 
 export const WorkoutLink = styled.div`
-    background: #2d9cdb;
-    border-radius: 10px;
-    padding: center;
-    margin-top: 5px;
-    cursor: pointer;
+  background: #2d9cdb;
+  border-radius: 10px;
+  margin-top: 5px;
+  cursor: pointer;
+  text-align: center;
 `
 
 export const FlexItem = styled.div`
