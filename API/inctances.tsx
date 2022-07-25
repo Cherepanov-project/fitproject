@@ -18,7 +18,7 @@ const userToken = Cookies.get(USER_TOKEN)
 const instanceWorkouts = axios.create({
     baseURL: API_WORKOUTS,
     headers: {
-        Authorization: `Bearer ${adminToken}`,
+      Authorization: `Bearer ${adminToken}`,
     },
 })
 

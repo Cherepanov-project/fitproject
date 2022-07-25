@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { useQuery } from "react-query"
+import { useState, useEffect, useMemo } from "react"
+import { useQuery, useQueryClient } from "react-query"
 import Link from "next/link"
 import Box from "@mui/material/Box"
 import Card from "@mui/material/Card"
@@ -13,8 +13,10 @@ import { filterExerciseList } from "@/utils/filterExercises"
 import { IMuscles } from "./itemList.interface"
 
 const ItemList = ({ muscles }: IMuscles) => {
-    let filteredExercises: any[] = []
-    const { data, isSuccess } = useQuery("workouts", getWorkoutList)
+    let filteredExercises: any[] = useMemo(() => [], [])
+    const { data, isSuccess } = useQuery("workouts", getWorkoutList, { 
+        staleTime: 1000*60*60*5, // кеш на 5 часов
+    })
     const [minResOnPage, setMinResOnPage] = useState(0)
     const [maxResOnPage, setMaxResOnPage] = useState(6)
     const matches = useMediaQuery("(min-width:2000px")
@@ -29,16 +31,38 @@ const ItemList = ({ muscles }: IMuscles) => {
         alignItems: "center",
         cursor: "pointer",
     }
+    const queryClient = useQueryClient();
+
     const changePage = page => {
+        if (!page) {
+            return
+        }
         setMinResOnPage(() => (page - 1) * 6)
         setMaxResOnPage(() => page * 6)
+        setCurrentPage(page)
     }
 
+    const [countPages, setCountPages] = useState(Math.ceil(filteredExercises.length / 6))
+    const [currentPage, setCurrentPage] = useState(1)
+  
     if (isSuccess) {
-        filterExerciseList(filteredExercises, muscles, data)
-        console.log(filteredExercises, "TYT222")
+        filteredExercises = filterExerciseList(muscles, data)
     }
 
+    useEffect(() => { 
+      queryClient.prefetchQuery("workouts", getWorkoutList)
+    }, [queryClient])
+  
+    useEffect(() => {
+      setCountPages(Math.ceil(filteredExercises.length / 6))
+    }, [filteredExercises])
+  
+    useEffect(() => {
+      if (countPages < currentPage) {
+          changePage(countPages)
+        }
+    }, [countPages, currentPage])
+  
     const exercises = filteredExercises.map((item, index) => {
         if (index >= minResOnPage && index < maxResOnPage) {
             return (
@@ -77,17 +101,20 @@ const ItemList = ({ muscles }: IMuscles) => {
                 {exercises}
             </Box>
             <Stack spacing={2} sx={{ margin: "10px 0 13px 0" }}>
+              {countPages > 0 &&
                 <Pagination
-                    defaultPage={1}
-                    count={5}
-                    onChange={(event, value) => changePage(value)}
-                    sx={{
-                        display: "flex",
-                        justifyContent: "flex-end",
-                        marginRight: "30px",
-                        position: "absolute",
-                    }}
+                  defaultPage={1}
+                  count={countPages}
+                  onChange={(event, value) => changePage(value)}
+                  page={currentPage}
+                  sx={{
+                    display: "flex",
+                    justifyContent: "flex-end",
+                    marginRight: "30px",
+                    position: "absolute",
+                }}
                 />
+              }
             </Stack>
         </>
     )
