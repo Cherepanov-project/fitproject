@@ -29,13 +29,11 @@ const Navbar = () => {
 
     const image = Cookies.get("image")
 
+    const pageName = page.substring(0, page.indexOf("?"))
+
     return (
         <NavbarWrapper>
-            <PageName>
-                {editRecipie[0] === "edit"
-                    ? "Edit recipe"
-                    : page[0].toUpperCase() + page.slice(1)}
-            </PageName>
+            <PageName>{pageName}</PageName>
             <DivAdminInformation>
                 <DivInformation>
                     <SearchAppBar />
