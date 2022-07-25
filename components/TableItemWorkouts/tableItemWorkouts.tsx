@@ -1,5 +1,6 @@
 import React from "react"
 import { useQuery } from "react-query"
+import { useRouter } from "next/router"
 import Link from "next/link"
 import Image from "next/image"
 import TableRow from "@mui/material/TableRow"
@@ -29,6 +30,7 @@ const TableItemWorkouts = ({
                     id,
                     updateList
                 }) => {
+    const router = useRouter()
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
     const open = Boolean(anchorEl)
     const handleClick = (event: React.MouseEvent<HTMLElement>) =>
@@ -48,7 +50,9 @@ const TableItemWorkouts = ({
     const handleDelete = () => {
         refetch()
     }
-
+    const handleOpenWorkout = () => {
+        router.push(`/admin/workouts/${id}`)
+    }
     return (
         <TableRow hover sx={{ cursor: "pointer" }}>
             <TableCell
@@ -64,7 +68,7 @@ const TableItemWorkouts = ({
                     category ({category})
                 </StyledSecondaryText>
             </TableCell>
-            <TableCell sx={{ paddingLeft: 3.5 }}><StyledText>{name}</StyledText></TableCell>
+            <TableCell sx={{ paddingLeft: 3.5 }} onClick={handleOpenWorkout}><StyledText>{name}</StyledText></TableCell>
             <TableCell sx={{ paddingLeft: 3.5 }}>{category}</TableCell>
             <TableCell sx={{ paddingLeft: 3.5 }}>
                 {status === "HIGH" ? (

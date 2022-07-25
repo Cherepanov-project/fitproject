@@ -34,9 +34,11 @@ const Navbar = () => {
 
     const image = Cookies.get("image")
     const recipePage = router.asPath.includes("/admin/recipes/") ? `Recipe id ` : null;
+    const workoutPage = router.asPath.includes("/admin/workouts/") ? `Workout id ` : null;
     return (
         <NavbarWrapper>
             <PageName>
+                {workoutPage}
                 {recipePage}
                 {editRecipie[0] === "edit"
                     ? "Edit recipe"
