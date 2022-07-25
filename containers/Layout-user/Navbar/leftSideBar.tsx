@@ -22,9 +22,6 @@ import {
 // models
 import { sidebarMenu } from "@/models/user/layout/sidebarModel"
 
-// images
-import help from "@/common/images/layoutUser/navbarIcons/help.svg"
-
 const LeftSideBar = () => {
 
   return (
