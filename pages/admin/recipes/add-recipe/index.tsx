@@ -4,7 +4,7 @@ import EditFormRecipe from "@/components/EditFormRecipe/editFormRecipe"
 const AddRecipe = () => {
     return (
         <div>
-            <EditFormRecipe title="Add recipe" />
+            <EditFormRecipe title="Add recipe" btnText="Create" />
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useQuery } from "react-query"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
@@ -13,23 +13,17 @@ import Pagination from "@/components/Table/tablePagination"
 import ColumnName from "@/components/ColumnName/columnName"
 import { getRecipesList } from "@/API/recipes"
 
-// export const getStaticProps = async () => {
-//     await queryClient.prefetchQuery(["recipesList"], async () => {
-//         const { data: res } = await getRecipesList()
-//         return res
-//     })
-//
-//     return {
-//         props: {
-//             dehydratedState: dehydrate(queryClient),
-//         },
-//     }
-// }
-
 const RecipesListPage = () => {
-    const { data, isLoading, error } = useQuery("recipesList", getRecipesList)
     const [page, setPage] = useState<number>(0)
     const [rowsPerPage, setRowsPerPage] = useState<number>(8)
+    const [listChange, setListChange] = useState<boolean>(false)
+    const { data, isLoading, error } = useQuery(["recipesList", page, rowsPerPage, listChange], () => getRecipesList(page, rowsPerPage), {
+        keepPreviousData: true
+      })
+    
+      useEffect(() => {
+        window.scrollTo(0, 0);
+      }, [page, rowsPerPage]);
 
     const handleChangePage = (event: unknown, newPage: number) => {
         setPage(newPage)
@@ -50,8 +44,12 @@ const RecipesListPage = () => {
             </div>
         )
     }
+    const updateList = () => {
+        const isChanged = listChange;
+        setListChange(!isChanged);
+    }
 
-    const recipe = data.map(el => {
+    const recipe = data.content.map(el => {
         return (
             <TableItemRecipes
                 key={el.id}
@@ -63,6 +61,7 @@ const RecipesListPage = () => {
                 calorie={el.calorie}
                 status={"HIGH"}
                 portionSize={1}
+                updateList={updateList}
             />
         )
     })
@@ -79,7 +78,7 @@ const RecipesListPage = () => {
             <StyleFooterRecipes>
                 <CreateForm />
                 <Pagination
-                    count={data.length}
+                    count={data.totalElements}
                     page={page}
                     onChangePage={handleChangePage}
                     rowsPerPage={rowsPerPage}
