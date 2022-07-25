@@ -6,7 +6,6 @@ export const Container = styled.div`
     font-family: "Mulish", sans-serif;
 
     display: flex;
-    max-width: 1440px;
     margin: 0 auto;
 `
 
