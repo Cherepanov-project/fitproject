@@ -10,7 +10,8 @@ import {
     ISpecificationStarType,
 } from "@/models/sideBar/sideBar"
 
-const CheckboxStar = () => {
+const CheckboxStar = ({ checkbox, setArgumentStar }) => {
+  /*
     const setArgumentStar = function (amt: string) {
         const newState = { ...checkbox }
         newState[amt] = !newState[amt]
@@ -20,23 +21,23 @@ const CheckboxStar = () => {
     const [checkbox, setCheckbox] = useState<ISideBarCheckBoxStar>(
         initialValuesCheckBoxStar
     )
+*/
+  const StarsNods = specificationStar.map((item: ISpecificationStarType) => (
+    <BoxCheckBox key={item.id}>
+      <Checkbox
+        onChange={() => setArgumentStar(item.name)}
+        checked={checkbox[item.name]}
+      />
+      <Rating name="read-only" readOnly value={item.id} />
+    </BoxCheckBox>
+  ))
 
-    const StarsNods = specificationStar.map((item: ISpecificationStarType) => (
-        <BoxCheckBox key={item.id}>
-            <Checkbox
-                onChange={() => setArgumentStar(item.name)}
-                checked={checkbox[item.name]}
-            />
-            <Rating name="read-only" readOnly value={item.id} />
-        </BoxCheckBox>
-    ))
-
-    return (
-        <SideBarCheckBox>
-            <MenuH2>Rating</MenuH2>
-            {StarsNods}
-        </SideBarCheckBox>
-    )
+  return (
+    <SideBarCheckBox>
+      <MenuH2>Rating</MenuH2>
+      {StarsNods}
+    </SideBarCheckBox>
+  )
 }
 
 export default CheckboxStar
