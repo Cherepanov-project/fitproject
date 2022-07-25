@@ -1,5 +1,11 @@
 import * as React from "react"
 import { useRouter } from "next/router"
+import Cookies from "js-cookie"
+
+// libs
+import { formatDistanceToNow } from "date-fns"
+
+// ui libs
 import List from "@mui/material/List"
 import ListItemButton from "@mui/material/ListItemButton"
 import ListItemIcon from "@mui/material/ListItemIcon"
@@ -7,15 +13,15 @@ import ListItemText from "@mui/material/ListItemText"
 import Menu from "@mui/material/Menu"
 import MenuItem from "@mui/material/MenuItem"
 import { Logout, PersonAdd, Settings } from "@mui/icons-material"
-import Cookies from "js-cookie"
-import { formatDistanceToNow } from "date-fns"
 
+// images
 import SettingsIcon from "@/common/images/layoutUser/userbarIcons/SeetingsIcon.svg"
 import goalsIcon from "@/common/images/layoutUser/userbarIcons/goals.svg"
 import diet from "@/common/images/layoutUser/userbarIcons/diet.svg"
 import defaultAvatar from "@/common/images/layoutUser/userbarIcons/defaultAvatar.png"
 import arrow from "@/common/images/layoutUser/userbarIcons/arrow.svg"
 import meter from "@/common/images/layoutUser/userbarIcons/meter.svg"
+
 import { PaperProps } from "./rightSideBar.styles"
 import generateId from "@/utils/generateId"
 import { ISideBarProps } from "./rightSideBar.interface"

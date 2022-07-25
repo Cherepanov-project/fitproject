@@ -2,16 +2,20 @@ import { useEffect } from "react"
 import Cookies from "js-cookie"
 import { useRouter } from "next/router"
 
+// components
 import RectangleButton from "@/components/RectangleBtn/rectangleBtn"
 import ProgressButton from "@/components/ProgressBtn/progressBtn"
 import SquareIcon from "@/components/SquareIcon/squareIcon"
-import { LayoutUser } from "@/containers/Layout-user/layoutUser"
 import UserChar from "@/components/UserChar/userChar"
-import imgLeg from "@/common/images/icons/leg.svg"
-import imgWater from "@/common/images/icons/water.svg"
-import imgCyclist from "@/common/images/icons/cyclist.svg"
-import imgRun from "@/common/images/icons/running.svg"
+
+// containers
+import { LayoutUser } from "@/containers/Layout-user/layoutUser"
 import WithRefreshingToken from "@/containers/Layout-user/WithRefreshingToken"
+
+// images
+import { imgLeg, imgWater, imgCyclist, imgRun } from "@/common/images/icons"
+
+// styles
 import {
     Container,
     ActiveContainer,
@@ -26,6 +30,8 @@ import {
     Target,
     ProgressContainer,
 } from "@/components/Statistics/statistics.styles"
+
+// constans
 import { ACCESS_TOKEN } from "@/constants/titles"
 
 const Frame1 = () => {

@@ -4,7 +4,10 @@ import Image from "next/image"
 import { useQuery } from "react-query"
 import { getWorkoutById, getWorkoutList } from "@/API/workouts"
 
+// components
 import Slider from "@/components/Slider/slider"
+
+// containers
 import { LayoutUser } from "@/containers/Layout-user/layoutUser"
 import muscleImg from "@/common/images/icons/backMuscle.svg"
 import generateId from "@/utils/generateId"

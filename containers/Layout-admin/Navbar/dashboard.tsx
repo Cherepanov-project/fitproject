@@ -1,11 +1,14 @@
 import * as React from "react"
 import Image from "next/image"
+
+// ui libs
 import Menu from "@mui/material/Menu"
 import MenuItem from "@mui/material/MenuItem"
 import IconButton from "@mui/material/IconButton"
 import Badge from "@mui/material/Badge"
 
-import imageBell from "@/common/images/layoutAdmin/navbarIcons/bell.png"
+// images
+import { imageBell } from "@/common/images/layoutAdmin/navbarIcons"
 
 const PositionedMenu = () => {
     const [anchorEl, setAnchorEl] = React.useState(null)

@@ -7,7 +7,7 @@ import { useRouter } from "next/router"
 import { sidebarMenu } from "@/models/admin/layout/sidebarModel"
 
 // icon
-import { imageLogoApp } from "@/common/images/layoutAdmin/sidebarIcons/index"
+import { imageLogoApp } from "@/common/images/layoutAdmin/sidebarIcons"
 
 // styles
 

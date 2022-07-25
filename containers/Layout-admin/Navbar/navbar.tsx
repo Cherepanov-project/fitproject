@@ -3,9 +3,14 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import Cookies from "js-cookie"
 
+// container
 import PositionedMenu from "./dashboard"
 import SearchAppBar from "./searchInput"
-import imageAdmin from "@/common/images/layoutAdmin/navbarIcons/photo_admin.png"
+
+// images
+import { imageAdmin } from "@/common/images/layoutAdmin/navbarIcons"
+
+// styles
 import {
     NavbarWrapper,
     PageName,
@@ -28,10 +33,11 @@ const Navbar = () => {
     }, [])
 
     const image = Cookies.get("image")
-
+    const recipePage = router.asPath.includes("/admin/recipes/") ? `Recipe id ` : null;
     return (
         <NavbarWrapper>
             <PageName>
+                {recipePage}
                 {editRecipie[0] === "edit"
                     ? "Edit recipe"
                     : page[0].toUpperCase() + page.slice(1)}

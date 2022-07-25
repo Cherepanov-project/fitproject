@@ -1,0 +1,1 @@
+export const imageLogoApp = require("./logoApp.svg")
