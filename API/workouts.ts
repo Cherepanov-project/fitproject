@@ -21,7 +21,7 @@ export const putWorkoutUpdate = async (data) => {
 }
 
 export const deleteWorkoutById = async (id: number) => {
-    const response = await instanceWorkouts.put(`/${id}`)
+    const response = await instanceWorkouts.delete(`/${id}`)
     return response.data
 }
 

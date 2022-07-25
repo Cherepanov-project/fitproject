@@ -1,4 +1,5 @@
 import React from "react"
+import { useQuery } from "react-query"
 import Link from "next/link"
 import Image from "next/image"
 import TableRow from "@mui/material/TableRow"
@@ -14,6 +15,7 @@ import EditIcon from "@mui/icons-material/Edit"
 import { MenuIcon, StyledSecondaryText, StyledText } from "./tableItemWorkouts.styles"
 import imageMan from "@/common/images/recipesTableItem/avatarEat.svg"
 import ColorfulTeg from "../ColorfulTeg"
+import { deleteWorkoutById } from "@/API/workouts"
 
 const options = ["Delete", "Edit"]
 
@@ -25,6 +27,7 @@ const TableItemWorkouts = ({
                     area,
                     category,
                     id,
+                    updateList
                 }) => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
     const open = Boolean(anchorEl)
@@ -32,9 +35,18 @@ const TableItemWorkouts = ({
         setAnchorEl(event.currentTarget)
     const handleClose = () => setAnchorEl(null)
 
-    const deleteArticle = () => {
-        // функция для удаленея упражнения
-        console.log("delete")
+    const {data, error, refetch} = useQuery(["deleteWorkout", id], () => deleteWorkoutById(id), {
+        refetchOnWindowFocus: false,
+        enabled: false,
+        retry: false,
+        onSuccess: updateList
+    })
+    if (error instanceof Error) {
+        return <h1>{error.message}</h1>
+    }
+
+    const handleDelete = () => {
+        refetch()
     }
 
     return (
@@ -97,7 +109,7 @@ const TableItemWorkouts = ({
                             >
                                 {option === "Delete" ? (
                                     <DeleteForeverIcon
-                                        onClick={deleteArticle}
+                                        onClick={handleDelete}
                                     />
                                 ) : (
                                     <Link
