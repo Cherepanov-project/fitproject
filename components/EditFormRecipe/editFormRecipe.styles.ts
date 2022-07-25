@@ -6,6 +6,7 @@ export const ContentWrapper = styled.div`
     border-radius: 8px;
     margin: 0 auto;
     background-color: #ffffff;
+    padding-top: 25px;
 `
 
 export const FormTitle = styled.h2`

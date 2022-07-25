@@ -5,12 +5,8 @@ import { IImg } from "./workout.interface"
 export const MainWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    width: 85%;
+    width: 100%;
     margin: 0 auto;
-
-    @media (max-width: 2000px) {
-        width: 100%;
-    }
 `
 
 export const Container = styled.div`
@@ -22,92 +18,92 @@ export const Container = styled.div`
 `
 
 export const LeftContent = styled.div`
-    margin: 110px 83px 142px 79px;
-    display: flex;
-    justify-content: space-between;
+  margin: 110px 32px 142px 79px;
+  display: flex;
+  justify-content: space-between;
 `
 
 export const Exercise = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 60%;
+  display: flex;
+  flex-direction: column;
 `
 
 export const ExerciseTitle = styled.h1`
-    font-size: 23px;
+  font-family: "Arima Madurai";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 23.9784px;
+  line-height: 39px;
+  color: #404040;
 `
 
-export const ExerciseDescription = styled.div``
+export const ExerciseDescription = styled.div`
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13.2078px;
+  line-height: 16px;
+  color: #404040;
+`
 
 export const ImageWorkout = styled.img<IImg>`
-    width: ${({ imgWidth, imgHeight }) => {
-        return imgWidth > imgHeight ? imgWidth : "auto"
-    }};
-    height: ${({ imgWidth, imgHeight }) => {
-        return imgWidth > imgHeight ? "auto" : imgHeight
-    }};
-    margin-right: 0;
-    min-width: ${({ imgWidth, imgHeight }) => {
-        return imgWidth > imgHeight ? "300px" : "unset"
-    }};
-    min-height: ${({ imgWidth, imgHeight }) => {
-        return imgWidth > imgHeight ? "unset" : "400px"
-    }};
+  max-width: 359px;
+  max-height: 362px;
+  margin-top: 78px;
+  margin-right: 83px;
+  border-radius: 50px;
+  width: ${({ imgWidth, imgHeight }) => {
+    return imgWidth > imgHeight ? imgWidth : "auto"
+  }};
+  height: ${({ imgWidth, imgHeight }) => {
+    return imgWidth > imgHeight ? "auto" : imgHeight
+  }};
+  margin-right: 0;
+  min-width: ${({ imgWidth, imgHeight }) => {
+    return imgWidth > imgHeight ? "300px" : "unset"
+  }};
+  min-height: ${({ imgWidth, imgHeight }) => {
+    return imgWidth > imgHeight ? "unset" : "400px"
+  }};
 `
 
 export const MusclesTitle = styled.h2`
-    font-size: 22px;
-    color: #969696;
+  margin-top: 17.65px;
+  font-family: "Arima Madurai";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 19.4233px;
+  line-height: 32px;
+  color: #969696;
 `
 
 export const MusclesList = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    width: 400px;
-    justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  width: 450px;
+  justify-content: space-between;
 `
 
 export const Muscle = styled.div`
-    display: flex;
-    align-items: center;
-
-    span {
-        font-size: 15px;
-        font-weight: bold;
-    }
+  display: flex;
+  align-items: center;
+  width: 225px;
 `
 
-export const BottomContainer = styled.div`
-    background-color: white;
-    border-radius: 5px;
-    display: flex;
-    justify-content: flex-start;
-    padding: 0 58px;
-`
+export const MuscleTitle = styled.div`
+  padding: 5px 0;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10.5509px;
+  line-height: 12px;
+  color: #404040;
 
-export const ImgWrapper = styled.div<IImg>`
-    width: 118px;
-    height: 126px;
-    border-radius: 50px;
-
-    background: 50% 50% url(${({ imgUrl }) => imgUrl}) #fff no-repeat;
-
-    background-size: ${({ imgWidth, imgHeight }) => {
-        return imgWidth > imgHeight ? "100% auto" : "auto 100%"
-    }};
-
-    @media (min-width: 2000px) {
-        width: 218px;
-        height: 226px;
-    }
-`
-export const TextWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 5px;
-`
-export const Reps = styled.div`
-    font-size: 15px;
+  span {
+    display: block;
+    margin-top: 5px;
+    font-size: 8.1242px;
+    line-height: 10px;
     color: #969696;
+  }
 `

@@ -1,27 +1,21 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
+
+import { TStyledDiv } from "../../Layout-admin/layoutAdmin.interface"
 
 export const SidebarWrapper = styled.div`
-    width: 167px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-color: #f1f1f1;
-
-    @media (min-width: 1700px) {
-        width: 267px;
-        align-items: center;
-    }
+  height: 100vh;
+  background-color: #f1f1f1;
+  border-radius: 50px 0 0 50px;
+  padding: 21px 30px;
+  position: sticky;
+  top: 0;
+  bottom: 21px;
 `
 export const Sidebar = styled.div`
-    width: 104px;
-    height: 100%;
-    margin: 21px 30px;
-    background: linear-gradient(180deg, #6d63ff 0%, #3b32c0 100%);
-    border-radius: 40px;
-
-    @media (min-width: 1700px) {
-        width: 144px;
-    }
+  width: 104px;
+  height: 100%;
+  background: linear-gradient(180deg, #6d63ff 0%, #3b32c0 100%);
+  border-radius: 40px;
 `
 
 export const IconListWrapper = styled.div`
@@ -49,18 +43,33 @@ export const Divider = styled.span`
     margin-bottom: 24px;
 `
 
-export const ImageWrapper = styled.div`
-    width: 30px;
-    height: 30px;
+export const ImageWrapper = styled.div<TStyledDiv>`
+    width: 34px;
+    height: 34px;
     border-radius: 13px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 24px;
 
+    cursor: pointer;
+
     :hover {
         background-color: #3c3693;
+        width: 34px;
+        height: 34px;
     }
+    
+    ${props => {
+        if (props.selected) {
+            return css`
+                background-color: #3c3693;
+                 width: 34px;
+                 height: 34px;
+                `
+        }
+    }
+}
 `
 
 export const Image = styled.img`

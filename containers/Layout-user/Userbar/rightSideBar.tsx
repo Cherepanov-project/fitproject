@@ -1,5 +1,11 @@
 import * as React from "react"
 import { useRouter } from "next/router"
+import Cookies from "js-cookie"
+
+// libs
+import { formatDistanceToNow } from "date-fns"
+
+// ui libs
 import List from "@mui/material/List"
 import ListItemButton from "@mui/material/ListItemButton"
 import ListItemIcon from "@mui/material/ListItemIcon"
@@ -7,15 +13,15 @@ import ListItemText from "@mui/material/ListItemText"
 import Menu from "@mui/material/Menu"
 import MenuItem from "@mui/material/MenuItem"
 import { Logout, PersonAdd, Settings } from "@mui/icons-material"
-import Cookies from "js-cookie"
-import { formatDistanceToNow } from "date-fns"
 
+// images
 import SettingsIcon from "@/common/images/layoutUser/userbarIcons/SeetingsIcon.svg"
 import goalsIcon from "@/common/images/layoutUser/userbarIcons/goals.svg"
 import diet from "@/common/images/layoutUser/userbarIcons/diet.svg"
 import defaultAvatar from "@/common/images/layoutUser/userbarIcons/defaultAvatar.png"
 import arrow from "@/common/images/layoutUser/userbarIcons/arrow.svg"
 import meter from "@/common/images/layoutUser/userbarIcons/meter.svg"
+
 import { PaperProps } from "./rightSideBar.styles"
 import generateId from "@/utils/generateId"
 import { ISideBarProps } from "./rightSideBar.interface"
@@ -79,7 +85,7 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
                 </UserInfoWrapper>
                 <List
                     sx={{
-                        margin: "auto 0",
+                        margin: "auto 0"
                     }}
                 >
                     {["Goals", "Diet", "Settings"].map(
@@ -89,6 +95,7 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
                                 sx={{
                                     position: "relative",
                                     marginTop: "30px",
+                                    marginLeft: "2px",
                                     padding: "24px",
                                     width: "32px",
                                     height: "32px",
@@ -98,7 +105,7 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
                                         width: "98%",
                                         height: "40px",
                                         padding: "24px 24px",
-                                        right: "0px",
+                                        right: "0",
                                         boxShadow:
                                             "0px 1px 4px rgba(0, 0, 0, 0.25)",
                                         borderRadius: "10px",
@@ -129,7 +136,7 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
                                     primary={text}
                                     sx={{ width: "100%" }}
                                 />
-                                <IconArrow src={arrow.src} width="12px" />
+                                <IconArrow src={arrow.src} />
                             </ListItemButton>
                         )
                     )}

@@ -1,10 +1,11 @@
-import { IPutRecipe, IPostRecipe } from "./api.interface"
+import { IPutRecipe, IPostRecipe, IPutRecipeName } from "./api.interface"
 import { instanceRecipes} from "./inctances"
 import { IRecipesArr } from "@/components/EditFormRecipe/editFormRecipe.interface"
 
-export const getRecipesList = async () => {
-    const response = await instanceRecipes.get<IRecipesArr>('/')
-    return response.data.data.content
+export const getRecipesList = async (page: number, size: number) => {
+    const response = await instanceRecipes.get<IRecipesArr>(`?page=${page}&size=${size}`)
+    return response.data.data
+    //return response.data.data.content
 }
 
 export const postRecipe = async (data: IPostRecipe) => {
@@ -14,7 +15,7 @@ export const postRecipe = async (data: IPostRecipe) => {
 
 export const getRecipeById = async (id: number) => {
     const response = await instanceRecipes.get(`/${id}`)
-    return response.data
+    return response.data.data
 }
 
 export const putRecipeUpdate = async (data: IPutRecipe) => {
@@ -23,6 +24,11 @@ export const putRecipeUpdate = async (data: IPutRecipe) => {
 }
 
 export const deleteRecipeById = async (id: number) => {
-    const response = await instanceRecipes.put(`/${id}`)
+    const response = await instanceRecipes.delete(`/${id}`)
+    return response.data
+}
+
+export const putRecipeName = async (data: IPutRecipeName) => {
+    const response = await instanceRecipes.put('/name', data)
     return response.data
 }

@@ -1,11 +1,14 @@
 export interface IPutRecipe {
-    id: number
-    description: string
+    id: number;
+    description: string;
+    picUrl: string;
+
 }
 
 export interface IPostRecipe {
     name: string
     description: string
+    picUrl: string;
 }
 
 export interface IPostWorkout {
@@ -34,3 +37,9 @@ export interface IPutUser {
     age: number
     gender: string
 }
+
+export interface IPutRecipeName {
+    id: number,
+    name: string
+}
+
