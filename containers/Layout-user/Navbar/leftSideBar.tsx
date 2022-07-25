@@ -16,6 +16,7 @@ import {
 
     ImageWrapper,
     Divider,
+    Image,
 } from "./leftSideBar.styles"
 
 // models
