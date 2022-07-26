@@ -23,8 +23,22 @@ import {
 
 const Navbar = () => {
     const router = useRouter()
-    const page = router.asPath.split("/").pop()
-    const editRecipie = page.split("-").splice(0, 1)
+    
+  const page = router.asPath.split("/admin/").pop()
+  let pageName = ""
+
+  if (page.includes("?")) {
+    pageName = page.substring(0, page.indexOf("?"))
+    pageName =
+      page[0].toUpperCase() +
+      pageName.substring(0, pageName.indexOf("/")).slice(1)
+  } else {
+    pageName = page[0].toUpperCase() + page.slice(1)
+    pageName.includes("/")
+      ? (pageName = pageName.substring(0, pageName.indexOf("/")))
+      : ""
+  }
+  
     const [userName, setUserName] = useState("admin")
 
     useEffect(() => {
@@ -33,8 +47,6 @@ const Navbar = () => {
     }, [])
 
     const image = Cookies.get("image")
-
-    const pageName = page.substring(0, page.indexOf("?"))
 
     return (
         <NavbarWrapper>
