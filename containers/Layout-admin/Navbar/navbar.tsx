@@ -25,19 +25,8 @@ const Navbar = () => {
     const router = useRouter()
     
   const page = router.asPath.split("/admin/").pop()
-  let pageName = ""
-
-  if (page.includes("?")) {
-    pageName = page.substring(0, page.indexOf("?"))
-    pageName =
-      page[0].toUpperCase() +
-      pageName.substring(0, pageName.indexOf("/")).slice(1)
-  } else {
-    pageName = page[0].toUpperCase() + page.slice(1)
-    pageName.includes("/")
-      ? (pageName = pageName.substring(0, pageName.indexOf("/")))
-      : ""
-  }
+  let pageName = page.match("(?<=/).([A-Za-z])*").input.split("/")[1]
+  pageName = pageName[0].toUpperCase() + pageName.slice(1)
   
     const [userName, setUserName] = useState("admin")
 
