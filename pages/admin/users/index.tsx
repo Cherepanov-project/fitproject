@@ -10,18 +10,16 @@ import { withLayout } from "@/containers/Layout-admin/layoutAdmin"
 import PageUsers from "@/components/PageComponents/PageUsers/pageUsers"
 
 // utils
-import FontStyles from "@/utils/fonts/fontStyles"
-
-
+import { FontStyles } from "@/utils/fonts/fontStyles"
 
 const Users = () => {
-    return (
-        <>
-            <Normalize />
-            <FontStyles />
-            <PageUsers />
-        </>
-    )
+  return (
+    <>
+      <Normalize />
+      <FontStyles />
+      <PageUsers />
+    </>
+  )
 }
 
 export default withLayout(Users)
