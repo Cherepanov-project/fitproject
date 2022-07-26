@@ -28,6 +28,29 @@ export const validationUser = Yup.object().shape({
         ),
 })
 
+export const validationCreateUpdateUser = Yup.object().shape({
+    username: Yup.string()
+        .min(5, "User name must be 5 characters or less")
+        .required("Required"),
+    password: Yup.string()
+        .matches(
+            /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()]).{5,20}\S$/,
+            "Password must be more than 5 characters and not exceed 20. Must contain one uppercase, one lowercase, one special character and no spaces"
+        )
+        .required("Required"),
+    firstName: Yup.string().required("Required"),
+    lastName: Yup.string().required("Required"),
+    email: Yup.string().email("Enter valid email").required("Required"),
+    phone: Yup.string()
+        .required("Required")
+        .matches(
+            /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/,
+            "Phone number is not valid "
+        ),
+    age: Yup.number().required("Required"),
+    gender: Yup.string().required("Required"),
+})
+
 export const validationMeal = Yup.object().shape({
     wishProducts: Yup.string(),
     prohibitedProducts: Yup.string(),

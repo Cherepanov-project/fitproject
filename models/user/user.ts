@@ -1,4 +1,7 @@
-const monthArr: string[] = [
+import avatarUser from "@/common/images/userTableItem/avatarUser.jpg"
+import { IUser } from "@/components/PageComponents/PageUsers/pageUsers.interface"
+
+export const monthArr: string[] = [
     "Январь",
     "Февраль",
     "Март",
@@ -13,4 +16,15 @@ const monthArr: string[] = [
     "Декабрь",
 ]
 
-export { monthArr }
+export const initalStateUser: IUser = {
+    id: 0,
+    username: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    age: 0,
+    gender: "",
+    coach: false,
+    avatar: avatarUser,
+}

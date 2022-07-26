@@ -60,4 +60,9 @@ export const BtnContainer = styled.div`
     display: flex;
     padding-top: 20px;
 `
+
+export const StyledLink = styled.a`
+    text-decoration: none;
+    color: green;
+`
 // color: ${({ color }) => (color ? color : `rgba(17, 17, 17, 0.48)`)};
