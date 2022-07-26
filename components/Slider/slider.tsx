@@ -11,8 +11,7 @@ import {
   Container,
   SliderWrapper,
   SliderSlide,
-  StyledButtonLeft,
-  StyledButtonRight,
+  StyledSlideButton
 } from "./slider.styles"
 import { SliderProps } from "./slider.interface"
 import { string } from "yup"
@@ -43,6 +42,8 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
   const sliderWrapperRef = useRef<HTMLDivElement>(null)
   const sliderSlideRef = useRef<HTMLDivElement>(null)
 
+  const [buttonsDisable, setButtonsDisable] = useState([false, false])
+
   const onMouseUpOutsideTheSlider = useCallback((): void => {
     let newPairOfXs: number[] = []
     newPairOfXs[0] = -(pairOfXCoords[1] - pairOfXCoords[0])
@@ -68,7 +69,12 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
   useEffect(() => {
     setSliderWrapperWidth(sliderWrapperRef.current?.clientWidth)
     setPairOfXCoords([0, 0])
-  }, [windowWidth])
+    if (contentWidth > sliderWrapperWidth) {
+      setButtonsDisable([false, true])
+    } else {
+      setButtonsDisable([true, true])
+    }
+  }, [windowWidth, contentWidth, sliderWrapperWidth])
 
   useEffect(() => {
     setContentWidth(
@@ -118,16 +124,17 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
     newPairOfXs[0] = -(curX - pairOfXCoords[0])
     // перекладываем разницу в начальный x для дальнейшего учёта начальной точки
     newPairOfXs[1] = 0
-    if (newPairOfXs[1] - newPairOfXs[0] <= 0) {
+    if (newPairOfXs[1] - newPairOfXs[0] + 30 <= 0) {
       // разница newPairOfXs[1]-newPairOfXs[0] по модулю описывает насколько
       // необходимо передвинуть блок с контентом (упражнениями например)
       // знак указывает на направление передвижения
       if (
         contentWidth > sliderWrapperWidth &&
         Math.abs(newPairOfXs[1] - newPairOfXs[0]) <
-        contentWidth - sliderWrapperWidth
+          contentWidth - sliderWrapperWidth - 62
       ) {
         setPairOfXCoords(newPairOfXs)
+        setButtonsDisable([false, false])
         //добавляем новую координату
         //и перекладываем разницу в начальную точку
       } else {
@@ -138,9 +145,11 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
         newPairOfXs[0] = contentWidth - sliderWrapperWidth - 30
         newPairOfXs[1] = 0
         setPairOfXCoords(newPairOfXs)
+        setButtonsDisable([true, false])
       }
     } else {
       setPairOfXCoords([0, 0])
+      setButtonsDisable([false, true])
     }
   }
 
@@ -195,10 +204,16 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
     }
   })
 
+  const StyledButtonLeft = StyledSlideButton
+  const StyledButtonRight = StyledSlideButton
+
   return (
     <CustomSlider>
-      <StyledButtonLeft onClick={() => onClickSliderButton("left")}>
-        {"<<"}
+      <StyledButtonLeft
+        disabled={buttonsDisable[0]}
+        onClick={() => onClickSliderButton("left")}
+      >
+        {"«"}
       </StyledButtonLeft>
       <Container style={{ width: `${windowWidth - 600}px` }}>
         <SliderWrapper
@@ -241,8 +256,11 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
           {slides}
         </SliderWrapper>
       </Container>
-      <StyledButtonRight onClick={() => onClickSliderButton("right")}>
-        {">>"}
+      <StyledButtonRight
+        disabled={buttonsDisable[1]}
+        onClick={() => onClickSliderButton("right")}
+      >
+        {"»"}
       </StyledButtonRight>
     </CustomSlider>
   )
