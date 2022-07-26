@@ -67,7 +67,7 @@ const instanceRegisterUser = axios.create({
 const instanceUsers = axios.create({
     baseURL: API_GET_USERS,
     headers: {
-        Authorization: `Bearer ${adminToken}`,
+        Authorization: `Bearer ${accessToken}`,
     },
 })
 
