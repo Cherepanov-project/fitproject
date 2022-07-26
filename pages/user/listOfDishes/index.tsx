@@ -47,6 +47,7 @@ const AllMenus = () => {
       })
       return arr
     }, [])
+    
     foodRating.sort((a, b) => {
       if (a.star > b.star) {
         return -1
