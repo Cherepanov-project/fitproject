@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react"
+//import { useQuery, useQueryClient } from "react-query"
 import Pagination from "@mui/material/Pagination"
 import Stack from "@mui/material/Stack"
 
@@ -21,6 +22,8 @@ import {
 } from "@/models/sideBar/sideBar"
 
 const AllMenus = () => {
+  //  const queryClient = useQueryClient()
+
   const [checkbox, setCheckbox] = useState<ISideBarCheckBoxStar>(
     initialValuesCheckBoxStar
   )
@@ -36,23 +39,33 @@ const AllMenus = () => {
     },
     [checkbox]
   )
-
+  /*
+    const { data, isSuccess } = useQuery("dishes", ?????????, {
+      staleTime: ?????????,
+    })
   useEffect(() => {
-    const foodRating: IFoodItemType[] = dishFoodAll.reduce(
-      (arr, food) => {
-        specificationStar.forEach(star => {
-          if (checkbox[star.name] && food.star === star.id) {
-            arr.push(food)
-          }
-        })
-        return arr
-      },
-      []
-    )
+    queryClient.prefetchQuery("dishes", ???????)
+  }, [queryClient])
+*/
+  useEffect(() => {
+    const foodRating: IFoodItemType[] = dishFoodAll.reduce((arr, food) => {
+      specificationStar.forEach(star => {
+        if (checkbox[star.name] && food.star === star.id) {
+          arr.push(food)
+        }
+      })
+      return arr
+    }, [])
     foodRating.sort((a, b) => {
-      if (a.star > b.star) {return -1}
-      if (a.star == b.star) {return 0}
-      if (a.star < b.star) {return 1}
+      if (a.star > b.star) {
+        return -1
+      }
+      if (a.star == b.star) {
+        return 0
+      }
+      if (a.star < b.star) {
+        return 1
+      }
     })
     setDishFoodRating(foodRating)
   }, [checkbox])
