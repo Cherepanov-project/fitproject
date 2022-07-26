@@ -1,13 +1,20 @@
 import { GetServerSideProps } from "next"
 import Image from "next/image"
 import Link from "next/link"
+
+// ui libs
 import { Avatar, Button } from "@mui/material"
 import ArrowBackIcon from "@mui/icons-material/ArrowBack"
 import DeleteIcon from "@mui/icons-material/Delete"
 import EditIcon from "@mui/icons-material/Edit"
 
+// image
 import avatarUser from "@/common/images/userTableItem/avatarUser.jpg"
+
+// components
 import ColorfulTeg from "../../ColorfulTeg"
+
+// styles
 import {
     ContentWrapperUser,
     TitleHeader,
@@ -17,15 +24,36 @@ import {
     InfoItem,
     TextInfo,
     BtnContainer,
+    StyledLink,
 } from "./pageUser.styles"
+import { useEffect, useState } from "react"
 
-export const getServerSideProps: GetServerSideProps = async context => {
-    return {
-        props: { user: context.params.id },
+// API
+import { deleteUserById } from "@/API/users"
+import { useRouter } from "next/router"
+
+// models
+import { initalStateUser } from "@/models/user/user"
+
+// utils
+import { getQueryStringParams } from "@/utils/subscribePageName"
+
+const PageUser = props => {
+    const router = useRouter()
+
+    const [data, setData] = useState(initalStateUser)
+
+    useEffect(() => {
+        const { data } = getQueryStringParams(decodeURI(window.location.search))
+
+        setData(() => JSON.parse(data))
+    }, [])
+
+    const deleteUser = async () => {
+        const response = await deleteUserById(data.id)
+        router.back()
     }
-}
 
-const PageUser = () => {
     return (
         <ContentWrapperUser>
             <TitleHeader>(Role) Profile</TitleHeader>
@@ -35,33 +63,51 @@ const PageUser = () => {
                 >
                     <Image src={avatarUser} alt="avatar" />
                 </Avatar>
-                <UserName>Ivan Stepanov</UserName>
+                <UserName>Alex</UserName>
             </UsersContainer>
             <Title>User information</Title>
             <div className="InfoList">
                 <InfoItem>
+                    <TextInfo>User Name</TextInfo>
+                    <span>{data.username}</span>
+                </InfoItem>
+                <InfoItem>
+                    <TextInfo>Name</TextInfo>
+                    <span>
+                        {data.firstName
+                            ? data.firstName + data.lastName
+                            : "Name is not specified"}
+                    </span>
+                </InfoItem>
+                <InfoItem>
                     <TextInfo>Email</TextInfo>
-                    <span>rasl@sd.rr</span>
+                    <span>
+                        {data.email ? data.email : "Email is not specified"}
+                    </span>
                 </InfoItem>
                 <InfoItem>
                     <TextInfo>Phone</TextInfo>
-                    <span>123213124</span>
-                </InfoItem>
-                <InfoItem>
-                    <TextInfo>Password</TextInfo>
-                    <span>123214124</span>
+                    <span>
+                        {data.phone ? data.phone : "Phone is not specified"}
+                    </span>
                 </InfoItem>
                 <InfoItem>
                     <TextInfo>Age</TextInfo>
-                    <span>22</span>
+                    <span>{data.age ? data.age : "Age is not specified"}</span>
                 </InfoItem>
                 <InfoItem>
                     <TextInfo>Gender</TextInfo>
-                    <span>Man</span>
+                    <span>
+                        {data.gender ? data.gender : "Gender is not specified"}
+                    </span>
                 </InfoItem>
                 <InfoItem>
                     <TextInfo>Role</TextInfo>
-                    <ColorfulTeg backgroundColor="#F12B2C" text="admin" />
+                    {data.coach ? (
+                        <ColorfulTeg backgroundColor="#F12B2C" text="admin" />
+                    ) : (
+                        <ColorfulTeg text="user" />
+                    )}
                 </InfoItem>
             </div>
             <BtnContainer>
@@ -71,6 +117,7 @@ const PageUser = () => {
                     </Button>
                 </Link>
                 <Button
+                    onClick={deleteUser}
                     sx={{ margin: "0 30px" }}
                     variant="outlined"
                     color="error"
@@ -78,13 +125,24 @@ const PageUser = () => {
                 >
                     delete
                 </Button>
-                <Button
-                    variant="outlined"
-                    startIcon={<EditIcon />}
-                    color="success"
+
+                <Link
+                    href={{
+                        pathname: `/admin/users/edit-form/${data.id}`,
+                        query: {
+                            data: JSON.stringify(data),
+                        },
+                    }}
+                    passHref
                 >
-                    Edit
-                </Button>
+                    <Button
+                        variant="outlined"
+                        startIcon={<EditIcon />}
+                        color="success"
+                    >
+                        Edit
+                    </Button>
+                </Link>
             </BtnContainer>
         </ContentWrapperUser>
     )

@@ -3,13 +3,13 @@ import CheckboxStar from "./checkboxStar"
 import BlockSpecification from "./blockSpecification"
 import CheckboxMeals from "./checkboxMeals"
 
-const SideBar = () => {
-    return (
-        <SideBarWrapper>
-            <BlockSpecification />
-            <CheckboxStar />
-            <CheckboxMeals />
-        </SideBarWrapper>
-    )
+const SideBar = ({ checkbox, setArgumentStar }) => {
+  return (
+    <SideBarWrapper>
+      <BlockSpecification />
+      <CheckboxStar checkbox={checkbox} setArgumentStar={setArgumentStar} />
+      <CheckboxMeals />
+    </SideBarWrapper>
+  )
 }
 export default SideBar

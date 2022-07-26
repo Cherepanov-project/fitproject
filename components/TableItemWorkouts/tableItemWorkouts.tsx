@@ -1,4 +1,6 @@
 import React from "react"
+import { useQuery } from "react-query"
+import { useRouter } from "next/router"
 import Link from "next/link"
 import Image from "next/image"
 import TableRow from "@mui/material/TableRow"
@@ -11,9 +13,10 @@ import Avatar from "@mui/material/Avatar"
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
 import EditIcon from "@mui/icons-material/Edit"
 
-import { MenuIcon } from "./tableItemWorkouts.styles"
+import { MenuIcon, StyledSecondaryText, StyledText } from "./tableItemWorkouts.styles"
 import imageMan from "@/common/images/recipesTableItem/avatarEat.svg"
 import ColorfulTeg from "../ColorfulTeg"
+import { deleteWorkoutById } from "@/API/workouts"
 
 const options = ["Delete", "Edit"]
 
@@ -25,33 +28,48 @@ const TableItemWorkouts = ({
                     area,
                     category,
                     id,
+                    updateList
                 }) => {
+    const router = useRouter()
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
     const open = Boolean(anchorEl)
     const handleClick = (event: React.MouseEvent<HTMLElement>) =>
         setAnchorEl(event.currentTarget)
     const handleClose = () => setAnchorEl(null)
 
-    const deleteArticle = () => {
-        // функция для удаленея упражнения
-        console.log("delete")
+    const {data, error, refetch} = useQuery(["deleteWorkout", id], () => deleteWorkoutById(id), {
+        refetchOnWindowFocus: false,
+        enabled: false,
+        retry: false,
+        onSuccess: updateList
+    })
+    if (error instanceof Error) {
+        return <h1>{error.message}</h1>
     }
 
+    const handleDelete = () => {
+        refetch()
+    }
+    const handleOpenWorkout = () => {
+        router.push(`/admin/workouts/${id}`)
+    }
     return (
         <TableRow hover sx={{ cursor: "pointer" }}>
             <TableCell
                 component="th"
                 scope="row"
-                sx={{ display: "flex", paddingLeft: 3.5 }}
+                sx={{ display: "flex", paddingLeft: 1.5 }}
             >
                 <Avatar sx={{ margin: 2 }}>
                     <Image src={imageMan} alt="image-man" />
                 </Avatar>
-                repeat count ({repeatCount}), approach count ({approachCount}), area ({area}),
-                category ({category})
+                <StyledSecondaryText>
+                    repeat count ({repeatCount}), approach count ({approachCount}), area ({area}),
+                    category ({category})
+                </StyledSecondaryText>
             </TableCell>
-            <TableCell sx={{ paddingLeft: 3.5 }}>{name}</TableCell>
-            <TableCell sx={{ paddingLeft: 3.5 }}>{category} category</TableCell>
+            <TableCell sx={{ paddingLeft: 3.5 }} onClick={handleOpenWorkout}><StyledText>{name}</StyledText></TableCell>
+            <TableCell sx={{ paddingLeft: 3.5 }}>{category}</TableCell>
             <TableCell sx={{ paddingLeft: 3.5 }}>
                 {status === "HIGH" ? (
                     <ColorfulTeg text={status} backgroundColor="#F12B2C" />
@@ -69,7 +87,7 @@ const TableItemWorkouts = ({
                     />
                 )}
             </TableCell>
-            <TableCell align="right">
+            <TableCell align="right" sx={{ borderTop: "1px solid rgba(224, 224, 224, 1)" }}>
                 <MenuIcon>
                     <IconButton
                         aria-label="more"
@@ -95,11 +113,11 @@ const TableItemWorkouts = ({
                             >
                                 {option === "Delete" ? (
                                     <DeleteForeverIcon
-                                        onClick={deleteArticle}
+                                        onClick={handleDelete}
                                     />
                                 ) : (
                                     <Link
-                                        href={`/admin/workout/edit-workout/${id}`}
+                                        href={`/admin/workouts/edit-workout/${id}`}
                                         passHref
                                     >
                                         <EditIcon />

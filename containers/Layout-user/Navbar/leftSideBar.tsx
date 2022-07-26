@@ -1,10 +1,17 @@
 import Link from "next/link"
+
 import { useRouter } from "next/router"
 import Image from "next/image"
 import Box from "@mui/material/Box"
 import { Drawer } from "@mui/material"
 
-// styles
+import bell from "@/common/images/layoutUser/navbarIcons/bell.svg"
+import home from "@/common/images/layoutUser/navbarIcons/home.svg"
+import clock from "@/common/images/layoutUser/navbarIcons/clock.svg"
+import message from "@/common/images/layoutUser/navbarIcons/message.svg"
+import sheet from "@/common/images/layoutUser/navbarIcons/sheet.svg"
+import help from "@/common/images/layoutUser/navbarIcons/help.svg"
+
 import {
   Sidebar,
   SidebarWrapper,
@@ -13,13 +20,11 @@ import {
   BottomIconWrapper,
   ImageWrapper,
   Divider,
+
 } from "./leftSideBar.styles"
 
 // models
 import { sidebarMenu } from "@/models/user/layout/sidebarModel"
-
-// images
-import help from "@/common/images/layoutUser/navbarIcons/help.svg"
 
 const LeftSideBar = () => {
   const router = useRouter()
@@ -52,6 +57,7 @@ const LeftSideBar = () => {
         </IconListWrapper>
       </Sidebar>
     </SidebarWrapper>
+
   )
 }
 

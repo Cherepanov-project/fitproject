@@ -25,8 +25,9 @@ const ItemFilter = () => {
         optionsTypesMeals = ["Breakfast", "Lunch", "Dinner"]
     }
 
-    if (path === "exercises") {
-        console.log("exercises")
+    if (path === "workouts") {
+        filterList = ["Category", "Area", "Type"]
+        optionsTypesMeals = ["placeholder", "placeholder", "placeholder"]
     }
     if (path === "articles") {
         console.log("articles")

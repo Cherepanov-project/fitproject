@@ -9,64 +9,75 @@ import {
     API_WORKOUTS,
     API_RECIPES,
     API_REGISTER_USER,
-    API_TOKEN_REFRESH
+    API_TOKEN_REFRESH,
+    API_GET_USERS
 } from "@/constants/urls"
 
-const adminToken = Cookies.get(ACCESS_TOKEN)
-const userToken = Cookies.get(USER_TOKEN)
+const accessToken = Cookies.get(ACCESS_TOKEN)
 
 const instanceWorkouts = axios.create({
     baseURL: API_WORKOUTS,
     headers: {
-        Authorization: `Bearer ${adminToken}`,
+        Authorization: `Bearer ${accessToken}`,
     },
 })
 
 const instanceRecipes = axios.create({
     baseURL: API_RECIPES,
     headers: {
-        Authorization: `Bearer ${adminToken}`,
+        Authorization: `Bearer ${accessToken}`,
     },
 })
 
 const instanceStatistics = axios.create({
     baseURL: API_GET_STATISTICS,
     headers: {
-        Authorization: `Bearer ${adminToken}`,
+        Authorization: `Bearer ${accessToken}`,
     },
 })
 
 const instanceAuth = axios.create({
     baseURL: API_AUTH_ADMIN,
     headers: {
-        Authorization: `Bearer ${adminToken}`,
+        Authorization: `Bearer ${accessToken}`,
     },
 })
 
 const instanceAdmin = axios.create({
     baseURL: API_SERVER,
     headers: {
-        Authorization: `Bearer ${adminToken}`,
+        Authorization: `Bearer ${accessToken}`,
     },
 })
 
 const instanceTokenRefresh = axios.create({
     baseURL: API_TOKEN_REFRESH,
     headers: {
-        Authorization: `Bearer ${adminToken}`,
+        Authorization: `Bearer ${accessToken}`,
     },
 })
 
 const instanceRegisterUser = axios.create({
     baseURL: API_REGISTER_USER,
     headers: {
-        Authorization: `Bearer ${adminToken}`,
+        Authorization: `Bearer ${accessToken}`,
+    },
+})
+
+const instanceUsers = axios.create({
+    baseURL: API_GET_USERS,
+    headers: {
+        Authorization: `Bearer ${accessToken}`,
     },
 })
 
 export {
-    instanceAuth, instanceStatistics,
-    instanceWorkouts, instanceRecipes,
+    instanceAuth,
+    instanceStatistics,
+    instanceWorkouts,
+    instanceRecipes,
     instanceAdmin,
-    instanceRegisterUser, instanceTokenRefresh
+    instanceRegisterUser,
+    instanceTokenRefresh,
+    instanceUsers
 }

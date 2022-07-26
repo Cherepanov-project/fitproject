@@ -3,23 +3,23 @@ import styled from "styled-components"
 export const CustomSlider = styled.div`
   box-sizing: border-box;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
   position: relative;
-  overflow: hidden;
   list-style: none;
   z-index: 1;
-  padding: 0 58px;
-  background-color:#fff;
+  background-color: #fff;
+  padding: 15px 56px;
 `
+export const Container = styled.div`
+  overflow: hidden;
+  text-overflow: clip;
+`
+
 export const SliderWrapper = styled.div`
-  position: relative;
-  width: 100%;
-  z-index: 1;
   display: flex;
-  transition-property: transform;
-  box-sizing: content-box;
-  
+  flex-direction: row;
+  z-index: 1;
 `
 
 export const SliderSlide = styled.div`
@@ -27,5 +27,6 @@ export const SliderSlide = styled.div`
   border-radius: 5px;
   display: flex;
   justify-content: flex-start;
-  padding: 0 ;  
+  align-items: center;
+  padding: 0;
 `

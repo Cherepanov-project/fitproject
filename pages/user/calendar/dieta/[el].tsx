@@ -39,7 +39,7 @@ const DailyRation = () => {
         <CalendarContainer>
             <HeadLinkBack
                 namesComponent={"Ежедневный рацион питания"}
-                backLink={"/User/calendar/"}
+                backLink={"/user/calendar/"}
             />
             <div>
                 <ListUl>
