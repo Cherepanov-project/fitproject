@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { useQuery } from "react-query"
 import Link from "next/link"
 
@@ -10,9 +10,10 @@ import {
     Button,
     TableRow,
 } from "@mui/material"
+import CircularProgress from "@mui/material/CircularProgress"
 
 // styles
-import { ContentWrapper, Footer } from "./pageUsers.styles"
+import { ContentWrapper, Footer, StylesLoader } from "./pageUsers.styles"
 
 // components
 import TableItemUsers from "../../TableItemUsers/tableItemUsers"
@@ -24,12 +25,7 @@ import TableHeader from "../../Table/TableHeader/tableHeader"
 import getArrPagination from "@/utils/getArrPagination"
 
 // API
-import { getUserList, postUser } from "@/API/users"
-
-const defaultFilter = {
-    role: ["admin", "user"], // есть админ значит тру иначе удаляю с массива?
-    gendor: ["male", "female"],
-}
+import { getUserList } from "@/API/users"
 
 const PageUsers = () => {
     const { error, isLoading, data } = useQuery("getUserList", getUserList)
@@ -37,17 +33,15 @@ const PageUsers = () => {
     const [page, setPage] = useState(0)
     const [rowsPerPage, setRowsPerPage] = useState(10)
 
-    const [filter, setFilter] = useState(defaultFilter)
-
     if (error instanceof Error) {
         return <h1>{error.message}</h1>
     }
 
     if (isLoading) {
         return (
-            <div>
-                <p>Loading...</p>
-            </div>
+            <StylesLoader>
+                <CircularProgress color="inherit" />
+            </StylesLoader>
         )
     }
 
@@ -64,18 +58,7 @@ const PageUsers = () => {
 
     const userItemList = getArrPagination(page, rowsPerPage, data).map(el => (
         <TableRow hover sx={{ cursor: "pointer" }} key={el.id}>
-            <TableItemUsers
-                id={el.id}
-                username={el.username}
-                firstName={el.firstName}
-                lastName={el.lastName}
-                email={el.email}
-                phone={el.phone}
-                age={el.age}
-                gender={el.gender}
-                coach={el.coach}
-                avatar={el.avatar}
-            />
+            <TableItemUsers {...el} />
         </TableRow>
     ))
     return (
