@@ -1,7 +1,6 @@
 import styled from "styled-components"
 
 export const MainWrapper = styled.div`
-    //display: flex;
     display: grid; 
     grid-template-columns: 230px 1fr;
     width: 100%;

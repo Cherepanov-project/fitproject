@@ -27,13 +27,13 @@ export const StyledSlideButton = styled.button`
   outline: none;
   background-color: inherit;
 
-  :hover {
+  &:hover {
     border: 3px ridge #fefefe;
     font-weight: bold;
     cursor: pointer;
   }
 
-  :disabled {
+  &:disabled {
     border: none;
     color: #999999;
     font-weight: normal;
