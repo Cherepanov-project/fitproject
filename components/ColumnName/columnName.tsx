@@ -20,9 +20,9 @@ const ColumnName = () => {
     if (path === "workouts") {
         columnName = [
             "Workout info",
-            "Workout name",
-            "Workout",
-            "Workout Type",
+            "Name",
+            "Category",
+            "Type",
         ]
     }
 
