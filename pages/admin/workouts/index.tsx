@@ -14,9 +14,10 @@ import CreateForm from "@/components/AddBtn/addForm"
 import Pagination from "@/components/Table/tablePagination"
 
 const WorkoutsListPage = () => {
-    const { data, isLoading, error } = useQuery("workoutsList", getWorkoutList)
     const [ page, setPage ] = useState<number>(0)
     const [ rowsPerPage, setRowsPerPage ] = useState<number>(8)
+    const [listChange, setListChange] = useState<boolean>(false)
+    const { data, isLoading, error } = useQuery(["workoutsList", page, rowsPerPage, listChange], getWorkoutList)
 
     const handleChangePage = (event: unknown, newPage: number) => {
         setPage(newPage)
@@ -37,7 +38,10 @@ const WorkoutsListPage = () => {
             </div>
         )
     }
-
+    const updateList = () => {
+        const isChanged = listChange;
+        setListChange(!isChanged);
+    }
     const workouts = data.map(el => {
         return (
             <TableItemWorkouts
@@ -49,6 +53,7 @@ const WorkoutsListPage = () => {
                 area={el.area}
                 category={el.category}
                 status={"HIGH"}
+                updateList={updateList}
             />
         )
     })

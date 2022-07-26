@@ -37,10 +37,10 @@ const Navbar = () => {
 
     const image = Cookies.get("image")
 
+
     return (
         <NavbarWrapper>
             <PageName>{pageName}</PageName>
-
             <DivAdminInformation>
                 <DivInformation>
                     <SearchAppBar />
