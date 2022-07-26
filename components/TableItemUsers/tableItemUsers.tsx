@@ -1,41 +1,73 @@
 import React, { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+
+// help libs
 import { format } from "date-fns"
+
+// ui libs
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
 import MoreVertIcon from "@mui/icons-material/MoreVert"
 import PersonIcon from "@mui/icons-material/Person"
 import EditIcon from "@mui/icons-material/Edit"
-import { TableRow, TableCell, Avatar, IconButton, Menu, MenuItem } from "@mui/material"
 
-import { SecondaryText, Text, RowAvatar, WrapBnt } from "./tableItemUsers.styles"
-import avatarUser from "@/common/images/userTableItem/avatarUser.jpg"
-import ColorfulTeg from "../ColorfulTeg"
+import {
+    TableRow,
+    TableCell,
+    Avatar,
+    IconButton,
+    Menu,
+    MenuItem,
+} from "@mui/material"
+
+// styles
+import {
+    SecondaryText,
+    Text,
+    RowAvatar,
+    WrapBnt,
+} from "./tableItemUsers.styles"
 import { MenuIcon } from "../FilterMenu/filterMenu.styles"
+
+// images
+import avatarUser from "@/common/images/userTableItem/avatarUser.jpg"
+
+// components
+import ColorfulTeg from "../ColorfulTeg"
 import ConfirmAction from "../ConfirmAction/confirmAction"
-import { IUserItemProps } from "./tableItemUsers.interface"
+
+// types
+import { IUser } from "../PageComponents/PageUsers/pageUsers.interface"
+
+// API
+import { deleteUserById } from "@/API/users"
 
 const options = ["View profile", "Delete"]
 
-const TableItemUsers: React.FC<IUserItemProps> = ({
-    nameUser,
-    dateRegister,
-    email,
-    role,
-    gender,
-    avatar = avatarUser,
-    id,
-}) => {
+const TableItemUsers: React.FC<IUser> = props => {
+    const {
+        id,
+        username,
+        firstName,
+        lastName,
+        email,
+        phone,
+        age,
+        gender,
+        coach,
+        avatar = avatarUser,
+    } = props
+
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+
     const open = Boolean(anchorEl)
     const handleClick = (event: React.MouseEvent<HTMLElement>) =>
         setAnchorEl(event.currentTarget)
     const handleClose = () => setAnchorEl(null)
 
-    const deleteArticle = () => {
+    const deleteUser = async () => {
+        const response = await deleteUserById(id)
         handleClose()
-        // функция для удаленея + вызвать перерисовку если прошло успешно
-        console.log("delete")
     }
     return (
         <>
@@ -44,26 +76,31 @@ const TableItemUsers: React.FC<IUserItemProps> = ({
                     <Image src={avatar} alt="avatar" />
                 </Avatar>
                 <RowAvatar>
-                    <Text>Email address:</Text>
-                    <SecondaryText>{email}</SecondaryText>
+                    <Text>ID:</Text>
+                    <SecondaryText>{id}</SecondaryText>
                 </RowAvatar>
             </TableCell>
-            <TableCell sx={{ paddingLeft: 3.5, paddingTop: 1 }}>
-                <Text>{nameUser}</Text>
-                <SecondaryText>{gender}</SecondaryText>
+            <TableCell sx={{ paddingLeft: 3.5, padding: 1 }}>
+                <Text>User Name</Text>
+                <SecondaryText>{username}</SecondaryText>
             </TableCell>
             <TableCell sx={{ paddingLeft: 3.5, paddingTop: 1 }}>
-                <Text>{format(new Date(dateRegister), "MMM LL, u")}</Text>
-                <SecondaryText>
-                    {format(new Date(dateRegister), "h:mm aaa")}
-                </SecondaryText>
+                <Text>Registration</Text>
+                <Text>{format(new Date(), "MMM LL, u")}</Text>
+                <SecondaryText>{format(new Date(), "h:mm aaa")}</SecondaryText>
             </TableCell>
+
             <TableCell sx={{ paddingLeft: 3.5, paddingTop: 1, lineHeight: 1 }}>
                 <WrapBnt>
-                    {role === "admin" ? (
+                    {/* {role === "admin" ? (
                         <ColorfulTeg text={role} backgroundColor="#F12B2C" />
                     ) : (
                         <ColorfulTeg text={role} />
+                    )}*/}
+                    {coach ? (
+                        <ColorfulTeg text="Coach" backgroundColor="#F12B2C" />
+                    ) : (
+                        <ColorfulTeg text="User" />
                     )}
                     <MenuIcon>
                         <IconButton
@@ -90,12 +127,20 @@ const TableItemUsers: React.FC<IUserItemProps> = ({
                                     {option === "Delete" ? (
                                         <ConfirmAction
                                             text="delete user?"
-                                            onConfirm={deleteArticle}
+                                            onConfirm={deleteUser}
                                         >
                                             <DeleteForeverIcon />
                                         </ConfirmAction>
                                     ) : (
-                                        <Link href={`/admin/users/${id}`} passHref>
+                                        <Link
+                                            href={{
+                                                pathname: `/admin/users/${id}`,
+                                                query: {
+                                                    data: JSON.stringify(props),
+                                                },
+                                            }}
+                                            passHref
+                                        >
                                             <PersonIcon />
                                         </Link>
                                     )}
