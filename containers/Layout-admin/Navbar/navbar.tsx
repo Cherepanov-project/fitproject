@@ -24,7 +24,7 @@ import {
 const Navbar = () => {
     const router = useRouter()
     
-  const page = router.asPath.split("/admin/").pop()
+  const page = router.asPath.split("/admin").pop()
   let pageName = page.match("(?<=/).([A-Za-z])*").input.split("/")[1]
   pageName = pageName[0].toUpperCase() + pageName.slice(1)
   
