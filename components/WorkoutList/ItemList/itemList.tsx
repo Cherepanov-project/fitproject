@@ -79,6 +79,7 @@ const ItemList = ({ muscles }: IMuscles) => {
             flexWrap: "wrap",
             justifyContent: "flex-start",
             paddingTop: "35px",
+            width: "100%",
           }}
         >
           {exercises}

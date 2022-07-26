@@ -32,35 +32,35 @@ const LeftSideBar = () => {
             <TopIconsWrapper>
               <Link href={"#"} passHref>
                 <ImageWrapper>
-                  <Image src={bell.src} alt="h" />
+                  <Image src={bell.src} alt="bell" />
                 </ImageWrapper>
               </Link>
               <Divider />
               <Link href={"/user/statistics"} passHref>
                 <ImageWrapper>
-                  <Image src={home.src} alt="h" />
+                  <Image src={home.src} alt="home" />
                 </ImageWrapper>
               </Link>
               <Link href={"/user/calendar"} passHref>
                 <ImageWrapper>
-                  <Image src={clock.src} alt="h" />
+                  <Image src={clock.src} alt="clock" />
                 </ImageWrapper>
               </Link>
               <Link href={"#"} passHref>
                 <ImageWrapper>
-                  <Image src={message.src} alt="h" />
+                  <Image src={message.src} alt="message" />
                 </ImageWrapper>
               </Link>
               <Link href={"#"} passHref>
                 <ImageWrapper>
-                  <Image src={sheet.src} alt="h" />
+                  <Image src={sheet.src} alt="sheet" />
                 </ImageWrapper>
               </Link>
             </TopIconsWrapper>
             <BottomIconWrapper>
               <Link href={"#"} passHref>
                 <ImageWrapper>
-                  <Image src={help.src} alt="h" />
+                  <Image src={help.src} alt="help" />
                 </ImageWrapper>
               </Link>
             </BottomIconWrapper>

@@ -1,8 +1,8 @@
 import styled from "styled-components"
 
 export const StyledLayoutUser = styled.div`
-  display: flex;
-  justify-content: center;
+  //display: flex;
+  //justify-content: center;
   width: 100%;
   background-color: #e5e5e5;
   padding: 0;
@@ -10,13 +10,15 @@ export const StyledLayoutUser = styled.div`
 `
 
 export const Container = styled.div`
-  display: flex;
-  border-radius: 50px;
+  //display: flex;
+  //border-radius: 50px;
+  display: grid;
+  grid-template-columns: 180px 1fr 244px;
   margin: 0;
 `
 
 export const Content = styled.div`
-  width: 1010px;
+  //width: 1010px;
   background-color: #f1f1f1;
   margin-right: 30px;
   padding-bottom: 21px;

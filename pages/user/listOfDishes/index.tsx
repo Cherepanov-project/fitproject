@@ -40,11 +40,11 @@ const AllMenus = () => {
     [checkbox]
   )
   /*
-    const { data, isSuccess } = useQuery("dishes", ?????????, {
+    const { data, isSuccess } = useQuery("listOfDishes", ?????????, {
       staleTime: ?????????,
     })
   useEffect(() => {
-    queryClient.prefetchQuery("dishes", ???????)
+    queryClient.prefetchQuery("listOfDishes", ???????)
   }, [queryClient])
 */
   useEffect(() => {

@@ -9,12 +9,53 @@ export const CustomSlider = styled.div`
   list-style: none;
   z-index: 1;
   background-color: #fff;
-  padding: 15px 56px;
+  //padding: 15px 56px;
+
+  display: grid;
+  grid-template-columns: 55px 1fr 55px;
+  column-gap: 15px;
 `
+
+export const StyledButtonLeft = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 100%;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: normal;
+
+  :hover {
+    border: 3px ridge #fefefe;
+    font-weight: bold;
+  }
+`
+
 export const Container = styled.div`
   overflow: hidden;
   text-overflow: clip;
+  padding: 15px 0;
 `
+
+export const StyledButtonRight = styled.div`
+  justify-content: end;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 100%;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: normal;
+
+  :hover {
+    border: 3px ridge #fefefe;
+    font-weight: bold;
+  }
+`
+
 
 export const SliderWrapper = styled.div`
   display: flex;

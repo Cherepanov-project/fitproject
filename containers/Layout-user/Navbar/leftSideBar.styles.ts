@@ -5,11 +5,13 @@ import { TStyledDiv } from "../../Layout-admin/layoutAdmin.interface"
 export const SidebarWrapper = styled.div`
   height: 100vh;
   background-color: #f1f1f1;
-  border-radius: 50px 0 0 50px;
+  //border-radius: 50px 0 0 50px;
   padding: 21px 30px;
   position: sticky;
   top: 0;
   bottom: 21px;
+
+  //border:1px solid;
 `
 export const Sidebar = styled.div`
   width: 104px;

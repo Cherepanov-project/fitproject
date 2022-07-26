@@ -11,11 +11,13 @@ import {
   Container,
   SliderWrapper,
   SliderSlide,
+  StyledButtonLeft,
+  StyledButtonRight,
 } from "./slider.styles"
 import { SliderProps } from "./slider.interface"
+import { string } from "yup"
 
 const Slider = ({ children }: SliderProps): JSX.Element => {
-
   const useWindowWidth = (): number => {
     const [width, setWidth] = useState(0)
 
@@ -123,7 +125,7 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
       if (
         contentWidth > sliderWrapperWidth &&
         Math.abs(newPairOfXs[1] - newPairOfXs[0]) <
-          contentWidth - sliderWrapperWidth
+        contentWidth - sliderWrapperWidth
       ) {
         setPairOfXCoords(newPairOfXs)
         //добавляем новую координату
@@ -132,7 +134,8 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
         // правая граница контента появилась внутри контейнера,
         // поэтому не двигаем, то есть не добавляем новую координату
         // просто перекладываем разницу в начальную точку
-        newPairOfXs[0] = -(pairOfXCoords[1] - pairOfXCoords[0])
+        //newPairOfXs[0] = -(pairOfXCoords[1] - pairOfXCoords[0])
+        newPairOfXs[0] = contentWidth - sliderWrapperWidth - 30
         newPairOfXs[1] = 0
         setPairOfXCoords(newPairOfXs)
       }
@@ -179,6 +182,11 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
     }
   }
 
+  const onClickSliderButton = (side: string) => {
+    const offset = side === "left" ? -220 : 220
+    onSliderEndMove(offset)
+  }
+
   const slides = React.Children.map(children, (child, index) => {
     if (index === 0) {
       return <SliderSlide ref={sliderSlideRef}>{child}</SliderSlide>
@@ -189,7 +197,10 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
 
   return (
     <CustomSlider>
-      <Container>
+      <StyledButtonLeft onClick={() => onClickSliderButton("left")}>
+        {"<<"}
+      </StyledButtonLeft>
+      <Container style={{ width: `${windowWidth - 600}px` }}>
         <SliderWrapper
           ref={sliderWrapperRef}
           onDragStart={() => {
@@ -230,6 +241,9 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
           {slides}
         </SliderWrapper>
       </Container>
+      <StyledButtonRight onClick={() => onClickSliderButton("right")}>
+        {">>"}
+      </StyledButtonRight>
     </CustomSlider>
   )
 }

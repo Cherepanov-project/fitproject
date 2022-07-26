@@ -12,7 +12,7 @@ export const RightSideBarWrapper = styled.div`
   display: flex;
   flex-direction: column;
   background-color: white;
-  border-radius: 0 50px 50px 0;
+  //border-radius: 0 50px 50px 0;
 `
 
 export const UserInfoWrapper = styled.div`

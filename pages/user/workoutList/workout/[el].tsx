@@ -64,7 +64,7 @@ const WorkoutItem = () => {
 
   const exercises = workouts?.isSuccess
     ? workouts.data
-        .filter(el => el.area === data?.data.area)
+        //.filter(el => el.area === data?.data.area)
         .map(item => (
           <Link
             href={`/user/workoutList/workout/${item.id}`}
