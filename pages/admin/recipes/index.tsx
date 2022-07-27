@@ -4,11 +4,12 @@ import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
 import TableContainer from "@mui/material/TableContainer"
 import TableRow from "@mui/material/TableRow"
+import CircularProgress from "@mui/material/CircularProgress"
 
 import { withLayout } from "@/containers/Layout-admin/layoutAdmin"
 import FilterMenu from "@/components/FilterMenu/filterMenu"
 import TableItemRecipes from "@/components/TableItemRecipes/tableItemRecipes"
-import { StyleContentList, StyleFooterRecipes } from "@/styles/admin/overview/overview.styles"
+import { StyleContentList, StyleFooterRecipes, StyleLoaderContainer } from "@/styles/admin/recipes/recipes.styles"
 import CreateForm from "@/components/AddBtn/addForm"
 import Pagination from "@/components/Table/tablePagination"
 import ColumnName from "@/components/ColumnName/columnName"
@@ -40,9 +41,9 @@ const RecipesListPage = () => {
     }
     if (isLoading) {
         return (
-            <div>
-                <p>Loading...</p>
-            </div>
+            <StyleLoaderContainer>
+                <CircularProgress></CircularProgress>
+            </StyleLoaderContainer>
         )
     }
     const updateList = () => {
@@ -54,7 +55,6 @@ const RecipesListPage = () => {
         return (
             <TableRow hover sx={{ cursor: "pointer" }} key={el.id}>
                 <TableItemRecipes
-                
                 id={el.id}
                 protein={el.protein}
                 fat={el.fat}
