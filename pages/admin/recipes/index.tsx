@@ -16,10 +16,11 @@ import { getRecipesList } from "@/API/recipes"
 import getArrPagination from "@/utils/getArrPagination"
 
 const RecipesListPage = () => {
-    const { data, isLoading, error } = useQuery("recipesList", getRecipesList)
+    const [listChange, setListChange] = useState<boolean>(false)
+    const { data, isLoading, error } = useQuery(["recipesList", listChange], getRecipesList)
     const [page, setPage] = useState<number>(0)
     const [rowsPerPage, setRowsPerPage] = useState<number>(8)
-    const [listChange, setListChange] = useState<boolean>(false)
+    
     
     useEffect(() => {
         window.scrollTo(0, 0);

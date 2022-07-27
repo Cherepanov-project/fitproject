@@ -38,21 +38,10 @@ const TableItemRecipes = ({
         setAnchorEl(event.currentTarget)
     const handleClose = () => setAnchorEl(null)
 
-    /*const {data, error, refetch} = useQuery(["deleteRecipe", id], () => deleteRecipeById(id), {
-        refetchOnWindowFocus: false,
-        enabled: false,
-        retry: false,
-        onSuccess: updateList
-    })
-    if (error instanceof Error) {
-        return <h1>{error.message}</h1>
-    }*/
-
     const handleDelete = async () => {
-        //const response = await deleteRecipeById(id)
+        const response = await deleteRecipeById(id)
         handleClose()
-        //updateList()
-        //refetch()
+        updateList()
     }
     const handleOpenRecipe = () => {
         router.push(`/admin/recipes/${id}`)
