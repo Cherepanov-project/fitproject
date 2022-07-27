@@ -28,7 +28,7 @@ import {
   Muscle,
   MuscleTitle,
 } from "@/components/WorkoutList/workout.styles"
-import * as styles from "@/models/workout/el.styles"
+import * as styles from "@/components/WorkoutList/CardExercise/el.styles"
 
 import { FontArimaMadurai } from "@/utils/fonts/fontStyles"
 
