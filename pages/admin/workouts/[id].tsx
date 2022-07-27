@@ -23,12 +23,12 @@ const WorkoutPage = () => {
     return (
         <StyleContentList>
             <WorkoutItem
-            name={data.name}
-            area={data.area}
-            category={data.category}
-            muscleGroups={data.muscleGroups}
-            repeatCount={data.repeatCount}
-            approachCount={data.approachCount}
+            name={data.data.name}
+            area={data.data.area}
+            category={data.data.category}
+            muscleGroups={data.data.muscleGroups}
+            repeatCount={data.data.repeatCount}
+            approachCount={data.data.approachCount}
             status={"HIGH"}
             ></WorkoutItem>
         </StyleContentList>
