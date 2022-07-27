@@ -1,10 +1,13 @@
 import { useRouter } from "next/router"
 import { useQuery } from "react-query"
 
+import CircularProgress from "@mui/material/CircularProgress"
+
 import { StyleContentList } from "@/styles/admin/overview/overview.styles"
 import { getRecipeById } from "@/API/recipes"
 import { withLayout } from "@/containers/Layout-admin/layoutAdmin"
 import RecipeItem from "@/components/RecipeItem/recipeItem"
+import { StyleLoaderContainer } from "@/styles/admin/recipes/recipes.styles"
 
 const recipePage = () => {
     const router = useRouter()
@@ -14,9 +17,9 @@ const recipePage = () => {
     }
     if (isLoading) {
         return (
-            <div>
-                <p>Loading...</p>
-            </div>
+            <StyleLoaderContainer>
+                <CircularProgress></CircularProgress>
+            </StyleLoaderContainer>
         )
     }
 
