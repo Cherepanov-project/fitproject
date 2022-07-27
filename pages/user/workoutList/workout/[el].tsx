@@ -32,8 +32,6 @@ import * as styles from "@/components/WorkoutList/CardExercise/el.styles"
 
 import { FontArimaMadurai } from "@/utils/fonts/fontStyles"
 
-import { useRef } from "react"
-
 const WorkoutItem = () => {
   const path = useRouter()
 

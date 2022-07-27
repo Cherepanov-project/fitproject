@@ -2,14 +2,8 @@ import Link from "next/link"
 
 import { useRouter } from "next/router"
 import Image from "next/image"
-import Box from "@mui/material/Box"
-import { Drawer } from "@mui/material"
+import generateId from "@/utils/generateId"
 
-import bell from "@/common/images/layoutUser/navbarIcons/bell.svg"
-import home from "@/common/images/layoutUser/navbarIcons/home.svg"
-import clock from "@/common/images/layoutUser/navbarIcons/clock.svg"
-import message from "@/common/images/layoutUser/navbarIcons/message.svg"
-import sheet from "@/common/images/layoutUser/navbarIcons/sheet.svg"
 import help from "@/common/images/layoutUser/navbarIcons/help.svg"
 
 import {
@@ -20,7 +14,6 @@ import {
   BottomIconWrapper,
   ImageWrapper,
   Divider,
-
 } from "./leftSideBar.styles"
 
 // models
@@ -33,7 +26,7 @@ const LeftSideBar = () => {
   const menuList = sidebarMenu.map(item => {
     return (
       <>
-        <Link href={item.route} passHref>
+        <Link href={item.route} passHref key={generateId()}>
           <ImageWrapper selected={item.name === page}>
             <Image src={item.icon} alt={item.name} width="22px" height="22px" />
           </ImageWrapper>
@@ -57,7 +50,6 @@ const LeftSideBar = () => {
         </IconListWrapper>
       </Sidebar>
     </SidebarWrapper>
-
   )
 }
 
