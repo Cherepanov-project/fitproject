@@ -12,7 +12,7 @@ export const postWorkout = async (data) => {
 
 export const getWorkoutById = async (id: number) => {
     const response = await instanceWorkouts.get(`/${id}`)
-    return response.data.data
+    return response.data
 }
 
 export const putWorkoutUpdate = async (data) => {
