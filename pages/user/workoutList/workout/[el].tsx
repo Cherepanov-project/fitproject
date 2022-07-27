@@ -28,7 +28,7 @@ import {
   Muscle,
   MuscleTitle,
 } from "@/components/WorkoutList/workout.styles"
-import * as styles from "./el.styles"
+import * as styles from "@/models/workout/el.styles"
 
 import { FontArimaMadurai } from "@/utils/fonts/fontStyles"
 
@@ -85,10 +85,9 @@ const WorkoutItem = () => {
   //  data.data.img = "/exercises/hands_up_on_socks.jpg"
   //  data.data.imgWidth=172
   //  data.data.imgHeight=266
-  //} 
+  //}
   ////////////////////////////////////
-  
-  
+
   return (
     <MainWrapper>
       <FontArimaMadurai />
@@ -101,13 +100,13 @@ const WorkoutItem = () => {
             <MusclesList>{musclesList}</MusclesList>
           </Exercise>
         </LeftContent>
-          <ImageWorkout
-            imgUrl={data?.data.img}
-            imgWidth={data?.data.imgWidth}
-            imgHeight={data?.data.imgHeight}
-            src={data?.data.img}
-            alt="alt-image"
-          />
+        <ImageWorkout
+          imgUrl={data?.data.img}
+          imgWidth={data?.data.imgWidth}
+          imgHeight={data?.data.imgHeight}
+          src={data?.data.img}
+          alt="alt-image"
+        />
       </Container>
       <Slider>{exercises}</Slider>
     </MainWrapper>
