@@ -4,8 +4,6 @@ module.exports = {
     loader: "akamai",
     path: "/",
   },
-  basePath: "/",
-  assetPrefix: "/",
 
   experimental: {
     // Enables the styled-components SWC transform
