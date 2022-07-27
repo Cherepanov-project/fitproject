@@ -23,8 +23,11 @@ import {
 
 const Navbar = () => {
     const router = useRouter()
-    const page = router.asPath.split("/").pop()
-    const editRecipie = page.split("-").splice(0, 1)
+    
+  const page = router.asPath.split("/admin").pop()
+  let pageName = page.match("(?<=/).([A-Za-z])*").input.split("/")[1]
+  pageName = pageName[0].toUpperCase() + pageName.slice(1)
+  
     const [userName, setUserName] = useState("admin")
 
     useEffect(() => {
@@ -33,15 +36,11 @@ const Navbar = () => {
     }, [])
 
     const image = Cookies.get("image")
-    const recipePage = router.asPath.includes("/admin/recipes/") ? `Recipe id ` : null;
+
+
     return (
         <NavbarWrapper>
-            <PageName>
-                {recipePage}
-                {editRecipie[0] === "edit"
-                    ? "Edit recipe"
-                    : page[0].toUpperCase() + page.slice(1)}
-            </PageName>
+            <PageName>{pageName}</PageName>
             <DivAdminInformation>
                 <DivInformation>
                     <SearchAppBar />
