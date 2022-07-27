@@ -2,6 +2,7 @@ import Link from "next/link"
 
 import { useRouter } from "next/router"
 import Image from "next/image"
+import generateId from "@/utils/generateId"
 
 import help from "@/common/images/layoutUser/navbarIcons/help.svg"
 
@@ -25,7 +26,7 @@ const LeftSideBar = () => {
   const menuList = sidebarMenu.map(item => {
     return (
       <>
-        <Link href={item.route} passHref>
+        <Link href={item.route} passHref key={generateId()}>
           <ImageWrapper selected={item.name === page}>
             <Image src={item.icon} alt={item.name} width="22px" height="22px" />
           </ImageWrapper>
