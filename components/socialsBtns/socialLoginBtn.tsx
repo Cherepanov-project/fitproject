@@ -41,7 +41,7 @@ const SocialLoginBtn: React.FC<ISocialLoginBtn> = ({
 
   useEffect(() => {
     loginWithSocial()
-  }, [])
+  })
 
   return (
     <button
