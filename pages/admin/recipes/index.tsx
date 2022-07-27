@@ -3,6 +3,7 @@ import { useQuery } from "react-query"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
 import TableContainer from "@mui/material/TableContainer"
+import TableRow from "@mui/material/TableRow"
 
 import { withLayout } from "@/containers/Layout-admin/layoutAdmin"
 import FilterMenu from "@/components/FilterMenu/filterMenu"
@@ -12,16 +13,15 @@ import CreateForm from "@/components/AddBtn/addForm"
 import Pagination from "@/components/Table/tablePagination"
 import ColumnName from "@/components/ColumnName/columnName"
 import { getRecipesList } from "@/API/recipes"
+import getArrPagination from "@/utils/getArrPagination"
 
 const RecipesListPage = () => {
+    const { data, isLoading, error } = useQuery("recipesList", getRecipesList)
     const [page, setPage] = useState<number>(0)
     const [rowsPerPage, setRowsPerPage] = useState<number>(8)
     const [listChange, setListChange] = useState<boolean>(false)
-    const { data, isLoading, error } = useQuery(["recipesList", page, rowsPerPage, listChange], () => getRecipesList(page, rowsPerPage), {
-        keepPreviousData: true
-      })
     
-      useEffect(() => {
+    useEffect(() => {
         window.scrollTo(0, 0);
       }, [page, rowsPerPage]);
 
@@ -49,10 +49,11 @@ const RecipesListPage = () => {
         setListChange(!isChanged);
     }
 
-    const recipe = data.content.map(el => {
+    const recipe = getArrPagination(page, rowsPerPage, data).map(el => {
         return (
-            <TableItemRecipes
-                key={el.id}
+            <TableRow hover sx={{ cursor: "pointer" }} key={el.id}>
+                <TableItemRecipes
+                
                 id={el.id}
                 protein={el.protein}
                 fat={el.fat}
@@ -62,7 +63,9 @@ const RecipesListPage = () => {
                 status={"HIGH"}
                 portionSize={1}
                 updateList={updateList}
-            />
+            /> 
+            </TableRow>
+
         )
     })
 
@@ -78,7 +81,7 @@ const RecipesListPage = () => {
             <StyleFooterRecipes>
                 <CreateForm />
                 <Pagination
-                    count={data.totalElements}
+                    count={data.length}
                     page={page}
                     onChangePage={handleChangePage}
                     rowsPerPage={rowsPerPage}
