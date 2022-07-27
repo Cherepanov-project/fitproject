@@ -6,23 +6,25 @@ import { getRecipeById } from "@/API/recipes"
 import { withLayout } from "@/containers/Layout-admin/layoutAdmin"
 import RecipeItem from "@/components/RecipeItem/recipeItem"
 
-const recipePage = () => {
-    const router = useRouter()
-    const { data, isLoading, error } = useQuery(["recipesById", router], () => getRecipeById(Number(router.query.id)))
-    if (error instanceof Error) {
-        return <h1>{error.message}</h1>
-    }
-    if (isLoading) {
-        return (
-            <div>
-                <p>Loading...</p>
-            </div>
-        )
-    }
-
+const RecipePage = () => {
+  const router = useRouter()
+  const { data, isLoading, error } = useQuery(["recipesById", router], () =>
+    getRecipeById(Number(router.query.id))
+  )
+  if (error instanceof Error) {
+    return <h1>{error.message}</h1>
+  }
+  if (isLoading) {
     return (
+      <div>
+        <p>Loading...</p>
+      </div>
+    )
+  }
+
+  return (
     <StyleContentList>
-        <RecipeItem 
+      <RecipeItem
         name={data.name}
         description={data.description}
         picUrl={data.picUrl}
@@ -33,10 +35,9 @@ const recipePage = () => {
         products={data.products}
         status={"HIGH"}
         portionSize={1}
-        ></RecipeItem>
-
+      ></RecipeItem>
     </StyleContentList>
-    )
+  )
 }
 
-export default withLayout(recipePage)
+export default withLayout(RecipePage)
