@@ -102,7 +102,7 @@ const ItemList = ({ muscles }: IMuscles) => {
               sx={{
                 backgroundColor: "#ffffff",
                 position: "absolute",
-                right: "34px",
+                right: "54px",
                 bottom: "13px",
               }}
             />
