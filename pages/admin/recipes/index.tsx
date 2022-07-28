@@ -18,7 +18,12 @@ import getArrPagination from "@/utils/getArrPagination"
 
 const RecipesListPage = () => {
     const [listChange, setListChange] = useState<boolean>(false)
-    const { data, isLoading, error } = useQuery(["recipesList", listChange], getRecipesList)
+    const [data, setData] = useState([])
+    const [sortedData, setSortedData] = useState([])
+    const { isLoading, error } = useQuery(["recipesList", listChange], getRecipesList, { onSuccess: (data) => {
+        setData(data)
+        setSortedData(data)
+    } })
     const [page, setPage] = useState<number>(0)
     const [rowsPerPage, setRowsPerPage] = useState<number>(8)
     
@@ -39,7 +44,7 @@ const RecipesListPage = () => {
     if (error instanceof Error) {
         return <h1>{error.message}</h1>
     }
-    if (isLoading) {
+    if (isLoading || data.length === 0) {
         return (
             <StyleLoaderContainer>
                 <CircularProgress></CircularProgress>
@@ -50,8 +55,11 @@ const RecipesListPage = () => {
         const isChanged = listChange;
         setListChange(!isChanged);
     }
+    const updateData = (newData) => {
+        setSortedData(newData)
+    }
 
-    const recipe = getArrPagination(page, rowsPerPage, data).map(el => {
+    const recipe = getArrPagination(page, rowsPerPage, sortedData).map(el => {
         return (
             <TableRow hover sx={{ cursor: "pointer" }} key={el.id}>
                 <TableItemRecipes
@@ -72,7 +80,7 @@ const RecipesListPage = () => {
 
     return (
         <StyleContentList>
-            <FilterMenu title="Recipes" />
+            <FilterMenu title="Recipes" data={data} updateData={updateData}/>
             <TableContainer>
                 <Table sx={{ minWidth: 1120 }}>
                     <ColumnName />
