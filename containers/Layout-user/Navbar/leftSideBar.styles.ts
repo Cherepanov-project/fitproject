@@ -5,7 +5,7 @@ import { TStyledDiv } from "../../Layout-admin/layoutAdmin.interface"
 export const SidebarWrapper = styled.div`
   height: 100vh;
   background-color: #f1f1f1;
-  padding: 21px 30px;
+  padding: 21px 60px;
   position: sticky;
   top: 0;
   bottom: 21px;
@@ -18,11 +18,11 @@ export const Sidebar = styled.div`
 `
 
 export const IconListWrapper = styled.div`
-    height: 95%;
-    padding: 30px 38px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  height: 95%;
+  padding: 30px 38px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `
 
 export const TopIconsWrapper = styled.div`

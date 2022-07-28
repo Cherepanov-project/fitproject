@@ -212,10 +212,11 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
       <StyledButtonLeft
         disabled={buttonsDisable[0]}
         onClick={() => onClickSliderButton("left")}
+        style={{ marginLeft: "10px" }}
       >
         {"«"}
       </StyledButtonLeft>
-      <Container style={{ width: `${windowWidth - 600}px` }}>
+      <Container style={{ width: `${windowWidth - 740}px` }}>
         <SliderWrapper
           ref={sliderWrapperRef}
           onDragStart={() => {
@@ -259,6 +260,7 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
       <StyledButtonRight
         disabled={buttonsDisable[1]}
         onClick={() => onClickSliderButton("right")}
+        style={{ marginRight: "10px"}}
       >
         {"»"}
       </StyledButtonRight>

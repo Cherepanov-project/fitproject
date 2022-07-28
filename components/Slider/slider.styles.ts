@@ -11,7 +11,7 @@ export const CustomSlider = styled.div`
   background-color: #fff;
 
   display: grid;
-  grid-template-columns: 55px 1fr 55px;
+  grid-template-columns: 65px 1fr 65px;
   column-gap: 15px;
 `
 
@@ -20,15 +20,16 @@ export const StyledSlideButton = styled.button`
   justify-content: center;
   align-items: center;
   width: 55px;
-  height: 100%;
+  height: 55px;
+  margin: auto;
   font-size: 32px;
   font-weight: normal;
-  border: none;
-  outline: none;
+  border: 3px solid #f1f1f1;
   background-color: inherit;
+  border-radius: 50%;
 
   &:hover {
-    border: 3px ridge #fefefe;
+
     font-weight: bold;
     cursor: pointer;
   }
@@ -37,7 +38,6 @@ export const StyledSlideButton = styled.button`
     border: none;
     color: #999999;
     font-weight: normal;
-    background-color: #fafafa;
     cursor: default;
   }
 `
