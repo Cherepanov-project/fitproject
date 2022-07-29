@@ -19,12 +19,12 @@ import Filter from "@/components/FilterMenu/filter"
 // interfaces
 import { IFilterBtnProps } from "./filterMenu.interface"
 
-const FilterMenu: React.FC<IFilterBtnProps> = ({ title, data, updateData }) => {
+const FilterMenu: React.FC<IFilterBtnProps> = ({ title, data, sortedD, updateData }) => {
     const { asPath } = useRouter()
     let path = asPath.split("/").pop()
-
+    
     const [ activeSorting, setActiveSorting ] = useState(["No Sorting"])
-    const [sortedData, setSortedData] = useState([])
+    const [sortedData, setSortedData] = useState([...data])
 
     let filterNames = []
     if (path === "recipes") {
@@ -55,7 +55,7 @@ const FilterMenu: React.FC<IFilterBtnProps> = ({ title, data, updateData }) => {
             sorting: "name"
         }
     ]}
-    let unSorted = [...data];
+    let unSorted = [...sortedD];
     let sorted = []
     const changeSorting = (newSorting, direction) => {
         setActiveSorting(newSorting)
@@ -67,7 +67,7 @@ const FilterMenu: React.FC<IFilterBtnProps> = ({ title, data, updateData }) => {
     //sorting move to utils? 
     const sorting = (array, sortby, direction = 'none') => {
         if (sortby === 'none') {
-            return array;
+            return data;
         }
 
         if (sortby === 'name' && direction === 'increase') {
@@ -92,7 +92,7 @@ const FilterMenu: React.FC<IFilterBtnProps> = ({ title, data, updateData }) => {
             <Title>{title}</Title>
             <ButtonList>
                 <SortFilter filterNames={filterNames} activeSorting={activeSorting} changeSorting={changeSorting}/>
-                <Filter data={unSorted}/>
+                <Filter data={data} sortedD={sortedD} updateData={updateData}/>
             </ButtonList>
         </Container>
     )

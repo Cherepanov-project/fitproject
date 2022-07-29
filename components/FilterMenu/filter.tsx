@@ -1,18 +1,20 @@
 import React, { useState } from "react"
 import { useRouter } from "next/router"
 import Image from "next/image"
-import { StyledContainer, StyledButtonSort, StyledDropdown, StyledFilterOption, StyledLabel, StyledInput } from "@/components/FilterMenu/filter.styles"
+import { StyledButtonSort, StyledDropdown, StyledFilterOption, StyledLabel, StyledInput } from "@/components/FilterMenu/filter.styles"
 import  { imageFilter } from "@/common/images/filterMenu"
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos"
 import Submenus from "@/components/FilterMenu/submenus"
+import {IFilterData} from "@/components/FilterMenu/filterMenu.interface"
 
-const Filter = ({ data }) => {
+const Filter = ({ data, sortedD, updateData }) => {
     const { asPath } = useRouter()
     let path = asPath.split("/").pop()
     const [menuActive, setMenuActive] = useState<boolean>(false)
     const [animate, setAnimate] = useState<boolean>(false)
     const [filterActive, setFilterActive] = useState<string>('CATEGORY')
-    const [subFilter, setSubFilter] = useState<Array<string>>([])
+    const [subFilter, setSubFilter] = useState<string>('10000')
+    const [filteredData, setFilteredData] = useState<Array<IFilterData>>([...data])
     
 
     let filterOptions = []
@@ -29,29 +31,35 @@ const Filter = ({ data }) => {
     if (path === "recipes") {
         filterOptions = ["Calorie", "Protein","Category"]
         subOptions = {
-                CALORIE: ["1000", "2000", "3000" ],
+                CALORIE: ["1500", "2500", "3500" ],
                 PROTEIN: ["200", "300", "400"],
                 CATEGORY: [] //for mealtype 
             }
     }
     const handleSelect = (e) => {
-        setFilterActive(e.target.name.toUpperCase())
+        setFilterActive(e.target.value.toUpperCase())
         setAnimate(true)
     }
     const handleBackArrow = () => {
         setAnimate(false)
+        setSubFilter('')
+        updateData(data)
     }
+
     const handleSubFilter = (e) => {
-        if (subFilter.includes(e.target.name)){
-            const idx = subFilter.findIndex((el) => el === e.target.name);
-            const [...newArr] = subFilter;
-            newArr.splice(idx, 1);
-            setSubFilter(newArr)
-        } else {
-            const [...newArr] = subFilter;
-            newArr.push(e.target.name)
-            setSubFilter(newArr)
-        }
+        setSubFilter(e.target.value)
+        const filtered = filtering(sortedD, filterActive.toLowerCase(), e.target.value)
+        setFilteredData(filtered)
+        updateData(filtered)
+    }
+    
+    //to utils? 
+    const filtering = (array, filterBy, value) => {
+        const val = isNaN(parseInt(value)) ? value : parseInt(value)
+        let filter = array.filter(element => {
+            return element[filterBy] < val
+        })
+        return filter
     }
 
     const filters = filterOptions.map(item => {
@@ -59,7 +67,7 @@ const Filter = ({ data }) => {
         <StyledFilterOption key={item} animate={animate}>
         <StyledLabel >{item}
             <ArrowForwardIosIcon sx={{height: 14, marginLeft: "auto", marginRight: 0}} />
-            <StyledInput type="checkbox" name={item} onChange={handleSelect}/>
+            <StyledInput type="checkbox" name={item} onChange={handleSelect} value={item}/>
         </StyledLabel>
         </StyledFilterOption>
         )
@@ -76,7 +84,7 @@ const Filter = ({ data }) => {
             <StyledDropdown>
                 {filters}
             </StyledDropdown>
-            <Submenus subOptions={subOptions[filterActive]} handleBackArrow={handleBackArrow} handleSubFilter={handleSubFilter} animate={animate}/>
+            <Submenus subOptions={subOptions[filterActive]} subFilter={subFilter} handleBackArrow={handleBackArrow} handleSubFilter={handleSubFilter} animate={animate}/>
             </>
         ) : null}
         </>

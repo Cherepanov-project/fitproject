@@ -80,7 +80,7 @@ const RecipesListPage = () => {
 
     return (
         <StyleContentList>
-            <FilterMenu title="Recipes" data={data} updateData={updateData}/>
+            <FilterMenu title="Recipes" data={data} sortedD={sortedData} updateData={updateData}/>
             <TableContainer>
                 <Table sx={{ minWidth: 1120 }}>
                     <ColumnName />
@@ -90,7 +90,7 @@ const RecipesListPage = () => {
             <StyleFooterRecipes>
                 <CreateForm />
                 <Pagination
-                    count={data.length}
+                    count={sortedData.length}
                     page={page}
                     onChangePage={handleChangePage}
                     rowsPerPage={rowsPerPage}

@@ -1,10 +1,6 @@
 import styled from "styled-components"
 
-import { IFilterItemActiveProp, IFilterAnimateProp } from "./filterMenu.interface"
-
-export const StyledContainer = styled.div`
-
-`
+import { IFilterAnimateProp } from "./filterMenu.interface"
 
 export const StyledButtonSort = styled.button`
     background: none;
@@ -113,10 +109,3 @@ export const StyledSubInput = styled.input`
         accent-color: #e6e6e6;
     }
 `
-/*export const StyledSubContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    padding: 5px;
-    height: 100px;
-`*/

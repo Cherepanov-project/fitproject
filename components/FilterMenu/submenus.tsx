@@ -2,11 +2,12 @@ import React from "react"
 import { StyledSubmenu, StyledSubmenuOption, StyledButton, StyledSubLabel, StyledSubInput } from "@/components/FilterMenu/filter.styles"
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
-const Submenus = ({subOptions, handleBackArrow, animate, handleSubFilter}) => {
+const Submenus = ({subOptions, subFilter, handleBackArrow, animate, handleSubFilter}) => {
     const submenus = !subOptions ? null : (subOptions.map(item => {
+        let isChecked = subFilter.includes(item)
         return (
             <StyledSubLabel key={item}>
-                <StyledSubInput type="checkbox" name={item} onChange={handleSubFilter}></StyledSubInput>
+                <StyledSubInput type="checkbox" name={item} checked={isChecked} onChange={handleSubFilter} value={item}></StyledSubInput>
                 <span>{item}</span>
             </StyledSubLabel>
         )
@@ -25,27 +26,5 @@ const Submenus = ({subOptions, handleBackArrow, animate, handleSubFilter}) => {
     } else return null
 
 }
-/*
-<IconButton sx={{borderRadius: "50%", width: "24px", height: "24px", border: "1px solid green", textAlign: "center"}}>
-
-const Submenus = ({subOptions}) => {
-    const submenus = subOptions.map((item, index) => {
-        return (
-            <div key={index}>{item.options.map((option) => {
-            return (
-                <label key={option}>
-                    <input type="checkbox" name={option}></input>
-                    <span>{option}</span>
-                </label>
-        )
-        })}</div>)
-    })
-    return (
-        <div>
-            <button>back</button>
-            {submenus}
-        </div>
-    )
-}*/
 
 export default Submenus
