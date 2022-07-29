@@ -57,10 +57,13 @@ const WorkoutsListPage = () => {
             />
         )
     })
+    const updateData = (newData) => {
+        console.log('')
+    }
 
     return (
         <StyleContentList>
-            <FilterMenu title="Workouts" data={data}/>
+            <FilterMenu title="Workouts" data={data} sortedD={data} updateData={updateData}/>
             <TableContainer>
                 <Table sx={{ minWidth: 1120 }}>
                     <ColumnName />
