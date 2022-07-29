@@ -1,7 +1,7 @@
 export interface IFilterBtnProps {
     title: string
     data?: Array<IFilterData>
-    updateData(newData:Array<IFilterData> ): void
+    updateData?(newData:Array<IFilterData> ): void
 }
 
 export interface IFilterItemActiveProp {
@@ -11,4 +11,8 @@ export interface IFilterItemActiveProp {
 export interface IFilterData {
     id: number
     [propName: string]: any;
+}
+
+export interface IFilterAnimateProp {
+    animate: boolean
 }

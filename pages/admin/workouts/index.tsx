@@ -60,7 +60,7 @@ const WorkoutsListPage = () => {
 
     return (
         <StyleContentList>
-            <FilterMenu title="Workouts" />
+            <FilterMenu title="Workouts" data={data}/>
             <TableContainer>
                 <Table sx={{ minWidth: 1120 }}>
                     <ColumnName />

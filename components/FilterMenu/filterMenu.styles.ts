@@ -3,6 +3,8 @@ import styled from "styled-components"
 export const Container = styled.div`
     background: #ffffff;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     border-radius: 8px 8px 0 0;
     padding: 32px;
@@ -27,11 +29,12 @@ export const Title = styled.h2`
     font-size: 19px;
     font-weight: 600;
     color: #252733;
-    margin-right: auto;
 `
 export const ButtonList = styled.div`
     display: flex;
-    width: 225px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 200px;
 `
 
 export const MenuIcon = styled.div``

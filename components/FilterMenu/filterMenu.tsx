@@ -14,6 +14,7 @@ import { imageSort } from "@/common/images/filterMenu"
 //components
 import ItemFilter from "@/components/FilterMenu/itemFilter"
 import SortFilter from "@/components/FilterMenu/sortFilter"
+import Filter from "@/components/FilterMenu/filter"
 
 // interfaces
 import { IFilterBtnProps } from "./filterMenu.interface"
@@ -23,6 +24,7 @@ const FilterMenu: React.FC<IFilterBtnProps> = ({ title, data, updateData }) => {
     let path = asPath.split("/").pop()
 
     const [ activeSorting, setActiveSorting ] = useState(["No Sorting"])
+    const [sortedData, setSortedData] = useState([])
 
     let filterNames = []
     if (path === "recipes") {
@@ -59,6 +61,7 @@ const FilterMenu: React.FC<IFilterBtnProps> = ({ title, data, updateData }) => {
         setActiveSorting(newSorting)
         let sortValue = filterNames.find(element => element.name === newSorting).sorting
         sorted = sorting(unSorted, sortValue, direction);
+        setSortedData(sorted)
         updateData(sorted)
     }
     //sorting move to utils? 
@@ -88,12 +91,13 @@ const FilterMenu: React.FC<IFilterBtnProps> = ({ title, data, updateData }) => {
         <Container>
             <Title>{title}</Title>
             <ButtonList>
-                {/* <IconButton></IconButton> */}
                 <SortFilter filterNames={filterNames} activeSorting={activeSorting} changeSorting={changeSorting}/>
-                <ItemFilter />
+                <Filter data={unSorted}/>
             </ButtonList>
         </Container>
     )
 }
 
 export default FilterMenu
+
+//<ItemFilter />
