@@ -1,4 +1,4 @@
-import Link from "next/link"
+giimport Link from "next/link"
 import React from "React"
 
 import { IItemRationProps } from "../Calendar/calendarContainer.interface"
