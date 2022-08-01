@@ -29,7 +29,8 @@ const TableItemRecipes = ({
     carbohydrate,
     portionSize,
     id,
-    updateList
+    updateList,
+    el
 }) => {
     const router = useRouter()
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
@@ -44,7 +45,13 @@ const TableItemRecipes = ({
         updateList()
     }
     const handleOpenRecipe = () => {
-        router.push(`/admin/recipes/${id}`)
+        router.push( {
+            pathname: `/admin/recipes/${id}`,
+            query: {data: JSON.stringify(el) },
+        },
+        {
+            pathname: `/admin/recipes/${id}`,
+        })
     }
 
     return (

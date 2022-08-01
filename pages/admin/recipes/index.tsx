@@ -72,6 +72,7 @@ const RecipesListPage = () => {
                 status={"HIGH"}
                 portionSize={1}
                 updateList={updateList}
+                el={el}
             /> 
             </TableRow>
 

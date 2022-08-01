@@ -13,21 +13,15 @@ import {
 } from "./recipeItem.styles"
 
 const RecipeItem = ({
-    name,
-    description,
-    picUrl,
-    calories,
-    carbohydrates,
-    fat,
-    protein,
-    products,
     status,
-    portionSize
+    portionSize,
+    dataItem,
 }) => {
+const {products, picUrl, name, description, calorie, protein, fat, carbohydrate} = dataItem;
 
-const productList = products.length ? (products.map(el => {
+const productList = products.length ? (products.map(product => {
         return (
-            <p>{el} </p>
+            <p>{product} </p>
         )
 })) : "no products listed"
 const pic = picUrl ? picUrl : "no image uploaded"
@@ -45,11 +39,11 @@ const pic = picUrl ? picUrl : "no image uploaded"
                 <StyledRecipeItemContainer>
                     <StyledRecipeItem>
                         <StyledSecondaryText>calories </StyledSecondaryText>
-                        <StyledText>{calories}</StyledText>
+                        <StyledText>{calorie}</StyledText>
                     </StyledRecipeItem>
                     <StyledRecipeItem>
                         <StyledSecondaryText>carbohydrates </StyledSecondaryText>
-                        <StyledText>{carbohydrates}</StyledText>
+                        <StyledText>{carbohydrate}</StyledText>
                     </StyledRecipeItem>
                     <StyledRecipeItem>
                         <StyledSecondaryText>fat </StyledSecondaryText>

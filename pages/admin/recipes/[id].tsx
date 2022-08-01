@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import { useQuery } from "react-query"
 
@@ -9,9 +10,25 @@ import { withLayout } from "@/containers/Layout-admin/layoutAdmin"
 import RecipeItem from "@/components/RecipeItem/recipeItem"
 import { StyleLoaderContainer } from "@/styles/admin/recipes/recipes.styles"
 
-const recipePage = () => {
+const RecipePage = () => {
+    
     const router = useRouter()
-    const { data, isLoading, error } = useQuery(["recipesById", router], () => getRecipeById(Number(router.query.id)))
+    const [dataItem, setDataItem] = useState()
+    const { data, isLoading, error, refetch } = useQuery(["recipesById", router.query.id], () => getRecipeById(Number(router.query.id)), {
+        enabled: false,
+        onSuccess: (data) => {
+            setDataItem(data)
+        },
+      })
+
+      useEffect(() => {
+        if (router.isReady && router.query.data !== undefined) {
+            setDataItem(JSON.parse(router.query.data as string))
+        } else if (router.isReady && !router.query.data) {
+            refetch()
+        }
+      }, [router.isReady]);
+    
     if (error instanceof Error) {
         return <h1>{error.message}</h1>
     }
@@ -25,21 +42,15 @@ const recipePage = () => {
 
     return (
     <StyleContentList>
-        <RecipeItem 
-        name={data.name}
-        description={data.description}
-        picUrl={data.picUrl}
-        calories={data.calorie}
-        carbohydrates={data.carbohydrate}
-        fat={data.fat}
-        protein={data.protein}
-        products={data.products}
-        status={"HIGH"}
-        portionSize={1}
-        ></RecipeItem>
-
+        {dataItem !== undefined ? (
+            <RecipeItem
+                status={"HIGH"}
+                portionSize={1}
+                dataItem={dataItem}
+                ></RecipeItem>
+        ) : null}
     </StyleContentList>
     )
 }
 
-export default withLayout(recipePage)
+export default withLayout(RecipePage)
