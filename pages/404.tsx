@@ -4,6 +4,7 @@ import { useRouter } from "next/router"
 const Error = () => {
     const router = useRouter()
 
+
     useEffect(() => {
         setTimeout(() => {
             router.push("/admin")
