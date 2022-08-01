@@ -4,11 +4,10 @@ import { useQuery } from "react-query"
 
 import CircularProgress from "@mui/material/CircularProgress"
 
-import { StyleContentList } from "@/styles/admin/overview/overview.styles"
 import { getRecipeById } from "@/API/recipes"
 import { withLayout } from "@/containers/Layout-admin/layoutAdmin"
 import RecipeItem from "@/components/RecipeItem/recipeItem"
-import { StyleLoaderContainer } from "@/styles/admin/recipes/recipes.styles"
+import { StyleLoaderContainer, StyleContentList, StyledContainer } from "@/styles/admin/recipes/recipes.styles"
 
 const RecipePage = () => {
     
@@ -41,15 +40,17 @@ const RecipePage = () => {
     }
 
     return (
-    <StyleContentList>
-        {dataItem !== undefined ? (
-            <RecipeItem
-                status={"HIGH"}
-                portionSize={1}
-                dataItem={dataItem}
-                ></RecipeItem>
-        ) : null}
-    </StyleContentList>
+        <StyledContainer>
+            <StyleContentList>
+                {dataItem !== undefined ? (
+                    <RecipeItem
+                        status={"HIGH"}
+                        portionSize={1}
+                        dataItem={dataItem}
+                        ></RecipeItem>
+                ) : null}
+            </StyleContentList>
+        </StyledContainer>
     )
 }
 
