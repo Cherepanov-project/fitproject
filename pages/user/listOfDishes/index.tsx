@@ -2,8 +2,10 @@
 import { useState, useEffect, useCallback } from "react"
 import Pagination from "@mui/material/Pagination"
 import Stack from "@mui/material/Stack"
+import Link from "next/link"
 
-import MenuItem from "@/components/ListOfDishes/menuItem"
+import CardDishe from "@/components/ListOfDishes/CardDishe/CardDishe" 
+
 import SideBar from "@/components/ListOfDishes/sideBar"
 import { dishFoodAll } from "@/models/dish/dish"
 import {
@@ -26,7 +28,9 @@ import {
 } from "@/models/sideBar/sideBar"
 
 import { FontPoppins, FontOpenSans } from "@/utils/fonts/fontStyles"
-import { relative } from "path"
+//import { relative } from "path"
+
+
 
 // Апи для получения блюд пока нет.
 // Все на фейковых данных "dishFoodAll".
@@ -66,14 +70,12 @@ const AllMenus = () => {
       specificationMeals.forEach(meals => {
         if (checkboxMeals[meals.name] && food.id === meals.id) {
           flag++
-          return
         }
       })
 
       specificationStar.forEach(star => {
         if (checkbox[star.name] && food.star === star.id) {
           flag++
-          return
         }
       })
 
@@ -123,15 +125,13 @@ const AllMenus = () => {
 
   const elems = dishFood.map((item: IFoodItemType, index) => {
     if (index >= minResOnPage && index < maxResOnPage) {
-      return (
-        <MenuItem
-          key={Math.random()}
-          namesFood={item.namesFood}
-          nutritionalValue={item.nutritionValue}
-          star={item.star}
-          id={item.id}
-        />
-      )
+        return (
+          <Link href={`/user/listOfDishes/${item.id}`} passHref>
+            <a>
+              <CardDishe data={item} />
+            </a>
+          </Link>
+        )
     }
   })
 

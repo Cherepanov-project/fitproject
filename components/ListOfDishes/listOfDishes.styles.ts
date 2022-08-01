@@ -29,6 +29,7 @@ export const BoxCheckBoxSpan = styled.div`
 export const LayoutMenuWrapper = styled.div`
   width: 100%;
   position: relative;
+  padding-top: 80px;
 `
 
 export const MenuWrapper = styled.div`
@@ -48,35 +49,6 @@ export const AllMenusWrapper = styled.div`
   background-color: white;
   border-radius: 5px;
 `
-
-export const MenuItemTitle = styled.div`
-    text-align-last: center;
-    font-size: 15px;
-    font-weight: 500;
-`
-export const MenuItemDescription = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    text-align: center;
-`
-
-export const MenuRatingWrapper = styled.div`
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  font-size: 12px;
-  color: #969696;
-`
-
-export const MenuImg = styled.img`
-    width: 150px;
-    height: 150px;
-    display: block;
-    margin: -55px auto 0 auto;
-`
-
 export const Specification = styled.div`
   display: flex;
   justify-content: space-between;
