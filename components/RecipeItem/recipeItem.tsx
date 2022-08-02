@@ -1,6 +1,8 @@
 import Link from "next/link"
+//import Image from "next/image"
 import { Button } from "@mui/material"
 import ArrowBackIcon from "@mui/icons-material/ArrowBack"
+import SwapVertIcon from '@mui/icons-material/SwapVert';
 import ColorfulTeg from "../ColorfulTeg"
 import { 
     StyledContentWrapper,
@@ -9,14 +11,20 @@ import {
     StyledSecondaryText,
     StyledText,
     StyledRecipeItem,
-    StyledRecipeItemContainer
+    StyledRecipeItemContainer,
+    StyledImageContainer,
+    StyledImage,
+    StyledP
 } from "./recipeItem.styles"
+import { useState } from "react";
 
 const RecipeItem = ({
     status,
     portionSize,
     dataItem,
 }) => {
+const [activeDropdown, setActiveDropdown] = useState(false)
+const [isHovering, setIsHovering] = useState(false);
 const {products, picUrl, name, description, calorie, protein, fat, carbohydrate} = dataItem;
 
 const productList = products.length ? (products.map(product => {
@@ -24,7 +32,19 @@ const productList = products.length ? (products.map(product => {
             <p>{product} </p>
         )
 })) : "no products listed"
-const pic = picUrl ? picUrl : "no image uploaded"
+
+const picUploaded = picUrl ? true : false;
+
+const handlePreviewBtn = () => {
+    setActiveDropdown(!activeDropdown)
+}
+const handleMouseOver = () => {
+    setIsHovering(true);
+  };
+
+const handleMouseOut = () => {
+    setIsHovering(false);
+};
     return (
         <StyledContentWrapper>
             <StyledTitle>
@@ -65,7 +85,17 @@ const pic = picUrl ? picUrl : "no image uploaded"
             </StyledRecipeContainer>
             <StyledRecipeContainer>
                 <StyledSecondaryText>Picture URL: </StyledSecondaryText>
-                <StyledText>{pic}</StyledText>
+                <StyledImageContainer>
+                   {picUploaded ? (
+                    <Button variant="outlined" endIcon={<SwapVertIcon />} onClick={handlePreviewBtn}>
+                    Preview
+                    </Button>
+                ) : (<StyledText>no image uploaded</StyledText>)}
+                    {activeDropdown && (<a href={picUrl} target="blank" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}><StyledImage src={picUrl} alt="dish photo"/>
+                    {isHovering && <StyledP>Click to open in full</StyledP>}
+                    </a>)}
+                </StyledImageContainer>
+                
             </StyledRecipeContainer>
             <StyledRecipeContainer>
                 <StyledSecondaryText>Status:</StyledSecondaryText>

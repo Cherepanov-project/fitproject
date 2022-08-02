@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { useRouter } from 'next/router'
 import { useMutation } from "react-query"
 import { Button } from "@mui/material"
@@ -16,6 +16,10 @@ import { IRecipeFormProps } from "./editFormRecipe.interface"
 import { ContentWrapper, FormTitle, FormWrapper, SecondaryText } from "./editFormRecipe.styles"
 
 const EditFormRecipe: React.FC<IRecipeFormProps> = ({ title, recipeData, btnText }) => {
+    const [fileUrl, setFileUrl] = useState('')
+    const updateFileUrl = (url) => {
+        setFileUrl(url);
+    };
     const router = useRouter()
     const { mutate: addNewRecipe, isLoading } = useMutation(
         (formData: IPostRecipe) => {
@@ -29,7 +33,7 @@ const EditFormRecipe: React.FC<IRecipeFormProps> = ({ title, recipeData, btnText
                 return putRecipeUpdate({
                     id: +recipeData.id,
                     description: formData.description,
-                    picUrl: formData.picUrl,
+                    picUrl: fileUrl,
                 })
             }
             return postRecipe(formData)
@@ -56,14 +60,14 @@ const EditFormRecipe: React.FC<IRecipeFormProps> = ({ title, recipeData, btnText
                         },
                     ],
                     recipe: "",
-                    picUrl: recipeData?.picUrl || "null",
+                    picUrl: fileUrl ? fileUrl : "null",
                 }}
                 validationSchema={validationRecipes}
                 onSubmit={(values, { resetForm }) => {
                     const data = {
                         name: values.header,
                         description: values.description,
-                        picUrl: values.picUrl,
+                        picUrl: fileUrl ? fileUrl: "null",
                     }
                     addNewRecipe(data, { onSuccess: () => {
                         resetForm()
@@ -76,7 +80,7 @@ const EditFormRecipe: React.FC<IRecipeFormProps> = ({ title, recipeData, btnText
                             <SecondaryText>Header</SecondaryText>
                             <FormFieldLong name="header" placeholder="Text" />
                             <SecondaryText>Preview image</SecondaryText>
-                            <FileUpload />
+                            <FileUpload updateFileUrl={updateFileUrl}/>
                             <SecondaryText>Short description</SecondaryText>
                             <FormFieldLong
                                 name="description"

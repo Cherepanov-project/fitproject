@@ -15,7 +15,7 @@ function getNewId() {
     return (currentId += 1)
 }
 
-const FileUpload = ({ name }: { name?: string }) => {
+const FileUpload = ({ name, updateFileUrl }: { name?: string, updateFileUrl }) => {
     // const [_, __, helpers] = useField(name)
     const [files, setFiles] = useState<IUploadableFileProps[]>([])
 
@@ -55,6 +55,7 @@ const FileUpload = ({ name }: { name?: string }) => {
 
     const onUpload = (file: File, url: string) => {
         setFiles(uploadFile(file, url))
+        updateFileUrl(url);
     }
 
     const { getRootProps, getInputProps, isDragActive } = useDropzone({
