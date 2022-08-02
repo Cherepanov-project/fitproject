@@ -1,5 +1,5 @@
 import Link from "next/link"
-import React from "React"
+import React from "react"
 
 import { IItemRationProps } from "../Calendar/calendarContainer.interface"
 import {
