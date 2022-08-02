@@ -22,7 +22,7 @@ const CardExercise = ({ data, styles = null }): JSX.Element => {
           <StyledTextBox style={styles?.StyledTextBox}>
             <FontRoboto />
             <StyledName style={styles?.StyledName}>
-              {data.name}
+              {data.name.toUpperCase()}
             </StyledName>
             <StyledReps
               style={styles?.StyledReps}
