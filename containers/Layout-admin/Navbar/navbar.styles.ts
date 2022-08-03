@@ -1,4 +1,3 @@
-import Image from "next/image"
 import styled from "styled-components"
 
 export const NavbarWrapper = styled.nav`
@@ -30,19 +29,22 @@ export const DivInformation = styled.div`
 `
 
 export const DivAdmin = styled.div`
-    display: flex;
-    align-items: center;
     padding: 5px;
 `
 
-export const Anavbar = styled.a`
+export const StyledSpan = styled.span`
     margin-right: 14px;
     margin-left: 32px;
+    color: #252733;
     font-size: 14px;
-    font-weight: 500;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0.20000000298023224px;
     cursor: pointer;
 `
-
-export const ImageAdmin = styled(Image)`
-    border-radius: 20px;
+export const StyledLink = styled.a`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 `

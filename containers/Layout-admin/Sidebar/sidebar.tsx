@@ -27,9 +27,8 @@ const Sidebar = () => {
 
     const menuList = sidebarMenu.map(item => {
         return (
-            <>
+            <div key={item.route}>
                 <StyleSidebarItem
-                    key={item.route}
                     selected={item.name === page}
                 >
                     <Link href={`/${item.route}`} passHref>
@@ -45,7 +44,7 @@ const Sidebar = () => {
                     </Link>
                 </StyleSidebarItem>
                 {item?.lastItem ? <StyleDivider /> : ""}
-            </>
+            </div>
         )
     })
 
