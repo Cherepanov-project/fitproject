@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const StyledContainer = styled.div`
-  height: 100vh;
+  min-height: calc(100vh - 140px);
 `
 
 export const StyleContentList = styled.div`
