@@ -103,7 +103,7 @@ export const CategoriesStyledItem = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 38px;
+  padding: 0 8px;
   height: 18px;
   text-align: center;
   background-color: #f4f8ec;

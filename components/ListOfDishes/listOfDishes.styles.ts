@@ -1,14 +1,10 @@
 import styled from "styled-components"
 
 export const SideBarWrapper = styled.div`
-    width: 250px;
-    padding-left: 20px;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-
-    @media (min-width: 1700px) {
-        width: 330px;
-        justify-content: space-between;
-    }
+  width: 250px;
+  padding: 30px 15px;
+  margin: 0;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
 `
 
 export const SideBarCheckBox = styled.div`
@@ -17,112 +13,92 @@ export const SideBarCheckBox = styled.div`
     align-items: flex-start;
 `
 export const BoxCheckBox = styled.div`
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+  margin-bottom: 0;
+  margin-top: -10px;
 `
+export const BoxCheckBoxSpan = styled.div`
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #151515;
+`
+export const LayoutMenuWrapper = styled.div`
+  width: 100%;
+  position: relative;
+  padding-top: 80px;
+`
+
 export const MenuWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-content: flex-start;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 800px;
-    height: 630px;
-
-    @media (min-width: 2000px) {
-        height: auto;
-        /* justify-content: flex-start; */
-    }
-
-    box-sizing: border-box;
-
-    @media (min-width: 1441px) {
-        width: 100%;
-        /* justify-content: space-between; */
-    }
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  width: 100%;
 `
 
 export const AllMenusWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    margin: 0 auto;
-    width: 100%;
-    background-color: white;
-    border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 5px;
 `
-
-export const MenuItemTitle = styled.div`
-    text-align-last: center;
-    font-size: 15px;
-    font-weight: 500;
-`
-export const MenuItemDescription = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    text-align: center;
-`
-
-export const MenuRatingWrapper = styled.div`
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    font-size: 12px;
-    color: #969696;
-`
-
-export const MenuImg = styled.img`
-    width: 150px;
-    height: 150px;
-    display: block;
-    margin: -55px auto 0 auto;
-
-    @media (min-width: 2000px) {
-        width: 250px;
-        height: 250px;
-    }
-`
-
 export const Specification = styled.div`
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+
+  div {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #151515;
+    color: #151515;
+  }
 `
 export const SpecificationSpan = styled.span`
-    color: #6a983c;
-    background-color: #f4f8ec;
-    border: 1px black solid;
-    margin: 1px;
-    padding: 1px 10px;
-    border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 8px;
+  height: 18px;
+  text-align: center;
+  background-color: #f4f8ec;
+  color: #6a983c;
+  border-radius: 12px;
+
+  font-family: "Poppins";
+  font-style: normal;
+  line-height: 18px;
+  font-size: 12px;
+  font-weight: 600;
 `
 
 export const MenuH2 = styled.h2`
-    margin: 15px 0;
+  margin-bottom: 16px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+  color: #151515;
 `
 
 export const ListDishes = styled.div`
-    margin-left: 30px;
+    margin: 0 30px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 770px;
-    height: 600px;
     justify-content: flex-start;
-
-    @media (min-width: 1441px) {
-        width: 100%;
-        /* justify-content: flex-start; */
-    }
-
-    @media (min-width: 2000px) {
-        height: auto;
-    }
 `
 
 export const SpecificationWrapper = styled.div`
-    width: 193px;
-    font-size: 14px;
-    margin-bottom: 10px;
+  margin-bottom: 20px;
 `

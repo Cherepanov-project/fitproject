@@ -29,9 +29,8 @@ export const StyledImage = styled.div<IImg>`
   background-color: #ffffff;
   background: url(${props => props.imgUrl}) no-repeat center center #ffffff;
   background-size: ${({ imgWidth, imgHeight }) => {
-    return imgWidth > imgHeight ? "100% auto" : "auto 100%"
+    return imgWidth > imgHeight ? "70% auto" : "auto 70%"
   }};
-  background-size: auto 60%;
 `
 
 export const StyledTextBox = styled.div`
