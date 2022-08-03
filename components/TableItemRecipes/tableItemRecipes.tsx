@@ -13,7 +13,7 @@ import Avatar from "@mui/material/Avatar"
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
 import EditIcon from "@mui/icons-material/Edit"
 
-import { MenuIcon, StyledText, StyledSecondaryText } from "./tableItemRecipes.styles"
+import { MenuIcon, StyledText, StyledSecondaryText, StyledImage } from "./tableItemRecipes.styles"
 import imageMan from "@/common/images/recipesTableItem/avatarEat.svg"
 import ColorfulTeg from "../ColorfulTeg"
 import { deleteRecipeById } from "@/API/recipes"
@@ -21,6 +21,7 @@ import { deleteRecipeById } from "@/API/recipes"
 const options = ["Delete", "Edit"]
 
 const TableItemRecipes = ({
+    picUrl,
     status,
     name,
     calorie,
@@ -62,7 +63,7 @@ const TableItemRecipes = ({
                 sx={{ display: "flex", paddingLeft: 3.5 }}
             >
                 <Avatar sx={{ margin: 2 }}>
-                    <Image src={imageMan} alt="image-man" />
+                    {picUrl ? (<StyledImage src={picUrl} alt="recipe-image" />) : (<Image src={imageMan} alt="image-man" />)}
                 </Avatar>
                 <StyledSecondaryText>
                 portion size ({portionSize}g), fat ({fat}), protein ({protein}),

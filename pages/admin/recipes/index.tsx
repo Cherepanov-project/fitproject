@@ -64,6 +64,7 @@ const RecipesListPage = () => {
             <TableRow hover sx={{ cursor: "pointer" }} key={el.id}>
                 <TableItemRecipes
                 id={el.id}
+                picUrl={el.picUrl}
                 protein={el.protein}
                 fat={el.fat}
                 carbohydrate={el.carbohydrate}
