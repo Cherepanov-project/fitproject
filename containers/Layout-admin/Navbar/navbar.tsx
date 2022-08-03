@@ -51,7 +51,7 @@ const Navbar = () => {
                     <PositionedMenu />
                 </DivInformation>
                 <DivAdmin>
-                    <Link href={"/"} passHref>
+                    <Link href={"/admin/overview"} passHref>
                         <StyledLink>
                             <StyledSpan>{userName}</StyledSpan>
                             <Image
