@@ -64,12 +64,11 @@ export const withLayout = <T extends Record<string, undefined>>(
         }, [])
 
         return (
-            
-            <LayoutAdmin>
-                <ErrorBoundary>
-                <Component {...props} />
-                </ErrorBoundary>
-            </LayoutAdmin>
+            <ErrorBoundary>
+                <LayoutAdmin>
+                    <Component {...props} />
+                </LayoutAdmin>
+            </ErrorBoundary>
         )
     }
 }
