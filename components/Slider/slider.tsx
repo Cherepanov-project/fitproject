@@ -11,12 +11,15 @@ import {
   Container,
   SliderWrapper,
   SliderSlide,
-  StyledSlideButton
+  StyledSlideButton,
+  StyledMore,
 } from "./slider.styles"
 import { SliderProps } from "./slider.interface"
-import { string } from "yup"
+//import { string } from "yup"
 
-const Slider = ({ children }: SliderProps): JSX.Element => {
+import { FontArimaMadurai } from "@/utils/fonts/fontStyles"
+
+const Slider = ({ children, flagDishes = false }: SliderProps): JSX.Element => {
   const useWindowWidth = (): number => {
     const [width, setWidth] = useState(0)
 
@@ -192,7 +195,8 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
   }
 
   const onClickSliderButton = (side: string) => {
-    const offset = side === "left" ? -220 : 220
+    let offset = flagDishes ? 172 : 220
+    offset = side === "left" ? -offset : offset
     onSliderEndMove(offset)
   }
 
@@ -217,6 +221,12 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
         {"«"}
       </StyledButtonLeft>
       <Container style={{ width: `${windowWidth - 740}px` }}>
+        {flagDishes && (
+          <>
+            <FontArimaMadurai />
+            <StyledMore>More recipies</StyledMore>
+          </>
+        )}
         <SliderWrapper
           ref={sliderWrapperRef}
           onDragStart={() => {
@@ -260,7 +270,7 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
       <StyledButtonRight
         disabled={buttonsDisable[1]}
         onClick={() => onClickSliderButton("right")}
-        style={{ marginRight: "10px"}}
+        style={{ marginRight: "10px" }}
       >
         {"»"}
       </StyledButtonRight>

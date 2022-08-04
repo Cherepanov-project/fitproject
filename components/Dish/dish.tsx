@@ -6,7 +6,6 @@ import generateId from "@/utils/generateId"
 import { IFoodItemType } from "@/models/models.interface"
 import { dishFood } from "@/models/dish/dish"
 import DishIngredients from "./dishIngredients"
-import { LayoutUser } from "@/containers/Layout-user/layoutUser"
 import HeadLinkBack from "../HeadLinkBack/headLinkBack"
 import {
     DishComponent,
@@ -54,48 +53,44 @@ const Dish = () => {
     })
 
     return (
-        <DishComponent imgUrl={img.src}>
-            <HeadLinkBack
-                backLink={`${query.url}`}
-                namesComponent={query.eating}
-            />
-            <DishItem>
-                <DishDescriptionWrapper>
-                    <h2>{foodItem.namesFood}</h2>
-                    <p>{foodItem.description}</p>
-                    <ButtonFood
-                        $display={foodItem.activeRecipe}
-                        onClick={recipeClickActive}
-                    >
-                        Закрыть
-                    </ButtonFood>
-                </DishDescriptionWrapper>
-                <FoodContainer $display={foodItem.activeRecipe}>
-                    <h3>Ingredients</h3>
-                    <IngredientsContainer>
-                        <DishIngredients foodItem={foodItem} />
-                    </IngredientsContainer>
-                    <ButtonFood onClick={ingredientsActive}>
-                        Просмотреть все ингредиенты
-                    </ButtonFood>
-                </FoodContainer>
-                <FoodContainer $display={foodItem.activeRecipe}>
-                    <h3>Пищевая ценность</h3>
-                    <NutritionalContainer>
-                        {itemNutritionalValue}
-                    </NutritionalContainer>
-                    <div>
-                        <ButtonFood onClick={recipeClickActive}>
-                            Рецепт
-                        </ButtonFood>
-                        <ButtonFood onClick={favouritesAdd}>
-                            Добавить в избранное
-                        </ButtonFood>
-                    </div>
-                </FoodContainer>
-            </DishItem>
-        </DishComponent>
+      <DishComponent imgUrl={img.src}>
+        <HeadLinkBack
+          backLink={`/user/listOfDishes/`}
+          namesComponent={query.el}
+        />
+        <DishItem>
+          <DishDescriptionWrapper>
+            <h2>{foodItem.namesFood}</h2>
+            <p>{foodItem.description}</p>
+            <ButtonFood
+              $display={foodItem.activeRecipe}
+              onClick={recipeClickActive}
+            >
+              Закрыть
+            </ButtonFood>
+          </DishDescriptionWrapper>
+          <FoodContainer $display={foodItem.activeRecipe}>
+            <h3>Ingredients</h3>
+            <IngredientsContainer>
+              <DishIngredients foodItem={foodItem} />
+            </IngredientsContainer>
+            <ButtonFood onClick={ingredientsActive}>
+              Просмотреть все ингредиенты
+            </ButtonFood>
+          </FoodContainer>
+          <FoodContainer $display={foodItem.activeRecipe}>
+            <h3>Пищевая ценность</h3>
+            <NutritionalContainer>{itemNutritionalValue}</NutritionalContainer>
+            <div>
+              <ButtonFood onClick={recipeClickActive}>Рецепт</ButtonFood>
+              <ButtonFood onClick={favouritesAdd}>
+                Добавить в избранное
+              </ButtonFood>
+            </div>
+          </FoodContainer>
+        </DishItem>
+      </DishComponent>
     )
 }
 
-export default LayoutUser(Dish)
+export default Dish

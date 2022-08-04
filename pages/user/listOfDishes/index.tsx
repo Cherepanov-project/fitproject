@@ -4,7 +4,7 @@ import Pagination from "@mui/material/Pagination"
 import Stack from "@mui/material/Stack"
 import Link from "next/link"
 
-import CardDishe from "@/components/ListOfDishes/CardDishe/CardDishe" 
+import CardDish from "@/components/ListOfDishes/CardDish/CardDish" 
 
 import SideBar from "@/components/ListOfDishes/sideBar"
 import { dishFoodAll } from "@/models/dish/dish"
@@ -126,9 +126,9 @@ const AllMenus = () => {
   const elems = dishFood.map((item: IFoodItemType, index) => {
     if (index >= minResOnPage && index < maxResOnPage) {
         return (
-          <Link href={`/user/listOfDishes/${item.id}`} passHref>
+          <Link href={`/user/listOfDishes/dish/${item.id}`} passHref>
             <a>
-              <CardDishe data={item} />
+              <CardDish data={item} />
             </a>
           </Link>
         )
