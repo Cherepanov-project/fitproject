@@ -26,6 +26,7 @@ import getArrPagination from "@/utils/getArrPagination"
 
 // API
 import { getUserList } from "@/API/users"
+import ErrorBoundary from "@/components/ErrorBoundary/errorBoundary"
 
 const PageUsers = () => {
     const { error, isLoading, data } = useQuery("getUserList", getUserList)
@@ -34,7 +35,8 @@ const PageUsers = () => {
     const [rowsPerPage, setRowsPerPage] = useState(10)
 
     if (error instanceof Error) {
-        return <h1>{error.message}</h1>
+        throw new Error(error.message)
+        //return <h1>{error.message}</h1>
     }
 
     if (isLoading) {
