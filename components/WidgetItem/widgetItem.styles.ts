@@ -28,8 +28,8 @@ export const WidgetItemContent = styled.div<IWidgetItemContentProps>`
 `
 
 export const CheckboxIcon = styled.div`
-    height: 20px;
-    width: 20px;
+    height: 24px;
+    width: 24px;
     border-radius: 20px;
     border: 2px solid rgba(197, 199, 205, 1);
 `
@@ -75,4 +75,16 @@ export const TaskStatus = styled.div<ITaskStatusProps>`
     padding: 5px 12px;
     border-radius: 8px;
     background-color: ${({ color }) => color};
+`
+export const StyledTextStatus = styled.p`
+    user-select: none;
+    fontFamily="Mulish";
+    fontSize="11px";
+    color: "rgba(255, 255, 255, 1)";
+`
+export const StyledTextTask = styled.p`
+    user-select: none;
+    fontFamily="Mulish";
+    fontSize="14px";
+    color: "rgba(37, 39, 51, 1)"
 `
