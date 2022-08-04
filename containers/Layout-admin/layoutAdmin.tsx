@@ -10,6 +10,7 @@ import { layoutAdminProps } from "@/containers/Layout-admin/layoutAdmin.interfac
 import { ACCESS_TOKEN } from "@/constants/titles"
 import { Normalize } from "styled-normalize";
 import { FontStyles } from "@/utils/fonts/fontStyles";
+import ErrorBoundary from "@/components/ErrorBoundary/errorBoundary"
 
 const theme = createTheme({
     palette: {
@@ -63,8 +64,11 @@ export const withLayout = <T extends Record<string, undefined>>(
         }, [])
 
         return (
+            
             <LayoutAdmin>
+                <ErrorBoundary>
                 <Component {...props} />
+                </ErrorBoundary>
             </LayoutAdmin>
         )
     }
