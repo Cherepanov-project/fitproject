@@ -19,7 +19,7 @@ import {
     StyleItemName,
     StyleMenuList,
     StyleDivider,
-} from "./sidebar.styles"
+} from "@/containers/Layout-admin/Sidebar/sidebar.styles"
 
 const Sidebar = () => {
     const router = useRouter()

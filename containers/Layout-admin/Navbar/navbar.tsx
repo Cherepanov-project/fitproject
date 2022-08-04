@@ -5,8 +5,8 @@ import { useRouter } from "next/router"
 import Cookies from "js-cookie"
 
 // container
-import PositionedMenu from "./dashboard"
-import SearchAppBar from "./searchInput"
+import PositionedMenu from "@/containers/Layout-admin/Navbar/dashboard"
+import SearchAppBar from "@/containers/Layout-admin/Navbar/searchInput"
 
 // images
 import { imageAdmin } from "@/common/images/layoutAdmin/navbarIcons"
@@ -20,7 +20,7 @@ import {
     DivInformation,
     StyledSpan,
     StyledLink
-} from "./navbar.styles"
+} from "@/containers/Layout-admin/Navbar/navbar.styles"
 
 const Navbar = () => {
     const router = useRouter()
