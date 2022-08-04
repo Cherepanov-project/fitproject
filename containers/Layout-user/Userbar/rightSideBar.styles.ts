@@ -43,6 +43,8 @@ export const IconArrow = styled.img`
   border-radius: 10px;
   width: 32px;
   height: 31px;
+  z-index: 2;
+  transition: all 1s ease;
 `
 
 export const Meter = styled.img``

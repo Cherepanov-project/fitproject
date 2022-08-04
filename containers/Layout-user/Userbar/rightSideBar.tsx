@@ -85,7 +85,8 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
                 </UserInfoWrapper>
                 <List
                     sx={{
-                        margin: "auto 0"
+                        margin: "auto 0",
+                        padding: "8px"
                     }}
                 >
                     {["Goals", "Diet", "Settings"].map(
@@ -97,27 +98,43 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
                                     marginTop: "30px",
                                     marginLeft: "2px",
                                     padding: "24px",
-                                    width: "32px",
+                                    width: "100%",
                                     height: "32px",
+                                    ":after": {
+                                        content: '""',
+                                        backgroundColor: "#f0efff",
+                                        display: "block",
+                                        position: "absolute",
+                                        height: "100%",
+                                        width: "0%",
+                                        left: "0",
+                                        top: "0",
+                                        opacity: "0",
+                                        transition: "width 500ms linear, opacity 0.5s ease 1s",
+                                        boxShadow: "0px 1px 4px rgb(0 0 0 / 25%)",
+                                        borderRadius: "10px"
+                                    },
                                     ":hover": {
-                                        transition: "1s ",
-                                        backgroundColor: "#F0EFFF",
-                                        width: "98%",
+                                        backgroundColor: "transparent",
+                                        width: "100%",
                                         height: "40px",
                                         padding: "24px 24px",
                                         right: "0",
-                                        boxShadow:
-                                            "0px 1px 4px rgba(0, 0, 0, 0.25)",
                                         borderRadius: "10px",
                                         img: {
                                             transition: "1s",
                                             border: "none",
-                                            boxShadow: "none",
+                                            boxShadow: "none"
                                         },
-                                    },
+                                        ":after": {
+                                            width: "100%",
+                                            opacity: "1",
+                                            transition: "width 500ms linear"
+                                        }
+                                    }
                                 }}
                             >
-                                <ListItemIcon>
+                                <ListItemIcon sx={{ zIndex: "2" }}>
                                     {index === 0 ? (
                                         <IconWrapper>
                                             <Icon src={goalsIcon.src} />
@@ -134,7 +151,7 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
                                 </ListItemIcon>
                                 <ListItemText
                                     primary={text}
-                                    sx={{ width: "100%" }}
+                                    sx={{ width: "100%", zIndex: "2" }}
                                 />
                                 <IconArrow src={arrow.src} />
                             </ListItemButton>
