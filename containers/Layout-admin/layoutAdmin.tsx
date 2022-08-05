@@ -3,13 +3,14 @@ import Router from "next/router"
 import Cookies from "js-cookie"
 import { ThemeProvider, createTheme } from "@mui/material/styles"
 
-import Sidebar from "./Sidebar/sidebar"
-import { Navbar } from "./Navbar/navbar"
-import { Container, Content, MainContainer } from "./layoutAdmin.styles"
-import { layoutAdminProps } from "./layoutAdmin.interface"
+import Sidebar from "@/containers/Layout-admin/Sidebar/sidebar"
+import { Navbar } from "@/containers/Layout-admin/Navbar/navbar"
+import { Container, Content, MainContainer } from "@/containers/Layout-admin/layoutAdmin.styles"
+import { layoutAdminProps } from "@/containers/Layout-admin/layoutAdmin.interface"
 import { ACCESS_TOKEN } from "@/constants/titles"
-import {Normalize} from "styled-normalize";
+import { Normalize } from "styled-normalize";
 import { FontStyles } from "@/utils/fonts/fontStyles";
+import ErrorBoundary from "@/components/ErrorBoundary/errorBoundary"
 
 const theme = createTheme({
     palette: {
@@ -63,9 +64,11 @@ export const withLayout = <T extends Record<string, undefined>>(
         }, [])
 
         return (
-            <LayoutAdmin>
-                <Component {...props} />
-            </LayoutAdmin>
+            <ErrorBoundary>
+                <LayoutAdmin>
+                    <Component {...props} />
+                </LayoutAdmin>
+            </ErrorBoundary>
         )
     }
 }

@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components"
 
-import { TStyledDiv } from "../layoutAdmin.interface"
+import { TStyledDiv } from "@/containers/Layout-admin/layoutAdmin.interface"
 
 export const StyleSidebarWrapper = styled.div`
     width: 255px;
