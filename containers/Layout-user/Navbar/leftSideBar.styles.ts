@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components"
 
-import { TStyledDiv } from "../../Layout-admin/layoutAdmin.interface"
+import { TStyledDiv } from "../../Layout-user/layoutUser.interface"
 
 export const SidebarWrapper = styled.div`
   height: 100vh;
@@ -26,53 +26,63 @@ export const IconListWrapper = styled.div`
 `
 
 export const TopIconsWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 export const BottomIconWrapper = styled.div`
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 `
-export const Divider = styled.span`
-    width: 69px;
-    color: white;
-    background-color: white;
-    border: 1px solid #ffffff;
-    margin-bottom: 24px;
-`
-
 export const ImageWrapper = styled.div<TStyledDiv>`
+  position: relative;
+  width: 34px;
+  height: 34px;
+  border-radius: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+
+  cursor: pointer;
+
+  :hover {
+    background-color: #3c3693;
     width: 34px;
     height: 34px;
-    border-radius: 13px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 24px;
+  }
 
-    cursor: pointer;
-
-    :hover {
+  ${props => {
+    if (props.selected) {
+      return css`
         background-color: #3c3693;
         width: 34px;
         height: 34px;
+      `
     }
-    
-    ${props => {
-        if (props.selected) {
-            return css`
-                background-color: #3c3693;
-                 width: 34px;
-                 height: 34px;
-                `
+    if (props.divider) {
+      return css`
+        margin-bottom: 50px;
+        pointer-events: all;
+        cursor: pointer;
+
+        :after {
+          content: "";
+          position: absolute;
+          width: 69px;
+          color: white;
+          background-color: white;
+          border: 1px solid #ffffff;
+          pointer-events: none;
+          bottom: -26px;
         }
+      `
     }
-}
+  }}
 `
 
 export const Image = styled.img`
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
 `

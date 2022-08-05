@@ -13,7 +13,6 @@ import {
   TopIconsWrapper,
   BottomIconWrapper,
   ImageWrapper,
-  Divider,
 } from "./leftSideBar.styles"
 
 // models
@@ -25,14 +24,11 @@ const LeftSideBar = () => {
 
   const menuList = sidebarMenu.map(item => {
     return (
-      <>
-        <Link href={item.route} passHref key={generateId()}>
-          <ImageWrapper selected={item.name === page}>
-            <Image src={item.icon} alt={item.name} width="22px" height="22px" />
-          </ImageWrapper>
-        </Link>
-        {item?.divider ? <Divider /> : ""}
-      </>
+      <Link href={item.route} passHref key={generateId()}>
+        <ImageWrapper selected={item.name === page} divider={item?.divider}>
+          <Image src={item.icon} alt={item.name} width="22px" height="22px" />
+        </ImageWrapper>
+      </Link>
     )
   })
   return (
