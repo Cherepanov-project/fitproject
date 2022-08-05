@@ -56,7 +56,7 @@ const RecipesListPage = () => {
         setListChange(!isChanged);
     }
     const updateData = (newData) => {
-        setSortedData(newData)
+        setSortedData([...newData])
     }
 
     const recipe = getArrPagination(page, rowsPerPage, sortedData).map(el => {

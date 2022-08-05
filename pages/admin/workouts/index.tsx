@@ -58,7 +58,7 @@ const WorkoutsListPage = () => {
         )
     })
     const updateData = (newData) => {
-        console.log('')
+        console.log('updateData at workouts', newData)
     }
 
     return (

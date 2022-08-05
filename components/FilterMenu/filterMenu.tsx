@@ -20,7 +20,7 @@ import Filter from "@/components/FilterMenu/filter"
 import { IFilterBtnProps } from "./filterMenu.interface"
 
 //models
-import { recipeFilters } from "@/models/filerSorting/filters"
+import { recipeSortingFilters } from "@/models/filterSorting/filters"
 import { sorting } from "@/utils/sorting"
 
 const FilterMenu: React.FC<IFilterBtnProps> = ({ title, data, sortedD, updateData }) => {
@@ -29,29 +29,29 @@ const FilterMenu: React.FC<IFilterBtnProps> = ({ title, data, sortedD, updateDat
     
     const [ activeSorting, setActiveSorting ] = useState(["No Sorting"])
     const [ sortedData, setSortedData] = useState([...data])
-    const [ filterNames, setFilterNames ] = useState([])
-    const [ unSorted, setUnsorted ] = useState([...sortedD])
+    const [ sortingNames, setSortingNames ] = useState([])
+    const [ filteredData, setfilteredData ] = useState([...sortedD])
     
     useEffect(() => {
         if (path === "recipes") {
-            setFilterNames(recipeFilters)
+            setSortingNames(recipeSortingFilters)
         }
-      }, []);
+      }, [path]);
     
     const changeSorting = (newSorting, direction) => {
         let sorted = []
         setActiveSorting(newSorting)
-        let sortValue = filterNames.find(element => element.name === newSorting).sorting
-        sorted = sorting(unSorted, sortValue, direction, [...data]);
-        setSortedData(sorted)
-        updateData(sorted)
+        let sortValue = sortingNames.find(element => element.name === newSorting).sorting
+        sorted = sorting(filteredData, sortValue, direction, [...data]);
+        setSortedData([...sorted])
+        updateData([...sorted])
     }
 
     return (
         <Container>
             <Title>{title}</Title>
             <ButtonList>
-                <SortFilter filterNames={filterNames} activeSorting={activeSorting} changeSorting={changeSorting}/>
+                <SortFilter filterNames={sortingNames} activeSorting={activeSorting} changeSorting={changeSorting}/>
                 <Filter data={data} sortedD={sortedD} updateData={updateData}/>
             </ButtonList>
         </Container>
