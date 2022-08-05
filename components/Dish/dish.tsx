@@ -55,14 +55,6 @@ const Dish = () => {
     )
   })
 
-  /*
-   Понадобится при переходе из Daily Diet Plan
-        <HeadLinkBack
-          backLink={`/user/?????`}
-          namesComponent={query.el}
-        />
-*/
-
   return (
     <DishComponent imgUrl={img.src}>
       <DishItem>

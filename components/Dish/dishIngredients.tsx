@@ -12,7 +12,6 @@ const DishIngredients: React.FC<IDishIngredientsProps> = ({ foodItem }) => {
         : foodItem.ingredients
 
   const items = foodIngredients.map(el => {
-      console.log(el)
         return (
             <IngredientsItem key={generateId()}>
                 <IngredientsItemImg imgUrl={chickenFood.src} />

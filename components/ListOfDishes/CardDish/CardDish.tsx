@@ -9,11 +9,13 @@ import {
 } from "./CardDish.styles"
 import { FontRoboto } from "@/utils/fonts/fontStyles"
 import { Rating } from "@mui/material"
+import generateId from "@/utils/generateId"
 
 // временная картинка
 import DishChickenImg from "@/common/images/dishChickenImg.png"
 
 const CardDishe = ({ data, styles = null }): JSX.Element => {
+  
   return (
     <>
       <StyledBox style={styles?.StyledBox}>
@@ -24,22 +26,14 @@ const CardDishe = ({ data, styles = null }): JSX.Element => {
             <StyledName style={styles?.StyledName}>{data.namesFood}</StyledName>
             {styles === null && (
               <StyledDescription style={styles?.StyledDescription}>
-                <div>
-                  <p>{data.nutritionValue[0]?.value}</p>
-                  <span>{data.nutritionValue[0]?.units}</span>
-                </div>
-                <div>
-                  <p>{data.nutritionValue[1]?.value}</p>
-                  <span>{data.nutritionValue[1]?.units}</span>
-                </div>
-                <div>
-                  <p>{data.nutritionValue[2]?.value}</p>
-                  <span>{data.nutritionValue[2]?.units}</span>
-                </div>
-                <div>
-                  <p>{data.nutritionValue[3]?.value}</p>
-                  <span>{data.nutritionValue[3]?.units}</span>
-                </div>
+                {data.nutritionValue.map((el, ind) => {
+                  return (
+                    <div key={generateId()}>
+                      <p>{el.value}</p>
+                      <span>{el.units}</span>
+                    </div>
+                  )
+                })}
               </StyledDescription>
             )}
             <StyledRating>
