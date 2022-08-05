@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { IImg } from "./CardDishes.interface"
+import { IImg } from "./CardDish.interface"
 
 export const StyledBox = styled.div`
   width: 220px;
@@ -28,7 +28,7 @@ export const StyledImage = styled.div<IImg>`
   margin: -70px auto 0 auto;
   filter: drop-shadow(2.15814px 3.23721px 11.8698px rgba(0, 0, 0, 0.14));
   background: url(${props => props.src}) no-repeat center center;
-  background-size: 148px 148px;
+  background-size: cover;
 `
 
 export const StyledTextBox = styled.div`

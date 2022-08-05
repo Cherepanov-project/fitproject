@@ -48,6 +48,16 @@ export const Container = styled.div`
   padding: 15px 0;
 `
 
+export const StyledMore = styled.div`
+  font-family: "Arima Madurai";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 33px;
+  color: #404040;
+  margin: -12px 0 42px 0;
+`
+
 export const SliderWrapper = styled.div`
   display: flex;
   flex-direction: row;
