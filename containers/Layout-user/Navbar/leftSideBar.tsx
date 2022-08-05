@@ -13,7 +13,6 @@ import {
   TopIconsWrapper,
   BottomIconWrapper,
   ImageWrapper,
-  Divider,
 } from "./leftSideBar.styles"
 
 // models
@@ -39,7 +38,7 @@ const LeftSideBar = () => {
           <TopIconsWrapper>{menuList}</TopIconsWrapper>
           <BottomIconWrapper>
             <Link href={"#"} passHref>
-              <ImageWrapper selected={"help" === page} divider={false}>
+              <ImageWrapper selected={"help" === page}>
                 <Image src={help.src} alt="h" width="24" height="24" />
               </ImageWrapper>
             </Link>

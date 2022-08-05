@@ -6,7 +6,6 @@ export type layoutAdminProps = {
 }
 export type TStyledDiv = {
   selected: boolean
-  divider: boolean
 }
 
 export type TStyledInput = {

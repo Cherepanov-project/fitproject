@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components"
 
-import { TStyledDiv } from "../../Layout-admin/layoutAdmin.interface"
+import { TStyledDiv } from "../../Layout-user/layoutUser.interface"
 
 export const SidebarWrapper = styled.div`
   height: 100vh;
@@ -34,14 +34,6 @@ export const BottomIconWrapper = styled.div`
   display: flex;
   justify-content: center;
 `
-export const Divider = styled.span`
-  width: 69px;
-  color: white;
-  background-color: white;
-  border: 1px solid #ffffff;
-  margin-bottom: 24px;
-`
-
 export const ImageWrapper = styled.div<TStyledDiv>`
   position: relative;
   width: 34px;
