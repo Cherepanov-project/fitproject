@@ -10,7 +10,7 @@
     }
     
     componentDidCatch(error: Error, errorInfo: {componentStack: string}) {
-      console.log('ErrorBoundary cought an error:', error, errorInfo)
+      console.log('ErrorBoundary cought an error:', error)
 
       this.setState({
         error: error,
