@@ -8,7 +8,10 @@ export const FontStyles = createGlobalStyle`
   font-family: 'Mulish';
   font-style: normal;
   font-weight: 400;
-  src: url('/fitproject/fonts/mulish-v10-latin/mulish-v10-latin-regular.eot');
+  src: url('/fitproject/fonts/mulish-v10-latin/mulish-v10-latin-regular.woff2') format('woff2'), 
+       url('/fitproject/fonts/mulish-v10-latin/mulish-v10-latin-regular.woff') format('woff'),
+       url('/fitproject/fonts/mulish-v10-latin/mulish-v10-latin-regular.ttf') format('truetype')
+       url('/fitproject/fonts/mulish-v10-latin/mulish-v10-latin-regular.eot') format('eot');
 }
 `
 export const FontRoboto = createGlobalStyle`
