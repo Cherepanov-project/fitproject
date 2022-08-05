@@ -23,8 +23,10 @@ export interface IDailyRationType {
 }
 
 export interface IIngredientsType {
-    ingredient: string
-    quantity: number
+  ingredient: string
+  //quantity: number
+  // изменено на string для тестирования
+  quantity: string
 }
 
 export interface INutritionValueType {

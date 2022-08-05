@@ -11,13 +11,14 @@ const DishIngredients: React.FC<IDishIngredientsProps> = ({ foodItem }) => {
         ? foodItem.ingredients.slice(0, viewIngredients)
         : foodItem.ingredients
 
-    const items = foodIngredients.map(el => {
+  const items = foodIngredients.map(el => {
+      console.log(el)
         return (
             <IngredientsItem key={generateId()}>
                 <IngredientsItemImg imgUrl={chickenFood.src} />
                 <IngredientsItemText>
-                    <div>{el.ingredient}</div>
-                    <div>{el.quantity}</div>
+                    <p>{el.ingredient}</p>
+                    <span>{el.quantity}</span>
                 </IngredientsItemText>
             </IngredientsItem>
         )
