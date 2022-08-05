@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Image from "next/image"
 import { useRouter } from "next/router"
 
@@ -19,72 +19,32 @@ import Filter from "@/components/FilterMenu/filter"
 // interfaces
 import { IFilterBtnProps } from "./filterMenu.interface"
 
+//models
+import { recipeFilters } from "@/models/filerSorting/filters"
+import { sorting } from "@/utils/sorting"
+
 const FilterMenu: React.FC<IFilterBtnProps> = ({ title, data, sortedD, updateData }) => {
     const { asPath } = useRouter()
     let path = asPath.split("/").pop()
     
     const [ activeSorting, setActiveSorting ] = useState(["No Sorting"])
-    const [sortedData, setSortedData] = useState([...data])
-
-    let filterNames = []
-    if (path === "recipes") {
-        //filterNames move to models? 
-        filterNames = [
-        {
-            name: "No Sorting",
-            sorting: "none"
-        },
-        {
-            name: "Calories",
-            sorting: "calorie"
-        },
-        {
-            name: "Protein",
-            sorting: "protein"
-        },
-        {
-            name: "Carbohydrates",
-            sorting: "carbohydrate"
-        },
-        {
-            name: "Fat",
-            sorting: "fat"
-        },
-        {
-            name: "Name",
-            sorting: "name"
+    const [ sortedData, setSortedData] = useState([...data])
+    const [ filterNames, setFilterNames ] = useState([])
+    const [ unSorted, setUnsorted ] = useState([...sortedD])
+    
+    useEffect(() => {
+        if (path === "recipes") {
+            setFilterNames(recipeFilters)
         }
-    ]}
-    let unSorted = [...sortedD];
-    let sorted = []
+      }, []);
+    
     const changeSorting = (newSorting, direction) => {
+        let sorted = []
         setActiveSorting(newSorting)
         let sortValue = filterNames.find(element => element.name === newSorting).sorting
-        sorted = sorting(unSorted, sortValue, direction);
+        sorted = sorting(unSorted, sortValue, direction, [...data]);
         setSortedData(sorted)
         updateData(sorted)
-    }
-    //sorting move to utils? 
-    const sorting = (array, sortby, direction = 'none') => {
-        if (sortby === 'none') {
-            return data;
-        }
-
-        if (sortby === 'name' && direction === 'increase') {
-            return array.sort((a, b) => a[sortby].localeCompare(b[sortby]))
-        } else if (sortby === 'name' && direction === 'decrease') {
-            return array.sort((a, b) => a[sortby].localeCompare(b[sortby])).reverse()
-        }
-
-        if (direction === 'decrease') {
-            return array.sort((a, b) => {
-                return b[sortby] - a[sortby];
-            })
-        } else if (direction === 'increase') {
-            return array.sort((a, b) => {
-                return a[sortby] - b[sortby];
-            });
-        }
     }
 
     return (
@@ -99,5 +59,3 @@ const FilterMenu: React.FC<IFilterBtnProps> = ({ title, data, sortedD, updateDat
 }
 
 export default FilterMenu
-
-//<ItemFilter />
