@@ -1,7 +1,8 @@
 import styled from "styled-components"
 
 export const MainWrapper = styled.div`
-    display: flex;
+    display: grid; 
+    grid-template-columns: 230px 1fr;
     width: 100%;
     background-color: white;
     border-radius: 5px;
@@ -102,7 +103,7 @@ export const CategoriesStyledItem = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 38px;
+  padding: 0 8px;
   height: 18px;
   text-align: center;
   background-color: #f4f8ec;
@@ -123,4 +124,5 @@ export const CategoriesStyledItem = styled.div`
 export const ItemListWrapper = styled.div`
     margin-top: 53px;
     margin-left: 30px;
+    width: 100%;
 `

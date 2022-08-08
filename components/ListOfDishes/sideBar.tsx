@@ -3,12 +3,20 @@ import CheckboxStar from "./checkboxStar"
 import BlockSpecification from "./blockSpecification"
 import CheckboxMeals from "./checkboxMeals"
 
-const SideBar = ({ checkbox, setArgumentStar }) => {
+const SideBar = ({
+  checkbox,
+  setArgumentStar,
+  checkboxMeals,
+  setArgumentMeals,
+}) => {
   return (
     <SideBarWrapper>
       <BlockSpecification />
       <CheckboxStar checkbox={checkbox} setArgumentStar={setArgumentStar} />
-      <CheckboxMeals />
+      <CheckboxMeals
+        checkboxMeals={checkboxMeals}
+        setArgumentMeals={setArgumentMeals}
+      />
     </SideBarWrapper>
   )
 }

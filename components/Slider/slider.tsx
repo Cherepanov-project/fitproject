@@ -11,11 +11,15 @@ import {
   Container,
   SliderWrapper,
   SliderSlide,
+  StyledSlideButton,
+  StyledMore,
 } from "./slider.styles"
 import { SliderProps } from "./slider.interface"
+//import { string } from "yup"
 
-const Slider = ({ children }: SliderProps): JSX.Element => {
+import { FontArimaMadurai } from "@/utils/fonts/fontStyles"
 
+const Slider = ({ children, flagDishes = false }: SliderProps): JSX.Element => {
   const useWindowWidth = (): number => {
     const [width, setWidth] = useState(0)
 
@@ -40,6 +44,8 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
   const [contentWidth, setContentWidth] = useState(0)
   const sliderWrapperRef = useRef<HTMLDivElement>(null)
   const sliderSlideRef = useRef<HTMLDivElement>(null)
+
+  const [buttonsDisable, setButtonsDisable] = useState([false, false])
 
   const onMouseUpOutsideTheSlider = useCallback((): void => {
     let newPairOfXs: number[] = []
@@ -66,7 +72,12 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
   useEffect(() => {
     setSliderWrapperWidth(sliderWrapperRef.current?.clientWidth)
     setPairOfXCoords([0, 0])
-  }, [windowWidth])
+    if (contentWidth > sliderWrapperWidth) {
+      setButtonsDisable([false, true])
+    } else {
+      setButtonsDisable([true, true])
+    }
+  }, [windowWidth, contentWidth, sliderWrapperWidth])
 
   useEffect(() => {
     setContentWidth(
@@ -116,28 +127,32 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
     newPairOfXs[0] = -(curX - pairOfXCoords[0])
     // перекладываем разницу в начальный x для дальнейшего учёта начальной точки
     newPairOfXs[1] = 0
-    if (newPairOfXs[1] - newPairOfXs[0] <= 0) {
+    if (newPairOfXs[1] - newPairOfXs[0] + 30 <= 0) {
       // разница newPairOfXs[1]-newPairOfXs[0] по модулю описывает насколько
       // необходимо передвинуть блок с контентом (упражнениями например)
       // знак указывает на направление передвижения
       if (
         contentWidth > sliderWrapperWidth &&
         Math.abs(newPairOfXs[1] - newPairOfXs[0]) <
-          contentWidth - sliderWrapperWidth
+          contentWidth - sliderWrapperWidth - 62
       ) {
         setPairOfXCoords(newPairOfXs)
+        setButtonsDisable([false, false])
         //добавляем новую координату
         //и перекладываем разницу в начальную точку
       } else {
         // правая граница контента появилась внутри контейнера,
         // поэтому не двигаем, то есть не добавляем новую координату
         // просто перекладываем разницу в начальную точку
-        newPairOfXs[0] = -(pairOfXCoords[1] - pairOfXCoords[0])
+        //newPairOfXs[0] = -(pairOfXCoords[1] - pairOfXCoords[0])
+        newPairOfXs[0] = contentWidth - sliderWrapperWidth - 30
         newPairOfXs[1] = 0
         setPairOfXCoords(newPairOfXs)
+        setButtonsDisable([true, false])
       }
     } else {
       setPairOfXCoords([0, 0])
+      setButtonsDisable([false, true])
     }
   }
 
@@ -179,6 +194,12 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
     }
   }
 
+  const onClickSliderButton = (side: string) => {
+    let offset = flagDishes ? 172 : 220
+    offset = side === "left" ? -offset : offset
+    onSliderEndMove(offset)
+  }
+
   const slides = React.Children.map(children, (child, index) => {
     if (index === 0) {
       return <SliderSlide ref={sliderSlideRef}>{child}</SliderSlide>
@@ -187,9 +208,25 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
     }
   })
 
+  const StyledButtonLeft = StyledSlideButton
+  const StyledButtonRight = StyledSlideButton
+
   return (
     <CustomSlider>
-      <Container>
+      <StyledButtonLeft
+        disabled={buttonsDisable[0]}
+        onClick={() => onClickSliderButton("left")}
+        style={{ marginLeft: "10px" }}
+      >
+        {"«"}
+      </StyledButtonLeft>
+      <Container style={{ width: `${windowWidth - 740}px` }}>
+        {flagDishes && (
+          <>
+            <FontArimaMadurai />
+            <StyledMore>More recipies</StyledMore>
+          </>
+        )}
         <SliderWrapper
           ref={sliderWrapperRef}
           onDragStart={() => {
@@ -230,6 +267,13 @@ const Slider = ({ children }: SliderProps): JSX.Element => {
           {slides}
         </SliderWrapper>
       </Container>
+      <StyledButtonRight
+        disabled={buttonsDisable[1]}
+        onClick={() => onClickSliderButton("right")}
+        style={{ marginRight: "10px" }}
+      >
+        {"»"}
+      </StyledButtonRight>
     </CustomSlider>
   )
 }

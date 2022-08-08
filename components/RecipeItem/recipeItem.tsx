@@ -104,24 +104,22 @@ const handleMouseOut = () => {
                 ) : status === "LOW" ? (
                     <ColorfulTeg
                         text={status}
-                        backgroundColor="#FEC400
-                    "
-                    />
-                ) : (
-                    <ColorfulTeg
-                        text={status}
-                        backgroundColor="#29CC97
-                "
-                    />
-                )}
-            </StyledRecipeContainer>
-            <Link href={`/admin/recipes`} passHref>
-                <Button variant="outlined" startIcon={<ArrowBackIcon />}>
-                    Back to recipes
-                </Button>
-            </Link>
-        </StyledContentWrapper>
-    )
+                        backgroundColor="#FEC400"
+          />
+        ) : (
+          <ColorfulTeg
+            text={status}
+            backgroundColor="#29CC97"
+          />
+        )}
+      </StyledRecipeContainer>
+      <Link href={`/admin/recipes`} passHref>
+        <Button variant="outlined" startIcon={<ArrowBackIcon />}>
+          Back to recipes
+        </Button>
+      </Link>
+    </StyledContentWrapper>
+  )
 }
 
 export default RecipeItem

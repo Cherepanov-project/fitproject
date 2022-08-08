@@ -66,7 +66,7 @@ const SignInForm = () => {
                         setOpen(true)
                         throw new Error(response.error)
                     } else {
-                        setMsg("You have been login")
+                        setMsg("You have been logged in")
                         setOpen(true)
                         setLoginSuccess(true)
                         Cookies.set(ACCESS_TOKEN, response.data.jwtToken)

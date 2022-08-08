@@ -6,96 +6,90 @@ import generateId from "@/utils/generateId"
 import { IFoodItemType } from "@/models/models.interface"
 import { dishFood } from "@/models/dish/dish"
 import DishIngredients from "./dishIngredients"
-import { LayoutUser } from "@/containers/Layout-user/layoutUser"
 import HeadLinkBack from "../HeadLinkBack/headLinkBack"
 import {
-    DishComponent,
-    DishItem,
-    NutritionalItem,
-    NutritionalContainer,
-    IngredientsContainer,
-    FoodContainer,
-    ButtonFood,
-    DishDescriptionWrapper,
+  DishComponent,
+  DishItem,
+  NutritionalItem,
+  NutritionalContainer,
+  IngredientsContainer,
+  FoodContainer,
+  ButtonFood,
+  ButtonFoodTransparent,
+  DishDescriptionWrapper,
 } from "./dish.styles"
 
 const Dish = () => {
-    const { query } = useRouter()
-    const [foodItem, setFoodItem] = useState<IFoodItemType>(dishFood)
+  const { query } = useRouter()
+  const [foodItem, setFoodItem] = useState<IFoodItemType>(dishFood)
 
-    const ingredientsActive = () => {
-        const activeIngredientsMutant = {
-            ...foodItem,
-            activeIngredients: !foodItem.activeIngredients,
-        }
-        setFoodItem(activeIngredientsMutant)
+  const ingredientsActive = () => {
+    const activeIngredientsMutant = {
+      ...foodItem,
+      activeIngredients: !foodItem.activeIngredients,
     }
+    setFoodItem(activeIngredientsMutant)
+  }
 
-    const recipeClickActive = () => {
-        const activeIngredientsMutant = {
-            ...foodItem,
-            activeRecipe: !foodItem.activeRecipe,
-        }
-        setFoodItem(activeIngredientsMutant)
+  const recipeClickActive = () => {
+    const activeIngredientsMutant = {
+      ...foodItem,
+      activeRecipe: !foodItem.activeRecipe,
     }
+    setFoodItem(activeIngredientsMutant)
+  }
 
-    const favouritesAdd = () => {
-        // Заглушка для будущего пока нету бэка
-    }
+  const favouritesAdd = () => {
+    // Заглушка для будущего пока нету бэка
+  }
 
-    const itemNutritionalValue = foodItem.nutritionValue.map(el => {
-        return (
-            <NutritionalItem key={generateId()}>
-                <div>{el.value}</div>
-                <div>{el.nutrition}</div>
-                <div>{el.units}</div>
-            </NutritionalItem>
-        )
-    })
-
+  const itemNutritionalValue = foodItem.nutritionValue.map(el => {
     return (
-        <DishComponent imgUrl={img.src}>
-            <HeadLinkBack
-                backLink={`${query.url}`}
-                namesComponent={query.eating}
-            />
-            <DishItem>
-                <DishDescriptionWrapper>
-                    <h2>{foodItem.namesFood}</h2>
-                    <p>{foodItem.description}</p>
-                    <ButtonFood
-                        $display={foodItem.activeRecipe}
-                        onClick={recipeClickActive}
-                    >
-                        Закрыть
-                    </ButtonFood>
-                </DishDescriptionWrapper>
-                <FoodContainer $display={foodItem.activeRecipe}>
-                    <h3>Ingredients</h3>
-                    <IngredientsContainer>
-                        <DishIngredients foodItem={foodItem} />
-                    </IngredientsContainer>
-                    <ButtonFood onClick={ingredientsActive}>
-                        Просмотреть все ингредиенты
-                    </ButtonFood>
-                </FoodContainer>
-                <FoodContainer $display={foodItem.activeRecipe}>
-                    <h3>Пищевая ценность</h3>
-                    <NutritionalContainer>
-                        {itemNutritionalValue}
-                    </NutritionalContainer>
-                    <div>
-                        <ButtonFood onClick={recipeClickActive}>
-                            Рецепт
-                        </ButtonFood>
-                        <ButtonFood onClick={favouritesAdd}>
-                            Добавить в избранное
-                        </ButtonFood>
-                    </div>
-                </FoodContainer>
-            </DishItem>
-        </DishComponent>
+      <NutritionalItem key={generateId()}>
+        <p>
+          {el.value}
+          <p>{el.nutrition}</p>
+        </p>
+        <span>{el.units}</span>
+      </NutritionalItem>
     )
+  })
+
+  return (
+    <DishComponent imgUrl={img.src}>
+      <DishItem>
+        <DishDescriptionWrapper>
+          <h2>{foodItem.namesFood}</h2>
+          <p>{foodItem.description}</p>
+          <ButtonFood
+            $display={foodItem.activeRecipe}
+            onClick={recipeClickActive}
+          >
+            Закрыть
+          </ButtonFood>
+        </DishDescriptionWrapper>
+        <FoodContainer $display={foodItem.activeRecipe}>
+          <h3>Ingredients</h3>
+          <IngredientsContainer>
+            <DishIngredients foodItem={foodItem} />
+          </IngredientsContainer>
+          <ButtonFood onClick={ingredientsActive}>
+            View all ingredients
+          </ButtonFood>
+        </FoodContainer>
+        <FoodContainer $display={foodItem.activeRecipe}>
+          <h3>Nutritional Values</h3>
+          <NutritionalContainer>{itemNutritionalValue}</NutritionalContainer>
+          <div>
+            <ButtonFood onClick={recipeClickActive}>Recipe</ButtonFood>
+            <ButtonFoodTransparent onClick={favouritesAdd}>
+              Add to favorites
+            </ButtonFoodTransparent>
+          </div>
+        </FoodContainer>
+      </DishItem>
+    </DishComponent>
+  )
 }
 
-export default LayoutUser(Dish)
+export default Dish

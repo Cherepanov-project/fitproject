@@ -7,12 +7,11 @@ export const MainWrapper = styled.div`
 `
 
 export const RightSideBarWrapper = styled.div`
-  width: 244px;
+  width: 274px;
   height: 100%;
   display: flex;
   flex-direction: column;
   background-color: white;
-  border-radius: 0 50px 50px 0;
 `
 
 export const UserInfoWrapper = styled.div`
@@ -39,11 +38,13 @@ export const Loss = styled.div`
 export const IconArrow = styled.img`
   position: absolute;
   padding: 10px 12px 10px;
-  left: 185px;
+  left: 215px;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   width: 32px;
   height: 31px;
+  z-index: 2;
+  transition: all 1s ease;
 `
 
 export const Meter = styled.img``

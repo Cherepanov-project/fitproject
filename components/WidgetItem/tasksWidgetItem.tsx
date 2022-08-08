@@ -10,6 +10,8 @@ import {
     CheckboxIcon,
     CheckedCheckboxIcon,
     TaskStatus,
+    StyledTextStatus,
+    StyledTextTask
 } from "./widgetItem.styles"
 
 const TasksWidgetItem = ({ name, value, padding }): JSX.Element => {
@@ -25,23 +27,15 @@ const TasksWidgetItem = ({ name, value, padding }): JSX.Element => {
                         />
                     }
                     label={
-                        <Typography
-                            fontFamily="Mulish"
-                            fontSize="14px"
-                            color="rgba(37, 39, 51, 1)"
-                        >
+                        <StyledTextTask>
                             {name}
-                        </Typography>
+                        </StyledTextTask>
                     }
                 />
                 <TaskStatus color={colorComputation(value)}>
-                    <Typography
-                        fontFamily="Mulish"
-                        fontSize="11px"
-                        color="rgba(255, 255, 255, 1)"
-                    >
+                    <StyledTextStatus>
                         {value}
-                    </Typography>
+                    </StyledTextStatus>
                 </TaskStatus>
             </WidgetItemContent>
         </WidgetItemContainer>

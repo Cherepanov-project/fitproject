@@ -79,6 +79,7 @@ const ItemList = ({ muscles }: IMuscles) => {
             flexWrap: "wrap",
             justifyContent: "flex-start",
             paddingTop: "35px",
+            width: "100%",
           }}
         >
           {exercises}
@@ -101,7 +102,7 @@ const ItemList = ({ muscles }: IMuscles) => {
               sx={{
                 backgroundColor: "#ffffff",
                 position: "absolute",
-                right: "34px",
+                right: "54px",
                 bottom: "13px",
               }}
             />

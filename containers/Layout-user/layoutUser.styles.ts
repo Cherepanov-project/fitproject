@@ -1,8 +1,6 @@
 import styled from "styled-components"
 
 export const StyledLayoutUser = styled.div`
-  display: flex;
-  justify-content: center;
   width: 100%;
   background-color: #e5e5e5;
   padding: 0;
@@ -10,22 +8,22 @@ export const StyledLayoutUser = styled.div`
 `
 
 export const Container = styled.div`
-  display: flex;
-  border-radius: 50px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   margin: 0;
 `
 
 export const Content = styled.div`
-  width: 1010px;
+  width: auto;
   background-color: #f1f1f1;
-  margin-right: 30px;
+  margin-right: 60px;
   padding-bottom: 21px;
 `
 
 export const ContentWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    background-color: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  background-color: #f1f1f1;
 `
 
 export const TopInput = styled.input`

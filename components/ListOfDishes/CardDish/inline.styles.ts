@@ -1,15 +1,15 @@
 import styled from "styled-components"
-import { IImg } from "@/components/WorkoutList/ItemList/itemList.interface"
 
 export const StyledBox = {
-  width: "190px",
-  height: "180.83px",
+  width: "142px",
+  height: "130px",
   marginBottom: "2px",
 }
 
 export const StyledImage = {
-  width: "102px",
-  height: "113px",
+  width: "95px",
+  height: "95px",
+  marginTop: "-50px",
 }
 
 export const StyledContentBox = {
@@ -20,8 +20,6 @@ export const StyledTextBox = {
   paddingTop: "11.66px",
 }
 
-export const StyledName = {
-}
+export const StyledName = {}
 
-export const StyledReps = {
-}
+export const StyledDescription = {}

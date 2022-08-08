@@ -9,11 +9,53 @@ export const CustomSlider = styled.div`
   list-style: none;
   z-index: 1;
   background-color: #fff;
-  padding: 15px 56px;
+
+  display: grid;
+  grid-template-columns: 65px 1fr 65px;
+  column-gap: 15px;
 `
+
+export const StyledSlideButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 55px;
+  margin: auto;
+  font-size: 32px;
+  font-weight: normal;
+  border: 3px solid #f1f1f1;
+  background-color: inherit;
+  border-radius: 50%;
+
+  &:hover {
+
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  &:disabled {
+    border: none;
+    color: #999999;
+    font-weight: normal;
+    cursor: default;
+  }
+`
+
 export const Container = styled.div`
   overflow: hidden;
   text-overflow: clip;
+  padding: 15px 0;
+`
+
+export const StyledMore = styled.div`
+  font-family: "Arima Madurai";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 33px;
+  color: #404040;
+  margin: -12px 0 42px 0;
 `
 
 export const SliderWrapper = styled.div`
