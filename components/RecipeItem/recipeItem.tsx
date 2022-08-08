@@ -27,9 +27,9 @@ const [activeDropdown, setActiveDropdown] = useState(false)
 const [isHovering, setIsHovering] = useState(false);
 const {products, picUrl, name, description, calorie, protein, fat, carbohydrate} = dataItem;
 
-const productList = products.length ? (products.map(product => {
+const productList = products.length ? (products.map((product, index) => {
         return (
-            <p>{product} </p>
+            <p key={index}>{product}</p>
         )
 })) : "no products listed"
 

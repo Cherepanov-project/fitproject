@@ -65,6 +65,7 @@ const WorkoutsListPage = () => {
                 category={el.category}
                 status={"HIGH"}
                 updateList={updateList}
+                el={el}
             />
         )
     })
