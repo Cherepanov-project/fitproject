@@ -23,7 +23,9 @@ const Submenus = ({subOptions, subFilter, handleBackArrow, animate, handleSubFil
                 </StyledSubmenuOption>
             </StyledSubmenu>
         )
-    } else return null
+    } else {
+        return null
+    }
 
 }
 

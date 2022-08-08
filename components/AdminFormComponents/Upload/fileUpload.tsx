@@ -15,7 +15,7 @@ function getNewId() {
     return (currentId += 1)
 }
 
-const FileUpload = ({ name, updateFileUrl }: { name?: string, updateFileUrl }) => {
+const FileUpload = ({ name, updateFileUrl }: { name?: string, updateFileUrl? }) => {
     // const [_, __, helpers] = useField(name)
     const [files, setFiles] = useState<IUploadableFileProps[]>([])
 
