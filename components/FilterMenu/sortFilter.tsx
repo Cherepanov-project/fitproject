@@ -5,7 +5,7 @@ import { imageSort } from "@/common/images/filterMenu"
 
 const SortFilter = ({ filterNames, changeSorting, activeSorting }) => {
     const [ menuActive, setMenuActive ] = useState<boolean>(false)
-    console.log(activeSorting)
+
     const handleChange = (e) => {
         if (!activeSorting.includes(e.target.name)) {
             changeSorting(e.target.name, 'increase')

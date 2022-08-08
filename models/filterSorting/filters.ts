@@ -25,6 +25,17 @@ export const recipeSortingFilters = [
     }
 ]
 
+export const workoutSortingFilters = [
+    {
+        name: "No Sorting",
+        sorting: "none"
+    },
+    {
+        name: "Name",
+        sorting: "name"
+    }
+]
+
 
 export const recipeFilterOptions = [
     "Calorie",

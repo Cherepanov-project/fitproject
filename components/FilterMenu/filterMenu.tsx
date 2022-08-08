@@ -1,26 +1,14 @@
 import React, { useState, useEffect } from "react"
-import Image from "next/image"
 import { useRouter } from "next/router"
 
-// ui libs
-import { IconButton } from "@mui/material"
+import { Container, Title, ButtonList } from "@/components/FilterMenu/filterMenu.styles"
 
-// styles
-import { Container, Title, ButtonList, ButtonSort } from "@/components/FilterMenu/filterMenu.styles"
-
-// images
-import { imageSort } from "@/common/images/filterMenu"
-
-//components
-import ItemFilter from "@/components/FilterMenu/itemFilter"
 import SortFilter from "@/components/FilterMenu/sortFilter"
 import Filter from "@/components/FilterMenu/filter"
 
-// interfaces
 import { IFilterBtnProps } from "./filterMenu.interface"
 
-//models
-import { recipeSortingFilters } from "@/models/filterSorting/filters"
+import { recipeSortingFilters, workoutSortingFilters } from "@/models/filterSorting/filters"
 import { sorting } from "@/utils/sorting"
 
 const FilterMenu: React.FC<IFilterBtnProps> = ({ title, data, sortedD, updateData }) => {
@@ -35,6 +23,9 @@ const FilterMenu: React.FC<IFilterBtnProps> = ({ title, data, sortedD, updateDat
     useEffect(() => {
         if (path === "recipes") {
             setSortingNames(recipeSortingFilters)
+        }
+        if (path === "workouts") {
+            setSortingNames(workoutSortingFilters)
         }
       }, [path]);
     

@@ -3,6 +3,8 @@ import { useQuery } from "react-query"
 import TableContainer from "@mui/material/TableContainer"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
+import CircularProgress from "@mui/material/CircularProgress"
+import { StyleLoaderContainer } from "@/styles/admin/recipes/recipes.styles"
 
 import { withLayout } from "@/containers/Layout-admin/layoutAdmin"
 import { getWorkoutList } from "@/API/workouts"
@@ -12,12 +14,18 @@ import FilterMenu from "@/components/FilterMenu/filterMenu"
 import ColumnName from "@/components/ColumnName/columnName"
 import CreateForm from "@/components/AddBtn/addForm"
 import Pagination from "@/components/Table/tablePagination"
+import getArrPagination from "@/utils/getArrPagination"
 
 const WorkoutsListPage = () => {
+    const [listChange, setListChange] = useState<boolean>(false)
+    const [data, setData] = useState([])
+    const [sortedData, setSortedData] = useState([])
+    const { isLoading, error } = useQuery(["workoutsList", listChange], getWorkoutList, { onSuccess: (data) => {
+        setData(data)
+        setSortedData(data)
+    } })
     const [ page, setPage ] = useState<number>(0)
     const [ rowsPerPage, setRowsPerPage ] = useState<number>(8)
-    const [listChange, setListChange] = useState<boolean>(false)
-    const { data, isLoading, error } = useQuery(["workoutsList", page, rowsPerPage, listChange], getWorkoutList)
 
     const handleChangePage = (event: unknown, newPage: number) => {
         setPage(newPage)
@@ -31,18 +39,21 @@ const WorkoutsListPage = () => {
     if (error instanceof Error) {
         return <h1>{error.message}</h1>
     }
-    if (isLoading) {
+    if (isLoading || data.length === 0) {
         return (
-            <div>
-                <p>Loading...</p>
-            </div>
+            <StyleLoaderContainer>
+                <CircularProgress></CircularProgress>
+            </StyleLoaderContainer>
         )
     }
     const updateList = () => {
         const isChanged = listChange;
         setListChange(!isChanged);
     }
-    const workouts = data.map(el => {
+    const updateData = (newData) => {
+        setSortedData([...newData])
+    }
+    const workouts = getArrPagination(page, rowsPerPage, sortedData).map(el => {
         return (
             <TableItemWorkouts
                 key={el.id}
@@ -57,13 +68,11 @@ const WorkoutsListPage = () => {
             />
         )
     })
-    const updateData = (newData) => {
-        console.log('updateData at workouts', newData)
-    }
+
 
     return (
         <StyleContentList>
-            <FilterMenu title="Workouts" data={data} sortedD={data} updateData={updateData}/>
+            <FilterMenu title="Workouts" data={data} sortedD={sortedData} updateData={updateData}/>
             <TableContainer>
                 <Table sx={{ minWidth: 1120 }}>
                     <ColumnName />
@@ -73,7 +82,7 @@ const WorkoutsListPage = () => {
             <StyleFooterRecipes>
                 <CreateForm />
                 <Pagination
-                    count={data.length}
+                    count={sortedData.length}
                     page={page}
                     onChangePage={handleChangePage}
                     rowsPerPage={rowsPerPage}
