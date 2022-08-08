@@ -1,32 +1,49 @@
-import React from "react"
-import Image from "next/image"
+import React, { useState, useEffect } from "react"
+import { useRouter } from "next/router"
 
-// ui libs
-import { IconButton } from "@mui/material"
+import { Container, Title, ButtonList } from "@/components/FilterMenu/filterMenu.styles"
 
-// styles
-import { Container, Title, ButtonList, ButtonSort } from "./filterMenu.styles"
+import SortFilter from "@/components/FilterMenu/sortFilter"
+import Filter from "@/components/FilterMenu/filter"
 
-// images
-import { imageSort } from "@/common/images/filterMenu"
-
-//components
-import ItemFilter from "./itemFilter"
-
-// interfaces
 import { IFilterBtnProps } from "./filterMenu.interface"
 
-const FilterMenu: React.FC<IFilterBtnProps> = ({ title }) => {
+import { recipeSortingFilters, workoutSortingFilters } from "@/models/filterSorting/filters"
+import { sorting } from "@/utils/sorting"
+
+const FilterMenu: React.FC<IFilterBtnProps> = ({ title, data, sortedD, updateData }) => {
+    const { asPath } = useRouter()
+    let path = asPath.split("/").pop()
+    
+    const [ activeSorting, setActiveSorting ] = useState(["No Sorting"])
+    const [ sortedData, setSortedData] = useState([...data])
+    const [ sortingNames, setSortingNames ] = useState([])
+    const [ filteredData, setfilteredData ] = useState([...sortedD])
+    
+    useEffect(() => {
+        if (path === "recipes") {
+            setSortingNames(recipeSortingFilters)
+        }
+        if (path === "workouts") {
+            setSortingNames(workoutSortingFilters)
+        }
+      }, [path]);
+    
+    const changeSorting = (newSorting, direction) => {
+        let sorted = []
+        setActiveSorting(newSorting)
+        let sortValue = sortingNames.find(element => element.name === newSorting).sorting
+        sorted = sorting(filteredData, sortValue, direction, [...data]);
+        setSortedData([...sorted])
+        updateData([...sorted])
+    }
+
     return (
         <Container>
             <Title>{title}</Title>
             <ButtonList>
-                {/* <IconButton></IconButton> */}
-                <ButtonSort>
-                    <Image src={imageSort} alt="sort" />
-                    Sort
-                </ButtonSort>
-                <ItemFilter />
+                <SortFilter filterNames={sortingNames} activeSorting={activeSorting} changeSorting={changeSorting}/>
+                <Filter data={data} sortedD={sortedD} updateData={updateData}/>
             </ButtonList>
         </Container>
     )

@@ -13,15 +13,10 @@ import {
 } from "./workoutItem.styles"
 
 const WorkoutItem = ({
-    name,
-    area,
-    category,
-    muscleGroups,
-    repeatCount,
-    approachCount,
-    status
+    status,
+    dataItem
 }) => {
-
+const {name, area, category, muscleGroups, repeatCount, approachCount} = dataItem;
 const muscles = muscleGroups.length ? (muscleGroups.map((el, index) => {
     return (
         <StyledText key={index}>{el}</StyledText>

@@ -3,25 +3,32 @@ import { useQuery } from "react-query"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
 import TableContainer from "@mui/material/TableContainer"
+import TableRow from "@mui/material/TableRow"
+import CircularProgress from "@mui/material/CircularProgress"
 
 import { withLayout } from "@/containers/Layout-admin/layoutAdmin"
 import FilterMenu from "@/components/FilterMenu/filterMenu"
 import TableItemRecipes from "@/components/TableItemRecipes/tableItemRecipes"
-import { StyleContentList, StyleFooterRecipes } from "@/styles/admin/overview/overview.styles"
+import { StyleContentList, StyleFooterRecipes, StyleLoaderContainer } from "@/styles/admin/recipes/recipes.styles"
 import CreateForm from "@/components/AddBtn/addForm"
 import Pagination from "@/components/Table/tablePagination"
 import ColumnName from "@/components/ColumnName/columnName"
 import { getRecipesList } from "@/API/recipes"
+import getArrPagination from "@/utils/getArrPagination"
 
 const RecipesListPage = () => {
+    const [listChange, setListChange] = useState<boolean>(false)
+    const [data, setData] = useState([])
+    const [sortedData, setSortedData] = useState([])
+    const { isLoading, error } = useQuery(["recipesList", listChange], getRecipesList, { onSuccess: (data) => {
+        setData(data)
+        setSortedData(data)
+    } })
     const [page, setPage] = useState<number>(0)
     const [rowsPerPage, setRowsPerPage] = useState<number>(8)
-    const [listChange, setListChange] = useState<boolean>(false)
-    const { data, isLoading, error } = useQuery(["recipesList", page, rowsPerPage, listChange], () => getRecipesList(page, rowsPerPage), {
-        keepPreviousData: true
-      })
     
-      useEffect(() => {
+    
+    useEffect(() => {
         window.scrollTo(0, 0);
       }, [page, rowsPerPage]);
 
@@ -35,25 +42,30 @@ const RecipesListPage = () => {
     }
 
     if (error instanceof Error) {
-        return <h1>{error.message}</h1>
+        throw new Error(error.message)
+        //return <h1>{error.message}</h1>
     }
-    if (isLoading) {
+    if (isLoading || data.length === 0) {
         return (
-            <div>
-                <p>Loading...</p>
-            </div>
+            <StyleLoaderContainer>
+                <CircularProgress></CircularProgress>
+            </StyleLoaderContainer>
         )
     }
     const updateList = () => {
         const isChanged = listChange;
         setListChange(!isChanged);
     }
+    const updateData = (newData) => {
+        setSortedData([...newData])
+    }
 
-    const recipe = data.content.map(el => {
+    const recipe = getArrPagination(page, rowsPerPage, sortedData).map(el => {
         return (
-            <TableItemRecipes
-                key={el.id}
+            <TableRow hover sx={{ cursor: "pointer" }} key={el.id}>
+                <TableItemRecipes
                 id={el.id}
+                picUrl={el.picUrl}
                 protein={el.protein}
                 fat={el.fat}
                 carbohydrate={el.carbohydrate}
@@ -62,13 +74,16 @@ const RecipesListPage = () => {
                 status={"HIGH"}
                 portionSize={1}
                 updateList={updateList}
-            />
+                el={el}
+            /> 
+            </TableRow>
+
         )
     })
 
     return (
         <StyleContentList>
-            <FilterMenu title="Recipes" />
+            <FilterMenu title="Recipes" data={data} sortedD={sortedData} updateData={updateData}/>
             <TableContainer>
                 <Table sx={{ minWidth: 1120 }}>
                     <ColumnName />
@@ -78,7 +93,7 @@ const RecipesListPage = () => {
             <StyleFooterRecipes>
                 <CreateForm />
                 <Pagination
-                    count={data.totalElements}
+                    count={sortedData.length}
                     page={page}
                     onChangePage={handleChangePage}
                     rowsPerPage={rowsPerPage}

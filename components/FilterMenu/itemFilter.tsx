@@ -15,7 +15,7 @@ import { ContainerRight, FilterItem } from "./itemFilter.styles"
 import { Aa, Dropdown, FilterItem2, ContainerCenter, IconBack, InputCheckbox } from "./filterMenu.styles"
 
 const ItemFilter = () => {
-    let filterList = []
+    /*let filterList = []
     let optionsTypesMeals = []
     const { asPath } = useRouter()
     let path = asPath.split("/").pop()
@@ -100,7 +100,7 @@ const ItemFilter = () => {
                 </Dropdown>
             ) : null}
         </div>
-    )
+    )*/
 }
 
 export default ItemFilter

@@ -51,3 +51,21 @@ export const StyledRecipeItemContainer = styled.div`
     flex-direction: row;
     flex-wrap: nowrap;
 `
+export const StyledImageContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+export const StyledImage = styled.img`
+    max-width: 150px;
+    max-height: 150px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+`
+export const StyledP = styled.span`
+    position: absolute;
+    display: block;
+    color: rgba( 159, 162, 180, 0.6);
+    font-weight: 700;
+    font-style: oblique;
+    transform: translateX(160px) translateY(-100px);
+`

@@ -28,7 +28,8 @@ const TableItemWorkouts = ({
                     area,
                     category,
                     id,
-                    updateList
+                    updateList,
+                    el
                 }) => {
     const router = useRouter()
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
@@ -37,21 +38,19 @@ const TableItemWorkouts = ({
         setAnchorEl(event.currentTarget)
     const handleClose = () => setAnchorEl(null)
 
-    const {data, error, refetch} = useQuery(["deleteWorkout", id], () => deleteWorkoutById(id), {
-        refetchOnWindowFocus: false,
-        enabled: false,
-        retry: false,
-        onSuccess: updateList
-    })
-    if (error instanceof Error) {
-        return <h1>{error.message}</h1>
-    }
-
-    const handleDelete = () => {
-        refetch()
+    const handleDelete = async () => {
+        const response = await deleteWorkoutById(id)
+        handleClose()
+        updateList()
     }
     const handleOpenWorkout = () => {
-        router.push(`/admin/workouts/${id}`)
+        router.push( {
+            pathname: `/admin/workouts/${id}`,
+            query: {data: JSON.stringify(el) },
+        },
+        {
+            pathname: `/admin/workouts/${id}`,
+        })
     }
     return (
         <TableRow hover sx={{ cursor: "pointer" }}>

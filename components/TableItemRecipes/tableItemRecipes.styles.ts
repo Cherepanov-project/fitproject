@@ -18,3 +18,7 @@ export const StyledSecondaryText = styled.p`
     color: #252733;
     margin: 0;
 `
+export const StyledImage = styled.img`
+    max-width: 40px;
+    max-height: 40px;
+`
