@@ -10,7 +10,7 @@ import ColumnName from "@/components/ColumnName/columnName"
 const Articles = () => {
     return (
         <StyleContentList>
-            <FilterMenu title="Articles" />
+            {/*<FilterMenu title="Articles" />*/}
             <TableContainer>
                 <Table sx={{ minWidth: 1120 }}>
                     <ColumnName />
