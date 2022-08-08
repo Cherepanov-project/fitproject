@@ -30,7 +30,8 @@ const WorkoutPage = () => {
       }, [router.isReady]);
      
     if (error instanceof Error) {
-        return <h1>{error.message}</h1>
+        throw new Error(error.message)
+        //return <h1>{error.message}</h1>
     }
     if (isLoading) {
         return (

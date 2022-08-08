@@ -42,7 +42,8 @@ const RecipesListPage = () => {
     }
 
     if (error instanceof Error) {
-        return <h1>{error.message}</h1>
+        throw new Error(error.message)
+        //return <h1>{error.message}</h1>
     }
     if (isLoading || data.length === 0) {
         return (
