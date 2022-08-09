@@ -4,7 +4,7 @@ import Pagination from "@mui/material/Pagination"
 import Stack from "@mui/material/Stack"
 import Link from "next/link"
 
-import CardDish from "@/components/ListOfDishes/CardDish/CardDish" 
+import CardDish from "@/components/ListOfDishes/CardDish/CardDish"
 
 import SideBar from "@/components/ListOfDishes/sideBar"
 import { dishFoodAll } from "@/models/dish/dish"
@@ -13,6 +13,7 @@ import {
   AllMenusWrapper,
   ListDishes,
   LayoutMenuWrapper,
+  StyledAnchorDish,
 } from "@/components/ListOfDishes/listOfDishes.styles"
 import { IFoodItemType } from "@/models/models.interface"
 import { LayoutUser } from "@/containers/Layout-user/layoutUser"
@@ -29,8 +30,6 @@ import {
 
 import { FontPoppins, FontOpenSans } from "@/utils/fonts/fontStyles"
 //import { relative } from "path"
-
-
 
 // Апи для получения блюд пока нет.
 // Все на фейковых данных "dishFoodAll".
@@ -125,13 +124,13 @@ const AllMenus = () => {
 
   const elems = dishFood.map((item: IFoodItemType, index) => {
     if (index >= minResOnPage && index < maxResOnPage) {
-        return (
-          <Link href={`/user/listOfDishes/dish/${item.id}`} passHref>
-            <a>
-              <CardDish data={item} />
-            </a>
-          </Link>
-        )
+      return (
+        <Link href={`/user/listOfDishes/dish/${item.id}`} passHref>
+          <StyledAnchorDish>
+            <CardDish data={item} />
+          </StyledAnchorDish>
+        </Link>
+      )
     }
   })
 
