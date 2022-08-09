@@ -92,6 +92,7 @@ export const MenuH2 = styled.h2`
 `
 
 export const ListDishes = styled.div`
+  width: 100%;
   margin: 0 18px;
   display: flex;
   flex-direction: row;
@@ -102,6 +103,14 @@ export const ListDishes = styled.div`
 export const StyledAnchorDish = styled.a`
   width: calc(100% / 3 - 24px);
   margin: 12px;
+
+  @media (max-width: 1509px) {
+    width: calc(100% / 2 - 24px);
+  }
+
+  @media (max-width: 1259px) {
+    width: calc(100% - 24px);
+  }
 `
 
 export const SpecificationWrapper = styled.div`
