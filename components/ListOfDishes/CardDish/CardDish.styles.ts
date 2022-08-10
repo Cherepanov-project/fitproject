@@ -2,13 +2,12 @@ import styled from "styled-components"
 import { IImg } from "./CardDish.interface"
 
 export const StyledBox = styled.div`
-  width: 220px;
   height: 202px;
   background: #ffffff;
   box-shadow: 0px 1.75848px 4.39621px rgba(0, 0, 0, 0.15);
   border-radius: 7.03394px;
   padding: 3px;
-  margin: 0 30px 72px 0;
+  margin: 0 0px 72px 0;
 `
 
 export const StyledContentBox = styled.div`
@@ -34,6 +33,8 @@ export const StyledImage = styled.div<IImg>`
 export const StyledTextBox = styled.div`
   padding-top: 10px;
   text-align: center;
+  max-width: 210px;
+  margin: 0 auto;
 `
 
 export const StyledName = styled.p`
@@ -45,8 +46,6 @@ export const StyledName = styled.p`
   color: #000000;
   margin-bottom: 10px;
   padding: 0;
-
-  max-width: 210px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

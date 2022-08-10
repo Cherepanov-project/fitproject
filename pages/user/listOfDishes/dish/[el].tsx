@@ -11,26 +11,36 @@ import generateId from "@/utils/generateId"
 import {
   StyledMainWrapper,
   StyledContainer,
+  StyledSliderAnchorDish,
 } from "@/components/ListOfDishes/el.styles"
 
 import * as styles from "@/components/ListOfDishes/CardDish/inline.styles"
 
 import { dishFoodAll } from "@/models/dish/dish"
+import { useRouter } from "next/router"
+import { specificationStar } from "@/models/sideBar/sideBar"
 
 const DishesItem = (): JSX.Element => {
-
   // пока нет апи используем фейковые данные dishFoodAll
   // в слайдере должен находиться список отфильтрованных карточек
+  const { asPath } = useRouter()
 
-  const listDishes = dishFoodAll.map(item => (
+  const urlQuery = asPath.split("?")[1]
+
+  const filteredListDishes = dishFoodAll.filter(item => {
+    const star = specificationStar.filter(s => s.id === item.star)[0]
+    return urlQuery.includes(item.id) && urlQuery.includes(star.name)
+  })
+
+  const listDishes = filteredListDishes.map(item => (
     <Link
       href={`/user/listOfDishes/dish/${item.id}`}
       key={generateId()}
       passHref
     >
-      <a>
+      <StyledSliderAnchorDish>
         <CardDish data={item} styles={styles} />
-      </a>
+      </StyledSliderAnchorDish>
     </Link>
   ))
 

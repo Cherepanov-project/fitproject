@@ -4,7 +4,7 @@ import Pagination from "@mui/material/Pagination"
 import Stack from "@mui/material/Stack"
 import Link from "next/link"
 
-import CardDish from "@/components/ListOfDishes/CardDish/CardDish" 
+import CardDish from "@/components/ListOfDishes/CardDish/CardDish"
 
 import SideBar from "@/components/ListOfDishes/sideBar"
 import { dishFoodAll } from "@/models/dish/dish"
@@ -13,6 +13,7 @@ import {
   AllMenusWrapper,
   ListDishes,
   LayoutMenuWrapper,
+  StyledAnchorDish,
 } from "@/components/ListOfDishes/listOfDishes.styles"
 import { IFoodItemType } from "@/models/models.interface"
 import { LayoutUser } from "@/containers/Layout-user/layoutUser"
@@ -28,14 +29,15 @@ import {
 } from "@/models/sideBar/sideBar"
 
 import { FontPoppins, FontOpenSans } from "@/utils/fonts/fontStyles"
+import { getDishesPerPage } from "@/utils/getDishesPerPage"
+import generateId from "@/utils/generateId"
 //import { relative } from "path"
-
-
 
 // Апи для получения блюд пока нет.
 // Все на фейковых данных "dishFoodAll".
 
 const AllMenus = () => {
+  let [dishesAmount, setDishesAmount] = useState(getDishesPerPage)
   const [checkbox, setCheckbox] = useState<ISideBarCheckBoxStar>(
     initialValuesCheckBoxStar
   )
@@ -99,17 +101,37 @@ const AllMenus = () => {
     setDishFood(foodFilter)
   }, [checkbox, checkboxMeals])
 
-  const [countPages, setCountPages] = useState(Math.ceil(dishFood.length / 6))
+  const [countPages, setCountPages] = useState(
+    Math.ceil(dishFood.length / dishesAmount)
+  )
   const [currentPage, setCurrentPage] = useState(1)
   const [minResOnPage, setMinResOnPage] = useState(0)
-  const [maxResOnPage, setMaxResOnPage] = useState(6)
+  const [maxResOnPage, setMaxResOnPage] = useState(dishesAmount)
+
+  useEffect(() => {
+    function handleWindowResize() {
+      setDishesAmount(getDishesPerPage())
+    }
+
+    window.addEventListener("resize", handleWindowResize)
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize)
+    }
+  }, [])
+
+  useEffect(() => {
+    setCountPages(Math.ceil(dishFood.length / dishesAmount))
+    setMinResOnPage(() => (currentPage - 1) * dishesAmount)
+    setMaxResOnPage(() => currentPage * dishesAmount)
+  }, [dishesAmount])
 
   const changePage = page => {
     if (!page) {
       return
     }
-    setMinResOnPage(() => (page - 1) * 6)
-    setMaxResOnPage(() => page * 6)
+    setMinResOnPage(() => (page - 1) * dishesAmount)
+    setMaxResOnPage(() => page * dishesAmount)
     setCurrentPage(page)
   }
 
@@ -120,20 +142,40 @@ const AllMenus = () => {
   }, [countPages, currentPage])
 
   useEffect(() => {
-    setCountPages(Math.ceil(dishFood.length / 6))
+    setCountPages(Math.ceil(dishFood.length / dishesAmount))
   }, [dishFood])
 
-  const elems = dishFood.map((item: IFoodItemType, index) => {
-    if (index >= minResOnPage && index < maxResOnPage) {
-        return (
-          <Link href={`/user/listOfDishes/dish/${item.id}`} passHref>
-            <a>
-              <CardDish data={item} />
-            </a>
-          </Link>
-        )
+  const formStringFromCheckedCheckboxes = () => {
+    const allCheckboxes = { ...checkbox, ...checkboxMeals }
+    let string = "?"
+    for (const ch in allCheckboxes) {
+      if (allCheckboxes[ch]) {
+        string += `${ch}=true&`
+      }
     }
-  })
+    return string.substring(0, string.length - 1)
+  }
+
+  const elems = []
+
+  for (let i = minResOnPage; i < maxResOnPage; i++) {
+    if (dishFood[i]) {
+      elems.push(
+        <Link
+          as={`/user/listOfDishes/dish/${
+            dishFood[i].id
+          }${formStringFromCheckedCheckboxes()}`}
+          href={`/user/listOfDishes/dish/${dishFood[i].id}`}
+          passHref
+          key={generateId()}
+        >
+          <StyledAnchorDish>
+            <CardDish data={dishFood[i]} />
+          </StyledAnchorDish>
+        </Link>
+      )
+    }
+  }
 
   return (
     <AllMenusWrapper>
