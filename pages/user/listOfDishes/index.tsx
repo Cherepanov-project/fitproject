@@ -156,24 +156,26 @@ const AllMenus = () => {
     return string.substring(0, string.length - 1)
   }
 
-  const elems = dishFood.map((item: IFoodItemType, index) => {
-    if (index >= minResOnPage && index < maxResOnPage) {
-      return (
+  const elems = []
+
+  for (let i = minResOnPage; i < maxResOnPage; i++) {
+    if (dishFood[i]) {
+      elems.push(
         <Link
           as={`/user/listOfDishes/dish/${
-            item.id
+            dishFood[i].id
           }${formStringFromCheckedCheckboxes()}`}
-          href={`/user/listOfDishes/dish/${item.id}`}
+          href={`/user/listOfDishes/dish/${dishFood[i].id}`}
           passHref
           key={generateId()}
         >
           <StyledAnchorDish>
-            <CardDish data={item} />
+            <CardDish data={dishFood[i]} />
           </StyledAnchorDish>
         </Link>
       )
     }
-  })
+  }
 
   return (
     <AllMenusWrapper>
