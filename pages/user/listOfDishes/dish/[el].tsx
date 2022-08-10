@@ -11,6 +11,7 @@ import generateId from "@/utils/generateId"
 import {
   StyledMainWrapper,
   StyledContainer,
+  StyledSliderAnchorDish,
 } from "@/components/ListOfDishes/el.styles"
 
 import * as styles from "@/components/ListOfDishes/CardDish/inline.styles"
@@ -37,9 +38,9 @@ const DishesItem = (): JSX.Element => {
       key={generateId()}
       passHref
     >
-      <a>
+      <StyledSliderAnchorDish>
         <CardDish data={item} styles={styles} />
-      </a>
+      </StyledSliderAnchorDish>
     </Link>
   ))
 

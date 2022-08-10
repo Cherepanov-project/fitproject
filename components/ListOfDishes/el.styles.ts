@@ -1,9 +1,9 @@
 import styled from "styled-components"
 
 export const StyledMainWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 `
 
 export const StyledContainer = styled.div`
@@ -12,4 +12,8 @@ export const StyledContainer = styled.div`
   display: flex;
   width: 100%;
   margin-bottom: 15px;
+`
+
+export const StyledSliderAnchorDish = styled.a`
+  margin: 0 18px;
 `
