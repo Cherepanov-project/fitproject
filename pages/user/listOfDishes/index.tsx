@@ -145,10 +145,24 @@ const AllMenus = () => {
     setCountPages(Math.ceil(dishFood.length / dishesAmount))
   }, [dishFood])
 
+  const formStringFromCheckedCheckboxes = () => {
+    const allCheckboxes = { ...checkbox, ...checkboxMeals }
+    let string = "?"
+    for (const ch in allCheckboxes) {
+      if (allCheckboxes[ch]) {
+        string += `${ch}=true&`
+      }
+    }
+    return string.substring(0, string.length - 1)
+  }
+
   const elems = dishFood.map((item: IFoodItemType, index) => {
     if (index >= minResOnPage && index < maxResOnPage) {
       return (
         <Link
+          as={`/user/listOfDishes/dish/${
+            item.id
+          }${formStringFromCheckedCheckboxes()}`}
           href={`/user/listOfDishes/dish/${item.id}`}
           passHref
           key={generateId()}
