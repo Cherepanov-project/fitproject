@@ -31,6 +31,7 @@ import {
 import * as styles from "@/components/WorkoutList/CardExercise/el.styles"
 
 import { FontArimaMadurai } from "@/utils/fonts/fontStyles"
+import { StyledSliderAnchorExercise } from "@/components/WorkoutList/CardExercise/el.styles"
 
 const WorkoutItem = () => {
   const path = useRouter()
@@ -69,20 +70,20 @@ const WorkoutItem = () => {
             key={item.id}
             passHref
           >
-            <a>
+            <StyledSliderAnchorExercise>
               <CardExercise data={item} styles={styles} />
-            </a>
+            </StyledSliderAnchorExercise>
           </Link>
         ))
     : null
 
   // фейковые данные для тестирования
   if (data) {
-   data.data.exercise =
-     "Chicken Steak Recipe With Pan Roasted Vegetables & Potato Mash is a delicious meal in itself. The chicken is marinated in a lovely marinade that is bursting with flavours that include fresh parsley , lemon, garlic and mixed herbs. All of which add to the yummilicious taste of the chicken."
-   data.data.img = "/fitproject/exercises/hands_up_on_socks.jpg"
-   data.data.imgWidth=172
-   data.data.imgHeight=266
+    data.data.exercise =
+      "Chicken Steak Recipe With Pan Roasted Vegetables & Potato Mash is a delicious meal in itself. The chicken is marinated in a lovely marinade that is bursting with flavours that include fresh parsley , lemon, garlic and mixed herbs. All of which add to the yummilicious taste of the chicken."
+    data.data.img = "/fitproject/exercises/hands_up_on_socks.jpg"
+    data.data.imgWidth = 172
+    data.data.imgHeight = 266
   }
   ////////////////////////////////////
 

@@ -19,6 +19,10 @@ export const StyledTextBox = {
   paddingTop: "11.66px",
 }
 
+export const StyledSliderAnchorExercise = styled.a`
+  margin: 0 18px;
+`
+
 export const StyledName = {}
 
 export const StyledReps = {}

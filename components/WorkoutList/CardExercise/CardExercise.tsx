@@ -6,7 +6,11 @@ import {
   StyledName,
   StyledReps,
 } from "./CardExercise.styles"
+
 import { FontRoboto } from "@/utils/fonts/fontStyles"
+
+//заглушка
+import exerciseImg from "@/common/images/workoutExercise.svg"
 
 const CardExercise = ({ data, styles = null }): JSX.Element => {
   return (
@@ -14,7 +18,7 @@ const CardExercise = ({ data, styles = null }): JSX.Element => {
       <StyledBox style={styles?.StyledBox}>
         <StyledContentBox style={styles?.StyledContentBox}>
           <StyledImage
-            imgUrl={data.img}
+            imgUrl={exerciseImg.src}
             imgWidth={data.imgWidth}
             imgHeight={data.imgHeight}
             style={styles?.StyledImage}
