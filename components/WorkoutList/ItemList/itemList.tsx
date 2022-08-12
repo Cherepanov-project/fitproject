@@ -85,7 +85,7 @@ const ItemList = ({ muscles }: IMuscles) => {
     if (filteredExercises[i]) {
       exercises.push(
         <Link
-          href={`/user/listOfDishes/dish/${filteredExercises[i].id}`}
+          href={`/user/workoutList/workout/${filteredExercises[i].id}`}
           passHref
           key={generateId()}
         >
