@@ -29,7 +29,9 @@ const DishesItem = (): JSX.Element => {
 
   const filteredListDishes = dishFoodAll.filter(item => {
     const star = specificationStar.filter(s => s.id === item.star)[0]
-    return urlQuery.includes(item.id) && urlQuery.includes(star.name)
+    return (
+      (urlQuery || "").includes(item.id) && (urlQuery || "").includes(star.name)
+    )
   })
 
   const listDishes = filteredListDishes.map(item => (
