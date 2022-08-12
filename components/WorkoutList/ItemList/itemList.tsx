@@ -16,12 +16,14 @@ import { getCardsPerPage } from "@/utils/getCardsPerPage"
 import generateId from "@/utils/generateId"
 import { StyledAnchorDish } from "@/components/ListOfDishes/listOfDishes.styles"
 import CardDish from "@/components/ListOfDishes/CardDish/CardDish"
+import { CircularProgress } from "@mui/material"
 
 const ItemList = ({ muscles }: IMuscles) => {
   let [cardsAmount, setCardsAmount] = useState(getCardsPerPage)
   let filteredExercises: any[] = useMemo(() => [], [])
-  const { data, isSuccess } = useQuery("workouts", getWorkoutList, {
+  const { data, isSuccess, isLoading } = useQuery("workouts", getWorkoutList, {
     staleTime: EXERCISE_CACHE_TIME,
+    useErrorBoundary: true,
   })
 
   const [minResOnPage, setMinResOnPage] = useState(0)
@@ -109,6 +111,16 @@ const ItemList = ({ muscles }: IMuscles) => {
             margin: "0 12px",
           }}
         >
+          {isLoading && (
+            <CircularProgress
+              sx={{
+                position: "absolute",
+                left: "50%",
+                top: "50%",
+                transform: "translate(-50%, - 50%)",
+              }}
+            />
+          )}
           {exercises}
         </Box>
         {countPages > 0 && (
