@@ -39,6 +39,7 @@ import {
   MainWrapper,
   /* SquareBtn, */
 } from "./rightSideBar.styles"
+import { FontRoboto } from "@/utils/fonts/fontStyles"
 import { rightSidebar } from "@/models/user/layout/sidebarModel"
 import Link from "next/link"
 
@@ -133,6 +134,7 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
                 }}
               >
                 <ListItemIcon sx={{ zIndex: "2" }}>
+                  <FontRoboto />
                   <IconWrapper>
                     <Icon src={src.toString()} />
                   </IconWrapper>
