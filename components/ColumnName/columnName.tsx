@@ -27,7 +27,12 @@ const ColumnName = () => {
     }
 
     if (path === "articles") {
-        console.log("articles")
+        columnName = [
+            "Ticket details",
+            "Customer name",
+            "Date",
+            "Priority",
+        ]
     }
 
     if (path === "users") {

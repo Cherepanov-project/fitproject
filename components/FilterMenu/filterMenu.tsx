@@ -8,7 +8,7 @@ import Filter from "@/components/FilterMenu/filter"
 
 import { IFilterBtnProps } from "./filterMenu.interface"
 
-import { recipeSortingFilters, workoutSortingFilters } from "@/models/filterSorting/filters"
+import {articlesSortingFilters, recipeSortingFilters, workoutSortingFilters} from "@/models/filterSorting/filters"
 import { sorting } from "@/utils/sorting"
 
 const FilterMenu: React.FC<IFilterBtnProps> = ({ title, data, sortedD, updateData }) => {
@@ -26,6 +26,9 @@ const FilterMenu: React.FC<IFilterBtnProps> = ({ title, data, sortedD, updateDat
         }
         if (path === "workouts") {
             setSortingNames(workoutSortingFilters)
+        }
+        if (path === 'articles') {
+            setSortingNames(articlesSortingFilters)
         }
       }, [path]);
     
