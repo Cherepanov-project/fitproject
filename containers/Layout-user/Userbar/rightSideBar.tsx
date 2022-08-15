@@ -89,19 +89,17 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
             padding: "8px",
           }}
         >
-          {rightSidebar.map(({ text, src, route }, index) => (
+          {rightSidebar.map(({ text, src, route, bg }, index) => (
             <Link href={route} key={generateId()}>
               <ListItemButton
                 sx={{
                   position: "relative",
                   marginTop: "30px",
-                  marginLeft: "2px",
-                  padding: "24px",
-                  width: "100%",
-                  height: "32px",
+                  padding: "24px 24px 24px 10px",
+                  height: "60px",
                   ":after": {
                     content: '""',
-                    backgroundColor: "#f0efff",
+                    backgroundColor: "#47dcc43b",
                     display: "block",
                     position: "absolute",
                     height: "100%",
@@ -114,12 +112,8 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
                     borderRadius: "10px",
                   },
                   ":hover": {
-                    backgroundColor: "transparent",
-                    width: "100%",
-                    height: "40px",
-                    padding: "24px 24px",
-                    right: "0",
                     borderRadius: "10px",
+                    background: "transparent",
                     img: {
                       transition: "1s",
                       border: "none",
@@ -133,9 +127,9 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
                   },
                 }}
               >
-                <ListItemIcon sx={{ zIndex: "2" }}>
+                <ListItemIcon sx={{ zIndex: "2", marginRight: "10px" }}>
                   <FontRoboto />
-                  <IconWrapper>
+                  <IconWrapper backgroundColor={bg}>
                     <Icon src={src.toString()} />
                   </IconWrapper>
                 </ListItemIcon>

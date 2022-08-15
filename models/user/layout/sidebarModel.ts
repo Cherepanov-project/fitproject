@@ -12,6 +12,7 @@ import {
 import {
   IRightSideBarItem,
   RightSideBarIcons,
+  RightSideBarIconsBackgroundColor,
   RightSideBarRoutes,
   RightSideBarTitles,
 } from "@/containers/Layout-user/Userbar/rightSideBar.interface"
@@ -61,20 +62,24 @@ export const rightSidebar: IRightSideBarItem[] = [
     text: RightSideBarTitles.Goals,
     src: RightSideBarIcons.Goals,
     route: RightSideBarRoutes.Goals,
+    bg: RightSideBarIconsBackgroundColor.Goals,
   },
   {
     text: RightSideBarTitles.Diet,
     src: RightSideBarIcons.Diet,
     route: RightSideBarRoutes.Diet,
+    bg: RightSideBarIconsBackgroundColor.Diet,
   },
   {
     text: RightSideBarTitles.Settings,
     src: RightSideBarIcons.Settings,
     route: RightSideBarRoutes.Settings,
+    bg: RightSideBarIconsBackgroundColor.Settings,
   },
   {
     text: RightSideBarTitles.Exercises,
     src: RightSideBarIcons.Exercises,
     route: RightSideBarRoutes.Exercises,
+    bg: RightSideBarIconsBackgroundColor.Exercises,
   },
 ]

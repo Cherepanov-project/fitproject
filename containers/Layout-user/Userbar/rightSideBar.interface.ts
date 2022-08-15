@@ -31,8 +31,16 @@ export enum RightSideBarRoutes {
   Exercises = "/user/workoutList",
 }
 
+export enum RightSideBarIconsBackgroundColor {
+  Diet = "#ECEAFF",
+  Goals = "#FEF0E7",
+  Settings = "#E5F8FF",
+  Exercises = "#E6E6E6",
+}
+
 export interface IRightSideBarItem {
   text: RightSideBarTitles
   src: RightSideBarIcons
   route: RightSideBarRoutes
+  bg: RightSideBarIconsBackgroundColor
 }
