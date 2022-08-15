@@ -1,7 +1,7 @@
 import { withLayout } from "@/containers/Layout-admin/layoutAdmin"
 import ChatPreview from "@/components/ChatPreview/ChatPreview"
 import {chatsList} from "@/models/chatsList/chatsList"
-import {ChatsPreviewsContainer, CustomLink} from "./chats.style"
+import {ChatsPreviewsContainer, CustomLink} from "@/styles/admin/messages/messages.styles"
 import Link from "next/link"
 
 const Messages = () => {

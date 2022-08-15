@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 interface img {
-  avatar: string
+    avatar: string
 }
 
 export const ChatHeader = styled.div`
@@ -40,7 +40,7 @@ export const ChatBody = styled.div`
 export const ChatFooter = styled.div`
   width:100%;
   display: flex;
-  align-items: top;
+  align-items: flex-start;
 `
 
 export const ChatFooterInput = styled.textarea`
