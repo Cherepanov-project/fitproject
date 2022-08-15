@@ -51,3 +51,13 @@ export interface IGraphDataType {
     uv: number
     pv: number
 }
+
+export interface IArticle {
+    id: number,
+    priority: 'normal' | 'high' | 'low',
+    avatar: string,
+    username: string,
+    created: string,
+    updated: string,
+    title: string,
+}

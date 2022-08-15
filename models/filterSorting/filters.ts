@@ -36,6 +36,21 @@ export const workoutSortingFilters = [
     }
 ]
 
+export const articlesSortingFilters = [
+    {
+        name: "No Sorting",
+        sorting: "none"
+    },
+    {
+        name: 'Priority',
+        sorting: 'priority'
+    },
+    {
+        name: 'Created',
+        sorting: 'created'
+    },
+]
+
 
 export const recipeFilterOptions = [
     "Calorie",
