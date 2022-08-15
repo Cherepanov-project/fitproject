@@ -2,14 +2,12 @@ import styled from "styled-components"
 import { IImg } from "@/components/WorkoutList/ItemList/itemList.interface"
 
 export const StyledBox = styled.div`
-  width: 220px;
   height: 202px;
   overflow: hidden;
   background: #ffffff;
   box-shadow: 0px 1.75848px 4.39621px rgba(0, 0, 0, 0.15);
   border-radius: 7.03394px;
   padding: 3px;
-  margin: 0 30px 34px 0;
 `
 
 export const StyledContentBox = styled.div`
@@ -47,8 +45,6 @@ export const StyledName = styled.p`
   color: #000000;
   margin: 0;
   padding: 0;
-
-  max-width: 210px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

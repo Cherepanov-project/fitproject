@@ -1,33 +1,33 @@
 import styled from "styled-components"
 
 export const MainWrapper = styled.div`
-    display: grid; 
-    grid-template-columns: 230px 1fr;
-    width: 100%;
-    background-color: white;
-    border-radius: 5px;
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  width: 100%;
+  background-color: white;
+  border-radius: 5px;
 `
 
 export const SidebarWrapper = styled.div`
-    width: 230px;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
-    display: flex;
-    flex-direction: column;
-    flex-shrink: 0;
+  width: 230px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
 
-    @media (min-width: 2300px) {
-        width: 330px;
-    }
+  @media (min-width: 2300px) {
+    width: 330px;
+  }
 `
 
 export const SidebarListWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin: 89px 22px 89px 15px;
+  display: flex;
+  flex-direction: column;
+  margin: 89px 22px 89px 15px;
 
-    :last-of-type {
-        margin: 0 22px 89px 15px;
-    }
+  :last-of-type {
+    margin: 0 22px 89px 15px;
+  }
 `
 
 export const SidebarListTitle = styled.div`
@@ -74,19 +74,19 @@ export const SidebarListItem = styled.div`
 `
 
 export const SidebarListItemCheckbox = styled.div`
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 12px;
 
-    span {
-        width: 24px;
-        height: 24px;
-    }
+  span {
+    width: 24px;
+    height: 24px;
+  }
 
-    @media (min-width: 2300px) {
-        font-size: 18px;
-    }
+  @media (min-width: 2300px) {
+    font-size: 18px;
+  }
 `
 
 export const SidebarStyledItemCheckbox = styled.div`
@@ -115,14 +115,25 @@ export const CategoriesStyledItem = styled.div`
   line-height: 18px;
   font-size: 12px;
   font-weight: 600;
-  
+
   @media (min-width: 2300px) {
     font-size: 18px;
   }
 `
 
 export const ItemListWrapper = styled.div`
-    margin-top: 53px;
-    margin-left: 30px;
-    width: 100%;
+  width: 100%;
+`
+
+export const StyledAnchorExercise = styled.a`
+  width: calc(100% / 3 - 24px);
+  margin: 12px;
+
+  @media (max-width: 1509px) {
+    width: calc(100% / 2 - 24px);
+  }
+
+  @media (max-width: 1259px) {
+    width: calc(100% - 24px);
+  }
 `

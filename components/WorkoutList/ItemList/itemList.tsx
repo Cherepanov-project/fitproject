@@ -11,65 +11,94 @@ import { filterExerciseList } from "@/utils/filterExercises"
 import { EXERCISE_CACHE_TIME } from "@/constants/time"
 import { IMuscles } from "./itemList.interface"
 import { LayoutItemList } from "./itemList.styles"
-
+import { StyledAnchorExercise } from "@/components/WorkoutList/workoutList.styles"
+import { getCardsPerPage } from "@/utils/getCardsPerPage"
+import generateId from "@/utils/generateId"
+import { StyledAnchorDish } from "@/components/ListOfDishes/listOfDishes.styles"
+import CardDish from "@/components/ListOfDishes/CardDish/CardDish"
+import { CircularProgress } from "@mui/material"
 
 const ItemList = ({ muscles }: IMuscles) => {
-    let filteredExercises: any[] = useMemo(() => [], [])
-    const { data, isSuccess } = useQuery("workouts", getWorkoutList, { 
-        staleTime: EXERCISE_CACHE_TIME, 
-    })
-  
-    const [minResOnPage, setMinResOnPage] = useState(0)
-    const [maxResOnPage, setMaxResOnPage] = useState(6)
+  let [cardsAmount, setCardsAmount] = useState(getCardsPerPage)
+  let filteredExercises: any[] = useMemo(() => [], [])
+  const { data, isSuccess, isLoading } = useQuery("workouts", getWorkoutList, {
+    staleTime: EXERCISE_CACHE_TIME,
+    useErrorBoundary: true,
+  })
 
-    const queryClient = useQueryClient();
+  const [minResOnPage, setMinResOnPage] = useState(0)
+  const [maxResOnPage, setMaxResOnPage] = useState(cardsAmount)
 
-    const changePage = page => {
-        if (!page) {
-            return
-        }
-        setMinResOnPage(() => (page - 1) * 6)
-        setMaxResOnPage(() => page * 6)
-        setCurrentPage(page)
+  const queryClient = useQueryClient()
+
+  const changePage = page => {
+    if (!page) {
+      return
     }
+    setMinResOnPage(() => (page - 1) * cardsAmount)
+    setMaxResOnPage(() => page * cardsAmount)
+    setCurrentPage(page)
+  }
 
-    const [countPages, setCountPages] = useState(Math.ceil(filteredExercises.length / 6))
-    const [currentPage, setCurrentPage] = useState(1)
-  
+  const [countPages, setCountPages] = useState(
+    Math.ceil(filteredExercises.length / cardsAmount)
+  )
+  const [currentPage, setCurrentPage] = useState(1)
+
   if (isSuccess) {
-         filteredExercises = filterExerciseList(muscles, data)
+    filteredExercises = filterExerciseList(muscles, data)
+  }
+
+  useEffect(() => {
+    queryClient.prefetchQuery("workouts", getWorkoutList)
+  }, [queryClient])
+
+  useEffect(() => {
+    setCountPages(Math.ceil(filteredExercises.length / cardsAmount))
+  }, [filteredExercises])
+
+  useEffect(() => {
+    if (countPages < currentPage) {
+      changePage(countPages)
+    }
+  }, [countPages, currentPage])
+
+  useEffect(() => {
+    function handleWindowResize() {
+      setCardsAmount(getCardsPerPage())
     }
 
-    useEffect(() => { 
-      queryClient.prefetchQuery("workouts", getWorkoutList)
-    }, [queryClient])
-  
-    useEffect(() => {
-      setCountPages(Math.ceil(filteredExercises.length / 6))
-    }, [filteredExercises])
-  
-    useEffect(() => {
-      if (countPages < currentPage) {
-          changePage(countPages)
-        }
-    }, [countPages, currentPage])
-  
-    const exercises = filteredExercises.map((item, index) => {
-      if (index >= minResOnPage && index < maxResOnPage) {
-        return (
-          <Link
-            href={`/user/workoutList/workout/${item.id}`}
-            key={item.id}
-            passHref
-          >
-            <a>
-              <CardExercise data={item} />
-            </a>
-          </Link>
-        )
-      }
-    })
-  
+    window.addEventListener("resize", handleWindowResize)
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize)
+    }
+  }, [])
+
+  useEffect(() => {
+    setCountPages(Math.ceil(filteredExercises.length / cardsAmount))
+    setMinResOnPage(() => (currentPage - 1) * cardsAmount)
+    setMaxResOnPage(() => currentPage * cardsAmount)
+  }, [cardsAmount])
+
+  const exercises = []
+
+  for (let i = minResOnPage; i < maxResOnPage; i++) {
+    if (filteredExercises[i]) {
+      exercises.push(
+        <Link
+          href={`/user/workoutList/workout/${filteredExercises[i].id}`}
+          passHref
+          key={generateId()}
+        >
+          <StyledAnchorExercise>
+            <CardExercise data={filteredExercises[i]} />
+          </StyledAnchorExercise>
+        </Link>
+      )
+    }
+  }
+
   return (
     <>
       <LayoutItemList>
@@ -78,10 +107,20 @@ const ItemList = ({ muscles }: IMuscles) => {
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "flex-start",
-            paddingTop: "35px",
-            width: "100%",
+            paddingTop: "90px",
+            margin: "0 12px",
           }}
         >
+          {isLoading && (
+            <CircularProgress
+              sx={{
+                position: "absolute",
+                left: "50%",
+                top: "50%",
+                transform: "translate(-50%, - 50%)",
+              }}
+            />
+          )}
           {exercises}
         </Box>
         {countPages > 0 && (

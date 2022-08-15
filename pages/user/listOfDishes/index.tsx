@@ -29,7 +29,7 @@ import {
 } from "@/models/sideBar/sideBar"
 
 import { FontPoppins, FontOpenSans } from "@/utils/fonts/fontStyles"
-import { getDishesPerPage } from "@/utils/getDishesPerPage"
+import { getCardsPerPage } from "@/utils/getCardsPerPage"
 import generateId from "@/utils/generateId"
 //import { relative } from "path"
 
@@ -37,7 +37,7 @@ import generateId from "@/utils/generateId"
 // Все на фейковых данных "dishFoodAll".
 
 const AllMenus = () => {
-  let [dishesAmount, setDishesAmount] = useState(getDishesPerPage)
+  let [cardsAmount, setCardsAmount] = useState(getCardsPerPage)
   const [checkbox, setCheckbox] = useState<ISideBarCheckBoxStar>(
     initialValuesCheckBoxStar
   )
@@ -102,15 +102,15 @@ const AllMenus = () => {
   }, [checkbox, checkboxMeals])
 
   const [countPages, setCountPages] = useState(
-    Math.ceil(dishFood.length / dishesAmount)
+    Math.ceil(dishFood.length / cardsAmount)
   )
   const [currentPage, setCurrentPage] = useState(1)
   const [minResOnPage, setMinResOnPage] = useState(0)
-  const [maxResOnPage, setMaxResOnPage] = useState(dishesAmount)
+  const [maxResOnPage, setMaxResOnPage] = useState(cardsAmount)
 
   useEffect(() => {
     function handleWindowResize() {
-      setDishesAmount(getDishesPerPage())
+      setCardsAmount(getCardsPerPage())
     }
 
     window.addEventListener("resize", handleWindowResize)
@@ -121,17 +121,17 @@ const AllMenus = () => {
   }, [])
 
   useEffect(() => {
-    setCountPages(Math.ceil(dishFood.length / dishesAmount))
-    setMinResOnPage(() => (currentPage - 1) * dishesAmount)
-    setMaxResOnPage(() => currentPage * dishesAmount)
-  }, [dishesAmount])
+    setCountPages(Math.ceil(dishFood.length / cardsAmount))
+    setMinResOnPage(() => (currentPage - 1) * cardsAmount)
+    setMaxResOnPage(() => currentPage * cardsAmount)
+  }, [cardsAmount])
 
   const changePage = page => {
     if (!page) {
       return
     }
-    setMinResOnPage(() => (page - 1) * dishesAmount)
-    setMaxResOnPage(() => page * dishesAmount)
+    setMinResOnPage(() => (page - 1) * cardsAmount)
+    setMaxResOnPage(() => page * cardsAmount)
     setCurrentPage(page)
   }
 
@@ -142,7 +142,7 @@ const AllMenus = () => {
   }, [countPages, currentPage])
 
   useEffect(() => {
-    setCountPages(Math.ceil(dishFood.length / dishesAmount))
+    setCountPages(Math.ceil(dishFood.length / cardsAmount))
   }, [dishFood])
 
   const formStringFromCheckedCheckboxes = () => {
