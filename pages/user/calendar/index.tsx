@@ -30,6 +30,8 @@ import {
   FlexItem,
   CalcDate,
   CalendarDiv,
+  StyledCalendarButtons,
+  StyledCalendarButton,
 } from "@/components/Calendar/calendarContainer.styles"
 import { useState } from "react"
 
@@ -109,13 +111,23 @@ const Calendar = () => {
   return (
     <CalendarContainer>
       <CalendarDiv>
-        <CalcHead>{monthArr[getMonth(dateToday)]}</CalcHead>
         <Box sx={{ flexGrow: 1 }}>
-          <Grid container columns={8} rowSpacing={5}>
+          <Grid container columns={7} rowSpacing={5}>
             {weekElements}
           </Grid>
         </Box>
       </CalendarDiv>
+      <StyledCalendarButtons>
+        <StyledCalendarButton>
+          <span>&lt;</span>
+        </StyledCalendarButton>
+        <span style={{ fontFamily: "Roboto", lineHeight: "35px" }}>
+          {monthArr[getMonth(dateToday)]}
+        </span>
+        <StyledCalendarButton>
+          <span>&gt;</span>
+        </StyledCalendarButton>
+      </StyledCalendarButtons>
     </CalendarContainer>
   )
 }
