@@ -3,7 +3,7 @@ import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import {chats} from "@/models/chatsList/chats"
 import { formatDistanceStrict } from 'date-fns'
-import {ChatHeader, ChatHeaderContent, ChatBody, Avatar, ChatItem } from "./Chat.style"
+import {ChatHeader, ChatHeaderContent, ChatBody, Avatar, ChatItem } from "@/styles/admin/messages/Chat.style"
 import SendMsgForm from "@/components/SendMsgForm/SendMsgForm"
 import io, { Socket } from "socket.io-client";
 import { SOCKET_URL } from "@/utils/chatsConfig/default";
