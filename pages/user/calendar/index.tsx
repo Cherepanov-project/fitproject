@@ -7,22 +7,19 @@ import { styled } from "@mui/material/styles"
 import {
   startOfMonth,
   getISODay,
-  getMonth,
   getDaysInMonth,
   endOfMonth,
-  addMonths,
   subMonths,
   getDate,
+  format,
 } from "date-fns"
 
 import CalendarContainer from "@/components/Calendar/calendarContainer"
 import generateId from "@/utils/generateId"
 import FramerCalendar from "@/components/Calendar/framerCalendar"
-import { monthArr } from "@/models/user/user"
 import { LayoutUser } from "@/containers/Layout-user/layoutUser"
 import WithRefreshingToken from "@/containers/Layout-user/WithRefreshingToken"
 import {
-  CalcHead,
   DayBlur,
   CalcLink,
   DietaLink,
@@ -33,11 +30,10 @@ import {
   StyledCalendarButtons,
   StyledCalendarButton,
 } from "@/components/Calendar/calendarContainer.styles"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 const Calendar = () => {
   const [dateToday, setDateToday] = useState(new Date())
-  const [count, setCount] = useState(0)
   const startDay = startOfMonth(dateToday)
   let lastDay = endOfMonth(dateToday)
   const countDay = getDaysInMonth(dateToday)
@@ -71,10 +67,10 @@ const Calendar = () => {
     return arr
   }
 
-  const switchBetweenMonthHandle = op => {
+  const switchBetweenMonthHandle = (op: string) => {
     const operations = {
-      plus: (a, b) => a + b,
-      minus: (a, b) => a - b,
+      plus: (a: number, b: number) => a + b,
+      minus: (a: number, b: number) => a - b,
     }
     const newDateToday = new Date(
       dateToday.setMonth(operations[op](dateToday.getMonth(), 1))
@@ -134,7 +130,7 @@ const Calendar = () => {
           <span>&lt;</span>
         </StyledCalendarButton>
         <span style={{ fontFamily: "Roboto", lineHeight: "35px" }}>
-          {monthArr[getMonth(dateToday)]}
+          {format(dateToday, "MMMM yyyy")}
         </span>
         <StyledCalendarButton onClick={() => switchBetweenMonthHandle("plus")}>
           <span>&gt;</span>
