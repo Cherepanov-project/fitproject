@@ -33,10 +33,11 @@ import {
   StyledCalendarButtons,
   StyledCalendarButton,
 } from "@/components/Calendar/calendarContainer.styles"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const Calendar = () => {
   const [dateToday, setDateToday] = useState(new Date())
+  const [count, setCount] = useState(0)
   const startDay = startOfMonth(dateToday)
   let lastDay = endOfMonth(dateToday)
   const countDay = getDaysInMonth(dateToday)
@@ -68,6 +69,17 @@ const Calendar = () => {
       arr.push(nextDayNextMonth)
     }
     return arr
+  }
+
+  const switchBetweenMonthHandle = op => {
+    const operations = {
+      plus: (a, b) => a + b,
+      minus: (a, b) => a - b,
+    }
+    const newDateToday = new Date(
+      dateToday.setMonth(operations[op](dateToday.getMonth(), 1))
+    )
+    setDateToday(newDateToday)
   }
 
   const size = matches
@@ -118,13 +130,13 @@ const Calendar = () => {
         </Box>
       </CalendarDiv>
       <StyledCalendarButtons>
-        <StyledCalendarButton>
+        <StyledCalendarButton onClick={() => switchBetweenMonthHandle("minus")}>
           <span>&lt;</span>
         </StyledCalendarButton>
         <span style={{ fontFamily: "Roboto", lineHeight: "35px" }}>
           {monthArr[getMonth(dateToday)]}
         </span>
-        <StyledCalendarButton>
+        <StyledCalendarButton onClick={() => switchBetweenMonthHandle("plus")}>
           <span>&gt;</span>
         </StyledCalendarButton>
       </StyledCalendarButtons>
