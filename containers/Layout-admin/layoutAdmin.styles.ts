@@ -7,6 +7,7 @@ export const Container = styled.div`
 
     display: flex;
     margin: 0 auto;
+    min-height: 100vh;
 `
 
 export const Content = styled.div`
