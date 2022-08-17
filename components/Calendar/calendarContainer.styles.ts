@@ -18,7 +18,11 @@ export const CalcHead = styled.div`
 `
 export const CalcLink = styled.a`
   text-decoration: none;
-  color: black;
+  color: #fff;
+  font-family: "Roboto";
+  padding: 23px 0;
+  display: block;
+  letter-spacing: 1.2px;
   font-size: 12px;
 `
 
@@ -50,9 +54,22 @@ export const DayBlur = styled.div`
   opacity: 0.3;
 `
 
+type ContentBoxType = {
+  bg: string
+}
+
+export const StyledContentBox = styled.div<ContentBoxType>`
+  background: ${props => props.bg};
+  text-align: center;
+  cursor: pointer;
+  height: 50%;
+  text-align: center;
+`
+
 export const CalcDate = styled.div`
-  font-weight: bold;
-  font-size: 13px;
+  font-size: 14px;
+  font-family: "Roboto";
+  color: #a1a1a1;
 `
 
 export const CalendarDiv = styled.div`
@@ -164,4 +181,25 @@ export const StyledCalendarButton = styled.button`
     left: 50%;
     transform: translate(-50%, -50%);
   }
+`
+export const StyledElementsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 20px 0 20px;
+`
+
+export const StyledDayBox = styled.div`
+  width: calc(100% / 7);
+  min-height: 120px;
+  border: 1px dashed #e0e0e0;
+  padding: 10px;
+  position: relative;
+`
+
+export const StyledDayContent = styled.div`
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 `

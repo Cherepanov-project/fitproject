@@ -1,9 +1,4 @@
 import Link from "next/link"
-import Grid from "@mui/material/Grid"
-import Box from "@mui/material/Box"
-import Paper from "@mui/material/Paper"
-import useMediaQuery from "@mui/material/useMediaQuery"
-import { styled } from "@mui/material/styles"
 import {
   startOfMonth,
   getISODay,
@@ -22,13 +17,13 @@ import WithRefreshingToken from "@/containers/Layout-user/WithRefreshingToken"
 import {
   DayBlur,
   CalcLink,
-  DietaLink,
-  WorkoutLink,
-  FlexItem,
   CalcDate,
-  CalendarDiv,
   StyledCalendarButtons,
+  StyledElementsContainer,
   StyledCalendarButton,
+  StyledDayBox,
+  StyledDayContent,
+  StyledContentBox,
 } from "@/components/Calendar/calendarContainer.styles"
 import { useState } from "react"
 
@@ -38,19 +33,6 @@ const Calendar = () => {
   let lastDay = endOfMonth(dateToday)
   const countDay = getDaysInMonth(dateToday)
   const dayWeekISO = getISODay(startDay)
-
-  const Item = styled(Paper)(({ theme }) => ({
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: "start",
-    width: "7rem",
-    height: "6rem",
-    backgroundColor: "azure",
-    color: theme.palette.text.secondary,
-  }))
-
-  const matches = useMediaQuery("(min-width:2360px)")
-  const matches2 = useMediaQuery("(min-width:2000px)")
 
   const arrDays = (data: Date): (number | null)[] => {
     const dayWeekISOEnd = getISODay(lastDay)
@@ -78,53 +60,37 @@ const Calendar = () => {
     setDateToday(newDateToday)
   }
 
-  const size = matches
-    ? { width: 145, height: 145 }
-    : matches2
-    ? { width: 140, height: 140 }
-    : { width: 100, height: 100 }
-
   const weekElements = arrDays(dateToday).map((el, index) => {
     return index >= dayWeekISO - 1 && index < countDay + (dayWeekISO - 1) ? (
-      <Grid item xs={1} key={generateId()}>
-        <Item sx={size}>
-          <FlexItem>
-            <CalcDate>{el}</CalcDate>
-            <div>
-              <WorkoutLink>
-                <Link href={`calendar/workout/${el}`} passHref>
-                  <CalcLink>Тренировка</CalcLink>
-                </Link>
-              </WorkoutLink>
-              <DietaLink>
-                <Link href={`calendar/dieta/${el}`} passHref>
-                  <CalcLink>Диета</CalcLink>
-                </Link>
-              </DietaLink>
-            </div>
-          </FlexItem>
-        </Item>
-      </Grid>
+      <StyledDayBox key={generateId()}>
+        <CalcDate>{el.toString().length !== 1 ? el : `0${el}`}</CalcDate>
+        {el % 5 === 0 || el % 12 === 0 ? (
+          <StyledDayContent>
+            <StyledContentBox bg={"#2D9CDB"}>
+              <Link href={`calendar/workout/${el}`} passHref>
+                <CalcLink>Тренировка</CalcLink>
+              </Link>
+            </StyledContentBox>
+            <StyledContentBox bg={"#F2994A"}>
+              <Link href={`calendar/dieta/${el}`} passHref>
+                <CalcLink>Диета</CalcLink>
+              </Link>
+            </StyledContentBox>
+          </StyledDayContent>
+        ) : null}
+      </StyledDayBox>
     ) : (
-      <Grid item xs={1} key={generateId()}>
+      <StyledDayBox key={generateId()}>
         <DayBlur>
-          <Item sx={size}>
-            <CalcDate>{el}</CalcDate>
-          </Item>
+          <CalcDate>{el}</CalcDate>
         </DayBlur>
-      </Grid>
+      </StyledDayBox>
     )
   })
 
   return (
     <CalendarContainer>
-      <CalendarDiv>
-        <Box sx={{ flexGrow: 1 }}>
-          <Grid container columns={7} rowSpacing={5}>
-            {weekElements}
-          </Grid>
-        </Box>
-      </CalendarDiv>
+      <StyledElementsContainer>{weekElements}</StyledElementsContainer>
       <StyledCalendarButtons>
         <StyledCalendarButton onClick={() => switchBetweenMonthHandle("minus")}>
           <span>&lt;</span>
