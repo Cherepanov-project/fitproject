@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, {useEffect, useState} from "react"
 import TableContainer from "@mui/material/TableContainer"
 import Table from "@mui/material/Table"
 
@@ -12,6 +12,7 @@ import CreateForm from "@/components/AddBtn/addForm";
 import Pagination from "@/components/Table/tablePagination";
 import TableRow from "@mui/material/TableRow";
 import TableItemArticles from "@/components/TableItemArticles/tableItemArticles";
+import getArrPagination from "@/utils/getArrPagination";
 
 const Articles = () => {
     const [page, setPage] = useState<number>(0)
@@ -22,6 +23,10 @@ const Articles = () => {
     const handleChangePage = (event: unknown, newPage: number) => {
         setPage(newPage)
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [page, rowsPerPage]);
 
     const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
         setRowsPerPage(+event.target.value)
@@ -36,7 +41,7 @@ const Articles = () => {
         setSortedData([...newData])
     }
 
-    const articles = articlesList.map(article => {
+    const articles = getArrPagination(page, rowsPerPage, articlesList).map(article => {
         return (
             <TableRow hover sx={{ cursor: "pointer" }} key={article.id}>
                 <TableItemArticles
@@ -47,6 +52,7 @@ const Articles = () => {
             </TableRow>
         )
         })
+
     return (
         <StyleContentList>
             <FilterMenu title="Articles" data={articlesList} updateData={updateData} sortedD={articlesList} />
