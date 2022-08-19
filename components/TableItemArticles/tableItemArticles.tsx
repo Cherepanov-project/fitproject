@@ -68,7 +68,7 @@ const TableItemArticles: FC<IArticleProps> = ({
             <TableCell sx={{paddingLeft: 3.5}}>
                 <StyledBlock>
                     <StyledText>{username}</StyledText>
-                    <StyledExtraText>On {created}</StyledExtraText>
+                    <StyledExtraText>On {new Date(created).getDate()}.{new Date(created).getMonth()}.{new Date(created).getFullYear()}</StyledExtraText>
                 </StyledBlock>
             </TableCell>
             <TableCell sx={{paddingLeft: 3.5}}>

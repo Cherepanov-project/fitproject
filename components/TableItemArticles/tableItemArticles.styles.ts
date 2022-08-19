@@ -3,14 +3,8 @@ import styled from "styled-components";
 export const StyledBlock = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: center;
 `
-//
-// export const StyledBoldText = styled.p`
-//     align-self: center;
-//     white-space: nowrap;
-//     color: #252733;
-//     margin: 0;
-// `
 
 export const StyledExtraText = styled.p`
   color: #c5c7cd;
