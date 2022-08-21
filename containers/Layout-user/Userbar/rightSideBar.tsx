@@ -26,170 +26,170 @@ import { PaperProps } from "./rightSideBar.styles"
 import generateId from "@/utils/generateId"
 import { ISideBarProps } from "./rightSideBar.interface"
 import { ACCESS_TOKEN } from "@/constants/titles"
+import { WeightLossGoal } from "@/components/WeightLossGoal/WeightLossGoal"
 import {
-    Avatar,
-    Icon,
-    UserName,
-    IconWrapper,
-    UserInfoWrapper,
-    LastVisitTime,
-    UserInfo,
-    WeightLoosGoalWrapper,
-    IconArrow,
-    Loss,
-    Meter,
-    RightSideBarWrapper,
-    MainWrapper,
-    /* SquareBtn, */
+  Avatar,
+  Icon,
+  UserName,
+  IconWrapper,
+  UserInfoWrapper,
+  LastVisitTime,
+  UserInfo,
+  WeightLoosGoalWrapper,
+  IconArrow,
+  Loss,
+  Meter,
+  RightSideBarWrapper,
+  MainWrapper,
+  /* SquareBtn, */
 } from "./rightSideBar.styles"
 
 const drawerWidth: string = "244px"
 
 export const RightSideBar: React.FC<ISideBarProps> = ({
-    avatar = defaultAvatar,
-    userName = "User",
-    lastDate = new Date(),
+  avatar = defaultAvatar,
+  userName = "User",
+  lastDate = new Date(),
 }: ISideBarProps) => {
-    const router = useRouter()
-    const lastVisitTime = formatDistanceToNow(lastDate, {
-        includeSeconds: true,
-    })
-    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
-    const open = Boolean(anchorEl)
+  const router = useRouter()
+  const lastVisitTime = formatDistanceToNow(lastDate, {
+    includeSeconds: true,
+  })
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
+  const [kilograms, setKilograms] = React.useState<number>(5)
+  const open = Boolean(anchorEl)
 
-    const handleClick = (event: React.MouseEvent<HTMLElement>) =>
-        setAnchorEl(event.currentTarget)
+  const handleClick = (event: React.MouseEvent<HTMLElement>) =>
+    setAnchorEl(event.currentTarget)
 
-    const handleClose = () => setAnchorEl(null)
+  const handleClose = () => setAnchorEl(null)
 
-    const handleListKeyDown = (event: React.KeyboardEvent) => {
-        event.preventDefault()
-        if (event.key === "Escape") {
-            handleClose()
-        }
+  const handleListKeyDown = (event: React.KeyboardEvent) => {
+    event.preventDefault()
+    if (event.key === "Escape") {
+      handleClose()
     }
+  }
 
-    const handleLogout = () => {
-        Cookies.remove(ACCESS_TOKEN)
-        router.push("/user")
-    }
-    return (
-        <MainWrapper>
-            <RightSideBarWrapper>
-                <UserInfoWrapper onClick={handleClick}>
-                    <Avatar alt="avatar" src={avatar.src} />
-                    <UserInfo>
-                        <UserName>{userName}</UserName>
-                        <LastVisitTime>Joined {lastVisitTime}</LastVisitTime>
-                    </UserInfo>
-                </UserInfoWrapper>
-                <List
-                    sx={{
-                        margin: "auto 0",
-                        padding: "8px"
-                    }}
-                >
-                    {["Goals", "Diet", "Settings"].map(
-                        (text: string, index: number) => (
-                            <ListItemButton
-                                key={generateId()}
-                                sx={{
-                                    position: "relative",
-                                    marginTop: "30px",
-                                    marginLeft: "2px",
-                                    padding: "24px",
-                                    width: "100%",
-                                    height: "32px",
-                                    ":after": {
-                                        content: '""',
-                                        backgroundColor: "#f0efff",
-                                        display: "block",
-                                        position: "absolute",
-                                        height: "100%",
-                                        width: "0%",
-                                        left: "0",
-                                        top: "0",
-                                        opacity: "0",
-                                        transition: "width 500ms linear, opacity 0.5s ease 1s",
-                                        boxShadow: "0px 1px 4px rgb(0 0 0 / 25%)",
-                                        borderRadius: "10px"
-                                    },
-                                    ":hover": {
-                                        backgroundColor: "transparent",
-                                        width: "100%",
-                                        height: "40px",
-                                        padding: "24px 24px",
-                                        right: "0",
-                                        borderRadius: "10px",
-                                        img: {
-                                            transition: "1s",
-                                            border: "none",
-                                            boxShadow: "none"
-                                        },
-                                        ":after": {
-                                            width: "100%",
-                                            opacity: "1",
-                                            transition: "width 500ms linear"
-                                        }
-                                    }
-                                }}
-                            >
-                                <ListItemIcon sx={{ zIndex: "2" }}>
-                                    {index === 0 ? (
-                                        <IconWrapper>
-                                            <Icon src={goalsIcon.src} />
-                                        </IconWrapper>
-                                    ) : index === 1 ? (
-                                        <IconWrapper>
-                                            <Icon src={diet.src} />
-                                        </IconWrapper>
-                                    ) : (
-                                        <IconWrapper>
-                                            <Icon src={SettingsIcon.src} />
-                                        </IconWrapper>
-                                    )}
-                                </ListItemIcon>
-                                <ListItemText
-                                    primary={text}
-                                    sx={{ width: "100%", zIndex: "2" }}
-                                />
-                                <IconArrow src={arrow.src} />
-                            </ListItemButton>
-                        )
-                    )}
-                </List>
-                <WeightLoosGoalWrapper>
-                    Weight loos Goal
-                    <Loss>
-                        {`Loss: 5kg `}
-                        <span>/ Month</span>
-                    </Loss>
-                    <Meter src={meter.src} />
-                </WeightLoosGoalWrapper>
-            </RightSideBarWrapper>
-            <Menu
-                anchorEl={anchorEl}
-                id="account-menu"
-                open={open}
-                onClick={handleClose}
-                PaperProps={PaperProps}
-                onKeyDown={handleListKeyDown}
-                transformOrigin={{ horizontal: "right", vertical: "top" }}
-                anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+  const handleLogout = () => {
+    Cookies.remove(ACCESS_TOKEN)
+    router.push("/user")
+  }
+  return (
+    <MainWrapper>
+      <RightSideBarWrapper>
+        <UserInfoWrapper onClick={handleClick}>
+          <Avatar alt="avatar" src={avatar.src} />
+          <UserInfo>
+            <UserName>{userName}</UserName>
+            <LastVisitTime>Joined {lastVisitTime}</LastVisitTime>
+          </UserInfo>
+        </UserInfoWrapper>
+        <List
+          sx={{
+            margin: "auto 0",
+            padding: "8px",
+          }}
+        >
+          {["Goals", "Diet", "Settings"].map((text: string, index: number) => (
+            <ListItemButton
+              key={generateId()}
+              sx={{
+                position: "relative",
+                marginTop: "30px",
+                marginLeft: "2px",
+                padding: "24px",
+                width: "100%",
+                height: "32px",
+                ":after": {
+                  content: '""',
+                  backgroundColor: "#f0efff",
+                  display: "block",
+                  position: "absolute",
+                  height: "100%",
+                  width: "0%",
+                  left: "0",
+                  top: "0",
+                  opacity: "0",
+                  transition: "width 500ms linear, opacity 0.5s ease 1s",
+                  boxShadow: "0px 1px 4px rgb(0 0 0 / 25%)",
+                  borderRadius: "10px",
+                },
+                ":hover": {
+                  backgroundColor: "transparent",
+                  width: "100%",
+                  height: "40px",
+                  padding: "24px 24px",
+                  right: "0",
+                  borderRadius: "10px",
+                  img: {
+                    transition: "1s",
+                    border: "none",
+                    boxShadow: "none",
+                  },
+                  ":after": {
+                    width: "100%",
+                    opacity: "1",
+                    transition: "width 500ms linear",
+                  },
+                },
+              }}
             >
-                <MenuItem>
-                    <ListItemIcon>
-                        <Settings fontSize="small" />
-                    </ListItemIcon>
-                    Settings
-                </MenuItem>
-                <MenuItem onClick={handleLogout}>
-                    <ListItemIcon>
-                        <Logout fontSize="small" />
-                    </ListItemIcon>
-                    Logout
-                </MenuItem>
-            </Menu>
-        </MainWrapper>
-    )
+              <ListItemIcon sx={{ zIndex: "2" }}>
+                {index === 0 ? (
+                  <IconWrapper>
+                    <Icon src={goalsIcon.src} />
+                  </IconWrapper>
+                ) : index === 1 ? (
+                  <IconWrapper>
+                    <Icon src={diet.src} />
+                  </IconWrapper>
+                ) : (
+                  <IconWrapper>
+                    <Icon src={SettingsIcon.src} />
+                  </IconWrapper>
+                )}
+              </ListItemIcon>
+              <ListItemText
+                primary={text}
+                sx={{ width: "100%", zIndex: "2" }}
+              />
+              <IconArrow src={arrow.src} />
+            </ListItemButton>
+          ))}
+        </List>
+        <WeightLoosGoalWrapper>
+          Weight loss Goal
+          <Loss>
+            {`Loss: ${kilograms}kg `}
+            <span>/ Month</span>
+          </Loss>
+          <WeightLossGoal kg={kilograms} />
+        </WeightLoosGoalWrapper>
+      </RightSideBarWrapper>
+      <Menu
+        anchorEl={anchorEl}
+        id="account-menu"
+        open={open}
+        onClick={handleClose}
+        PaperProps={PaperProps}
+        onKeyDown={handleListKeyDown}
+        transformOrigin={{ horizontal: "right", vertical: "top" }}
+        anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+      >
+        <MenuItem>
+          <ListItemIcon>
+            <Settings fontSize="small" />
+          </ListItemIcon>
+          Settings
+        </MenuItem>
+        <MenuItem onClick={handleLogout}>
+          <ListItemIcon>
+            <Logout fontSize="small" />
+          </ListItemIcon>
+          Logout
+        </MenuItem>
+      </Menu>
+    </MainWrapper>
+  )
 }
