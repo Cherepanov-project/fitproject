@@ -20,7 +20,6 @@ import goalsIcon from "@/common/images/layoutUser/userbarIcons/goals.svg"
 import diet from "@/common/images/layoutUser/userbarIcons/diet.svg"
 import defaultAvatar from "@/common/images/layoutUser/userbarIcons/defaultAvatar.png"
 import arrow from "@/common/images/layoutUser/userbarIcons/arrow.svg"
-import meter from "@/common/images/layoutUser/userbarIcons/meter.svg"
 
 import { PaperProps } from "./rightSideBar.styles"
 import generateId from "@/utils/generateId"
@@ -35,13 +34,12 @@ import {
   UserInfoWrapper,
   LastVisitTime,
   UserInfo,
-  WeightLoosGoalWrapper,
+  WeightLossGoalWrapper,
   IconArrow,
   Loss,
-  Meter,
   RightSideBarWrapper,
   MainWrapper,
-  /* SquareBtn, */
+  StyledSpan,
 } from "./rightSideBar.styles"
 
 const drawerWidth: string = "244px"
@@ -158,14 +156,14 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
             </ListItemButton>
           ))}
         </List>
-        <WeightLoosGoalWrapper>
+        <WeightLossGoalWrapper>
           Weight loss Goal
           <Loss>
             {`Loss: ${kilograms}kg `}
-            <span>/ Month</span>
+            <StyledSpan>/ Month</StyledSpan>
           </Loss>
           <WeightLossGoal kg={kilograms} />
-        </WeightLoosGoalWrapper>
+        </WeightLossGoalWrapper>
       </RightSideBarWrapper>
       <Menu
         anchorEl={anchorEl}

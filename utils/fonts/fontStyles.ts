@@ -88,7 +88,6 @@ export const FontOpenSans = createGlobalStyle`
 }
 `
 
-
 export const FontArimaMadurai = createGlobalStyle`
 @font-face {
     font-family: 'Arima Madurai';
@@ -97,4 +96,46 @@ export const FontArimaMadurai = createGlobalStyle`
     font-weight: 800;
     font-style: Extrabold;
 }
+`
+export const FontInter = createGlobalStyle`
+@font-face {
+    font-family: 'Inter';
+    src: local('Inter'), local('Inter-Regular'), 
+         url('/fitproject/fonts/inter/Inter-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+     font-family: 'Inter';
+     src: local('Inter Medium'), local('Inter-Medium'), 
+          url('/fitproject/fonts/inter/Inter-Medium.ttf') format('truetype');
+     font-weight: 500;
+     font-style: normal;
+ }
+
+ @font-face {
+     font-family: 'Inter';
+     src: local('Inter Semibold'), local('Inter-Semibold'), 
+          url('/fitproject/fonts/inter/Inter-Semibold.ttf') format('truetype');
+     font-weight: 600;
+     font-style: normal;
+ }
+
+ @font-face {
+     font-family: 'Inter';
+     src: local('Inter Bold'), local('Inter-Bold'), 
+          url('/fitproject/fonts/inter/Inter-Bold.ttf') format('truetype');
+     font-weight: 700;
+     font-style: bold;
+ }
+
+ @font-face {
+     font-family: 'Inter';
+     src: local('Inter Thin'), local('Inter-Thin'), 
+          url('/fitproject/fonts/inter/Inter-Thin.ttf') format('truetype');
+     font-weight: 100;
+     font-style: normal;
+ }
+ 
 `

@@ -10,36 +10,43 @@ import {
   ContentWrapper,
   TopInput,
 } from "./layoutUser.styles"
+// font
+import { FontInter } from "@/utils/fonts/fontStyles"
 
-export const RequiredLayout: React.FC<layoutUserProps> = ({ children }): JSX.Element => {
-    return (
-      <>
-        <StyledLayoutUser>
-          <Container>
-            <LeftSideBar />
-            <ContentWrapper>
-              <TopInput type="text" placeholder="Search Activities, messages" />
-              <Content>
-                <main>{children}</main>
-              </Content>
-            </ContentWrapper>
-            <RightSideBar
-              avatar={undefined}
-              userName={"kek"}
-              includeSeconds={true}
-            />
-          </Container>
-        </StyledLayoutUser>
-      </>
-    )
+export const RequiredLayout: React.FC<layoutUserProps> = ({
+  children,
+}): JSX.Element => {
+  return (
+    <>
+      <StyledLayoutUser>
+        <Container>
+          <FontInter />
+          <LeftSideBar />
+          <ContentWrapper>
+            <TopInput type="text" placeholder="Search Activities, messages" />
+            <Content>
+              <main>{children}</main>
+            </Content>
+          </ContentWrapper>
+          <RightSideBar
+            avatar={undefined}
+            userName={"User"}
+            includeSeconds={true}
+          />
+        </Container>
+      </StyledLayoutUser>
+    </>
+  )
 }
 
-export const LayoutUser = <T extends Record<string, undefined>>(Component: FunctionComponent<T>) => {
-    return function withLayoutComponent(props: T): JSX.Element {
-        return (
-            <RequiredLayout>
-                <Component {...props} />
-            </RequiredLayout>
-        )
-    }
+export const LayoutUser = <T extends Record<string, undefined>>(
+  Component: FunctionComponent<T>
+) => {
+  return function withLayoutComponent(props: T): JSX.Element {
+    return (
+      <RequiredLayout>
+        <Component {...props} />
+      </RequiredLayout>
+    )
+  }
 }
