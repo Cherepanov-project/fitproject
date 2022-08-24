@@ -52,14 +52,14 @@ const LinearProgressWithLabel = (
   )
 }
 
-const ProgressBtn = ({ title, subtitle, target, ico }: IProps) => {
+const ProgressBtn = ({ title, subtitle, target, ico, value }: IProps) => {
   return (
     <ProgressButton>
       <IcoContainer>{ico}</IcoContainer>
       <Dots />
       <Title>{title}</Title>
       <SubTitle>{subtitle} / week</SubTitle>
-      <LinearProgressWithLabel value={50} />
+      <LinearProgressWithLabel value={value} />
       <Target>Target: {target}</Target>
     </ProgressButton>
   )

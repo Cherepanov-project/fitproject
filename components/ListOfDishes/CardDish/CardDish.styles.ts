@@ -8,6 +8,9 @@ export const StyledBox = styled.div`
   border-radius: 7.03394px;
   padding: 3px;
   margin: 0 0px 72px 0;
+  @media (min-width: 2000px) {
+    height: 302px;
+  }
 `
 
 export const StyledContentBox = styled.div`
@@ -49,6 +52,10 @@ export const StyledName = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  @media (min-width: 2200px) {
+    font-size: 24.107px;
+  }
 `
 
 export const StyledDescription = styled.div`
@@ -61,10 +68,18 @@ export const StyledDescription = styled.div`
   font-style: normal;
   font-weight: 500;
 
+  @media (min-width: 2200px) {
+    margin-top: 20px;
+  }
+
   p {
     font-size: 19.4233px;
     padding: 0;
     margin: 0;
+
+    @media (min-width: 2200px) {
+      font-size: 22.107px;
+    }
   }
 
   span {
@@ -72,6 +87,10 @@ export const StyledDescription = styled.div`
     font-size: 12.9488px;
     color: #969696;
     padding: 0;
+
+    @media (min-width: 2200px) {
+      font-size: 18.107px;
+    }
   }
 `
 
@@ -81,6 +100,9 @@ export const StyledRating = styled.div`
   justify-content: space-around;
   align-items: flex-start;
   margin-top: 9px;
+  @media (min-width: 2200px) {
+    margin-top: 20px;
+  }
 
   div {
     font-family: "Roboto";
@@ -88,5 +110,9 @@ export const StyledRating = styled.div`
     font-weight: 500;
     font-size: 12.9488px;
     color: #969696;
+
+    @media (min-width: 2200px) {
+      font-size: 14.107px;
+    }
   }
 `

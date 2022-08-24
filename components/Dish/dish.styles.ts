@@ -34,7 +34,6 @@ export const ButtonFoodTransparent = styled(ButtonFood)`
   }
 `
 
-
 export const DishComponent = styled.div<IImg>`
   min-height: 500px;
   background: url(${({ imgUrl }) => imgUrl});

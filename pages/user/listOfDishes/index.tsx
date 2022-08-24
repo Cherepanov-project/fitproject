@@ -181,6 +181,7 @@ const AllMenus = () => {
     <AllMenusWrapper>
       <FontPoppins />
       <FontOpenSans />
+
       <SideBar
         checkbox={checkbox}
         setArgumentStar={setArgumentStar}

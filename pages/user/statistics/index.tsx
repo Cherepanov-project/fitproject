@@ -36,10 +36,16 @@ import {
 
 // constans
 import { ACCESS_TOKEN } from "@/constants/titles"
+import { charData } from "@/models/userStatistics/userStatistics"
 
 const Frame1 = () => {
   const router = useRouter()
   const isLogin = Cookies.get(ACCESS_TOKEN) ? true : false
+
+  const stepsPerWeek = charData.reduce(
+    (prevValue, currentValue) => prevValue + (currentValue.uv || 0),
+    0
+  )
 
   useEffect(() => {
     if (!Cookies.get(ACCESS_TOKEN)) {
@@ -85,21 +91,24 @@ const Frame1 = () => {
       </ActiveContainer>
       <ProgressContainer>
         <ProgressButton
+          value={(10 / 50) * 100}
           title={"Cycling Hero"}
           subtitle={"10 km"}
           target={"50 km"}
           ico={<SquareIcon color={"rgba(0, 0, 0, 0)"} img={imgCyclist} />}
         />
         <ProgressButton
+          value={(5 / 7) * 100}
           title={"Daily Running"}
           subtitle={"5 km"}
           target={"7 km/week"}
           ico={<SquareIcon color={"rgba(0, 0, 0, 0)"} img={imgRun} />}
         />
         <ProgressButton
+          value={(stepsPerWeek / 30000) * 100}
           title={"Daily Steps"}
-          subtitle={"10 000 steps"}
-          target={"12 000 / week"}
+          subtitle={`${stepsPerWeek} steps`}
+          target={"30 000  / week"}
           ico={<SquareIcon color={"rgba(0, 0, 0, 0)"} img={imgLeg} />}
         />
       </ProgressContainer>

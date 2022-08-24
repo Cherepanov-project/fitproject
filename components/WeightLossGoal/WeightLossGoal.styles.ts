@@ -33,7 +33,7 @@ export const InnerArc = styled.svg`
     stroke-dasharray: 168.5, 500;
     stroke-dashoffset: 0;
 `
-const outerAnimation = (kg: number) => keyframes`
+const outerArcAnimation = (kg: number) => keyframes`
 from {
   stroke-dashoffset: 168.5;
 }
@@ -50,7 +50,7 @@ export const OuterArc = styled.svg<{ kg: number }>`
     stroke: #554ce1;
     stroke-dasharray: 168.5, 500;
     stroke-dashoffset: 0;
-    animation: ${props => outerAnimation(props.kg)} 1s linear both;
+    animation: ${props => outerArcAnimation(props.kg)} 1s linear both;
     animation-delay: 1s;
   }
 `
