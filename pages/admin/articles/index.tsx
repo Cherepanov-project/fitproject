@@ -4,7 +4,6 @@ import Table from "@mui/material/Table"
 
 import { withLayout } from "@/containers/Layout-admin/layoutAdmin"
 import { StyleContentList, StyleFooterRecipes } from "@/styles/admin/overview/overview.styles"
-import FilterMenu from "@/components/FilterMenu/filterMenu"
 import ColumnName from "@/components/ColumnName/columnName"
 import { articlesList } from "@/models/admin/articlesList";
 import TableBody from "@mui/material/TableBody";
@@ -13,12 +12,16 @@ import Pagination from "@/components/Table/tablePagination";
 import TableRow from "@mui/material/TableRow";
 import TableItemArticles from "@/components/TableItemArticles/tableItemArticles";
 import getArrPagination from "@/utils/getArrPagination";
+import Sort from "@/components/Sort";
+import {Title} from "@/components/FilterMenu/filterMenu.styles";
+import {StyleBlockButtons, StyleHeader } from "@/styles/admin/articles/articles.styles"
+import Filter from "@/components/Filter";
 
 const Articles = () => {
     const [page, setPage] = useState<number>(0)
     const [rowsPerPage, setRowsPerPage] = useState<number>(8)
     const [listChange, setListChange] = useState<boolean>(false)
-    const [sortedData, setSortedData] = useState([])
+    const [updatedData, setUpdatedData] = useState(articlesList)
 
     const handleChangePage = (event: unknown, newPage: number) => {
         setPage(newPage)
@@ -32,16 +35,16 @@ const Articles = () => {
         setRowsPerPage(+event.target.value)
         setPage(0)
     }
-    const updateList = () => {
-        const isChanged = listChange;
-        setListChange(!isChanged);
-    }
+    // const updateList = () => {
+    //     const isChanged = listChange;
+    //     setListChange(!isChanged);
+    // }
 
     const updateData = (newData) => {
-        setSortedData([...newData])
+        setUpdatedData([...newData])
     }
 
-    const articles = getArrPagination(page, rowsPerPage, articlesList).map(article => {
+    const articles = getArrPagination(page, rowsPerPage, updatedData).map(article => {
         return (
             <TableRow hover sx={{ cursor: "pointer" }} key={article.id}>
                 <TableItemArticles
@@ -55,7 +58,13 @@ const Articles = () => {
 
     return (
         <StyleContentList>
-            <FilterMenu title="Articles" data={articlesList} updateData={updateData} sortedD={articlesList} />
+            <StyleHeader>
+                <Title>Articles</Title>
+                <StyleBlockButtons>
+                    <Sort></Sort>
+                    <Filter data={articlesList} updateData={updateData} sortedD={updatedData}></Filter>
+                </StyleBlockButtons>
+            </StyleHeader>
             <TableContainer>
                 <Table sx={{ minWidth: 1120 }}>
                     <ColumnName />
