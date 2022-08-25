@@ -78,9 +78,9 @@ const TableItemArticles: FC<IArticleProps> = ({
                 </StyledBlock>
             </TableCell>
             <TableCell sx={{paddingLeft: 3.5}}>
-                {priority === "high" ? (
+                {priority === "High" ? (
                     <ColorfulTeg text={priority} backgroundColor="#F12B2C"/>
-                ) : priority === "low" ? (
+                ) : priority === "Low" ? (
                     <ColorfulTeg
                         text={priority}
                         backgroundColor="#FEC400
