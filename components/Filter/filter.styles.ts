@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-import { IFilterAnimateProp } from "./filterMenu.interface"
+import { IFilterAnimateProp } from "../FilterMenu/filterMenu.interface"
 
 export const StyledButtonSort = styled.button`
     background: none;
@@ -20,7 +20,7 @@ export const StyledDropdown = styled.div`
     overflow: hidden;
     z-index: 2;
     width: 150px;
-    height: 150px;
+    //height: 150px;
     display: flex;
     flex-direction: column;
 `
@@ -73,7 +73,7 @@ export const StyledSubmenu = styled.div<IFilterAnimateProp>`
     border: 1px solid #e6e6e6;
     height: 150px;
     z-index: ${({ animate }) =>
-    animate ? "3" : "1"};
+    animate ? "3" : "-1"};
 `
 
 export const StyledButton = styled.button`
