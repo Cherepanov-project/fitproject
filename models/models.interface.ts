@@ -54,7 +54,7 @@ export interface IGraphDataType {
 
 export interface IArticle {
     id: number,
-    priority: 'normal' | 'high' | 'low',
+    priority: 'Normal' | 'High' | 'Low',
     avatar: string,
     username: string,
     created: string,

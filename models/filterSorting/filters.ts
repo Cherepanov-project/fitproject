@@ -37,10 +37,10 @@ export const workoutSortingFilters = [
 ]
 
 export const articlesSortingFilters = [
-    {
-        name: "No Sorting",
-        sorting: "none"
-    },
+    // {
+    //     name: "No Sorting",
+    //     sorting: "none"
+    // },
     {
         name: 'Priority',
         sorting: 'priority'
@@ -63,6 +63,13 @@ export const recipeSubOptions = {
     CATEGORY: [] //добавить значения mealtype, пока что с сервера это не приходит
 }
 
+export const articlesFilterOptions = [
+    "Priority"
+]
+
+export const articlesSubOptions = {
+    PRIORITY: ["High", "Normal", "Low"],
+}
 
 export const workoutFilterOptions = [
     "Category",
