@@ -15,6 +15,10 @@ import ColumnName from "@/components/ColumnName/columnName"
 import CreateForm from "@/components/AddBtn/addForm"
 import Pagination from "@/components/Table/tablePagination"
 import getArrPagination from "@/utils/getArrPagination"
+import {Title} from "@/components/FilterMenu/filterMenu.styles";
+import {StyleBlockButtons, StyleHeader} from "@/styles/admin/articles/articles.styles";
+import Sort from "@/components/Sort";
+import Filter from "@/components/Filter";
 
 const WorkoutsListPage = () => {
     const [listChange, setListChange] = useState<boolean>(false)
@@ -74,7 +78,13 @@ const WorkoutsListPage = () => {
 
     return (
         <StyleContentList>
-            <FilterMenu title="Workouts" data={data} sortedD={sortedData} updateData={updateData}/>
+            <StyleHeader>
+                <Title>Recipes</Title>
+                <StyleBlockButtons>
+                    <Sort/>
+                    <Filter data={data} sortedD={sortedData} updateData={updateData}/>
+                </StyleBlockButtons>
+            </StyleHeader>
             <TableContainer>
                 <Table sx={{ minWidth: 1120 }}>
                     <ColumnName />
