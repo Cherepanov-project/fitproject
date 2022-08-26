@@ -1,7 +1,5 @@
-export const sorting = (array, sortby, direction = 'none', unchangedData) => {
-    if (sortby === 'none') {
-        return unchangedData;
-    }
+export const sorting = (array, sortby, direction) => {
+    const sortedArray = [...array]
 
     if (sortby === 'name' && direction === 'increase') {
         return array.sort((a, b) => a[sortby].localeCompare(b[sortby]))
@@ -10,12 +8,12 @@ export const sorting = (array, sortby, direction = 'none', unchangedData) => {
     }
 
     if (direction === 'decrease') {
-        return array.sort((a, b) => {
+        return sortedArray.sort((a, b) => {
             return b[sortby] - a[sortby];
         })
     } else if (direction === 'increase') {
-        return array.sort((a, b) => {
+        return sortedArray.sort((a, b) => {
             return a[sortby] - b[sortby];
-        });
+        })
     }
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, {useEffect, useMemo, useState} from "react"
 import { useQuery } from "react-query"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
@@ -18,15 +18,20 @@ import Filter from "@/components/Filter";
 import Sort from "@/components/Sort";
 import { Title } from "@/components/FilterMenu/filterMenu.styles";
 import { StyleHeader, StyleBlockButtons } from "@/styles/admin/articles/articles.styles"
+import {SortType} from "@/components/Sort/sort.interfaces";
+import {sorting} from "@/utils/sorting";
+import {TData} from "memfs/lib/volume";
 
 const RecipesListPage = () => {
     const [listChange, setListChange] = useState<boolean>(false)
     const [data, setData] = useState([])
-    const [sortedData, setSortedData] = useState([])
+    const [sort, setSort] = useState(false)
+    const [value, setValue] = useState('')
+    const [type, setType] = useState('');
+
     const {isLoading, error} = useQuery(["recipesList", listChange], getRecipesList, {
         onSuccess: (data) => {
             setData(data)
-            setSortedData(data)
         }
     })
     const [page, setPage] = useState<number>(0)
@@ -35,6 +40,18 @@ const RecipesListPage = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [page, rowsPerPage]);
+
+    const startSort = (value: string, type: SortType) => {
+        setSort(true)
+        setValue(value)
+        setType(type)
+    }
+
+    const stopSort = () => { setSort(false) }
+
+    const memoSorting: TData[] = useMemo(() => {
+       return sorting(data, value.toLowerCase(), type)
+    }, [sort, value, type])
 
     const handleChangePage = (event: unknown, newPage: number) => {
         setPage(newPage)
@@ -60,11 +77,8 @@ const RecipesListPage = () => {
         const isChanged = listChange;
         setListChange(!isChanged);
     }
-    const updateData = (newData) => {
-        setSortedData([...newData])
-    }
 
-    const recipe = getArrPagination(page, rowsPerPage, sortedData).map(el => {
+    const recipe = getArrPagination(page, rowsPerPage, sort ? memoSorting : data).map(el => {
         return (
             <TableRow hover sx={{cursor: "pointer"}} key={el.id}>
                 <TableItemRecipes
@@ -90,8 +104,8 @@ const RecipesListPage = () => {
             <StyleHeader>
                 <Title>Recipes</Title>
                 <StyleBlockButtons>
-                    <Sort/>
-                    <Filter data={data} sortedD={sortedData} updateData={updateData}/>
+                    <Sort data={data} sortedData={data} startSort={startSort} stopSort={stopSort}/>
+                    <Filter data={data} sortedD={data} />
                 </StyleBlockButtons>
             </StyleHeader>
             <TableContainer>
@@ -103,7 +117,7 @@ const RecipesListPage = () => {
             <StyleFooterRecipes>
                 <CreateForm/>
                 <Pagination
-                    count={sortedData.length}
+                    count={data.length}
                     page={page}
                     onChangePage={handleChangePage}
                     rowsPerPage={rowsPerPage}

@@ -1,11 +1,11 @@
-import React, {ChangeEvent, FC, useEffect, useState} from "react";
-import {useRouter} from "next/router";
-import {articlesSortingFilters, recipeSortingFilters, workoutSortingFilters} from "@/models/filterSorting/filters";
-import {ButtonSort, Dropdown, StyledInput, StyledLabel} from "@/components/FilterMenu/sortFilter.styles";
+import React, { FC, useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { articlesSortingFilters, recipeSortingFilters, workoutSortingFilters } from "@/models/filterSorting/filters";
+import { ButtonSort, Dropdown, StyledInput, StyledLabel } from "@/components/FilterMenu/sortFilter.styles";
 import Image from "next/image";
-import {imageSort} from "@/common/images/filterMenu";
+import { imageSort, imageDescending, imageAscending } from "@/common/images/filterMenu";
 import Props from "@/components/Sort/sort.interfaces";
-import Checkbox from "@/components/Checkbox";
+import { StyleBlockButtons, StyleButton, StyleLabel } from "@/components/Sort/sort.styles";
 
 const CheckPathForSort = (Component) => {
     return function Hoc(props) {
@@ -31,27 +31,32 @@ const CheckPathForSort = (Component) => {
     }
 }
 
-const Sort: FC<Props> = ({sortingOptions}) => {
+const Sort: FC<Props> = ({startSort, stopSort, sortingOptions}) => {
     const [noSort, setNoSort] = useState<boolean>(true)
-    // const [ sortedData, setSortedData] = useState([...data])
     const [menuActive, setMenuActive] = useState<boolean>(false)
 
-    const change = (e?: ChangeEvent<HTMLInputElement>) => {
-        if (e) {
-            setNoSort(false);
-        } else {
-            setNoSort(true)
-        }
+    const handleClick = (value, type) => {
+        setNoSort(false)
+        startSort(value, type);
     }
 
-
     const sortValues = sortingOptions.map(filter => {
-        // let isChecked = activeSorting.length === 0 ? false : activeSorting.includes(filter.name);
         return (
-            <StyledLabel key={filter.name}>
-                <Checkbox checkbox={filter.name} handleSubFilter={change} />
+            <StyleLabel key={filter.name}>
                 <span>{filter.name}</span>
-            </StyledLabel>
+                <StyleBlockButtons>
+                    <StyleButton>
+                        <Image src={imageDescending} alt="Sort Descending" onClick={() => {
+                            handleClick(filter.sorting, 'decrease')
+                        }}/>
+                    </StyleButton>
+                    <StyleButton>
+                        <Image src={imageAscending} alt="Sort Ascending" onClick={() => {
+                            handleClick(filter.sorting, 'increase')
+                        }}/>
+                    </StyleButton>
+                </StyleBlockButtons>
+            </StyleLabel>
         )
     })
     return (
@@ -60,13 +65,18 @@ const Sort: FC<Props> = ({sortingOptions}) => {
                 <Image src={imageSort} alt="sort"/>
                 Sort
             </ButtonSort>
-            {menuActive && (<Dropdown>
-                <StyledLabel key='noSorting'>
-                    <StyledInput name='noSorting' type='checkbox' checked={noSort} onChange={change}/>
-                    <span>No sorting</span>
-                </StyledLabel>
-                {sortValues}
-            </Dropdown>)}
+            {menuActive && (
+                <Dropdown>
+                    <StyledLabel key="noSorting">
+                        <StyledInput name="noSorting" type="checkbox" checked={noSort} onChange={() => {
+                            setNoSort(true)
+                            stopSort()
+                        }}/>
+                        <span>No sorting</span>
+                    </StyledLabel>
+                    {sortValues}
+                </Dropdown>
+            )}
         </>
     )
 }
