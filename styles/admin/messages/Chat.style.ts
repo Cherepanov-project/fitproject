@@ -34,20 +34,8 @@ export const ChatBody = styled.div`
   padding: 23px 30px;
   background-color: #fff;
   border: 1.5px solid #DFE0EB;
-  max-height: 335px;
+  max-height: 65vh;
   overflow-y: scroll; 
-`
-export const ChatFooter = styled.div`
-  width:100%;
-  display: flex;
-  align-items: top;
-`
-
-export const ChatFooterInput = styled.textarea`
-  width:100%;
-  margin-right:15px;
-  border: 1.5px solid #DFE0EB;
-  padding: 10px;
 `
 
 export const ChatItem = styled.div`

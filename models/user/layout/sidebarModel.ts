@@ -32,7 +32,7 @@ export const sidebarMenu: ISidebarMenuItem[] = [
     },
     {
         id: 4,
-        route: "/user/statistics",
+        route: "/user/message",
         name: "message",
         icon: message,
     },

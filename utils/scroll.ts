@@ -1,0 +1,1 @@
+export const executeScroll = (element) => element?.scrollIntoView({ block: "start", behavior: "smooth" })

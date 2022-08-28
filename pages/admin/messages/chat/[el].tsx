@@ -1,15 +1,15 @@
 import { withLayout } from "@/containers/Layout-admin/layoutAdmin"
 import { useRouter } from "next/router"
-import { useEffect, useState } from "react"
+import {useEffect, useRef, useState} from "react"
 import {chats} from "@/models/chatsList/chats"
 import { formatDistanceStrict } from 'date-fns'
-import {ChatHeader, ChatHeaderContent, ChatBody, Avatar, ChatItem } from "./Chat.style"
+import {ChatHeader, ChatHeaderContent, ChatBody, Avatar, ChatItem } from "@/styles/admin/messages/Chat.style"
 import SendMsgForm from "@/components/SendMsgForm/SendMsgForm"
 import io, { Socket } from "socket.io-client";
 import { SOCKET_URL } from "@/utils/chatsConfig/default";
 import EVENTS from "@/utils/chatsConfig/events";
-
-
+import {formatMsgTime} from "@/utils/formatMsg";
+import {executeScroll} from "@/utils/scroll";
 
 // remove after api realisation. Begin
 function getUserById(userId){
@@ -17,19 +17,19 @@ function getUserById(userId){
 }
 // remove after api realisation. End
 
-function formatMsgTime(ms){
-    let localDate = new Date(ms)
-    let hours = localDate.getHours()
-    let minutes = localDate.getMinutes()<10?'0'.concat(localDate.getMinutes().toString()):localDate.getMinutes()
-    return hours+':'+minutes
-}
-
 const socket = io(SOCKET_URL);
 
 const Chat = () => {
     let path = useRouter()
     let chat = getUserById(Number(path.query.el))
     let [messages, setMessages] = useState([])
+
+    useEffect(()=>{
+        if(scrollRef.current){
+            executeScroll(scrollRef.current)
+        }
+    },[messages])
+    const scrollRef = useRef(null)
 
     useEffect(()=>{
         setMessages(chat?.messages)
@@ -56,7 +56,7 @@ const Chat = () => {
         new Date()
     ):""} ago`
 
-    let messagesMarkup = messages?.map((value,index)=>{
+    let messagesMarkup = messages?.map((value)=>{
         return (
             <ChatItem key={value.id}>
                 <b>{(value.author?'admin':chat.username) +" - "+ formatMsgTime(value.date)}</b>
@@ -76,6 +76,7 @@ const Chat = () => {
             </ChatHeader>
             <ChatBody>
                 {messagesMarkup}
+                <div ref={scrollRef}></div>
                 <SendMsgForm onSubmitHandler={handleSendMsg}/>
             </ChatBody>
         </>
