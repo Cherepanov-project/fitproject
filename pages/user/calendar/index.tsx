@@ -75,7 +75,24 @@ const Calendar = () => {
         ? { width: 140, height: 140 }
         : { width: 100, height: 100 }
 
+    const PrefixedLink = ({ href, as = href, children, ...props }) => (
+      <Link
+        href={href}
+        as={`${process.env.pathPrefix}${as}`}
+        {...props}
+      >
+          {children}
+      </Link>
+    );
+
+
     const weekElements = arrDays(dateToday).map((el, index) => {
+
+        PrefixedLink({
+            href: `calendar/workout/${el}`,
+            children: <CalcLink>Тренировка</CalcLink>
+        })
+
         return index >= dayWeekISO - 1 &&
             index < countDay + (dayWeekISO - 1) ? (
             <Grid item xs={1} key={generateId()}>
@@ -84,9 +101,12 @@ const Calendar = () => {
                         <CalcDate>{el}</CalcDate>
                         <div>
                             <WorkoutLink>
-                                <Link href={`calendar/workout/${el}`} passHref>
+                                <PrefixedLink href={`calendar/workout/${el}`}>
                                     <CalcLink>Тренировка</CalcLink>
-                                </Link>
+                                </PrefixedLink>
+                                {/*<Link href={`calendar/workout/${el}`} passHref>*/}
+                                {/*    <CalcLink>Тренировка</CalcLink>*/}
+                                {/*</Link>*/}
                             </WorkoutLink>
                             <DietaLink>
                                 <Link href={`calendar/dieta/${el}`} passHref>

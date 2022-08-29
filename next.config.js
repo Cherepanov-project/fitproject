@@ -1,3 +1,7 @@
+const pathPrefix = process.env.NODE_ENV === 'production'
+  ? '/fitproject'
+  : '';
+
 module.exports = {
   reactStrictMode: true,
   images: {
@@ -5,6 +9,9 @@ module.exports = {
     path: "/",
   },
   basePath: '/fitproject',
+  env: {
+    pathPrefix,
+  },
   assetPrefix: '/fitproject',
   experimental: {
     // Enables the styled-components SWC transform
