@@ -1,10 +1,11 @@
 export const sorting = (array, sortby, direction) => {
+
     const sortedArray = [...array]
 
     if (sortby === 'name' && direction === 'increase') {
-        return array.sort((a, b) => a[sortby].localeCompare(b[sortby]))
+        return sortedArray.sort((a, b) => a[sortby].localeCompare(b[sortby]))
     } else if (sortby === 'name' && direction === 'decrease') {
-        return array.sort((a, b) => a[sortby].localeCompare(b[sortby])).reverse()
+        return sortedArray.sort((a, b) => a[sortby].localeCompare(b[sortby])).reverse()
     }
 
     if (direction === 'decrease') {
