@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, {useState, useEffect, useMemo, ChangeEvent} from "react"
 import Image from "next/image"
 import {
     StyledButtonSort,
@@ -10,7 +10,6 @@ import {
 import { imageFilter } from "@/common/images/filterMenu"
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos"
 import Submenu from "@/components/Submenu"
-import { filtering } from "@/utils/filtering"
 import {useRouter} from "next/router";
 import {
     articlesFilterOptions, articlesSubOptions,
@@ -49,50 +48,46 @@ const CheckPathForFilter = (Component) => {
     }
 }
 
-const Filter = ({data, sortedD, updateData, filterOptions, subOptions}) => {
+const Filter = ({data, deleteFilter, filterOptions, subOptions, startFilter}) => {
     const [menuActive, setMenuActive] = useState<boolean>(false)
-    const [animate, setAnimate] = useState<boolean>(false)
+    const [submenuActive, setSubmenuActive] = useState(false);
+    // const [animate, setAnimate] = useState<boolean>(false)
 
-    const [filterActive, setFilterActive] = useState<string>('CATEGORY')
-    const [subFilter, setSubFilter] = useState<string>('')
-
-    // const [filteredData, setFilteredData] = useState<Array<IFilterData>>([...data])
-
+    const [filterActive, setFilterActive] = useState<string>('')
     const handleSelect = (e) => {
         setFilterActive(e.target.value.toUpperCase())
-        setAnimate(true)
+        setSubmenuActive(true)
     }
+
+    const minMaxValues = useMemo(() => {
+            const arr = data.map((el) => {
+                return el[filterActive.toLowerCase()]
+            })
+            return {max: Math.max(...arr), min: Math.min(...arr)};
+    }, [filterActive, menuActive])
+
     const handleBackArrow = () => {
-        setAnimate(false)
-        setSubFilter('')
-        //updateData(data)
+        setSubmenuActive(false)
     }
 
-    const handleSubFilter = (e) => {
-        if (subFilter) {
-            setSubFilter('')
+    const handleSubFilter = (e: ChangeEvent<HTMLInputElement>, isChecked: boolean) => {
+        if (isChecked) {
+            startFilter(filterActive, e.target.value)
         } else {
-            setSubFilter(e.target.value)
+            deleteFilter(filterActive, e.target.value)
         }
     }
 
-    useEffect(() => {
-        if (subFilter.trim()) {
-            const filtered = filtering(sortedD, filterActive.toLowerCase(), subFilter)
-            // setFilteredData([...filtered])
-            updateData([...filtered])
-        } else {
-            updateData([...data])
-        }
-    }, [subFilter])
-
+    const handleCustomFilter = (min: number, max: number) => {
+        startFilter(filterActive, [min, max], 'numerical')
+    }
 
     const filters = filterOptions.map(item => {
         return (
-            <StyledFilterOption key={item} animate={animate}>
+            <StyledFilterOption key={item}>
                 <StyledLabel>{item}
                     <ArrowForwardIosIcon sx={{height: 14, marginLeft: "auto", marginRight: 0}}/>
-                    <StyledInput type="checkbox" name={item} onChange={handleSelect} value={item}/>
+                    <StyledInput type="checkbox" name={item} onChange={(e) => handleSelect(e)} value={item}/>
                 </StyledLabel>
             </StyledFilterOption>
         )
@@ -109,8 +104,10 @@ const Filter = ({data, sortedD, updateData, filterOptions, subOptions}) => {
                     <StyledDropdown>
                         {filters}
                     </StyledDropdown>
-                    <Submenu animate={animate} subOptions={subOptions[filterActive]}
-                           handleBackArrow={handleBackArrow} handleSubFilter={handleSubFilter}/>
+                    {submenuActive ? (<Submenu handleCustomFilter={handleCustomFilter}
+                                               min={minMaxValues.min} max={minMaxValues.max}
+                              subOptions={subOptions[filterActive]}
+                              handleBackArrow={handleBackArrow} handleSubFilter={handleSubFilter}/>) : null}
                 </>
             ) : null}
         </>
