@@ -1,14 +1,28 @@
-export const filtering = (array, filterBy, value) => {
-    const val = isNaN(parseInt(value)) ? value : parseInt(value)
-    if (typeof val === 'string') {
-        let filter = array.filter(element => {
-            return element[filterBy] == val
+// export const filtering = (array, filterBy, subFilter) => {
+//     const val = isNaN(parseInt(subFilter)) ? subFilter : parseInt(subFilter)
+//     // if (typeof val === 'string') {
+//     //     let filter = array.filter(element => {
+//     //         return element[filterBy.toLowerCase()] == val
+//     //     })
+//     //     return filter
+//     // } else {
+//         let filter = array.filter(element => {
+//             return element[filterBy.toLowerCase()] < val
+//         })
+//         return filter
+//     // }
+// }
+
+export const filtering = (array, filter) => {
+    const filtersArr = Object.entries(filter)
+    if (filtersArr) {
+    return array.filter(o =>
+        filtersArr.every(([key, values]) => {
+            if (typeof values[0] === "string") {
+                return values.includes(o[key.toLowerCase()])
+            }
+            return o[key.toLowerCase()] <= +values[1] && o[key.toLowerCase()] >= +values[0]
         })
-        return filter
-    } else {
-        let filter = array.filter(element => {
-            return element[filterBy] < val
-        })
-        return filter
-    }
+    )}
+    return array;
 }
