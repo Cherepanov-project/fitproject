@@ -9,15 +9,19 @@ interface Props {
 
 const SendMsgForm = ({onSubmitHandler}:Props) => {
     const [msg, setMsg] = useState("")
+    const submitAndClear = (msg) => {
+        setMsg("")
+        onSubmitHandler(msg)
+    }
     return (
         <FormContainer>
             <FormInput
-                rows={2}
+                rows={3}
                 placeholder="Напишите сообщение ..."
                 value = {msg}
                 onChange = {(evt)=>{setMsg(evt.target.value)}}
             />
-            <Button onClick={()=>{if(msg){onSubmitHandler(msg)}}} sx = {{minWidth:'135px', maxHeight:'30px', backgroundColor:"#7f8084", "&.MuiButtonBase-root:hover": {
+            <Button onClick={()=>{if(msg){submitAndClear(msg)}}} sx = {{minWidth:'135px', maxHeight:'30px', backgroundColor:"#7f8084", "&.MuiButtonBase-root:hover": {
                     bgcolor: "#7f8084"
                 }}} variant="contained" size='small' endIcon={<SendIcon />}>
                 Отправить

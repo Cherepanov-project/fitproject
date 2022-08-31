@@ -1,37 +1,59 @@
 import React, {useEffect, useRef, useState} from 'react';
-import WithRefreshingToken from "@/containers/Layout-user/WithRefreshingToken";
 import {LayoutUser} from "@/containers/Layout-user/layoutUser";
-import {Avatar, ChatBody, ChatHeader, ChatHeaderContent, ChatItem} from "@/components/Message/message.styles";
-import {chats} from "@/models/chatsList/chats";
+import {ChatBody, ChatHeader, ChatHeaderContent, ChatItem, ChatMessages} from "@/components/Message/message.styles";
 import SendMsgForm from "@/components/SendMsgForm/SendMsgForm";
-import {formatMsgTime} from "@/utils/formatMsg";
 import {executeScroll} from "@/utils/scroll";
+import {socket} from '@/utils/chatsConfig/default'
+import axios from "axios";
 
-// remove after api realisation. Begin
-function getUserById(userId){
-    return chats.find(el => el.userId === userId)
-}
-// remove after api realisation. End
-function handleSendMsg(msg: string): void{
-    console.log(msg)
-}
+
 const Chat = () => {
     const [messages, setMessages] = useState([])
-    const chat = getUserById(Number(124))
-    useEffect(()=>{
-        setMessages(chat?.messages)
-    },[])
+    useEffect(() => {
+        const connect = async () => {
+            const obj = {
+                roomId: '1',//Заменить на user ID
+                userName: 'User'//Заменить на userName
+            }
+            await axios.post('http://localhost:9999/rooms',obj)
+            socket.emit('ROOM:JOIN', obj)
+            const {data} = await axios.get(`http://localhost:9999/rooms/${obj.roomId}`)
+            setMessages(data.messages)
+        }
+        connect()
+    }, [])
+    useEffect(() => {
+        socket.on('ROOM:NEW_MESSAGE', addMessage)
+    }, [])
+
+    const onSendMessage = (text) => {
+        socket.emit('ROOM:NEW_MESSAGE',{
+            userName: 'User',
+            roomId: '1',
+            text
+        })
+        console.log(messages)
+        setMessages([...messages, ...[{userName: 'Alexander', text}]])
+    }
+
+
+    const addMessage = message => {
+        console.log(messages)
+        setMessages(currentValue => (
+            [...currentValue, ...message]
+        ))
+    }
     useEffect(()=>{
         if(scrollRef.current){
             executeScroll(scrollRef.current)
         }
     },[messages])
     const scrollRef = useRef(null)
-    const messagesMarkup = messages?.map((value)=>{
+    const messagesMarkup = messages?.map((value, index)=>{
         return (
-            <ChatItem key={value.id}>
-                <b>{(value.author?'admin':chat.username) +" - "+ formatMsgTime(value.date)}</b>
-                <div style={{marginTop:'10px'}}>{value.mess}</div>
+            <ChatItem key={value.userName + value.text + index}>
+                <b>{(value.userName)}</b>
+                <div style={{marginTop:'10px'}}>{value.text}</div>
             </ChatItem>
         )
     })
@@ -39,18 +61,20 @@ const Chat = () => {
     return (
         <>
             <ChatHeader>
-                <Avatar avatar={chat?.avatar}/>
+
                 <ChatHeaderContent>
                     <b>Админ</b>
                 </ChatHeaderContent>
             </ChatHeader>
             <ChatBody>
-                {messagesMarkup}
-                <div ref={scrollRef}></div>
-                <SendMsgForm onSubmitHandler={handleSendMsg}/>
+                <ChatMessages>
+                    {messagesMarkup}
+                    <div ref={scrollRef}></div>
+                </ChatMessages>
+                <SendMsgForm onSubmitHandler={onSendMessage}/>
             </ChatBody>
         </>
     );
 };
 
-export default WithRefreshingToken(LayoutUser(Chat))
+export default LayoutUser(Chat)

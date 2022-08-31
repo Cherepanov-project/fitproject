@@ -10,6 +10,8 @@ export const ChatHeader = styled.div`
   padding: 23px 30px;
   background-color: #fff;
   border: 1.5px solid #DFE0EB;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
 `
 
 export const ChatHeaderContent = styled.div`
@@ -35,7 +37,12 @@ export const ChatBody = styled.div`
   background-color: #fff;
   border: 1.5px solid #DFE0EB;
   max-height: 65vh;
-  overflow-y: scroll; 
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+`
+export const ChatMessages = styled.div`
+  overflow-y: auto;
+  height: 370px;
 `
 
 export const ChatItem = styled.div`

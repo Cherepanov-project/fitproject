@@ -8,4 +8,6 @@ export const ChatsPreviewsContainer = styled.div`
 export const CustomLink = styled.a`
   text-decoration: none;
   cursor:pointer;
+  display: flex;
+  flex-direction: column;
 `
