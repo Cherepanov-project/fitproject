@@ -1,4 +1,4 @@
-import React, {FC, useState} from "react"
+import React, { FC } from "react"
 import {
     StyledSubmenu,
     StyledSubmenuOption,
@@ -9,14 +9,14 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import Checkbox from "@/components/Checkbox";
 import {Props} from "@/components/Submenu/submenu.interface";
 import {StyleBlockInputs, StyleInput, StyleLabelForInput, StyleSubmit } from "./submenu.style";
+import { Formik } from "formik";
 
-const Submenu: FC<Props> = ({handleCustomFilter, subOptions, handleBackArrow, handleSubFilter, min, max}) => {
-    const [minValue, setMinValue] = useState(0)
-    const [maxValue, setMaxValue] = useState(0)
+const Submenu: FC<Props> = ({selected, handleCustomFilter, subOptions, handleBackArrow, handleSubFilter, min, max}) => {
     const submenus = subOptions.values?.map(item => {
+        const isChecked = (selected?.includes(item));
         return (
             <StyledSubLabel key={item}>
-                <Checkbox checkbox={item} handleSubFilter={handleSubFilter}/>
+                <Checkbox isChecked={isChecked} checkbox={item} handleSubFilter={handleSubFilter}/>
                 <span>{item}</span>
             </StyledSubLabel>
         )
@@ -29,18 +29,39 @@ const Submenu: FC<Props> = ({handleCustomFilter, subOptions, handleBackArrow, ha
                     <ArrowBackIosIcon sx={{height: 15, verticalAlign: "middle"}}/>
                 </StyledButton>
                 {subOptions.type === 'numerical' ? (
-                    <StyleBlockInputs>
-                         <StyleLabelForInput>
-                             <span>From</span>
-                             <StyleInput type="number" placeholder={`${min}`} onChange={(e) => setMinValue(+e.target.value)}/>
-                         </StyleLabelForInput>
-                         <StyleLabelForInput>
-                             <span>To</span>
-                             <StyleInput type="number" onChange={(e) => setMaxValue(+e.target.value)} placeholder={`${max}`} />
-                         </StyleLabelForInput>
-                        <StyleSubmit type={"button"} onClick={() => handleCustomFilter(minValue, maxValue)}>Filter!</StyleSubmit>
-                     </StyleBlockInputs>
-                    ) : submenus}
+                    <Formik
+                    initialValues={{ from: selected ? selected[0] : '', to: selected ? selected[1] : '' }}
+                    validate={(values) => {
+                        if (values.to < values.from) {
+                            values.to = values.from
+                        }
+                        if (values.to > max) {
+                            values.to = max
+                        }
+                        if (values.from < min) {
+                            values.from = min
+                        }
+                        if (values.from > values.to) {
+                            values.from = values.to
+                        }
+                    }}
+                    onSubmit={(values) => handleCustomFilter(+values.from, +values.to)}
+                    >
+                        {({values, handleBlur, handleChange, handleSubmit}) => (
+                            <StyleBlockInputs onSubmit={handleSubmit}>
+                                <StyleLabelForInput>
+                                    From
+                                <StyleInput placeholder={min.toString()} type='number' name='from' onChange={handleChange} onBlur={handleBlur} value={values.from}></StyleInput>
+                                </StyleLabelForInput>
+                                <StyleLabelForInput>
+                                    To
+                                    <StyleInput placeholder={max.toString()} type='number' name='to' onChange={handleChange} onBlur={handleBlur} value={values.to}></StyleInput>
+                                </StyleLabelForInput>
+                                <StyleSubmit type={"submit"} onSubmit={handleSubmit}>Filter!</StyleSubmit>
+                            </StyleBlockInputs>
+                        )}
+                    </Formik>)
+                    : submenus}
             </StyledSubmenuOption>
         </StyledSubmenu>
     )
