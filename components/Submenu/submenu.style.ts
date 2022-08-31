@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyleBlockInputs = styled.div`
+export const StyleBlockInputs = styled.form`
   display: flex;
   flex-direction: column;
   row-gap: 10px;
