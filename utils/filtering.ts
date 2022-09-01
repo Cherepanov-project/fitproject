@@ -19,7 +19,8 @@ export const filtering = (array, filter) => {
     return array.filter(o =>
         filtersArr.every(([key, values]) => {
             if (typeof values[0] === "string") {
-                return values.includes(o[key.toLowerCase()])
+                let newStr = o[key.toLowerCase()][0].toUpperCase() + o[key.toLowerCase()].toLowerCase().slice(1);
+                return values.includes(newStr)
             }
             return o[key.toLowerCase()] <= +values[1] && o[key.toLowerCase()] >= +values[0]
         })
