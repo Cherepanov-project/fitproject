@@ -1,5 +1,5 @@
-import React, { ChangeEvent, FC, useState } from "react"
-import { StyledSubInput} from "@/components/Filter/filter.styles"
+import React, { ChangeEvent, FC } from "react"
+import { StyledSubInput } from "@/components/Filter/filter.styles"
 import { Props } from "./checkbox.interfaces"
 
 const Checkbox: FC<Props> = ({isChecked, checkbox, handleSubFilter}) => {
