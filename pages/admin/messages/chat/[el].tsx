@@ -1,59 +1,63 @@
-import { withLayout } from "@/containers/Layout-admin/layoutAdmin"
+import {withLayout} from "@/containers/Layout-admin/layoutAdmin"
 import React, {useEffect, useRef, useState} from "react"
-import {ChatHeader, ChatHeaderContent, ChatBody, Avatar, ChatItem, ChatMessages } from "@/styles/admin/messages/Chat.style"
+import {
+    ChatHeader,
+    ChatHeaderContent,
+    ChatBody,
+    ChatItem,
+    ChatMessages,
+} from "@/styles/admin/messages/Chat.style"
 import SendMsgForm from "@/components/SendMsgForm/SendMsgForm"
-import {executeScroll} from "@/utils/scroll";
-import axios from "axios";
-import {socket} from "@/utils/chatsConfig/default";
-import {useRouter} from "next/router";
+import {executeScroll} from "@/utils/scroll"
+import {socket} from "@/utils/chatsConfig/default"
+import {useRouter} from "next/router"
+import {getRoomData} from "@/API/messages"
 
 const Chat = () => {
     const {query} = useRouter()
     const [messages, setMessages] = useState([])
+    const [userName, setUserName] = useState("")
     useEffect(() => {
-        const connect = async () => {
-            const obj = {
-                roomId: query.el,
-                userName: 'Admin'
-            }
-            if(query.el){
-                socket.emit('ROOM:JOIN', obj)
-                const {data} = await axios.get(`http://localhost:9999/rooms/${obj.roomId}`)
-                setMessages(data.messages)
-            }
+        const room = {
+            roomId: query.el,
+            userName: "Admin",
         }
-        socket.on('ROOM:NEW_MESSAGE', addMessage)
-        connect()
+        if (query.el) {
+            socket.emit("ROOM:JOIN", room)
+            getRoomData(room.roomId).then(data => {
+                setMessages(data.messages)
+                setUserName(data.roomOwner)
+            })
+        }
+        socket.on("ROOM:NEW_MESSAGE", addMessage)
         return () => {
-            socket.emit('ROOM:LEAVE', query.el)
+            socket.emit("ROOM:LEAVE", query.el)
         }
     }, [query])
 
-    const onSendMessage = (text) => {
-        socket.emit('ROOM:NEW_MESSAGE',{
-            userName: 'Admin',
+    const onSendMessage = text => {
+        socket.emit("ROOM:NEW_MESSAGE", {
+            userName: "Admin",
             roomId: query.el,
-            text
+            text,
         })
-        setMessages([...messages, ...[{userName: 'Admin', text}]])
+        setMessages([...messages, ...[{userName: "Admin", text}]])
     }
 
     const addMessage = message => {
-        setMessages(currentValue => (
-            [...currentValue, ...message]
-        ))
+        setMessages(currentValue => [...currentValue, ...message])
     }
-    useEffect(()=>{
-        if(scrollRef.current){
+    useEffect(() => {
+        if (scrollRef.current) {
             executeScroll(scrollRef.current)
         }
-    },[messages])
+    }, [messages])
     const scrollRef = useRef(null)
-    const messagesMarkup = messages?.map((value, index)=>{
+    const messagesMarkup = messages?.map((value, index) => {
         return (
             <ChatItem key={value.userName + value.text + index}>
-                <b>{(value.userName)}</b>
-                <div style={{marginTop:'10px'}}>{value.text}</div>
+                <b>{value.userName}</b>
+                <div style={{marginTop: "10px"}}>{value.text}</div>
             </ChatItem>
         )
     })
@@ -62,7 +66,7 @@ const Chat = () => {
         <>
             <ChatHeader>
                 <ChatHeaderContent>
-                    <b>{query.el}</b>
+                    <b>{userName}</b>
                 </ChatHeaderContent>
             </ChatHeader>
             <ChatBody>
@@ -73,7 +77,7 @@ const Chat = () => {
                 <SendMsgForm onSubmitHandler={onSendMessage}/>
             </ChatBody>
         </>
-    );
-};
+    )
+}
 
 export default withLayout(Chat)

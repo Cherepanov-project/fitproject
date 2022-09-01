@@ -1,59 +1,54 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {LayoutUser} from "@/containers/Layout-user/layoutUser";
-import {ChatBody, ChatHeader, ChatHeaderContent, ChatItem, ChatMessages} from "@/components/Message/message.styles";
-import SendMsgForm from "@/components/SendMsgForm/SendMsgForm";
-import {executeScroll} from "@/utils/scroll";
-import {socket} from '@/utils/chatsConfig/default'
-import axios from "axios";
-
+import React, {useEffect, useRef, useState} from "react"
+import {LayoutUser} from "@/containers/Layout-user/layoutUser"
+import {
+    ChatBody,
+    ChatHeader,
+    ChatHeaderContent,
+    ChatItem,
+    ChatMessages,
+} from "@/components/Message/message.styles"
+import SendMsgForm from "@/components/SendMsgForm/SendMsgForm"
+import {executeScroll} from "@/utils/scroll"
+import {socket} from "@/utils/chatsConfig/default"
+import {addRoom, getRoomData} from "@/API/messages"
 
 const Chat = () => {
     const [messages, setMessages] = useState([])
     useEffect(() => {
-        const connect = async () => {
-            const obj = {
-                roomId: '1',//Заменить на user ID
-                userName: 'User'//Заменить на userName
-            }
-            await axios.post('http://localhost:9999/rooms',obj)
-            socket.emit('ROOM:JOIN', obj)
-            const {data} = await axios.get(`http://localhost:9999/rooms/${obj.roomId}`)
-            setMessages(data.messages)
+        const room = {
+            roomId: "1", //Заменить на user ID
+            userName: "User", //Заменить на userName
         }
-        connect()
+        addRoom(room).then()
+        socket.emit("ROOM:JOIN", room)
+        getRoomData(room.roomId).then(data => setMessages(data.messages))
+        socket.on("ROOM:NEW_MESSAGE", addMessage)
     }, [])
     useEffect(() => {
-        socket.on('ROOM:NEW_MESSAGE', addMessage)
-    }, [])
-
-    const onSendMessage = (text) => {
-        socket.emit('ROOM:NEW_MESSAGE',{
-            userName: 'User',
-            roomId: '1',
-            text
-        })
-        console.log(messages)
-        setMessages([...messages, ...[{userName: 'Alexander', text}]])
-    }
-
-
-    const addMessage = message => {
-        console.log(messages)
-        setMessages(currentValue => (
-            [...currentValue, ...message]
-        ))
-    }
-    useEffect(()=>{
-        if(scrollRef.current){
+        if (scrollRef.current) {
             executeScroll(scrollRef.current)
         }
-    },[messages])
+    }, [messages])
+
+    const onSendMessage = text => {
+        socket.emit("ROOM:NEW_MESSAGE", {
+            userName: "User",
+            roomId: "1",
+            text,
+        })
+        setMessages([...messages, ...[{userName: "User", text}]])
+    }
+
+    const addMessage = message => {
+        setMessages(currentValue => [...currentValue, ...message])
+    }
+
     const scrollRef = useRef(null)
-    const messagesMarkup = messages?.map((value, index)=>{
+    const messagesMarkup = messages?.map((value, index) => {
         return (
             <ChatItem key={value.userName + value.text + index}>
-                <b>{(value.userName)}</b>
-                <div style={{marginTop:'10px'}}>{value.text}</div>
+                <b>{value.userName}</b>
+                <div style={{marginTop: "10px"}}>{value.text}</div>
             </ChatItem>
         )
     })
@@ -61,7 +56,6 @@ const Chat = () => {
     return (
         <>
             <ChatHeader>
-
                 <ChatHeaderContent>
                     <b>Админ</b>
                 </ChatHeaderContent>
@@ -74,7 +68,7 @@ const Chat = () => {
                 <SendMsgForm onSubmitHandler={onSendMessage}/>
             </ChatBody>
         </>
-    );
-};
+    )
+}
 
 export default LayoutUser(Chat)
