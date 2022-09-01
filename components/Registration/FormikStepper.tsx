@@ -2,13 +2,13 @@ import { useState } from "react"
 import { Children, ReactElement } from "react"
 import { nanoid } from "nanoid"
 import { Formik, FormikConfig, Form } from "formik"
+import { CircularProgress, Grid } from "@mui/material"
+
 import {
-  Button,
-  CircularProgress,
-  Grid,
-  StepLabel,
-  Stepper,
-} from "@mui/material"
+  StyledStepper,
+  StyledStepLabel,
+  StyledButton,
+} from "./FormikStepper.styles"
 
 import RegOrLoginSocial from "../RegOrLoginSocial/regOrLoginSocial"
 import {
@@ -52,88 +52,28 @@ export const FormikStepper = ({
       >
         {({ isSubmitting, handleChange }) => (
           <Form autoComplete="off" onChange={handleChange}>
-            <Stepper
-              activeStep={step}
-              sx={{ "& :nth-child(2)": { width: "186px" } }}
-            >
+            <StyledStepper activeStep={step}>
               {childrenArray.map((child, index) => (
-                <StepLabel
-                  sx={{
-                    textTransform: "uppercase",
-                    margin: "0 0.8rem 1.8rem",
-                    width: "112px",
-                    height: "48px",
-                    textAlign: "center",
-                    borderRadius: "5px",
-                    border: "solid 2px #C9CFDA",
-                    font: `${
-                      step === index
-                        ? "#51AD78"
-                        : step > index
-                        ? "#56CCF2"
-                        : "#C9CFDA"
-                    }`,
-                    borderColor: `${
-                      step === index
-                        ? "#51AD78"
-                        : step > index
-                        ? "#56CCF2"
-                        : "#B0BAC9"
-                    }`,
-                    span: {
-                      fontFamily: "Open Sans",
-                      fontWeight: 400,
-                      color: `${
-                        step === index
-                          ? "#51AD78"
-                          : step > index
-                          ? "#56CCF2"
-                          : "#B0BAC9"
-                      }`,
-                    },
-                  }}
-                  key={nanoid()}
-                >
+                <StyledStepLabel activeStep={step} index={index} key={nanoid()}>
                   {child.props.label}
-                </StepLabel>
+                </StyledStepLabel>
               ))}
-            </Stepper>
+            </StyledStepper>
             {currentChild}
             <Grid container spacing={2}>
               {step > 0 ? (
                 <Grid item>
-                  <Button
-                    sx={{
-                      backgroundColor: "#B0BAC9",
-                      fontFamily: "Open Sans",
-
-                      fontWeight: 400,
-                      fontSize: "14px",
-                      lineHeight: "16px",
-                      marginTop: "40px",
-                      width: "154px",
-                      height: "48px",
-                    }}
+                  <StyledButton
                     disabled={isSubmitting || registerSuccess}
                     variant="contained"
                     onClick={() => setStep(step => step - 1)}
                   >
                     previous step
-                  </Button>
+                  </StyledButton>
                 </Grid>
               ) : null}
               <Grid item sx={{ marginLeft: "auto" }}>
-                <Button
-                  sx={{
-                    backgroundColor: "#6D63FF",
-                    fontFamily: "Open Sans",
-                    fontWeight: 400,
-                    fontSize: "14px",
-                    lineHeight: "16px",
-                    marginTop: "40px",
-                    width: "154px",
-                    height: "48px",
-                  }}
+                <StyledButton
                   startIcon={
                     isSubmitting ? <CircularProgress size="1.5rem" /> : null
                   }
@@ -146,7 +86,7 @@ export const FormikStepper = ({
                     : isLastStep()
                     ? "Create account"
                     : "next step"}
-                </Button>
+                </StyledButton>
               </Grid>
             </Grid>
           </Form>
