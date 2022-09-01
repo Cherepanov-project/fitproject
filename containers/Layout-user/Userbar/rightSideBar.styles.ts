@@ -1,20 +1,8 @@
 import styled from "styled-components"
 import { IconWrapperProps } from "@/containers/Layout-user/layoutUser.interface"
-import { ListItemButton, ListItemIcon, ListItemText, List } from "@mui/material"
-
-export const StyledList = styled(List)`
-  &&& {
-    margin: auto 0px;
-    padding: 8px;
-  }
-`
+import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material"
 
 export const StyledListItemButton = styled(ListItemButton)`
-  &&& {
-    position: relative;
-    margin-top: 30px;
-    padding: 24px 24px 24px 10px;
-  }
   height: 60px;
   &:after {
     content: "";
