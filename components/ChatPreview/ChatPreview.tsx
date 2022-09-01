@@ -1,4 +1,10 @@
-import {ChatBlockPreview, Avatar, PreviewChatContent, ChatLeftPartPreview, PreviewChatRightPart} from "./ChatPreview.style"
+import {
+    ChatBlockPreview,
+    PreviewChatContent,
+    ChatLeftPartPreview,
+    PreviewChatRightPart,
+    PreviewMessage
+} from "./ChatPreview.style"
 import format from 'date-fns/format'
 
 const ChatPreview = ({username, lastMsg, date}) => {
@@ -7,11 +13,11 @@ const ChatPreview = ({username, lastMsg, date}) => {
             <ChatLeftPartPreview>
                 <PreviewChatContent>
                     <b>{username}</b>
-                    <div>{lastMsg}</div>
+                    <PreviewMessage>{lastMsg}</PreviewMessage>
                 </PreviewChatContent>
             </ChatLeftPartPreview>
             <PreviewChatRightPart>
-                <div>{format(new Date(date),"PP")}</div>
+                <div>{date && format(new Date(date),"PP")}</div>
             </PreviewChatRightPart>
         </ChatBlockPreview>
     )

@@ -26,6 +26,9 @@ export const PreviewChatContent = styled.div`
   flex-direction: column;
   justify-content: space-between;
 `
+export const PreviewMessage = styled.div`
+  margin-top: 10px;
+`
 export const ChatLeftPartPreview = styled.div`
   display: flex;
 `
