@@ -34,7 +34,6 @@ export const ButtonFoodTransparent = styled(ButtonFood)`
   }
 `
 
-
 export const DishComponent = styled.div<IImg>`
   min-height: 500px;
   background: url(${({ imgUrl }) => imgUrl});
@@ -172,4 +171,7 @@ export const DishDescriptionWrapper = styled.div`
     font-size: 23.9784px;
     line-height: 39px;
   }
+`
+export const StyledHeaderContainer = styled.div`
+  margin: -20px -35px 35px -55px;
 `
