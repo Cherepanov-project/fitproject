@@ -172,3 +172,6 @@ export const DishDescriptionWrapper = styled.div`
     line-height: 39px;
   }
 `
+export const StyledHeaderContainer = styled.div`
+  margin: -20px -35px 35px -55px;
+`

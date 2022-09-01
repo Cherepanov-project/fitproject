@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { IconWrapperProps } from "@/containers/Layout-user/layoutUser.interface"
 
 export const MainWrapper = styled.div`
   height: 100vh;
@@ -27,6 +28,7 @@ export const UserInfo = styled.div`
   align-self: center;
 `
 
+
 export const WeightLossGoalWrapper = styled.div`
   margin: 0 auto;
   text-align: center;
@@ -46,6 +48,7 @@ export const Loss = styled.div`
 
 export const StyledSpan = styled.span`
   font-weight: 400;
+
 `
 
 export const IconArrow = styled.img`
@@ -73,7 +76,6 @@ export const Avatar = styled.img`
 `
 
 export const UserName = styled.div`
-  font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
@@ -81,19 +83,30 @@ export const UserName = styled.div`
 `
 
 export const LastVisitTime = styled.div`
-  font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
   font-size: 13px;
+  font-weight: 400;
   line-height: 16px;
-
   letter-spacing: -0.005em;
+  color: #787878;
+
 `
 
 export const Icon = styled.img`
   width: 27px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+
 `
 
-export const IconWrapper = styled.div``
+export const IconWrapper = styled.div<IconWrapperProps>`
+  background: ${props => props.backgroundColor || "transparent"};
+  border-radius: 100%;
+  padding: 27px;
+  width: 27px;
+  height: 27px;
+  position: relative;
+`
 
 export const PaperProps = {
   elevation: 0,

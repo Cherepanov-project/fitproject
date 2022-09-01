@@ -15,9 +15,6 @@ import MenuItem from "@mui/material/MenuItem"
 import { Logout, PersonAdd, Settings } from "@mui/icons-material"
 
 // images
-import SettingsIcon from "@/common/images/layoutUser/userbarIcons/SeetingsIcon.svg"
-import goalsIcon from "@/common/images/layoutUser/userbarIcons/goals.svg"
-import diet from "@/common/images/layoutUser/userbarIcons/diet.svg"
 import defaultAvatar from "@/common/images/layoutUser/userbarIcons/defaultAvatar.png"
 import arrow from "@/common/images/layoutUser/userbarIcons/arrow.svg"
 
@@ -40,7 +37,11 @@ import {
   RightSideBarWrapper,
   MainWrapper,
   StyledSpan,
+
 } from "./rightSideBar.styles"
+import { FontRoboto } from "@/utils/fonts/fontStyles"
+import { rightSidebar } from "@/models/user/layout/sidebarModel"
+import Link from "next/link"
 
 const drawerWidth: string = "244px"
 
@@ -54,7 +55,9 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
     includeSeconds: true,
   })
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
-  const [kilograms, setKilograms] = React.useState<number>(5)
+
+  const [kilograms, setKilograms] = React.useState(5)
+
   const open = Boolean(anchorEl)
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) =>
@@ -89,71 +92,57 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
             padding: "8px",
           }}
         >
-          {["Goals", "Diet", "Settings"].map((text: string, index: number) => (
-            <ListItemButton
-              key={generateId()}
-              sx={{
-                position: "relative",
-                marginTop: "30px",
-                marginLeft: "2px",
-                padding: "24px",
-                width: "100%",
-                height: "32px",
-                ":after": {
-                  content: '""',
-                  backgroundColor: "#f0efff",
-                  display: "block",
-                  position: "absolute",
-                  height: "100%",
-                  width: "0%",
-                  left: "0",
-                  top: "0",
-                  opacity: "0",
-                  transition: "width 500ms linear, opacity 0.5s ease 1s",
-                  boxShadow: "0px 1px 4px rgb(0 0 0 / 25%)",
-                  borderRadius: "10px",
-                },
-                ":hover": {
-                  backgroundColor: "transparent",
-                  width: "100%",
-                  height: "40px",
-                  padding: "24px 24px",
-                  right: "0",
-                  borderRadius: "10px",
-                  img: {
-                    transition: "1s",
-                    border: "none",
-                    boxShadow: "none",
-                  },
+         {rightSidebar.map(({ text, src, route, bg }, index) => (
+            <Link href={route} key={generateId()}>
+              <ListItemButton
+                sx={{
+                  position: "relative",
+                  marginTop: "30px",
+                  padding: "24px 24px 24px 10px",
+                  height: "60px",
                   ":after": {
-                    width: "100%",
-                    opacity: "1",
-                    transition: "width 500ms linear",
+                    content: '""',
+                    backgroundColor: "#47dcc43b",
+                    display: "block",
+                    position: "absolute",
+                    height: "100%",
+                    width: "0%",
+                    left: "0",
+                    top: "0",
+                    opacity: "0",
+                    transition: "width 500ms linear, opacity 0.5s ease 1s",
+                    boxShadow: "0px 1px 4px rgb(0 0 0 / 25%)",
+                    borderRadius: "10px",
                   },
-                },
-              }}
-            >
-              <ListItemIcon sx={{ zIndex: "2" }}>
-                {index === 0 ? (
-                  <IconWrapper>
-                    <Icon src={goalsIcon.src} />
+                  ":hover": {
+                    borderRadius: "10px",
+                    background: "transparent",
+                    img: {
+                      transition: "1s",
+                      border: "none",
+                      boxShadow: "none",
+                    },
+                    ":after": {
+                      width: "100%",
+                      opacity: "1",
+                      transition: "width 500ms linear",
+                    },
+                  },
+                }}
+              >
+                <ListItemIcon sx={{ zIndex: "2", marginRight: "10px" }}>
+                  <FontRoboto />
+                  <IconWrapper backgroundColor={bg}>
+                    <Icon src={src.toString()} />
                   </IconWrapper>
-                ) : index === 1 ? (
-                  <IconWrapper>
-                    <Icon src={diet.src} />
-                  </IconWrapper>
-                ) : (
-                  <IconWrapper>
-                    <Icon src={SettingsIcon.src} />
-                  </IconWrapper>
-                )}
-              </ListItemIcon>
-              <ListItemText
-                primary={text}
-                sx={{ width: "100%", zIndex: "2" }}
-              />
-              <IconArrow src={arrow.src} />
-            </ListItemButton>
+                </ListItemIcon>
+                <ListItemText
+                  primary={text}
+                  sx={{ width: "100%", zIndex: "2" }}
+                />
+                <IconArrow src={arrow.src} />
+              </ListItemButton>
+            </Link>
           ))}
         </List>
         <WeightLossGoalWrapper>
