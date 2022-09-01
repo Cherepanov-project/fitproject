@@ -7,7 +7,7 @@ import { formatDistanceToNow } from "date-fns"
 
 // ui libs
 
-import ListItemIcon from "@mui/material/ListItemIcon"
+import { ListItemIcon, List } from "@mui/material"
 
 import Menu from "@mui/material/Menu"
 import MenuItem from "@mui/material/MenuItem"
@@ -36,10 +36,10 @@ import {
   RightSideBarWrapper,
   MainWrapper,
   StyledSpan,
+  StyledList,
   StyledListItemButton,
   StyledListItemIcon,
   StyledListItemText,
-  StyledList,
 } from "./rightSideBar.styles"
 import { FontRoboto } from "@/utils/fonts/fontStyles"
 import { rightSidebar } from "@/models/user/layout/sidebarModel"

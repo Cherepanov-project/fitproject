@@ -2,10 +2,19 @@ import styled from "styled-components"
 import { IconWrapperProps } from "@/containers/Layout-user/layoutUser.interface"
 import { ListItemButton, ListItemIcon, ListItemText, List } from "@mui/material"
 
+export const StyledList = styled(List)`
+  &&& {
+    margin: auto 0px;
+    padding: 8px;
+  }
+`
+
 export const StyledListItemButton = styled(ListItemButton)`
-  position: relative;
-  margin-top: 30px;
-  padding: 24px 24px 24px 10px;
+  &&& {
+    position: relative;
+    margin-top: 30px;
+    padding: 24px 24px 24px 10px;
+  }
   height: 60px;
   &:after {
     content: "";
@@ -35,10 +44,6 @@ export const StyledListItemButton = styled(ListItemButton)`
       transition: width 500ms linear;
     }
   }
-`
-export const StyledList = styled(List)`
-  margin: auto 0;
-  padding: 8px;
 `
 
 export const StyledListItemIcon = styled(ListItemIcon)`
