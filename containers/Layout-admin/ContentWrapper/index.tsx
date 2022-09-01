@@ -1,18 +1,19 @@
-import {useRouter} from "next/router";
-import React, {useEffect, useMemo, useState} from "react";
-import {useQuery} from "react-query";
-import {getRecipesList} from "@/API/recipes";
-import {SortType} from "@/components/Sort/sort.interfaces";
-import {filtering} from "@/utils/filtering";
-import {sorting} from "@/utils/sorting";
-import {StyleContentList, StyleFooterRecipes, StyleLoaderContainer} from "@/styles/admin/recipes/recipes.styles";
+import { useRouter } from "next/router";
+import React, { useEffect, useMemo, useState } from "react";
+import { useQuery } from "react-query";
+import { getRecipesList } from "@/API/recipes";
+import { SortType } from "@/components/Sort/sort.interfaces";
+import { filtering } from "@/utils/filtering";
+import { sorting } from "@/utils/sorting";
+import { StyleContentList, StyleFooterRecipes, StyleLoaderContainer } from "@/styles/admin/recipes/recipes.styles";
 import CircularProgress from "@mui/material/CircularProgress";
-import {StyleBlockButtons, StyleHeader} from "@/styles/admin/articles/articles.styles";
-import {Title} from "@/components/FilterMenu/filterMenu.styles";
+import { StyleBlockButtons, StyleHeader } from "@/styles/admin/articles/articles.styles";
+import { Title } from "@/components/FilterMenu/filterMenu.styles";
 import Sort from "@/components/Sort";
 import Filter from "@/components/Filter";
 import CreateForm from "@/components/AddBtn/addForm";
 import Pagination from "@/components/Table/tablePagination";
+import { getWorkoutList } from "@/API/workouts";
 
 export const ContentWrapper = (Component) => {
     return function Hoc(props) {
@@ -27,7 +28,9 @@ export const ContentWrapper = (Component) => {
         const [page, setPage] = useState<number>(0)
         const [rowsPerPage, setRowsPerPage] = useState<number>(8)
 
-        const {isLoading, error} = useQuery([sendRequest, listChange], getRecipesList, {
+        const methodRec = path === 'recipes' && getRecipesList;
+        const methodWork = path === 'workouts' && getWorkoutList;
+        const {isLoading, error} = useQuery([sendRequest, listChange], methodRec || methodWork, {
             onSuccess: (data) => {
                 setData(data)
             }
@@ -138,13 +141,15 @@ export const ContentWrapper = (Component) => {
         return (
             <StyleContentList>
                 <StyleHeader>
-                    <Title>Recipes</Title>
+                    <Title>{path}</Title>
                     <StyleBlockButtons>
                         <Sort data={data} sortedData={data} startSort={startSort} stopSort={stopSort}/>
-                        <Filter filterSelect={changingData.filter} deleteFilter={deleteFilter} startFilter={startFilter} data={data}/>
+                        <Filter filterSelect={changingData.filter} deleteFilter={deleteFilter} startFilter={startFilter}
+                                data={data}/>
                     </StyleBlockButtons>
                 </StyleHeader>
-                <Component page={page} rowsPerPage={rowsPerPage} memoData={memoData} data={data} updateList={updateList}></Component>
+                <Component page={page} rowsPerPage={rowsPerPage} memoData={memoData} data={data}
+                           updateList={updateList}></Component>
                 <StyleFooterRecipes>
                     <CreateForm/>
                     <Pagination
