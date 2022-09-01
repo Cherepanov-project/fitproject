@@ -33,6 +33,8 @@ export const ChatMessages = styled.div`
 `
 export const ChatItem = styled.div`
   padding: 10px;
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 23px;
   background-color: #fff;
   border: 1.5px solid #DFE0EB;

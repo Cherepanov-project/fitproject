@@ -12,6 +12,7 @@ import {executeScroll} from "@/utils/scroll"
 import {socket} from "@/utils/chatsConfig/default"
 import {useRouter} from "next/router"
 import {getRoomData} from "@/API/messages"
+import {formatMsgTime} from "@/utils/formatMsg";
 
 const Chat = () => {
     const {query} = useRouter()
@@ -36,15 +37,20 @@ const Chat = () => {
     }, [query])
 
     const onSendMessage = text => {
-        socket.emit("ROOM:NEW_MESSAGE", {
+        const message = {
             userName: "Admin",
-            roomId: query.el,
             text,
+            date: new Date()
+        }
+        socket.emit("ROOM:NEW_MESSAGE", {
+            ...message,
+            roomId: query.el
         })
-        setMessages([...messages, ...[{userName: "Admin", text}]])
+        setMessages([...messages, message])
     }
 
     const addMessage = message => {
+        console.log(message)
         setMessages(currentValue => [...currentValue, ...message])
     }
     useEffect(() => {
@@ -56,8 +62,11 @@ const Chat = () => {
     const messagesMarkup = messages?.map((value, index) => {
         return (
             <ChatItem key={value.userName + value.text + index}>
-                <b>{value.userName}</b>
-                <div style={{marginTop: "10px"}}>{value.text}</div>
+                <div>
+                    <b>{value.userName}</b>
+                    <div style={{marginTop: "10px"}}>{value.text}</div>
+                </div>
+                <div>{formatMsgTime(value.date)}</div>
             </ChatItem>
         )
     })

@@ -11,6 +11,7 @@ import SendMsgForm from "@/components/SendMsgForm/SendMsgForm"
 import {executeScroll} from "@/utils/scroll"
 import {socket} from "@/utils/chatsConfig/default"
 import {addRoom, getRoomData} from "@/API/messages"
+import {formatMsgTime} from "@/utils/formatMsg";
 
 const Chat = () => {
     const [messages, setMessages] = useState([])
@@ -31,12 +32,16 @@ const Chat = () => {
     }, [messages])
 
     const onSendMessage = text => {
-        socket.emit("ROOM:NEW_MESSAGE", {
-            userName: "User",
-            roomId: "1",
+        const message = {
+            userName: "User",//Заменить на userName
             text,
+            date: new Date()
+        }
+        socket.emit("ROOM:NEW_MESSAGE", {
+            ...message,
+            roomId: "1"//заменить на User ID
         })
-        setMessages([...messages, ...[{userName: "User", text}]])
+        setMessages([...messages, message])
     }
 
     const addMessage = message => {
@@ -47,8 +52,11 @@ const Chat = () => {
     const messagesMarkup = messages?.map((value, index) => {
         return (
             <ChatItem key={value.userName + value.text + index}>
-                <b>{value.userName}</b>
-                <div style={{marginTop: "10px"}}>{value.text}</div>
+                <div>
+                    <b>{value.userName}</b>
+                    <div style={{marginTop: "10px"}}>{value.text}</div>
+                </div>
+                <div>{formatMsgTime(value.date)}</div>
             </ChatItem>
         )
     })
