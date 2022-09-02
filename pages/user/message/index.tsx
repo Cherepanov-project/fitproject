@@ -10,19 +10,26 @@ import {
 import SendMsgForm from "@/components/SendMsgForm/SendMsgForm"
 import {executeScroll} from "@/utils/scroll"
 import {socket} from "@/utils/chatsConfig/default"
-import {addRoom, getRoomData} from "@/API/messages"
+import {addRoom} from "@/API/messages"
 import {formatMsgTime} from "@/utils/formatMsg";
+import {useMutation} from "react-query";
+import {StyleLoaderContainer} from "@/styles/admin/messages/chats.style";
+import CircularProgress from "@mui/material/CircularProgress";
+import {IRoomBaseInfo, IRoomFullData, Message} from "@/models/messages/messages";
 
 const Chat = () => {
-    const [messages, setMessages] = useState([])
+    const [messages, setMessages] = useState<Message[]>([])
+    const {
+        isLoading,
+        mutate
+    } = useMutation('addRoom', (room: IRoomBaseInfo) => addRoom(room), {onSuccess: (roomData: IRoomFullData) => setMessages(roomData.messages)})
     useEffect(() => {
         const room = {
             roomId: "1", //Заменить на user ID
             userName: "User", //Заменить на userName
         }
-        addRoom(room).then()
+        mutate(room)
         socket.emit("ROOM:JOIN", room)
-        getRoomData(room.roomId).then(data => setMessages(data.messages))
         socket.on("ROOM:NEW_MESSAGE", addMessage)
     }, [])
     useEffect(() => {
@@ -44,8 +51,8 @@ const Chat = () => {
         setMessages([...messages, message])
     }
 
-    const addMessage = message => {
-        setMessages(currentValue => [...currentValue, ...message])
+    const addMessage = (message:Message) => {
+        setMessages(currentValue => [...currentValue, message])
     }
 
     const scrollRef = useRef(null)
@@ -60,7 +67,6 @@ const Chat = () => {
             </ChatItem>
         )
     })
-
     return (
         <>
             <ChatHeader>
@@ -69,6 +75,11 @@ const Chat = () => {
                 </ChatHeaderContent>
             </ChatHeader>
             <ChatBody>
+                {
+                    isLoading && <StyleLoaderContainer>
+                        <CircularProgress></CircularProgress>
+                    </StyleLoaderContainer>
+                }
                 <ChatMessages>
                     {messagesMarkup}
                     <div ref={scrollRef}></div>

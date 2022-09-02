@@ -13,22 +13,30 @@ import {socket} from "@/utils/chatsConfig/default"
 import {useRouter} from "next/router"
 import {getRoomData} from "@/API/messages"
 import {formatMsgTime} from "@/utils/formatMsg";
+import {useQuery} from "react-query";
+import {StyleLoaderContainer} from "@/styles/admin/messages/chats.style";
+import CircularProgress from "@mui/material/CircularProgress";
+import {Message} from "@/models/messages/messages";
 
 const Chat = () => {
     const {query} = useRouter()
-    const [messages, setMessages] = useState([])
+    const [messages, setMessages] = useState<Message[]>([])
     const [userName, setUserName] = useState("")
+    const {isLoading, refetch} = useQuery('roomData', () => getRoomData(String(query.el)), {
+        enabled:false,
+        onSuccess: (room) => {
+            setMessages(room.messages)
+            setUserName(room.roomOwner)
+        }
+    })
     useEffect(() => {
         const room = {
             roomId: query.el,
             userName: "Admin",
         }
-        if (query.el) {
+        if(query.el) {
             socket.emit("ROOM:JOIN", room)
-            getRoomData(room.roomId).then(data => {
-                setMessages(data.messages)
-                setUserName(data.roomOwner)
-            })
+            refetch()
         }
         socket.on("ROOM:NEW_MESSAGE", addMessage)
         return () => {
@@ -37,7 +45,7 @@ const Chat = () => {
     }, [query])
 
     const onSendMessage = text => {
-        const message = {
+        const message:Message = {
             userName: "Admin",
             text,
             date: new Date()
@@ -49,9 +57,8 @@ const Chat = () => {
         setMessages([...messages, message])
     }
 
-    const addMessage = message => {
-        console.log(message)
-        setMessages(currentValue => [...currentValue, ...message])
+    const addMessage = (message: Message) => {
+        setMessages(currentValue => [...currentValue, message])
     }
     useEffect(() => {
         if (scrollRef.current) {
@@ -70,7 +77,13 @@ const Chat = () => {
             </ChatItem>
         )
     })
-
+    if (isLoading) {
+        return (
+            <StyleLoaderContainer>
+                <CircularProgress></CircularProgress>
+            </StyleLoaderContainer>
+        )
+    }
     return (
         <>
             <ChatHeader>

@@ -39,3 +39,7 @@ export const ChatItem = styled.div`
   background-color: #fff;
   border: 1.5px solid #DFE0EB;
 `
+export const StyleLoaderContainer = styled.div`
+  width: 100%;
+  margin: 25% 50%;
+`
