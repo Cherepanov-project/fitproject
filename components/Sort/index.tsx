@@ -7,40 +7,40 @@ import { imageSort, imageDescending, imageAscending } from "@/common/images/filt
 import Props from "@/components/Sort/sort.interfaces";
 import { StyleBlockButtons, StyleButton, StyleLabel } from "@/components/Sort/sort.styles";
 
-const CheckPathForSort = (Component) => {
-    return function Hoc(props) {
-        const {asPath} = useRouter()
-        let path = asPath.split("/").pop()
-        const [sortingOptions, setSortingNames] = useState([])
+// const CheckPathForSort = (Component) => {
+//     return function Hoc(props) {
+//         const {asPath} = useRouter()
+//         let path = asPath.split("/").pop()
+//         const [sortingOptions, setSortingNames] = useState([])
+//
+//         useEffect(() => {
+//             if (path === "recipes") {
+//                 setSortingNames(recipeSortingFilters)
+//             }
+//             if (path === "workouts") {
+//                 setSortingNames(workoutSortingFilters)
+//             }
+//             if (path === 'articles') {
+//                 setSortingNames(articlesSortingFilters)
+//             }
+//         }, [path])
+//
+//         return (
+//             <Component {...props} sortingOptions={sortingOptions}/>
+//         )
+//     }
+// }
 
-        useEffect(() => {
-            if (path === "recipes") {
-                setSortingNames(recipeSortingFilters)
-            }
-            if (path === "workouts") {
-                setSortingNames(workoutSortingFilters)
-            }
-            if (path === 'articles') {
-                setSortingNames(articlesSortingFilters)
-            }
-        }, [path])
-
-        return (
-            <Component {...props} sortingOptions={sortingOptions}/>
-        )
-    }
-}
-
-const Sort: FC<Props> = ({startSort, stopSort, sortingOptions}) => {
+const Sort = ({ sortSelect, changeSortData }) => {
     const [noSort, setNoSort] = useState<boolean>(true)
-    const [menuActive, setMenuActive] = useState<boolean>(false)
+    // const [menuActive, setMenuActive] = useState<boolean>(false)
 
     const handleClick = (value, type) => {
         setNoSort(false)
-        startSort(value, type);
+        changeSortData(false, value, type)
     }
 
-    const sortValues = sortingOptions.map(filter => {
+    const sortValues = sortSelect.map(filter => {
         return (
             <StyleLabel key={filter.name}>
                 <span>{filter.name}</span>
@@ -61,24 +61,23 @@ const Sort: FC<Props> = ({startSort, stopSort, sortingOptions}) => {
     })
     return (
         <>
-            <ButtonSort onClick={() => setMenuActive(!menuActive)}>
-                <Image src={imageSort} alt="sort"/>
-                Sort
-            </ButtonSort>
-            {menuActive && (
+            {/*<ButtonSort onClick={() => setMenuActive(!menuActive)}>*/}
+            {/*    <Image src={imageSort} alt="sort"/>*/}
+            {/*    Sort*/}
+            {/*</ButtonSort>*/}
+            {/*{menuActive && (*/}
                 <Dropdown>
                     <StyledLabel key="noSorting">
                         <StyledInput name="noSorting" type="checkbox" checked={noSort} onChange={() => {
                             setNoSort(true)
-                            stopSort()
+                            changeSortData(true)
                         }}/>
                         <span>No sorting</span>
                     </StyledLabel>
                     {sortValues}
                 </Dropdown>
-            )}
         </>
     )
 }
 
-export default CheckPathForSort(Sort)
+export default Sort
