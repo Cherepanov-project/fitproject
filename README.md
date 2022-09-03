@@ -45,4 +45,6 @@ Front-end fitness project on Next.JS
     Visual primitives for the component age. Use the best bits of ES6 and CSS to style your apps without stress.
 
 
+## Notes
 
+* For correct working next.js with styled components we need to add extra file _document.js

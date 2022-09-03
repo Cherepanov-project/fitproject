@@ -6,7 +6,7 @@ import generateId from "@/utils/generateId"
 import { IFoodItemType } from "@/models/models.interface"
 import { dishFood } from "@/models/dish/dish"
 import DishIngredients from "./dishIngredients"
-import HeadLinkBack from "../HeadLinkBack/headLinkBack"
+
 import {
   DishComponent,
   DishItem,
@@ -17,11 +17,20 @@ import {
   ButtonFood,
   ButtonFoodTransparent,
   DishDescriptionWrapper,
+  StyledHeaderContainer,
 } from "./dish.styles"
+import HeadLinkBack from "@/components/HeadLinkBack/headLinkBack"
 
 const Dish = () => {
-  const { query } = useRouter()
+  const router = useRouter()
   const [foodItem, setFoodItem] = useState<IFoodItemType>(dishFood)
+
+  const Header = router.asPath.includes("calendar") ? (
+    <HeadLinkBack
+      backLink={"/user/calendar/"}
+      namesComponent={router.query.eating}
+    />
+  ) : null
 
   const ingredientsActive = () => {
     const activeIngredientsMutant = {
@@ -57,6 +66,7 @@ const Dish = () => {
 
   return (
     <DishComponent imgUrl={img.src}>
+      <StyledHeaderContainer>{Header}</StyledHeaderContainer>
       <DishItem>
         <DishDescriptionWrapper>
           <h2>{foodItem.namesFood}</h2>
