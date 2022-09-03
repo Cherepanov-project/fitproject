@@ -31,6 +31,9 @@ const Chat = () => {
         mutate(room)
         socket.emit("ROOM:JOIN", room)
         socket.on("ROOM:NEW_MESSAGE", addMessage)
+        return () => {
+            socket.off("ROOM:NEW_MESSAGE", addMessage)
+        }
     }, [])
     useEffect(() => {
         if (scrollRef.current) {

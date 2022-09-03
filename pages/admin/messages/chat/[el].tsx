@@ -30,6 +30,13 @@ const Chat = () => {
         }
     })
     useEffect(() => {
+        socket.on("ROOM:NEW_MESSAGE", addMessage)
+        return () => {
+            socket.off("ROOM:NEW_MESSAGE", addMessage)
+            socket.emit("ROOM:LEAVE", query.el)
+        }
+    }, [])
+    useEffect(() => {
         const room = {
             roomId: query.el,
             userName: "Admin",
@@ -37,10 +44,6 @@ const Chat = () => {
         if(query.el) {
             socket.emit("ROOM:JOIN", room)
             refetch()
-        }
-        socket.on("ROOM:NEW_MESSAGE", addMessage)
-        return () => {
-            socket.emit("ROOM:LEAVE", query.el)
         }
     }, [query])
 
