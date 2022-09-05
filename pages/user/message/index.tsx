@@ -10,26 +10,21 @@ import {
 import SendMsgForm from "@/components/SendMsgForm/SendMsgForm"
 import {executeScroll} from "@/utils/scroll"
 import {socket} from "@/utils/chatsConfig/default"
-import {addRoom} from "@/API/messages"
+import {getRoomData} from "@/API/messages"
 import {formatMsgTime} from "@/utils/formatMsg";
-import {useMutation} from "react-query";
+import {useQuery} from "react-query";
 import {StyleLoaderContainer} from "@/styles/admin/messages/chats.style";
 import CircularProgress from "@mui/material/CircularProgress";
 import {IRoomBaseInfo, IRoomFullData, Message} from "@/models/messages/messages";
 
 const Chat = () => {
     const [messages, setMessages] = useState<Message[]>([])
-    const {
-        isLoading,
-        mutate
-    } = useMutation('addRoom', (room: IRoomBaseInfo) => addRoom(room), {onSuccess: (roomData: IRoomFullData) => setMessages(roomData.messages)})
-    useEffect(() => {
-        const room = {
-            roomId: "1", //Заменить на user ID
-            userName: "User", //Заменить на userName
+    const {isLoading} = useQuery('roomData', () => getRoomData('1'), {
+        onSuccess: (room) => {
+            setMessages(room.messages)
         }
-        mutate(room)
-        socket.emit("ROOM:JOIN", room)
+    })
+    useEffect(() => {
         socket.on("ROOM:NEW_MESSAGE", addMessage)
         return () => {
             socket.off("ROOM:NEW_MESSAGE", addMessage)
@@ -79,7 +74,8 @@ const Chat = () => {
             </ChatHeader>
             <ChatBody>
                 {
-                    isLoading && <StyleLoaderContainer>
+                    isLoading &&
+                    <StyleLoaderContainer>
                         <CircularProgress></CircularProgress>
                     </StyleLoaderContainer>
                 }
