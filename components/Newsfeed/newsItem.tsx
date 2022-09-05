@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from "styled-components";
+import Modal from "@/components/Newsfeed/Modal/Modal";
 
 const Item = styled.div`
   position: relative;
@@ -49,6 +50,8 @@ const Item = styled.div`
 
 
 const NewsItem = (props: {[index: string]:any}) => {
+
+    const [showModal, setShowModal] = useState(false)
   
   function formater(text) {
     const re = /&quot;/gi;
@@ -56,11 +59,14 @@ const NewsItem = (props: {[index: string]:any}) => {
   }
   
   return (
-    <Item {...props}>
-      <p style={{color: '#4138D0', fontSize: '18px'}}>{props.properties.title}</p>
-      <p style={{color: '#858585', fontSize: '10px', lineHeight: '20px', paddingLeft: '4px'}}>{props.properties.date}</p>
-      <p style={{fontSize: '14px'}}>{formater(props.properties.descr)}</p>
-    </Item>
+      <>
+          <Item {...props} onClick={() => setShowModal(true)}>
+              <p style={{color: '#4138D0', fontSize: '18px'}}>{props.properties.title}</p>
+              <p style={{color: '#858585', fontSize: '10px', lineHeight: '20px', paddingLeft: '4px'}}>{props.properties.date}</p>
+              <p style={{fontSize: '14px'}}>{formater(props.properties.descr)}</p>
+          </Item>
+          <Modal onClose={() => setShowModal(false)} show={showModal} url={props.properties.url}/>
+      </>
   )
 };
 

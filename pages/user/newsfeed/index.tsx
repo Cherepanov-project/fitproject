@@ -49,7 +49,7 @@ export const NewsfeedLayout = () => {
     })
   }, [])
 
-  console.log(feed);
+  // console.log(feed);
   return (
     <Layout>
       {feed.map((item: IFeed) => {
