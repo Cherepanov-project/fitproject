@@ -51,21 +51,45 @@ const Item = styled.div`
 
 const NewsItem = (props: {[index: string]:any}) => {
 
-    const [showModal, setShowModal] = useState(false)
-  
-  function formater(text) {
-    const re = /&quot;/gi;
-    return text.replace(re, ' ')
+  const [showModal, setShowModal] = useState(false);
+  const [feed, setFeed] = useState('');
+
+  function fullFeedHandler(desc) {
+    // fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`)
+    // .then(response => {
+    //   if (response.ok) {
+    //     return response.json();
+    //   }
+    //   throw new Error('Network response was not ok.')
+    // })
+    // .then(data => {
+    //   console.log(data.contents)
+    //   let proxy = [];
+    //   let snippets: any = new DOMParser().parseFromString(data.contents, "text/html").querySelectorAll('.mg-snippet__text')
+    //   snippets = [...snippets]
+    //   snippets.forEach((item) => {
+    //     // let p = document.createElement('p')
+    //     // p.innerHTML = item.innerHTML
+    //     proxy.push(snippets)
+    //     // body.append(p)
+    //     // body.append(document.createElement('p').append(item.innerHTML))
+    //     console.log(item.innerHTML)
+    //     setFeed(proxy);
+    //   })
+    // });
+    console.log(desc);
+    setFeed(desc)
+    setShowModal(true)
   }
   
   return (
       <>
-          <Item {...props} onClick={() => setShowModal(true)}>
+          <Item {...props} onClick={() => fullFeedHandler(props.properties.content)}>
               <p style={{color: '#4138D0', fontSize: '18px'}}>{props.properties.title}</p>
-              <p style={{color: '#858585', fontSize: '10px', lineHeight: '20px', paddingLeft: '4px'}}>{props.properties.date}</p>
-              <p style={{fontSize: '14px'}}>{formater(props.properties.descr)}</p>
+              <p style={{color: '#858585', fontSize: '10px', lineHeight: '20px', paddingLeft: '4px'}}>{props.properties.publishedAt}</p>
+              <p style={{fontSize: '14px'}}>{props.properties.description}</p>
           </Item>
-          <Modal onClose={() => setShowModal(false)} show={showModal} url={props.properties.url}/>
+          <Modal onClose={() => setShowModal(false)} show={showModal} feed={feed}/>
       </>
   )
 };

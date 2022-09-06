@@ -40,13 +40,19 @@ export const NewsfeedLayout = () => {
 
 
   useEffect(() => {
-    const script = document.createElement('script')
-    const body = document.getElementsByTagName('body')[0]
-    script.src = 'https://news.yandex.ru/ru/sport.utf8.js'
-    body.appendChild(script)
-    script.addEventListener('load', () => {
-      setFeed(window.m_sport);
-    })
+    fetch('https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRFp1ZEdvU0FuSjFHZ0pTVlNnQVAB?hl=ru&gl=RU&ceid=RU%3Aru')
+      .then((data) => data.json())
+      .then((data) => {
+        console.log(data);
+        // setFeed(data.articles)
+      });
+    // const script = document.createElement('script')
+    // const body = document.getElementsByTagName('body')[0]
+    // script.src = 'https://news.yandex.ru/ru/sport.utf8.js'
+    // body.appendChild(script)
+    // script.addEventListener('load', () => {
+    //   setFeed(window.m_sport);
+    // })
   }, [])
 
   // console.log(feed);

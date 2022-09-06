@@ -34,36 +34,13 @@ const ModalTitle = styled.div`
 `
 
 const Modal = (props) => {
-    const [feed, setFeed] = useState([])
 
-    console.log(feed)
+    // console.log(props.feed)
     useEffect(() => {
-        fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://yandex.ru/news/story/Dolzhnost_prezidenta_Spartaka_zajmyot_Aleksandr_Matycyn--c1d8b9813cf72a2dbb6589153c317ed9?lang=ru&from=js&wan=1&stid=hmAemKe6V8q5oQjD0VE4')}`)
-            .then(response => {
-                if (response.ok) {
-                    return response.json()
-                }
-                throw new Error('Network response was not ok.')
-            })
-            .then(data => {
-                let proxy = [];
-                let snippets: any = new DOMParser().parseFromString(data.contents, "text/html").querySelectorAll('.mg-snippet__text')
-                snippets = [...snippets]
-                snippets.forEach((item) => {
-                    let p = document.createElement('p')
-                    // p.innerHTML = item.innerHTML
-                    proxy.push(item.innerHTML)
-                    // body.append(p)
-                    // body.append(document.createElement('p').append(item.innerHTML))
-                    console.log(item.innerHTML)
-                    setFeed(proxy);
-                })
-            });
-    }, [feed])
 
-    function fullFeedHandler() {
+    }, [])
 
-    }
+
 
     if (!props.show) {
         return null
@@ -75,7 +52,7 @@ const Modal = (props) => {
                 <ModalHeader>
                     <h4 className='modal-title'>Modal Title</h4>
                 </ModalHeader>
-                <ModalBody>{feed}</ModalBody>
+                <ModalBody>{props.feed && props.feed}</ModalBody>
                 <ModalHeader>
                     <button onClick={props.onClose} className='button'>Close</button>
                 </ModalHeader>
