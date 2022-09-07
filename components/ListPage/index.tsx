@@ -1,17 +1,22 @@
-import React, { useState } from "react";
+import React, { FC, useMemo, useState } from "react";
 import getArrPagination from "@/utils/getArrPagination";
-import TableItemWorkouts from "@/components/TableItemWorkouts/tableItemWorkouts";
 import TableContainer from "@mui/material/TableContainer";
 import Table from "@mui/material/Table";
 import ColumnName from "@/components/ColumnName/columnName";
 import TableBody from "@mui/material/TableBody";
-import { StyleFooterRecipes } from "@/styles/admin/recipes/recipes.styles";
 import CreateForm from "@/components/AddBtn/addForm";
 import Pagination from "@/components/Table/tablePagination";
+import { IProps } from "@/components/ListPage/listPage.interface";
+import { StyleFooterRecipes } from "./listPage.styles";
+import processingData from "@/utils/processingData";
 
-const PaginationWrapper = ({ data }) => {
+export const ListPage: FC<IProps> = ({Component, data, processData, updateList}) => {
     const [page, setPage] = useState<number>(0)
     const [rowsPerPage, setRowsPerPage] = useState<number>(8)
+
+    const memoData = useMemo(() => {
+        return processingData(data, processData)
+    }, [processData])
 
     const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
         setRowsPerPage(+event.target.value)
@@ -22,19 +27,13 @@ const PaginationWrapper = ({ data }) => {
         setPage(newPage)
     }
 
-    const renderData = getArrPagination(page, rowsPerPage, data).map(el => {
+    const renderData = getArrPagination(page, rowsPerPage, !memoData ? data : memoData).map(el => {
         return (
-            <TableItemWorkouts
+            <Component
                 key={el.id}
-                id={el.id}
-                name={el.name}
-                repeatCount={el.repeatCount}
-                approachCount={el.approachCount}
-                area={el.area}
-                category={el.category}
-                status={"HIGH"}
-                // updateList={updateList}
-                el={el}
+                element={el}
+                updateList={updateList}
+                item={el}
             />
         )
     })
@@ -61,4 +60,3 @@ const PaginationWrapper = ({ data }) => {
     )
 }
 
-export default PaginationWrapper
