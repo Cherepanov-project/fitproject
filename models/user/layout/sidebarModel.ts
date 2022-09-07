@@ -55,6 +55,12 @@ export const sidebarMenu: ISidebarMenuItem[] = [
     name: "sheet",
     icon: sheet,
   },
+  {
+    id: 6,
+    route: "/user/newsfeed",
+    name: "newsfeed",
+    icon: sheet,
+  },
 ]
 
 export const rightSidebar: IRightSideBarItem[] = [
