@@ -1,19 +1,10 @@
-import React, { ChangeEvent, FC } from "react"
-import { StyledSubInput } from "@/components/Filter/filter.styles"
-import { Props } from "./checkbox.interfaces"
+import React, { FC } from "react"
+import { IProps } from "./checkbox.interfaces"
+import { StyledSubInput } from "./checkbox.styles"
 
-const Checkbox: FC<Props> = ({isChecked, checkbox, handleSubFilter}) => {
-
-    const handleClick = (event: ChangeEvent<HTMLInputElement>) => {
-        if (!isChecked) {
-            handleSubFilter(event, true)
-        } else {
-            handleSubFilter(event, false)
-        }
-    }
-
+const Checkbox: FC<IProps> = ({isChecked, checkbox, handleFilter}) => {
     return (
-        <StyledSubInput type="checkbox" name={checkbox} checked={isChecked} onChange={(event) => handleClick(event)}
+        <StyledSubInput type="checkbox" name={checkbox} checked={isChecked} onChange={(event) => handleFilter(event.target.value)}
                         value={checkbox}/>
     )
 }

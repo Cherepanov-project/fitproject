@@ -1,7 +1,5 @@
-import {ChangeEvent} from "react";
-
-export interface Props {
+export interface IProps {
     checkbox: string;
-    handleSubFilter: (event: ChangeEvent<HTMLInputElement>, isChecked: boolean) => void;
+    handleFilter: (value: string) => void;
     isChecked: boolean;
 }
