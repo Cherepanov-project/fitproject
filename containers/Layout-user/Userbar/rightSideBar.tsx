@@ -7,7 +7,7 @@ import { formatDistanceToNow } from "date-fns"
 
 // ui libs
 
-import ListItemIcon from "@mui/material/ListItemIcon"
+import { ListItemIcon, List } from "@mui/material"
 
 import Menu from "@mui/material/Menu"
 import MenuItem from "@mui/material/MenuItem"
@@ -39,7 +39,6 @@ import {
   StyledListItemButton,
   StyledListItemIcon,
   StyledListItemText,
-  StyledList,
 } from "./rightSideBar.styles"
 import { FontRoboto } from "@/utils/fonts/fontStyles"
 import { rightSidebar } from "@/models/user/layout/sidebarModel"
@@ -88,10 +87,16 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
             <LastVisitTime>Joined {lastVisitTime}</LastVisitTime>
           </UserInfo>
         </UserInfoWrapper>
-        <StyledList>
+        <List sx={{ margin: "auto 0px", padding: "8px" }}>
           {rightSidebar.map(({ text, src, route, bg }, index) => (
             <Link href={route} key={generateId()} passHref>
-              <StyledListItemButton>
+              <StyledListItemButton
+                sx={{
+                  position: "relative",
+                  marginTop: "30px",
+                  padding: "24px 24px 24px 10px",
+                }}
+              >
                 <StyledListItemIcon>
                   <FontRoboto />
                   <IconWrapper backgroundColor={bg}>
@@ -103,7 +108,7 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
               </StyledListItemButton>
             </Link>
           ))}
-        </StyledList>
+        </List>
         <WeightLossGoalWrapper>
           Weight loss Goal
           <Loss>

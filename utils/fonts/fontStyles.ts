@@ -116,8 +116,8 @@ export const FontInter = createGlobalStyle`
 
  @font-face {
      font-family: 'Inter';
-     src: local('Inter Semibold'), local('Inter-Semibold'), 
-          url('/fitproject/fonts/inter/Inter-Semibold.ttf') format('truetype');
+     src: local('Inter Semibold'), local('Inter-SemiBold'), 
+          url('/fitproject/fonts/inter/Inter-SemiBold.ttf') format('truetype');
      font-weight: 600;
      font-style: normal;
  }
