@@ -56,7 +56,7 @@ export const LayoutUser = <T extends Record<string, undefined>>(
         }, [])
         return (
             <RequiredLayout>
-                <Notification />
+                <Notification role="user"/>
                 <Component {...props} />
             </RequiredLayout>
         )

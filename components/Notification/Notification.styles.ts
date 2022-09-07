@@ -10,4 +10,5 @@ export const NotificationWrapper = styled.div`
   right: 20px;
   bottom: 20px;
   z-index: 1000;
+  cursor: pointer;
 `

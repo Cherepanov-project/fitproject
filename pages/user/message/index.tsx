@@ -46,6 +46,10 @@ const Chat = () => {
             ...message,
             roomId: "1"//заменить на User ID
         })
+        socket.emit("ROOM:ADMIN_NOTIFICATION", {
+            ...message,
+            roomId: "ADMIN_ROOM"
+        })
         setMessages([...messages, message])
     }
 
