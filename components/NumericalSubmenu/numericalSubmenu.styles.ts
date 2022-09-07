@@ -14,7 +14,7 @@ export const StyleLabelForInput = styled.label`
 `
 
 export const StyleInput = styled.input`
-  width: 150px;
+  width: 100%;
   padding: 5px 5px;
   background-color: white;
   border-radius: 5px;
