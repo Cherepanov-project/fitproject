@@ -40,7 +40,7 @@ export const NewsfeedLayout = () => {
 
 
   useEffect(() => {
-    fetch('https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRFp1ZEdvU0FuSjFHZ0pTVlNnQVAB?hl=ru&gl=RU&ceid=RU%3Aru')
+    fetch('https://newsdata.io/api/1/news?apikey=pub_10994629523bc981a2ed9e4df92ec7ac7e9c2&q=sports&country=ru')
       .then((data) => data.json())
       .then((data) => {
         console.log(data);
