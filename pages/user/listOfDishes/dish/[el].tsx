@@ -4,7 +4,7 @@ import Dish from "@/components/Dish/dish"
 import Slider from "@/components/Slider/slider"
 import CardDish from "@/components/ListOfDishes/CardDish/CardDish"
 
-import { LayoutUser } from "@/containers/Layout-user/layoutUser"
+import { WithLayout } from "@/containers/Layout-user/withLayout"
 import WithRefreshingToken from "@/containers/Layout-user/WithRefreshingToken"
 import generateId from "@/utils/generateId"
 
@@ -29,7 +29,9 @@ const DishesItem = (): JSX.Element => {
 
   const filteredListDishes = dishFoodAll.filter(item => {
     const star = specificationStar.filter(s => s.id === item.star)[0]
-    return (urlQuery || '').includes(item.id) && (urlQuery || '').includes(star.name)
+    return (
+      (urlQuery || "").includes(item.id) && (urlQuery || "").includes(star.name)
+    )
   })
 
   const listDishes = filteredListDishes.map(item => (
@@ -54,4 +56,4 @@ const DishesItem = (): JSX.Element => {
   )
 }
 
-export default WithRefreshingToken(LayoutUser(DishesItem))
+export default WithLayout(WithRefreshingToken(DishesItem))

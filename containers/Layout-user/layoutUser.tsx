@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react"
+import React from "react"
 
 import { layoutUserProps } from "./layoutUser.interface"
 import LeftSideBar from "./Navbar/leftSideBar"
@@ -13,9 +13,7 @@ import {
 // font
 import { FontInter } from "@/utils/fonts/fontStyles"
 
-export const RequiredLayout: React.FC<layoutUserProps> = ({
-  children,
-}): JSX.Element => {
+export const UserLayout: React.FC<layoutUserProps> = ({ children }) => {
   return (
     <>
       <StyledLayoutUser>
@@ -37,16 +35,4 @@ export const RequiredLayout: React.FC<layoutUserProps> = ({
       </StyledLayoutUser>
     </>
   )
-}
-
-export const LayoutUser = <T extends Record<string, undefined>>(
-  Component: FunctionComponent<T>
-) => {
-  return function withLayoutComponent(props: T): JSX.Element {
-    return (
-      <RequiredLayout>
-        <Component {...props} />
-      </RequiredLayout>
-    )
-  }
 }
