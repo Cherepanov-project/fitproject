@@ -1,24 +1,35 @@
-import React, { useState } from "react";
-import { StyleBlockButtons, StyleHeader } from "@/styles/admin/articles/articles.styles";
-import { Title } from "@/components/FilterMenu/filterMenu.styles";
+import React, { FC, useState } from "react";
 import Sort from "@/components/Sort";
 import Filter from "@/components/Filter";
 import { ListPage } from "@/components/ListPage";
 import Image from "next/image";
-import { imageSort } from "@/common/images/filterMenu";
-import { ButtonSort } from "@/components/FilterMenu/sortFilter.styles";
+import { imageFilter, imageSort } from "@/common/images/filterMenu";
+import { IProps } from "@/components/SortAndFilter/sortAndFilter.interface";
+import { StyleBlockButtons, StyleButton, StyleHeader, Title } from "./sortAndFilter.styles";
 
-const SortAndFilter = ({config: {title, ...configs}}) => {
-    const [processData, setProcessData] = useState({sort: {}, filter: {}})
+const SortAndFilter: FC<IProps> = ({config: {title, sort, filterOptions, filterSubOptions, Component}, data, updateList}) => {
+
+    const [processSort, setProcessSort] = useState({});
+    const [processFilter, setProcessFilter] = useState({...filterSubOptions})
     const [isActiveSort, setIsActiveSort] = useState(false)
+    const [isActiveFilter, setIsActiveFilter] = useState(false)
 
-    const changeProcessData = (type: 'filter' | 'sort', key, value: string[] | [number, number]) => {
-        setProcessData(
-            (prev) => {
-                prev[type][key] = value
-                return ({...prev})
-            }
-        )
+    const changeFilterData = (key: string, value: string | [number, number]) => {
+        if (typeof value === 'string') {
+            processFilter[key][value] = !processFilter[key][value]
+            setProcessFilter({...processFilter})
+        } else {
+            processFilter[key] = value;
+            setProcessFilter({...processFilter})
+        }
+    }
+
+    const changeSortData = (stop: boolean, key?: string, type?: 'increase' | 'decrease') => {
+        if (!stop) {
+            setProcessSort({[key]: type})
+        } else {
+            setProcessSort({})
+        }
     }
 
     return (
@@ -26,15 +37,22 @@ const SortAndFilter = ({config: {title, ...configs}}) => {
             <StyleHeader>
                 <Title>{title}</Title>
                 <StyleBlockButtons>
-                    <ButtonSort onClick={() => setIsActiveSort(!isActiveSort)}>
+                    <StyleButton onClick={() => setIsActiveSort(!isActiveSort)}>
                         <Image src={imageSort} alt="sort"/>
                         Sort
-                    </ButtonSort>
-                    {isActiveSort ? <Sort sortSelect={processData.sort}/> : null}
-                    <Filter filterSelect={processData.filter}/>
+                    </StyleButton>
+                    {isActiveSort ? <Sort sortSelect={sort} changeSortData={changeSortData} /> : null}
+                    <StyleButton onClick={() => {
+                        setIsActiveFilter(!isActiveFilter)
+                    }}>
+                        <Image src={imageFilter} alt="image-filter"/>
+                        Filter
+                    </StyleButton>
+                    {isActiveFilter ? (<Filter data={data} subOptions={processFilter} options={filterOptions}
+                             changeFilterData={changeFilterData}/>) : null}
                 </StyleBlockButtons>
             </StyleHeader>
-            <ListPage config={configs} processData={processData}/>
+            <ListPage updateList={updateList} Component={Component} data={data} processData={{filter: processFilter, sort: processSort }}/>
         </>
     )
 }
