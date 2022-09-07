@@ -45,8 +45,7 @@ export const RequiredLayout: React.FC<layoutUserProps> = ({
 export const LayoutUser = <T extends Record<string, undefined>>(
     Component: FunctionComponent<T>
 ) => {
-    return function withLayoutComponent(props: T): JSX.Element {
-
+    return function WithLayoutComponent(props: T): JSX.Element {
         useEffect(() => {
             const room = {
                 roomId: "1", //Заменить на user ID
