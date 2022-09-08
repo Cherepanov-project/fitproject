@@ -1,12 +1,10 @@
-import {useRouter} from "next/router";
-import React, {FC} from "react";
+import React from "react";
 import {deleteRecipeById} from "@/API/recipes";
 import TableCell from "@mui/material/TableCell";
 import Avatar from "@mui/material/Avatar";
 import {
     MenuIcon,
     StyledImage,
-    StyledSecondaryText,
     StyledText
 } from "@/components/TableItemRecipes/tableItemRecipes.styles";
 import Image from "next/image";
@@ -19,14 +17,13 @@ import MenuItem from "@mui/material/MenuItem";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import Link from "next/link";
 import EditIcon from "@mui/icons-material/Edit";
-import {IArticleProps} from "@/components/TableItemArticles/tableItemArticles.interface";
 import {StyledBlock, StyledExtraText} from "./tableItemArticles.styles";
 import {formatDistanceToNow, format} from "date-fns";
+import { TableRow } from "@mui/material";
 
 const options = ["Delete", "Edit"]
 
-const TableItemArticles: FC<IArticleProps> = ({
-                                                  article: {
+const TableItemArticles = ({ updateList, element, item: {
                                                       id,
                                                       created,
                                                       priority,
@@ -46,11 +43,11 @@ const TableItemArticles: FC<IArticleProps> = ({
     const handleDelete = async () => {
         const response = await deleteRecipeById(id)
         handleClose()
-        // updateList()
+        updateList()
     }
 
     return (
-        <>
+        <TableRow hover sx={{ cursor: "pointer" }}>
             <TableCell
                 component="td"
                 scope="row"
@@ -78,9 +75,9 @@ const TableItemArticles: FC<IArticleProps> = ({
                 </StyledBlock>
             </TableCell>
             <TableCell sx={{paddingLeft: 3.5}}>
-                {priority === "High" ? (
+                {priority === "HIGH" ? (
                     <ColorfulTeg text={priority} backgroundColor="#F12B2C"/>
-                ) : priority === "Low" ? (
+                ) : priority === "LOW" ? (
                     <ColorfulTeg
                         text={priority}
                         backgroundColor="#FEC400
@@ -135,7 +132,7 @@ const TableItemArticles: FC<IArticleProps> = ({
                     </Menu>
                 </MenuIcon>
             </TableCell>
-        </ >
+        </TableRow>
     )
 }
 

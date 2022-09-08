@@ -1,5 +1,7 @@
-import { IArticle } from "@/models/models.interface";
+import { IArticle } from "@/models/admin/articlesList";
 
-export interface IArticleProps {
-    article: IArticle
+export interface IProps {
+    article: IArticle;
+    updateList: () => void;
+    element: IArticle;
 }
