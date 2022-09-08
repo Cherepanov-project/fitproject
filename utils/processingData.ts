@@ -1,7 +1,7 @@
 import { sorting } from "@/utils/sorting";
 import { filtering } from "@/utils/filtering";
 
-export const processingData = (array, {filter, sort}) => {
+function processingData<T>(array: T[], {filter, sort}): T[] {
 
     let filteredOptions = Object.entries(filter)
     const mapper = new Map()
@@ -31,3 +31,5 @@ export const processingData = (array, {filter, sort}) => {
     }
     return sorted.length ? sorting([...filteredArray], sorted[0], sorted[1]) : filteredArray
 }
+
+export default processingData
