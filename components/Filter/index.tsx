@@ -1,88 +1,51 @@
-import React, {useState, useEffect, useMemo, ChangeEvent} from "react"
-import Image from "next/image"
+import React, { useState, useMemo, FC } from "react"
 import {
-    StyledButtonSort,
     StyledDropdown,
     StyledFilterOption,
     StyledLabel,
-    StyledInput
+    StyledInput, StyleFilter, StyledButton, StyleSubmenu
 } from "@/components/Filter/filter.styles"
-import { imageFilter } from "@/common/images/filterMenu"
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos"
-import Submenu from "@/components/Submenu"
-import {useRouter} from "next/router";
-import {
-    articlesFilterOptions, articlesSubOptions,
-    recipeFilterOptions,
-    recipeSubOptions,
-    workoutFilterOptions,
-    workoutSubOptions
-} from "@/models/filterSorting/filters";
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { IProps } from "@/components/Filter/filter.interface";
+import NumericalSubmenu from "@/components/NumericalSubmenu";
+import CheckboxesSubmenu from "@/components/CheckboxesSubmenu";
+import checkNameFilter from "@/utils/checkNameFilter";
 
 //вся возня с toUpperCase/toLowerCase связана с тем что на workouts значения полей приходят капсом
 //возможно это можно обойти другим способом
 
-const CheckPathForFilter = (Component) => {
-    return function Hoc(props) {
-        const {asPath} = useRouter()
-        let path = asPath.split("/").pop()
-        const [filterOptions, setFilterOptions] = useState([])
-        const [subOptions, setSubOptions] = useState({})
-
-        useEffect(() => {
-            if (path === "recipes") {
-                setFilterOptions(recipeFilterOptions)
-                setSubOptions(recipeSubOptions)
-            }
-            if (path === "workouts") {
-                setFilterOptions(workoutFilterOptions)
-                setSubOptions(workoutSubOptions)
-            }
-            if (path === 'articles') {
-                setFilterOptions(articlesFilterOptions)
-                setSubOptions(articlesSubOptions)
-            }
-        }, [path]);
-
-        return <Component {...props} filterOptions={filterOptions} subOptions={subOptions} />
-    }
-}
-
-const Filter = ({data, deleteFilter, filterOptions, subOptions, startFilter}) => {
-    const [menuActive, setMenuActive] = useState<boolean>(false)
-    const [submenuActive, setSubmenuActive] = useState(false);
-    // const [animate, setAnimate] = useState<boolean>(false)
-
+const Filter: FC<IProps> = ({ data, options, subOptions, changeFilterData}) => {
+    const [submenuActive, setSubmenuActive] = useState(false)
     const [filterActive, setFilterActive] = useState<string>('')
+
+    const isNumericalOptions = (options: any):options is [number, number] | []  =>  Array.isArray(options);
+    const subOptionsActive = subOptions[filterActive];
+
     const handleSelect = (e) => {
-        setFilterActive(e.target.value.toUpperCase())
+        const string = checkNameFilter(e.target.value)
+        setFilterActive(string)
         setSubmenuActive(true)
     }
 
     const minMaxValues = useMemo(() => {
+        if (isNumericalOptions) {
             const arr = data.map((el) => {
-                return el[filterActive.toLowerCase()]
+                return el[filterActive]
             })
             return {max: Math.max(...arr), min: Math.min(...arr)};
-    }, [filterActive, menuActive])
+        }
+    }, [filterActive])
 
     const handleBackArrow = () => {
         setSubmenuActive(false)
     }
 
-    const handleSubFilter = (e: ChangeEvent<HTMLInputElement>, isChecked: boolean) => {
-        if (isChecked) {
-            startFilter(filterActive, e.target.value)
-        } else {
-            deleteFilter(filterActive, e.target.value)
-        }
+    const handleFilter = (value: string | [number, number]) => {
+        changeFilterData(filterActive, value)
     }
 
-    const handleCustomFilter = (min: number, max: number) => {
-        startFilter(filterActive, [min, max], 'numerical')
-    }
-
-    const filters = filterOptions.map(item => {
+    const filters = options.map(item => {
         return (
             <StyledFilterOption key={item}>
                 <StyledLabel>{item}
@@ -95,23 +58,22 @@ const Filter = ({data, deleteFilter, filterOptions, subOptions, startFilter}) =>
 
     return (
         <>
-            <StyledButtonSort onClick={() => { setMenuActive(!menuActive) }}>
-                <Image src={imageFilter} alt="image-filter"/>
-                Filter
-            </StyledButtonSort>
-            {menuActive ? (
-                <>
-                    <StyledDropdown>
-                        {filters}
-                    </StyledDropdown>
-                    {submenuActive ? (<Submenu handleCustomFilter={handleCustomFilter}
-                                               min={minMaxValues.min} max={minMaxValues.max}
-                              subOptions={subOptions[filterActive]}
-                              handleBackArrow={handleBackArrow} handleSubFilter={handleSubFilter}/>) : null}
-                </>
-            ) : null}
+            <StyledDropdown>
+                {submenuActive ? (
+                    <StyleSubmenu>
+                        <StyledButton onClick={handleBackArrow}>
+                            <ArrowBackIosIcon sx={{height: 15, verticalAlign: "middle"}}/>
+                        </StyledButton>
+                        {isNumericalOptions(subOptionsActive) ?
+                            <NumericalSubmenu subOptions={subOptionsActive} limitValues={minMaxValues}
+                                              handleFilter={handleFilter}/>
+                            : <CheckboxesSubmenu subOptions={subOptionsActive} handleFilter={handleFilter}/>
+                        }
+                    </StyleSubmenu>) : <StyleFilter animate={submenuActive}>{filters}</StyleFilter>
+                }
+            </StyledDropdown>
         </>
     )
 }
 
-export default CheckPathForFilter(Filter)
+export default Filter
