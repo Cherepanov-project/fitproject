@@ -18,6 +18,8 @@ export const RowAvatar = styled.div`
     margin-top: 16px;
 `
 
+export const MenuIcon = styled.div``
+
 export const WrapBnt = styled.div`
     display: flex;
     align-items: center;
