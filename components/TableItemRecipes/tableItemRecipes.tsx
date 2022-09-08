@@ -20,19 +20,19 @@ import { deleteRecipeById } from "@/API/recipes"
 
 const options = ["Delete", "Edit"]
 
-const TableItemRecipes = ({
-    picUrl,
-    status,
-    name,
-    calorie,
-    fat,
-    protein,
-    carbohydrate,
-    portionSize,
-    id,
-    updateList,
-    el
-}) => {
+const TableItemRecipes = ({updateList, element, item: {
+        picUrl,
+        status = 'HIGH',
+        name,
+        calorie,
+        fat,
+        protein,
+        carbohydrate,
+        portionSize = 1,
+        id,
+        // el
+    }
+                          }) => {
     const router = useRouter()
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
     const open = Boolean(anchorEl)
@@ -48,7 +48,7 @@ const TableItemRecipes = ({
     const handleOpenRecipe = () => {
         router.push( {
             pathname: `/admin/recipes/${id}`,
-            query: {data: JSON.stringify(el) },
+            query: {data: JSON.stringify(element) },
         },
         {
             pathname: `/admin/recipes/${id}`,
@@ -56,7 +56,7 @@ const TableItemRecipes = ({
     }
 
     return (
-        <>
+        <TableRow hover sx={{ cursor: "pointer" }}>
             <TableCell
                 component="td"
                 scope="row"
@@ -130,7 +130,7 @@ const TableItemRecipes = ({
                     </Menu>
                 </MenuIcon>
             </TableCell>
-        </ >
+        </TableRow>
     )
 }
 

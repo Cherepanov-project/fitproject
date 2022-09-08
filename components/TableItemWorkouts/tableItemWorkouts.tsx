@@ -1,5 +1,4 @@
 import React from "react"
-import { useQuery } from "react-query"
 import { useRouter } from "next/router"
 import Link from "next/link"
 import Image from "next/image"
@@ -20,17 +19,15 @@ import { deleteWorkoutById } from "@/API/workouts"
 
 const options = ["Delete", "Edit"]
 
-const TableItemWorkouts = ({
-                    status,
-                    name,
-                    repeatCount,
-                    approachCount,
-                    area,
-                    category,
-                    id,
-                    updateList,
-                    el
-                }) => {
+const TableItemWorkouts = ({ updateList, element, item: {
+    status = 'HIGH',
+    name,
+    repeatCount,
+    approachCount,
+    area,
+    category,
+    id,
+}}) => {
     const router = useRouter()
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
     const open = Boolean(anchorEl)
@@ -46,7 +43,7 @@ const TableItemWorkouts = ({
     const handleOpenWorkout = () => {
         router.push( {
             pathname: `/admin/workouts/${id}`,
-            query: {data: JSON.stringify(el) },
+            query: {data: JSON.stringify(element) },
         },
         {
             pathname: `/admin/workouts/${id}`,
