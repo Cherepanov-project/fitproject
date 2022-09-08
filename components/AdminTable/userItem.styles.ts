@@ -5,6 +5,8 @@ export const SecondaryText = styled.p`
     margin: 0;
 `
 
+export const MenuIcon = styled.div``
+
 export const Text = styled.p`
     font-weight: 600;
     font-size: 14px;
