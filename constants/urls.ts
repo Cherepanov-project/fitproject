@@ -28,6 +28,8 @@ const API_TOKEN_REFRESH: string =
 const API_GET_USERS: string =
   "https://spring-boot-fitness-backend.herokuapp.com/api/v1/admin/user"
 
+const API_CHAT: string = "https://chat-fitpro.herokuapp.com/rooms"
+
 //картинки
 import { vk, mail, yandex, google } from "@/common/images/socialButton"
 
@@ -68,4 +70,5 @@ export {
   API_SOCIAL,
   API_TOKEN_REFRESH,
   API_GET_USERS,
+  API_CHAT
 }
