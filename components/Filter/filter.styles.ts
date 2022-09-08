@@ -1,9 +1,7 @@
 import styled from "styled-components"
 
-import { IFilterAnimateProp } from "../FilterMenu/filterMenu.interface"
-
 interface IStyleFilter {
-    animate: boolean;
+    animate?: boolean;
 }
 
 export const StyleSubmenu = styled.div`
@@ -46,13 +44,13 @@ export const StyledDropdown = styled.div`
     flex-direction: column;
 `
 
-export const StyledFilterOption = styled.div<IFilterAnimateProp>`
+export const StyledFilterOption = styled.div<IStyleFilter>`
     &:not(:last-of-type) {
         border-bottom: 1px solid #e6e6e6;
     }
 `
 
-export const StyledSubmenuOption = styled.div<IFilterAnimateProp>`
+export const StyledSubmenuOption = styled.div<IStyleFilter>`
   padding: 5px;
   display: flex;
   flex-direction: column;
@@ -77,7 +75,7 @@ export const StyledInput = styled.input`
     appearance: none;
 `
 
-export const StyledSubmenu = styled.div<IFilterAnimateProp>`
+export const StyledSubmenu = styled.div<IStyleFilter>`
     //position: absolute;
     font-family: inherit;
     top: 175px;

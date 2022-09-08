@@ -7,3 +7,7 @@ export interface IProps {
     options: FilterOptions;
     changeFilterData: (key: string, value: string | [number, number]) => void;
 }
+
+export interface IFilterAnimateProp {
+    animate?: boolean
+}
