@@ -1,36 +1,62 @@
+import React from "react";
 import { useRouter } from "next/router";
 import {
-    articlesFilterOptions, articlesSubOptions,
+    articlesFilterOptions,
+    articlesSortingFilters,
+    articlesSubOptions,
+    recipeFilterOptions,
+    recipeSortingFilters,
+    recipeSubOptions,
     workoutFilterOptions,
     workoutSortingFilters,
     workoutSubOptions
 } from "@/models/filterSorting/filters";
 import { getWorkoutList } from "@/API/workouts";
+import { getRecipesList } from "@/API/recipes";
+import TableItemWorkouts from "@/components/TableItemWorkouts/tableItemWorkouts";
+import TableItemArticles from "@/components/TableItemArticles/tableItemArticles";
+import TableItemRecipes from "@/components/TableItemRecipes/tableItemRecipes";
+import { getArticlesList } from "@/API/articles";
+import DataWrapper from "@/containers/Layout-admin/DataWrapper";
 import { StyleContentList } from "@/styles/admin/recipes/recipes.styles";
-import React from "react";
-import SortAndFilter from "@/components/SortAndFilter";
 
 const ContentWrapper = () => {
     const {asPath} = useRouter()
     let path = asPath.split("/").pop()
+
     const configs = {
         workouts: {
-            filter: {options: workoutFilterOptions, subOptions: workoutSubOptions},
+            filterOptions: workoutFilterOptions,
+            filterSubOptions: workoutSubOptions,
             sort: workoutSortingFilters,
             method: getWorkoutList,
             key: "workoutsList",
-            title: 'Workouts'
+            title: 'Workouts',
+            Component: (props) => <TableItemWorkouts {...props} />,
         },
         articles: {
-            filters: {options: articlesFilterOptions, subOptions: articlesSubOptions},
-            sort: workoutSortingFilters,
-            title: 'Articles'
+            filterOptions: articlesFilterOptions,
+            filterSubOptions: articlesSubOptions,
+            sort: articlesSortingFilters,
+            method: getArticlesList,
+            key: "workoutsList",
+            title: 'Articles',
+            Component: (props) => <TableItemArticles {...props} />,
+        },
+        recipes: {
+            filterOptions: recipeFilterOptions,
+            filterSubOptions: recipeSubOptions,
+            sort: recipeSortingFilters,
+            method: getRecipesList,
+            key: "recipesList",
+            title: 'Recipes',
+            Component: (props) => <TableItemRecipes {...props}/>,
         }
     }
 
     return (
         <StyleContentList>
-            <SortAndFilter config={configs[path]}/>
+            <DataWrapper config={configs[path]}/>
         </StyleContentList>
     )
 
