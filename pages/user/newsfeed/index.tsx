@@ -24,11 +24,19 @@ export const NewsfeedLayout = () => {
     //     console.log(data);
     //     setFeed(data.articles)
     //   });
+    const RSS_URL = `https://api.allorigins.win/raw?url=https://www.gazeta.ru/export/rss/sport.xml`;
+
+    fetch(RSS_URL)
+        .then(response => response.text())
+        .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+        .then(data => console.log(data))
+
     const script = document.createElement('script')
     const body = document.getElementsByTagName('body')[0]
     script.src = 'https://news.yandex.ru/ru/sport.utf8.js'
     body.appendChild(script)
     script.addEventListener('load', () => {
+      console.log(feed);
       setFeed(window.m_sport);
     })
   }, [])

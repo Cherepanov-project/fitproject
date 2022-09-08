@@ -18,7 +18,7 @@ const NewsItem = (props: {[index: string]:any}) => {
     .then(data => {
       let proxy = [];
       let snippets: any = new DOMParser().parseFromString(data.contents, "text/html").querySelectorAll('.mg-snippet__text')
-      snippets = [...snippets]
+      snippets = [...snippets];
       snippets.forEach((item) => {
         proxy.push(item.innerHTML)
       })

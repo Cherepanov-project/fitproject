@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledNewsTitle = styled.p`
   color: #4138D0;
-  font-size: 18px;
+  font-size: 16px;
 `
 
 export const StyledNewsDate = styled.p`
@@ -13,13 +13,13 @@ export const StyledNewsDate = styled.p`
 `
 
 export const StyledNewsBody = styled.p`
-  font-size: 14px;
+  font-size: 0.8rem;
 `
 
 export const StyledNewsItem = styled.div`
   position: relative;
   margin: 0;
-  padding: 10px;
+  padding: 12px;
   border-radius: 10px;
   background-color: #fff;
   overflow: hidden;
