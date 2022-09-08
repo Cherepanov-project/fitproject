@@ -1,10 +1,11 @@
 import React, {useEffect, useRef, useState} from 'react';
-import { NotificationWrapper } from './Notification.styles';
+import {NotificationWrapper} from './Notification.styles';
 import {socket} from "@/utils/chatsConfig/default";
 import {useRouter} from 'next/router'
 import Link from "next/link";
+import {Role} from "@/models/role/role";
 
-const Notification = ({role}: {role: 'user' | 'admin'}) => {
+const Notification = ({role}: {role: Role.USER | Role.ADMIN}) => {
     const [notification, setNotification] = useState('')
     const [roomId, setRoomId] = useState('')
     const router = useRouter()
@@ -17,16 +18,16 @@ const Notification = ({role}: {role: 'user' | 'admin'}) => {
 
     }
     useEffect(() => {
-        if(role === 'user'){
+        if(role === Role.USER){
             socket.on("ROOM:USER_NOTIFICATION", addNotification)
-        }else if(role === 'admin'){
+        }else if(role === Role.ADMIN){
             socket.on("ROOM:ADMIN_NOTIFICATION", addNotification)
         }
 
         return () => {
-            if(role === 'user'){
+            if(role === Role.USER){
                 socket.off("ROOM:USER_NOTIFICATION", addNotification)
-            }else if(role === 'admin'){
+            }else if(role === Role.ADMIN){
                 socket.on("ROOM:ADMIN_NOTIFICATION", addNotification)
             }
 

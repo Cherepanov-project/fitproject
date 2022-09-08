@@ -19,13 +19,13 @@ const ChatsList = () => {
     })
 
     const chatsPreviews = rooms.map((chatPreviewContent) => (
-            <Link key={chatPreviewContent.roomId} href={`/admin/messages/chat/${chatPreviewContent.roomId}`} passHref>
-                <CustomLink>
-                    <ChatPreview date={chatPreviewContent.messages[chatPreviewContent.messages.length - 1]?.date || ''}
-                                 username={chatPreviewContent.roomOwner}
-                                 lastMsg={chatPreviewContent.messages[chatPreviewContent.messages.length - 1]?.text || ''}></ChatPreview>
-                </CustomLink>
-            </Link>
+        <Link key={chatPreviewContent.roomId} href={`/admin/messages/chat/${chatPreviewContent.roomId}`} passHref>
+            <CustomLink>
+                <ChatPreview date={chatPreviewContent.messages[chatPreviewContent.messages.length - 1]?.date || ''}
+                             username={chatPreviewContent.roomOwner}
+                             lastMsg={chatPreviewContent.messages[chatPreviewContent.messages.length - 1]?.text || ''}></ChatPreview>
+            </CustomLink>
+        </Link>
         )
     )
     if (isLoading || rooms.length === 0) {

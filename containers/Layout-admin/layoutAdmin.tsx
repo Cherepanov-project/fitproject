@@ -13,6 +13,7 @@ import { FontStyles } from "@/utils/fonts/fontStyles";
 import ErrorBoundary from "@/components/ErrorBoundary/errorBoundary"
 import {socket} from "@/utils/chatsConfig/default";
 import Notification from "@/components/Notification/Notification";
+import {Role} from "@/models/role/role";
 
 const theme = createTheme({
     palette: {
@@ -74,7 +75,7 @@ export const withLayout = <T extends Record<string, undefined>>(
         return (
             <ErrorBoundary>
                 <LayoutAdmin>
-                    <Notification role="admin"/>
+                    <Notification role={Role.ADMIN}/>
                     <Component {...props} />
                 </LayoutAdmin>
             </ErrorBoundary>

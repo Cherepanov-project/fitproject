@@ -15,6 +15,7 @@ import {FontInter} from "@/utils/fonts/fontStyles"
 
 import {socket} from "@/utils/chatsConfig/default"
 import Notification from "@/components/Notification/Notification";
+import {Role} from "@/models/role/role";
 
 export const RequiredLayout: React.FC<layoutUserProps> = ({
                                                               children,
@@ -55,7 +56,7 @@ export const LayoutUser = <T extends Record<string, undefined>>(
         }, [])
         return (
             <RequiredLayout>
-                <Notification role="user"/>
+                <Notification role={Role.USER}/>
                 <Component {...props} />
             </RequiredLayout>
         )
