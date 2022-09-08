@@ -37,27 +37,27 @@ export const StyledNewsItem = styled.div`
     filter: blur(5px);
   }
   &:nth-child(1n) {
-    grid-row-end: span 18;
-    grid-column-end: span 1;
-  }
-  &:nth-child(2n) {
-    grid-row-end: span 12;
-    grid-column-end: span 1;
-  }
-  &:nth-child(3n) {
     grid-row-end: span 14;
     grid-column-end: span 1;
   }
+  &:nth-child(2n) {
+    grid-row-end: span 8;
+    grid-column-end: span 1;
+  }
+  &:nth-child(3n) {
+    grid-row-end: span 10;
+    grid-column-end: span 1;
+  }
   &:nth-child(4n) {
-    grid-row-end: span 16;
+    grid-row-end: span 12;
     grid-column-end: span 1;
   }
   &:nth-child(5n) {
-    grid-row-end: span 18;
+    grid-row-end: span 14;
     grid-column-end: span 1;
   }
   &:last-child {
-    grid-row-end: span 18;
+    grid-row-end: span 10;
     grid-column-end: span 4;
   }
 `

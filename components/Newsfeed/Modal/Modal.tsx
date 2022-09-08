@@ -1,8 +1,9 @@
 import React from 'react';
 import { ModalWrapper, ModalContent, ModalHeader, ModalBody, StyledButton } from './modal.styles'
+import {StyledNewsTitle} from '../newsItem.styles'
 
 const Modal = (props) => {
-
+    console.log(props);
     if (!props.show) {
         return null
     }
@@ -11,9 +12,9 @@ const Modal = (props) => {
         <ModalWrapper onClick={props.onClose}>
             <ModalContent>
                 <ModalHeader>
-                    <h4 className='modal-title'></h4>
+                    <StyledNewsTitle className='modal-title'>{props.feed.title}</StyledNewsTitle>
                 </ModalHeader>
-                <ModalBody>{props.feed && props.feed}</ModalBody>
+                <ModalBody>{props.feed.descr}</ModalBody>
                 <ModalHeader>
                     <StyledButton onClick={props.onClose} className='button'>Close</StyledButton>
                 </ModalHeader>

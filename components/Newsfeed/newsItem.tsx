@@ -34,7 +34,7 @@ const NewsItem = (props: {[index: string]:any}) => {
               <StyledNewsDate>{props.properties.date}</StyledNewsDate>
               <StyledNewsBody>{props.properties.descr}</StyledNewsBody>
           </StyledNewsItem>
-          <Modal onClose={() => setShowModal(false)} show={showModal} feed={feed}/>
+          <Modal onClose={() => setShowModal(false)} show={showModal} feed={props.properties}/>
       </>
   )
 };
