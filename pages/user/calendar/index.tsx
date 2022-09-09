@@ -9,10 +9,10 @@ import {
   format,
 } from "date-fns"
 
+import { motion } from "framer-motion"
 import CalendarContainer from "@/components/Calendar/calendarContainer"
 import generateId from "@/utils/generateId"
-import FramerCalendar from "@/components/Calendar/framerCalendar"
-import { LayoutUser } from "@/containers/Layout-user/layoutUser"
+import { WithLayout } from "@/containers/Layout-user/withLayout"
 import WithRefreshingToken from "@/containers/Layout-user/WithRefreshingToken"
 import {
   DayBlur,
@@ -89,21 +89,38 @@ const Calendar = () => {
   })
 
   return (
-    <CalendarContainer>
-      <StyledElementsContainer>{weekElements}</StyledElementsContainer>
-      <StyledCalendarButtons>
-        <StyledCalendarButton onClick={() => switchBetweenMonthHandle("minus")}>
-          <span>&lt;</span>
-        </StyledCalendarButton>
-        <span style={{ fontFamily: "Roboto", lineHeight: "35px" }}>
-          {format(dateToday, "MMMM yyyy")}
-        </span>
-        <StyledCalendarButton onClick={() => switchBetweenMonthHandle("plus")}>
-          <span>&gt;</span>
-        </StyledCalendarButton>
-      </StyledCalendarButtons>
-    </CalendarContainer>
+    <motion.div
+      initial="pageInital"
+      animate="pageAnimate"
+      variants={{
+        pageInital: {
+          opacity: 0,
+        },
+        pageAnimate: {
+          opacity: 1,
+        },
+      }}
+    >
+      <CalendarContainer>
+        <StyledElementsContainer>{weekElements}</StyledElementsContainer>
+        <StyledCalendarButtons>
+          <StyledCalendarButton
+            onClick={() => switchBetweenMonthHandle("minus")}
+          >
+            <span>&lt;</span>
+          </StyledCalendarButton>
+          <span style={{ fontFamily: "Roboto", lineHeight: "35px" }}>
+            {format(dateToday, "MMMM yyyy")}
+          </span>
+          <StyledCalendarButton
+            onClick={() => switchBetweenMonthHandle("plus")}
+          >
+            <span>&gt;</span>
+          </StyledCalendarButton>
+        </StyledCalendarButtons>
+      </CalendarContainer>
+    </motion.div>
   )
 }
 
-export default WithRefreshingToken(LayoutUser(FramerCalendar(Calendar)))
+export default WithLayout(WithRefreshingToken(Calendar))

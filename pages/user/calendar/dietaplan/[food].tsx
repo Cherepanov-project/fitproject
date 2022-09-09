@@ -1,6 +1,7 @@
 import CalendarContainer from "@/components/Calendar/calendarContainer"
 import Dish from "@/components/Dish/dish"
-import { LayoutUser } from "@/containers/Layout-user/layoutUser"
+import { WithLayout } from "@/containers/Layout-user/withLayout"
+
 import WithRefreshingToken from "@/containers/Layout-user/WithRefreshingToken"
 
 const FoodDishItem = () => {
@@ -11,4 +12,4 @@ const FoodDishItem = () => {
   )
 }
 
-export default WithRefreshingToken(LayoutUser(FoodDishItem))
+export default WithLayout(WithRefreshingToken(FoodDishItem))
