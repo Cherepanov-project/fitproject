@@ -32,7 +32,6 @@ const TableItemRecipes = ({
         carbohydrate,
         portionSize = 1,
         id,
-        // el
     }
 }) => {
     const router = useRouter()
