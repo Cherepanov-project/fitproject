@@ -1,9 +1,14 @@
 import { Formik } from "formik";
 import React, { FC } from "react";
-import { StyleBlockInputs, StyleInput, StyleLabelForInput, StyleSubmit } from "@/components/NumericalSubmenu/numericalSubmenu.styles";
+import {
+    StyleBlockInputs,
+    StyleInput,
+    StyleLabelForInput,
+    StyleSubmit
+} from "@/components/NumericalSubmenu/numericalSubmenu.styles";
 import { IProps } from "@/components/NumericalSubmenu/numericalSubmenu.interface";
 
-const NumericalSubmenu: FC<IProps> = ({subOptions, limitValues: {min, max}, handleFilter}) => {
+const NumericalSubmenu: FC<IProps> = ({ subOptions, limitValues: {min, max}, handleFilter }) => {
     return (
         <Formik
             initialValues={{from: subOptions ? subOptions[0] : '', to: subOptions ? subOptions[1] : ''}}

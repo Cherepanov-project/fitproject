@@ -10,7 +10,7 @@ import {
     StyleInput
 } from "@/components/Sort/sort.styles";
 
-const Sort = ({sortSelect, changeSortData}) => {
+const Sort = ({ sortSelect, changeSortData }) => {
     const [noSort, setNoSort] = useState<boolean>(true)
 
     const handleClick = (value, type) => {

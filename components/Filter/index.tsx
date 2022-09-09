@@ -3,7 +3,10 @@ import {
     StyledDropdown,
     StyledFilterOption,
     StyledLabel,
-    StyledInput, StyleFilter, StyledButton, StyleSubmenu
+    StyledInput,
+    StyleFilter,
+    StyledButton,
+    StyleSubmenu
 } from "@/components/Filter/filter.styles"
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos"
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
@@ -15,11 +18,11 @@ import checkNameFilter from "@/utils/checkNameFilter";
 //вся возня с toUpperCase/toLowerCase связана с тем что на workouts значения полей приходят капсом
 //возможно это можно обойти другим способом
 
-const Filter: FC<IProps> = ({ data, options, subOptions, changeFilterData}) => {
+const Filter: FC<IProps> = ({ data, options, subOptions, changeFilterData }) => {
     const [submenuActive, setSubmenuActive] = useState(false)
     const [filterActive, setFilterActive] = useState<string>('')
 
-    const isNumericalOptions = (options: any):options is [number, number] | []  =>  Array.isArray(options);
+    const isNumericalOptions = (options: any): options is [number, number] | [] => Array.isArray(options);
     const subOptionsActive = subOptions[filterActive];
 
     const handleSelect = (e) => {
@@ -33,7 +36,7 @@ const Filter: FC<IProps> = ({ data, options, subOptions, changeFilterData}) => {
             const arr = data.map((el) => {
                 return el[filterActive]
             })
-            return {max: Math.max(...arr), min: Math.min(...arr)};
+            return { max: Math.max(...arr), min: Math.min(...arr) };
         }
     }, [filterActive])
 
@@ -49,8 +52,12 @@ const Filter: FC<IProps> = ({ data, options, subOptions, changeFilterData}) => {
         return (
             <StyledFilterOption key={item}>
                 <StyledLabel>{item}
-                    <ArrowForwardIosIcon sx={{height: 14, marginLeft: "auto", marginRight: 0}}/>
-                    <StyledInput type="checkbox" name={item} onChange={(e) => handleSelect(e)} value={item}/>
+                    <ArrowForwardIosIcon sx={{ height: 14, marginLeft: "auto", marginRight: 0 }}/>
+                    <StyledInput type="checkbox"
+                        name={item}
+                        onChange={(e) => handleSelect(e)}
+                        value={item}
+                    />
                 </StyledLabel>
             </StyledFilterOption>
         )
@@ -62,12 +69,18 @@ const Filter: FC<IProps> = ({ data, options, subOptions, changeFilterData}) => {
                 {submenuActive ? (
                     <StyleSubmenu>
                         <StyledButton onClick={handleBackArrow}>
-                            <ArrowBackIosIcon sx={{height: 15, verticalAlign: "middle"}}/>
+                            <ArrowBackIosIcon sx={{ height: 15, verticalAlign: "middle" }}/>
                         </StyledButton>
                         {isNumericalOptions(subOptionsActive) ?
-                            <NumericalSubmenu subOptions={subOptionsActive} limitValues={minMaxValues}
-                                              handleFilter={handleFilter}/>
-                            : <CheckboxesSubmenu subOptions={subOptionsActive} handleFilter={handleFilter}/>
+                            <NumericalSubmenu
+                                subOptions={subOptionsActive}
+                                limitValues={minMaxValues}
+                                handleFilter={handleFilter}
+                            />
+                            : <CheckboxesSubmenu
+                                subOptions={subOptionsActive}
+                                handleFilter={handleFilter}
+                            />
                         }
                     </StyleSubmenu>) : <StyleFilter animate={submenuActive}>{filters}</StyleFilter>
                 }

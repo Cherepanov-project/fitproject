@@ -5,10 +5,10 @@ import SortAndFilter from "@/components/SortAndFilter";
 import { IProps, IData } from "@/containers/Layout-admin/DataWrapper/dataWrapper.interface";
 import { StyleLoaderContainer } from "@/styles/admin/recipes/recipes.styles";
 
-const DataWrapper: FC<IProps> = ({config: {key, method, ...configs}}) => {
+const DataWrapper: FC<IProps> = ({ config: { key, method, ...configs } }) => {
     const [data, setData] = useState<IData[]>([])
     const [listChange, setListChange] = useState<boolean>(false)
-    const {isLoading, error} = useQuery([key, listChange], method, {
+    const { isLoading, error } = useQuery([key, listChange], method, {
         onSuccess: (data: IData[]) => {
             setData(data)
         }

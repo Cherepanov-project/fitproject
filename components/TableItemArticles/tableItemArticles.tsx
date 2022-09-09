@@ -1,12 +1,8 @@
 import React from "react";
-import {deleteRecipeById} from "@/API/recipes";
+import { deleteRecipeById } from "@/API/recipes";
 import TableCell from "@mui/material/TableCell";
 import Avatar from "@mui/material/Avatar";
-import {
-    MenuIcon,
-    StyledImage,
-    StyledText
-} from "@/components/TableItemRecipes/tableItemRecipes.styles";
+import { MenuIcon, StyledImage, StyledText } from "@/components/TableItemRecipes/tableItemRecipes.styles";
 import Image from "next/image";
 import imageMan from "@/common/images/recipesTableItem/avatarEat.svg";
 import ColorfulTeg from "@/components/ColorfulTeg";
@@ -17,22 +13,25 @@ import MenuItem from "@mui/material/MenuItem";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import Link from "next/link";
 import EditIcon from "@mui/icons-material/Edit";
-import {StyledBlock, StyledExtraText} from "./tableItemArticles.styles";
-import {formatDistanceToNow, format} from "date-fns";
+import { StyledBlock, StyledExtraText } from "./tableItemArticles.styles";
+import { formatDistanceToNow, format } from "date-fns";
 import { TableRow } from "@mui/material";
 
 const options = ["Delete", "Edit"]
 
-const TableItemArticles = ({ updateList, element, item: {
-                                                      id,
-                                                      created,
-                                                      priority,
-                                                      title,
-                                                      username,
-                                                      updated,
-                                                      avatar
-                                                  },
-                                              }) => {
+const TableItemArticles = ({
+    updateList,
+    element,
+    item: {
+        id,
+        created,
+        priority,
+        title,
+        username,
+        updated,
+        avatar
+    },
+}) => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
     const handleClick = (event: React.MouseEvent<HTMLElement>) =>
         setAnchorEl(event.currentTarget)
@@ -47,7 +46,7 @@ const TableItemArticles = ({ updateList, element, item: {
     }
 
     return (
-        <TableRow hover sx={{ cursor: "pointer" }}>
+        <TableRow hover sx={{cursor: "pointer"}}>
             <TableCell
                 component="td"
                 scope="row"
@@ -124,7 +123,7 @@ const TableItemArticles = ({ updateList, element, item: {
                                         href={`/admin/recipes/edit-recipe/${id}`}
                                         passHref
                                     >
-                                        <EditIcon />
+                                        <EditIcon/>
                                     </Link>
                                 )}
                             </MenuItem>

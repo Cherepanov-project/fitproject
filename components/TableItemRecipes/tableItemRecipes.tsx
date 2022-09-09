@@ -1,5 +1,4 @@
-import React, { useState } from "react"
-import { useQuery } from "react-query"
+import React from "react"
 import { useRouter } from "next/router"
 import Link from "next/link"
 import Image from "next/image"
@@ -20,7 +19,10 @@ import { deleteRecipeById } from "@/API/recipes"
 
 const options = ["Delete", "Edit"]
 
-const TableItemRecipes = ({updateList, element, item: {
+const TableItemRecipes = ({
+    updateList,
+    element,
+    item: {
         picUrl,
         status = 'HIGH',
         name,
@@ -32,7 +34,7 @@ const TableItemRecipes = ({updateList, element, item: {
         id,
         // el
     }
-                          }) => {
+}) => {
     const router = useRouter()
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
     const open = Boolean(anchorEl)
@@ -46,35 +48,36 @@ const TableItemRecipes = ({updateList, element, item: {
         updateList()
     }
     const handleOpenRecipe = () => {
-        router.push( {
-            pathname: `/admin/recipes/${id}`,
-            query: {data: JSON.stringify(element) },
-        },
-        {
-            pathname: `/admin/recipes/${id}`,
-        })
+        router.push({
+                pathname: `/admin/recipes/${id}`,
+                query: {data: JSON.stringify(element)},
+            },
+            {
+                pathname: `/admin/recipes/${id}`,
+            })
     }
 
     return (
-        <TableRow hover sx={{ cursor: "pointer" }}>
+        <TableRow hover sx={{cursor: "pointer"}}>
             <TableCell
                 component="td"
                 scope="row"
-                sx={{ display: "flex", paddingLeft: 3.5 }}
+                sx={{display: "flex", paddingLeft: 3.5}}
             >
-                <Avatar sx={{ margin: 2 }}>
-                    {picUrl ? (<StyledImage src={picUrl} alt="recipe-image" />) : (<Image src={imageMan} alt="image-man" />)}
+                <Avatar sx={{margin: 2}}>
+                    {picUrl ? (<StyledImage src={picUrl} alt="recipe-image"/>) : (
+                        <Image src={imageMan} alt="image-man"/>)}
                 </Avatar>
                 <StyledSecondaryText>
-                portion size ({portionSize}g), fat ({fat}), protein ({protein}),
-                carbohydrates ({carbohydrate})
+                    portion size ({portionSize}g), fat ({fat}), protein ({protein}),
+                    carbohydrates ({carbohydrate})
                 </StyledSecondaryText>
             </TableCell>
-            <TableCell sx={{ paddingLeft: 3.5 }} onClick={handleOpenRecipe} ><StyledText>{name}</StyledText></TableCell>
-            <TableCell sx={{ paddingLeft: 3.5 }}>{calorie} calorie</TableCell>
-            <TableCell sx={{ paddingLeft: 3.5 }}>
+            <TableCell sx={{paddingLeft: 3.5}} onClick={handleOpenRecipe}><StyledText>{name}</StyledText></TableCell>
+            <TableCell sx={{paddingLeft: 3.5}}>{calorie} calorie</TableCell>
+            <TableCell sx={{paddingLeft: 3.5}}>
                 {status === "HIGH" ? (
-                    <ColorfulTeg text={status} backgroundColor="#F12B2C" />
+                    <ColorfulTeg text={status} backgroundColor="#F12B2C"/>
                 ) : status === "LOW" ? (
                     <ColorfulTeg
                         text={status}
@@ -89,7 +92,7 @@ const TableItemRecipes = ({updateList, element, item: {
                     />
                 )}
             </TableCell>
-            <TableCell align="right" sx={{ borderTop: "1px solid rgba(224, 224, 224, 1)" }}>
+            <TableCell align="right" sx={{borderTop: "1px solid rgba(224, 224, 224, 1)"}}>
                 <MenuIcon>
                     <IconButton
                         aria-label="more"
@@ -99,7 +102,7 @@ const TableItemRecipes = ({updateList, element, item: {
                         aria-haspopup="true"
                         onClick={handleClick}
                     >
-                        <MoreVertIcon />
+                        <MoreVertIcon/>
                     </IconButton>
                     <Menu
                         id="long-menu"
@@ -122,7 +125,7 @@ const TableItemRecipes = ({updateList, element, item: {
                                         href={`/admin/recipes/edit-recipe/${id}`}
                                         passHref
                                     >
-                                        <EditIcon />
+                                        <EditIcon/>
                                     </Link>
                                 )}
                             </MenuItem>
