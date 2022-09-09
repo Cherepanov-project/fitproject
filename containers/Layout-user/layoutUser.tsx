@@ -1,5 +1,3 @@
-import React from "react"
-
 import { layoutUserProps } from "./layoutUser.interface"
 import LeftSideBar from "./Navbar/leftSideBar"
 import { RightSideBar } from "./Userbar/rightSideBar"

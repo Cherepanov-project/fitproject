@@ -2,6 +2,9 @@
 ## description
 Front-end fitness project on Next.JS
 
+## deploy on vercel
+https://fitproject-wine.vercel.app/fitproject
+
 ## structure
 * __common__ - static files
 
