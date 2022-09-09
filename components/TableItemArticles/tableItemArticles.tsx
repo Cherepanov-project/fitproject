@@ -1,87 +1,90 @@
-import React from "react"
-import { useRouter } from "next/router"
-import Link from "next/link"
-import Image from "next/image"
-import TableRow from "@mui/material/TableRow"
-import TableCell from "@mui/material/TableCell"
-import IconButton from "@mui/material/IconButton"
-import Menu from "@mui/material/Menu"
-import MenuItem from "@mui/material/MenuItem"
-import MoreVertIcon from "@mui/icons-material/MoreVert"
-import Avatar from "@mui/material/Avatar"
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
-import EditIcon from "@mui/icons-material/Edit"
-
-import { MenuIcon, StyledSecondaryText, StyledText } from "./tableItemWorkouts.styles"
-import imageMan from "@/common/images/recipesTableItem/avatarEat.svg"
-import ColorfulTeg from "../ColorfulTeg"
-import { deleteWorkoutById } from "@/API/workouts"
+import React from "react";
+import { deleteRecipeById } from "@/API/recipes";
+import TableCell from "@mui/material/TableCell";
+import Avatar from "@mui/material/Avatar";
+import { MenuIcon, StyledImage, StyledText } from "@/components/TableItemRecipes/tableItemRecipes.styles";
+import Image from "next/image";
+import imageMan from "@/common/images/recipesTableItem/avatarEat.svg";
+import ColorfulTeg from "@/components/ColorfulTeg";
+import IconButton from "@mui/material/IconButton";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import Link from "next/link";
+import EditIcon from "@mui/icons-material/Edit";
+import { StyledBlock, StyledExtraText } from "./tableItemArticles.styles";
+import { formatDistanceToNow, format } from "date-fns";
+import { TableRow } from "@mui/material";
 
 const options = ["Delete", "Edit"]
 
-const TableItemWorkouts = ({
+const TableItemArticles = ({
     updateList,
     element,
     item: {
-        status = 'HIGH',
-        name,
-        repeatCount,
-        approachCount,
-        area,
-        category,
         id,
-    }
+        created,
+        priority,
+        title,
+        username,
+        updated,
+        avatar
+    },
 }) => {
-    const router = useRouter()
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
-    const open = Boolean(anchorEl)
     const handleClick = (event: React.MouseEvent<HTMLElement>) =>
         setAnchorEl(event.currentTarget)
+    const open = Boolean(anchorEl)
     const handleClose = () => setAnchorEl(null)
-
+    const dateCreated = formatDistanceToNow(new Date(updated), {includeSeconds: true});
+    const date = format(new Date(created), 'PPP')
     const handleDelete = async () => {
-        const response = await deleteWorkoutById(id)
+        const response = await deleteRecipeById(id)
         handleClose()
         updateList()
     }
-    const handleOpenWorkout = () => {
-        router.push({
-                pathname: `/admin/workouts/${id}`,
-                query: {data: JSON.stringify(element)},
-            },
-            {
-                pathname: `/admin/workouts/${id}`,
-            })
-    }
+
     return (
         <TableRow hover sx={{cursor: "pointer"}}>
             <TableCell
-                component="th"
+                component="td"
                 scope="row"
-                sx={{display: "flex", paddingLeft: 1.5}}
+                sx={{display: "flex", paddingLeft: 3.5, width: '450px'}}
             >
                 <Avatar sx={{margin: 2}}>
-                    <Image src={imageMan} alt="image-man"/>
+                    {avatar ? (<StyledImage src={avatar} alt="recipe-image"/>) : (
+                        <Image src={imageMan} alt="image-man"/>)}
                 </Avatar>
-                <StyledSecondaryText>
-                    repeat count ({repeatCount}), approach count ({approachCount}), area ({area}),
-                    category ({category})
-                </StyledSecondaryText>
+                <StyledBlock>
+                    <StyledText>{title}</StyledText>
+                    <StyledExtraText>Updated {dateCreated} ago</StyledExtraText>
+                </StyledBlock>
             </TableCell>
-            <TableCell sx={{paddingLeft: 3.5}} onClick={handleOpenWorkout}><StyledText>{name}</StyledText></TableCell>
-            <TableCell sx={{paddingLeft: 3.5}}>{category}</TableCell>
             <TableCell sx={{paddingLeft: 3.5}}>
-                {status === "HIGH" ? (
-                    <ColorfulTeg text={status} backgroundColor="#F12B2C"/>
-                ) : status === "LOW" ? (
+                <StyledBlock>
+                    <StyledText>{username}</StyledText>
+                    <StyledExtraText>On {new Date(created).getDate()}.{new Date(created).getMonth()}.{new Date(created).getFullYear()}</StyledExtraText>
+                </StyledBlock>
+            </TableCell>
+            <TableCell sx={{paddingLeft: 3.5}}>
+                <StyledBlock>
+                    <StyledText>{date}</StyledText>
+                    <StyledExtraText>{format(new Date(created), 'p')}</StyledExtraText>
+                </StyledBlock>
+            </TableCell>
+            <TableCell sx={{paddingLeft: 3.5}}>
+                {priority === "HIGH" ? (
+                    <ColorfulTeg text={priority} backgroundColor="#F12B2C"/>
+                ) : priority === "LOW" ? (
                     <ColorfulTeg
-                        text={status}
+                        text={priority}
                         backgroundColor="#FEC400
                     "
                     />
                 ) : (
                     <ColorfulTeg
-                        text={status}
+                        text={priority}
                         backgroundColor="#29CC97
                 "
                     />
@@ -117,7 +120,7 @@ const TableItemWorkouts = ({
                                     />
                                 ) : (
                                     <Link
-                                        href={`/admin/workouts/edit-workout/${id}`}
+                                        href={`/admin/recipes/edit-recipe/${id}`}
                                         passHref
                                     >
                                         <EditIcon/>
@@ -132,4 +135,4 @@ const TableItemWorkouts = ({
     )
 }
 
-export default TableItemWorkouts
+export default TableItemArticles
