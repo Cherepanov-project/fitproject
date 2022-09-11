@@ -1,25 +1,44 @@
 import React from 'react';
-import { ModalWrapper, ModalContent, ModalHeader, ModalBody, StyledButton } from './modal.styles'
+import { ModalAnimatedWrapper, ModalHeader, ModalBody, StyledButton } from './modal.styles'
 import {StyledNewsTitle} from '../newsItem.styles'
+import { AnimatePresence } from 'framer-motion';
 
 const Modal = (props) => {
-    console.log(props);
-    if (!props.show) {
-        return null
-    }
 
     return (
-        <ModalWrapper onClick={props.onClose}>
-            <ModalContent>
-                <ModalHeader>
-                    <StyledNewsTitle className='modal-title'>{props.feed.title}</StyledNewsTitle>
-                </ModalHeader>
-                <ModalBody>{props.feed.descr}</ModalBody>
-                <ModalHeader>
-                    <StyledButton onClick={props.onClose} className='button'>Close</StyledButton>
-                </ModalHeader>
-            </ModalContent>
-        </ModalWrapper>
+      <AnimatePresence>
+          {props.show && (
+            <ModalAnimatedWrapper
+              key='modal'
+              initial="pageInital"
+              animate="pageAnimate"
+              exit={{
+                opacity: 0,
+                height: 0
+              }}
+              variants={{
+                  pageInital: {
+                    opacity: 0,
+                    // width: 0,
+                    height: 0,
+                  },
+                  pageAnimate: {
+                    opacity: 1,
+                    // width: '100%',
+                    height: '100vh'
+                  },
+              }}
+            onClick={props.onClose}>
+                  <ModalHeader>
+                      <StyledNewsTitle className='modal-title'>{props.feed.title}</StyledNewsTitle>
+                  </ModalHeader>
+                  <ModalBody>{props.feed.descr}</ModalBody>
+                  <ModalHeader>
+                      <StyledButton onClick={props.onClose} className='button'>Close</StyledButton>
+                  </ModalHeader>
+          </ModalAnimatedWrapper>
+          )}
+      </AnimatePresence>
     );
 };
 

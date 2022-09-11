@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion"
 
 export const StyledNewsTitle = styled.p`
   color: #4138D0;
@@ -16,15 +17,13 @@ export const StyledNewsBody = styled.p`
   font-size: 0.8rem;
 `
 
-export const StyledNewsItem = styled.div`
+export const StyledAnimatedNewsItem = styled(motion.div)`
   position: relative;
   margin: 0;
   padding: 12px;
   border-radius: 10px;
   background-color: #fff;
   overflow: hidden;
-  // grid-row-end: ${(props: {[index: string]:any}) => props.size};
-  // grid-column-end: ${(props: {[index: string]:any}) => props.widthSize};
   &::after {
     content: ' ';
     left: 0;
