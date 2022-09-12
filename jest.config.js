@@ -39,7 +39,7 @@ module.exports = {
             "<rootDir>/fileTransformer.js",
     },
     transformIgnorePatterns: [
-        "/node_modules/",
+        'node_modules/(?!(nanoid)/)',
         "^.+\\.module\\.(css|sass|scss)$",
     ],
 }

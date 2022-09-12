@@ -1,7 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {StyledNewsBody, StyledNewsDate, StyledAnimatedNewsItem, StyledNewsTitle} from './newsItem.styles'
 
 const NewsItem = (props: {[index: string]:any}) => {
+
+  const {title, date, descr} = props.properties
 
   return (
       <>
@@ -18,10 +20,11 @@ const NewsItem = (props: {[index: string]:any}) => {
                 y: 0,
               },
             }}
+            data-alt='newsItem'
             {...props}>
-              <StyledNewsTitle>{props.properties.title}</StyledNewsTitle>
-              <StyledNewsDate>{props.properties.date}</StyledNewsDate>
-              <StyledNewsBody>{props.properties.descr}</StyledNewsBody>
+              <StyledNewsTitle>{title}</StyledNewsTitle>
+              <StyledNewsDate>{date}</StyledNewsDate>
+              <StyledNewsBody>{descr}</StyledNewsBody>
           </StyledAnimatedNewsItem>
       </>
   )

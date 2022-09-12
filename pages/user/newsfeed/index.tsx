@@ -18,9 +18,8 @@ declare global {
 
 export const NewsfeedLayout = (): JSX.Element => {
 
-
   const router = useRouter()
-  const isLogin = Cookies.get(ACCESS_TOKEN) ? true : false
+  const isLogin = !!Cookies.get(ACCESS_TOKEN)
   const [feed, setFeed] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState({});
@@ -32,18 +31,6 @@ export const NewsfeedLayout = (): JSX.Element => {
   }, [router])
 
   useEffect(() => {
-    // fetch('https://newsdata.io/api/1/news?apikey=pub_10994629523bc981a2ed9e4df92ec7ac7e9c2&q=sports&country=ru')
-    //   .then((data) => data.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     setFeed(data.articles)
-    //   });
-    // const RSS_URL = `https://api.allorigins.win/raw?url=https://www.gazeta.ru/export/rss/sport.xml`;
-    //
-    // fetch(RSS_URL)
-    //     .then(response => response.text())
-    //     .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
-    //     .then(data => console.log(data))
 
     const script = document.createElement('script')
     const body = document.getElementsByTagName('body')[0]
@@ -55,24 +42,8 @@ export const NewsfeedLayout = (): JSX.Element => {
   }, [])
 
   function fullFeedHandler(id) {
-    let fullFeed = window.m_sport.filter((item: IFeed) => item.ts === id).flat(2)
+    let fullFeed = window.m_sport.filter((item: IFeed) => item.ts === id)
     setModalContent(fullFeed[0])
-    // fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`)
-    // .then(response => {
-    //   if (response.ok) {
-    //     return response.json();
-    //   }
-    //   throw new Error('Network response was not ok.')
-    // })
-    // .then(data => {
-    //   let proxy = [];
-    //   let snippets: any = new DOMParser().parseFromString(data.contents, "text/html").querySelectorAll('.mg-snippet__text')
-    //   snippets = [...snippets];
-    //   snippets.forEach((item) => {
-    //     proxy.push(item.innerHTML)
-    //   })
-    //   setFeed(proxy);
-    // });
     setShowModal(true)
   }
 
