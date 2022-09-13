@@ -31,14 +31,20 @@ export const NewsfeedLayout = (): JSX.Element => {
   }, [router])
 
   useEffect(() => {
+    fetch('https://newsapi.org/v2/everything?q=bitcoin&apiKey=d8053b5977f94849b3de7f2fe5e83ffa')
+      .then(data => data.json())
+      .then(data => {
+        console.log(data);
+        setFeed(data)
+      })
 
-    const script = document.createElement('script')
-    const body = document.getElementsByTagName('body')[0]
-    script.src = 'https://news.yandex.ru/ru/sport.utf8.js'
-    body.appendChild(script)
-    script.addEventListener('load', () => {
-      setFeed(window.m_sport);
-    })
+    // const script = document.createElement('script')
+    // const body = document.getElementsByTagName('body')[0]
+    // script.src = 'https://news.yandex.ru/ru/sport.utf8.js'
+    // body.appendChild(script)
+    // script.addEventListener('load', () => {
+    //   setFeed(window.m_sport);
+    // })
   }, [])
 
   function fullFeedHandler(id) {
