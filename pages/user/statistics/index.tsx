@@ -59,10 +59,10 @@ const Frame1 = () => {
         <Activity>
           <ActiveHeader>
             <ActiveTitle>Activity</ActiveTitle>
-            <ActiveSelect defaultValue="Week">
-              <option value="week">Week</option>
+            <ActiveSelect data-cy='cy-select' defaultValue="Week">
+              <option value="Week">Week</option>
               <option value="Month">Month</option>
-              <option value="Ear">Year</option>
+              <option value="Year">Year</option>
             </ActiveSelect>
           </ActiveHeader>
           <UserChar />

@@ -162,6 +162,7 @@ const AllMenus = () => {
     if (dishFood[i]) {
       elems.push(
         <Link
+          data-cy="dishLink"
           as={`/user/listOfDishes/dish/${
             dishFood[i].id
           }${formStringFromCheckedCheckboxes()}`}
