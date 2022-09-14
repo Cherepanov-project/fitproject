@@ -32,7 +32,7 @@ const Modal = (props) => {
                   <ModalHeader>
                       <StyledNewsTitle className='modal-title'>{props.feed.title}</StyledNewsTitle>
                   </ModalHeader>
-                  <ModalBody>{props.feed.descr}</ModalBody>
+                  <ModalBody>{props.feed.description}</ModalBody>
                   <ModalHeader>
                       <StyledButton onClick={props.onClose} className='button'>Close</StyledButton>
                   </ModalHeader>

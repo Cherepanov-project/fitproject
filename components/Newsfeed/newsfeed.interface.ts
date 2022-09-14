@@ -1,9 +1,10 @@
 interface IFeed {
-  date: string,
-  descr: string,
-  time: string,
+  author: string,
+  content: string,
+  description: string,
   title: string,
-  ts: number,
+  urlToImage: string,
+  publishedAt: string,
   url: string,
 }
 

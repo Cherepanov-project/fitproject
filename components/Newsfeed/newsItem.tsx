@@ -3,7 +3,7 @@ import {StyledNewsBody, StyledNewsDate, StyledAnimatedNewsItem, StyledNewsTitle}
 
 const NewsItem = (props: {[index: string]:any}) => {
 
-  const {title, date, descr} = props.properties
+  const {title, publishedAt, description} = props.properties
 
   return (
       <>
@@ -23,8 +23,8 @@ const NewsItem = (props: {[index: string]:any}) => {
             data-alt='newsItem'
             {...props}>
               <StyledNewsTitle>{title}</StyledNewsTitle>
-              <StyledNewsDate>{date}</StyledNewsDate>
-              <StyledNewsBody>{descr}</StyledNewsBody>
+              <StyledNewsDate>{publishedAt}</StyledNewsDate>
+              <StyledNewsBody>{description}</StyledNewsBody>
           </StyledAnimatedNewsItem>
       </>
   )

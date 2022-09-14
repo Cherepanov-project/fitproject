@@ -20,12 +20,13 @@ export const StyledButton = styled.button`
 // `
 
 export const ModalAnimatedWrapper = styled(motion.div)`
-  position: absolute;
+  position: fixed;
   border: 1px solid gray;
-  width: 100%;
+  width: 68%;
   height: 100vh;
   background-color: #fff;
   border-radius: 10px;
+  z-index: 10;
 `
 
 

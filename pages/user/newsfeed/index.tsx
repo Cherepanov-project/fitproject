@@ -9,7 +9,6 @@ import Modal from "@/components/Newsfeed/Modal/Modal";
 import {ACCESS_TOKEN} from "@/constants/titles";
 import {useRouter} from "next/router";
 
-
 declare global {
   interface Window {
     m_sport: []
@@ -31,24 +30,16 @@ export const NewsfeedLayout = (): JSX.Element => {
   }, [router])
 
   useEffect(() => {
-    fetch('https://newsapi.org/v2/everything?q=bitcoin&apiKey=d8053b5977f94849b3de7f2fe5e83ffa')
+    fetch('https://newsapi.org/v2/everything?q=sports&language=ru&apiKey=d8053b5977f94849b3de7f2fe5e83ffa')
       .then(data => data.json())
       .then(data => {
         console.log(data);
-        setFeed(data)
+        setFeed(data.articles)
       })
-
-    // const script = document.createElement('script')
-    // const body = document.getElementsByTagName('body')[0]
-    // script.src = 'https://news.yandex.ru/ru/sport.utf8.js'
-    // body.appendChild(script)
-    // script.addEventListener('load', () => {
-    //   setFeed(window.m_sport);
-    // })
   }, [])
 
   function fullFeedHandler(id) {
-    let fullFeed = window.m_sport.filter((item: IFeed) => item.ts === id)
+    let fullFeed = feed.filter((item: IFeed) => item.url === id)
     setModalContent(fullFeed[0])
     setShowModal(true)
   }
@@ -57,8 +48,8 @@ export const NewsfeedLayout = (): JSX.Element => {
     <Layout>
       {feed.map((item: IFeed) => {
           return <NewsItem
-            key={item.ts}
-            onClick={() => fullFeedHandler(item.ts)}
+            key={item.url}
+            onClick={() => fullFeedHandler(item.url)}
             properties={item}
           />
         })}
