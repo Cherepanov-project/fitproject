@@ -9,7 +9,3 @@ export type TStyledDiv = {
   selected: boolean
   divider?: boolean
 }
-
-export type IconWrapperProps = {
-  backgroundColor: string
-}

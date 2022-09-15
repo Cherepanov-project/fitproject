@@ -1,6 +1,27 @@
 import styled, { keyframes } from "styled-components"
 
-export const WeightLossWrapper = styled.div`
+export const Loss = styled.div`
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  margin-top: 15px;
+`
+
+export const StyledSpan = styled.span`
+  font-weight: 400;
+`
+
+export const WeightLossGoalWrapper = styled.div`
+  margin: 0 auto;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+`
+
+export const ArcWrapper = styled.div`
   height: 130px;
   width: 220px;
   position: relative;

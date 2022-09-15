@@ -1,5 +1,4 @@
 import React from "react"
-import { useQuery } from "react-query"
 import { useRouter } from "next/router"
 import Link from "next/link"
 import Image from "next/image"
@@ -21,16 +20,18 @@ import { deleteWorkoutById } from "@/API/workouts"
 const options = ["Delete", "Edit"]
 
 const TableItemWorkouts = ({
-                    status,
-                    name,
-                    repeatCount,
-                    approachCount,
-                    area,
-                    category,
-                    id,
-                    updateList,
-                    el
-                }) => {
+    updateList,
+    element,
+    item: {
+        status = 'HIGH',
+        name,
+        repeatCount,
+        approachCount,
+        area,
+        category,
+        id,
+    }
+}) => {
     const router = useRouter()
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
     const open = Boolean(anchorEl)
@@ -44,34 +45,34 @@ const TableItemWorkouts = ({
         updateList()
     }
     const handleOpenWorkout = () => {
-        router.push( {
-            pathname: `/admin/workouts/${id}`,
-            query: {data: JSON.stringify(el) },
-        },
-        {
-            pathname: `/admin/workouts/${id}`,
-        })
+        router.push({
+                pathname: `/admin/workouts/${id}`,
+                query: {data: JSON.stringify(element)},
+            },
+            {
+                pathname: `/admin/workouts/${id}`,
+            })
     }
     return (
-        <TableRow hover sx={{ cursor: "pointer" }}>
+        <TableRow hover sx={{cursor: "pointer"}}>
             <TableCell
                 component="th"
                 scope="row"
-                sx={{ display: "flex", paddingLeft: 1.5 }}
+                sx={{display: "flex", paddingLeft: 1.5}}
             >
-                <Avatar sx={{ margin: 2 }}>
-                    <Image src={imageMan} alt="image-man" />
+                <Avatar sx={{margin: 2}}>
+                    <Image src={imageMan} alt="image-man"/>
                 </Avatar>
                 <StyledSecondaryText>
                     repeat count ({repeatCount}), approach count ({approachCount}), area ({area}),
                     category ({category})
                 </StyledSecondaryText>
             </TableCell>
-            <TableCell sx={{ paddingLeft: 3.5 }} onClick={handleOpenWorkout}><StyledText>{name}</StyledText></TableCell>
-            <TableCell sx={{ paddingLeft: 3.5 }}>{category}</TableCell>
-            <TableCell sx={{ paddingLeft: 3.5 }}>
+            <TableCell sx={{paddingLeft: 3.5}} onClick={handleOpenWorkout}><StyledText>{name}</StyledText></TableCell>
+            <TableCell sx={{paddingLeft: 3.5}}>{category}</TableCell>
+            <TableCell sx={{paddingLeft: 3.5}}>
                 {status === "HIGH" ? (
-                    <ColorfulTeg text={status} backgroundColor="#F12B2C" />
+                    <ColorfulTeg text={status} backgroundColor="#F12B2C"/>
                 ) : status === "LOW" ? (
                     <ColorfulTeg
                         text={status}
@@ -86,7 +87,7 @@ const TableItemWorkouts = ({
                     />
                 )}
             </TableCell>
-            <TableCell align="right" sx={{ borderTop: "1px solid rgba(224, 224, 224, 1)" }}>
+            <TableCell align="right" sx={{borderTop: "1px solid rgba(224, 224, 224, 1)"}}>
                 <MenuIcon>
                     <IconButton
                         aria-label="more"
@@ -96,7 +97,7 @@ const TableItemWorkouts = ({
                         aria-haspopup="true"
                         onClick={handleClick}
                     >
-                        <MoreVertIcon />
+                        <MoreVertIcon/>
                     </IconButton>
                     <Menu
                         id="long-menu"
@@ -119,7 +120,7 @@ const TableItemWorkouts = ({
                                         href={`/admin/workouts/edit-workout/${id}`}
                                         passHref
                                     >
-                                        <EditIcon />
+                                        <EditIcon/>
                                     </Link>
                                 )}
                             </MenuItem>

@@ -15,7 +15,11 @@ export const postAdminToken = async (data) => {
 }
 
 export const postRefreshAdminToken = async () => {
-    const response = await instanceTokenRefresh.post('/')
-    Cookies.set(ACCESS_TOKEN, response.data.data.jwtToken)
-    return response.data.data.jwtToken
+    try {
+        const response = await instanceTokenRefresh.post('/')
+        Cookies.set(ACCESS_TOKEN, response.data.data.jwtToken)
+        return response.data.data.jwtToken
+    }catch (e) {
+        console.log(e)
+    }
 }

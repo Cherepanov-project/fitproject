@@ -26,8 +26,8 @@ import {
     Text,
     RowAvatar,
     WrapBnt,
+    MenuIcon
 } from "./tableItemUsers.styles"
-import { MenuIcon } from "../FilterMenu/filterMenu.styles"
 
 // images
 import avatarUser from "@/common/images/userTableItem/avatarUser.jpg"

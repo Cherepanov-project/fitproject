@@ -7,10 +7,9 @@ import MoreVertIcon from "@mui/icons-material/MoreVert"
 import EditIcon from "@mui/icons-material/Edit"
 import { TableRow, TableCell, Avatar, IconButton, Menu, MenuItem } from "@mui/material"
 
-import { SecondaryText, Text, RowAvatar, WrapBnt } from "./userItem.styles"
+import { SecondaryText, Text, RowAvatar, WrapBnt, MenuIcon } from "./userItem.styles"
 import avatarUser from "@/common/images/userTableItem/avatarUser.jpg"
 import ColorfulTeg from "../ColorfulTeg"
-import { MenuIcon } from "../FilterMenu/filterMenu.styles"
 import ConfirmAction from "../ConfirmAction/confirmAction"
 import {IUserItemProps} from "./userItem.interface"
 
