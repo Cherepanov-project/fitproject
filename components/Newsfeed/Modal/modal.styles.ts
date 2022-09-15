@@ -22,7 +22,7 @@ export const StyledButton = styled.button`
 export const ModalAnimatedWrapper = styled(motion.div)`
   position: fixed;
   border: 1px solid gray;
-  width: 68%;
+  width: 71%;
   height: 100vh;
   background-color: #fff;
   border-radius: 10px;

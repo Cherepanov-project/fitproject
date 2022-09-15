@@ -15,7 +15,7 @@ describe('fit spec', () => {
   //       .should('have.value', 'fake@email.com')
   // })
   it('Gets, types and asserts', () => {
-    cy.visit('http://localhost:3000/fitproject/user')
+    cy.visit('http://localhost:3001/fitproject/user')
 
     cy.get('[data-testid="submitButton"]').click()
     cy.get('form div div:nth-child(2)').each((el) => {
@@ -38,8 +38,9 @@ describe('fit spec', () => {
     cy.get('[data-cy="cy-select"]').select('Year');
 
     cy.get('[href="/fitproject/user/listOfDishes"]').click();
+    cy.wait(5000);
     cy.url().should('include', '/fitproject/user/listOfDishes');
     cy.get('[type="checkbox"]').check();
-    cy.get('[href="/user/listOfDishes/dish/"]');
+    // cy.get('[href="/user/listOfDishes/dish/"]');
   })
 })

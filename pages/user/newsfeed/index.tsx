@@ -3,11 +3,12 @@ import Cookies from "js-cookie"
 import NewsItem from "@/components/Newsfeed/newsItem";
 import { Layout } from "@/components/Newsfeed/newsfeed.styles";
 import { IFeed } from "@/components/Newsfeed/newsfeed.interface";
-import { LayoutUser } from "@/containers/Layout-user/layoutUser"
+import { UserLayout } from "@/containers/Layout-user/layoutUser"
 import WithRefreshingToken from "@/containers/Layout-user/WithRefreshingToken"
 import Modal from "@/components/Newsfeed/Modal/Modal";
 import {ACCESS_TOKEN} from "@/constants/titles";
 import {useRouter} from "next/router";
+import {WithLayout} from "@/containers/Layout-user/withLayout";
 
 declare global {
   interface Window {
@@ -61,4 +62,4 @@ export const NewsfeedLayout = (): JSX.Element => {
   )
 };
 
-export default WithRefreshingToken(LayoutUser(NewsfeedLayout))
+export default WithLayout(WithRefreshingToken(NewsfeedLayout))
