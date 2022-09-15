@@ -19,12 +19,10 @@ const Modal = (props) => {
               variants={{
                   pageInital: {
                     opacity: 0,
-                    // width: 0,
                     height: 0,
                   },
                   pageAnimate: {
                     opacity: 1,
-                    // width: '100%',
                     height: '100vh'
                   },
               }}

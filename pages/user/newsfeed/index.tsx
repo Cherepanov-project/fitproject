@@ -10,12 +10,6 @@ import {ACCESS_TOKEN} from "@/constants/titles";
 import {useRouter} from "next/router";
 import {WithLayout} from "@/containers/Layout-user/withLayout";
 
-declare global {
-  interface Window {
-    m_sport: []
-  }
-}
-
 export const NewsfeedLayout = (): JSX.Element => {
 
   const router = useRouter()
@@ -34,7 +28,6 @@ export const NewsfeedLayout = (): JSX.Element => {
     fetch('https://newsapi.org/v2/everything?q=sports&language=ru&apiKey=d8053b5977f94849b3de7f2fe5e83ffa')
       .then(data => data.json())
       .then(data => {
-        console.log(data);
         setFeed(data.articles)
       })
   }, [])

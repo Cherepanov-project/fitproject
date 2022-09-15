@@ -28,4 +28,5 @@ describe('fit spec', () => {
     cy.get('[type="checkbox"]').check();
     // cy.get('[href="/user/listOfDishes/dish/"]');
   })
-})
+});
+export {};

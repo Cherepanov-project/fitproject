@@ -6,19 +6,6 @@ export const StyledButton = styled.button`
   background: none;
 `
 
-// export const ModalAnimatedWrapper = styled(motion.div)`
-//   position: fixed;
-//   top: 0;
-//   right: 0;
-//   bottom: 0;
-//   left: 0;
-//   background-color: rgba(0, 0, 0, 0.5);
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   z-index: 10;
-// `
-
 export const ModalAnimatedWrapper = styled(motion.div)`
   position: fixed;
   border: 1px solid gray;
@@ -28,7 +15,6 @@ export const ModalAnimatedWrapper = styled(motion.div)`
   border-radius: 10px;
   z-index: 10;
 `
-
 
 export const ModalHeader = styled.div`
   padding: 10px;
