@@ -5,7 +5,7 @@ import {
   ItemListWrapper,
 } from "@/components/WorkoutList/workoutList.styles"
 import Sidebar from "@/components/WorkoutList/SideBar/sidebar"
-import { LayoutUser } from "@/containers/Layout-user/layoutUser"
+import { WithLayout } from "@/containers/Layout-user/withLayout"
 import ItemList from "@/components/WorkoutList/ItemList/itemList"
 import WithRefreshingToken from "@/containers/Layout-user/WithRefreshingToken"
 import {
@@ -29,4 +29,4 @@ const WorkoutList = () => {
   )
 }
 
-export default WithRefreshingToken(LayoutUser(WorkoutList))
+export default WithLayout(WithRefreshingToken(WorkoutList))

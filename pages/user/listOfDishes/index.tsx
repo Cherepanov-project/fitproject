@@ -16,7 +16,7 @@ import {
   StyledAnchorDish,
 } from "@/components/ListOfDishes/listOfDishes.styles"
 import { IFoodItemType } from "@/models/models.interface"
-import { LayoutUser } from "@/containers/Layout-user/layoutUser"
+import { WithLayout } from "@/containers/Layout-user/withLayout"
 import WithRefreshingToken from "@/containers/Layout-user/WithRefreshingToken"
 
 import {
@@ -222,4 +222,4 @@ const AllMenus = () => {
   )
 }
 
-export default WithRefreshingToken(LayoutUser(AllMenus))
+export default WithLayout(WithRefreshingToken(AllMenus))

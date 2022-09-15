@@ -7,43 +7,32 @@ import { formatDistanceToNow } from "date-fns"
 
 // ui libs
 
-import ListItemIcon from "@mui/material/ListItemIcon"
+import { ListItemIcon } from "@mui/material"
 
 import Menu from "@mui/material/Menu"
 import MenuItem from "@mui/material/MenuItem"
-import { Logout, PersonAdd, Settings } from "@mui/icons-material"
+import { Logout, Settings } from "@mui/icons-material"
 
 // images
 import defaultAvatar from "@/common/images/layoutUser/userbarIcons/defaultAvatar.png"
-import arrow from "@/common/images/layoutUser/userbarIcons/arrow.svg"
 
 import { PaperProps } from "./rightSideBar.styles"
-import generateId from "@/utils/generateId"
 import { ISideBarProps } from "./rightSideBar.interface"
 import { ACCESS_TOKEN } from "@/constants/titles"
+
 import { WeightLossGoal } from "@/components/WeightLossGoal/WeightLossGoal"
+import { RightSidebarMenu } from "@/components/RightSidebarMenu/RightSidebarMenu"
+
 import {
   Avatar,
-  Icon,
   UserName,
-  IconWrapper,
   UserInfoWrapper,
   LastVisitTime,
   UserInfo,
-  WeightLossGoalWrapper,
-  IconArrow,
-  Loss,
   RightSideBarWrapper,
   MainWrapper,
-  StyledSpan,
-  StyledListItemButton,
-  StyledListItemIcon,
-  StyledListItemText,
-  StyledList,
 } from "./rightSideBar.styles"
 import { FontRoboto } from "@/utils/fonts/fontStyles"
-import { rightSidebar } from "@/models/user/layout/sidebarModel"
-import Link from "next/link"
 
 const drawerWidth: string = "244px"
 
@@ -80,6 +69,7 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
   }
   return (
     <MainWrapper>
+      <FontRoboto />
       <RightSideBarWrapper>
         <UserInfoWrapper onClick={handleClick}>
           <Avatar alt="avatar" src={avatar.src} />
@@ -88,30 +78,8 @@ export const RightSideBar: React.FC<ISideBarProps> = ({
             <LastVisitTime>Joined {lastVisitTime}</LastVisitTime>
           </UserInfo>
         </UserInfoWrapper>
-        <StyledList>
-          {rightSidebar.map(({ text, src, route, bg }, index) => (
-            <Link href={route} key={generateId()} passHref>
-              <StyledListItemButton>
-                <StyledListItemIcon>
-                  <FontRoboto />
-                  <IconWrapper backgroundColor={bg}>
-                    <Icon src={src.toString()} />
-                  </IconWrapper>
-                </StyledListItemIcon>
-                <StyledListItemText primary={text} />
-                <IconArrow src={arrow.src} />
-              </StyledListItemButton>
-            </Link>
-          ))}
-        </StyledList>
-        <WeightLossGoalWrapper>
-          Weight loss Goal
-          <Loss>
-            {`Loss: ${kilograms}kg `}
-            <StyledSpan>/ Month</StyledSpan>
-          </Loss>
-          <WeightLossGoal kg={kilograms} />
-        </WeightLossGoalWrapper>
+        <RightSidebarMenu />
+        <WeightLossGoal kg={kilograms} />
       </RightSideBarWrapper>
       <Menu
         anchorEl={anchorEl}

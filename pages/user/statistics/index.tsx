@@ -9,8 +9,8 @@ import SquareIcon from "@/components/SquareIcon/squareIcon"
 import UserChar from "@/components/UserChar/userChar"
 
 // containers
-import { LayoutUser } from "@/containers/Layout-user/layoutUser"
 import WithRefreshingToken from "@/containers/Layout-user/WithRefreshingToken"
+import { WithLayout } from "@/containers/Layout-user/withLayout"
 
 // images
 import imgLeg from "@/common/images/icons/leg.svg"
@@ -118,4 +118,4 @@ const Frame1 = () => {
   )
 }
 
-export default WithRefreshingToken(LayoutUser(Frame1))
+export default WithLayout(WithRefreshingToken(Frame1))

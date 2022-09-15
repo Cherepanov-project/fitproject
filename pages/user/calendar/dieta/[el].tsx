@@ -11,7 +11,7 @@ import {
 } from "@/components/Calendar/calendarContainer.styles"
 import { IDailyRationType } from "@/models/models.interface"
 import { dailyRation } from "@/models/dieta/dieta"
-import { LayoutUser } from "@/containers/Layout-user/layoutUser"
+import { WithLayout } from "@/containers/Layout-user/withLayout"
 
 const DailyRation = () => {
   const { asPath } = useRouter()
@@ -65,4 +65,4 @@ const DailyRation = () => {
     </CalendarContainer>
   )
 }
-export default LayoutUser(DailyRation)
+export default WithLayout(DailyRation)

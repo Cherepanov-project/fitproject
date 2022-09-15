@@ -11,6 +11,9 @@ import { ACCESS_TOKEN } from "@/constants/titles"
 import { Normalize } from "styled-normalize";
 import { FontStyles } from "@/utils/fonts/fontStyles";
 import ErrorBoundary from "@/components/ErrorBoundary/errorBoundary"
+import {socket} from "@/utils/chatsConfig/default";
+import Notification from "@/components/Notification/Notification";
+import {Role} from "@/models/role/role";
 
 const theme = createTheme({
     palette: {
@@ -62,10 +65,17 @@ export const withLayout = <T extends Record<string, undefined>>(
                 Router.replace("/admin")
             }
         }, [])
+        useEffect(() => {
+            const room = {
+                roomId: "ADMIN_ROOM"
+            }
+            socket.emit("ROOM:JOIN", room)
+        }, [])
 
         return (
             <ErrorBoundary>
                 <LayoutAdmin>
+                    <Notification role={Role.ADMIN}/>
                     <Component {...props} />
                 </LayoutAdmin>
             </ErrorBoundary>

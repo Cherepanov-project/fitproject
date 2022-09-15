@@ -8,7 +8,7 @@ import { getWorkoutById, getWorkoutList } from "@/API/workouts"
 import Slider from "@/components/Slider/slider"
 
 // containers
-import { LayoutUser } from "@/containers/Layout-user/layoutUser"
+import { WithLayout } from "@/containers/Layout-user/withLayout"
 import muscleImg from "@/common/images/icons/backMuscle.svg"
 import generateId from "@/utils/generateId"
 import WithRefreshingToken from "@/containers/Layout-user/WithRefreshingToken"
@@ -112,4 +112,4 @@ const WorkoutItem = () => {
   )
 }
 
-export default WithRefreshingToken(LayoutUser(WorkoutItem))
+export default WithLayout(WithRefreshingToken(WorkoutItem))

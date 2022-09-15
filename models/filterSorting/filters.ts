@@ -1,8 +1,25 @@
-export const recipeSortingFilters = [
-    {
-        name: "No Sorting",
-        sorting: "none"
-    },
+export type FilterOptions = string[];
+
+interface IFilterCheckbox {
+    [key: string]: boolean;
+}
+
+type FilterNumerical = [number, number]
+
+export type FilterSubOption = FilterNumerical | IFilterCheckbox
+
+export interface IFilters {
+    [key: string]: FilterSubOption | []
+}
+
+export type SortingOption = ISortingOptionType[]
+
+export interface ISortingOptionType {
+    name: string;
+    sorting: string;
+}
+
+export const recipeSortingFilters: SortingOption = [
     {
         name: "Calories",
         sorting: "calorie"
@@ -25,37 +42,64 @@ export const recipeSortingFilters = [
     }
 ]
 
-export const workoutSortingFilters = [
-    {
-        name: "No Sorting",
-        sorting: "none"
-    },
+export const workoutSortingFilters: SortingOption = [
     {
         name: "Name",
         sorting: "name"
+    },
+    {
+        name: "Repeat",
+        sorting: "repeat"
     }
 ]
 
+export const articlesSortingFilters: SortingOption = [
+    {
+        name: 'Created',
+        sorting: 'created'
+    },
+]
 
-export const recipeFilterOptions = [
+export const recipeFilterOptions: FilterOptions = [
     "Calorie",
     "Protein",
     "Category"
 ]
-export const recipeSubOptions = {
-    CALORIE: ["1500", "2500", "3500" ],
-    PROTEIN: ["200", "300", "400"],
-    CATEGORY: [] //добавить значения mealtype, пока что с сервера это не приходит
-}
 
+export const articlesFilterOptions: FilterOptions = [
+    "Priority"
+]
 
-export const workoutFilterOptions = [
+export const workoutFilterOptions: FilterOptions = [
     "Category",
     "Area",
-    "Type"
+    "Repeat Count"
 ]
-export const workoutSubOptions = {
-    CATEGORY: ["cardio", "strength" ],
-    AREA: ["legs", "chest", "breast", "arms"],
-    TYPE: []
+
+export const recipeSubOptions: IFilters = {
+    calorie: [],
+    protein: [],
+    category: {
+        high: false,
+        low: false
+    } //добавить значения mealtype, пока что с сервера это не приходит
+}
+
+export const articlesSubOptions: IFilters = {
+    priority: {
+        High: false,
+        Normal: false,
+        Low: false
+    },
+}
+
+export const workoutSubOptions: IFilters = {
+    category: {
+        Cardio: false,
+        Strength: false
+    },
+    area: {
+        Legs: false, Chest: false, Breast: false, Arms: false
+    },
+    repeatCount: []
 }
