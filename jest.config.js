@@ -26,6 +26,7 @@ module.exports = {
 
         // Handle module aliases
         "^@/components/(.*)$": "<rootDir>/components/$1",
+        "^@/(.*)$": "<rootDir>$1"
     },
     // Add more setup options before each test is run
     // setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
@@ -39,7 +40,7 @@ module.exports = {
             "<rootDir>/fileTransformer.js",
     },
     transformIgnorePatterns: [
-        "/node_modules/",
+        'node_modules/(?!(nanoid)/)',
         "^.+\\.module\\.(css|sass|scss)$",
     ],
 }

@@ -6,7 +6,7 @@ import Cookies from "js-cookie"
 import MockedImage from "next/image"
 
 import SignInForm from "../../components/FormAdmin/signInForm"
-import api from "../../services/API"
+import api from "../../API"
 
 jest.mock("next/image", () => {
     return function DummyImage() {
