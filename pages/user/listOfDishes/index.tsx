@@ -162,7 +162,6 @@ const AllMenus = () => {
     if (dishFood[i]) {
       elems.push(
         <Link
-          data-cy="dishLink"
           as={`/user/listOfDishes/dish/${
             dishFood[i].id
           }${formStringFromCheckedCheckboxes()}`}
@@ -191,7 +190,9 @@ const AllMenus = () => {
       />
       <LayoutMenuWrapper>
         <MenuWrapper>
-          <ListDishes>{elems}</ListDishes>
+          <ListDishes
+            data-cy="ListDishes"
+          >{elems}</ListDishes>
         </MenuWrapper>
         {countPages > 0 && (
           <Stack
