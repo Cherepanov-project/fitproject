@@ -1,3 +1,6 @@
+//ссылки для страниц (ниже не работают без /fitproject)
+const CORRECT_LOGIN_PAGE: string = "http://localhost:3000/fitproject/user"
+
 //ссылки для страниц
 const MAIN_PAGE: string = "http://localhost:3000"
 const LOGIN_PAGE: string = "http://localhost:3000/user"
@@ -46,6 +49,7 @@ const REDIRECT_YANDEX_BTN: string = `https://oauth.yandex.ru/authorize?response_
 
 export {
   MAIN_PAGE,
+  CORRECT_LOGIN_PAGE,
   LOGIN_PAGE,
   REGISTER_PAGE,
   USER_STATISTICS_PAGE,
