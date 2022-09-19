@@ -1,6 +1,6 @@
 describe('fit spec', () => {
   it('Gets, types and asserts', () => {
-    cy.visit('http://localhost:3001/fitproject/user')
+    cy.visit("http://localhost:3000/fitproject/user")
 
     cy.get('[data-testid="submitButton"]').click()
     cy.get('form div div:nth-child(2)').each((el) => {

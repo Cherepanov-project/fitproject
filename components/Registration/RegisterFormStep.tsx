@@ -34,10 +34,13 @@ export const RegisterForm: React.FC = () => {
                             setMsg(response.error)
                             setOpen(true)
                         } else {
-                            setRegisterSuccess(true)
-                            setMsg("You have been register")
-                            setOpen(true)
-                            redirectToLoginPage(LOGIN_PAGE)
+                          setRegisterSuccess(true)
+                          setMsg("You have been register")
+                          setOpen(true)
+                          // "http://localhost:3000/fitproject/user" адрес LOGIN_PAGE приводит к ошибке
+                          redirectToLoginPage(
+                            "http://localhost:3000/fitproject/user"
+                          )
                         }
                     }}
                     initialValues={formRegisterValues}
