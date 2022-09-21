@@ -68,7 +68,9 @@ const Calendar = () => {
           <StyledDayContent>
             <StyledContentBox bg={"#2D9CDB"}>
               <Link href={`calendar/workout/${el}`} passHref>
-                <CalcLink>Тренировка</CalcLink>
+                <CalcLink
+                  data-cy="calendarWorkoutLink"
+                >Тренировка</CalcLink>
               </Link>
             </StyledContentBox>
             <StyledContentBox bg={"#F2994A"}>

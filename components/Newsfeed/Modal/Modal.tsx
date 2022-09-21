@@ -9,6 +9,7 @@ const Modal = (props) => {
       <AnimatePresence>
           {props.show && (
             <ModalAnimatedWrapper
+              data-cy="modal"
               key='modal'
               initial="pageInital"
               animate="pageAnimate"
