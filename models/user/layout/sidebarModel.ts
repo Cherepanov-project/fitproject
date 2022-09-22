@@ -8,6 +8,7 @@ import {
     home,
     message,
     sheet,
+    newsfeed,
 } from "@/common/images/layoutUser/navbarIcons"
 import {
     IRightSideBarItem,
@@ -56,10 +57,10 @@ export const sidebarMenu: ISidebarMenuItem[] = [
         icon: sheet,
     },
    {
-    id: 6,
-    route: "/user/newsfeed",
-    name: "newsfeed",
-    icon: sheet,
+        id: 6,
+        route: "/user/newsfeed",
+        name: "newsfeed",
+        icon: newsfeed,
   },
 ]
 

@@ -42,6 +42,7 @@ export const NewsfeedLayout = (): JSX.Element => {
     <Layout>
       {feed.map((item: IFeed) => {
           return <NewsItem
+            data-cy='newsItem'
             key={item.url}
             onClick={() => fullFeedHandler(item.url)}
             properties={item}

@@ -64,12 +64,20 @@ const Chat = () => {
   const scrollRef = useRef(null)
   const messagesMarkup = messages?.map((value, index) => {
     return (
-      <ChatItem key={value.userName + value.text + index}>
+      <ChatItem
+        data-cy="cyChatItem"
+        key={value.userName + value.text + index}>
         <div>
-          <b>{value.userName}</b>
-          <div style={{ marginTop: "10px" }}>{value.text}</div>
+          <b
+            data-cy="cyChatItemUsername"
+          >{value.userName}</b>
+          <div
+            data-cy="cyChatItemText"
+            style={{ marginTop: "10px" }}>{value.text}</div>
         </div>
-        <div>{formatMsgTime(value.date)}</div>
+        <div
+          data-cy="cyChatItemDate"
+        >{formatMsgTime(value.date)}</div>
       </ChatItem>
     )
   })
