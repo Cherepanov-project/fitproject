@@ -6,7 +6,7 @@ import { CardContent, Snackbar } from "@mui/material"
 import { IRegisterForm } from "@/models/loginOrRegisterInterfaces/interfaces"
 import { formRegisterValues } from "@/models/loginOrRegisterInterfaces/initialValues"
 import redirectToLoginPage from "@/utils/redirect"
-import { LOGIN_PAGE } from "@/constants/urls"
+import { CORRECT_LOGIN_PAGE } from "@/constants/urls"
 import { RightSide } from "../RegOrLoginSocial/regOrLoginSocial.styles"
 import { FormikStepper } from "./FormikStepper"
 import { FormikStep } from "../User/formikStep"
@@ -34,10 +34,10 @@ export const RegisterForm: React.FC = () => {
                             setMsg(response.error)
                             setOpen(true)
                         } else {
-                            setRegisterSuccess(true)
-                            setMsg("You have been register")
-                            setOpen(true)
-                            redirectToLoginPage(LOGIN_PAGE)
+                          setRegisterSuccess(true)
+                          setMsg("You have been register")
+                          setOpen(true)
+                          redirectToLoginPage(CORRECT_LOGIN_PAGE)
                         }
                     }}
                     initialValues={formRegisterValues}
